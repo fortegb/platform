@@ -1,1 +1,0 @@
-export { default } from "file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

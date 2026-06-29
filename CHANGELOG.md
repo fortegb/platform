@@ -59,3 +59,8 @@
 - Criado `docs/autenticacao-login.md` (comportamento do login + pendências de back-end).
 - Criados arquivos de controle: `STATUS.md`, `CHANGELOG.md`; seção "Controle do Projeto" adicionada ao `AGENTS.md`.
 - Referência ao doc de login adicionada ao `README.md`.
+
+**Repositório / manutenção**
+- `.gitignore`: passou a ignorar `.DS_Store`, `.nuxt`, `.output` e `dist`.
+- Removidos do versionamento os arquivos `.DS_Store` e os artefatos de build em `.nuxt/`.
+- Branch de trabalho `test/element-sizing` mesclada em `main` e removida.
