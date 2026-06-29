@@ -137,7 +137,7 @@ const loadDashboardData = async () => {
 const handleLogout = async () => {
   const supabase = useSupabaseClient()
   await supabase.auth.signOut()
-  await navigateTo('/corretor/login')
+  await navigateTo('/login')
 }
 
 const formatDate = (dateString: string) => {

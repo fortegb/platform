@@ -1,1 +1,1 @@
-export { default } from "file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

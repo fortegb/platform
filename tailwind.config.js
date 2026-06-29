@@ -23,6 +23,7 @@ export default {
           800: '#0d1316',
           900: '#060901',
         },
+        'hero-slate': '#4a5a72',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

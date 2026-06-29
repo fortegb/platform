@@ -18,7 +18,11 @@ interface _GlobalComponents {
   'AppHeader': typeof import("../../components/AppHeader.vue").default
   'ContactForm': typeof import("../../components/ContactForm.vue").default
   'CookieConsent': typeof import("../../components/CookieConsent.vue").default
-  'Hero': typeof import("../../components/Hero.vue").default
+  'HeroClassic': typeof import("../../components/HeroClassic.vue").default
+  'HeroSplit': typeof import("../../components/HeroSplit.vue").default
+  'HeroV3': typeof import("../../components/HeroV3.vue").default
+  'HeroV4': typeof import("../../components/HeroV4.vue").default
+  'HomeContent': typeof import("../../components/HomeContent.vue").default
   'HouseCard': typeof import("../../components/HouseCard.vue").default
   'IdentityVerification': typeof import("../../components/IdentityVerification.vue").default
   'WhatsAppButton': typeof import("../../components/WhatsAppButton.vue").default
@@ -49,7 +53,11 @@ interface _GlobalComponents {
   'LazyAppHeader': LazyComponent<typeof import("../../components/AppHeader.vue").default>
   'LazyContactForm': LazyComponent<typeof import("../../components/ContactForm.vue").default>
   'LazyCookieConsent': LazyComponent<typeof import("../../components/CookieConsent.vue").default>
-  'LazyHero': LazyComponent<typeof import("../../components/Hero.vue").default>
+  'LazyHeroClassic': LazyComponent<typeof import("../../components/HeroClassic.vue").default>
+  'LazyHeroSplit': LazyComponent<typeof import("../../components/HeroSplit.vue").default>
+  'LazyHeroV3': LazyComponent<typeof import("../../components/HeroV3.vue").default>
+  'LazyHeroV4': LazyComponent<typeof import("../../components/HeroV4.vue").default>
+  'LazyHomeContent': LazyComponent<typeof import("../../components/HomeContent.vue").default>
   'LazyHouseCard': LazyComponent<typeof import("../../components/HouseCard.vue").default>
   'LazyIdentityVerification': LazyComponent<typeof import("../../components/IdentityVerification.vue").default>
   'LazyWhatsAppButton': LazyComponent<typeof import("../../components/WhatsAppButton.vue").default>

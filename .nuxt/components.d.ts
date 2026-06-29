@@ -18,7 +18,11 @@ export const AppFooter: typeof import("../components/AppFooter.vue").default
 export const AppHeader: typeof import("../components/AppHeader.vue").default
 export const ContactForm: typeof import("../components/ContactForm.vue").default
 export const CookieConsent: typeof import("../components/CookieConsent.vue").default
-export const Hero: typeof import("../components/Hero.vue").default
+export const HeroClassic: typeof import("../components/HeroClassic.vue").default
+export const HeroSplit: typeof import("../components/HeroSplit.vue").default
+export const HeroV3: typeof import("../components/HeroV3.vue").default
+export const HeroV4: typeof import("../components/HeroV4.vue").default
+export const HomeContent: typeof import("../components/HomeContent.vue").default
 export const HouseCard: typeof import("../components/HouseCard.vue").default
 export const IdentityVerification: typeof import("../components/IdentityVerification.vue").default
 export const WhatsAppButton: typeof import("../components/WhatsAppButton.vue").default
@@ -49,7 +53,11 @@ export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue").default>
 export const LazyContactForm: LazyComponent<typeof import("../components/ContactForm.vue").default>
 export const LazyCookieConsent: LazyComponent<typeof import("../components/CookieConsent.vue").default>
-export const LazyHero: LazyComponent<typeof import("../components/Hero.vue").default>
+export const LazyHeroClassic: LazyComponent<typeof import("../components/HeroClassic.vue").default>
+export const LazyHeroSplit: LazyComponent<typeof import("../components/HeroSplit.vue").default>
+export const LazyHeroV3: LazyComponent<typeof import("../components/HeroV3.vue").default>
+export const LazyHeroV4: LazyComponent<typeof import("../components/HeroV4.vue").default>
+export const LazyHomeContent: LazyComponent<typeof import("../components/HomeContent.vue").default>
 export const LazyHouseCard: LazyComponent<typeof import("../components/HouseCard.vue").default>
 export const LazyIdentityVerification: LazyComponent<typeof import("../components/IdentityVerification.vue").default>
 export const LazyWhatsAppButton: LazyComponent<typeof import("../components/WhatsAppButton.vue").default>

@@ -7,6 +7,9 @@
 @layer base {
   html {
     font-family: 'Montserrat', sans-serif;
+    /* Escala global da UI: reduz a base para encolher fontes,
+       espaçamentos e componentes (rem) proporcionalmente. */
+    font-size: 81.25%;
   }
   
   body {

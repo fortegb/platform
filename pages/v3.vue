@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroSplit />
+    <HeroV3 />
     <HomeContent />
   </div>
 </template>
@@ -12,7 +12,8 @@ useHead({
     {
       name: 'description',
       content: 'ForteGB - Projetos imobiliários de qualidade em Campinas-SP. Construindo sonhos e realizando vidas através de projetos imobiliários de qualidade.'
-    }
+    },
+    { name: 'robots', content: 'noindex' }
   ]
 })
 </script>

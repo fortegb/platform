@@ -30,13 +30,13 @@
       <div class="card-actions justify-end mt-4">
         <NuxtLink 
           :to="`/portfolio/${house.slug || house.id}`"
-          class="btn btn-primary"
+          class="inline-flex items-center justify-center border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
         >
           Ver Detalhes
         </NuxtLink>
         <NuxtLink 
           :to="`/visita/agendar/${house.id}`"
-          class="btn btn-outline btn-primary"
+          class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-opacity-90 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
         >
           Agendar Visita
         </NuxtLink>

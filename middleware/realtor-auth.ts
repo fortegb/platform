@@ -5,7 +5,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const { data: { user } } = await supabase.auth.getUser()
   
   if (!user) {
-    return navigateTo('/corretor/login')
+    return navigateTo('/login')
   }
 
   // Verificar se o usuário é um corretor
@@ -16,7 +16,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     .single()
 
   if (error || !realtor) {
-    return navigateTo('/corretor/login')
+    return navigateTo('/login')
   }
 })
 
