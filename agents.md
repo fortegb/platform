@@ -350,3 +350,32 @@ After processing this file, the AI should:
    - API credentials setup guidance (Tuya, HubSpot, etc.)
 
 ```
+
+---
+
+## 9) Controle do Projeto (para Agentes de IA)
+
+Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem **lê-los no início** e **mantê-los atualizados** ao final de mudanças relevantes:
+
+| Arquivo | Finalidade | Quando atualizar |
+| --- | --- | --- |
+| `AGENTS.md` (este arquivo) | Contexto do projeto, regras e convenções para IA | Ao mudar regras, stack, convenções ou diretrizes duradouras |
+| `STATUS.md` | Onde estamos: o que está pronto, em andamento e o que vem à frente | Sempre que o foco/escopo mudar ou uma frente for concluída |
+| `CHANGELOG.md` | Histórico do que foi feito | Ao concluir mudanças concretas (UI, código, docs) |
+
+### Estágio atual
+- **Fase preliminar de desenvolvimento.** **Ainda não há números de versão** — eles virão no futuro. No `CHANGELOG.md`, registrar entradas por **data**, sob a seção "Não versionado".
+
+### Convenções já estabelecidas (resumo)
+- **Idioma:** comunicação com IA em inglês; **entregáveis em pt-BR**.
+- **Escala de UI:** base global reduzida para `81.25%` (`assets/css/main.css`) — tende a um visual compacto.
+- **Sistema de botões:**
+  - **Verde WhatsApp** `#3E8E5E` (hover `#34784F`) = ações de WhatsApp.
+  - **Azul secundário** (`primary-400` / `#1a74a1`) = ação primária (ex.: "Agendar Visita").
+  - **Outline navy** = ação secundária (ex.: "Ver Detalhes", "Ver Todos").
+  - Botões compactos e de tamanho consistente (`px-* py-*` padronizados, borda 1px com `border`/`border-transparent` para igualar caixas).
+- **Cores de marca:** `primary-500` `#203045` (navy) é o fundo de header e footer; `hero-slate` `#4a5a72` adicionado ao tema.
+- **Home com variantes (em avaliação):** `/` (split, azul original), `/v2` (clássico), `/v3` (slate), `/v4` (azul `primary-400`). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`.
+- **Login:** fluxo *identifier-first* (UI/mock) em `pages/login.vue`. Comportamento e pendências de back-end em **`docs/autenticacao-login.md`**.
+
+> Importante: evitar valores de cor **arbitrários** (`to-[#xxxxxx]`) em arquivos novos — preferir cores **nomeadas** no `tailwind.config.js`, pois arbitrários em arquivos recém-criados podem não ser compilados sem rebuild.

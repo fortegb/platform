@@ -27,6 +27,13 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 - ✅ Visualização de casas disponíveis
 - ✅ Gestão de leads
 
+### Área Logada / Login
+- ✅ Tela de login em fluxo *identifier-first* (e-mail → login ou cadastro) — UI pronta
+- ✅ Login social (Google, Facebook) — UI pronta, provedores a configurar
+- ⏳ Lógica de back-end (verificação de e-mail, cadastro, redirecionamento por perfil)
+
+> Comportamento atual (UI + mock) e pendências de back-end documentados em [`docs/autenticacao-login.md`](docs/autenticacao-login.md).
+
 ### Integrações
 - ✅ HubSpot CRM para gestão de leads
 - ✅ Supabase para banco de dados e autenticação
@@ -129,7 +136,9 @@ http://localhost:3000
 │   ├── services/      # Serviços (HubSpot, Tuya, WhatsApp, Calendar)
 │   └── utils/         # Utilitários do servidor
 ├── docs/              # Documentação
-│   └── database-schema.sql
+│   ├── database-schema.sql
+│   ├── SETUP-CREDENTIALS.md
+│   └── autenticacao-login.md   # Fluxo de login (UI/mock) + pendências de back-end
 └── nuxt.config.ts     # Configuração do Nuxt
 ```
 

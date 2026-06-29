@@ -1,48 +1,48 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getHeader, getResponseStatusText } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getHeader, getResponseStatusText } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@vue/shared/dist/shared.cjs.js';
-import { FunctionsClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@supabase/functions-js/dist/main/index.js';
-import { PostgrestClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@supabase/postgrest-js/dist/index.mjs';
-import { RealtimeClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@supabase/realtime-js/dist/main/index.js';
-import { StorageClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@supabase/storage-js/dist/index.mjs';
-import { AuthClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/@supabase/auth-js/dist/main/index.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/ufo/dist/index.mjs';
+import { escapeHtml } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@vue/shared/dist/shared.cjs.js';
+import { FunctionsClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@supabase/functions-js/dist/main/index.js';
+import { PostgrestClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@supabase/postgrest-js/dist/index.mjs';
+import { RealtimeClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@supabase/realtime-js/dist/main/index.js';
+import { StorageClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@supabase/storage-js/dist/index.mjs';
+import { AuthClient } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/@supabase/auth-js/dist/main/index.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/ufo/dist/index.mjs';
 import process$1 from 'node:process';
-import { renderToString } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/vue/server-renderer/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/radix3/dist/index.mjs';
+import { renderToString } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/vue/server-renderer/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/errx/dist/index.js';
-import { isVNode, toValue, isRef } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/vue/index.mjs';
+import { stringify, uneval } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/errx/dist/index.js';
+import { isVNode, toValue, isRef } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/vue/index.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unhead/dist/server.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unhead/dist/plugins.mjs';
-import { walkResolver } from 'file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unhead/dist/server.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unhead/dist/plugins.mjs';
+import { walkResolver } from 'file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/node_modules/unhead/dist/utils.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/rbonon/Documents/GitHub/fortegb/sandbox/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -54,11 +54,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/rbonon/Documents/GitHub/fortegb/Sandbox/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/rbonon/Documents/GitHub/fortegb/sandbox","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/rbonon/Documents/GitHub/fortegb/sandbox/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/rbonon/Documents/GitHub/fortegb/sandbox/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/rbonon/Documents/GitHub/fortegb/sandbox/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/rbonon/Documents/GitHub/fortegb/sandbox/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1403,13 +1403,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _da3EJLCTaWa3bewxNhdhAH6tQLr2GZ8cMI9Xa7d558 = (function(nitro) {
+const _CR5ruvy_WQRmATb8FBQxowujxvwYEBA7t6FdTUI_M4 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/rbonon/Documents/GitHub/fortegb/Sandbox";
+const rootDir = "/Users/rbonon/Documents/GitHub/fortegb/sandbox";
 
 const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"ForteGB - Projetos imobiliários de qualidade em Campinas-SP. Construindo sonhos e realizando vidas através de projetos imobiliários de qualidade."}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"ForteGB - Construindo sonhos e realizando vidas"};
 
@@ -1428,7 +1428,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _AUqaCsQXs8KJsKbmxTeOkzlVdkSa2Fm70cWpSRXFPJw = (nitroApp) => {
+const _fy_vRmfDF5ewUPbJyZAQ18HQRKIYWxKZRxd88rT0Bo = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1498,8 +1498,8 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _da3EJLCTaWa3bewxNhdhAH6tQLr2GZ8cMI9Xa7d558,
-_AUqaCsQXs8KJsKbmxTeOkzlVdkSa2Fm70cWpSRXFPJw
+  _CR5ruvy_WQRmATb8FBQxowujxvwYEBA7t6FdTUI_M4,
+_fy_vRmfDF5ewUPbJyZAQ18HQRKIYWxKZRxd88rT0Bo
 ];
 
 const assets = {};
@@ -1527,7 +1527,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _D9vBVJ = eventHandler((event) => {
+const _irZ0wq = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -1665,8 +1665,8 @@ function publicAssetsURL(...path) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
-const getClientManifest = () => import('file:///Users/rbonon/Documents/GitHub/fortegb/Sandbox/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Users/rbonon/Documents/GitHub/fortegb/sandbox/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const createSSRApp = await getServerEntry();
   if (!createSSRApp) {
@@ -1912,33 +1912,33 @@ async function getIslandContext(event) {
   return ctx;
 }
 
-const _lazy_fRNvPk = () => Promise.resolve().then(function () { return contact_post$1; });
-const _lazy_lyocLJ = () => Promise.resolve().then(function () { return casas_get$1; });
-const _lazy_2izb0c = () => Promise.resolve().then(function () { return dashboard_get$1; });
-const _lazy_VULmXW = () => Promise.resolve().then(function () { return leads_get$1; });
-const _lazy_3ns9E3 = () => Promise.resolve().then(function () { return leads_post$1; });
-const _lazy_3XWsd9 = () => Promise.resolve().then(function () { return delete_post$1; });
-const _lazy_dN0m9H = () => Promise.resolve().then(function () { return instant_post$1; });
-const _lazy_2L3wnA = () => Promise.resolve().then(function () { return _code__get$1; });
-const _lazy_sRtZbS = () => Promise.resolve().then(function () { return schedule_post$1; });
-const _lazy_lUeHf1 = () => Promise.resolve().then(function () { return verify_post$1; });
-const _lazy_mu_hPc = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_Roov3s = () => Promise.resolve().then(function () { return contact_post$1; });
+const _lazy_WpuPZ5 = () => Promise.resolve().then(function () { return casas_get$1; });
+const _lazy_a7EH41 = () => Promise.resolve().then(function () { return dashboard_get$1; });
+const _lazy_kzaVr8 = () => Promise.resolve().then(function () { return leads_get$1; });
+const _lazy_krcaDA = () => Promise.resolve().then(function () { return leads_post$1; });
+const _lazy_hbGxfQ = () => Promise.resolve().then(function () { return delete_post$1; });
+const _lazy_2SFBPP = () => Promise.resolve().then(function () { return instant_post$1; });
+const _lazy_iIkAxw = () => Promise.resolve().then(function () { return _code__get$1; });
+const _lazy_QxDUDU = () => Promise.resolve().then(function () { return schedule_post$1; });
+const _lazy_RNJVWE = () => Promise.resolve().then(function () { return verify_post$1; });
+const _lazy_00U41G = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _D9vBVJ, lazy: false, middleware: true, method: undefined },
-  { route: '/api/contact', handler: _lazy_fRNvPk, lazy: true, middleware: false, method: "post" },
-  { route: '/api/corretor/casas', handler: _lazy_lyocLJ, lazy: true, middleware: false, method: "get" },
-  { route: '/api/corretor/dashboard', handler: _lazy_2izb0c, lazy: true, middleware: false, method: "get" },
-  { route: '/api/corretor/leads', handler: _lazy_VULmXW, lazy: true, middleware: false, method: "get" },
-  { route: '/api/corretor/leads', handler: _lazy_3ns9E3, lazy: true, middleware: false, method: "post" },
-  { route: '/api/user-data/delete', handler: _lazy_3XWsd9, lazy: true, middleware: false, method: "post" },
-  { route: '/api/visits/instant', handler: _lazy_dN0m9H, lazy: true, middleware: false, method: "post" },
-  { route: '/api/visits/qr/:code', handler: _lazy_2L3wnA, lazy: true, middleware: false, method: "get" },
-  { route: '/api/visits/schedule', handler: _lazy_sRtZbS, lazy: true, middleware: false, method: "post" },
-  { route: '/api/visits/verify', handler: _lazy_lUeHf1, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_mu_hPc, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _irZ0wq, lazy: false, middleware: true, method: undefined },
+  { route: '/api/contact', handler: _lazy_Roov3s, lazy: true, middleware: false, method: "post" },
+  { route: '/api/corretor/casas', handler: _lazy_WpuPZ5, lazy: true, middleware: false, method: "get" },
+  { route: '/api/corretor/dashboard', handler: _lazy_a7EH41, lazy: true, middleware: false, method: "get" },
+  { route: '/api/corretor/leads', handler: _lazy_kzaVr8, lazy: true, middleware: false, method: "get" },
+  { route: '/api/corretor/leads', handler: _lazy_krcaDA, lazy: true, middleware: false, method: "post" },
+  { route: '/api/user-data/delete', handler: _lazy_hbGxfQ, lazy: true, middleware: false, method: "post" },
+  { route: '/api/visits/instant', handler: _lazy_2SFBPP, lazy: true, middleware: false, method: "post" },
+  { route: '/api/visits/qr/:code', handler: _lazy_iIkAxw, lazy: true, middleware: false, method: "get" },
+  { route: '/api/visits/schedule', handler: _lazy_QxDUDU, lazy: true, middleware: false, method: "post" },
+  { route: '/api/visits/verify', handler: _lazy_RNJVWE, lazy: true, middleware: false, method: "post" },
+  { route: '/__nuxt_error', handler: _lazy_00U41G, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_mu_hPc, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_00U41G, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
