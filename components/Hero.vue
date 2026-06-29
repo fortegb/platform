@@ -9,7 +9,7 @@
       <h1 class="text-4xl md:text-6xl font-bold mb-4">
         {{ title }}
       </h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto whitespace-pre-line">
         {{ subtitle }}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -41,8 +41,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'Construindo sonhos e realizando vidas',
-  subtitle: 'Através de projetos imobiliários de qualidade. Sua nova casa está aqui.',
-  backgroundImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop'
+  subtitle: 'Através de projetos imobiliários de qualidade.\nSua nova casa está aqui.',
+  backgroundImage: '/images/hero.png'
 })
 
 const config = useRuntimeConfig()

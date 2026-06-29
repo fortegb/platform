@@ -52,7 +52,7 @@
             <div>
               <h3 class="text-xl font-semibold mb-2">Transparência</h3>
               <p class="text-base-content/70">
-                Processo claro e honesto em todas as etapas da negociação e construção.
+                Processo claro e honesto do projeto à escritura.
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@
             <div>
               <h3 class="text-xl font-semibold mb-2">Confiança</h3>
               <p class="text-base-content/70">
-                Empresa familiar com compromisso sólido com a qualidade e satisfação do cliente.
+                Empresa familiar comprometida com a qualidade e satisfação do cliente.
               </p>
             </div>
           </div>

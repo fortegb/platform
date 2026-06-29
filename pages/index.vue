@@ -17,7 +17,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">Transparência</h3>
             <p class="text-base-content/70">
-              Processo claro e honesto em todas as etapas da negociação
+              Processo claro e honesto do projeto à escritura
             </p>
           </div>
           
@@ -29,7 +29,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">Confiança</h3>
             <p class="text-base-content/70">
-              Empresa familiar com compromisso com a qualidade
+              Empresa familiar comprometida com a qualidade
             </p>
           </div>
           
@@ -41,7 +41,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">Proximidade</h3>
             <p class="text-base-content/70">
-              Atendimento personalizado e próximo do cliente
+              Atendimento personalizado e próximo ao cliente
             </p>
           </div>
           
