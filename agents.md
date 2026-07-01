@@ -360,11 +360,16 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | Arquivo | Finalidade | Quando atualizar |
 | --- | --- | --- |
 | `AGENTS.md` (este arquivo) | Contexto do projeto, regras e convenções para IA | Ao mudar regras, stack, convenções ou diretrizes duradouras |
-| `STATUS.md` | Onde estamos: o que está pronto, em andamento e o que vem à frente | Sempre que o foco/escopo mudar ou uma frente for concluída |
-| `CHANGELOG.md` | Histórico do que foi feito | Ao concluir mudanças concretas (UI, código, docs) |
+| `STATUS.md` | **Bússola de sessão:** epics activos, próximo passo, foco Phase 0+ | Ao mudar foco ou concluir passo de epic |
+| `CHANGELOG.md` | Histórico do que foi feito (close-out de changes) | Ao concluir mudanças concretas (UI, código, docs) |
+| `docs/planning/` | Canon de design: visão, módulos, fases, perguntas, decisões, runbooks | Grilling, decisões de arquitetura, novos módulos (ex.: media kit) |
+| `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
-### Estágio atual
-- **Fase preliminar de desenvolvimento.** **Ainda não há números de versão** — eles virão no futuro. No `CHANGELOG.md`, registrar entradas por **data**, sob a seção "Não versionado".
+### Estágio actual
+- **Phase 0 — Fundação** — planning **finalizado**; próximo: GitHub org migration → bootstrap board → Architecture epic (grilling). Ver **`docs/planning/README.md`** e **`STATUS.md`**.
+- **Decisões técnicas abertas (D-011)** até grilling — stack em `platform-vision.md` é proposta, não contrato.
+- **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
+- **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, secção "Não versionado".
 
 ### Convenções já estabelecidas (resumo)
 - **Idioma:** comunicação com IA em inglês; **entregáveis em pt-BR**.

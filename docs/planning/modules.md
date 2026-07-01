@@ -1,0 +1,150 @@
+# Módulos da plataforma
+
+> Mapa funcional para epics no board (campo **Module**) e para grilling.
+
+---
+
+## 1. Infraestrutura e workflow (`platform`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| GitHub Organization | Opção A: org `fortegb`, personal renomeado | Planejado — [runbook](./github-org-migration.md) |
+| GitHub Project board | Título `sandbox`, campos Phase + Module | Não existe |
+| OpenSpec no repo | CLI + `openspec/changes/` | Não inicializado |
+| Dotfiles | Adaptar contas/PAT/Keychain pós-rename | Planejado (parte do epic org) |
+| Deploy / Vercel | Reconectar após transferência | Planejado |
+
+**Epic:** *GitHub org migration* + *Bootstrap board & workflow*
+
+---
+
+## 2. Site institucional (`site`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| Home | Variantes `/`–`/v4`; 2 vencedores (com/sem hero) | UI — decisão pendente |
+| Portfólio | Lista + detalhe | UI + mock |
+| Sobre, Blog, Contato | Páginas + formulário | UI; API contato stub |
+| Legal / LGPD | Privacidade, termos, cookies | Páginas existem |
+| WhatsApp CTAs | Botão flutuante + links | Implementado (UI) |
+
+**Epic (futuro):** *Site público* → Phase 1 **Public site UI finalization** (inclui 2 homes)
+
+---
+
+## 3. Autenticação e perfis (`auth`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| Login identifier-first | `/login` | UI/mock |
+| check-email, signup, reset | Back-end | Não |
+| Provedores sociais | Google, Facebook | UI only |
+| Roles | admin, proprietário, cliente, corretor | Não |
+| Middleware por perfil | Generalizar `realtor-auth` | Parcial |
+
+**Epic (futuro):** Phase 1 **Identity, roles & journey routing** + Phase 2/3 portals  
+**Spec:** [`docs/autenticacao-login.md`](../autenticacao-login.md)
+
+---
+
+## 4. Visitas autoguiadas (`tours`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| Agendamento | `/visita/agendar/[houseId]` | UI + API parcial |
+| Visita instantânea QR | `/visita/qr/[code]` | UI + API parcial |
+| Verificação de identidade | Selfie + documento | Componente; match real TODO |
+| Senha temporária + Tuya | Smart lock | Generator sim; Tuya stub |
+| WhatsApp + Calendar + HubSpot | Confirmações e lead | Stubs |
+
+**Epic (futuro):** *Visitas autoguiadas (MVP)*
+
+---
+
+## 5. CRM e corretores (`crm`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| Portal corretor | Dashboard, leads, casas | UI + API parcial |
+| Proteção de comissão | Primeiro registro ganha | Lógica DB; HubSpot TODO |
+| HubSpot sync | Contatos, deals, pipeline | Stub |
+| Leads diretos ForteGB | Formulário, WhatsApp | Parcial |
+
+**Epic (futuro):** *Portal corretores e HubSpot*
+
+---
+
+## 6. Media kit e marketing físico (`media-kit`)
+
+> **Escopo reconhecido em 2026-07-01** — ainda não modelado no código.
+
+| Item | Descrição | Canais |
+|------|-----------|--------|
+| Entrada portfólio | Descrição, galeria, specs | Web |
+| Placa “À venda” | Design + QR → micro-página / visita | Físico (rua) |
+| Posters internos | Imprimíveis por cômodo / tema | Dentro do imóvel |
+| Narrativa de obra | Timeline, fotos de progresso | Web + poster + social |
+| Kit para corretor | Fotos + copy exportável | Download / HubSpot |
+| Pipeline print/PDF | Manual (Figma) vs gerado pela plataforma | A definir na grilling |
+
+**Epic (futuro):** *House media kit & materiais físicos*
+
+Conteúdo relacionado no repo: [`content/social-media/`](../../content/social-media/) (ideias/templates — não automação).
+
+---
+
+## 7. Branding e design system (`branding`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| Tokens web | Cores, botões — ver `AGENTS.md` | Em uso |
+| Assets oficiais | Logo, guia — upload pendente | Não no repo |
+| Templates print | Placa, posters, social | Não |
+| Design system unificado | Web + impresso | A fazer |
+
+**Epic (futuro):** *Brand & design system*
+
+---
+
+## 8. Conteúdo e social (`social`)
+
+| Item | Descrição | Estado |
+|------|-----------|--------|
+| 100 ideias de posts | `content/social-media/ideas.md` | Arquivo estático |
+| Templates IG/FB/TikTok | `templates.md` | Arquivo estático |
+| Calendário editorial | `calendar.md` | Arquivo estático |
+| Publicação / automação | — | Não |
+
+**Epic (futuro):** *Motor de conteúdo social*
+
+---
+
+## 9. Admin e proprietários (`admin`)
+
+Áreas logadas além do corretor — **escopo não definido**.
+
+**Epic (futuro):** *Portais admin / proprietário / cliente* — após grilling de roles.
+
+---
+
+## 10. Mobile (`mobile`)
+
+PWA vs app nativo — **decisão aberta**. Posters com QR podem justificar experiência mobile rica.
+
+**Epic (futuro):** *Estratégia mobile* — após MVP web definido.
+
+---
+
+## Diagrama de dependências (alto nível)
+
+```
+platform (org, board, OpenSpec)
+    ↓
+planning (grilling, docs) ──→ branding (paralelo possível)
+    ↓
+site + auth + dados reais (Supabase/Contentful)
+    ↓
+crm + tours
+    ↓
+media-kit + social + admin + mobile
+```

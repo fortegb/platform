@@ -7,6 +7,23 @@
 
 ## Não versionado
 
+### 2026-07-01 (cont.)
+
+**Planning finalizado — pronto para Phase 0 execução**
+- **`docs/planning/`** completo: README, platform-vision, architecture (template), phases, modules, open-questions (Q-001–Q-019), decisions (D-001–D-011), workflow, github-org-migration, **deliverables** (mapa produto ↔ epics).
+- **D-011:** decisões arquitecturais abertas até epic Architecture + `rbo-grilling`.
+- Gaps de produto mapeados: corretor termos (Q-016), condomínio/portaria (Q-017), CRM multi-canal (Q-018), mobile (Q-019).
+- **`STATUS.md`** — próximo passo: GitHub org migration Fase A.
+
+**Reestruturação de epics (D-010)**
+- Phase 1: Platform environments, Identity/roles/journeys, Public site UI finalization, Brand & design system.
+- Phase 2: Integrations MVP, Release readiness; CRM/tours reordenados.
+- Phase 3: Physical-digital bridge, Content operations.
+- Removido epic Phase 0 Home 2 vencedores (absorvido em Public site UI P1).
+- Criada pasta **`docs/planning/`** com visão, módulos, fases, perguntas abertas, decisões (D-001–D-008), workflow e runbook de migração GitHub org.
+- **`STATUS.md`** reestruturado como bússola de sessão (epics, próximo passo, links planning).
+- **`AGENTS.md`** secção 9 actualizada (planning canon, ROADMAP, Phase 0).
+
 ### 2026-06-28
 
 **Conteúdo (pt-BR)**

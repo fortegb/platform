@@ -1,53 +1,65 @@
 # STATUS — ForteGB
 
-> Controle de **onde estamos**, o que está em andamento e o que vem à frente.
-> **Estágio:** fase preliminar de desenvolvimento. **Sem números de versão** ainda (virão no futuro).
-> Última atualização: 2026-06-28.
+> **Bússola de sessão** — após `rbo-catch-up`.  
+> **Planning:** [`docs/planning/`](./docs/planning/) — **finalizado para arranque** (2026-07-01).  
+> **Decisões técnicas:** abertas até epic Architecture (D-011) + `rbo-grilling`.
 
 ---
 
-## 🎯 Foco atual
-Refinamento de **UI/UX** do site público (home e seus componentes) e da **tela de login** (somente UI, com mock).
+## Fase actual
+
+**Phase 0 — Fundação** → depois Phase 1 build (bloqueado até Architecture Done)
+
+```
+✅ Seed planning
+→ TODO: GitHub org migration      ← COMEÇAR AQUI
+→ TODO: Bootstrap board & OpenSpec
+→ TODO: Architecture & MVP (grilling Q-003…)
+→ Phase 1+ (Identity, Public site UI, …)
+```
 
 ---
 
-## ✅ Concluído (recente)
-- **Conteúdo (pt-BR):** ajustes de copy na home, seção de valores e rodapé.
-- **Home — Hero:** redesenho para layout *split* (texto + imagem), escala compacta.
-- **Escala global de UI:** base reduzida para `81.25%`.
-- **Sistema de botões:** padronização de tamanho/estilo e cores (verde WhatsApp, azul primário, outline navy).
-- **Identidade WhatsApp:** verde sóbrio `#3E8E5E` no botão flutuante e nos CTAs de WhatsApp.
-- **Header:** remoção do link "Início", reordenação (Portfólio · Blog · Sobre · Contato), botão "Contato" padronizado, **ícone de login** (desktop + mobile).
-- **Footer:** fundo igual ao header (navy), slogan com quebras, "Links Rápidos" em linha, coluna "Legal" (Privacidade/Termos), remoção de WhatsApp e de "Campinas-SP".
-- **Login (`/login`):** página com identidade ForteGB; fluxo *identifier-first* em 2 etapas (UI/mock); login social (Google, Facebook); mostrar/ocultar senha; `autocomplete`; Termos/Privacidade. Rota migrada de `/corretor/login` → `/login`.
-- **Documentação:** `docs/autenticacao-login.md` (comportamento + pendências de back-end).
+## Epics Phase 0
+
+| Epic | Status | Próximo passo |
+|------|--------|---------------|
+| Seed `docs/planning/` | **Done** | — |
+| GitHub org migration | **Todo** | [Runbook Fase A](./docs/planning/github-org-migration.md) |
+| Bootstrap board & OpenSpec | **Todo** | Após org |
+| Architecture & MVP definition | **Todo** | `rbo-grilling` — [Q-003](./docs/planning/open-questions.md) |
+| Brand assets upload | **Todo** | Paralelo após org |
+
+Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · registar no board ao fechar Architecture.
 
 ---
 
-## 🔬 Em andamento / em avaliação
-- **Variantes da Home (decisão de design pendente):**
-  - `/` — split, **azul original** (`from-primary-500 to-primary-700`)
-  - `/v2` — Hero **clássico** (full-screen)
-  - `/v3` — split, gradiente **slate** (`navy → hero-slate #4a5a72`)
-  - `/v4` — split, gradiente **azul** (`navy → primary-400 #1a74a1`)
-  - ➡️ Definir a versão final e consolidar.
+## Esta sessão
+
+- [ ] **GitHub org migration** — Fase A (PAT + inventário)
+- [ ] Commit planning docs se ainda pendente no remoto
 
 ---
 
-## ⏭️ À frente (próximos passos / backlog)
-- **Decidir a Home final** e remover as variantes não escolhidas (rotas/componentes).
-- **Propagar o gradiente escolhido** para o CTA (`HomeContent`) e demais Heros, se aplicável.
-- **Back-end de autenticação** (ver `docs/autenticacao-login.md`):
-  - Endpoint `server/api/auth/check-email` (substituir o mock `identifier-first`).
-  - Cadastro real (`signUp`) + criação de perfil/role.
-  - Configurar provedores sociais (Google, Facebook) no Supabase.
-  - Redirecionamento **por perfil** (admin / proprietário / cliente / corretor) — generalizar `middleware/realtor-auth.ts`.
-  - Página `/recuperar-senha` + fluxo de reset.
-  - Segurança/LGPD: rate limiting / captcha no endpoint de verificação (account enumeration).
-- **Áreas logadas** para os demais perfis (admin, proprietários, clientes), além do portal do corretor.
+## Recently done
+
+- **2026-07-01:** Planning finalizado — deliverables, Q-016–Q-019, D-011, visão produto, epics D-010.
+- **2026-06-28–29:** UI refinement. Ver `CHANGELOG.md`.
 
 ---
 
-## 📌 Notas
-- Detalhes de convenções de UI e diretrizes para agentes em **`AGENTS.md`** (seção "Controle do Projeto").
-- Histórico de mudanças em **`CHANGELOG.md`**.
+## Not now
+
+- Phase 1 **code** (até Architecture Done)
+- Fechar stack/CMS/KYC/mobile sem grilling
+
+---
+
+## Links
+
+| Doc | Uso |
+|-----|-----|
+| [planning/README.md](./docs/planning/README.md) | Índice + ordem de arranque |
+| [deliverables.md](./docs/planning/deliverables.md) | Mapa negócio ↔ plano |
+| [open-questions.md](./docs/planning/open-questions.md) | Grilling backlog |
+| [phases.md](./docs/planning/phases.md) | Epics detalhados |
