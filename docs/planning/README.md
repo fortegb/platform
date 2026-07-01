@@ -30,6 +30,7 @@
 | [decisions.md](./decisions.md) | Decisões fechadas (D-001–D-011) |
 | [workflow.md](./workflow.md) | Board, OpenSpec, session open/close |
 | [github-org-migration.md](./github-org-migration.md) | Runbook org + dotfiles |
+| [setup-mac-mini.md](../setup-mac-mini.md) | Checklist Mac Mini pós-migração |
 
 ---
 

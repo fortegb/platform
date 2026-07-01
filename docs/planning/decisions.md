@@ -119,3 +119,29 @@
   - Escolhas (CMS, KYC, Tuya fallback, mobile, condomínio, HubSpot model) resolvem-se em **`rbo-grilling`** no epic Architecture.
   - Cada resolução → `decisions.md` + actualização de `architecture.md`.
 - **Consequências:** Phase 1 build só após Architecture Done; ver [`deliverables.md`](./deliverables.md).
+
+---
+
+### D-012 — Repo principal: `platform` (2026-07-01)
+
+- **Contexto:** Após migração para org, `sandbox` era nome temporário de desenvolvimento.
+- **Decisão:** Renomear **`fortegb/sandbox` → `fortegb/platform`** — website + backend + arquitectura num único repo.
+- **Consequências:** Local `~/Documents/GitHub/fortegb/platform/`; GitHub Project **`platform`**; OpenSpec neste repo.
+
+---
+
+### D-013 — Git dev: dotfiles org namespace + `auth rbonon` (2026-07-01)
+
+- **Contexto:** Org slug `fortegb` ≠ login de desenvolvimento `rbonon`.
+- **Decisão:** Dotfiles `account fortegb` + `auth rbonon` + `commit_as rbonon`; PAT admin em `fortegb-admin` (sem bulk clone).
+- **Consequências:** Remote `https://rbonon@github.com/fortegb/<repo>.git`; commits como rbonon; dotfiles ≥ 0.8.0.
+
+---
+
+### D-014 — Repos org: nomes finais (2026-07-01)
+
+- **Decisão:** Repos partilhados na org `fortegb`:
+  - `platform` (app principal; ex-`sandbox`)
+  - `app-despesas` (ex-`fortegb-despesas`)
+  - `ai-assets` (ex-`Resources_IA`)
+- **Consequências:** `repo_clone fortegb/<nome>`; hífens OK no GitHub; Mac Mini — [setup-mac-mini.md](../setup-mac-mini.md).

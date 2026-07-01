@@ -53,7 +53,7 @@ Seed docs/planning (✅)
 ### Epic: Bootstrap board & OpenSpec — sub-tarefas
 
 1. [ ] Inicializar OpenSpec no repo (`openspec/` + CLI)
-2. [ ] Criar Project **`sandbox`** na org
+2. [ ] Criar Project **`platform`** na org
 3. [ ] Campos custom: **Phase**, **Module**
 4. [ ] Registar epics Phase 0 restantes como issues pai
 5. [ ] Gerar `ROADMAP.md` pela primeira vez

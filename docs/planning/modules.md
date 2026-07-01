@@ -8,10 +8,10 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| GitHub Organization | Opção A: org `fortegb`, personal renomeado | Planejado — [runbook](./github-org-migration.md) |
-| GitHub Project board | Título `sandbox`, campos Phase + Module | Não existe |
-| OpenSpec no repo | CLI + `openspec/changes/` | Não inicializado |
-| Dotfiles | Adaptar contas/PAT/Keychain pós-rename | Planejado (parte do epic org) |
+| GitHub Organization | Opção A: org `fortegb`, personal `fortegb-admin` | **Done** |
+| GitHub Project board | Título `platform`, campos Phase + Module | Existe |
+| OpenSpec no repo | CLI + `openspec/changes/` | Inicializado |
+| Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Done (dotfiles 0.8.1) |
 | Deploy / Vercel | Reconectar após transferência | Planejado |
 
 **Epic:** *GitHub org migration* + *Bootstrap board & workflow*

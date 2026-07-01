@@ -1,8 +1,9 @@
 # Runbook — Migração GitHub Organization (Opção A)
 
+> **Status:** ✅ **Concluído** (2026-07-01). Repo principal: **`fortegb/platform`** (renomeado de `sandbox`).  
 > **Epic:** GitHub org migration · **Phase:** 0 · **Module:** platform  
-> **Decisões:** D-003, D-007, D-008  
-> **Estado alvo:** `https://github.com/fortegb/sandbox` na Organization `fortegb`
+> **Decisões:** D-003, D-007, D-008, D-012  
+> **Estado alvo:** `https://github.com/fortegb/platform` na Organization `fortegb`
 
 ---
 
@@ -210,9 +211,11 @@ Seguir [phases.md](./phases.md) epic *Bootstrap board & OpenSpec*:
 - [ ] `git push` / `git pull` funcionam
 - [ ] `setup_check` verde para remotes `fortegb/*`
 - [ ] Vercel deploy OK
-- [ ] `gh project list --owner fortegb` lista project `sandbox`
+- [ ] `gh project list --owner fortegb` lista project `platform`
 - [ ] Issue types visíveis ao criar issue
 - [ ] `STATUS.md` actualizado com IDs de issues
+
+**Outras máquinas:** ver [setup-mac-mini.md](../setup-mac-mini.md).
 
 ---
 

@@ -7,6 +7,23 @@
 
 ## Não versionado
 
+### 2026-07-01 — Phase 0 fundação (org + platform)
+
+**GitHub & infra**
+- Org **`fortegb`** criada; personal renomeado **`fortegb-admin`**; **`rbonon`** Owner.
+- Repos na org: **`platform`**, **`fortegb-despesas`**, **`Resources_IA`**.
+- Repo **`sandbox` → `platform`** (D-012).
+- Issue types org: Task, Bug, Feature, Epic.
+- GitHub Project **`platform`** + campos Phase/Module; issues [#1](https://github.com/fortegb/platform/issues/1) Architecture, [#2](https://github.com/fortegb/platform/issues/2) Brand assets.
+- **OpenSpec** inicializado no repo.
+
+**Dotfiles (rbonon/dotfiles 0.8.1)**
+- `auth` / `commit_as` para namespace org; dev git = rbonon (D-013).
+- Re-clones locais com remote `rbonon@github.com/fortegb/...`.
+
+**Docs**
+- `STATUS.md`, `ROADMAP.md`, `modules.md`, runbook migration marcado concluído.
+
 ### 2026-07-01 (cont.)
 
 **Planning finalizado — pronto para Phase 0 execução**
