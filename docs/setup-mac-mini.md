@@ -111,6 +111,7 @@ Deve listar: `platform`, `app-despesas`, `ai-assets`.
 | Remote `fortegb@…/fortegb/…` | conf antiga | Copiar conf 1Password + re-clone |
 | `export GH_TOKEN_fortegb-admin` error | Dotfiles < 0.8.1 | Atualizar dotfiles (hyphen fix 0.8.1) |
 | Push 403 | `rbonon` não na org | Aceitar invite Owner em `fortegb` |
+| `Authentication required: verify locks` | Git LFS lock verify sem credencial LFS | `git config lfs.https://rbonon@github.com/fortegb/<repo>.git/info/lfs.locksverify false` |
 
 ---
 

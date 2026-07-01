@@ -7,11 +7,17 @@
 
 ## Não versionado
 
+### 2026-07-01 — Sessão handoff (máquina principal)
+
+- Push sync `0a6af59` para `origin/main`; working tree limpa.
+- `STATUS.md` actualizado para próxima sessão (Mac Mini ou Architecture).
+- `docs/setup-mac-mini.md` — troubleshooting Git LFS lock verify.
+
 ### 2026-07-01 — Phase 0 fundação (org + platform)
 
 **GitHub & infra**
 - Org **`fortegb`** criada; personal renomeado **`fortegb-admin`**; **`rbonon`** Owner.
-- Repos na org: **`platform`**, **`fortegb-despesas`**, **`Resources_IA`**.
+- Repos na org: **`platform`**, **`app-despesas`**, **`ai-assets`** (D-014).
 - Repo **`sandbox` → `platform`** (D-012).
 - Issue types org: Task, Bug, Feature, Epic.
 - GitHub Project **`platform`** + campos Phase/Module; issues [#1](https://github.com/fortegb/platform/issues/1) Architecture, [#2](https://github.com/fortegb/platform/issues/2) Brand assets.

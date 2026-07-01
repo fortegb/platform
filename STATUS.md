@@ -51,12 +51,15 @@ Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · r
 ## Esta sessão
 
 - [x] Org migration, dotfiles 0.8.x, re-clones, rename `platform`
-- [ ] **MacMini:** [setup-mac-mini.md](./docs/setup-mac-mini.md)
+- [x] Handoff docs commitados e push `origin/main` (0a6af59)
+- [x] `rbo-handoff` — sessão encerrada na máquina principal
+- [ ] **Próxima sessão:** Mac Mini — [setup-mac-mini.md](./docs/setup-mac-mini.md) **ou** `rbo-catch-up` + Architecture ([#1](https://github.com/fortegb/platform/issues/1))
 
 ---
 
 ## Recently done
 
+- **2026-07-01:** Handoff Phase 0; push sync; repos org renomeados (`app-despesas`, `ai-assets`).
 - **2026-07-01:** Org `fortegb`, repos transferidos, `platform`, dotfiles `auth`/`commit_as`, Project + OpenSpec.
 - **2026-07-01:** Planning finalizado — deliverables, Q-016–Q-019, D-011.
 - **2026-06-28–29:** UI refinement. Ver `CHANGELOG.md`.
