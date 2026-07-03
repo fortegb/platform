@@ -6,7 +6,7 @@
 ### Publicar para sócios (GitHub Pages)
 
 1. **Portal:** https://fortegb.github.io/platform/
-2. **Mocks do site (estático):** `npm run pages:site` → commit `docs/site/app/` → push
+2. **Mocks do site (estático):** `npm run pages:site` → commit `docs/planning/site/app/` → push
 3. **Relatório:** `npm run progress:report` · **Tudo:** `npm run pages:sync`
 
 **Actualizado:** 2026-07-02

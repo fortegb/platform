@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mocks do site — ForteGB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/portal.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../../index.html">← Portal ForteGB</a></div>
+    <nav>
+      <a class="btn-primary" href="./app/index.html" target="_blank" rel="noopener">Abrir mock V1 ↗</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <h1>Mocks do site</h1>
+    <p>Export estático gerado por <code>nuxt generate</code> — igual ao código do repositório, hospedado no GitHub Pages.</p>
+  </header>
+
+  <main class="container">
+    <div class="notice">
+      <strong>Actualizar mocks:</strong> <code>npm run pages:site</code> (gera e copia para <code>docs/planning/site/app/</code>) · depois commit + push.
+      <span id="build-stamp" style="display:block;margin-top:0.35rem;font-size:0.82rem;color:var(--muted)"></span>
+    </div>
+
+    <h2 class="section-title">Variantes da home</h2>
+    <ul class="route-list" id="home-routes"></ul>
+
+    <h2 class="section-title">Site público</h2>
+    <ul class="route-list" id="public-routes"></ul>
+
+    <h2 class="section-title">Área corretor (mock)</h2>
+    <ul class="route-list" id="corretor-routes"></ul>
+
+    <h2 class="section-title">Visitas (mock)</h2>
+    <ul class="route-list" id="visita-routes"></ul>
+  </main>
+
+  <footer class="footer-note">
+    URL: <code>/platform/planning/site/app/</code> · Origem: <code>npm run pages:site</code>
+  </footer>
+
+  <script>
+    const APP = './app';
+
+    const ROUTES = {
+      home: [
+        { path: '/index.html', label: 'V1 — Home split (actual /)', tag: 'Principal' },
+        { path: '/v2/index.html', label: 'V2 — Home clássica' },
+        { path: '/v3/index.html', label: 'V3 — Hero slate' },
+        { path: '/v4/index.html', label: 'V4 — Hero primary-400' },
+      ],
+      public: [
+        { path: '/portfolio/index.html', label: 'Portfólio — lista' },
+        { path: '/portfolio/casa-jardim-dos-ipes/index.html', label: 'Portfólio — detalhe (exemplo)' },
+        { path: '/sobre/index.html', label: 'Sobre' },
+        { path: '/blog/index.html', label: 'Blog' },
+        { path: '/contato/index.html', label: 'Contato' },
+        { path: '/login/index.html', label: 'Login (identifier-first)' },
+        { path: '/termos/index.html', label: 'Termos' },
+        { path: '/privacidade/index.html', label: 'Privacidade' },
+      ],
+      corretor: [
+        { path: '/corretor/dashboard/index.html', label: 'Dashboard corretor' },
+        { path: '/corretor/leads/index.html', label: 'Leads' },
+        { path: '/corretor/leads/novo/index.html', label: 'Novo lead' },
+        { path: '/corretor/casas/index.html', label: 'Casas' },
+      ],
+      visita: [
+        { path: '/visita/agendar/1/index.html', label: 'Agendar visita — casa 1' },
+        { path: '/visita/agendar/3/index.html', label: 'Agendar visita — casa 3' },
+      ],
+    };
+
+    function row(route) {
+      const href = APP + route.path;
+      const tag = route.tag ? ` <span class="tag green">${route.tag}</span>` : '';
+      return `<li><span>${route.label}${tag}</span><a href="${href}" target="_blank" rel="noopener">Abrir ↗</a></li>`;
+    }
+
+    document.getElementById('home-routes').innerHTML = ROUTES.home.map(row).join('');
+    document.getElementById('public-routes').innerHTML = ROUTES.public.map(row).join('');
+    document.getElementById('corretor-routes').innerHTML = ROUTES.corretor.map(row).join('');
+    document.getElementById('visita-routes').innerHTML = ROUTES.visita.map(row).join('');
+
+    fetch('./app/.static-build')
+      .then((r) => (r.ok ? r.text() : ''))
+      .then((t) => {
+        if (!t) return;
+        const line = t.split('\n').find((l) => l.startsWith('generatedAt='));
+        if (line) document.getElementById('build-stamp').textContent = 'Última geração: ' + line.replace('generatedAt=', '');
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

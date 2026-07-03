@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generate static Nuxt export for GitHub Pages mocks (docs/site/app/).
+ * Generate static Nuxt export for GitHub Pages mocks (docs/planning/site/app/).
  * Usage: npm run pages:site
  */
 
@@ -10,9 +10,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE_URL = '/platform/site/app/';
+const BASE_URL = '/platform/planning/site/app/';
 const SRC = path.join(ROOT, '.output/public');
-const DEST = path.join(ROOT, 'docs/site/app');
+const DEST = path.join(ROOT, 'docs/planning/site/app');
 
 console.log(`Generating static site (baseURL=${BASE_URL})…`);
 
