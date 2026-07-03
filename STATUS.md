@@ -53,6 +53,7 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 - [x] Issue [#139](https://github.com/fortegb/platform/issues/139) — epics/issues review; branch `feat/epics-issues-review` (explore)
 - [x] Portal polish [#138](https://github.com/fortegb/platform/issues/138) fechado (OpenSpec arquivado)
 - [x] **A1:** `phases.md` sincronizado com board (Phase 0 epics Done + checklists)
+- [x] **A2:** `STATUS.md` actualizado
 - [x] **A3:** `architecture.md` §1/§3/§6 synced from jornadas (light skim; gaps → Topic C)
 - [ ] **Topic A→C review** — stale/missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
 - [ ] Architecture [#1](https://github.com/fortegb/platform/issues/1) — grilling (após review)
