@@ -14,9 +14,9 @@
 | Portal sócios (GitHub Pages) | `docs/` — índice, módulos, progresso, jornadas | **Live** (legacy `/docs`) |
 | Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Done (dotfiles 0.8.1) |
 | Deploy / Vercel | Reconectar após transferência | Planejado |
-| **Integrações MVP** | HubSpot, Tuya, WhatsApp, Calendar — epic [#72](https://github.com/fortegb/platform/issues/72), Phase 2 | Planejado |
+| **Integrações MVP** | HubSpot, Tuya, WhatsApp, Calendar — epic [#72](https://github.com/fortegb/platform/issues/72), Fase 2 | Planejado |
 
-**Epic:** *GitHub org migration* + *Bootstrap board & workflow* + *Integrations MVP* (Phase 2, module `platform`)
+**Epic:** *GitHub org migration* + *Bootstrap board & workflow* + *Integrations MVP* (Fase 2, module `platform`)
 
 > **Integrações** não são módulo board separado — cross-cutting; Visitas (#81) e CRM (#86) consomem o hub.
 
@@ -32,7 +32,7 @@
 | Legal / LGPD | Privacidade, termos, cookies | Páginas existem |
 | WhatsApp CTAs | Botão flutuante + links | Implementado (UI) |
 
-**Epic (futuro):** *Site público* → Phase 1 **Public site UI finalization** (inclui 2 homes)
+**Epic (futuro):** *Site público* → Fase 1 **Public site UI finalization** (inclui 2 homes)
 
 ---
 
@@ -46,7 +46,7 @@
 | Roles | admin, proprietário, cliente, corretor | Não |
 | Middleware por perfil | Generalizar `realtor-auth` | Parcial |
 
-**Epic (futuro):** Phase 1 **Identity, roles & journey routing** + Phase 2/3 portals  
+**Epic (futuro):** Fase 1 **Identity, roles & journey routing** + Fase 2/3 portals  
 **Spec:** [`docs/autenticacao-login.md`](../autenticacao-login.md)
 
 ---

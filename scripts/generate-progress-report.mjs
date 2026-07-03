@@ -8,6 +8,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { faseHeading, fasePill } from './phase-labels.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -171,7 +172,7 @@ function epicCard(epic, children) {
       </div>
       <div class="epic-meta">
         ${statusBadge(epic.status)}
-        <span class="pill">Fase ${esc(epic.phase)}</span>
+        <span class="pill">${esc(fasePill(epic.phase))}</span>
         <span class="pill">${esc(epic.module)}</span>
       </div>
     </header>
@@ -183,7 +184,7 @@ function epicCard(epic, children) {
 function phaseSection(phase, epics, childrenByParent) {
   const sorted = [...epics].sort((a, b) => a.number - b.number);
   const cards = sorted.map((e) => epicCard(e, childrenByParent.get(e.number) ?? [])).join('');
-  const label = phase === '—' ? 'Sem fase' : `Fase ${phase}`;
+  const label = faseHeading(phase);
   return `<div class="phase-block">
     <h3 class="phase-title">${esc(label)}</h3>
     <div class="epic-grid">${cards}</div>
@@ -236,7 +237,7 @@ function buildHtml({ items, focus, generatedAt }) {
       : `<ul class="in-progress-list">${inProgress
           .map(
             (i) =>
-              `<li>${issueLink(i)} ${esc(i.title)} ${statusBadge(i.status)} <span class="pill">Fase ${esc(i.phase)}</span></li>`
+              `<li>${issueLink(i)} ${esc(i.title)} ${statusBadge(i.status)} <span class="pill">${esc(fasePill(i.phase))}</span></li>`
           )
           .join('')}</ul>`;
 
@@ -299,11 +300,12 @@ function buildHtml({ items, focus, generatedAt }) {
       padding: 0.15rem 0.5rem; border-radius: 6px;
       background: var(--bg); color: var(--muted);
     }
-    .phase-block { margin-bottom: 2rem; }
+    .phase-block { margin-bottom: 2.25rem; }
     .phase-title {
-      font-size: 1rem; font-weight: 600; color: var(--slate);
-      margin-bottom: 0.75rem; padding-bottom: 0.35rem;
-      border-bottom: 2px solid var(--border);
+      font-size: 1.45rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--navy);
+      letter-spacing: -0.02em;
     }
     .epic-grid { display: flex; flex-direction: column; gap: 1rem; }
     .epic-card {
@@ -378,7 +380,7 @@ function buildHtml({ items, focus, generatedAt }) {
 
     <section id="planejado">
       <div class="section-head"><span class="section-num">3</span><h2>O que está planejado</h2></div>
-      <p class="muted" style="margin-bottom:1rem">Epics e tarefas por fase — roadmap de execução (Phase 0–4).</p>
+      <p class="muted" style="margin-bottom:1rem">Epics e tarefas por fase — roadmap de execução (Fases 0–4).</p>
       ${todoPhases}
     </section>
   </main>
