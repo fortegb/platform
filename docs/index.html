@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal ForteGB — Sócios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/portal.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand">ForteGB · Portal interno</div>
+    <div class="meta">Acesso sócios · GitHub Pages</div>
+  </div>
+
+  <header class="hero">
+    <h1>Portal ForteGB</h1>
+    <p>Índice para sócios — mocks do site, progresso da plataforma e documentos de apoio.</p>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Site — mocks online</h2>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem">
+      Export estático do Nuxt (<code>nuxt generate</code>) — mesmas páginas do repo, sem Vercel. Actualizar com <code>npm run pages:site</code>.
+    </p>
+    <div class="grid">
+      <a class="card" href="./site/" style="text-decoration:none;color:inherit">
+        <span class="tag green">Mockups estáticos</span>
+        <h3>Explorar o site</h3>
+        <p>Sub-índice: V1–V4 (home), portfólio, login, portal corretor, visitas — ficheiros HTML em <code>docs/site/app/</code>.</p>
+        <div class="link-row">Abrir sub-índice →</div>
+      </a>
+    </div>
+
+    <h2 class="section-title">Progresso</h2>
+    <div class="grid">
+      <a class="card" href="./planning/progresso-socios.html" style="text-decoration:none;color:inherit">
+        <span class="tag green">Actualizado via board</span>
+        <h3>Relatório de progresso</h3>
+        <p>O que está planeado, concluído e o foco actual — epics e issues do GitHub Project.</p>
+        <div class="link-row">Ver relatório →</div>
+      </a>
+    </div>
+
+    <h2 class="section-title">Documentos</h2>
+    <div class="grid">
+      <a class="card" href="./planning/apresentacao-socios.html" style="text-decoration:none;color:inherit">
+        <span class="tag">Apresentação</span>
+        <h3>Apresentação aos sócios</h3>
+        <p>Modelo de negócio, governação, plataforma e validação do modelo corretor.</p>
+        <div class="link-row">Abrir →</div>
+      </a>
+      <a class="card" href="./planning/apresentacao-corretores.html" style="text-decoration:none;color:inherit">
+        <span class="tag">Apresentação</span>
+        <h3>Apresentação corretores</h3>
+        <p>Foco no modelo com corretores — onboarding, comissão e contrato por casa. (Por agora, secções dedicadas.)</p>
+        <div class="link-row">Abrir →</div>
+      </a>
+      <a class="card" href="./planning/corretor-contract.html" style="text-decoration:none;color:inherit">
+        <span class="tag amber">Rascunho</span>
+        <h3>Contrato corretor v0.1</h3>
+        <p>Modelo de parceria por imóvel — revisão Juliana Mestrinier antes de uso.</p>
+        <div class="link-row">Ler contrato →</div>
+      </a>
+    </div>
+
+    <div class="notice" style="margin-top:2rem">
+      <strong>Manutenção:</strong> mocks <code>npm run pages:site</code> · relatório <code>npm run progress:report</code> · contrato <code>npm run pages:portal</code> · tudo junto <code>npm run pages:sync</code>.
+    </div>
+  </main>
+
+  <footer class="footer-note">
+    fortegb/platform · <a href="https://github.com/orgs/fortegb/projects/1">Board GitHub</a>
+  </footer>
+</body>
+</html>

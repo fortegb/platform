@@ -99,9 +99,10 @@ const whatsappNumber = config.public.whatsappNumber || '5511999999999'
 const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os projetos da ForteGB.')
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 
-const formatPhone = (phone: string) => {
-  // Formatar telefone brasileiro
-  const cleaned = phone.replace(/\D/g, '')
+const formatPhone = (phone: string | number | undefined) => {
+  if (phone == null || phone === '') return '—'
+  const raw = String(phone)
+  const cleaned = raw.replace(/\D/g, '')
   if (cleaned.length === 11) {
     return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2, 7)}-${cleaned.slice(7)}`
   }

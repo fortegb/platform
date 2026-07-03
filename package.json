@@ -9,7 +9,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "progress:report": "node scripts/generate-progress-report.mjs"
+    "progress:report": "node scripts/generate-progress-report.mjs",
+    "pages:portal": "node scripts/generate-portal-assets.mjs",
+    "pages:site": "node scripts/sync-site-static.mjs",
+    "pages:sync": "npm run pages:site && npm run pages:portal && npm run progress:report"
   },
   "dependencies": {
     "@nuxtjs/supabase": "^2.0.0",

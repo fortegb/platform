@@ -23,10 +23,13 @@
 |-----------|----------|
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco actual (Ricardo)** — editável; alimenta relatório de progresso |
+| [../index.html](../index.html) | **Portal sócios (GitHub Pages)** — índice: mocks estáticos, progresso, docs |
 | [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
-| [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot corretor; refresh sob pedido |
+| [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot; refresh sob pedido |
 | [apresentacao-socios.html](./apresentacao-socios.html) | **Apresentação gráfica** — browser / PDF |
+| [apresentacao-corretores.html](./apresentacao-corretores.html) | **Apresentação corretores** — secções dedicadas (TBD deck próprio) |
 | [corretor-contract-template.md](./corretor-contract-template.md) | Rascunho contrato corretor (v0.1) |
+| [corretor-contract.html](./corretor-contract.html) | Contrato v0.1 — HTML (gerado) |
 | [deliverables.md](./deliverables.md) | **Mapa produto ↔ epics** (checklist negócio) |
 | [platform-vision.md](./platform-vision.md) | Visão + stack proposta |
 | [architecture.md](./architecture.md) | Template ADR (preencher na grilling) |

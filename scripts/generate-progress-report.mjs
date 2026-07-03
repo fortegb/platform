@@ -398,7 +398,8 @@ function buildHtml({ items, focus, generatedAt }) {
     <span>Gerado: ${esc(generatedAt)} · Foco: ${esc(focus.updated)}</span>
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
       <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-      <a class="secondary" href="./apresentacao-socios.html">Apresentação corretores</a>
+      <a href="../index.html">Portal</a>
+      <a class="secondary" href="./apresentacao-socios.html">Apresentação sócios</a>
       <button type="button" onclick="window.print()">Imprimir / PDF</button>
     </div>
   </div>

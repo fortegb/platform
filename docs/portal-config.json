@@ -1,0 +1,5 @@
+{
+  "staticMocksPath": "/platform/site/app/",
+  "staticMocksNote": "Gerados por npm run pages:site (nuxt generate → docs/site/app/). Não requer Vercel.",
+  "updated": "2026-07-03"
+}

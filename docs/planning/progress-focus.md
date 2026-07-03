@@ -5,10 +5,9 @@
 
 ### Publicar para sócios (GitHub Pages)
 
-1. Regenerar: `npm run progress:report` → commit `progresso-socios.html`
-2. Repo **Settings → Pages →** Source: branch `main`, folder **`/docs`**
-3. URL estável: `https://fortegb.github.io/platform/planning/progresso-socios.html`  
-   (Repo privado: Pages privado requer plano GitHub Team; alternativa — abrir o HTML no browser ou Imprimir/PDF.)
+1. **Portal:** https://fortegb.github.io/platform/
+2. **Mocks do site (estático):** `npm run pages:site` → commit `docs/site/app/` → push
+3. **Relatório:** `npm run progress:report` · **Tudo:** `npm run pages:sync`
 
 **Actualizado:** 2026-07-02
 
