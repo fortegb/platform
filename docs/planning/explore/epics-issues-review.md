@@ -53,9 +53,9 @@ The board (`fortegb/platform` #1) is the execution source of truth; planning can
 
 Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic C. Full completeness review **not** done here.
 
-### 4. Portal work under Seed epic (#4)
+### 4. Portal work under Seed epic (#4) — **decided 2026-07-03 (A5)**
 
-**#138** (portal polish) is a sub-issue of **#4 Seed docs/planning**. Reasonable for Phase 0, but review whether future portal chores stay under #4 or get a dedicated “Partner portal” epic.
+**#138** permanece sub-issue de **#4** (histórico; epic Done). Trabalho futuro de portal/docs → novo epic «Documentação & portal sócios» (a criar); não re-parent issues fechadas.
 
 ### 5. Canon ↔ module ↔ board field alignment
 

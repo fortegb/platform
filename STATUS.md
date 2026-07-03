@@ -55,7 +55,7 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 - [x] **A1:** `phases.md` sincronizado com board (Phase 0 epics Done + checklists)
 - [x] **A2:** `STATUS.md` actualizado
 - [x] **A3:** `architecture.md` §1/§3/§6 synced from jornadas (light skim; gaps → Topic C)
-- [x] **A4:** #37 renomeado → «Criar epics Phase 1–4 no board»
+- [x] **A5:** #138 stays under #4; future portal/docs → new Documentation epic (TBD)
 - [ ] **Topic A→C review** — stale/missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
 - [ ] Architecture [#1](https://github.com/fortegb/platform/issues/1) — grilling (após review)
 
