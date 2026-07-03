@@ -41,11 +41,9 @@ The board (`fortegb/platform` #1) is the execution source of truth; planning can
 
 ## Findings already visible (candidates for review)
 
-### 1. `phases.md` stale vs board reality
+### 1. `phases.md` stale vs board reality — **fixed 2026-07-03**
 
-The Phase 0 table still lists **GitHub org migration** and **Bootstrap board** as Todo, with unchecked sub-task checklists — but board shows epics #8, #20 **Done** with closed sub-issues.
-
-**Action candidate:** update `phases.md` checklists and epic status table to match board (or mark canon as “historical” with pointer to board).
+~~The Phase 0 table still lists…~~ Table, dependency diagram, and org/bootstrap checklists synced to board (#8, #20 Done; issue links added).
 
 ### 2. Architecture epic (#1) vs Phase 1+ epics
 
