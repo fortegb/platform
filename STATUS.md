@@ -13,7 +13,9 @@
 ```
 ✅ Seed planning · org migration · bootstrap board · OpenSpec
 ✅ Board hygiene #139 + screen map #32 + Platform docs publicados
-→ TODO: Architecture & MVP — grilling Q-004+ → #38
+✅ Grilling 0 #145 — stances fundacionais + Q-004 resolvido (D-015..D-018)
+→ EM CURSO: change grill-foundational-architecture (aplicado, aguarda touches → close-out)
+→ TODO: grilling restante (Q-005/006 tours, media kit…) → #38
 → Fase 1 build (Identity, Public site, …) após #38
 ```
 
@@ -26,7 +28,7 @@
 | Seed `docs/planning/` | **Done** | — |
 | GitHub org migration | **Done** | — |
 | Bootstrap board & OpenSpec | **Done** | — |
-| Architecture & MVP definition | **Todo** | `rbo-grilling` — [Q-004](./docs/planning/open-questions.md) primeiro |
+| Architecture & MVP definition | **In Progress** | Grilling 0 (#145) feito; próximo grilling tours/media kit → #38 |
 | Brand assets upload | **Todo** | Paralelo — AGENTS.md §7 |
 
 Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); build bloqueado até Architecture Done. Ver [`deliverables.md`](./docs/planning/deliverables.md).
@@ -45,23 +47,24 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 
 ---
 
-## Esta sessão (Cursor — 2026-07-03)
+## Esta sessão (Claude — 2026-07-03)
 
-- [x] #139 board hygiene — merge `main`, OpenSpec arquivado, issue fechada
-- [x] #32 screen map — aceite + `screen-map.html` publicado
-- [x] Platform docs — naming pt-BR, Fase 0–4, módulos
-- [x] #144 ambientes explore — registado sob #42 (para depois)
+- [x] Grilling 0 (#145) — stances fundacionais: constraints, build-vs-buy, Q-004, system shape, MVP boundary
+- [x] Q-004 **resolvido** (D-016); serverless escolhido (D-017); v1/v2/v3 boundary (D-018)
+- [x] OpenSpec change `grill-foundational-architecture` — propose + apply (docs); **não** arquivado (touches pendentes)
+- [x] Platform docs — nova página `arquitetura-decisoes.html` + card no índice
 
-## Próxima sessão (Claude)
+## Próxima sessão
 
-- [ ] `rbo-catch-up` L2 — confirmar estado
-- [ ] `rbo-grilling` **Q-004** (Contentful vs Supabase)
+- [ ] Touches do Ricardo → `rbo-close-change` #145 (archive → merge → close; subsumir #28)
+- [ ] `rbo-grilling` tours (Q-005/Q-006) — próximo na ordem
 - [ ] Avançar fecho Architecture → #38
 
 ---
 
 ## Recently done
 
+- **2026-07-03:** Grilling 0 (#145) — stances fundacionais + Q-004 resolvido; change `grill-foundational-architecture` aplicado (docs canon + Platform docs).
 - **2026-07-03:** Portal sócios (#138) — módulos, UX cards, Pages deploy; progress report regen.
 - **2026-07-03:** Board review #139 criado; explore epics-issues-review.
 - **2026-07-01:** Handoff Phase 0; org migration + bootstrap Done; planning finalizado.

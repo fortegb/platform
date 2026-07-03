@@ -366,8 +366,9 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
 ### Estágio actual
-- **Phase 0 — Fundação** — planning **finalizado**; próximo: GitHub org migration → bootstrap board → Architecture epic (grilling). Ver **`docs/planning/README.md`** e **`STATUS.md`**.
-- **Decisões técnicas abertas (D-011)** até grilling — stack em `platform-vision.md` é proposta, não contrato.
+- **Phase 0 — Fundação** — planning finalizado; org migration + board + OpenSpec **Done**. Architecture epic **em curso** (grilling). Ver **`docs/planning/README.md`** e **`STATUS.md`**.
+- **Grilling 0 (#145) resolvido** — stances fundacionais + **Q-004** (D-015..D-018): stack agora **parcialmente confirmada** (serverless Vercel, CMS + Supabase, MVP v1/v2/v3). Restam abertas Q-007/Q-018 (CRM), Q-010 (home), tours/media/mobile diferidos.
+- **Decisões técnicas:** o que foi resolvido está em `decisions.md`; o resto continua aberto (D-011) até o grilling da fase.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, secção "Não versionado".
 

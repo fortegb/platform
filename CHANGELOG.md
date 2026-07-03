@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-03 — Grilling 0: stances fundacionais + Q-004 ([#145](https://github.com/fortegb/platform/issues/145))
+
+- Stances fundacionais resolvidas (D-015..D-018): constraints, build-vs-buy, **Q-004** (CMS + Supabase), system shape (**serverless**), MVP boundary (**v1/v2/v3**; tours → v2).
+- Canon: `open-questions.md` (Q-004 resolved), `decisions.md` (D-015..018), `architecture.md` §1/§4/§5/§7, root `DECISIONS.md`, `STATUS.md`, `agents.md` §9.
+- Platform docs: nova página **`arquitetura-decisoes.html`** (user-readable) + **`runtime-serverless-vs-persistent.html`** (comparação estilizada) + cards/links no índice.
+- Explore capture `runtime-serverless-vs-persistent.md`. OpenSpec `grill-foundational-architecture` arquivado.
+
 ### 2026-07-03 — Platform docs: screen map + naming (publish)
 
 - Índice `docs/index.html` — **Documentação da plataforma**, card mapa de ecrãs.
