@@ -59,7 +59,45 @@ ideia → rbo-create-issue (epic ou sub-issue)
      → rbo-create-change (folha) → propose → apply → validação
      → rbo-close-change → Closes #N → ROADMAP.md → CHANGELOG.md
      → atualizar STATUS.md se o foco mudou
+     → **Platform docs** se sócios-visible (ver abaixo)
 ```
+
+---
+
+## Platform docs — como fica live (sem epic permanente)
+
+**Platform docs** = `docs/` → [fortegb.github.io/platform](https://fortegb.github.io/platform/). Nome: EN *Platform docs* · pt-BR *Documentação da plataforma*.
+
+**Não há epic aberto para “manter docs”.** O site fica atualizado por **processo no close-out**, não por backlog eterno.
+
+### O que publica
+
+| Gatilho | Efeito |
+|---------|--------|
+| **Push `main`** com alterações em `docs/` | GitHub Pages (legacy `/docs`) rebuild → site live |
+| Hook pós-commit em `docs/` | `build-info.json` + footer “Atualizado …” |
+
+### Quando regenerar / editar HTML
+
+| Mudou… | Acção |
+|--------|--------|
+| Board ou `progress-focus.md` | `npm run progress:report` |
+| `modules.md`, contrato corretor | `npm run pages:portal` |
+| Mocks Nuxt exportados | `npm run pages:site` |
+| Várias superfícies | `npm run pages:sync` |
+| Nav, cards, páginas só HTML | Editar `docs/index.html`, `mapa-fases.html`, etc. |
+
+### Checklist (issue / change close-out)
+
+Incluir no **`rbo-close-change`** ou merge manual quando aplicável:
+
+- [ ] Alteração é **visível para sócios**? (progresso, jornadas, módulos, apresentação, novo card no index)
+- [ ] Se sim: regen ou HTML atualizado em `docs/`
+- [ ] Merge/push **`main`** → confirmar Pages (legacy) refletiu
+
+Trabalho pontual (ex. board hygiene #139) **fecha a issue**; não deixa epic de documentação aberto.
+
+Epic [#143](https://github.com/fortegb/platform/issues/143) regista **esta convenção** (Done) — não operações contínuas.
 
 ---
 

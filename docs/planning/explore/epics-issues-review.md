@@ -60,7 +60,7 @@ Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic 
 
 ### 4. Portal work under Seed epic (#4) — **decided 2026-07-03 (A5)**
 
-**#138** permanece sub-issue de **#4** (histórico; epic Done). Trabalho futuro de portal/docs → novo epic «Documentação & portal sócios» (a criar); não re-parent issues fechadas.
+**#138** permanece sub-issue de **#4** (histórico). Trabalho futuro Platform docs → close-out checklist [`workflow.md`](./workflow.md) (epic #143 = convenção, Done).
 
 ### 5. `progress-focus.md` narrative — **fixed 2026-07-03 (A6)**
 
@@ -86,7 +86,7 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 
 | Item | Decision |
 |------|----------|
-| **B2a Platform docs epic** | [#143 Epic: Documentação da plataforma](https://github.com/fortegb/platform/issues/143) — deliverable: keep Platform docs live/current on GitHub Pages |
+| **B2a Platform docs** | [#143](https://github.com/fortegb/platform/issues/143) **closed (Done)** — deliverable = process in [`workflow.md`](./workflow.md) § Platform docs; live site via push `main` + close-out checklist, not open epic |
 | **B2b #32 / screen map** | _pending_ |
 
 ---
