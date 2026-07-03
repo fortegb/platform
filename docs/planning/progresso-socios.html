@@ -3,83 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ForteGB — Progresso da Plataforma</title>
+  <title>ForteGB — Progresso da plataforma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
   <style>
-    :root {
-      --navy: #203045;
-      --blue: #1a74a1;
-      --slate: #4a5a72;
-      --green: #3E8E5E;
-      --amber: #c17d2a;
-      --bg: #f4f6f8;
-      --card: #ffffff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --border: #e2e8ef;
-      --radius: 12px;
-      --shadow: 0 4px 24px rgba(32, 48, 69, 0.08);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Montserrat', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      font-size: 15px;
-    }
-    .toolbar {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1.5rem;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 0.5rem;
-    }
-    .toolbar a, .toolbar button {
-      font-family: inherit; font-weight: 600; font-size: 0.85rem;
-      border-radius: 8px; padding: 0.5rem 1rem; text-decoration: none;
-    }
-    .toolbar a { background: var(--blue); color: #fff; }
-    .toolbar a.secondary { background: transparent; color: var(--navy); border: 1px solid var(--border); }
-    .toolbar button { background: var(--navy); color: #fff; border: none; cursor: pointer; }
-    .toolbar button:hover { background: var(--blue); }
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #2a4560 50%, var(--slate) 100%);
-      color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center;
-    }
-    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .hero p { opacity: 0.9; max-width: 40rem; margin: 0 auto 1.25rem; line-height: 1.5; }
-    .stats {
+    :root { --amber: #c17d2a; }
+    .hero .stats {
       display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem;
-      font-size: 0.8rem;
+      font-size: 0.8rem; margin-top: 0.75rem;
     }
-    .stats span {
+    .hero .stats span {
       background: rgba(255,255,255,0.12);
       padding: 0.4rem 0.9rem; border-radius: 999px;
     }
-    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
-    section { margin-bottom: 2.75rem; }
+    .progress-main { max-width: 960px; }
+    .progress-main section { margin-bottom: 2.75rem; }
     .section-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
     .section-num {
       width: 2.25rem; height: 2.25rem; background: var(--navy); color: #fff;
       border-radius: 8px; display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
     }
-    h2 { font-size: 1.3rem; font-weight: 700; color: var(--navy); }
-    .card {
+    .progress-main h2 { font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+    .report-card {
       background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
       padding: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border);
     }
-    .card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+    .report-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
     .focus-list { padding-left: 1.25rem; margin: 0.5rem 0; }
     .focus-list li { margin-bottom: 0.4rem; }
     .focus-list a, .issue-link { color: var(--blue); text-decoration: none; font-weight: 600; }
     .focus-list a:hover, .issue-link:hover { text-decoration: underline; }
-    code { background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
+    .progress-main code { background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
     .muted { color: var(--muted); font-size: 0.9rem; }
     .badge {
       display: inline-block; font-size: 0.7rem; font-weight: 600;
@@ -112,10 +69,8 @@
     .epic-title { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
     .epic-title h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
     .epic-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
-    .progress-wrap {
-      height: 4px; background: var(--bg); position: relative; margin: 0 1.25rem;
-    }
-    .progress-bar { height: 100%; background: var(--green); transition: width 0.3s; }
+    .progress-wrap { height: 4px; background: var(--bg); margin: 0 1.25rem; }
+    .progress-bar { height: 100%; background: var(--green); }
     .progress-label {
       display: block; font-size: 0.72rem; color: var(--muted);
       padding: 0.35rem 1.25rem 0; margin-bottom: 0.25rem;
@@ -133,30 +88,20 @@
       padding: 0.6rem 0; border-bottom: 1px solid var(--border);
       display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
     }
-    .footer-note {
-      text-align: center; font-size: 0.78rem; color: var(--muted);
-      padding: 2rem 1rem; border-top: 1px solid var(--border);
-    }
-    @media print {
-      .toolbar { position: static; }
-      .toolbar button { display: none; }
-      .epic-card { break-inside: avoid; }
-    }
+    @media print { .epic-card { break-inside: avoid; } }
   </style>
 </head>
 <body>
   <div class="toolbar">
-    <span>Relatório de progresso · ForteGB</span>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
-      <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-      <a href="../index.html">Portal</a>
-      <a class="secondary" href="./apresentacao-socios.html">Apresentação sócios</a>
-      <button type="button" onclick="window.print()">Imprimir / PDF</button>
-    </div>
+    <div class="brand"><a href="../index.html">← Portal ForteGB</a></div>
+    <nav>
+      <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+      <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
+    </nav>
   </div>
 
   <header class="hero">
-    <h1>Progresso da Plataforma ForteGB</h1>
+    <h1>Progresso da plataforma</h1>
     <p>Relatório para sócios<br>O que está planejado, o que já foi feito e o que está sendo trabalhado no momento</p>
     <div class="stats">
       <span>3/22 epics concluídos</span>
@@ -165,19 +110,19 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container progress-main">
     <section id="agora">
       <div class="section-head"><span class="section-num">1</span><h2>Trabalhando no momento</h2></div>
-      <div class="card">
+      <div class="report-card">
         <h3>Resumo</h3>
         <ul class="focus-list"><li><strong>Documentação de governança e corretores</strong> — <code>company-structure.md</code>, contrato v0.1, apresentação aos sócios (modelo de negócio).</li><li><strong>Epic Architecture (<a href="https://github.com/fortegb/platform/issues/1" target="_blank" rel="noopener">#1</a>)</strong> — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).</li><li><strong>Portal sócios</strong> — mocks, jornadas, mapa por fases e relatório de progresso em <a href="https://fortegb.github.io/platform/" target="_blank" rel="noopener">fortegb.github.io/platform</a>.</li></ul>
       </div>
-      <div class="card">
+      <div class="report-card">
         <h3>Itens em andamento no board</h3>
         <p class="muted">Nenhum item em andamento no board.</p>
       </div>
-      <div class="card"><h3>Próximo passo</h3><ol class="focus-list"><li>Grilling <strong>Q-004</strong> — Contentful vs Supabase para portfólio/blog.</li><li>Completar <strong>`architecture.md`</strong> e fechar epic #1 → desbloqueia Phase 1.</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo — logos e brand guide dos sócios.</li></ol></div>
-      <div class="card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Phase 0 (fundação org + planning + board) está <strong>concluída</strong>.</li><li>Ainda <strong>não há código novo</strong> de Phase 1 — bloqueado até Architecture Done (decisão técnica conjunta).</li><li>Decisões de negócio recentes (corretor, comissão, Gov.br) estão em <a href="./company-structure.md" target="_blank" rel="noopener"><code>company-structure.md</code></a>; a apresentação <a href="./apresentacao-socios.html" target="_blank" rel="noopener"><code>apresentacao-socios.html</code></a> é um snapshot desse tema.</li></ul></div>
+      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li>Grilling <strong>Q-004</strong> — Contentful vs Supabase para portfólio/blog.</li><li>Completar <strong>`architecture.md`</strong> e fechar epic #1 → desbloqueia Phase 1.</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo — logos e brand guide dos sócios.</li></ol></div>
+      <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Phase 0 (fundação org + planning + board) está <strong>concluída</strong>.</li><li>Ainda <strong>não há código novo</strong> de Phase 1 — bloqueado até Architecture Done (decisão técnica conjunta).</li><li>Decisões de negócio recentes (corretor, comissão, Gov.br) estão em <a href="./company-structure.md" target="_blank" rel="noopener"><code>company-structure.md</code></a>; a apresentação <a href="./apresentacao-socios.html" target="_blank" rel="noopener"><code>apresentacao-socios.html</code></a> é um snapshot desse tema.</li></ul></div>
     </section>
 
     <section id="feito">
