@@ -12,6 +12,7 @@
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../../index.html">← Documentação Plataforma ForteGB</a></div>
+    <div class="meta" id="portal-build-meta"></div>
   </div>
 
   <header class="hero">
@@ -37,12 +38,13 @@
     <a href="../../index.html">Documentação Plataforma ForteGB</a>
   </footer>
 
+  <script src="../../assets/portal-build.js" defer></script>
   <script>
     const APP = './app';
 
     const ROUTES = {
       home: [
-        { path: '/index.html', label: 'V1 — Home split (actual /)', tag: 'Principal' },
+        { path: '/index.html', label: 'V1 — Home split (atual /)', tag: 'Principal' },
         { path: '/v2/index.html', label: 'V2 — Home clássica' },
         { path: '/v3/index.html', label: 'V3 — Hero slate' },
         { path: '/v4/index.html', label: 'V4 — Hero primary-400' },

@@ -128,10 +128,13 @@ function shell(title, bodyHtml) {
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
-    <nav>
-      <a class="btn-secondary" href="./corretor-contract-template.md">Markdown</a>
-      <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
-    </nav>
+    <div class="toolbar-actions">
+      <nav>
+        <a class="btn-secondary" href="./corretor-contract-template.md">Markdown</a>
+        <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
+      </nav>
+      <div class="meta" id="portal-build-meta"></div>
+    </div>
   </div>
   <header class="hero">
     <h1>${esc(title)}</h1>
@@ -141,6 +144,7 @@ function shell(title, bodyHtml) {
 ${bodyHtml}
   </main>
   <footer class="footer-note"><a href="../index.html">Documentação Plataforma ForteGB</a></footer>
+  <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>`;
 }

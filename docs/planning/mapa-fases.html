@@ -55,9 +55,12 @@
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
-    <nav>
-      <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-    </nav>
+    <div class="toolbar-actions">
+      <nav>
+        <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+      </nav>
+      <div class="meta" id="portal-build-meta"></div>
+    </div>
   </div>
 
   <header class="hero">
@@ -91,15 +94,15 @@
       <div class="phase-node future">
         <div class="num">Phase 4</div>
         <div class="label">Escala</div>
-        <div class="desc">Social engine, mobile avançado, optimização</div>
+        <div class="desc">Social engine, mobile avançado, otimização</div>
       </div>
     </div>
 
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem">
-      Phase 1 só arranca após epic <strong>Architecture</strong> concluído (grilling técnico). Phase 0 de execução está essencialmente feita; falta fechar decisões em <code>architecture.md</code>.
+      Phase 1 só começa após epic <strong>Architecture</strong> concluído (grilling técnico). Phase 0 de execução está essencialmente feita; falta fechar decisões em <code>architecture.md</code>.
     </p>
 
-    <h2 class="section-title">Módulos — prontidão actual</h2>
+    <h2 class="section-title">Módulos — prontidão atual</h2>
     <div class="legend">
       <span><span class="status-dot st-done">Concluído (planning/infra)</span></span>
       <span><span class="status-dot st-mock">UI mock</span></span>
@@ -172,7 +175,7 @@
         </tr>
         <tr>
           <td><a href="./jornadas-plataforma.html"><strong>Jornadas</strong></a></td>
-          <td>O que o utilizador final poderá fazer</td>
+          <td>O que o usuário final poderá fazer</td>
           <td>Alinhar expectativa de produto e demos</td>
         </tr>
       </tbody>
@@ -185,5 +188,6 @@
     <a href="./jornadas-plataforma.html">Jornadas</a> ·
     <a href="./progresso-socios.html">Relatório detalhado</a>
   </footer>
+  <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>

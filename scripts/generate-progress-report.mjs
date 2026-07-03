@@ -343,9 +343,12 @@ function buildHtml({ items, focus, generatedAt }) {
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
-    <nav>
-      <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-    </nav>
+    <div class="toolbar-actions">
+      <nav>
+        <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+      </nav>
+      <div class="meta" id="portal-build-meta"></div>
+    </div>
   </div>
 
   <header class="hero">
@@ -390,6 +393,7 @@ function buildHtml({ items, focus, generatedAt }) {
     <a href="https://github.com/orgs/fortegb/projects/1">Board GitHub</a> ·
     <a href="../index.html">Documentação</a>
   </footer>
+  <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>`;
 }

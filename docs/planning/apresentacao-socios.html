@@ -63,6 +63,14 @@
 
     .toolbar button:hover { background: var(--blue); }
 
+    .toolbar-actions {
+      display: flex; align-items: center; gap: 0.75rem;
+      flex-wrap: wrap; justify-content: flex-end;
+    }
+    .toolbar .meta { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+    .toolbar .meta a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .toolbar .meta a:hover { text-decoration: underline; }
+
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, #2a4560 50%, var(--slate) 100%);
       color: #fff;
@@ -390,9 +398,10 @@
 
   <div class="toolbar">
     <span>ForteGB · Apresentação aos Sócios · jul/2026</span>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center">
+    <div class="toolbar-actions">
       <a href="../index.html" style="font-size:0.85rem;font-weight:600;color:var(--blue);text-decoration:none">← Documentação Plataforma ForteGB</a>
       <button type="button" onclick="window.print()">Imprimir / PDF</button>
+      <div class="meta" id="portal-build-meta"></div>
     </div>
   </div>
 
@@ -417,7 +426,7 @@
       <div class="card">
         <p>Queremos <strong>vender mais</strong> com site, marketing aberto e <strong>visitas autoguiadas</strong> — sem brigar com corretores.</p>
         <div class="highlight">
-          Preço único · Corretor regista prospecto <em>antes</em> · ForteGB divulga à vontade · Comissão garantida se comprador era registado
+          Preço único · Corretor registra prospecto <em>antes</em> · ForteGB divulga à vontade · Comissão garantida se comprador era registrado
         </div>
         <div class="pill-row">
           <span class="pill">Transparência</span>
@@ -487,7 +496,7 @@
         <div class="card">
           <h3>Negócio</h3>
           <p>Compras, vendas e finanças — <strong>decisões entre os três sócios</strong> nos marcos relevantes; operação corrente conforme acordo interno.</p>
-          <p style="margin-top:0.5rem"><strong>Finanças:</strong> PIX; registo partilhado (planilha hoje).</p>
+          <p style="margin-top:0.5rem"><strong>Finanças:</strong> PIX; registro compartilhado (planilha hoje).</p>
         </div>
         <div class="card">
           <h3>Legal</h3>
@@ -516,7 +525,7 @@
           <span class="flow-arrow">→</span>
           <div class="flow-step navy">Medo de perder comissão</div>
           <span class="flow-arrow">→</span>
-          <div class="flow-step navy">Esconde contactos</div>
+          <div class="flow-step navy">Esconde contatos</div>
         </div>
         <p style="margin-top:1rem;color:var(--muted);font-size:0.88rem">Vendas via corretores, acordos informais. Comissão ~5% mercado; negociámos <strong>3%</strong>. Pagamento: sinal + escritura.</p>
       </div>
@@ -529,14 +538,14 @@
         <h2>Modelo novo — cinco pilares</h2>
       </div>
       <div class="grid-2">
-        <div class="card"><h3>1. Preço unificado</h3><p>Mesmo preço corretor ou directo.</p></div>
+        <div class="card"><h3>1. Preço unificado</h3><p>Mesmo preço corretor ou direto.</p></div>
         <div class="card"><h3>2. Contrato por casa</h3><p>Assinatura Gov.br. Juliana revisa modelo.</p></div>
         <div class="card"><h3>3. Registo de lead</h3><p>Bot WhatsApp: nome + CPF <strong>antes</strong> da visita.</p></div>
-        <div class="card"><h3>4. Comissão garantida</h3><p>Se comprador era registado — mesmo que tenha visto nosso marketing.</p></div>
+        <div class="card"><h3>4. Comissão garantida</h3><p>Se comprador era registrado — mesmo que tenha visto nosso marketing.</p></div>
       </div>
       <div class="card">
         <h3>5. Transparência na venda</h3>
-        <p>WhatsApp + PDF (nome + CPF do comprador) para todos os corretores com registos na casa. Conferência no cartório se quiserem.</p>
+        <p>WhatsApp + PDF (nome + CPF do comprador) para todos os corretores com registros na casa. Conferência no cartório se quiserem.</p>
       </div>
       <div class="card">
         <h3>Fluxo do lead</h3>
@@ -548,14 +557,14 @@
             <span class="flow-arrow">→</span>
             <div class="flow-step">Prospecto vê marketing</div>
             <span class="flow-arrow">→</span>
-            <div class="flow-step">Visita / contacto</div>
+            <div class="flow-step">Visita / contato</div>
             <span class="flow-arrow">→</span>
             <div class="flow-step navy">Venda → comissão</div>
           </div>
         </div>
         <table style="margin-top:1rem">
-          <tr><td>Registo por <strong>casa</strong></td><td>Mesmo prospecto: corretor numa casa, directo noutra</td></tr>
-          <tr><td>Sem registo prévio</td><td>Lead directo — sem comissão</td></tr>
+          <tr><td>Registo por <strong>casa</strong></td><td>Mesmo prospecto: corretor numa casa, direto em outra</td></tr>
+          <tr><td>Sem registro prévio</td><td>Lead direto — sem comissão</td></tr>
           <tr><td>Validade</td><td>Até a casa ser vendida</td></tr>
         </table>
       </div>
@@ -581,7 +590,7 @@
         <div class="steps-vertical">
           <div class="step-v">
             <div class="step-v-num">1</div>
-            <div class="step-v-body"><strong>Reclamar casa</strong><br/>1.ª vez ou corretor já activo vê outras ofertas</div>
+            <div class="step-v-body"><strong>Reclamar casa</strong><br/>1.ª vez ou corretor já ativo vê outras ofertas</div>
           </div>
           <div class="step-v-line"></div>
           <div class="step-v">
@@ -635,7 +644,7 @@
       <div class="card">
         <ul class="checklist">
           <li>Confirmar limiar <strong>R$ 100k</strong> e decisões a três</li>
-          <li>Confirmar modelo corretor (preço único + registo antes)</li>
+          <li>Confirmar modelo corretor (preço único + registro antes)</li>
           <li>Confirmar papéis na plataforma — <strong>três admins</strong>; digital R. + F.</li>
           <li>Confirmar contrato <strong>por casa</strong> + aprovação staff</li>
           <li>Autorizar Ricardo + Juliana a fechar contrato v0.1?</li>
@@ -647,7 +656,7 @@
           <tr><td>1</td><td>Reunião de validação (hoje)</td></tr>
           <tr><td>2</td><td>Juliana revisa contrato v0.1</td></tr>
           <tr><td>3</td><td>Piloto: 1 corretor + 1 casa</td></tr>
-          <tr><td>4</td><td>Continuar arquitectura plataforma</td></tr>
+          <tr><td>4</td><td>Continuar arquitetura plataforma</td></tr>
         </table>
       </div>
     </section>
@@ -658,5 +667,6 @@
     ForteGB · Snapshot jul/2026 (ênfase corretores) · Canon: company-structure.md · Refresh sob pedido
   </footer>
 
+  <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>

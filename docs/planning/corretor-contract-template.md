@@ -19,15 +19,15 @@
 - CRECI: `[CRECI]` *(preferencial; mesmo fluxo se em branco — ver cláusula 2)*  
 - E-mail: `[EMAIL]` · Telefone / WhatsApp: `[TELEFONE]`
 
-**IMÓVEL OBJECTO:** `[IDENTIFICACAO_CASA]` — ex. Casa 04, endereço `[ENDERECO]`, matrícula `[MATRICULA]`.
+**IMÓVEL OBJETO:** `[IDENTIFICACAO_CASA]` — ex. Casa 04, endereço `[ENDERECO]`, matrícula `[MATRICULA]`.
 
 ---
 
-## Cláusula 1 — Objecto e preço unificado
+## Cláusula 1 — Objeto e preço unificado
 
-1.1. O(A) CONTRATADO(A) actua na **intermediação de venda** do imóvel identificado acima, em parceria com a(s) CONTRATANTE(S), marca **ForteGB**.
+1.1. O(A) CONTRATADO(A) atua na **intermediação de venda** do imóvel identificado acima, em parceria com a(s) CONTRATANTE(S), marca **ForteGB**.
 
-1.2. O **preço de venda público** é **único**: `[PRECO_VENDA]` (R$ `[VALOR]`). O mesmo preço aplica-se quer o comprador chegue via corretor quer via contacto directo com a(s) CONTRATANTE(S) ou plataforma ForteGB.
+1.2. O **preço de venda público** é **único**: `[PRECO_VENDA]` (R$ `[VALOR]`). O mesmo preço aplica-se seja o comprador indicado por corretor ou por contato direto com a(s) CONTRATANTE(S) ou plataforma ForteGB.
 
 1.3. A(s) CONTRATANTE(S) podem divulgar o imóvel livremente (site, redes, placas, QR, visitas autoguiadas) sem reduzir o preço nem anular comissão nos termos deste contrato.
 
@@ -35,74 +35,74 @@
 
 ## Cláusula 2 — CRECI e adesão à plataforma
 
-2.1. **CRECI activo é preferencial** mas **não obrigatório** para adesão ao esquema ForteGB. Corretores com ou sem CRECI seguem o **mesmo fluxo** de registo de leads e regras de comissão.
+2.1. **CRECI ativo é preferencial** mas **não obrigatório** para adesão ao esquema ForteGB. Corretores com ou sem CRECI seguem o **mesmo fluxo** de registro de leads e regras de comissão.
 
-2.2. O(A) CONTRATADO(A) adere ao **portal / bot WhatsApp** ForteGB para registo formal de prospectos, conforme cláusula 4.
+2.2. O(A) CONTRATADO(A) adere ao **portal / bot WhatsApp** ForteGB para registro formal de prospectos, conforme cláusula 4.
 
 ---
 
 ## Cláusula 3 — Comissão
 
-3.1. **Percentagem:** `[PERCENTAGEM]`% sobre o valor efectivo de venda — ex. referência mercado ~5%; ForteGB prática recente 3%.
+3.1. **Percentual:** `[PERCENTAGEM]`% sobre o valor efetivo de venda — ex. referência mercado ~5%; ForteGB prática recente 3%.
 
 3.2. **Pagamento em duas etapas** (salvo acordo escrito diferente neste contrato):
 
 | Etapa | Momento | Valor |
 |-------|---------|-------|
-| 1 | Assinatura do **contrato de promessa / sinal** com comprador registado | `[PERCENTUAL_SINAL]`% da comissão total |
+| 1 | Assinatura do **contrato de promessa / sinal** com comprador registrado | `[PERCENTUAL_SINAL]`% da comissão total |
 | 2 | **Escritura** definitiva | Restante da comissão |
 
-3.3. Comissão devida **somente** se o **comprador** for prospecto **validamente registado** pelo(a) CONTRATADO(A) para este imóvel (cláusula 4).
+3.3. Comissão devida **somente** se o **comprador** for prospecto **validamente registrado** pelo(a) CONTRATADO(A) para este imóvel (cláusula 4).
 
-3.4. **Sem registo prévio válido** → sem comissão, salvo excepção aprovada por escrito pela(s) CONTRATANTE(S).
+3.4. **Sem registro prévio válido** → sem comissão, salvo exceção aprovada por escrito pela(s) CONTRATANTE(S).
 
-3.5. Vendas **directas** (prospecto nunca registado pelo corretor e captado primeiro pela plataforma/contacto directo ForteGB) → **sem comissão**.
+3.5. Vendas **diretas** (prospecto nunca registrado pelo corretor e captado primeiro pela plataforma/contato direto ForteGB) → **sem comissão**.
 
 ---
 
-## Cláusula 4 — Registo de prospectos
+## Cláusula 4 — Registro de prospectos
 
-4.1. O(A) CONTRATADO(A) deve **registar cada prospecto antes** que o prospecto seja capturado pela plataforma ForteGB (formulário, WhatsApp, visita agendada, visita instantânea QR, etc.).
+4.1. O(A) CONTRATADO(A) deve **registrar cada prospecto antes** que o prospecto seja capturado pela plataforma ForteGB (formulário, WhatsApp, visita agendada, visita instantânea QR, etc.).
 
-4.2. **Registo:** envio de **nome completo + CPF** do prospecto via **bot WhatsApp** ForteGB ou portal. Registo válido gera **confirmação imediata** e, quando disponível, **PDF de termo de registo**.
+4.2. **Registro:** envio de **nome completo + CPF** do prospecto via **bot WhatsApp** ForteGB ou portal. Registro válido gera **confirmação imediata** e, quando disponível, **PDF de termo de registro**.
 
-4.3. **Âmbito:** registo válido **por imóvel / contrato por casa**. O mesmo prospecto pode ser directo noutro imóvel ForteGB.
+4.3. **Âmbito:** registro válido **por imóvel / contrato por casa**. O mesmo prospecto pode ser direto em outro imóvel ForteGB.
 
 4.4. **Validade:** atribuição mantém-se **até a venda do imóvel**, sem expiração por tempo.
 
-4.5. **Duplicidade:** primeiro registo válido (nome + CPF) prevalece; a plataforma alerta tentativas duplicadas.
+4.5. **Duplicidade:** primeiro registro válido (nome + CPF) prevalece; a plataforma alerta tentativas duplicadas.
 
-4.6. **CPF** sujeito a validação automática. Registos em volume anormal podem ser sinalizados e revogados por fraude ou abuso.
+4.6. **CPF** sujeito a validação automática. Registros em volume anormal podem ser sinalizados e revogados por fraude ou abuso.
 
-4.7. ForteGB **não contacta** o prospecto apenas para validar registo do corretor.
+4.7. ForteGB **não contata** o prospecto apenas para validar registro do corretor.
 
 ---
 
 ## Cláusula 5 — Visitas e marketing
 
-5.1. Prospectos registados podem usar **visitas autoguiadas** (agendadas ou instantâneas). A plataforma pode exibir *«Seu Corretor: [nome]»* ao prospecto.
+5.1. Prospectos registrados podem usar **visitas autoguiadas** (agendadas ou instantâneas). A plataforma pode exibir *«Seu Corretor: [nome]»* ao prospecto.
 
-5.2. O(A) CONTRATADO(A) recebe **link para agendar visita** após registo confirmado.
+5.2. O(A) CONTRATADO(A) recebe **link para agendar visita** após registro confirmado.
 
 ---
 
 ## Cláusula 6 — Transparência na venda
 
-6.1. Quando o imóvel for vendido, ForteGB notificará corretores com registos activos neste imóvel (WhatsApp), com **identificação do comprador** (nome + CPF) para transparência.
+6.1. Quando o imóvel for vendido, ForteGB notificará corretores com registros ativos neste imóvel (WhatsApp), com **identificação do comprador** (nome + CPF) para transparência.
 
-6.2. Comissão paga conforme cláusula 3 se o comprador for prospecto registado do(a) CONTRATADO(A).
+6.2. Comissão paga conforme cláusula 3 se o comprador for prospecto registrado do(a) CONTRATADO(A).
 
 ---
 
 ## Cláusula 7 — Corretores sem contrato formal
 
-7.1. Corretores que **não** assinarem este modelo podem continuar a actuar informalmente; **não** há garantia automática de comissão nem registo em portal.
+7.1. Corretores que **não** assinarem este modelo podem continuar a atuar informalmente; **não** há garantia automática de comissão nem registro em portal.
 
 ---
 
 ## Cláusula 8 — Obrigações do corretor
 
-8.1. Actuar com boa-fé; não registar prospectos fictícios.
+8.1. Atuar com boa-fé; não registrar prospectos fictícios.
 
 8.2. Violação grave (fraude, hoarding) → rescisão e perda de comissões pendentes, salvo disposição legal em contrário.
 
@@ -118,7 +118,7 @@
 
 10.1. Vigência: da assinatura até **venda do imóvel** ou rescisão por escrito.
 
-10.2. Registos válidos anteriores à rescisão mantêm-se até venda do imóvel, salvo acordo diferente.
+10.2. Registros válidos anteriores à rescisão mantêm-se até venda do imóvel, salvo acordo diferente.
 
 ---
 
@@ -157,12 +157,12 @@
 
 **Revisão:** Ricardo apresenta à Juliana Mestrinier → redlines → aprovação trio → piloto com Juliana.
 
-**Onboarding (portal):** registo conta → termos → **por casa:** reclamar → Gov.br → staff → leads.
+**Onboarding (portal):** registro conta → termos → **por casa:** reclamar → Gov.br → staff → leads.
 
 ```mermaid
 flowchart TB
   subgraph conta [Conta — uma vez]
-    R[Registo + e-mail] --> T[Termos no site]
+    R[Registro + e-mail] --> T[Termos no site]
   end
   subgraph casa [Por casa — repetível]
     C[Reclamar casa] --> G[Gov.br]
