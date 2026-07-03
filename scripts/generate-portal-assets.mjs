@@ -133,7 +133,6 @@ function shell(title, bodyHtml) {
         <a class="btn-secondary" href="./corretor-contract-template.md">Markdown</a>
         <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
       </nav>
-      <div class="meta" id="portal-build-meta"></div>
     </div>
   </div>
   <header class="hero">
@@ -143,7 +142,7 @@ function shell(title, bodyHtml) {
   <main class="container doc-body">
 ${bodyHtml}
   </main>
-  <footer class="footer-note"><a href="../index.html">Documentação Plataforma ForteGB</a></footer>
+  <footer class="footer-note"><span id="portal-build-meta"></span></footer>
   <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>`;

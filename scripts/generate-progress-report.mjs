@@ -343,7 +343,6 @@ function buildHtml({ items, focus, generatedAt }) {
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
-    <div class="meta" id="portal-build-meta"></div>
   </div>
 
   <header class="hero">
@@ -385,8 +384,7 @@ function buildHtml({ items, focus, generatedAt }) {
   </main>
 
   <footer class="footer-note">
-    <a href="https://github.com/orgs/fortegb/projects/1">Board GitHub</a> ·
-    <a href="../index.html">Documentação</a>
+    <span id="portal-build-meta"></span>
   </footer>
   <script src="../assets/portal-build.js" defer></script>
 </body>

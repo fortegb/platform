@@ -3,6 +3,8 @@
   const script = document.currentScript;
   if (!el || !script) return;
 
+  const boardUrl = 'https://github.com/orgs/fortegb/projects/1';
+
   fetch(new URL('build-info.json', script.src))
     .then((r) => (r.ok ? r.json() : null))
     .then((info) => {
@@ -13,7 +15,7 @@
         timeStyle: 'short',
       });
       el.innerHTML =
-        `Atualizado ${when} · <a href="${info.url}" target="_blank" rel="noopener">${info.hash}</a>`;
+        `Atualizado ${when} · <a href="${info.url}" target="_blank" rel="noopener">${info.hash}</a> · <a href="${boardUrl}" target="_blank" rel="noopener">Board GitHub</a>`;
     })
     .catch(() => {});
 })();

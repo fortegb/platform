@@ -385,7 +385,7 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 
 ### Portal sócios (GitHub Pages)
 - Conteúdo em **`docs/`** — índice, planning HTML, mocks estáticos.
-- Toolbar **Atualizado … · hash** vem de **`docs/assets/build-info.json`**, carregado por **`docs/assets/portal-build.js`**.
+- Toolbar **Atualizado … · hash · Board GitHub** no **footer**, via **`docs/assets/build-info.json`** + **`docs/assets/portal-build.js`**.
 - **Três camadas (automático):**
   1. **Git hook** — `.githooks/post-commit` após commits em `docs/` → amend com hash correcto.
   2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
