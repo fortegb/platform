@@ -384,7 +384,7 @@ function buildHtml({ items, focus, generatedAt }) {
   </main>
 
   <footer class="footer-note">
-    <span id="portal-build-meta"></span>
+    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
   </footer>
   <script src="../assets/portal-build.js" defer></script>
 </body>
