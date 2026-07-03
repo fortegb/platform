@@ -1,15 +1,8 @@
 # Foco actual — Ricardo
 
-> Editado manualmente (ou na sessão com IA). O gerador `npm run progress:report` incorpora este texto na secção **Em foco agora**.  
-> **Board:** mover issues activas para **In Progress** no [Project platform](https://github.com/orgs/fortegb/projects/1) para aparecerem automaticamente.
+> Narrativa editável na sessão com IA; incorporada na secção **Em foco agora** do relatório de progresso.
 
-### Publicar para sócios (GitHub Pages)
-
-1. **Portal:** https://fortegb.github.io/platform/
-2. **Mocks do site (estático):** `npm run pages:site` → commit `docs/planning/site/app/` → push
-3. **Relatório:** `npm run progress:report` · **Tudo:** `npm run pages:sync`
-
-**Actualizado:** 2026-07-02
+**Actualizado:** 2026-07-03
 
 ---
 
@@ -17,7 +10,7 @@
 
 - **Documentação de governação e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios (modelo de negócio).
 - **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).
-- **Relatório de progresso** — esta página HTML ligada ao board GitHub (auto-actualizada com `npm run progress:report`).
+- **Portal sócios** — mocks, jornadas, mapa por fases e relatório de progresso em [fortegb.github.io/platform](https://fortegb.github.io/platform/).
 
 ## Próximo passo
 

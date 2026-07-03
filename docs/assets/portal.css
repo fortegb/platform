@@ -35,7 +35,11 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap; gap: 0.5rem;
 }
 
-.toolbar .brand { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+.toolbar .brand {
+  font-weight: 700; color: var(--navy); font-size: 0.95rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.toolbar .brand-logo { height: 2.25rem; width: auto; display: block; }
 .toolbar .brand a { color: inherit; text-decoration: none; }
 .toolbar .meta { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
 
@@ -51,6 +55,10 @@ a:hover { text-decoration: underline; }
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, #2a4560 50%, var(--slate) 100%);
   color: #fff; padding: 3rem 1.5rem 2.5rem; text-align: center;
+}
+.hero-logo {
+  height: clamp(3.5rem, 10vw, 5rem); width: auto;
+  margin: 0 auto 1.25rem; display: block;
 }
 .hero h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700; margin-bottom: 0.5rem; }
 .hero p { opacity: 0.9; max-width: 38rem; margin: 0 auto; font-size: 0.95rem; }

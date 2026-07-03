@@ -11,20 +11,21 @@
 </head>
 <body>
   <div class="toolbar">
-    <div class="brand">ForteGB · Portal interno</div>
+    <div class="brand">
+      <img src="./assets/logo.png" alt="" class="brand-logo" width="120" height="48" />
+      <span>Portal interno</span>
+    </div>
     <div class="meta">Acesso sócios · GitHub Pages</div>
   </div>
 
   <header class="hero">
+    <img src="./assets/logo.png" alt="ForteGB" class="hero-logo" width="200" height="80" />
     <h1>Portal ForteGB</h1>
     <p>Índice para sócios — mocks do site, progresso da plataforma e documentos de apoio.</p>
   </header>
 
   <main class="container">
     <h2 class="section-title">Site — mocks online</h2>
-    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem">
-      Export estático do Nuxt (<code>nuxt generate</code>) — mesmas páginas do repo, sem Vercel. Actualizar com <code>npm run pages:site</code>.
-    </p>
     <div class="grid">
       <a class="card" href="./planning/site/" style="text-decoration:none;color:inherit">
         <span class="tag green">Mockups estáticos</span>
@@ -80,10 +81,6 @@
         <p>Modelo de parceria por imóvel — revisão Juliana Mestrinier antes de uso.</p>
         <div class="link-row">Ler contrato →</div>
       </a>
-    </div>
-
-    <div class="notice" style="margin-top:2rem">
-      <strong>Manutenção:</strong> mocks <code>npm run pages:site</code> · relatório <code>npm run progress:report</code> · contrato <code>npm run pages:portal</code> · tudo junto <code>npm run pages:sync</code>.
     </div>
   </main>
 

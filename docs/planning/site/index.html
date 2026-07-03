@@ -23,11 +23,6 @@
   </header>
 
   <main class="container">
-    <div class="notice">
-      <strong>Actualizar mocks:</strong> <code>npm run pages:site</code> (gera e copia para <code>docs/planning/site/app/</code>) · depois commit + push.
-      <span id="build-stamp" style="display:block;margin-top:0.35rem;font-size:0.82rem;color:var(--muted)"></span>
-    </div>
-
     <h2 class="section-title">Variantes da home</h2>
     <ul class="route-list" id="home-routes"></ul>
 
@@ -42,7 +37,7 @@
   </main>
 
   <footer class="footer-note">
-    URL: <code>/platform/planning/site/app/</code> · Origem: <code>npm run pages:site</code>
+    <a href="../../index.html">Portal ForteGB</a>
   </footer>
 
   <script>
@@ -87,15 +82,6 @@
     document.getElementById('public-routes').innerHTML = ROUTES.public.map(row).join('');
     document.getElementById('corretor-routes').innerHTML = ROUTES.corretor.map(row).join('');
     document.getElementById('visita-routes').innerHTML = ROUTES.visita.map(row).join('');
-
-    fetch('./app/.static-build')
-      .then((r) => (r.ok ? r.text() : ''))
-      .then((t) => {
-        if (!t) return;
-        const line = t.split('\n').find((l) => l.startsWith('generatedAt='));
-        if (line) document.getElementById('build-stamp').textContent = 'Última geração: ' + line.replace('generatedAt=', '');
-      })
-      .catch(() => {});
   </script>
 </body>
 </html>

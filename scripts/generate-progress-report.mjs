@@ -232,7 +232,7 @@ function buildHtml({ items, focus, generatedAt }) {
 
   const inProgressHtml =
     inProgress.length === 0
-      ? '<p class="muted">Nenhuma issue com status <strong>In Progress</strong> no board — actualize o Project ou o ficheiro <code>progress-focus.md</code>.</p>'
+      ? '<p class="muted">Nenhuma issue com status <strong>In Progress</strong> no board.</p>'
       : `<ul class="in-progress-list">${inProgress
           .map(
             (i) =>
@@ -395,7 +395,7 @@ function buildHtml({ items, focus, generatedAt }) {
 </head>
 <body>
   <div class="toolbar">
-    <span>Gerado: ${esc(generatedAt)} · Foco: ${esc(focus.updated)}</span>
+    <span>Relatório de progresso · ForteGB</span>
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
       <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
       <a href="../index.html">Portal</a>
@@ -443,9 +443,8 @@ function buildHtml({ items, focus, generatedAt }) {
   </main>
 
   <footer class="footer-note">
-    Fonte: GitHub Project <strong>platform</strong> + <code>progress-focus.md</code>.
-    Regenerar: <code>npm run progress:report</code> (requer <code>gh</code> autenticado).
-    ${esc(generatedAt)}
+    <a href="https://github.com/orgs/fortegb/projects/1">Board GitHub</a> ·
+    <a href="../index.html">Portal</a>
   </footer>
 </body>
 </html>`;

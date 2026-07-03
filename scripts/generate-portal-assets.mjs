@@ -140,7 +140,7 @@ function shell(title, bodyHtml) {
   <main class="container doc-body">
 ${bodyHtml}
   </main>
-  <footer class="footer-note">Fonte: corretor-contract-template.md · Gerado por npm run pages:portal</footer>
+  <footer class="footer-note"><a href="../index.html">Portal ForteGB</a></footer>
 </body>
 </html>`;
 }
