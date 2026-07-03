@@ -32,7 +32,7 @@
 | Architecture & MVP definition | **Todo** | `rbo-grilling` — [Q-003](./docs/planning/open-questions.md) |
 | Brand assets upload | **Todo** | Paralelo — AGENTS.md §7 |
 
-Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · registar no board ao fechar Architecture.
+Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); build bloqueado até Architecture Done. Ver [`deliverables.md`](./docs/planning/deliverables.md).
 
 ---
 
@@ -50,19 +50,26 @@ Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · r
 
 ## Esta sessão
 
-- [x] Org migration, dotfiles 0.8.x, re-clones, rename `platform`
-- [x] Handoff docs commitados e push `origin/main` (0a6af59)
-- [x] `rbo-handoff` — sessão encerrada na máquina principal
-- [ ] **Próxima sessão:** Mac Mini — [setup-mac-mini.md](./docs/setup-mac-mini.md) **ou** `rbo-catch-up` + Architecture ([#1](https://github.com/fortegb/platform/issues/1))
+- [x] Issue [#139](https://github.com/fortegb/platform/issues/139) — epics/issues review; branch `feat/epics-issues-review` (explore)
+- [x] Portal polish [#138](https://github.com/fortegb/platform/issues/138) fechado (OpenSpec arquivado)
+- [x] **A1:** `phases.md` sincronizado com board (Phase 0 epics Done + checklists)
+- [x] **A2:** `STATUS.md` actualizado
+- [x] **A3:** `architecture.md` §1/§3/§6 synced from jornadas (light skim; gaps → Topic C)
+- [x] **A4:** #37 renomeado → «Criar epics Phase 1–4 no board»
+- [x] **A5:** #138 stays under #4; future portal/docs → new Documentation epic (TBD)
+- [x] **A6:** `progress-focus.md` — portal #138 em concluídos; foco #139 + Architecture
+- [x] **Naming:** Platform docs / Documentação da plataforma (AGENTS.md + planning README)
+- [ ] **Topic B→C review** — missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
+- [ ] Architecture [#1](https://github.com/fortegb/platform/issues/1) — grilling (após review)
 
 ---
 
 ## Recently done
 
-- **2026-07-01:** Handoff Phase 0; push sync; repos org renomeados (`app-despesas`, `ai-assets`).
-- **2026-07-01:** Org `fortegb`, repos transferidos, `platform`, dotfiles `auth`/`commit_as`, Project + OpenSpec.
-- **2026-07-01:** Planning finalizado — deliverables, Q-016–Q-019, D-011.
-- **2026-06-28–29:** UI refinement. Ver `CHANGELOG.md`.
+- **2026-07-03:** Portal sócios (#138) — módulos, UX cards, Pages deploy; progress report regen.
+- **2026-07-03:** Board review #139 criado; explore epics-issues-review.
+- **2026-07-01:** Handoff Phase 0; org migration + bootstrap Done; planning finalizado.
+- **2026-06-28–29:** UI refinement. Ver [`CHANGELOG.md`](./CHANGELOG.md).
 
 ---
 
@@ -83,4 +90,4 @@ Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · r
 | [deliverables.md](./docs/planning/deliverables.md) | Mapa negócio ↔ plano |
 | [open-questions.md](./docs/planning/open-questions.md) | Grilling backlog |
 | [phases.md](./docs/planning/phases.md) | Epics detalhados |
-| [setup-mac-mini.md](./docs/setup-mac-mini.md) | Checklist Mac Mini pós-migração |
+| [explore/epics-issues-review.md](./docs/planning/explore/epics-issues-review.md) | Notas explore #139 (board hygiene) |

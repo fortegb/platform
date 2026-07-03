@@ -15,6 +15,8 @@
 
 **Grilling:** decisões arquitecturais **abertas** até epic Architecture (D-011). Escolher melhor solução em cada sessão.
 
+**Platform docs** (EN) · **Documentação da plataforma** (pt-BR): HTML estático em [`../`](../index.html) no GitHub Pages ([fortegb.github.io/platform](https://fortegb.github.io/platform/)) — planeamento para sócios; **não** é o produto Nuxt nem portais logados (corretor/staff).
+
 ---
 
 ## Índice
@@ -23,9 +25,9 @@
 |-----------|----------|
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco actual (Ricardo)** — editável; alimenta relatório de progresso |
-| [../index.html](../index.html) | **Portal sócios (GitHub Pages)** — índice: mocks estáticos, progresso, docs |
+| [../index.html](../index.html) | **Platform docs** — índice GitHub Pages: mocks, progresso, planning HTML |
 | [jornadas-plataforma.md](./jornadas-plataforma.md) | **Jornadas e funcionalidades** — estado-alvo por utilizador |
-| [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica (portal) |
+| [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica (Platform docs) |
 | [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Phase 0–4 + módulos |
 | [modules.md](./modules.md) | **Módulos de produto** — canon editável |
 | [modules.html](./modules.html) | **Módulos da plataforma** — detalhe por área (gerado de `modules.md`) |

@@ -383,14 +383,24 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 - **Home com variantes (em avaliação):** `/` (split, azul original), `/v2` (clássico), `/v3` (slate), `/v4` (azul `primary-400`). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`.
 - **Login:** fluxo *identifier-first* (UI/mock) em `pages/login.vue`. Comportamento e pendências de back-end em **`docs/autenticacao-login.md`**.
 
-### Portal sócios (GitHub Pages)
-- Conteúdo em **`docs/`** — índice, planning HTML, mocks estáticos.
+### Platform docs (GitHub Pages)
+
+> **Nome acordado (2026-07-03):** **Platform docs** (EN, issues/chat) · **Documentação da plataforma** (pt-BR, copy sócios).  
+> **Não confundir com:** the **product** (app Nuxt, `/corretor`, visitas) nem **logged-in portals** (corretor, staff, admin).
+
+| Termo | Significado |
+|-------|-------------|
+| **Platform docs** | Site estático em **`docs/`** → [fortegb.github.io/platform](https://fortegb.github.io/platform/) |
+| **Product / app** | Código Nuxt em `pages/`, API, deploy Vercel — site público + áreas logadas |
+| **Repo `platform`** | Repositório GitHub (contém ambos) |
+
+- Conteúdo: índice, planning HTML, mocks estáticos, relatório de progresso.
 - Footer **Atualizado … · hash · Board GitHub** via **`docs/assets/build-info.json`** + **`docs/assets/portal-build.js`**.
 - **Três camadas (automático):**
   1. **Git hook** — após commits em `docs/`, commit separado `chore: refresh portal build-info` (hash aponta para o commit anterior com as alterações).
   2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
   3. **GitHub Action** — backup em push a `main` se o hook não correr.
-- Regeneração completa: **`npm run pages:sync`**.
-- Agentes: commit/push normal em mudanças de portal — **não** correr `pages:build-info` à mão.
+- Regeneração: **`node scripts/generate-progress-report.mjs`**, **`node scripts/generate-portal-assets.mjs`**, ou **`npm run pages:sync`** (completo).
+- Agentes: commit/push normal em mudanças em Platform docs — **não** correr `pages:build-info` à mão.
 
 > Importante: evitar valores de cor **arbitrários** (`to-[#xxxxxx]`) em arquivos novos — preferir cores **nomeadas** no `tailwind.config.js`, pois arbitrários em arquivos recém-criados podem não ser compilados sem rebuild.

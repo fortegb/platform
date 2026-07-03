@@ -1,7 +1,8 @@
 # Fases e epics
 
 > Sequenciamento de alto nível. Cada epic vira issue pai no board (campo **Phase**).  
-> Sub-tarefas abaixo viram **sub-issues** quando o board existir.
+> Sub-tarefas abaixo viram **sub-issues** quando o board existir.  
+> **Estado vivo:** [GitHub Project `platform`](https://github.com/orgs/fortegb/projects/1) · [`ROADMAP.md`](../../ROADMAP.md).
 
 **Convenção:** *Define* (Architecture) vs *Build* (Phase 1+). Epics grandes com entrega visível têm epic dedicado — não ficam enterrados em “auth” ou “portfólio”.
 
@@ -15,19 +16,19 @@
 
 ```
 Seed docs/planning (✅)
-    → GitHub org migration
-    → Bootstrap board & OpenSpec
+    → GitHub org migration (✅)
+    → Bootstrap board & OpenSpec (✅)
     → Architecture & MVP definition   ← define roles, journeys, MVP, home choice (Q-010)
     → (paralelo possível) Brand assets upload
 ```
 
-| # | Epic | Module | Estado | Bloqueado por |
-|---|------|--------|--------|---------------|
-| 1 | **Seed docs/planning** | platform | ✅ Feito (2026-07-01) | — |
-| 2 | **GitHub org migration** | platform | Todo | — |
-| 3 | **Bootstrap board & OpenSpec** | platform | Todo | Org migration |
-| 4 | **Architecture & MVP definition** | platform | Todo | Bootstrap board |
-| 5 | **Brand assets upload** | branding | Todo | — (paralelo após org) |
+| # | Epic | Board | Module | Estado | Bloqueado por |
+|---|------|-------|--------|--------|---------------|
+| 1 | **Seed docs/planning** | [#4](https://github.com/fortegb/platform/issues/4) | platform | ✅ Done (2026-07-01) | — |
+| 2 | **GitHub org migration** | [#8](https://github.com/fortegb/platform/issues/8) | platform | ✅ Done (2026-07-01) | — |
+| 3 | **Bootstrap board & OpenSpec** | [#20](https://github.com/fortegb/platform/issues/20) | platform | ✅ Done (2026-07-01) | — |
+| 4 | **Architecture & MVP definition** | [#1](https://github.com/fortegb/platform/issues/1) | platform | Todo | — |
+| 5 | **Brand assets upload** | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo) |
 
 | Epic | Doc / runbook |
 |------|---------------|
@@ -36,30 +37,30 @@ Seed docs/planning (✅)
 | Architecture & MVP definition | [architecture.md](./architecture.md) · [open-questions.md](./open-questions.md) |
 | Brand assets upload | AGENTS.md §7 |
 
-### Epic: GitHub org migration — sub-tarefas
+### Epic: GitHub org migration ([#8](https://github.com/fortegb/platform/issues/8)) — sub-tarefas
 
-1. [ ] Gerar PAT em `fortegb-admin` (pós-rename): scopes `repo`, `project`, `read:org`
-2. [ ] Renomear personal `fortegb` → `fortegb-admin`
-3. [ ] Criar Organization **`fortegb`**
-4. [ ] Adicionar `rbonon` como **Organization owner**
-5. [ ] **Move work** → transferir `sandbox` para org
-6. [ ] Atualizar `dotfiles.conf` + `setup_pats` + Keychain (ver runbook)
-7. [ ] Atualizar remotes locais (`sandbox` e outros)
-8. [ ] Reconectar **Vercel** ao repo na org
-9. [ ] Habilitar **Issue types** (Epic, Feature, Task) em Settings → Planning
-10. [ ] Smoke test: clone, push, `gh repo view`, `gh auth status`
-11. [ ] Registar execução em `decisions.md` / dotfiles `DECISIONS.md` se aplicável
+1. [x] Gerar PAT em `fortegb-admin` (pós-rename): scopes `repo`, `project`, `read:org` ([#9](https://github.com/fortegb/platform/issues/9))
+2. [x] Renomear personal `fortegb` → `fortegb-admin` ([#10](https://github.com/fortegb/platform/issues/10))
+3. [x] Criar Organization **`fortegb`** ([#11](https://github.com/fortegb/platform/issues/11))
+4. [x] Adicionar `rbonon` como **Organization owner** ([#12](https://github.com/fortegb/platform/issues/12))
+5. [x] **Move work** → transferir `sandbox` para org ([#13](https://github.com/fortegb/platform/issues/13))
+6. [x] Atualizar `dotfiles.conf` + `setup_pats` + Keychain (ver runbook) ([#14](https://github.com/fortegb/platform/issues/14))
+7. [x] Atualizar remotes locais (`platform`, `app-despesas`, `ai-assets`) ([#15](https://github.com/fortegb/platform/issues/15))
+8. [x] Reconectar **Vercel** ao repo na org ([#16](https://github.com/fortegb/platform/issues/16))
+9. [x] Habilitar **Issue types** (Epic, Feature, Task) em Settings → Planning ([#17](https://github.com/fortegb/platform/issues/17))
+10. [x] Smoke test: clone, push, `gh repo view`, `gh auth status` ([#18](https://github.com/fortegb/platform/issues/18))
+11. [x] Registar execução em `decisions.md` / dotfiles `DECISIONS.md` se aplicável ([#19](https://github.com/fortegb/platform/issues/19))
 
-### Epic: Bootstrap board & OpenSpec — sub-tarefas
+### Epic: Bootstrap board & OpenSpec ([#20](https://github.com/fortegb/platform/issues/20)) — sub-tarefas
 
-1. [ ] Inicializar OpenSpec no repo (`openspec/` + CLI)
-2. [ ] Criar Project **`platform`** na org
-3. [ ] Campos custom: **Phase**, **Module**
-4. [ ] Registar epics Phase 0 restantes como issues pai
-5. [ ] Gerar `ROADMAP.md` pela primeira vez
-6. [ ] Actualizar `STATUS.md` com números de issues
+1. [x] Inicializar OpenSpec no repo (`openspec/` + CLI) ([#21](https://github.com/fortegb/platform/issues/21))
+2. [x] Criar Project **`platform`** na org ([#22](https://github.com/fortegb/platform/issues/22))
+3. [x] Campos custom: **Phase**, **Module** ([#23](https://github.com/fortegb/platform/issues/23))
+4. [x] Registar epics Phase 0 restantes como issues pai ([#24](https://github.com/fortegb/platform/issues/24))
+5. [x] Gerar `ROADMAP.md` pela primeira vez ([#25](https://github.com/fortegb/platform/issues/25))
+6. [x] Actualizar `STATUS.md` com números de issues ([#26](https://github.com/fortegb/platform/issues/26))
 
-### Epic: Architecture & MVP definition — sub-tarefas
+### Epic: Architecture & MVP definition ([#1](https://github.com/fortegb/platform/issues/1)) — sub-tarefas
 
 > **Define only** — grilling + docs. **Implement** roles/UI/integrations in Phase 1+ epics.  
 > Uses **`rbo-grilling`**. Deliverable: [`architecture.md`](./architecture.md) completo.
@@ -69,15 +70,15 @@ Seed docs/planning (✅)
 3. [ ] Sessão grilling 3: Q-005, Q-006 visitas
 4. [ ] Sessão grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 5. [ ] Sessão grilling 5: Q-008 mobile (se ainda aberto)
-6. [ ] **User journey map** por role MVP → `architecture.md` §2 + §5
+6. [x] **Journey map + screen map MVP** → `architecture.md` §3 + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32))
 7. [ ] Escolha home com/sem hero (Q-010) → `architecture.md` + D-005
 8. [ ] Completar `architecture.md` (contexto, dados, fluxos, NFR)
 9. [ ] MVP v1 vs later em `platform-vision.md` + `decisions.md`
 10. [ ] Checkpoint: Q-* **resolved** ou **deferred**
-11. [ ] Criar epics **Phase 1–3** no board (lista §7 de `architecture.md`)
+11. [x] Criar epics **Phase 1–4** no board ([#37](https://github.com/fortegb/platform/issues/37))
 12. [ ] Epic **Done** → Phase 1 desbloqueada
 
-### Epic: Brand assets upload — sub-tarefas
+### Epic: Brand assets upload ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
 
 1. [ ] Logo (SVG/PNG/PDF)
 2. [ ] Brand guide (cores, tipografia, uso)
@@ -229,7 +230,8 @@ Epics (**criar no board após Architecture**):
 | Tópico | Define (Phase 0 Architecture) | Build (Epic) |
 |--------|-------------------------------|--------------|
 | User roles | Q-003, architecture §2 | **Identity, roles & journey routing** (P1) |
-| User journeys (entry) | Journey map §5 | **Identity…** (P1) |
+| User journeys (entry) | Journey map §3 | **Identity…** (P1) |
+| Screen map | [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32)) | **Identity…** (P1) shells; features P2+ |
 | Journey features corretor | §5 | **Portal corretor** (P2) |
 | Journey visitante | §5 | **Visitas MVP** (P2) |
 | Home 2 vencedores | Q-010 | **Public site UI finalization** (P1) |

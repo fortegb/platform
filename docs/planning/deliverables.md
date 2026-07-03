@@ -42,8 +42,8 @@
 | **Acesso condomínio / portaria (AI?)** | TBD | **Q-017** |
 | Confirmação WhatsApp | P2 Integrations | — |
 | Lead automático no CRM | P2 Visitas + Integrations | Q-018 |
-| Lembretes / follow-up pós-visita | TBD pós-MVP | Architecture (defer?) |
-| Aprovação manual se ID falhar | TBD | Q-005 |
+| Lembretes / follow-up pós-visita | P2 Visitas ([#141](https://github.com/fortegb/platform/issues/141)) + Integrations/CRM | Ships with Visitas MVP |
+| Aprovação manual se ID falhar | P2 Integrations ([#80](https://github.com/fortegb/platform/issues/80)) | Visitor visit queue; Q-005 |
 
 *Todas as escolhas de implementação ficam abertas até grilling.*
 
@@ -97,8 +97,11 @@
 
 ## 8. Checklist “pronto para Phase 1 build”
 
-- [ ] Phase 0 epics 2–4 Done (org, bootstrap, architecture)
-- [ ] `architecture.md` completo
+- [x] GitHub org + board ([#8](https://github.com/fortegb/platform/issues/8))
+- [x] OpenSpec + workflow ([#20](https://github.com/fortegb/platform/issues/20))
+- [ ] Architecture & MVP fechado ([#1](https://github.com/fortegb/platform/issues/1) → [#38](https://github.com/fortegb/platform/issues/38))
+- [ ] Brand assets ([#2](https://github.com/fortegb/platform/issues/2)) — paralelo, não bloqueia build
+- [ ] `architecture.md` completo + [`screen-map.md`](./screen-map.md) aceite ([#32](https://github.com/fortegb/platform/issues/32))
 - [ ] Q-003–Q-019 resolved ou deferred com rationale
-- [ ] Epics Phase 1–3 no board
-- [ ] `ROADMAP.md` gerado
+- [x] Epics Phase 1–4 no board ([#37](https://github.com/fortegb/platform/issues/37))
+- [x] `ROADMAP.md` gerado

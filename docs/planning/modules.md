@@ -14,8 +14,11 @@
 | Portal sócios (GitHub Pages) | `docs/` — índice, módulos, progresso, jornadas | **Live** (legacy `/docs`) |
 | Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Done (dotfiles 0.8.1) |
 | Deploy / Vercel | Reconectar após transferência | Planejado |
+| **Integrações MVP** | HubSpot, Tuya, WhatsApp, Calendar — epic [#72](https://github.com/fortegb/platform/issues/72), Phase 2 | Planejado |
 
-**Epic:** *GitHub org migration* + *Bootstrap board & workflow*
+**Epic:** *GitHub org migration* + *Bootstrap board & workflow* + *Integrations MVP* (Phase 2, module `platform`)
+
+> **Integrações** não são módulo board separado — cross-cutting; Visitas (#81) e CRM (#86) consomem o hub.
 
 ---
 
