@@ -7,7 +7,12 @@
 
 ---
 
-## Problem framing
+## Naming (2026-07-03)
+
+- **Platform docs** (EN) / **Documentação da plataforma** (pt-BR) = `docs/` on GitHub Pages — not the Nuxt product.
+- Legacy label «portal sócios» in closed issues (#138) — keep as history only.
+
+---
 
 The board (`fortegb/platform` #1) is the execution source of truth; planning canon lives in `docs/planning/`. Drift is expected as the project evolves — this change is **hygiene**, not new product scope.
 

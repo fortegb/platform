@@ -58,7 +58,8 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 - [x] **A4:** #37 renomeado → «Criar epics Phase 1–4 no board»
 - [x] **A5:** #138 stays under #4; future portal/docs → new Documentation epic (TBD)
 - [x] **A6:** `progress-focus.md` — portal #138 em concluídos; foco #139 + Architecture
-- [ ] **Topic A→C review** — stale/missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
+- [x] **Naming:** Platform docs / Documentação da plataforma (AGENTS.md + planning README)
+- [ ] **Topic B→C review** — missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
 - [ ] Architecture [#1](https://github.com/fortegb/platform/issues/1) — grilling (após review)
 
 ---
