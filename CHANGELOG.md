@@ -7,6 +7,15 @@
 
 ## Não versionado
 
+### 2026-07-03 — Portal sócios: módulos, UX e deploy ([#138](https://github.com/fortegb/platform/issues/138))
+
+- Página `modules.html` gerada a partir de `modules.md`; card no index e links no mapa-fases.
+- Jornadas: pilares → módulos; cards de papel → âncoras; hover só em cards clicáveis.
+- `portal.css`: lift restrito a `a.card` / `.card-interactive`.
+- Mapa-fases: label "Relatório de Progresso"; secção obsoleta removida.
+- GitHub Pages: publish legacy `/docs`; GHA auto-deploy desactivado.
+- OpenSpec `partner-portal-polish` arquivado; spec `partner-portal` criada.
+
 ### 2026-07-01 — Sessão handoff (máquina principal)
 
 - Push sync `0a6af59` para `origin/main`; working tree limpa.
