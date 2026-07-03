@@ -127,7 +127,7 @@ function shell(title, bodyHtml) {
 </head>
 <body>
   <div class="toolbar">
-    <div class="brand"><a href="../index.html">← Portal ForteGB</a></div>
+    <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
     <nav>
       <a class="btn-secondary" href="./corretor-contract-template.md">Markdown</a>
       <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
@@ -140,7 +140,7 @@ function shell(title, bodyHtml) {
   <main class="container doc-body">
 ${bodyHtml}
   </main>
-  <footer class="footer-note"><a href="../index.html">Portal ForteGB</a></footer>
+  <footer class="footer-note"><a href="../index.html">Documentação Plataforma ForteGB</a></footer>
 </body>
 </html>`;
 }
