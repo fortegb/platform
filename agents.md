@@ -385,11 +385,11 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 
 ### Portal sócios (GitHub Pages)
 - Conteúdo em **`docs/`** — índice, planning HTML, mocks estáticos.
-- Toolbar **Atualizado … · hash · Board GitHub** no **footer**, via **`docs/assets/build-info.json`** + **`docs/assets/portal-build.js`**.
+- Footer **Atualizado … · hash · Board GitHub** via **`docs/assets/build-info.json`** + **`docs/assets/portal-build.js`**.
 - **Três camadas (automático):**
-  1. **Git hook** — `.githooks/post-commit` após commits em `docs/` → amend com hash correcto.
+  1. **Git hook** — após commits em `docs/`, commit separado `chore: refresh portal build-info` (hash aponta para o commit anterior com as alterações).
   2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
-  3. **GitHub Action** — em push a `main` com mudanças em `docs/` (excepto só `build-info.json`), corrige JSON se um dev pushou sem hook/npm.
+  3. **GitHub Action** — backup em push a `main` se o hook não correr.
 - Regeneração completa: **`npm run pages:sync`**.
 - Agentes: commit/push normal em mudanças de portal — **não** correr `pages:build-info` à mão.
 
