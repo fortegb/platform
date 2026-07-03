@@ -82,6 +82,13 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 
 **Lane reminder:** visitor WhatsApp = #75 · corretor bot = #142 · do not merge.
 
+### B2 decisions
+
+| Item | Decision |
+|------|----------|
+| **B2a Platform docs epic** | [#143 Epic: Documentação da plataforma](https://github.com/fortegb/platform/issues/143) — deliverable: keep Platform docs live/current on GitHub Pages |
+| **B2b #32 / screen map** | _pending_ |
+
 ---
 
 Items marked “TBD” or deferred to Architecture may still lack board issues:
