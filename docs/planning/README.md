@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **Pronto para iniciar Phase 0 execução.**
+> Canon de design e sequenciamento. **Phase 0 execução concluída** — próximo: epic Architecture (grilling).
 
 ---
 
@@ -39,7 +39,6 @@
 | [platform-vision.md](./platform-vision.md) | Visão + stack proposta |
 | [architecture.md](./architecture.md) | Template ADR (preencher na grilling) |
 | [phases.md](./phases.md) | Epics + sub-tarefas Phase 0–4 |
-| [modules.md](./modules.md) | Módulos de produto |
 | [open-questions.md](./open-questions.md) | Backlog grilling (Q-001–Q-019) |
 | [decisions.md](./decisions.md) | Decisões fechadas (D-001–D-011) |
 | [workflow.md](./workflow.md) | Board, OpenSpec, session open/close |

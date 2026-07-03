@@ -11,6 +11,7 @@
 | GitHub Organization | Opção A: org `fortegb`, personal `fortegb-admin` | **Done** |
 | GitHub Project board | Título `platform`, campos Phase + Module | Existe |
 | OpenSpec no repo | CLI + `openspec/changes/` | Inicializado |
+| Portal sócios (GitHub Pages) | `docs/` — índice, módulos, progresso, jornadas | **Live** (legacy `/docs`) |
 | Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Done (dotfiles 0.8.1) |
 | Deploy / Vercel | Reconectar após transferência | Planejado |
 

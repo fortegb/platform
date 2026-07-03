@@ -10,7 +10,7 @@
 
 - **Documentação de governança e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios (modelo de negócio).
 - **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).
-- **Portal sócios** — mocks, jornadas, mapa por fases e relatório de progresso em [fortegb.github.io/platform](https://fortegb.github.io/platform/).
+- **Portal sócios** — [fortegb.github.io/platform](https://fortegb.github.io/platform/): mocks, jornadas, mapa por fases, módulos e relatório de progresso (**polish #138 concluído**).
 
 ## Próximo passo
 
