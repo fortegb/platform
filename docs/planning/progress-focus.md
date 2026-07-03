@@ -27,4 +27,5 @@
 
 - Fase 0 (org + board + planning) está **essencialmente concluída**; falta fechar Architecture.
 - Ainda **não há build** de Fase 1 — bloqueado até #38.
+- **#144 ambientes** ([#144](https://github.com/fortegb/platform/issues/144)) — explore dev/tst/prd; **não** bloqueia Architecture; filho de #42.
 - Decisões de negócio (corretor, comissão, Gov.br) em [`company-structure.md`](./company-structure.md) e [`apresentacao-socios.html`](./apresentacao-socios.html).

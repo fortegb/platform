@@ -8,16 +8,13 @@
 
 ## Fase actual
 
-**Phase 0 — Fundação** (quase completa) → depois Phase 1 build (bloqueado até Architecture Done)
+**Fase 0 — Fundação** (quase completa) → Fase 1 build bloqueada até Architecture Done (#38)
 
 ```
-✅ Seed planning
-✅ GitHub org migration + repos na org
-✅ Repo principal renomeado: sandbox → platform
-✅ Dotfiles auth/commit_as (rbonon dev, namespace fortegb)
-✅ Bootstrap board + OpenSpec
-→ TODO: Architecture & MVP (grilling Q-003…)
-→ Phase 1+ (Identity, Public site UI, …)
+✅ Seed planning · org migration · bootstrap board · OpenSpec
+✅ Board hygiene #139 + screen map #32 + Platform docs publicados
+→ TODO: Architecture & MVP — grilling Q-004+ → #38
+→ Fase 1 build (Identity, Public site, …) após #38
 ```
 
 ---
@@ -29,7 +26,7 @@
 | Seed `docs/planning/` | **Done** | — |
 | GitHub org migration | **Done** | — |
 | Bootstrap board & OpenSpec | **Done** | — |
-| Architecture & MVP definition | **Todo** | `rbo-grilling` — [Q-003](./docs/planning/open-questions.md) |
+| Architecture & MVP definition | **Todo** | `rbo-grilling` — [Q-004](./docs/planning/open-questions.md) primeiro |
 | Brand assets upload | **Todo** | Paralelo — AGENTS.md §7 |
 
 Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); build bloqueado até Architecture Done. Ver [`deliverables.md`](./docs/planning/deliverables.md).
@@ -48,19 +45,18 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 
 ---
 
-## Esta sessão
+## Esta sessão (Cursor — 2026-07-03)
 
-- [x] Issue [#139](https://github.com/fortegb/platform/issues/139) — epics/issues review; branch `feat/epics-issues-review` (explore)
-- [x] Portal polish [#138](https://github.com/fortegb/platform/issues/138) fechado (OpenSpec arquivado)
-- [x] **A1:** `phases.md` sincronizado com board (Phase 0 epics Done + checklists)
-- [x] **A2:** `STATUS.md` actualizado
-- [x] **A3:** `architecture.md` §1/§3/§6 synced from jornadas (light skim; gaps → Topic C)
-- [x] **A4:** #37 renomeado → «Criar epics Phase 1–4 no board»
-- [x] **A5:** #138 stays under #4; future portal/docs → new Documentation epic (TBD)
-- [x] **A6:** `progress-focus.md` — portal #138 em concluídos; foco #139 + Architecture
-- [x] **Naming:** Platform docs / Documentação da plataforma (AGENTS.md + planning README)
-- [ ] **Topic B→C review** — missing/jornadas→screens ([explore notes](./docs/planning/explore/epics-issues-review.md))
-- [ ] Architecture [#1](https://github.com/fortegb/platform/issues/1) — grilling (após review)
+- [x] #139 board hygiene — merge `main`, OpenSpec arquivado, issue fechada
+- [x] #32 screen map — aceite + `screen-map.html` publicado
+- [x] Platform docs — naming pt-BR, Fase 0–4, módulos
+- [x] #144 ambientes explore — registado sob #42 (para depois)
+
+## Próxima sessão (Claude)
+
+- [ ] `rbo-catch-up` L2 — confirmar estado
+- [ ] `rbo-grilling` **Q-004** (Contentful vs Supabase)
+- [ ] Avançar fecho Architecture → #38
 
 ---
 
@@ -85,7 +81,7 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 | Doc | Uso |
 |-----|-----|
 | [planning/README.md](./docs/planning/README.md) | Índice + ordem de arranque |
-| [../index.html](./docs/index.html) | Portal sócios (GitHub Pages) |
+| [../index.html](./docs/index.html) | Documentação da plataforma (GitHub Pages) |
 | [progresso-socios.html](./docs/planning/progresso-socios.html) | Relatório sócios (board + foco) |
 | [deliverables.md](./docs/planning/deliverables.md) | Mapa negócio ↔ plano |
 | [open-questions.md](./docs/planning/open-questions.md) | Grilling backlog |

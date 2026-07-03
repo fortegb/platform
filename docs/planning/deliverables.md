@@ -101,7 +101,7 @@
 - [x] OpenSpec + workflow ([#20](https://github.com/fortegb/platform/issues/20))
 - [ ] Architecture & MVP fechado ([#1](https://github.com/fortegb/platform/issues/1) → [#38](https://github.com/fortegb/platform/issues/38))
 - [ ] Brand assets ([#2](https://github.com/fortegb/platform/issues/2)) — paralelo, não bloqueia build
-- [ ] `architecture.md` completo + [`screen-map.md`](./screen-map.md) aceite ([#32](https://github.com/fortegb/platform/issues/32))
+- [x] `architecture.md` + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32) Done)
 - [ ] Q-003–Q-019 resolved ou deferred com rationale
 - [x] Epics Phase 1–4 no board ([#37](https://github.com/fortegb/platform/issues/37))
 - [x] `ROADMAP.md` gerado
