@@ -117,6 +117,7 @@
 - [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registo prospecto corretor
+- [#144](https://github.com/fortegb/platform/issues/144) Explorar estratégia de ambientes (dev / tst / prd)
 
 ## Done
 - [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
