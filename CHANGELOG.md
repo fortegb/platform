@@ -7,7 +7,12 @@
 
 ## Não versionado
 
-### 2026-07-03 — Portal sócios: módulos, UX e deploy ([#138](https://github.com/fortegb/platform/issues/138))
+### 2026-07-03 — Board hygiene + screen map MVP ([#139](https://github.com/fortegb/platform/issues/139), [#32](https://github.com/fortegb/platform/issues/32))
+
+- Topics A + B: `phases.md`, `architecture.md`, `deliverables.md`, `modules.md`, explore notes.
+- **`screen-map.md`** — routes por role (mock/new, phase, epic); #32 aceite.
+- Platform docs naming; Integrações → module `platform` (#72); workflow close-out.
+- OpenSpec `epics-issues-review` arquivado.
 
 - Página `modules.html` gerada a partir de `modules.md`; card no index e links no mapa-fases.
 - Jornadas: pilares → módulos; cards de papel → âncoras; hover só em cards clicáveis.

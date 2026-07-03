@@ -1,6 +1,6 @@
 # Explore — Epics and issues review (#139)
 
-> **Status:** explore gate (no OpenSpec change yet)  
+> **Status:** explore complete → archived 2026-07-03  
 > **Branch:** `feat/epics-issues-review` (local)  
 > **Parent epic:** [#20 Bootstrap board & OpenSpec](https://github.com/fortegb/platform/issues/20)  
 > **Recurrence:** this pass establishes a checklist; future passes reuse the same change name pattern or spawn `#NNN` chores.
@@ -66,10 +66,9 @@ Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic 
 
 Portal #138 movido para «Concluído recentemente»; foco actual = #139 board review + Architecture / Topic C.
 
-### 6. Canon ↔ module ↔ board field alignment
+### 6. Canon ↔ module ↔ board field alignment — **fixed 2026-07-03 (B2c)**
 
-- `modules.md` defines 10 modules; board **Module** field has matching options.
-- `mapa-fases.html` “Integrações” links to `#tours` — not a board module; decide if integrations deserve explicit module or stay under tours.
+Integrações = epic #72, module `platform` (não novo módulo board). Card em `mapa-fases.html` aponta para `#platform`.
 
 ### B1 decisions — **complete**
 
@@ -87,18 +86,13 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 | Item | Decision |
 |------|----------|
 | **B2a Platform docs** | [#143](https://github.com/fortegb/platform/issues/143) **closed (Done)** — deliverable = process in [`workflow.md`](./workflow.md) § Platform docs; live site via push `main` + close-out checklist, not open epic |
-| **B2b #32 / screen map** | _pending_ |
+| **B2b #32 / screen map** | **done** — #32 expanded; [`screen-map.md`](../screen-map.md) draft |
+| **B2c Integrações module** | **done** — sem módulo board novo; epic [#72](https://github.com/fortegb/platform/issues/72) fica `platform`; `mapa-fases.html` + `modules.md` alinhados |
+| **B4 deliverables §8** | **done** — checklist sincronizado com board (2026-07-03) |
 
 ---
 
-Items marked “TBD” or deferred to Architecture may still lack board issues:
-
-- Condomínio / portaria (Q-017)
-- Post-visit follow-up automation
-- Manual ID approval workflow
-- Some social / multi-channel CRM sources (Phase 3+)
-
-**Action candidate:** during review, either create issues, explicitly defer in `open-questions.md`, or mark “won’t do MVP”.
+Gaps B1 já têm issue ([#140](https://github.com/fortegb/platform/issues/140)–[#142](https://github.com/fortegb/platform/issues/142), [#80](https://github.com/fortegb/platform/issues/80)). Social / multi-channel CRM → Phase 3+ ou grilling.
 
 ### 8. Recurring process (for propose phase)
 

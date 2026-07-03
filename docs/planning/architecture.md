@@ -66,7 +66,7 @@
 
 > **Fonte estado-alvo:** [`jornadas-plataforma.md`](./jornadas-plataforma.md) (actualizado 2026-07-03).  
 > **Este §3** = resumo para Architecture; detalhe passo-a-passo permanece em jornadas.  
-> **Screen map:** pendente Topic C ([#32](https://github.com/fortegb/platform/issues/32)).
+> **Screen map:** [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32)).
 
 | Role | Jornada | Trigger | Steps (resumo) | Outcome |
 |------|---------|---------|----------------|---------|
@@ -84,20 +84,9 @@
 
 **Referências jornadas:** §3.1 site · §3.2 agendada · §3.3 QR · §4 corretor · §5 staff/admin · §6–7 media/social.
 
-### 3.1 Journey gaps (light skim — Topic C)
+### 3.1 Journey gaps
 
-Itens **notados** em 2026-07-03; revisão completa fica para Topic C (completeness + screen map):
-
-| Gap | Notas |
-|-----|--------|
-| Staff journeys | Tarefas listadas (§5.1); falta fluxo passo-a-passo como cliente/corretor |
-| Admin vs staff UI | Limites em §2; jornadas §5 mistura tarefas — separar screens admin-only |
-| Condomínio / portaria | Q-017 referenciado na visita QR/agendada; sem passos nem copy de aviso |
-| Aprovação manual ID | Um passo em visita agendada; fila staff não detalhada |
-| Pós-visita follow-up | Mencionado; TBD MVP vs pós-MVP ([`deliverables.md`](./deliverables.md) §3) |
-| Bot WhatsApp corretor | Mencionado §4.3; sem passos |
-| Portal cliente logado | Explicitamente “depois” (jornadas §8) — OK se MVP fechado assim |
-| Integrações | Módulo em jornadas §7; sem jornada utilizador (backend) |
+Resolvido em [`screen-map.md`](./screen-map.md) (2026-07-03). Detalhe passo-a-passo staff permanece em jornadas §5.1 (grilling).
 
 ---
 
@@ -176,7 +165,7 @@ flowchart TB
 
 - Staff: aprovações, fila ID, calendário visitas, leads manuais ([§5.1](./jornadas-plataforma.md#51-staff-operacional)).
 - Admin: convites, API keys, flags, relatórios ([§5.2](./jornadas-plataforma.md#52-admin-sócios)).
-- **Gap:** screen map inexistente; MVP mínimo staff a definir em Topic C.
+- **Screen map:** [`screen-map.md`](./screen-map.md); staff/admin shells P1, features P2+.
 
 ---
 

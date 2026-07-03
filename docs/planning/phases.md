@@ -70,7 +70,7 @@ Seed docs/planning (✅)
 3. [ ] Sessão grilling 3: Q-005, Q-006 visitas
 4. [ ] Sessão grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 5. [ ] Sessão grilling 5: Q-008 mobile (se ainda aberto)
-6. [ ] **User journey map** por role MVP → `architecture.md` §2 + §5
+6. [x] **Journey map + screen map MVP** → `architecture.md` §3 + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32))
 7. [ ] Escolha home com/sem hero (Q-010) → `architecture.md` + D-005
 8. [ ] Completar `architecture.md` (contexto, dados, fluxos, NFR)
 9. [ ] MVP v1 vs later em `platform-vision.md` + `decisions.md`
@@ -230,7 +230,8 @@ Epics (**criar no board após Architecture**):
 | Tópico | Define (Phase 0 Architecture) | Build (Epic) |
 |--------|-------------------------------|--------------|
 | User roles | Q-003, architecture §2 | **Identity, roles & journey routing** (P1) |
-| User journeys (entry) | Journey map §5 | **Identity…** (P1) |
+| User journeys (entry) | Journey map §3 | **Identity…** (P1) |
+| Screen map | [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32)) | **Identity…** (P1) shells; features P2+ |
 | Journey features corretor | §5 | **Portal corretor** (P2) |
 | Journey visitante | §5 | **Visitas MVP** (P2) |
 | Home 2 vencedores | Q-010 | **Public site UI finalization** (P1) |
