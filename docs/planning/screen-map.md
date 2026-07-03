@@ -1,6 +1,6 @@
 # Screen map MVP — ForteGB Platform
 
-> **Status:** rascunho (2026-07-03) — deliverable [#32](https://github.com/fortegb/platform/issues/32) under Architecture #1.  
+> **Status:** publicado (2026-07-03) — aceite sob Architecture #1 ([#32](https://github.com/fortegb/platform/issues/32) Done).  
 > **Journeys:** [`architecture.md`](./architecture.md) §3 · [`jornadas-plataforma.md`](./jornadas-plataforma.md)  
 > **Legenda Status:** `mock` = UI exists, no backend · `new` = route/screen not built · `phase` = target build phase
 

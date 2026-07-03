@@ -342,7 +342,7 @@ function buildHtml({ items, focus, generatedAt }) {
 </head>
 <body>
   <div class="toolbar">
-    <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
+    <div class="brand"><a href="../index.html">← Documentação da plataforma — ForteGB</a></div>
   </div>
 
   <header class="hero">

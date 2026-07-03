@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const PLANNING = path.join(ROOT, 'docs/planning');
+const PORTAL_BRAND = 'Documentação da plataforma — ForteGB';
 
 function esc(s) {
   return String(s)
@@ -151,7 +152,7 @@ function contractShell(title, bodyHtml) {
 </head>
 <body>
   <div class="toolbar">
-    <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
+    <div class="brand"><a href="../index.html">← ${esc(PORTAL_BRAND)}</a></div>
     <div class="toolbar-actions">
       <nav>
         <a class="btn-secondary" href="./corretor-contract-template.md">Markdown</a>
@@ -172,13 +173,13 @@ ${bodyHtml}
 </html>`;
 }
 
-function modulesShell(bodyHtml) {
+function planningDocShell({ title, subtitle, bodyHtml, noticeHtml = '' }) {
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ForteGB — Módulos da plataforma</title>
+  <title>ForteGB — ${esc(title)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -197,27 +198,43 @@ function modulesShell(bodyHtml) {
       background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 1rem; font-size: 0.78rem; line-height: 1.45; overflow-x: auto;
     }
+    .doc-body table { font-size: 0.82rem; }
+    .doc-body td code, .doc-body th code { font-size: 0.78rem; }
   </style>
 </head>
 <body>
   <div class="toolbar">
-    <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
+    <div class="brand"><a href="../index.html">← ${esc(PORTAL_BRAND)}</a></div>
   </div>
 
   <header class="hero">
-    <h1>Módulos da plataforma</h1>
-    <p>Detalhe por área de produto — o que inclui cada módulo, prontidão e epics. Complemento ao mapa por fases.</p>
+    <h1>${esc(title)}</h1>
+    <p>${subtitle}</p>
   </header>
 
   <main class="container doc-body">
-    <p class="notice-inline">
+${noticeHtml}${bodyHtml}
+  </main>
+
+  <footer class="footer-note">
+    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+  </footer>
+  <script src="../assets/portal-build.js" defer></script>
+</body>
+</html>`;
+}
+
+function modulesShell(bodyHtml) {
+  const notice = `    <p class="notice-inline">
       <strong>Nota:</strong> resumo visual em
       <a href="./mapa-fases.html">Mapa por fases</a>;
-      execução detalhada em
+      rotas MVP em
+      <a href="./screen-map.html">Mapa de ecrãs</a>;
+      execução em
       <a href="./progresso-socios.html">Relatório de progresso</a>;
-      jornadas por utilizador em
+      jornadas em
       <a href="./jornadas-plataforma.html">Jornadas</a>.
-      Canon editável: <code>modules.md</code>.
+      Canon: <code>modules.md</code>.
     </p>
 
     <nav class="module-nav" aria-label="Módulos">
@@ -233,15 +250,32 @@ function modulesShell(bodyHtml) {
       <a href="#mobile">Mobile</a>
     </nav>
 
-${bodyHtml}
-  </main>
+`;
+  return planningDocShell({
+    title: 'Módulos da plataforma',
+    subtitle: 'Detalhe por área de produto — o que inclui cada módulo, prontidão e epics.',
+    noticeHtml: notice,
+    bodyHtml,
+  });
+}
 
-  <footer class="footer-note">
-    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-  </footer>
-  <script src="../assets/portal-build.js" defer></script>
-</body>
-</html>`;
+function screenMapShell(bodyHtml) {
+  const notice = `    <p class="notice-inline">
+      <strong>Nota:</strong> jornadas em
+      <a href="./jornadas-plataforma.html">Jornadas</a>;
+      módulos em
+      <a href="./modules.html">Módulos</a>.
+      Canon: <code>screen-map.md</code> ·
+      <a href="https://github.com/fortegb/platform/issues/32">#32</a> (Done).
+    </p>
+
+`;
+  return planningDocShell({
+    title: 'Mapa de ecrãs MVP',
+    subtitle: 'Rotas por papel — mock, new, fase e epic.',
+    noticeHtml: notice,
+    bodyHtml,
+  });
 }
 
 const contractMd = fs.readFileSync(path.join(PLANNING, 'corretor-contract-template.md'), 'utf8');
@@ -259,3 +293,11 @@ fs.writeFileSync(
   'utf8',
 );
 console.log('Wrote docs/planning/modules.html');
+
+const screenMapMd = fs.readFileSync(path.join(PLANNING, 'screen-map.md'), 'utf8');
+fs.writeFileSync(
+  path.join(PLANNING, 'screen-map.html'),
+  screenMapShell(mdToHtml(screenMapMd, { headingIds: true })),
+  'utf8',
+);
+console.log('Wrote docs/planning/screen-map.html');

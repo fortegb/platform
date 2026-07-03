@@ -7,6 +7,12 @@
 
 ## Não versionado
 
+### 2026-07-03 — Platform docs: screen map + naming (publish)
+
+- Índice `docs/index.html` — **Documentação da plataforma**, card mapa de ecrãs.
+- `screen-map.html` gerado a partir de `screen-map.md`.
+- Marcas alinhadas; `mapa-fases` Phase 0 actual; scripts `pages:portal` actualizados.
+
 ### 2026-07-03 — Board hygiene + screen map MVP ([#139](https://github.com/fortegb/platform/issues/139), [#32](https://github.com/fortegb/platform/issues/32))
 
 - Topics A + B: `phases.md`, `architecture.md`, `deliverables.md`, `modules.md`, explore notes.
