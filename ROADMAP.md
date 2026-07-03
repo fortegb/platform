@@ -2,7 +2,6 @@
 
 > Generated mirror of [fortegb/platform project #1](https://github.com/orgs/fortegb/projects/1). Do not edit by hand.
 
-
 ## Todo
 - [#1](https://github.com/fortegb/platform/issues/1) Epic: Architecture & MVP definition
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
@@ -11,7 +10,6 @@
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
-- [#32](https://github.com/fortegb/platform/issues/32) User journey map por role MVP
 - [#33](https://github.com/fortegb/platform/issues/33) Escolha home com/sem hero (Q-010)
 - [#34](https://github.com/fortegb/platform/issues/34) Completar architecture.md
 - [#35](https://github.com/fortegb/platform/issues/35) MVP v1 vs later em platform-vision.md + decisions.md
@@ -20,40 +18,6 @@
 - [#39](https://github.com/fortegb/platform/issues/39) Logo (SVG/PNG/PDF)
 - [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
 - [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
-
-## In Progress
-- [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
-
-## Done
-- [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
-- [#5](https://github.com/fortegb/platform/issues/5) Planning canon (README, vision, phases, modules, workflow)
-- [#6](https://github.com/fortegb/platform/issues/6) open-questions.md (Q-001–Q-019)
-- [#7](https://github.com/fortegb/platform/issues/7) decisions.md + deliverables.md
-- [#8](https://github.com/fortegb/platform/issues/8) Epic: GitHub org migration
-- [#9](https://github.com/fortegb/platform/issues/9) PAT fortegb-admin (repo, project, read:org)
-- [#10](https://github.com/fortegb/platform/issues/10) Renomear personal fortegb → fortegb-admin
-- [#11](https://github.com/fortegb/platform/issues/11) Criar Organization fortegb
-- [#12](https://github.com/fortegb/platform/issues/12) Adicionar rbonon como Organization owner
-- [#13](https://github.com/fortegb/platform/issues/13) Transferir repos para org (sandbox → platform)
-- [#14](https://github.com/fortegb/platform/issues/14) Atualizar dotfiles.conf + setup_pats + Keychain
-- [#15](https://github.com/fortegb/platform/issues/15) Atualizar remotes locais (platform, app-despesas, ai-assets)
-- [#16](https://github.com/fortegb/platform/issues/16) Reconectar Vercel ao repo na org
-- [#17](https://github.com/fortegb/platform/issues/17) Habilitar Issue types (Epic, Feature, Task)
-- [#18](https://github.com/fortegb/platform/issues/18) Smoke test: clone, push, gh repo view, gh auth status
-- [#19](https://github.com/fortegb/platform/issues/19) Registar execução em decisions.md + dotfiles DECISIONS.md
-- [#20](https://github.com/fortegb/platform/issues/20) Epic: Bootstrap board & OpenSpec
-- [#21](https://github.com/fortegb/platform/issues/21) Inicializar OpenSpec no repo
-- [#22](https://github.com/fortegb/platform/issues/22) Criar Project platform na org
-- [#23](https://github.com/fortegb/platform/issues/23) Campos custom Phase + Module
-- [#24](https://github.com/fortegb/platform/issues/24) Registar epics Phase 0 restantes
-- [#25](https://github.com/fortegb/platform/issues/25) Gerar ROADMAP.md
-- [#26](https://github.com/fortegb/platform/issues/26) Actualizar STATUS.md com números de issues
-- [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
-- [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
-
-# 1
-
-## Todo
 - [#42](https://github.com/fortegb/platform/issues/42) Epic: Platform environments
 - [#43](https://github.com/fortegb/platform/issues/43) Supabase project + database-schema.sql
 - [#44](https://github.com/fortegb/platform/issues/44) Env vars (local, Vercel staging/prod)
@@ -84,10 +48,6 @@
 - [#69](https://github.com/fortegb/platform/issues/69) Master templates print (placa, poster)
 - [#70](https://github.com/fortegb/platform/issues/70) Documentar uso em AGENTS.md ou design doc
 - [#71](https://github.com/fortegb/platform/issues/71) Social templates alinhados
-
-# 2
-
-## Todo
 - [#72](https://github.com/fortegb/platform/issues/72) Epic: Integrations MVP
 - [#73](https://github.com/fortegb/platform/issues/73) HubSpot service real (contacts, deals mínimo)
 - [#74](https://github.com/fortegb/platform/issues/74) Lead capture matrix (form, visitas, WhatsApp, corretor)
@@ -114,10 +74,6 @@
 - [#95](https://github.com/fortegb/platform/issues/95) Performance smoke (Lighthouse)
 - [#96](https://github.com/fortegb/platform/issues/96) LGPD copy + consent flows verificados
 - [#97](https://github.com/fortegb/platform/issues/97) Go/no-go para uso real limitado
-
-# 3
-
-## Todo
 - [#98](https://github.com/fortegb/platform/issues/98) Epic: House media kit & materiais físicos
 - [#99](https://github.com/fortegb/platform/issues/99) Entrada portfólio (descrição, galeria, specs)
 - [#100](https://github.com/fortegb/platform/issues/100) Placa À venda + QR → micro-página
@@ -146,10 +102,6 @@
 - [#123](https://github.com/fortegb/platform/issues/123) SEO técnico (sitemap, structured data)
 - [#124](https://github.com/fortegb/platform/issues/124) Analytics (GA4 ou equivalente)
 - [#125](https://github.com/fortegb/platform/issues/125) Performance tuning pós-launch
-
-# 4
-
-## Todo
 - [#126](https://github.com/fortegb/platform/issues/126) Epic: LGPD hardening
 - [#127](https://github.com/fortegb/platform/issues/127) Política retenção documentos KYC
 - [#128](https://github.com/fortegb/platform/issues/128) Audit log acessos dados sensíveis
@@ -162,4 +114,37 @@
 - [#135](https://github.com/fortegb/platform/issues/135) Tuya production + monitorização
 - [#136](https://github.com/fortegb/platform/issues/136) WhatsApp Business API production
 - [#137](https://github.com/fortegb/platform/issues/137) HubSpot pipeline production + reporting
+- [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
+- [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
+- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registo prospecto corretor
+
+## Done
+- [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
+- [#5](https://github.com/fortegb/platform/issues/5) Planning canon (README, vision, phases, modules, workflow)
+- [#6](https://github.com/fortegb/platform/issues/6) open-questions.md (Q-001–Q-019)
+- [#7](https://github.com/fortegb/platform/issues/7) decisions.md + deliverables.md
+- [#8](https://github.com/fortegb/platform/issues/8) Epic: GitHub org migration
+- [#9](https://github.com/fortegb/platform/issues/9) PAT fortegb-admin (repo, project, read:org)
+- [#10](https://github.com/fortegb/platform/issues/10) Renomear personal fortegb → fortegb-admin
+- [#11](https://github.com/fortegb/platform/issues/11) Criar Organization fortegb
+- [#12](https://github.com/fortegb/platform/issues/12) Adicionar rbonon como Organization owner
+- [#13](https://github.com/fortegb/platform/issues/13) Transferir repos para org (sandbox → platform)
+- [#14](https://github.com/fortegb/platform/issues/14) Atualizar dotfiles.conf + setup_pats + Keychain
+- [#15](https://github.com/fortegb/platform/issues/15) Atualizar remotes locais (platform, app-despesas, ai-assets)
+- [#16](https://github.com/fortegb/platform/issues/16) Reconectar Vercel ao repo na org
+- [#17](https://github.com/fortegb/platform/issues/17) Habilitar Issue types (Epic, Feature, Task)
+- [#18](https://github.com/fortegb/platform/issues/18) Smoke test: clone, push, gh repo view, gh auth status
+- [#19](https://github.com/fortegb/platform/issues/19) Registar execução em decisions.md + dotfiles DECISIONS.md
+- [#20](https://github.com/fortegb/platform/issues/20) Epic: Bootstrap board & OpenSpec
+- [#21](https://github.com/fortegb/platform/issues/21) Inicializar OpenSpec no repo
+- [#22](https://github.com/fortegb/platform/issues/22) Criar Project platform na org
+- [#23](https://github.com/fortegb/platform/issues/23) Campos custom Phase + Module
+- [#24](https://github.com/fortegb/platform/issues/24) Registar epics Phase 0 restantes
+- [#25](https://github.com/fortegb/platform/issues/25) Gerar ROADMAP.md
+- [#26](https://github.com/fortegb/platform/issues/26) Actualizar STATUS.md com números de issues
+- [#32](https://github.com/fortegb/platform/issues/32) Journey map + screen map MVP por role
+- [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
+- [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
+- [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
+- [#143](https://github.com/fortegb/platform/issues/143) Epic: Documentação da plataforma (Platform docs)
 
