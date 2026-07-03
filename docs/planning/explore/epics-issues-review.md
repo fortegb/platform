@@ -45,20 +45,24 @@ The board (`fortegb/platform` #1) is the execution source of truth; planning can
 
 ~~The Phase 0 table still lists…~~ Table, dependency diagram, and org/bootstrap checklists synced to board (#8, #20 Done; issue links added).
 
-### 2. Architecture epic (#1) vs Phase 1+ epics
+### 2. Architecture epic (#1) vs Phase 1+ epics — **noted in A1**
 
-Sub-issue **#37** “Criar epics Phase 1–3 no board” is **Done**, and Phase 1–3 epics exist on the board. **Phase 4 epics** (#126, #130, #134) also exist — confirm whether #37 scope should have been “Phase 1–4” or if Phase 4 was added later without a tracking issue.
+#37 marked done in `phases.md`; Phase 4 epics noted inline. Optional: rename #37 on board.
 
-### 3. Portal work under Seed epic (#4)
+### 3. `architecture.md` §3 / §6 empty — **fixed 2026-07-03 (A3, light skim)**
+
+Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic C. Full completeness review **not** done here.
+
+### 4. Portal work under Seed epic (#4)
 
 **#138** (portal polish) is a sub-issue of **#4 Seed docs/planning**. Reasonable for Phase 0, but review whether future portal chores stay under #4 or get a dedicated “Partner portal” epic.
 
-### 4. Canon ↔ module ↔ board field alignment
+### 5. Canon ↔ module ↔ board field alignment
 
 - `modules.md` defines 10 modules; board **Module** field has matching options.
 - `mapa-fases.html` “Integrações” links to `#tours` — not a board module; decide if integrations deserve explicit module or stay under tours.
 
-### 5. Deliverables gaps (from `deliverables.md`)
+### 6. Deliverables gaps (from `deliverables.md`)
 
 Items marked “TBD” or deferred to Architecture may still lack board issues:
 
@@ -69,7 +73,7 @@ Items marked “TBD” or deferred to Architecture may still lack board issues:
 
 **Action candidate:** during review, either create issues, explicitly defer in `open-questions.md`, or mark “won’t do MVP”.
 
-### 6. Recurring process (for propose phase)
+### 7. Recurring process (for propose phase)
 
 Suggested validation checklist (repeat each review):
 
