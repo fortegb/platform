@@ -75,7 +75,7 @@ Seed docs/planning (✅)
 8. [ ] Completar `architecture.md` (contexto, dados, fluxos, NFR)
 9. [ ] MVP v1 vs later em `platform-vision.md` + `decisions.md`
 10. [ ] Checkpoint: Q-* **resolved** ou **deferred**
-11. [x] Criar epics **Phase 1–3** no board ([#37](https://github.com/fortegb/platform/issues/37); Phase 4 epics #126–#134 adicionados depois)
+11. [x] Criar epics **Phase 1–4** no board ([#37](https://github.com/fortegb/platform/issues/37))
 12. [ ] Epic **Done** → Phase 1 desbloqueada
 
 ### Epic: Brand assets upload ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas

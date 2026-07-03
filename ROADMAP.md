@@ -48,7 +48,7 @@
 - [#24](https://github.com/fortegb/platform/issues/24) Registar epics Phase 0 restantes
 - [#25](https://github.com/fortegb/platform/issues/25) Gerar ROADMAP.md
 - [#26](https://github.com/fortegb/platform/issues/26) Actualizar STATUS.md com números de issues
-- [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–3 no board
+- [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
 
 # 1

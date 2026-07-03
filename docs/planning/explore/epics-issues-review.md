@@ -45,9 +45,9 @@ The board (`fortegb/platform` #1) is the execution source of truth; planning can
 
 ~~The Phase 0 table still lists…~~ Table, dependency diagram, and org/bootstrap checklists synced to board (#8, #20 Done; issue links added).
 
-### 2. Architecture epic (#1) vs Phase 1+ epics — **noted in A1**
+### 2. Architecture epic (#1) vs Phase 1+ epics — **fixed 2026-07-03 (A4)**
 
-#37 marked done in `phases.md`; Phase 4 epics noted inline. Optional: rename #37 on board.
+[#37](https://github.com/fortegb/platform/issues/37) renomeado para «Criar epics Phase 1–4 no board»; `phases.md` alinhado.
 
 ### 3. `architecture.md` §3 / §6 empty — **fixed 2026-07-03 (A3, light skim)**
 
