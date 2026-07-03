@@ -2,7 +2,7 @@
 
 > **Documento interno** — pessoas, papéis operacionais e governo de decisões.  
 > Alimenta Q-003 (user roles / MVP) e [`architecture.md`](./architecture.md) §2.  
-> **Última atualização:** 2026-07-02 · documento completo (§1–§8 + contrato v0.1).
+> **Última actualização:** 2026-07-03 · papéis plataforma (três admins; digital R.+F.)
 
 **Privacidade:** ForteGB é venture privada separada das carreiras públicas (ex.: LinkedIn de Ricardo não menciona ForteGB).
 
@@ -46,9 +46,9 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Compras — major** | Adilson | **Os três** | ≥ R$ 100k |
 | **Engenharia / projetos / acompanhamento** | Ricardo + Adilson | R+A rotina; **os três** se ≥ limiar | |
 | **Empresa / obra (geral)** | Ricardo + Adilson | R+A rotina; **os três** se ≥ limiar | |
-| **Digital — construção da plataforma** | Ricardo | Ricardo (executa) | Felipe pode contribuir depois |
-| **Digital — prontidão e funcionamento** | Ricardo | **Os três** | Ricardo **apresenta**; Adilson e Felipe decidem **junto com** Ricardo |
-| **Digital — gastos / ferramentas / vendors** | Ricardo | **Ricardo agora** (gasto mínimo; autofinanciado) | Quando o **valor estiver provado**, os três avaliam se vale a pena — trio decide spend recorrente |
+| **Digital — criação da plataforma** | Ricardo | Ricardo (autofinanciado) | **Os três** aprovam se vai a **produção**; Felipe pode co-desenvolver |
+| **Digital — prontidão / custos** | Ricardo | **Os três** | Ricardo **apresenta**; trio **aprova** ida a produção e custos recorrentes |
+| **Digital — gastos / ferramentas / vendors (fase criação)** | Ricardo | Ricardo (autofinanciado) | Gasto mínimo na criação; custos de produção → decisão dos três |
 | **Desenvolvimento (Felipe a apoiar)** | Ricardo | Ricardo convida Felipe | Quando fizer sentido |
 | **Investimento major / escala** | Ricardo + Adilson | **Os três** | Sempre |
 
@@ -60,8 +60,8 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 
 | Campo | Detalhe |
 |-------|---------|
-| **Papel** | Sócio / fundador / investidor |
-| **ForteGB — digital** | Constrói a plataforma; **lidera** revisão de prontidão; **os três** decidem lançamento e comportamento |
+| **Papel** | Sócio / fundador / investidor / **admin** (plataforma) |
+| **Plataforma — digital** | **Arquiteto Digital** · **Desenvolvedor Digital** — constrói e evolui a plataforma |
 | **ForteGB — operações** | Projetos de engenharia, acompanhamento de obra, compras pontuais |
 | **ForteGB — vendas** | Principal contacto comercial; prospectos e negociação |
 | **Motivação digital** | Automatizar e digitalizar vendas (visitas autoguiadas agendadas e instantâneas) |
@@ -77,7 +77,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | Campo | Detalhe |
 |-------|---------|
 | **Relação** | Sócio principal; **cunhado** de Ricardo |
-| **Papel** | Sócio / fundador / investidor |
+| **Papel** | Sócio / fundador / investidor / **admin** (plataforma) |
 | **Situação** | Reformado |
 | **Formação / experiência** | Economia; carreira como **gestor de procurement / compras** |
 | **Outro empreendimento** | Empresa de estacionamento de veículos em Campinas |
@@ -93,13 +93,11 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | Campo | Detalhe |
 |-------|---------|
 | **Relação** | Terceiro fundador; **filho** de Adilson, **sobrinho** de Ricardo |
-| **Papel** | Sócio / fundador / investidor |
+| **Papel** | Sócio / fundador / investidor / **admin** (plataforma) |
 | **Carreira** | Arquiteto de sistemas sénior, **CI&T** — Campinas |
 | **Formação / experiência** | Arquitectura de sistemas IT |
-| **ForteGB — dia-a-dia** | **Investidor** — não actua no quotidiano da empresa |
-| **ForteGB — plataforma** | Pode **eventualmente** ajudar Ricardo no desenvolvimento |
+| **Plataforma — digital** | **Arquiteto Digital** · **Desenvolvedor Digital** — co-desenvolve a plataforma com Ricardo |
 | **Decisões** | Voto igual; unanimidade obrigatória acima de **R$ 100k** e em vendas/terreno/pricing; no dia-a-dia alinha-se com Ricardo e Adilson |
-
 | **LinkedIn** | [felipe-bonon-goncalves](https://www.linkedin.com/in/felipe-bonon-gon%C3%A7alves-7429943a0/) |
 
 ---
@@ -213,12 +211,12 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Role | Quem | Capacidades (alto nível) |
 |------|------|---------------------------|
-| **admin** | Ricardo, Felipe | Configuração, flags hoarding, excepções atribuição, gestão corretores/contratos, gestão utilizadores |
-| **staff** | Ricardo, Felipe, Adilson, Cláudia, Gisele | Operação quotidiana — despesas, leads, visitas, vendas, consulta registos |
+| **admin** | Ricardo, Adilson, Felipe | Configuração, flags hoarding, excepções atribuição, gestão corretores/contratos, gestão utilizadores |
+| **staff** | Cláudia, Gisele (+ sócios quando operam) | Operação quotidiana — despesas, leads, visitas, consulta registos |
 | **corretor** | Corretores contratados (ex. Juliana) | Registo leads, agendar visitas, portal — ver §7 |
 | **cliente / visitante** | Público | Site, visitas, contacto — sem login ou login mínimo |
 
-**MVP permissões (2026-07-02):** apenas **dois níveis** no lado ForteGB — **admin** e **staff** (sem menus por pessoa). Ricardo e Felipe = admin (+ staff). Restantes = staff.
+**MVP permissões (2026-07-03):** **admin** = os **três sócios** (Ricardo, Adilson, Felipe). **staff** = Cláudia, Gisele (+ sócios em tarefas operacionais). Ricardo e Felipe = **Arquiteto Digital** · **Desenvolvedor Digital** (construção da plataforma).
 
 ### Matriz admin vs staff (MVP)
 
@@ -423,6 +421,6 @@ Cada imóvel = **contrato separado** (mais seguro juridicamente). Dados do corre
 |--------|-------|
 | **> R$ 100.000** | Unanimidade Ricardo + Adilson + Felipe |
 | **≤ R$ 100.000** (operacional) | Ricardo + Adilson |
-| **Digital spend (fase actual)** | Ricardo autofinancia (mínimo); trio decide quando valor **provado** e colectivamente acordado |
-| **Digital readiness** | Ricardo apresenta; os três decidem em conjunto |
+| **Digital spend (fase criação)** | Ricardo autofinancia (mínimo) |
+| **Produção / custos recorrentes** | Ricardo apresenta → **os três** aprovam se vai a produção |
 

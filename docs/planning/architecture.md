@@ -41,13 +41,14 @@
 | **Visitante** | Público | Site, blog, portfólio | Sim | |
 | **Cliente** | Comprador | Fluxo visita, contacto | Sim | CPF liga a registo corretor se existir |
 | **Corretor** | Contratados (ex. Juliana) | Portal corretor + bot WhatsApp | Sim | CRECI preferencial; mesmo fluxo sem CRECI |
-| **Staff** | R., F., A., Cláudia, Gisele | Área logada operacional | Sim | Vendas, despesas, consultas |
-| **Admin** | Ricardo, Felipe | Staff + config, flags, excepções | Sim | Hoarding alerts → Ricardo (WhatsApp/Telegram) |
-| **Sócio / investidor** | Três fundadores | Via staff/admin conforme role | — | Felipe = admin; Adilson = staff |
+| **Staff** | Cláudia, Gisele (+ sócios em operação) | Área logada operacional | Sim | Despesas, leads, visitas, consultas |
+| **Admin** | Ricardo, Adilson, Felipe | Staff + config, flags, excepções | Sim | Três sócios = admin |
+| **Digital** | Ricardo, Felipe | Construção plataforma | Sim | Arquiteto Digital · Desenvolvedor Digital |
+| **Sócio / investidor** | Três fundadores | Admin na plataforma | — | Papel público uniforme na apresentação |
 
 **Auth (MVP):** Google, Facebook, e-mail — staff e corretores em `platform`; SSO partilhado com `app-despesas` (fase posterior).
 
-**MVP (2026-07-02):** **admin** (Ricardo, Felipe) + **staff** (os cinco).
+**MVP (2026-07-03):** **admin** = Ricardo, Adilson, Felipe · **staff** = Cláudia, Gisele (+ sócios).
 
 | Área | Admin only |
 |------|------------|

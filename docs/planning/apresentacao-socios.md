@@ -37,13 +37,13 @@ flowchart TB
   R -.->|sobrinho| F
 ```
 
-| Sócio | Foco principal |
-|-------|----------------|
-| **Ricardo** | Vendas, digital, plataforma, engenharia/obra |
-| **Adilson** | Compras, obra, decisões do dia-a-dia |
-| **Felipe** | Investidor; pode apoiar tech; **admin** na plataforma |
+| Sócio | Papel (plataforma / apresentação) |
+|-------|-----------------------------------|
+| **Ricardo** | Fundador · Investidor · **Admin** · Arquiteto Digital · Desenvolvedor Digital |
+| **Adilson** | Fundador · Investidor · **Admin** |
+| **Felipe** | Fundador · Investidor · **Admin** · Arquiteto Digital · Desenvolvedor Digital |
 
-**Família envolvida (não sócios):** Cláudia (Adilson) e Gisele (Ricardo) — documentação/terrenos; Gisele apoia vendas na plataforma.
+> Detalhe operacional interno (obra, compras, vendas): [`company-structure.md`](./company-structure.md) §1–§2 — não exposto na apresentação pública.
 
 ### Regras de decisão
 
@@ -51,21 +51,20 @@ flowchart TB
 |----------|-------------|
 | **Acima de R$ 100.000** | **Os três** (unanimidade) |
 | **Terreno, preço, fecho de venda** | **Os três** |
-| **Dia-a-dia abaixo de R$ 100k** | Ricardo + Adilson |
-| **Plataforma — construção** | Ricardo (autofinanciado, gasto mínimo) |
-| **Plataforma — prontidão e custos recorrentes** | Ricardo apresenta → **os três** quando valor provado |
+| **Dia-a-dia abaixo de R$ 100k** | Sócios conforme acordado |
+| **Plataforma — Criação** | Ricardo (autofinanciado) · **os três** aprovam se vai a produção |
+| **Plataforma — prontidão e custos** | Ricardo apresenta → **os três** aprovam se vai a produção |
 
 ---
 
 ## 3. Operação hoje (obra e negócio)
 
-| Área | Quem | Nota |
-|------|------|------|
-| Obra | Mestre de obras + R. & A. | Visitas semanais; apoio diário |
-| Compras | **Adilson** | Principal |
-| Vendas | **Ricardo** | Adilson liderou Casas 01–02; transição feita |
-| Finanças | Os três | PIX; quem paga regista (planilha hoje) |
-| Legal | PF | **ForteGB = marca**; sem CNPJ/LTDA por agora |
+| Área | Nota |
+|------|------|
+| Obra | Mestre de obras por casa; acompanhamento pelos sócios |
+| Negócio | Compras, vendas e marcos — decisão **entre os três** quando relevante |
+| Finanças | PIX; registo partilhado (planilha hoje) |
+| Legal | PF — **ForteGB = marca**; sem CNPJ/LTDA por agora |
 
 **Casas concluídas:** 01 R-35 · 02 P-31 · 03 Q-21 (em curso/venda conforme estado actual).
 
@@ -152,12 +151,12 @@ flowchart LR
 
 ## 7. Plataforma — o que muda para vocês
 
-| Pessoa | Na plataforma | Na prática |
-|--------|---------------|------------|
-| **Ricardo** | admin + staff | Constrói; vendas; alertas |
-| **Felipe** | **admin** + staff | Config; pode ajudar dev |
-| **Adilson** | staff | Aprovar corretores; operação |
-| **Cláudia / Gisele** | staff | Gisele apoia vendas |
+| Pessoa | Na plataforma |
+|--------|---------------|
+| **Ricardo** | **Admin** · Arquiteto Digital · Desenvolvedor Digital |
+| **Adilson** | **Admin** |
+| **Felipe** | **Admin** · Arquiteto Digital · Desenvolvedor Digital |
+| **Cláudia / Gisele** | Staff (operação) |
 
 **Funcionalidades principais (visão):**
 
@@ -172,9 +171,8 @@ flowchart LR
 
 - [ ] Confirmar limiar **R$ 100k** e decisões a três  
 - [ ] Confirmar modelo corretor (preço único + registo antes)  
+- [ ] Confirmar papéis na plataforma — **três admins**; digital Ricardo + Felipe  
 - [ ] Confirmar contrato **por casa** + aprovação **staff**  
-- [ ] Felipe: OK papel **admin** com Ricardo?  
-- [ ] Adilson: OK aprovar corretores e receber notificações?  
 - [ ] Autorizar Ricardo + Juliana a fechar contrato v0.1?  
 
 ---
