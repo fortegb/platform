@@ -42,7 +42,7 @@
 | **Acesso condomínio / portaria (AI?)** | TBD | **Q-017** |
 | Confirmação WhatsApp | P2 Integrations | — |
 | Lead automático no CRM | P2 Visitas + Integrations | Q-018 |
-| Lembretes / follow-up pós-visita | TBD pós-MVP | Architecture (defer?) |
+| Lembretes / follow-up pós-visita | P2 Visitas ([#141](https://github.com/fortegb/platform/issues/141)) + Integrations/CRM | Ships with Visitas MVP |
 | Aprovação manual se ID falhar | TBD | Q-005 |
 
 *Todas as escolhas de implementação ficam abertas até grilling.*

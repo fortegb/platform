@@ -76,7 +76,7 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 | Gap | Decision |
 |-----|----------|
 | **Q-017 condomínio/portaria** | **New issue [#140](https://github.com/fortegb/platform/issues/140)** under Architecture #1 (Phase 0, tours) |
-| Follow-up pós-visita | _pending_ |
+| **Follow-up pós-visita** | **New issue [#141](https://github.com/fortegb/platform/issues/141)** under Visitas #81 (Phase 2); deps #72 CRM/WhatsApp, #86 |
 | Manual ID queue | _pending_ |
 | Bot WhatsApp corretor | _pending_ |
 
