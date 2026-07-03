@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/portal.css" />
+  <link rel="stylesheet" href="../assets/portal.css?v=2" />
   <style>
     .journey-flow {
       display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
@@ -34,6 +34,8 @@
     .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
     .pill-row span { font-size: 0.75rem; background: var(--bg); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 6px; }
     .section-title { scroll-margin-top: 4rem; }
+    /* Non-link cards must not lift (overrides stale .card:hover from cached portal.css) */
+    div.card:hover { border-color: var(--border); transform: none; }
   </style>
 </head>
 <body>
