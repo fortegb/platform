@@ -2,21 +2,26 @@
 
 > Narrativa editável na sessão com IA; incorporada na seção **Trabalhando no momento** do relatório de progresso.
 
-**Atualizado:** 2026-07-03
+**Atualizado:** 2026-07-03 (A6)
 
 ---
 
 ## Trabalhando no momento
 
+- **Board hygiene ([#139](https://github.com/fortegb/platform/issues/139))** — rever epics/issues vs planning canon; stale docs corrigidos (A1–A6).
+- **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-003 parcialmente resolvido; próximo: jornadas → screens (Topic C), depois Q-004 (CMS vs DB).
 - **Documentação de governança e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios (modelo de negócio).
-- **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).
-- **Portal sócios** — [fortegb.github.io/platform](https://fortegb.github.io/platform/): mocks, jornadas, mapa por fases, módulos e relatório de progresso (**polish #138 concluído**).
+
+## Concluído recentemente
+
+- **Portal sócios ([#138](https://github.com/fortegb/platform/issues/138))** — [fortegb.github.io/platform](https://fortegb.github.io/platform/): módulos, UX cards, Pages deploy.
 
 ## Próximo passo
 
-1. Grilling **Q-004** — Contentful vs Supabase para portfólio/blog.
-2. Completar **`architecture.md`** e fechar epic #1 → desbloqueia Phase 1.
-3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo — logos e brand guide dos sócios.
+1. **Topic B/C** — gaps no board; completar jornadas + screen map MVP ([#32](https://github.com/fortegb/platform/issues/32)).
+2. Grilling **Q-004** — Contentful vs Supabase para portfólio/blog.
+3. Completar **`architecture.md`** e fechar epic #1 → desbloqueia Phase 1.
+4. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo — logos e brand guide dos sócios.
 
 ## Notas para sócios
 

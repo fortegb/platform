@@ -57,12 +57,16 @@ Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic 
 
 **#138** permanece sub-issue de **#4** (histórico; epic Done). Trabalho futuro de portal/docs → novo epic «Documentação & portal sócios» (a criar); não re-parent issues fechadas.
 
-### 5. Canon ↔ module ↔ board field alignment
+### 5. `progress-focus.md` narrative — **fixed 2026-07-03 (A6)**
+
+Portal #138 movido para «Concluído recentemente»; foco actual = #139 board review + Architecture / Topic C.
+
+### 6. Canon ↔ module ↔ board field alignment
 
 - `modules.md` defines 10 modules; board **Module** field has matching options.
 - `mapa-fases.html` “Integrações” links to `#tours` — not a board module; decide if integrations deserve explicit module or stay under tours.
 
-### 6. Deliverables gaps (from `deliverables.md`)
+### 7. Deliverables gaps (from `deliverables.md`)
 
 Items marked “TBD” or deferred to Architecture may still lack board issues:
 
@@ -73,7 +77,7 @@ Items marked “TBD” or deferred to Architecture may still lack board issues:
 
 **Action candidate:** during review, either create issues, explicitly defer in `open-questions.md`, or mark “won’t do MVP”.
 
-### 7. Recurring process (for propose phase)
+### 8. Recurring process (for propose phase)
 
 Suggested validation checklist (repeat each review):
 
