@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **Phase 0 execução concluída** — próximo: epic Architecture (grilling).
+> Canon de design e sequenciamento. **Fase 0 execução concluída** — próximo: epic Architecture (grilling).
 
 ---
 
@@ -15,7 +15,7 @@
 
 **Grilling:** decisões arquitecturais **abertas** até epic Architecture (D-011). Escolher melhor solução em cada sessão.
 
-**Platform docs** (EN) · **Documentação da plataforma** (pt-BR): HTML estático em [`../`](../index.html) no GitHub Pages ([fortegb.github.io/platform](https://fortegb.github.io/platform/)) — planeamento para sócios; **não** é o produto Nuxt nem portais logados (corretor/staff).
+**Documentação da plataforma:** HTML estático em [`../`](../index.html) no GitHub Pages ([fortegb.github.io/platform](https://fortegb.github.io/platform/)) — planeamento para sócios; **não** é o produto Nuxt nem portais logados (corretor/staff). **Todo o conteúdo sócios = pt-BR.**
 
 ---
 
@@ -25,10 +25,12 @@
 |-----------|----------|
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco actual (Ricardo)** — editável; alimenta relatório de progresso |
-| [../index.html](../index.html) | **Platform docs** — índice GitHub Pages: mocks, progresso, planning HTML |
+| [../index.html](../index.html) | **Documentação da plataforma** — índice GitHub Pages: mocks, progresso, planning HTML |
 | [jornadas-plataforma.md](./jornadas-plataforma.md) | **Jornadas e funcionalidades** — estado-alvo por utilizador |
-| [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica (Platform docs) |
-| [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Phase 0–4 + módulos |
+| [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica |
+| [screen-map.md](./screen-map.md) | **Mapa de ecrãs MVP** — rotas por papel (canon) |
+| [screen-map.html](./screen-map.html) | Mapa de ecrãs — versão gráfica (gerado) |
+| [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Fases 0–4 + módulos |
 | [modules.md](./modules.md) | **Módulos de produto** — canon editável |
 | [modules.html](./modules.html) | **Módulos da plataforma** — detalhe por área (gerado de `modules.md`) |
 | [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
@@ -40,7 +42,7 @@
 | [deliverables.md](./deliverables.md) | **Mapa produto ↔ epics** (checklist negócio) |
 | [platform-vision.md](./platform-vision.md) | Visão + stack proposta |
 | [architecture.md](./architecture.md) | Template ADR (preencher na grilling) |
-| [phases.md](./phases.md) | Epics + sub-tarefas Phase 0–4 |
+| [phases.md](./phases.md) | Epics + sub-tarefas Fases 0–4 |
 | [open-questions.md](./open-questions.md) | Backlog grilling (Q-001–Q-019) |
 | [decisions.md](./decisions.md) | Decisões fechadas (D-001–D-011) |
 | [workflow.md](./workflow.md) | Board, OpenSpec, session open/close |

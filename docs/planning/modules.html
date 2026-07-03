@@ -62,57 +62,57 @@
       <a href="#mobile">Mobile</a>
     </nav>
 
-<blockquote>Mapa funcional para epics no board (campo <strong>Module</strong>) e para grilling.</blockquote>
+<blockquote>Mapa funcional para epics no board (campos <strong>Fase</strong> e <strong>Module</strong>) e para grilling.</blockquote>
 <hr/>
 <h2 id="platform">1. Infraestrutura e workflow (<code>platform</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
-<tr><td>GitHub Organization</td><td>Opção A: org <code>fortegb</code>, personal <code>fortegb-admin</code></td><td><strong>Done</strong></td></tr>
-<tr><td>GitHub Project board</td><td>Título <code>platform</code>, campos Phase + Module</td><td>Existe</td></tr>
+<tr><td>Organização GitHub</td><td>Opção A: org <code>fortegb</code>, personal <code>fortegb-admin</code></td><td><strong>Concluído</strong></td></tr>
+<tr><td>Board GitHub Project</td><td>Título <code>platform</code>, campos Fase + Module</td><td>Existe</td></tr>
 <tr><td>OpenSpec no repo</td><td>CLI + <code>openspec/changes/</code></td><td>Inicializado</td></tr>
-<tr><td>Portal sócios (GitHub Pages)</td><td><code>docs/</code> — índice, módulos, progresso, jornadas</td><td><strong>Live</strong> (legacy <code>/docs</code>)</td></tr>
-<tr><td>Dotfiles</td><td><code>auth</code>/<code>commit_as</code> — namespace <code>fortegb</code>, dev <code>rbonon</code></td><td>Done (dotfiles 0.8.1)</td></tr>
+<tr><td>Documentação da plataforma (GitHub Pages)</td><td><code>docs/</code> — índice, módulos, progresso, jornadas</td><td><strong>Publicado</strong></td></tr>
+<tr><td>Dotfiles</td><td><code>auth</code>/<code>commit_as</code> — namespace <code>fortegb</code>, dev <code>rbonon</code></td><td>Concluído (dotfiles 0.8.1)</td></tr>
 <tr><td>Deploy / Vercel</td><td>Reconectar após transferência</td><td>Planejado</td></tr>
 <tr><td><strong>Integrações MVP</strong></td><td>HubSpot, Tuya, WhatsApp, Calendar — epic <a href="https://github.com/fortegb/platform/issues/72">#72</a>, Fase 2</td><td>Planejado</td></tr>
 </tbody></table>
-<p><strong>Epic:</strong> <em>GitHub org migration</em> + <em>Bootstrap board &amp; workflow</em> + <em>Integrations MVP</em> (Fase 2, module <code>platform</code>)</p>
-<blockquote><strong>Integrações</strong> não são módulo board separado — cross-cutting; Visitas (#81) e CRM (#86) consomem o hub.</blockquote>
+<p><strong>Epics:</strong> <em>Migração org GitHub</em> + <em>Bootstrap board &amp; workflow</em> + <em>Integrações MVP</em> (Fase 2, module <code>platform</code>)</p>
+<blockquote><strong>Integrações</strong> não são módulo board separado — transversal; Visitas (#81) e CRM (#86) consomem o hub.</blockquote>
 <hr/>
 <h2 id="site">2. Site institucional (<code>site</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
 <tr><td>Home</td><td>Variantes <code>/</code>–<code>/v4</code>; 2 vencedores (com/sem hero)</td><td>UI — decisão pendente</td></tr>
-<tr><td>Portfólio</td><td>Lista + detalhe</td><td>UI + mock</td></tr>
+<tr><td>Portfólio</td><td>Lista + detalhe</td><td>UI + simulado</td></tr>
 <tr><td>Sobre, Blog, Contato</td><td>Páginas + formulário</td><td>UI; API contato stub</td></tr>
 <tr><td>Legal / LGPD</td><td>Privacidade, termos, cookies</td><td>Páginas existem</td></tr>
-<tr><td>WhatsApp CTAs</td><td>Botão flutuante + links</td><td>Implementado (UI)</td></tr>
+<tr><td>CTAs WhatsApp</td><td>Botão flutuante + links</td><td>Implementado (UI)</td></tr>
 </tbody></table>
-<p><strong>Epic (futuro):</strong> <em>Site público</em> → Fase 1 <strong>Public site UI finalization</strong> (inclui 2 homes)</p>
+<p><strong>Epic (futuro):</strong> <em>Site público</em> → Fase 1 <strong>Finalização UI site público</strong> (inclui 2 homes)</p>
 <hr/>
 <h2 id="auth">3. Autenticação e perfis (<code>auth</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
-<tr><td>Login identifier-first</td><td><code>/login</code></td><td>UI/mock</td></tr>
+<tr><td>Login identifier-first</td><td><code>/login</code></td><td>UI/simulado</td></tr>
 <tr><td>check-email, signup, reset</td><td>Back-end</td><td>Não</td></tr>
-<tr><td>Provedores sociais</td><td>Google, Facebook</td><td>UI only</td></tr>
-<tr><td>Roles</td><td>admin, proprietário, cliente, corretor</td><td>Não</td></tr>
+<tr><td>Provedores sociais</td><td>Google, Facebook</td><td>Só UI</td></tr>
+<tr><td>Papéis</td><td>admin, proprietário, cliente, corretor</td><td>Não</td></tr>
 <tr><td>Middleware por perfil</td><td>Generalizar <code>realtor-auth</code></td><td>Parcial</td></tr>
 </tbody></table>
-<p><strong>Epic (futuro):</strong> Fase 1 <strong>Identity, roles &amp; journey routing</strong> + Fase 2/3 portals  </p>
+<p><strong>Epic (futuro):</strong> Fase 1 <strong>Identidade, papéis e routing de jornada</strong> + portais Fase 2/3  </p>
 <p><strong>Spec:</strong> <a href="../autenticacao-login.md"><code>docs/autenticacao-login.md</code></a></p>
 <hr/>
 <h2 id="tours">4. Visitas autoguiadas (<code>tours</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
 <tr><td>Agendamento</td><td><code>/visita/agendar/[houseId]</code></td><td>UI + API parcial</td></tr>
 <tr><td>Visita instantânea QR</td><td><code>/visita/qr/[code]</code></td><td>UI + API parcial</td></tr>
-<tr><td>Verificação de identidade</td><td>Selfie + documento</td><td>Componente; match real TODO</td></tr>
-<tr><td>Senha temporária + Tuya</td><td>Smart lock</td><td>Generator sim; Tuya stub</td></tr>
+<tr><td>Verificação de identidade</td><td>Selfie + documento</td><td>Componente; match real pendente</td></tr>
+<tr><td>Senha temporária + Tuya</td><td>Fechadura inteligente</td><td>Gerador simulado; Tuya stub</td></tr>
 <tr><td>WhatsApp + Calendar + HubSpot</td><td>Confirmações e lead</td><td>Stubs</td></tr>
 </tbody></table>
 <p><strong>Epic (futuro):</strong> <em>Visitas autoguiadas (MVP)</em></p>
 <hr/>
 <h2 id="crm">5. CRM e corretores (<code>crm</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
-<tr><td>Portal corretor</td><td>Dashboard, leads, casas</td><td>UI + API parcial</td></tr>
-<tr><td>Proteção de comissão</td><td>Primeiro registro ganha</td><td>Lógica DB; HubSpot TODO</td></tr>
-<tr><td>HubSpot sync</td><td>Contatos, deals, pipeline</td><td>Stub</td></tr>
+<tr><td>Portal corretor</td><td>Painel, leads, casas</td><td>UI + API parcial</td></tr>
+<tr><td>Proteção de comissão</td><td>Primeiro registo ganha</td><td>Lógica BD; HubSpot pendente</td></tr>
+<tr><td>Sync HubSpot</td><td>Contatos, deals, pipeline</td><td>Stub</td></tr>
 <tr><td>Leads diretos ForteGB</td><td>Formulário, WhatsApp</td><td>Parcial</td></tr>
 </tbody></table>
 <p><strong>Epic (futuro):</strong> <em>Portal corretores e HubSpot</em></p>
@@ -127,17 +127,17 @@
 <tr><td>Kit para corretor</td><td>Fotos + copy exportável</td><td>Download / HubSpot</td></tr>
 <tr><td>Pipeline print/PDF</td><td>Manual (Figma) vs gerado pela plataforma</td><td>A definir na grilling</td></tr>
 </tbody></table>
-<p><strong>Epic (futuro):</strong> <em>House media kit &amp; materiais físicos</em></p>
-<p>Conteúdo relacionado no repo: <a href="../../content/social-media/"><code>content/social-media/</code></a> (ideias/templates — não automação).</p>
+<p><strong>Epic (futuro):</strong> <em>Media kit por casa e materiais físicos</em></p>
+<p>Conteúdo relacionado no repo: <a href="../../content/social-media/"><code>content/social-media/</code></a> (ideias/templates — sem automação).</p>
 <hr/>
 <h2 id="branding">7. Branding e design system (<code>branding</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
 <tr><td>Tokens web</td><td>Cores, botões — ver <code>AGENTS.md</code></td><td>Em uso</td></tr>
 <tr><td>Assets oficiais</td><td>Logo, guia — upload pendente</td><td>Não no repo</td></tr>
-<tr><td>Templates print</td><td>Placa, posters, social</td><td>Não</td></tr>
+<tr><td>Templates impressos</td><td>Placa, posters, social</td><td>Não</td></tr>
 <tr><td>Design system unificado</td><td>Web + impresso</td><td>A fazer</td></tr>
 </tbody></table>
-<p><strong>Epic (futuro):</strong> <em>Brand &amp; design system</em></p>
+<p><strong>Epic (futuro):</strong> <em>Marca e design system</em></p>
 <hr/>
 <h2 id="social">8. Conteúdo e social (<code>social</code>)</h2>
 <table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
@@ -150,7 +150,7 @@
 <hr/>
 <h2 id="admin">9. Admin e proprietários (<code>admin</code>)</h2>
 <p>Áreas logadas além do corretor — <strong>escopo não definido</strong>.</p>
-<p><strong>Epic (futuro):</strong> <em>Portais admin / proprietário / cliente</em> — após grilling de roles.</p>
+<p><strong>Epic (futuro):</strong> <em>Portais admin / proprietário / cliente</em> — após grilling de papéis.</p>
 <hr/>
 <h2 id="mobile">10. Mobile (<code>mobile</code>)</h2>
 <p>PWA vs app nativo — <strong>decisão aberta</strong>. Posters com QR podem justificar experiência mobile rica.</p>

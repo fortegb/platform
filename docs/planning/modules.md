@@ -1,6 +1,6 @@
 # Módulos da plataforma
 
-> Mapa funcional para epics no board (campo **Module**) e para grilling.
+> Mapa funcional para epics no board (campos **Fase** e **Module**) e para grilling.
 
 ---
 
@@ -8,17 +8,17 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| GitHub Organization | Opção A: org `fortegb`, personal `fortegb-admin` | **Done** |
-| GitHub Project board | Título `platform`, campos Phase + Module | Existe |
+| Organização GitHub | Opção A: org `fortegb`, personal `fortegb-admin` | **Concluído** |
+| Board GitHub Project | Título `platform`, campos Fase + Module | Existe |
 | OpenSpec no repo | CLI + `openspec/changes/` | Inicializado |
-| Portal sócios (GitHub Pages) | `docs/` — índice, módulos, progresso, jornadas | **Live** (legacy `/docs`) |
-| Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Done (dotfiles 0.8.1) |
+| Documentação da plataforma (GitHub Pages) | `docs/` — índice, módulos, progresso, jornadas | **Publicado** |
+| Dotfiles | `auth`/`commit_as` — namespace `fortegb`, dev `rbonon` | Concluído (dotfiles 0.8.1) |
 | Deploy / Vercel | Reconectar após transferência | Planejado |
 | **Integrações MVP** | HubSpot, Tuya, WhatsApp, Calendar — epic [#72](https://github.com/fortegb/platform/issues/72), Fase 2 | Planejado |
 
-**Epic:** *GitHub org migration* + *Bootstrap board & workflow* + *Integrations MVP* (Fase 2, module `platform`)
+**Epics:** *Migração org GitHub* + *Bootstrap board & workflow* + *Integrações MVP* (Fase 2, module `platform`)
 
-> **Integrações** não são módulo board separado — cross-cutting; Visitas (#81) e CRM (#86) consomem o hub.
+> **Integrações** não são módulo board separado — transversal; Visitas (#81) e CRM (#86) consomem o hub.
 
 ---
 
@@ -27,12 +27,12 @@
 | Item | Descrição | Estado |
 |------|-----------|--------|
 | Home | Variantes `/`–`/v4`; 2 vencedores (com/sem hero) | UI — decisão pendente |
-| Portfólio | Lista + detalhe | UI + mock |
+| Portfólio | Lista + detalhe | UI + simulado |
 | Sobre, Blog, Contato | Páginas + formulário | UI; API contato stub |
 | Legal / LGPD | Privacidade, termos, cookies | Páginas existem |
-| WhatsApp CTAs | Botão flutuante + links | Implementado (UI) |
+| CTAs WhatsApp | Botão flutuante + links | Implementado (UI) |
 
-**Epic (futuro):** *Site público* → Fase 1 **Public site UI finalization** (inclui 2 homes)
+**Epic (futuro):** *Site público* → Fase 1 **Finalização UI site público** (inclui 2 homes)
 
 ---
 
@@ -40,13 +40,13 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| Login identifier-first | `/login` | UI/mock |
+| Login identifier-first | `/login` | UI/simulado |
 | check-email, signup, reset | Back-end | Não |
-| Provedores sociais | Google, Facebook | UI only |
-| Roles | admin, proprietário, cliente, corretor | Não |
+| Provedores sociais | Google, Facebook | Só UI |
+| Papéis | admin, proprietário, cliente, corretor | Não |
 | Middleware por perfil | Generalizar `realtor-auth` | Parcial |
 
-**Epic (futuro):** Fase 1 **Identity, roles & journey routing** + Fase 2/3 portals  
+**Epic (futuro):** Fase 1 **Identidade, papéis e routing de jornada** + portais Fase 2/3  
 **Spec:** [`docs/autenticacao-login.md`](../autenticacao-login.md)
 
 ---
@@ -57,8 +57,8 @@
 |------|-----------|--------|
 | Agendamento | `/visita/agendar/[houseId]` | UI + API parcial |
 | Visita instantânea QR | `/visita/qr/[code]` | UI + API parcial |
-| Verificação de identidade | Selfie + documento | Componente; match real TODO |
-| Senha temporária + Tuya | Smart lock | Generator sim; Tuya stub |
+| Verificação de identidade | Selfie + documento | Componente; match real pendente |
+| Senha temporária + Tuya | Fechadura inteligente | Gerador simulado; Tuya stub |
 | WhatsApp + Calendar + HubSpot | Confirmações e lead | Stubs |
 
 **Epic (futuro):** *Visitas autoguiadas (MVP)*
@@ -69,9 +69,9 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| Portal corretor | Dashboard, leads, casas | UI + API parcial |
-| Proteção de comissão | Primeiro registro ganha | Lógica DB; HubSpot TODO |
-| HubSpot sync | Contatos, deals, pipeline | Stub |
+| Portal corretor | Painel, leads, casas | UI + API parcial |
+| Proteção de comissão | Primeiro registo ganha | Lógica BD; HubSpot pendente |
+| Sync HubSpot | Contatos, deals, pipeline | Stub |
 | Leads diretos ForteGB | Formulário, WhatsApp | Parcial |
 
 **Epic (futuro):** *Portal corretores e HubSpot*
@@ -91,9 +91,9 @@
 | Kit para corretor | Fotos + copy exportável | Download / HubSpot |
 | Pipeline print/PDF | Manual (Figma) vs gerado pela plataforma | A definir na grilling |
 
-**Epic (futuro):** *House media kit & materiais físicos*
+**Epic (futuro):** *Media kit por casa e materiais físicos*
 
-Conteúdo relacionado no repo: [`content/social-media/`](../../content/social-media/) (ideias/templates — não automação).
+Conteúdo relacionado no repo: [`content/social-media/`](../../content/social-media/) (ideias/templates — sem automação).
 
 ---
 
@@ -103,10 +103,10 @@ Conteúdo relacionado no repo: [`content/social-media/`](../../content/social-me
 |------|-----------|--------|
 | Tokens web | Cores, botões — ver `AGENTS.md` | Em uso |
 | Assets oficiais | Logo, guia — upload pendente | Não no repo |
-| Templates print | Placa, posters, social | Não |
+| Templates impressos | Placa, posters, social | Não |
 | Design system unificado | Web + impresso | A fazer |
 
-**Epic (futuro):** *Brand & design system*
+**Epic (futuro):** *Marca e design system*
 
 ---
 
@@ -127,7 +127,7 @@ Conteúdo relacionado no repo: [`content/social-media/`](../../content/social-me
 
 Áreas logadas além do corretor — **escopo não definido**.
 
-**Epic (futuro):** *Portais admin / proprietário / cliente* — após grilling de roles.
+**Epic (futuro):** *Portais admin / proprietário / cliente* — após grilling de papéis.
 
 ---
 

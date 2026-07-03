@@ -266,13 +266,13 @@ function screenMapShell(bodyHtml) {
       módulos em
       <a href="./modules.html">Módulos</a>.
       Canon: <code>screen-map.md</code> ·
-      <a href="https://github.com/fortegb/platform/issues/32">#32</a> (Done).
+      <a href="https://github.com/fortegb/platform/issues/32">#32</a> (concluído).
     </p>
 
 `;
   return planningDocShell({
     title: 'Mapa de ecrãs MVP',
-    subtitle: 'Rotas por papel — mock, new, fase e epic.',
+    subtitle: 'Rotas por papel — simulado, novo, fase e epic.',
     noticeHtml: notice,
     bodyHtml,
   });

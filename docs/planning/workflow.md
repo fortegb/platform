@@ -59,14 +59,14 @@ ideia → rbo-create-issue (epic ou sub-issue)
      → rbo-create-change (folha) → propose → apply → validação
      → rbo-close-change → Closes #N → ROADMAP.md → CHANGELOG.md
      → atualizar STATUS.md se o foco mudou
-     → **Platform docs** se sócios-visible (ver abaixo)
+     → **Documentação da plataforma** se visível para sócios (ver abaixo)
 ```
 
 ---
 
-## Platform docs — como fica live (sem epic permanente)
+## Documentação da plataforma — como fica publicada (sem epic permanente)
 
-**Platform docs** = `docs/` → [fortegb.github.io/platform](https://fortegb.github.io/platform/). Nome: EN *Platform docs* · pt-BR *Documentação da plataforma*.
+**Documentação da plataforma** = `docs/` → [fortegb.github.io/platform](https://fortegb.github.io/platform/). **Conteúdo sócios sempre em pt-BR.**
 
 **Não há epic aberto para “manter docs”.** O site fica atualizado por **processo no close-out**, não por backlog eterno.
 
@@ -82,7 +82,7 @@ ideia → rbo-create-issue (epic ou sub-issue)
 | Mudou… | Acção |
 |--------|--------|
 | Board ou `progress-focus.md` | `npm run progress:report` |
-| `modules.md`, contrato corretor | `npm run pages:portal` |
+| `modules.md`, `screen-map.md`, contrato corretor | `npm run pages:portal` |
 | Mocks Nuxt exportados | `npm run pages:site` |
 | Várias superfícies | `npm run pages:sync` |
 | Nav, cards, páginas só HTML | Editar `docs/index.html`, `mapa-fases.html`, etc. |
