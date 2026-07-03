@@ -345,7 +345,6 @@ function buildHtml({ items, focus, generatedAt }) {
     <div class="brand"><a href="../index.html">← Portal ForteGB</a></div>
     <nav>
       <a class="btn-secondary" href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
-      <button type="button" class="btn-primary" onclick="window.print()">Imprimir / PDF</button>
     </nav>
   </div>
 
