@@ -71,7 +71,16 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 - `modules.md` defines 10 modules; board **Module** field has matching options.
 - `mapa-fases.html` “Integrações” links to `#tours` — not a board module; decide if integrations deserve explicit module or stay under tours.
 
-### 7. Deliverables gaps (from `deliverables.md`)
+### B1 decisions (in progress)
+
+| Gap | Decision |
+|-----|----------|
+| **Q-017 condomínio/portaria** | **New issue [#140](https://github.com/fortegb/platform/issues/140)** under Architecture #1 (Phase 0, tours) |
+| Follow-up pós-visita | _pending_ |
+| Manual ID queue | _pending_ |
+| Bot WhatsApp corretor | _pending_ |
+
+---
 
 Items marked “TBD” or deferred to Architecture may still lack board issues:
 
