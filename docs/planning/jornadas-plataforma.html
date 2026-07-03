@@ -33,6 +33,7 @@
     .notice-inline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
     .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
     .pill-row span { font-size: 0.75rem; background: var(--bg); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 6px; }
+    .section-title { scroll-margin-top: 4rem; }
   </style>
 </head>
 <body>
@@ -55,33 +56,33 @@
 
     <h2 class="section-title">Pilares do produto</h2>
     <div class="grid">
-      <div class="card">
+      <a class="card" href="./modules.html#site">
         <h3>Site público</h3>
         <p>Marca, portfólio, blog, WhatsApp e formulário — primeira impressão de confiança.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="./modules.html#tours">
         <h3>Visitas autoguiadas</h3>
         <p>Agendar ou QR na placa → identidade → senha temporária → entrar sozinho na casa.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="./modules.html#crm">
         <h3>CRM e corretores</h3>
         <p>Prospectos registrados, comissão protegida, HubSpot como centro de leads.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="./modules.html#media-kit">
         <h3>Media kit</h3>
         <p>Placa, posters, timeline de obra e kit para corretor — por casa.</p>
-      </div>
+      </a>
     </div>
 
     <h2 class="section-title">Quem usa</h2>
     <div class="grid">
-      <div class="card"><span class="role-badge role-visitante">Visitante</span><p>Navega site e blog; inicia contato.</p></div>
-      <div class="card"><span class="role-badge role-cliente">Cliente</span><p>Agenda ou visita instantânea; documentos e senha.</p></div>
-      <div class="card"><span class="role-badge role-corretor">Corretor</span><p>Contrato por casa, registro de prospectos, pipeline.</p></div>
-      <div class="card"><span class="role-badge role-staff">Staff / Admin</span><p>Aprovações, visitas, leads, configuração.</p></div>
+      <a class="card" href="#jornada-visitante"><span class="role-badge role-visitante">Visitante</span><p>Navega site e blog; inicia contato.</p></a>
+      <a class="card" href="#jornada-visitante"><span class="role-badge role-cliente">Cliente</span><p>Agenda ou visita instantânea; documentos e senha.</p></a>
+      <a class="card" href="#jornada-corretor"><span class="role-badge role-corretor">Corretor</span><p>Contrato por casa, registro de prospectos, pipeline.</p></a>
+      <a class="card" href="#jornada-staff"><span class="role-badge role-staff">Staff / Admin</span><p>Aprovações, visitas, leads, configuração.</p></a>
     </div>
 
-    <h2 class="section-title">Jornada — visitante → cliente</h2>
+    <h2 class="section-title" id="jornada-visitante">Jornada — visitante → cliente</h2>
 
     <div class="card" style="margin-bottom:1rem">
       <span class="role-badge role-visitante">Descobrir</span>
@@ -125,7 +126,7 @@
       <p style="font-size:0.85rem;color:var(--muted);margin-top:0.75rem">Depende do media kit físico (placa). Acesso condomínio/portaria ainda em estudo.</p>
     </div>
 
-    <h2 class="section-title">Jornada — corretor</h2>
+    <h2 class="section-title" id="jornada-corretor">Jornada — corretor</h2>
 
     <div class="card" style="margin-bottom:1rem">
       <span class="role-badge role-corretor">Onboarding</span>
@@ -153,7 +154,7 @@
       <p style="font-size:0.85rem;margin-top:0.75rem"><a href="./corretor-contract.html">Contrato corretor v0.1</a> · <a href="./apresentacao-corretores.html">Apresentação corretores</a></p>
     </div>
 
-    <h2 class="section-title">Jornada — staff e admin</h2>
+    <h2 class="section-title" id="jornada-staff">Jornada — staff e admin</h2>
     <div class="grid">
       <div class="card">
         <span class="role-badge role-staff">Staff</span>

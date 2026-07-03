@@ -85,7 +85,9 @@ a:hover { text-decoration: underline; }
   transition: border-color 0.15s, transform 0.15s;
   position: relative;
 }
-.card:hover { border-color: var(--blue); transform: translateY(-2px); }
+a.card { text-decoration: none; color: inherit; }
+.card-interactive:hover,
+a.card:hover { border-color: var(--blue); transform: translateY(-2px); }
 .card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); }
 .card p { font-size: 0.88rem; color: var(--muted); flex: 1; }
 .card .link-row { margin-top: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--blue); }
@@ -147,5 +149,6 @@ a:hover { text-decoration: underline; }
 @media print {
   .toolbar { position: static; }
   .toolbar nav { display: none; }
-  .card:hover { transform: none; }
+  .card-interactive:hover,
+  a.card:hover { transform: none; }
 }
