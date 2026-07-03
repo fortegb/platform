@@ -24,6 +24,9 @@
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco actual (Ricardo)** — editável; alimenta relatório de progresso |
 | [../index.html](../index.html) | **Portal sócios (GitHub Pages)** — índice: mocks estáticos, progresso, docs |
+| [jornadas-plataforma.md](./jornadas-plataforma.md) | **Jornadas e funcionalidades** — estado-alvo por utilizador |
+| [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica (portal) |
+| [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Phase 0–4 + módulos |
 | [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
 | [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot; refresh sob pedido |
 | [apresentacao-socios.html](./apresentacao-socios.html) | **Apresentação gráfica** — browser / PDF |

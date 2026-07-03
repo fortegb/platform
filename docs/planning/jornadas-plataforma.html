@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Jornadas e funcionalidades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <style>
+    .journey-flow {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+      font-size: 0.82rem; margin: 0.75rem 0 0; color: var(--muted);
+    }
+    .journey-flow span.step {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 0.25rem 0.55rem; border-radius: 6px; color: var(--text);
+    }
+    .journey-flow .arrow { color: var(--blue); font-weight: 700; }
+    .role-badge {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      padding: 0.2rem 0.55rem; border-radius: 999px; margin-bottom: 0.35rem;
+    }
+    .role-visitante { background: #e8f0f8; color: var(--blue); }
+    .role-cliente { background: #e6f4ec; color: var(--green); }
+    .role-corretor { background: #fef3e2; color: #b45309; }
+    .role-staff { background: #ede9fe; color: #5b21b6; }
+    .steps-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
+    .steps-table th, .steps-table td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; }
+    .steps-table th { background: var(--bg); font-weight: 600; color: var(--navy); }
+    .steps-table tr:nth-child(even) td { background: #fafbfc; }
+    .notice-inline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+    .pill-row span { font-size: 0.75rem; background: var(--bg); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../index.html">← Portal ForteGB</a></div>
+    <div class="meta">Estado-alvo · 2026-07-03</div>
+  </div>
+
+  <header class="hero">
+    <h1>Jornadas e funcionalidades</h1>
+    <p>O que a plataforma fará quando estiver concluída — por tipo de utilizador, passo a passo. Complementa o relatório de progresso (execução) com a visão de produto.</p>
+  </header>
+
+  <main class="container">
+    <p class="notice-inline">
+      <strong>Nota:</strong> isto descreve o <em>destino</em>, não o calendário. Para epics e issues actuais, ver
+      <a href="./progresso-socios.html">Relatório de progresso</a> ou
+      <a href="./mapa-fases.html">Mapa por fases</a>.
+      Canon editável: <code>jornadas-plataforma.md</code>.
+    </p>
+
+    <h2 class="section-title">Pilares do produto</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Site público</h3>
+        <p>Marca, portfólio, blog, WhatsApp e formulário — primeira impressão de confiança.</p>
+      </div>
+      <div class="card">
+        <h3>Visitas autoguiadas</h3>
+        <p>Agendar ou QR na placa → identidade → senha temporária → entrar sozinho na casa.</p>
+      </div>
+      <div class="card">
+        <h3>CRM e corretores</h3>
+        <p>Prospectos registados, comissão protegida, HubSpot como centro de leads.</p>
+      </div>
+      <div class="card">
+        <h3>Media kit</h3>
+        <p>Placa, posters, timeline de obra e kit para corretor — por casa.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Quem usa</h2>
+    <div class="grid">
+      <div class="card"><span class="role-badge role-visitante">Visitante</span><p>Navega site e blog; inicia contacto.</p></div>
+      <div class="card"><span class="role-badge role-cliente">Cliente</span><p>Agenda ou visita instantânea; documentos e senha.</p></div>
+      <div class="card"><span class="role-badge role-corretor">Corretor</span><p>Contrato por casa, registo de prospectos, pipeline.</p></div>
+      <div class="card"><span class="role-badge role-staff">Staff / Admin</span><p>Aprovações, visitas, leads, configuração.</p></div>
+    </div>
+
+    <h2 class="section-title">Jornada — visitante → cliente</h2>
+
+    <div class="card" style="margin-bottom:1rem">
+      <span class="role-badge role-visitante">Descobrir</span>
+      <h3>Site público</h3>
+      <div class="journey-flow">
+        <span class="step">Google / redes</span><span class="arrow">→</span>
+        <span class="step">Home</span><span class="arrow">→</span>
+        <span class="step">Portfólio</span><span class="arrow">→</span>
+        <span class="step">Detalhe da casa</span><span class="arrow">→</span>
+        <span class="step">WhatsApp ou formulário</span>
+      </div>
+      <div class="pill-row"><span>Lead no CRM</span><span>Blog educativo</span><span>Mobile responsive</span></div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <span class="role-badge role-cliente">Visita agendada</span>
+      <h3>Marca horário com antecedência</h3>
+      <table class="steps-table">
+        <thead><tr><th>#</th><th>Passo</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Escolhe casa → Agendar visita</td><td>Formulário data/hora + contacto</td></tr>
+          <tr><td>2</td><td>Selfie + documento (RG/CNH)</td><td>Verificação automática ou fila staff</td></tr>
+          <tr><td>3</td><td>Aprovação</td><td>Evento no calendário</td></tr>
+          <tr><td>4</td><td>Senha na fechadura (Tuya)</td><td>Validade limitada (ex. 2–4 h)</td></tr>
+          <tr><td>5</td><td>WhatsApp de confirmação</td><td>Morada, hora, senha</td></tr>
+          <tr><td>6</td><td>Pós-visita</td><td>Senha expira; follow-up CRM</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <span class="role-badge role-cliente">Visita instantânea</span>
+      <h3>QR na placa “À venda”</h3>
+      <div class="journey-flow">
+        <span class="step">QR na rua</span><span class="arrow">→</span>
+        <span class="step">Micro-página mobile</span><span class="arrow">→</span>
+        <span class="step">Identidade</span><span class="arrow">→</span>
+        <span class="step">Senha imediata</span><span class="arrow">→</span>
+        <span class="step">WhatsApp</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-top:0.75rem">Depende do media kit físico (placa). Acesso condomínio/portaria ainda em estudo.</p>
+    </div>
+
+    <h2 class="section-title">Jornada — corretor</h2>
+
+    <div class="card" style="margin-bottom:1rem">
+      <span class="role-badge role-corretor">Onboarding</span>
+      <div class="journey-flow">
+        <span class="step">Registo</span><span class="arrow">→</span>
+        <span class="step">Termos ForteGB</span><span class="arrow">→</span>
+        <span class="step">Perfil + CRECI</span><span class="arrow">→</span>
+        <span class="step">Staff aprova</span><span class="arrow">→</span>
+        <span class="step">Portal corretor</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <span class="role-badge role-corretor">Por casa</span>
+      <h3>Contrato e prospectos</h3>
+      <table class="steps-table">
+        <thead><tr><th>#</th><th>Passo</th><th>Regra</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ver casas disponíveis → Reclamar casa</td><td>Uma casa de cada vez</td></tr>
+          <tr><td>2</td><td>Assinar contrato da casa (Gov.br)</td><td>Staff aprova</td></tr>
+          <tr><td>3</td><td>Registar prospecto (nome + CPF)</td><td>Só casas com contrato activo</td></tr>
+          <tr><td>4</td><td>Primeiro registo ganha comissão</td><td>Timestamp + HubSpot</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem;margin-top:0.75rem"><a href="./corretor-contract.html">Contrato corretor v0.1</a> · <a href="./apresentacao-corretores.html">Apresentação corretores</a></p>
+    </div>
+
+    <h2 class="section-title">Jornada — staff e admin</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="role-badge role-staff">Staff</span>
+        <ul style="font-size:0.85rem;padding-left:1.1rem;color:var(--muted)">
+          <li>Aprovar corretores e contratos por casa</li>
+          <li>Fila de identidade (visitas)</li>
+          <li>Visitas do dia e leads recentes</li>
+          <li>Lead manual (WhatsApp telefónico)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="role-badge role-staff">Admin (sócios)</span>
+        <ul style="font-size:0.85rem;padding-left:1.1rem;color:var(--muted)">
+          <li>Convites e roles</li>
+          <li>Chaves API (Tuya, HubSpot…)</li>
+          <li>Flags sensíveis e relatórios</li>
+          <li>Excepções de comissão (com audit)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">MVP v1 vs depois</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="tag green">MVP v1 (proposta)</span>
+        <ul style="font-size:0.85rem;padding-left:1.1rem;color:var(--muted);margin-top:0.35rem">
+          <li>Site + portfólio real</li>
+          <li>Visitas agendada + QR</li>
+          <li>Portal corretor + HubSpot</li>
+          <li>Placa QR + WhatsApp</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Depois</span>
+        <ul style="font-size:0.85rem;padding-left:1.1rem;color:var(--muted);margin-top:0.35rem">
+          <li>App nativo / PWA instalável</li>
+          <li>Motor social automatizado</li>
+          <li>Portal cliente logado</li>
+          <li>PDF media kit 100% automático</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notice" style="margin-top:2rem">
+      <strong>Hoje:</strong> mocks UI e planning concluídos; build Phase 1 bloqueado até epic Architecture.
+      <a href="./progresso-socios.html">Ver progresso detalhado →</a>
+    </div>
+  </main>
+
+  <footer class="footer-note">
+    <a href="../index.html">Portal</a> ·
+    <a href="./mapa-fases.html">Mapa por fases</a> ·
+    <a href="https://github.com/fortegb/platform/blob/main/docs/planning/jornadas-plataforma.md">Markdown no GitHub</a>
+  </footer>
+</body>
+</html>

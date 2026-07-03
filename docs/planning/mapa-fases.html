@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Mapa por fases</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <style>
+    .phase-track {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.5rem;
+    }
+    .phase-node {
+      flex: 1; min-width: 140px; text-align: center; padding: 1rem 0.75rem;
+      border-radius: var(--radius); border: 2px solid var(--border);
+      background: var(--card); position: relative;
+    }
+    .phase-node.done { border-color: var(--green); background: #f0faf4; }
+    .phase-node.current { border-color: var(--blue); background: #eef6fb; box-shadow: var(--shadow); }
+    .phase-node.future { opacity: 0.75; }
+    .phase-node .num { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .phase-node .label { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin: 0.25rem 0; }
+    .phase-node .desc { font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
+    .phase-node.current::after {
+      content: 'Estamos aqui'; position: absolute; top: -0.55rem; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap;
+    }
+    .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .module-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1rem; font-size: 0.85rem;
+    }
+    .module-card h4 { font-size: 0.9rem; color: var(--navy); margin-bottom: 0.35rem; }
+    .module-card .phase-tag { font-size: 0.68rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .status-dot {
+      display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 600;
+    }
+    .status-dot::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+    }
+    .st-mock::before { background: #f59e0b; }
+    .st-partial::before { background: var(--blue); }
+    .st-done::before { background: var(--green); }
+    .st-planned::before { background: #cbd5e1; }
+    .legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
+    .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .compare-table th, .compare-table td { border: 1px solid var(--border); padding: 0.55rem 0.65rem; text-align: left; }
+    .compare-table th { background: var(--bg); color: var(--navy); }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../index.html">← Portal ForteGB</a></div>
+    <div class="meta">Visão macro · 2026-07-03</div>
+  </div>
+
+  <header class="hero">
+    <h1>Mapa por fases</h1>
+    <p>Onde estamos no plano geral — complemento visual ao <a href="./progresso-socios.html" style="color:#fff;text-decoration:underline">relatório de issues</a>, que mantém o detalhe de execução.</p>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Linha do tempo (Phase 0 → 4)</h2>
+    <div class="phase-track">
+      <div class="phase-node done">
+        <div class="num">Phase 0</div>
+        <div class="label">Fundação</div>
+        <div class="desc">Org, board, planning, portal sócios, mocks estáticos</div>
+      </div>
+      <div class="phase-node current">
+        <div class="num">Phase 1</div>
+        <div class="label">Site + identidade</div>
+        <div class="desc">UI final, auth, conteúdo real, brand assets</div>
+      </div>
+      <div class="phase-node future">
+        <div class="num">Phase 2</div>
+        <div class="label">Visitas + CRM</div>
+        <div class="desc">Tuya, HubSpot, portal corretor, integrações</div>
+      </div>
+      <div class="phase-node future">
+        <div class="num">Phase 3</div>
+        <div class="label">Media kit + admin</div>
+        <div class="desc">Placa QR, posters, portais staff, conteúdo obra</div>
+      </div>
+      <div class="phase-node future">
+        <div class="num">Phase 4</div>
+        <div class="label">Escala</div>
+        <div class="desc">Social engine, mobile avançado, optimização</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem">
+      Phase 1 só arranca após epic <strong>Architecture</strong> concluído (grilling técnico). Phase 0 de execução está essencialmente feita; falta fechar decisões em <code>architecture.md</code>.
+    </p>
+
+    <h2 class="section-title">Módulos — prontidão actual</h2>
+    <div class="legend">
+      <span><span class="status-dot st-done">Concluído (planning/infra)</span></span>
+      <span><span class="status-dot st-mock">UI mock</span></span>
+      <span><span class="status-dot st-partial">Parcial / stub</span></span>
+      <span><span class="status-dot st-planned">Planeado</span></span>
+    </div>
+    <div class="module-grid">
+      <div class="module-card">
+        <h4>Infra & workflow</h4>
+        <div class="phase-tag">Phase 0 · platform</div>
+        <span class="status-dot st-done">Org, board, OpenSpec, portal Pages</span>
+      </div>
+      <div class="module-card">
+        <h4>Site institucional</h4>
+        <div class="phase-tag">Phase 1 · site</div>
+        <span class="status-dot st-mock">Páginas V1–V4, portfólio mock</span>
+      </div>
+      <div class="module-card">
+        <h4>Autenticação</h4>
+        <div class="phase-tag">Phase 1 · auth</div>
+        <span class="status-dot st-mock">Login UI; back-end pendente</span>
+      </div>
+      <div class="module-card">
+        <h4>Visitas autoguiadas</h4>
+        <div class="phase-tag">Phase 2 · tours</div>
+        <span class="status-dot st-partial">Formulários + API parcial</span>
+      </div>
+      <div class="module-card">
+        <h4>CRM & corretores</h4>
+        <div class="phase-tag">Phase 2 · crm</div>
+        <span class="status-dot st-partial">Portal UI; HubSpot stub</span>
+      </div>
+      <div class="module-card">
+        <h4>Integrações</h4>
+        <div class="phase-tag">Phase 2</div>
+        <span class="status-dot st-planned">Tuya, WhatsApp, Calendar</span>
+      </div>
+      <div class="module-card">
+        <h4>Media kit</h4>
+        <div class="phase-tag">Phase 3</div>
+        <span class="status-dot st-planned">Placa, posters, PDF</span>
+      </div>
+      <div class="module-card">
+        <h4>Branding & DS</h4>
+        <div class="phase-tag">Phase 1 · branding</div>
+        <span class="status-dot st-partial">Tokens web; assets oficiais pendentes</span>
+      </div>
+      <div class="module-card">
+        <h4>Conteúdo social</h4>
+        <div class="phase-tag">Phase 3–4 · social</div>
+        <span class="status-dot st-partial">Ideias estáticas; sem automação</span>
+      </div>
+    </div>
+
+    <h2 class="section-title">Dois formatos de progresso</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Formato</th><th>Responde a…</th><th>Quando usar</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="./progresso-socios.html"><strong>Relatório de issues</strong></a></td>
+          <td>O que está Done / In Progress / Todo no board</td>
+          <td>Reunião operacional, detalhe de tarefas</td>
+        </tr>
+        <tr>
+          <td><strong>Este mapa por fases</strong></td>
+          <td>Em que “capítulo” do produto estamos</td>
+          <td>Visão para sócios — macro, sem números de issue</td>
+        </tr>
+        <tr>
+          <td><a href="./jornadas-plataforma.html"><strong>Jornadas</strong></a></td>
+          <td>O que o utilizador final poderá fazer</td>
+          <td>Alinhar expectativa de produto e demos</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notice" style="margin-top:2rem">
+      <strong>Manutenção:</strong> actualizar este HTML quando uma fase ou módulo mudar de estado (ex. Architecture Done → Phase 1 In Progress).
+      O relatório de issues continua automático via <code>npm run progress:report</code>.
+    </div>
+  </main>
+
+  <footer class="footer-note">
+    <a href="../index.html">Portal</a> ·
+    <a href="./jornadas-plataforma.html">Jornadas</a> ·
+    <a href="./progresso-socios.html">Relatório detalhado</a>
+  </footer>
+</body>
+</html>
