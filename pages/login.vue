@@ -2,7 +2,7 @@
   <div class="min-h-screen flex items-center justify-center bg-primary-500 px-4">
     <div class="w-full max-w-md">
       <NuxtLink to="/" class="block" aria-label="Voltar para a página inicial">
-        <img src="/logo.png" alt="ForteGB" class="h-14 w-auto mx-auto mb-6" />
+        <img :src="logoUrl" alt="ForteGB" class="h-14 w-auto mx-auto mb-6" />
       </NuxtLink>
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
@@ -235,6 +235,8 @@ definePageMeta({
   layout: false,
   middleware: ['guest']
 })
+
+const logoUrl = usePublicAsset('/logo.png')
 
 const form = reactive({
   email: '',

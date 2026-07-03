@@ -1,0 +1,1 @@
+import{J as u,K as s,y as o}from"./Cf_l6mV_.js";import{u as l}from"./C6V9cyrs.js";const p=u(async(c,d)=>{let e,t;const a=l(),{data:{user:r}}=([e,t]=s(()=>a.auth.getUser()),e=await e,t(),e);if(!r)return o("/login");const{data:i,error:n}=([e,t]=s(()=>a.from("realtors").select("*").eq("user_id",r.id).single()),e=await e,t(),e);if(n||!i)return o("/login")});export{p as default};

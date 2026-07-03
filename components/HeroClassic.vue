@@ -3,7 +3,7 @@
     <div 
       v-if="backgroundImage"
       class="absolute inset-0 bg-cover bg-center opacity-30"
-      :style="{ backgroundImage: `url(${backgroundImage})` }"
+        :style="{ backgroundImage: `url(${heroImageUrl})` }"
     ></div>
     <div class="container mx-auto px-4 relative z-10 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">
@@ -47,6 +47,8 @@ const props = withDefaults(defineProps<Props>(), {
   subtitle: 'Através de projetos imobiliários de qualidade.\nSua nova casa está aqui.',
   backgroundImage: '/images/hero.png'
 })
+
+const heroImageUrl = usePublicAsset(() => props.backgroundImage)
 
 const config = useRuntimeConfig()
 const whatsappNumber = config.public.whatsappNumber || '5511999999999'

@@ -35,7 +35,7 @@
         <div class="order-1 md:order-2">
           <img 
             v-if="backgroundImage"
-            :src="backgroundImage" 
+            :src="heroImageUrl" 
             alt="Imóvel ForteGB"
             class="w-full h-48 md:h-[320px] object-cover rounded-xl md:rounded-2xl shadow-lg mt-8 md:mt-0"
           />
@@ -57,6 +57,8 @@ const props = withDefaults(defineProps<Props>(), {
   subtitle: 'Através de projetos imobiliários de qualidade.\nSua nova casa está aqui.',
   backgroundImage: '/images/hero.png'
 })
+
+const heroImageUrl = usePublicAsset(() => props.backgroundImage)
 
 const config = useRuntimeConfig()
 const whatsappNumber = config.public.whatsappNumber || '5511999999999'

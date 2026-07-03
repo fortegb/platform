@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between">
         <NuxtLink to="/" class="flex items-center space-x-2">
           <img 
-            src="/logo.png" 
+            :src="logoUrl" 
             alt="ForteGB Logo" 
             class="h-16 w-auto"
           />
@@ -110,6 +110,7 @@
 
 <script setup lang="ts">
 const mobileMenuOpen = ref(false)
+const logoUrl = usePublicAsset('/logo.png')
 </script>
 
 

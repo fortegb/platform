@@ -5,7 +5,7 @@
         <!-- Logo e Slogan -->
         <div class="col-span-1 md:col-span-2">
           <img 
-            src="/logo.png" 
+            :src="logoUrl" 
             alt="ForteGB Logo" 
             class="h-12 w-auto mb-4 -ml-6"
           />
@@ -68,6 +68,7 @@
 
 <script setup lang="ts">
 const currentYear = new Date().getFullYear()
+const logoUrl = usePublicAsset('/logo.png')
 </script>
 
 
