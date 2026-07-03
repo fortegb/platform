@@ -21,6 +21,10 @@
 
 | Documento | Conteúdo |
 |-----------|----------|
+| [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
+| [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot; refresh sob pedido |
+| [apresentacao-socios.html](./apresentacao-socios.html) | **Apresentação gráfica** — browser / PDF |
+| [corretor-contract-template.md](./corretor-contract-template.md) | Rascunho contrato corretor (v0.1) |
 | [deliverables.md](./deliverables.md) | **Mapa produto ↔ epics** (checklist negócio) |
 | [platform-vision.md](./platform-vision.md) | Visão + stack proposta |
 | [architecture.md](./architecture.md) | Template ADR (preencher na grilling) |

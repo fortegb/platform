@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Apresentação aos Sócios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #203045;
+      --blue: #1a74a1;
+      --slate: #4a5a72;
+      --green: #3E8E5E;
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --border: #e2e8ef;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(32, 48, 69, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .toolbar span { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+    .toolbar button {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .toolbar button:hover { background: var(--blue); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a4560 50%, var(--slate) 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 36rem;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .hero-meta span {
+      background: rgba(255,255,255,0.12);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-num {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, rgba(26,116,161,0.08), transparent);
+      border-left: 4px solid var(--blue);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--bg);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .diagram {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .flow-step {
+      background: var(--card);
+      border: 2px solid var(--blue);
+      color: var(--navy);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .flow-step.green { border-color: var(--green); }
+    .flow-step.navy { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    .flow-arrow {
+      color: var(--slate);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .family-tree {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .family-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .person {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      min-width: 160px;
+      box-shadow: var(--shadow);
+    }
+
+    .person.founder { border-color: var(--blue); }
+    .person strong { display: block; color: var(--navy); font-size: 0.95rem; }
+    .person small { color: var(--muted); font-size: 0.75rem; }
+
+    .connector {
+      width: 2px;
+      height: 24px;
+      background: var(--slate);
+      margin: 0 auto;
+      opacity: 0.4;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .pill {
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .pill.outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+
+    .pill.green { background: var(--green); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+    }
+
+    .checklist li::before {
+      content: '';
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .problem-flow svg { max-width: 100%; height: auto; }
+
+    .steps-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .step-v {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-v-num {
+      width: 2rem;
+      height: 2rem;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .step-v-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin: 0 auto;
+      min-height: 16px;
+    }
+
+    .step-v-body {
+      padding-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .step-v-body strong { color: var(--navy); }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .role-card {
+      text-align: center;
+      padding: 1rem 0.75rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .role-card.admin { border-color: var(--blue); background: rgba(26,116,161,0.06); }
+    .role-card .name { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+    .role-card .role { font-size: 0.7rem; color: var(--muted); margin-top: 0.25rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media print {
+      .toolbar { display: none; }
+      .hero { padding: 2rem 1rem; }
+      section { break-inside: avoid; }
+      body { background: #fff; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <span>ForteGB · Apresentação aos Sócios · jul/2026</span>
+    <button type="button" onclick="window.print()">Imprimir / PDF</button>
+  </div>
+
+  <header class="hero">
+    <h1>ForteGB</h1>
+    <p class="tagline">Construindo sonhos em Campinas — modelo de negócio, decisões e plataforma digital</p>
+    <div class="hero-meta">
+      <span>Adilson · Felipe · Ricardo</span>
+      <span>Validação de sócios</span>
+      <span>~45 min</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1 Resumo -->
+    <section id="s1">
+      <div class="section-head">
+        <div class="section-num">1</div>
+        <h2>Resumo executivo</h2>
+      </div>
+      <div class="card">
+        <p>Queremos <strong>vender mais</strong> com site, marketing aberto e <strong>visitas autoguiadas</strong> — sem brigar com corretores.</p>
+        <div class="highlight">
+          Preço único · Corretor regista prospecto <em>antes</em> · ForteGB divulga à vontade · Comissão garantida se comprador era registado
+        </div>
+        <div class="pill-row">
+          <span class="pill">Transparência</span>
+          <span class="pill">Confiança</span>
+          <span class="pill">Proximidade</span>
+          <span class="pill outline">Sem jogos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 Quem somos -->
+    <section id="s2">
+      <div class="section-head">
+        <div class="section-num">2</div>
+        <h2>Quem somos e como decidimos</h2>
+      </div>
+      <div class="card">
+        <h3>Sócios fundadores</h3>
+        <div class="family-tree">
+          <div class="family-row">
+            <div class="person founder">
+              <strong>Ricardo Bonon</strong>
+              <small>53 anos · Vendas · Digital · Obra</small>
+            </div>
+            <div class="person founder">
+              <strong>Adilson Gonçalves</strong>
+              <small>66 anos · Compras · Obra</small>
+            </div>
+          </div>
+          <div class="connector"></div>
+          <div class="family-row">
+            <div class="person founder">
+              <strong>Felipe Bonon Gonçalves</strong>
+              <small>33 anos · Investidor · Admin plataforma</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Regras de decisão</h3>
+        <table>
+          <thead>
+            <tr><th>Situação</th><th>Quem decide</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Acima de <strong>R$ 100.000</strong></td><td><strong>Os três</strong></td></tr>
+            <tr><td>Terreno, preço, fecho de venda</td><td><strong>Os três</strong></td></tr>
+            <tr><td>Dia-a-dia (&lt; R$ 100k)</td><td>Ricardo + Adilson</td></tr>
+            <tr><td>Plataforma — construção</td><td>Ricardo (autofinanciado)</td></tr>
+            <tr><td>Plataforma — prontidão / custos</td><td>Ricardo apresenta → <strong>os três</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3 Operação -->
+    <section id="s3">
+      <div class="section-head">
+        <div class="section-num">3</div>
+        <h2>Operação hoje</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Obra &amp; compras</h3>
+          <p><strong>Mestre de obras</strong> por casa; Ricardo e Adilson visitam semanalmente.</p>
+          <p style="margin-top:0.5rem"><strong>Compras:</strong> Adilson (principal).</p>
+        </div>
+        <div class="card">
+          <h3>Vendas &amp; finanças</h3>
+          <p><strong>Vendas:</strong> Ricardo (Adilson liderou Casas 01–02).</p>
+          <p style="margin-top:0.5rem"><strong>Finanças:</strong> PIX; quem paga regista (planilha).</p>
+        </div>
+        <div class="card">
+          <h3>Legal</h3>
+          <p><strong>ForteGB = marca</strong> (nome fantasia). Operação em <strong>Pessoa Física</strong>. Sem LTDA por agora.</p>
+        </div>
+        <div class="card">
+          <h3>Casas</h3>
+          <p>01 R-35 · 02 P-31 · 03 Q-21</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Problema -->
+    <section id="s4">
+      <div class="section-head">
+        <div class="section-num">4</div>
+        <h2>Problema com corretores (passado)</h2>
+      </div>
+      <div class="card problem-flow">
+        <div class="flow">
+          <div class="flow-step">Corretor traz prospecto</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">Vê placa / site</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">Contacta ForteGB</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step navy">Medo de perder comissão</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step navy">Esconde contactos</div>
+        </div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:0.88rem">Vendas via corretores, acordos informais. Comissão ~5% mercado; negociámos <strong>3%</strong>. Pagamento: sinal + escritura.</p>
+      </div>
+    </section>
+
+    <!-- 5 Modelo novo -->
+    <section id="s5">
+      <div class="section-head">
+        <div class="section-num">5</div>
+        <h2>Modelo novo — cinco pilares</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card"><h3>1. Preço unificado</h3><p>Mesmo preço corretor ou directo.</p></div>
+        <div class="card"><h3>2. Contrato por casa</h3><p>Assinatura Gov.br. Juliana revisa modelo.</p></div>
+        <div class="card"><h3>3. Registo de lead</h3><p>Bot WhatsApp: nome + CPF <strong>antes</strong> da visita.</p></div>
+        <div class="card"><h3>4. Comissão garantida</h3><p>Se comprador era registado — mesmo que tenha visto nosso marketing.</p></div>
+      </div>
+      <div class="card">
+        <h3>5. Transparência na venda</h3>
+        <p>WhatsApp + PDF (nome + CPF do comprador) para todos os corretores com registos na casa. Conferência no cartório se quiserem.</p>
+      </div>
+      <div class="card">
+        <h3>Fluxo do lead</h3>
+        <div class="diagram">
+          <div class="flow">
+            <div class="flow-step green">Corretor: nome + CPF</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step green">Confirmação + PDF</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">Prospecto vê marketing</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">Visita / contacto</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step navy">Venda → comissão</div>
+          </div>
+        </div>
+        <table style="margin-top:1rem">
+          <tr><td>Registo por <strong>casa</strong></td><td>Mesmo prospecto: corretor numa casa, directo noutra</td></tr>
+          <tr><td>Sem registo prévio</td><td>Lead directo — sem comissão</td></tr>
+          <tr><td>Validade</td><td>Até a casa ser vendida</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6 Onboarding -->
+    <section id="s6">
+      <div class="section-head">
+        <div class="section-num">6</div>
+        <h2>Onboarding corretor (self-service)</h2>
+      </div>
+      <div class="card">
+        <h3>Conta (uma vez)</h3>
+        <div class="flow">
+          <div class="flow-step">Registo e-mail</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">Termos no site</div>
+        </div>
+        <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--muted)">Staff notificado em <strong>cada passo</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Por casa (repete para cada imóvel)</h3>
+        <div class="steps-vertical">
+          <div class="step-v">
+            <div class="step-v-num">1</div>
+            <div class="step-v-body"><strong>Reclamar casa</strong><br/>1.ª vez ou corretor já activo vê outras ofertas</div>
+          </div>
+          <div class="step-v-line"></div>
+          <div class="step-v">
+            <div class="step-v-num">2</div>
+            <div class="step-v-body"><strong>Assinatura Gov.br</strong><br/>Contrato separado por casa</div>
+          </div>
+          <div class="step-v-line"></div>
+          <div class="step-v">
+            <div class="step-v-num">3</div>
+            <div class="step-v-body"><strong>Aprovação staff</strong><br/>Qualquer staff pode aprovar</div>
+          </div>
+          <div class="step-v-line"></div>
+          <div class="step-v">
+            <div class="step-v-num">4</div>
+            <div class="step-v-body"><strong>Activo</strong><br/>Registo leads + visitas <em>só nesta casa</em></div>
+          </div>
+        </div>
+        <p style="margin-top:1rem"><span class="pill green">Piloto: Juliana Mestrinier</span></p>
+      </div>
+    </section>
+
+    <!-- 7 Plataforma -->
+    <section id="s7">
+      <div class="section-head">
+        <div class="section-num">7</div>
+        <h2>Plataforma — papéis</h2>
+      </div>
+      <div class="card">
+        <div class="roles-grid">
+          <div class="role-card admin"><div class="name">Ricardo</div><div class="role">admin + staff</div></div>
+          <div class="role-card admin"><div class="name">Felipe</div><div class="role">admin + staff</div></div>
+          <div class="role-card"><div class="name">Adilson</div><div class="role">staff</div></div>
+          <div class="role-card"><div class="name">Cláudia</div><div class="role">staff</div></div>
+          <div class="role-card"><div class="name">Gisele</div><div class="role">staff · vendas</div></div>
+        </div>
+        <ul style="margin-top:1.25rem;padding-left:1.25rem;font-size:0.88rem;color:var(--muted)">
+          <li>Site, portfólio, marketing</li>
+          <li>Visitas autoguiadas (QR + agendada) — «Seu corretor: …»</li>
+          <li>Portal corretor + bot WhatsApp</li>
+          <li><strong>app-despesas</strong> depois — substituir planilha</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8 Checklist -->
+    <section id="s8">
+      <div class="section-head">
+        <div class="section-num">8</div>
+        <h2>Validação — checklist</h2>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li>Confirmar limiar <strong>R$ 100k</strong> e decisões a três</li>
+          <li>Confirmar modelo corretor (preço único + registo antes)</li>
+          <li>Confirmar contrato <strong>por casa</strong> + aprovação staff</li>
+          <li>Felipe: OK papel <strong>admin</strong> com Ricardo?</li>
+          <li>Adilson: OK aprovar corretores e receber notificações?</li>
+          <li>Autorizar Ricardo + Juliana a fechar contrato v0.1?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Próximos passos</h3>
+        <table>
+          <tr><td>1</td><td>Reunião de validação (hoje)</td></tr>
+          <tr><td>2</td><td>Juliana revisa contrato v0.1</td></tr>
+          <tr><td>3</td><td>Piloto: 1 corretor + 1 casa</td></tr>
+          <tr><td>4</td><td>Continuar arquitectura plataforma</td></tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    ForteGB · Snapshot jul/2026 (ênfase corretores) · Canon: company-structure.md · Refresh sob pedido
+  </footer>
+
+</body>
+</html>

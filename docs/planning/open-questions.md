@@ -23,16 +23,19 @@
 
 ### Q-003 — Quem são os user types no day one?
 - **Module:** auth, admin
-- **Status:** open
+- **Status:** **partial** → [`company-structure.md`](./company-structure.md) §8 + [`architecture.md`](./architecture.md) §2
 - **Question:** Público, corretor, cliente, staff ForteGB, proprietário — quem no MVP?
-- **Context:** Staff admin “not fully designed yet” — listar tarefas mínimas staff.
-- **Blocks:** Identity epic, admin Phase 3 scope
+- **Resolved (2026-07-02):** Roles admin/staff/corretor/cliente; matriz ecrãs em `company-structure.md` §6. Perm detail = admin vs staff only.
+- **Blocks:** Identity epic (RBAC implementation)
 
 ### Q-016 — Corretor: assinatura de termos/contrato
 - **Module:** crm, auth
-- **Status:** open
+- **Status:** **partial** → [`corretor-contract-template.md`](./corretor-contract-template.md) v0.1
 - **Question:** Corretor deve assinar contrato/termos com ForteGB antes do portal? Formato (checkbox auditável, PDF, e-sign)?
-- **Blocks:** P2 Portal corretor onboarding
+- **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registo de lead (bot). Revisão Juliana Mestrinier.
+- **Onboarding:** conta self-service + **contrato por casa** (reclamar → Gov.br → staff); staff notificado em **todos** os passos; **qualquer staff** aprova; casas extra = novo contrato reutilizando dados.
+- **Review process:** Ricardo → Juliana redlines v0.1 → trio approve → Juliana pilot corretor.
+- **Blocks:** P2 Portal corretor (integração Gov.br)
 
 ---
 

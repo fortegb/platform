@@ -14,7 +14,7 @@
 ## 0. Visão confirmada (produto)
 
 1. **Website** — presença corporativa (UI, marca, valores), portfólio, blog, pontes para redes.
-2. **Corretor** — login; **assinar termos**; CRUD prospectos para comissão.
+2. **Corretor** — self-service onboarding (registo → termos → Gov.br → staff → portal/bot/leads).
 3. **Cliente** — ver casas; visita autoguiada (agendada + QR); identidade; senha/fechadura; lead CRM.
 4. **Staff ForteGB** — admin (escopo TBD na grilling).
 5. **Mobile** — tudo usable no telemóvel (responsive v1; native/PWA TBD).
@@ -34,15 +34,28 @@
 
 ## 2. User roles & portals
 
-*(Q-003, Q-016)*
+> Preenchido a partir de [`company-structure.md`](./company-structure.md) §6, §7 (2026-07-02). Q-003 parcialmente resolvido.
 
-| Role | Portal / access | MVP? | Post-login |
-|------|-----------------|------|------------|
-| Visitante | Público | | |
-| Cliente | Público + fluxo visita | | |
-| Corretor | Portal corretor | | |
-| Staff ForteGB | Admin | | |
-| … | | | |
+| Role | Quem | Portal / access | MVP? | Notas |
+|------|------|-----------------|------|-------|
+| **Visitante** | Público | Site, blog, portfólio | Sim | |
+| **Cliente** | Comprador | Fluxo visita, contacto | Sim | CPF liga a registo corretor se existir |
+| **Corretor** | Contratados (ex. Juliana) | Portal corretor + bot WhatsApp | Sim | CRECI preferencial; mesmo fluxo sem CRECI |
+| **Staff** | R., F., A., Cláudia, Gisele | Área logada operacional | Sim | Vendas, despesas, consultas |
+| **Admin** | Ricardo, Felipe | Staff + config, flags, excepções | Sim | Hoarding alerts → Ricardo (WhatsApp/Telegram) |
+| **Sócio / investidor** | Três fundadores | Via staff/admin conforme role | — | Felipe = admin; Adilson = staff |
+
+**Auth (MVP):** Google, Facebook, e-mail — staff e corretores em `platform`; SSO partilhado com `app-despesas` (fase posterior).
+
+**MVP (2026-07-02):** **admin** (Ricardo, Felipe) + **staff** (os cinco).
+
+| Área | Admin only |
+|------|------------|
+| Hoarding flags | Sim |
+| User/role invite | Sim |
+| Platform config / API keys | Sim |
+| Lead exceptions, corretor onboarding, void registo | Staff |
+| Financials cross-house | Fora do MVP plataforma (TBD pós-sucesso) |
 
 ---
 
@@ -52,9 +65,11 @@
 |------|---------|-------|---------|
 | Cliente — visita agendada | | | |
 | Cliente — QR instantâneo | | | |
-| Corretor — onboarding | login → **termos** → portal | | |
-| Corretor — prospecto | CRUD → comissão | | |
-| Staff | TBD | | |
+| Corretor — onboarding (conta) | Auto-registo → termos site | Staff notificado cada passo |
+| Corretor — por casa | Ver ofertas → **reclamar casa** → Gov.br → staff aprova | 1.ª casa no onboarding **ou** casas extra se já activo |
+| Corretor — outra casa | Portal: outras ofertas → reclamar → novo contrato | Mesmo fluxo; perfil reutilizado |
+| Corretor — prospecto | Bot/portal nome+CPF | Só casas com contrato aprovado |
+| Staff — corretor | Notificações todos passos; **qualquer staff** aprova | |
 
 ---
 
