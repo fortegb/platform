@@ -25,12 +25,17 @@
 
 ## 1. Scope & MVP boundary
 
-*(Q-003, Q-006, Q-018 — TBD; resumo estado-alvo em [`jornadas-plataforma.md`](./jornadas-plataforma.md) §8.)*
+> **Resolvido (2026-07-03, Grilling 0 [#145](https://github.com/fortegb/platform/issues/145)) → D-018.** Fatias verticais; v1 arquitetado em profundidade, v2/v3 just-in-time.
 
-- **MVP v1 (proposta):** site público + portfólio real; login corretor/staff/admin; visita agendada + QR; identidade + fallback manual; HubSpot leads principais; portal corretor; placa QR básica; WhatsApp confirmações.
-- **Fora do MVP v1 (proposta):** app nativo; automação social completa; condomínio automatizado; match facial avançado; portal cliente logado; BI avançado; PDF media kit totalmente automático.
+- **v1** — site público + portfólio real + CTA visita **WhatsApp** · **auth + papéis** (fundação) · corretor onboarding (registo → staff aprova) · **registo de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
+- **v2** — **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de excepção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
+- **v3 / Fase 3** — media kit, timeline de obra, motor social, portal cliente logado, BI.
 
-**Fronteira exacta:** fechar no epic Architecture (Q-003, Q-006, Q-018). Ver tabela completa → jornadas §8.
+**Corretor antes de tours:** sem dependências de hardware/externas, protege comissão desde cedo, alinhado a venda humana; tours = maior build único → v2.
+
+**Lock now (fundacional, difícil reverter — mesmo com a feature diferida):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (§5); camada de adaptadores; API-first; escolha de queue (QStash).
+
+**Diferido para o grilling da fase:** tours (Q-005/006/017), media kit (Q-009/011–013), social, mobile (Q-008/019), design conversacional dos bots. Estado-alvo → jornadas §8.
 
 ---
 
@@ -92,43 +97,62 @@ Resolvido em [`screen-map.md`](./screen-map.md) (2026-07-03). Detalhe passo-a-pa
 
 ## 4. System context
 
-*(Stack **proposta** — confirmar Q-004, Q-007)*
+> **Confirmado (2026-07-03, Grilling 0) → D-017.** Serverless, API-first. *(Q-007 HubSpot source-of-truth ainda aberto.)* Avaliação serverless vs persistente → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md).
 
 ```mermaid
 flowchart TB
   subgraph clients [Clients]
-    WEB[Nuxt web — mobile responsive]
+    WEB[Nuxt web — first client]
+    PWA[PWA/native — futuro]
+    BOT[Bots WA/Telegram]
   end
-  subgraph data [Data TBD]
-    SB[(Supabase?)]
-    CF[Contentful?]
+  subgraph app [App serverless — Vercel Hobby→Pro]
+    API[Nuxt/Nitro · rotas API-first]
+    ADP[Camada de adaptadores]
+    Q[Upstash QStash · jobs+retries]
   end
-  subgraph integrations [Integrations]
+  subgraph data [Dados & conteúdo]
+    SB[(Supabase · Postgres/Auth/Storage+RLS)]
+    CMS[CMS · Contentful/Sanity]
+    VID[YouTube/Vimeo · vídeo]
+  end
+  subgraph integrations [Integrações via adaptadores]
     HS[HubSpot]
     TUYA[Tuya]
-    WA[WhatsApp]
+    WA[WhatsApp/Telegram]
     CAL[Calendar]
+    GOV[Gov.br]
   end
-  WEB --> SB
-  WEB --> CF
-  WEB --> HS
-  WEB --> TUYA
-  WEB --> WA
-  WEB --> CAL
+  WEB --> API
+  PWA --> API
+  BOT --> API
+  API --> SB
+  API --> CMS
+  API --> ADP
+  API --> Q
+  CMS --> VID
+  ADP --> HS
+  ADP --> TUYA
+  ADP --> WA
+  ADP --> CAL
+  ADP --> GOV
 ```
 
 ---
 
 ## 5. Data & content strategy
 
-*(Q-004)*
+> **Resolvido Q-004 (2026-07-03) → D-016.** Taxonomia por tipo de conteúdo; join por **ID de casa** partilhado, merge no Nuxt.
 
-| Domain | Source of truth | Notes |
-|--------|-----------------|-------|
-| Houses | TBD | |
-| Blog | TBD | |
-| Media kit / timeline | TBD | |
-| Leads / CRM | TBD | Q-007, Q-018 |
+| Domínio | Source of truth | Notas |
+|---------|-----------------|-------|
+| Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (Contentful/Sanity) | autoria com UI; vendor reversível via camada de serviço |
+| Blog | **CMS** | autoria unificada |
+| Estado operacional da casa (status, links a leads/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
+| Vídeo | **YouTube/Vimeo** (embed) | URL como campo; não passa pelo backend |
+| Docs sensíveis (contratos Gov.br, RG/CNH) | **Supabase** bucket privado + RLS | LGPD: encriptação + retenção |
+| Leads / CRM | **HubSpot** (+ Supabase) | *Q-007 (source-of-truth) ainda aberto*; Q-018 fontes multi-canal |
+| Social | **Fora da plataforma** | drafts IA + scheduler grátis opcional |
 
 ---
 
@@ -171,12 +195,17 @@ flowchart TB
 
 ## 7. Non-functional
 
+> **Actualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
+
 | Topic | Decision |
 |-------|----------|
-| Hosting | Vercel (proposed) |
-| Mobile v1 | Responsive web (proposed — Q-019) |
-| LGPD | TBD |
-| Auth | Supabase Auth (proposed) |
+| Hosting | **Vercel Hobby (grátis) → Pro (~$20/mo) quando útil**; Nitro-portável (Netlify/Cloudflare) como seguro |
+| Runtime | **Serverless**, API-first; async/retries via **Upstash QStash** |
+| Mobile v1 | Responsive web (Q-019); PWA/native depois reutiliza a API |
+| Messaging | **Telegram-first** (grátis); WhatsApp = pago-quando-útil |
+| LGPD | Docs sensíveis em **bucket privado Supabase + RLS**; encriptação + retenção |
+| Auth | Supabase Auth (Google/Facebook/e-mail); RBAC cobrindo todos os papéis |
+| Custo | Free-first; bends conhecidos: WhatsApp (por msg), Tuya (quotas) |
 
 ---
 

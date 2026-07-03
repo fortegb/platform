@@ -145,3 +145,49 @@
   - `app-despesas` (ex-`fortegb-despesas`)
   - `ai-assets` (ex-`Resources_IA`)
 - **Consequências:** `repo_clone fortegb/<nome>`; hífens OK no GitHub; Mac Mini — [setup-mac-mini.md](../setup-mac-mini.md).
+
+---
+
+### D-015 — Restrições fundacionais + build-vs-buy (2026-07-03)
+
+- **Contexto:** Grilling 0 ([#145](https://github.com/fortegb/platform/issues/145)) — fixar postura antes de perguntas pontuais.
+- **Decisão:**
+  - **Restrições:** dev solo (Ricardo); horizonte de meses sem prazo rígido (uma casa flagship como motivação suave); **free-first** (iniciativa nascente, pessoas físicas, pré-receita — só gastar quando provar utilidade); **zero-ops**; escala low-hundreds.
+  - **Build vs buy:** usar **SaaS/gerido por defeito** onde encaixa; **sem self-hosting**; **sem admin de back-office** construído para o dono (usar dashboards do fornecedor, ex. Supabase Studio); construir custom **só** nos fluxos únicos (visitas/identidade, corretor).
+- **Consequências:** cada escolha de stack passa neste crivo; tempo do dev é o recurso escasso, não dinheiro.
+
+---
+
+### D-016 — Colocação de conteúdo: CMS + Supabase (2026-07-03) — **fecha Q-004**
+
+- **Contexto:** "CMS vs DB" é falso binário; a casa tem dados operacionais/relacionais **e** conteúdo/media.
+- **Decisão:** Taxonomia por tipo de conteúdo:
+  - Conteúdo (listings, blog, timeline de obra, media) → **CMS** (Contentful/Sanity).
+  - Estado operacional + PII sensível (status, leads, visitas, verificação, contratos Gov.br, RG/CNH) → **Supabase** (Postgres + bucket **privado** com RLS + retenção LGPD).
+  - **Vídeo** → embed YouTube/Vimeo (URL como campo); não passar pelo backend.
+  - **Social** → fora da plataforma.
+  - **Join** conteúdo ↔ operacional por **ID de casa** partilhado, merge no Nuxt.
+- **Alternativas rejeitadas:** Supabase-only (UX de autoria fraca); admin self-hosted sobre Postgres/Directus (viola zero-ops); largar Contentful por completo (revertido — um CMS compensa na autoria).
+- **Consequências:** vendor CMS (Contentful já em `package.json` vs free-tier mais generoso do Sanity) reversível via camada de serviço; decidido no build. Pré-resolve armazenamento de Q-005/Q-016 (bucket privado RLS).
+
+---
+
+### D-017 — Forma do sistema: serverless (2026-07-03)
+
+- **Contexto:** Plataforma integration-heavy e event-driven (bots WA/Telegram, HubSpot, Tuya, trabalho agendado) + cliente mobile futuro provável. Prioridades: free-first + zero-ops + simplicidade Vercel.
+- **Decisão:** **Serverless** — Nuxt/Nitro na **Vercel** (Hobby grátis → Pro ~$20/mo quando útil), **API-first** (web = 1.º cliente; PWA/native/bots reutilizam), **Upstash QStash** para jobs com atraso + retries, **camada de adaptadores** de integração (um módulo por terceiro), **Telegram-first** (grátis; WhatsApp pago-quando-útil), vídeo ao vivo offloaded ao fornecedor, app **Nitro-portável** como seguro.
+- **Alternativa avaliada:** processo Node persistente (Fly.io/Oracle/Railway) + pg-boss in-process + websockets — mais coerente para eventos/real-time e mais familiar (C/LAMP), mas **grátis + always-on + zero-ops não coexistem**. Comparação completa → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md).
+- **Consequências:** async fica espalhado por funções + QStash (aceite: "não me importo desde que funcione"); a 1–2 casas/ano o uso não dispara upgrade; Pro é escolha discricionária posterior.
+
+---
+
+### D-018 — Fronteira de MVP: v1/v2/v3 (2026-07-03)
+
+- **Contexto:** Escopo total = muitos meses para dev solo; precisa de fatias verticais.
+- **Decisão:**
+  - **v1:** site público + portfólio real + CTA visita WhatsApp · **auth + papéis** · corretor onboarding (registo → staff aprova) · **registo de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
+  - **v2:** **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de excepção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
+  - **v3 / Fase 3:** media kit, timeline de obra, motor social, portal cliente, BI.
+  - **Lock now (fundacional, difícil reverter):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (D-016); camada de adaptadores; API-first; escolha de queue (QStash).
+- **Rationale:** corretor **antes** de tours — sem dependências de hardware/externas, protege comissão desde o 1.º par de corretores, alinhado a venda humana; tours = maior/mais arriscado build único → v2; Gov.br = integração mais arriscada do fluxo corretor → manual-first. BDUF rejeitado (viola D-011); deferimento cego rejeitado (fecharia v2/v3) — daí o guardrail "lock now".
+- **Consequências:** v2/v3 arquitetados just-in-time no grilling da fase; Q-005/006/017, Q-009/011–013, Q-008/019 diferidos para a sua fase.
