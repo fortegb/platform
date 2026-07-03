@@ -24,22 +24,21 @@
     <p>Rascunho v0.1 — revisão Juliana Mestrinier · não constitui aconselhamento jurídico</p>
   </header>
   <main class="container doc-body">
-<h1>Contrato de parceria — Corretor × ForteGB</h1>
 <blockquote><strong>Status:</strong> rascunho genérico (2026-07-02) — <strong>não é aconselhamento jurídico</strong>.  </blockquote>
-<blockquote>Baseado em [<code>company-structure.md</code>](./company-structure.md) §6.  </blockquote>
+<blockquote>Baseado em <a href="./company-structure.md"><code>company-structure.md</code></a> §6.  </blockquote>
 <blockquote><strong>Revisão final:</strong> Juliana Mestrinier + sócios ForteGB + advogado se necessário.</blockquote>
 <hr/>
 <h2>Partes</h2>
 <p><strong>CONTRATANTE(S)</strong> — PF(s) proprietária(s) <strong>deste imóvel</strong> (contrato <strong>por casa</strong>):  </p>
 <ul>
 <li>Nome: <code>[NOME_PROPRIETARIO_1]</code> · CPF: <code>[CPF_1]</code>  </li>
-<li>Nome: <code>[NOME_PROPRIETARIO_2]</code> · CPF: <code>[CPF_2]</code> *(se aplicável)*  </li>
+<li>Nome: <code>[NOME_PROPRIETARIO_2]</code> · CPF: <code>[CPF_2]</code> <em>(se aplicável)</em>  </li>
 </ul>
-<p>*(Um corretor pode ter <strong>vários contratos</strong> — um por casa reclamada; dados do corretor reutilizados, documento novo por imóvel.)*</p>
+<p><em>(Um corretor pode ter <strong>vários contratos</strong> — um por casa reclamada; dados do corretor reutilizados, documento novo por imóvel.)</em></p>
 <p><strong>CONTRATADA(O)</strong> — Corretor(a) de imóveis:  </p>
 <ul>
 <li>Nome: <code>[NOME_CORRETOR]</code> · CPF/CNPJ: <code>[DOCUMENTO_CORRETOR]</code>  </li>
-<li>CRECI: <code>[CRECI]</code> *(preferencial; mesmo fluxo se em branco — ver cláusula 2)*  </li>
+<li>CRECI: <code>[CRECI]</code> <em>(preferencial; mesmo fluxo se em branco — ver cláusula 2)</em>  </li>
 <li>E-mail: <code>[EMAIL]</code> · Telefone / WhatsApp: <code>[TELEFONE]</code></li>
 </ul>
 <p><strong>IMÓVEL OBJETO:</strong> <code>[IDENTIFICACAO_CASA]</code> — ex. Casa 04, endereço <code>[ENDERECO]</code>, matrícula <code>[MATRICULA]</code>.</p>
@@ -74,7 +73,7 @@
 <p>4.7. ForteGB <strong>não contata</strong> o prospecto apenas para validar registro do corretor.</p>
 <hr/>
 <h2>Cláusula 5 — Visitas e marketing</h2>
-<p>5.1. Prospectos registrados podem usar <strong>visitas autoguiadas</strong> (agendadas ou instantâneas). A plataforma pode exibir *«Seu Corretor: [nome]»* ao prospecto.</p>
+<p>5.1. Prospectos registrados podem usar <strong>visitas autoguiadas</strong> (agendadas ou instantâneas). A plataforma pode exibir <em>«Seu Corretor: [nome]»</em> ao prospecto.</p>
 <p>5.2. O(A) CONTRATADO(A) recebe <strong>link para agendar visita</strong> após registro confirmado.</p>
 <hr/>
 <h2>Cláusula 6 — Transparência na venda</h2>
@@ -115,21 +114,21 @@
 <tr><td>Data início oferta</td><td></td></tr>
 </tbody></table>
 <hr/>
-<p>*Versão 0.1 — gerada a partir das regras acordadas em <code>company-structure.md</code>. Revisar com Juliana Mestrinier antes de uso.*</p>
+<p><em>Versão 0.1 — gerada a partir das regras acordadas em <code>company-structure.md</code>. Revisar com Juliana Mestrinier antes de uso.</em></p>
 <p><strong>Assinatura (MVP):</strong> <strong>Gov.br</strong>. E-sign comercial = avaliação futura.</p>
 <p><strong>Revisão:</strong> Ricardo apresenta à Juliana Mestrinier → redlines → aprovação trio → piloto com Juliana.</p>
 <p><strong>Onboarding (portal):</strong> registro conta → termos → <strong>por casa:</strong> reclamar → Gov.br → staff → leads.</p>
-<p>flowchart TB</p>
-<p>  subgraph conta [Conta — uma vez]</p>
-<p>    R[Registro + e-mail] --&gt; T[Termos no site]</p>
-<p>  end</p>
-<p>  subgraph casa [Por casa — repetível]</p>
-<p>    C[Reclamar casa] --&gt; G[Gov.br]</p>
-<p>    G --&gt; S[Staff aprova]</p>
-<p>    S --&gt; L[Leads + visitas nesta casa]</p>
-<p>  end</p>
-<p>  T --&gt; C</p>
-<p>  L --&gt; C2[Reclamar outra casa...]</p>
+<pre>flowchart TB
+  subgraph conta [Conta — uma vez]
+    R[Registro + e-mail] --&gt; T[Termos no site]
+  end
+  subgraph casa [Por casa — repetível]
+    C[Reclamar casa] --&gt; G[Gov.br]
+    G --&gt; S[Staff aprova]
+    S --&gt; L[Leads + visitas nesta casa]
+  end
+  T --&gt; C
+  L --&gt; C2[Reclamar outra casa...]</pre>
   </main>
   <footer class="footer-note"><span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a></footer>
   <script src="../assets/portal-build.js" defer></script>

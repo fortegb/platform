@@ -27,6 +27,8 @@
 | [jornadas-plataforma.md](./jornadas-plataforma.md) | **Jornadas e funcionalidades** — estado-alvo por utilizador |
 | [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica (portal) |
 | [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Phase 0–4 + módulos |
+| [modules.md](./modules.md) | **Módulos de produto** — canon editável |
+| [modules.html](./modules.html) | **Módulos da plataforma** — detalhe por área (gerado de `modules.md`) |
 | [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
 | [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot; refresh sob pedido |
 | [apresentacao-socios.html](./apresentacao-socios.html) | **Apresentação gráfica** — browser / PDF |

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Módulos da plataforma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <style>
+    .notice-inline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .module-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .module-nav a {
+      font-size: 0.78rem; font-weight: 600; text-decoration: none;
+      padding: 0.25rem 0.55rem; border-radius: 6px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--blue);
+    }
+    .module-nav a:hover { background: #eef6fb; }
+    .doc-body h2 { scroll-margin-top: 4rem; }
+    .doc-body pre {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1rem; font-size: 0.78rem; line-height: 1.45; overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../index.html">← Documentação Plataforma ForteGB</a></div>
+  </div>
+
+  <header class="hero">
+    <h1>Módulos da plataforma</h1>
+    <p>Detalhe por área de produto — o que inclui cada módulo, prontidão e epics. Complemento ao mapa por fases.</p>
+  </header>
+
+  <main class="container doc-body">
+    <p class="notice-inline">
+      <strong>Nota:</strong> resumo visual em
+      <a href="./mapa-fases.html">Mapa por fases</a>;
+      execução detalhada em
+      <a href="./progresso-socios.html">Relatório de progresso</a>;
+      jornadas por utilizador em
+      <a href="./jornadas-plataforma.html">Jornadas</a>.
+      Canon editável: <code>modules.md</code>.
+    </p>
+
+    <nav class="module-nav" aria-label="Módulos">
+      <a href="#platform">Infra</a>
+      <a href="#site">Site</a>
+      <a href="#auth">Auth</a>
+      <a href="#tours">Visitas</a>
+      <a href="#crm">CRM</a>
+      <a href="#media-kit">Media kit</a>
+      <a href="#branding">Branding</a>
+      <a href="#social">Social</a>
+      <a href="#admin">Admin</a>
+      <a href="#mobile">Mobile</a>
+    </nav>
+
+<blockquote>Mapa funcional para epics no board (campo <strong>Module</strong>) e para grilling.</blockquote>
+<hr/>
+<h2 id="platform">1. Infraestrutura e workflow (<code>platform</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>GitHub Organization</td><td>Opção A: org <code>fortegb</code>, personal <code>fortegb-admin</code></td><td><strong>Done</strong></td></tr>
+<tr><td>GitHub Project board</td><td>Título <code>platform</code>, campos Phase + Module</td><td>Existe</td></tr>
+<tr><td>OpenSpec no repo</td><td>CLI + <code>openspec/changes/</code></td><td>Inicializado</td></tr>
+<tr><td>Dotfiles</td><td><code>auth</code>/<code>commit_as</code> — namespace <code>fortegb</code>, dev <code>rbonon</code></td><td>Done (dotfiles 0.8.1)</td></tr>
+<tr><td>Deploy / Vercel</td><td>Reconectar após transferência</td><td>Planejado</td></tr>
+</tbody></table>
+<p><strong>Epic:</strong> <em>GitHub org migration</em> + <em>Bootstrap board &amp; workflow</em></p>
+<hr/>
+<h2 id="site">2. Site institucional (<code>site</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>Home</td><td>Variantes <code>/</code>–<code>/v4</code>; 2 vencedores (com/sem hero)</td><td>UI — decisão pendente</td></tr>
+<tr><td>Portfólio</td><td>Lista + detalhe</td><td>UI + mock</td></tr>
+<tr><td>Sobre, Blog, Contato</td><td>Páginas + formulário</td><td>UI; API contato stub</td></tr>
+<tr><td>Legal / LGPD</td><td>Privacidade, termos, cookies</td><td>Páginas existem</td></tr>
+<tr><td>WhatsApp CTAs</td><td>Botão flutuante + links</td><td>Implementado (UI)</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>Site público</em> → Phase 1 <strong>Public site UI finalization</strong> (inclui 2 homes)</p>
+<hr/>
+<h2 id="auth">3. Autenticação e perfis (<code>auth</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>Login identifier-first</td><td><code>/login</code></td><td>UI/mock</td></tr>
+<tr><td>check-email, signup, reset</td><td>Back-end</td><td>Não</td></tr>
+<tr><td>Provedores sociais</td><td>Google, Facebook</td><td>UI only</td></tr>
+<tr><td>Roles</td><td>admin, proprietário, cliente, corretor</td><td>Não</td></tr>
+<tr><td>Middleware por perfil</td><td>Generalizar <code>realtor-auth</code></td><td>Parcial</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> Phase 1 <strong>Identity, roles &amp; journey routing</strong> + Phase 2/3 portals  </p>
+<p><strong>Spec:</strong> <a href="../autenticacao-login.md"><code>docs/autenticacao-login.md</code></a></p>
+<hr/>
+<h2 id="tours">4. Visitas autoguiadas (<code>tours</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>Agendamento</td><td><code>/visita/agendar/[houseId]</code></td><td>UI + API parcial</td></tr>
+<tr><td>Visita instantânea QR</td><td><code>/visita/qr/[code]</code></td><td>UI + API parcial</td></tr>
+<tr><td>Verificação de identidade</td><td>Selfie + documento</td><td>Componente; match real TODO</td></tr>
+<tr><td>Senha temporária + Tuya</td><td>Smart lock</td><td>Generator sim; Tuya stub</td></tr>
+<tr><td>WhatsApp + Calendar + HubSpot</td><td>Confirmações e lead</td><td>Stubs</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>Visitas autoguiadas (MVP)</em></p>
+<hr/>
+<h2 id="crm">5. CRM e corretores (<code>crm</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>Portal corretor</td><td>Dashboard, leads, casas</td><td>UI + API parcial</td></tr>
+<tr><td>Proteção de comissão</td><td>Primeiro registro ganha</td><td>Lógica DB; HubSpot TODO</td></tr>
+<tr><td>HubSpot sync</td><td>Contatos, deals, pipeline</td><td>Stub</td></tr>
+<tr><td>Leads diretos ForteGB</td><td>Formulário, WhatsApp</td><td>Parcial</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>Portal corretores e HubSpot</em></p>
+<hr/>
+<h2 id="media-kit">6. Media kit e marketing físico (<code>media-kit</code>)</h2>
+<blockquote><strong>Escopo reconhecido em 2026-07-01</strong> — ainda não modelado no código.</blockquote>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Canais</th></tr></thead><tbody>
+<tr><td>Entrada portfólio</td><td>Descrição, galeria, specs</td><td>Web</td></tr>
+<tr><td>Placa “À venda”</td><td>Design + QR → micro-página / visita</td><td>Físico (rua)</td></tr>
+<tr><td>Posters internos</td><td>Imprimíveis por cômodo / tema</td><td>Dentro do imóvel</td></tr>
+<tr><td>Narrativa de obra</td><td>Timeline, fotos de progresso</td><td>Web + poster + social</td></tr>
+<tr><td>Kit para corretor</td><td>Fotos + copy exportável</td><td>Download / HubSpot</td></tr>
+<tr><td>Pipeline print/PDF</td><td>Manual (Figma) vs gerado pela plataforma</td><td>A definir na grilling</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>House media kit &amp; materiais físicos</em></p>
+<p>Conteúdo relacionado no repo: <a href="../../content/social-media/"><code>content/social-media/</code></a> (ideias/templates — não automação).</p>
+<hr/>
+<h2 id="branding">7. Branding e design system (<code>branding</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>Tokens web</td><td>Cores, botões — ver <code>AGENTS.md</code></td><td>Em uso</td></tr>
+<tr><td>Assets oficiais</td><td>Logo, guia — upload pendente</td><td>Não no repo</td></tr>
+<tr><td>Templates print</td><td>Placa, posters, social</td><td>Não</td></tr>
+<tr><td>Design system unificado</td><td>Web + impresso</td><td>A fazer</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>Brand &amp; design system</em></p>
+<hr/>
+<h2 id="social">8. Conteúdo e social (<code>social</code>)</h2>
+<table><thead><tr><th>Item</th><th>Descrição</th><th>Estado</th></tr></thead><tbody>
+<tr><td>100 ideias de posts</td><td><code>content/social-media/ideas.md</code></td><td>Arquivo estático</td></tr>
+<tr><td>Templates IG/FB/TikTok</td><td><code>templates.md</code></td><td>Arquivo estático</td></tr>
+<tr><td>Calendário editorial</td><td><code>calendar.md</code></td><td>Arquivo estático</td></tr>
+<tr><td>Publicação / automação</td><td>—</td><td>Não</td></tr>
+</tbody></table>
+<p><strong>Epic (futuro):</strong> <em>Motor de conteúdo social</em></p>
+<hr/>
+<h2 id="admin">9. Admin e proprietários (<code>admin</code>)</h2>
+<p>Áreas logadas além do corretor — <strong>escopo não definido</strong>.</p>
+<p><strong>Epic (futuro):</strong> <em>Portais admin / proprietário / cliente</em> — após grilling de roles.</p>
+<hr/>
+<h2 id="mobile">10. Mobile (<code>mobile</code>)</h2>
+<p>PWA vs app nativo — <strong>decisão aberta</strong>. Posters com QR podem justificar experiência mobile rica.</p>
+<p><strong>Epic (futuro):</strong> <em>Estratégia mobile</em> — após MVP web definido.</p>
+<hr/>
+<h2>Diagrama de dependências (alto nível)</h2>
+<pre>platform (org, board, OpenSpec)
+    ↓
+planning (grilling, docs) ──→ branding (paralelo possível)
+    ↓
+site + auth + dados reais (Supabase/Contentful)
+    ↓
+crm + tours
+    ↓
+media-kit + social + admin + mobile</pre>
+  </main>
+
+  <footer class="footer-note">
+    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+  </footer>
+  <script src="../assets/portal-build.js" defer></script>
+</body>
+</html>
