@@ -5,8 +5,6 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
-    paths-ignore:
-      - 'docs/assets/build-info.json'
 
 permissions:
   contents: write
