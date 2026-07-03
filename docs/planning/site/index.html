@@ -12,9 +12,6 @@
 <body>
   <div class="toolbar">
     <div class="brand"><a href="../../index.html">← Documentação Plataforma ForteGB</a></div>
-    <nav>
-      <a class="btn-primary" href="./app/index.html" target="_blank" rel="noopener">Abrir mock V1 ↗</a>
-    </nav>
   </div>
 
   <header class="hero">
@@ -75,7 +72,7 @@
     function row(route) {
       const href = APP + route.path;
       const tag = route.tag ? ` <span class="tag green">${route.tag}</span>` : '';
-      return `<li><span>${route.label}${tag}</span><a href="${href}" target="_blank" rel="noopener">Abrir ↗</a></li>`;
+      return `<li><a href="${href}" target="_blank" rel="noopener">${route.label}${tag}</a></li>`;
     }
 
     document.getElementById('home-routes').innerHTML = ROUTES.home.map(row).join('');
