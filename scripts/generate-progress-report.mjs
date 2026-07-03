@@ -88,7 +88,7 @@ function fetchAllItems() {
 }
 
 function parseFocusMarkdown(raw) {
-  const updatedMatch = raw.match(/\*\*Actualizado:\*\*\s*(.+)/);
+  const updatedMatch = raw.match(/\*\*(?:Atualizado|Actualizado):\*\*\s*(.+)/);
   const updated = updatedMatch?.[1]?.trim() ?? '—';
   const sections = {};
   const parts = raw.split(/^## /m).slice(1);
@@ -176,7 +176,7 @@ function epicCard(epic, children) {
       </div>
     </header>
     ${total ? `<div class="progress-wrap"><div class="progress-bar" style="width:${pct}%"></div><span class="progress-label">${done}/${total} tarefas</span></div>` : ''}
-    ${sorted.length ? `<ul class="child-list">${sorted.map(childRow).join('')}</ul>` : '<p class="empty-children">Sem sub-issues no board.</p>'}
+    ${sorted.length ? `<ul class="child-list">${sorted.map(childRow).join('')}</ul>` : '<p class="empty-children">Sem subtarefas no board.</p>'}
   </article>`;
 }
 
@@ -219,7 +219,7 @@ function buildHtml({ items, focus, generatedAt }) {
     });
   };
 
-  const focusNow = focus.sections['Em foco agora'] ?? '';
+  const focusNow = focus.sections['Trabalhando no momento'] ?? focus.sections['Em foco agora'] ?? '';
   const focusNext = focus.sections['Próximo passo'] ?? '';
   const focusNotes = focus.sections['Notas para sócios'] ?? '';
 
@@ -232,7 +232,7 @@ function buildHtml({ items, focus, generatedAt }) {
 
   const inProgressHtml =
     inProgress.length === 0
-      ? '<p class="muted">Nenhuma issue com status <strong>In Progress</strong> no board.</p>'
+      ? '<p class="muted">Nenhum item em andamento no board.</p>'
       : `<ul class="in-progress-list">${inProgress
           .map(
             (i) =>
@@ -301,7 +301,7 @@ function buildHtml({ items, focus, generatedAt }) {
       color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center;
     }
     .hero h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .hero p { opacity: 0.9; max-width: 40rem; margin: 0 auto 1.25rem; }
+    .hero p { opacity: 0.9; max-width: 40rem; margin: 0 auto 1.25rem; line-height: 1.5; }
     .stats {
       display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem;
       font-size: 0.8rem;
@@ -406,7 +406,7 @@ function buildHtml({ items, focus, generatedAt }) {
 
   <header class="hero">
     <h1>Progresso da Plataforma ForteGB</h1>
-    <p>Relatório para sócios — o que está planeado, o que já foi feito e o foco actual de Ricardo.</p>
+    <p>Relatório para sócios<br>O que está planejado, o que já foi feito e o que está sendo trabalhado no momento</p>
     <div class="stats">
       <span>${stats.epicsDone}/${stats.epicsTotal} epics concluídos</span>
       <span>${stats.tasksDone}/${stats.tasksTotal} tarefas concluídas</span>
@@ -416,13 +416,13 @@ function buildHtml({ items, focus, generatedAt }) {
 
   <main class="container">
     <section id="agora">
-      <div class="section-head"><span class="section-num">1</span><h2>Em foco agora (Ricardo)</h2></div>
+      <div class="section-head"><span class="section-num">1</span><h2>Trabalhando no momento</h2></div>
       <div class="card">
-        <h3>Narrativa</h3>
+        <h3>Resumo</h3>
         ${sectionBodyToHtml(focusNow)}
       </div>
       <div class="card">
-        <h3>Issues In Progress no board</h3>
+        <h3>Itens em andamento no board</h3>
         ${inProgressHtml}
       </div>
       ${focusNext ? `<div class="card"><h3>Próximo passo</h3>${sectionBodyToHtml(focusNext)}</div>` : ''}
@@ -431,12 +431,12 @@ function buildHtml({ items, focus, generatedAt }) {
 
     <section id="feito">
       <div class="section-head"><span class="section-num">2</span><h2>O que já foi feito</h2></div>
-      <p class="muted" style="margin-bottom:1rem">Epics concluídos no board, com sub-issues. Clique nos números para abrir no GitHub.</p>
+      <p class="muted" style="margin-bottom:1rem">Epics concluídos no board, com subtarefas. Clique nos números para abrir no GitHub.</p>
       ${donePhases || '<p class="muted">Nenhum epic concluído ainda.</p>'}
     </section>
 
-    <section id="planeado">
-      <div class="section-head"><span class="section-num">3</span><h2>O que está planeado</h2></div>
+    <section id="planejado">
+      <div class="section-head"><span class="section-num">3</span><h2>O que está planejado</h2></div>
       <p class="muted" style="margin-bottom:1rem">Epics e tarefas por fase — roadmap de execução (Phase 0–4).</p>
       ${todoPhases}
     </section>

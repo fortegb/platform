@@ -1,14 +1,14 @@
-# Foco actual — Ricardo
+# Foco atual
 
-> Narrativa editável na sessão com IA; incorporada na secção **Em foco agora** do relatório de progresso.
+> Narrativa editável na sessão com IA; incorporada na seção **Trabalhando no momento** do relatório de progresso.
 
-**Actualizado:** 2026-07-03
+**Atualizado:** 2026-07-03
 
 ---
 
-## Em foco agora
+## Trabalhando no momento
 
-- **Documentação de governação e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios (modelo de negócio).
+- **Documentação de governança e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios (modelo de negócio).
 - **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).
 - **Portal sócios** — mocks, jornadas, mapa por fases e relatório de progresso em [fortegb.github.io/platform](https://fortegb.github.io/platform/).
 
