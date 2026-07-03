@@ -1,12 +1,16 @@
 #!/bin/sh
-# After commits that touch docs/, refresh build-info.json and amend if needed
-# so the toolbar hash matches the deploy commit.
+# After commits that touch docs/, refresh build-info.json in a follow-up commit.
+# Hash points at the prior commit (with doc changes) — always reachable on GitHub.
 
 ROOT="$(git rev-parse --show-toplevel)" || exit 0
 cd "$ROOT" || exit 0
 
-# Guard against re-entry when amend triggers post-commit again with stale diff
-if [ "$PORTAL_BUILD_INFO_AMEND" = "1" ]; then
+if [ "$PORTAL_BUILD_INFO_SKIP" = "1" ]; then
+  exit 0
+fi
+
+# Avoid loop on the build-info commit itself
+if git log -1 --format=%s | grep -q '^chore: refresh portal build-info$'; then
   exit 0
 fi
 
@@ -21,6 +25,6 @@ if git diff --quiet HEAD -- docs/assets/build-info.json; then
 fi
 
 git add docs/assets/build-info.json
-PORTAL_BUILD_INFO_AMEND=1 git commit --amend --no-edit --no-verify
+PORTAL_BUILD_INFO_SKIP=1 git commit -m "chore: refresh portal build-info" --no-verify
 
 exit 0
