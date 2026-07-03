@@ -21,6 +21,9 @@
 - [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
 - [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
 
+## In Progress
+- [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
+
 ## Done
 - [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
 - [#5](https://github.com/fortegb/platform/issues/5) Planning canon (README, vision, phases, modules, workflow)
