@@ -71,14 +71,16 @@ Portal #138 movido para «Concluído recentemente»; foco actual = #139 board re
 - `modules.md` defines 10 modules; board **Module** field has matching options.
 - `mapa-fases.html` “Integrações” links to `#tours` — not a board module; decide if integrations deserve explicit module or stay under tours.
 
-### B1 decisions (in progress)
+### B1 decisions — **complete**
 
-| Gap | Decision |
-|-----|----------|
-| **Q-017 condomínio/portaria** | **New issue [#140](https://github.com/fortegb/platform/issues/140)** under Architecture #1 (Phase 0, tours) |
-| **Follow-up pós-visita** | **New issue [#141](https://github.com/fortegb/platform/issues/141)** under Visitas #81 (Phase 2); deps #72 CRM/WhatsApp, #86 |
-| Manual ID queue | _pending_ |
-| Bot WhatsApp corretor | _pending_ |
+| Gap | Flow | Decision |
+|-----|------|----------|
+| **Q-017 condomínio/portaria** | Visitor | [#140](https://github.com/fortegb/platform/issues/140) under Architecture #1 |
+| **Follow-up pós-visita** | Visitor | [#141](https://github.com/fortegb/platform/issues/141) under Visitas #81 |
+| **Manual ID queue** | Visitor | [#80](https://github.com/fortegb/platform/issues/80) updated — staff visit exception queue; not corretor KYC |
+| **Bot WhatsApp prospecto** | Corretor | [#142](https://github.com/fortegb/platform/issues/142) under Portal corretor #86 |
+
+**Lane reminder:** visitor WhatsApp = #75 · corretor bot = #142 · do not merge.
 
 ---
 
