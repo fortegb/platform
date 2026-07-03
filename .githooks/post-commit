@@ -1,0 +1,26 @@
+#!/bin/sh
+# After commits that touch docs/, refresh build-info.json and amend if needed
+# so the toolbar hash matches the deploy commit.
+
+ROOT="$(git rev-parse --show-toplevel)" || exit 0
+cd "$ROOT" || exit 0
+
+# Guard against re-entry when amend triggers post-commit again with stale diff
+if [ "$PORTAL_BUILD_INFO_AMEND" = "1" ]; then
+  exit 0
+fi
+
+if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -q '^docs/'; then
+  exit 0
+fi
+
+node scripts/update-portal-build-info.mjs || exit 0
+
+if git diff --quiet HEAD -- docs/assets/build-info.json; then
+  exit 0
+fi
+
+git add docs/assets/build-info.json
+PORTAL_BUILD_INFO_AMEND=1 git commit --amend --no-edit --no-verify
+
+exit 0

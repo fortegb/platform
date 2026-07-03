@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Write docs/assets/build-info.json from the latest git commit.
- * Usage: node scripts/update-portal-build-info.mjs
+ * Usually refreshed automatically by .githooks/post-commit after docs/ commits.
+ * Manual: npm run pages:build-info
  */
 
 import { execFileSync } from 'node:child_process';

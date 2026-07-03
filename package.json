@@ -12,6 +12,7 @@
     "progress:report": "node scripts/generate-progress-report.mjs",
     "pages:portal": "node scripts/generate-portal-assets.mjs",
     "pages:build-info": "node scripts/update-portal-build-info.mjs",
+    "hooks:install": "sh scripts/install-git-hooks.sh",
     "pages:site": "node scripts/sync-site-static.mjs",
     "pages:sync": "npm run pages:site && npm run pages:portal && npm run progress:report && npm run pages:build-info"
   },

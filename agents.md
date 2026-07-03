@@ -383,4 +383,11 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 - **Home com variantes (em avaliação):** `/` (split, azul original), `/v2` (clássico), `/v3` (slate), `/v4` (azul `primary-400`). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`.
 - **Login:** fluxo *identifier-first* (UI/mock) em `pages/login.vue`. Comportamento e pendências de back-end em **`docs/autenticacao-login.md`**.
 
+### Portal sócios (GitHub Pages)
+- Conteúdo em **`docs/`** — índice, planning HTML, mocks estáticos.
+- Toolbar **Atualizado … · hash** vem de **`docs/assets/build-info.json`**, carregado por **`docs/assets/portal-build.js`**.
+- **Git hook (automático):** `.githooks/post-commit` corre após commits que tocam `docs/` → `pages:build-info` → amend se o JSON mudou (hash = commit de deploy). Instalação one-time: **`npm run hooks:install`**.
+- Regeneração completa: **`npm run pages:sync`** (site estático + portal assets + relatório + build-info).
+- Agentes: commit/push normal em mudanças de portal — **não** correr `pages:build-info` à mão; o hook trata disso.
+
 > Importante: evitar valores de cor **arbitrários** (`to-[#xxxxxx]`) em arquivos novos — preferir cores **nomeadas** no `tailwind.config.js`, pois arbitrários em arquivos recém-criados podem não ser compilados sem rebuild.
