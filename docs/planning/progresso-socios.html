@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Progresso da Plataforma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #203045;
+      --blue: #1a74a1;
+      --slate: #4a5a72;
+      --green: #3E8E5E;
+      --amber: #c17d2a;
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --border: #e2e8ef;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(32, 48, 69, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    .toolbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .toolbar a, .toolbar button {
+      font-family: inherit; font-weight: 600; font-size: 0.85rem;
+      border-radius: 8px; padding: 0.5rem 1rem; text-decoration: none;
+    }
+    .toolbar a { background: var(--blue); color: #fff; }
+    .toolbar a.secondary { background: transparent; color: var(--navy); border: 1px solid var(--border); }
+    .toolbar button { background: var(--navy); color: #fff; border: none; cursor: pointer; }
+    .toolbar button:hover { background: var(--blue); }
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a4560 50%, var(--slate) 100%);
+      color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center;
+    }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .hero p { opacity: 0.9; max-width: 40rem; margin: 0 auto 1.25rem; }
+    .stats {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+    .stats span {
+      background: rgba(255,255,255,0.12);
+      padding: 0.4rem 0.9rem; border-radius: 999px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    section { margin-bottom: 2.75rem; }
+    .section-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .section-num {
+      width: 2.25rem; height: 2.25rem; background: var(--navy); color: #fff;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+    }
+    h2 { font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+    .card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border);
+    }
+    .card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+    .focus-list { padding-left: 1.25rem; margin: 0.5rem 0; }
+    .focus-list li { margin-bottom: 0.4rem; }
+    .focus-list a, .issue-link { color: var(--blue); text-decoration: none; font-weight: 600; }
+    .focus-list a:hover, .issue-link:hover { text-decoration: underline; }
+    code { background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 0.2rem 0.55rem; border-radius: 999px; white-space: nowrap;
+    }
+    .badge-done { background: rgba(62,142,94,0.15); color: var(--green); }
+    .badge-progress { background: rgba(193,125,42,0.15); color: var(--amber); }
+    .badge-todo { background: rgba(26,116,161,0.12); color: var(--blue); }
+    .pill {
+      display: inline-block; font-size: 0.7rem; font-weight: 500;
+      padding: 0.15rem 0.5rem; border-radius: 6px;
+      background: var(--bg); color: var(--muted);
+    }
+    .phase-block { margin-bottom: 2rem; }
+    .phase-title {
+      font-size: 1rem; font-weight: 600; color: var(--slate);
+      margin-bottom: 0.75rem; padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .epic-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .epic-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .epic-head {
+      padding: 1rem 1.25rem; display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem; flex-wrap: wrap;
+      background: linear-gradient(90deg, rgba(32,48,69,0.04), transparent);
+    }
+    .epic-title { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+    .epic-title h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+    .epic-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .progress-wrap {
+      height: 4px; background: var(--bg); position: relative; margin: 0 1.25rem;
+    }
+    .progress-bar { height: 100%; background: var(--green); transition: width 0.3s; }
+    .progress-label {
+      display: block; font-size: 0.72rem; color: var(--muted);
+      padding: 0.35rem 1.25rem 0; margin-bottom: 0.25rem;
+    }
+    .child-list { list-style: none; padding: 0.5rem 1.25rem 1rem; }
+    .child-item {
+      padding: 0.45rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.88rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+    }
+    .child-item:last-child { border-bottom: none; }
+    .child-item.done { opacity: 0.72; }
+    .empty-children { padding: 0 1.25rem 1rem; font-size: 0.85rem; color: var(--muted); }
+    .in-progress-list { list-style: none; }
+    .in-progress-list li {
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+    }
+    .footer-note {
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      padding: 2rem 1rem; border-top: 1px solid var(--border);
+    }
+    @media print {
+      .toolbar { position: static; }
+      .toolbar button { display: none; }
+      .epic-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>Gerado: 03/07/2026, 00:03 · Foco: 2026-07-02</span>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+      <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+      <a class="secondary" href="./apresentacao-socios.html">Apresentação corretores</a>
+      <button type="button" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <h1>Progresso da Plataforma ForteGB</h1>
+    <p>Relatório para sócios — o que está planeado, o que já foi feito e o foco actual de Ricardo.</p>
+    <div class="stats">
+      <span>3/22 epics concluídos</span>
+      <span>21/114 tarefas concluídas</span>
+      <span>136 itens no board</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="agora">
+      <div class="section-head"><span class="section-num">1</span><h2>Em foco agora (Ricardo)</h2></div>
+      <div class="card">
+        <h3>Narrativa</h3>
+        <ul class="focus-list"><li><strong>Documentação de governação e corretores</strong> — <code>company-structure.md</code>, contrato v0.1, apresentação aos sócios (modelo de negócio).</li><li><strong>Epic Architecture (<a href="https://github.com/fortegb/platform/issues/1" target="_blank" rel="noopener">#1</a>)</strong> — grilling Q-003 parcialmente resolvido; próximo: Q-004 (CMS vs DB), Q-005/Q-006 (visitas).</li><li><strong>Relatório de progresso</strong> — esta página HTML ligada ao board GitHub (auto-actualizada com <code>npm run progress:report</code>).</li></ul>
+      </div>
+      <div class="card">
+        <h3>Issues In Progress no board</h3>
+        <p class="muted">Nenhuma issue com status <strong>In Progress</strong> no board — actualize o Project ou o ficheiro <code>progress-focus.md</code>.</p>
+      </div>
+      <div class="card"><h3>Próximo passo</h3><ol class="focus-list"><li>Grilling <strong>Q-004</strong> — Contentful vs Supabase para portfólio/blog.</li><li>Completar <strong>`architecture.md`</strong> e fechar epic #1 → desbloqueia Phase 1.</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo — logos e brand guide dos sócios.</li></ol></div>
+      <div class="card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Phase 0 (fundação org + planning + board) está <strong>concluída</strong>.</li><li>Ainda <strong>não há código novo</strong> de Phase 1 — bloqueado até Architecture Done (decisão técnica conjunta).</li><li>Decisões de negócio recentes (corretor, comissão, Gov.br) estão em <a href="./company-structure.md" target="_blank" rel="noopener"><code>company-structure.md</code></a>; a apresentação <a href="./apresentacao-socios.html" target="_blank" rel="noopener"><code>apresentacao-socios.html</code></a> é um snapshot desse tema.</li></ul></div>
+    </section>
+
+    <section id="feito">
+      <div class="section-head"><span class="section-num">2</span><h2>O que já foi feito</h2></div>
+      <p class="muted" style="margin-bottom:1rem">Epics concluídos no board, com sub-issues. Clique nos números para abrir no GitHub.</p>
+      <div class="phase-block">
+    <h3 class="phase-title">Fase 0</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Done">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/4" target="_blank" rel="noopener">#4</a> <h3>Seed docs/planning</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-done">Concluído</span>
+        <span class="pill">Fase 0</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:100%"></div><span class="progress-label">3/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/5" target="_blank" rel="noopener">#5</a> Planning canon (README, vision, phases, modules, workflow) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/6" target="_blank" rel="noopener">#6</a> open-questions.md (Q-001–Q-019) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/7" target="_blank" rel="noopener">#7</a> decisions.md + deliverables.md <span class="badge badge-done">Concluído</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Done">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/8" target="_blank" rel="noopener">#8</a> <h3>GitHub org migration</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-done">Concluído</span>
+        <span class="pill">Fase 0</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:100%"></div><span class="progress-label">11/11 tarefas</span></div>
+    <ul class="child-list"><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/9" target="_blank" rel="noopener">#9</a> PAT fortegb-admin (repo, project, read:org) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/10" target="_blank" rel="noopener">#10</a> Renomear personal fortegb → fortegb-admin <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/11" target="_blank" rel="noopener">#11</a> Criar Organization fortegb <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/12" target="_blank" rel="noopener">#12</a> Adicionar rbonon como Organization owner <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/13" target="_blank" rel="noopener">#13</a> Transferir repos para org (sandbox → platform) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/14" target="_blank" rel="noopener">#14</a> Atualizar dotfiles.conf + setup_pats + Keychain <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/15" target="_blank" rel="noopener">#15</a> Atualizar remotes locais (platform, app-despesas, ai-assets) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/16" target="_blank" rel="noopener">#16</a> Reconectar Vercel ao repo na org <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/17" target="_blank" rel="noopener">#17</a> Habilitar Issue types (Epic, Feature, Task) <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/18" target="_blank" rel="noopener">#18</a> Smoke test: clone, push, gh repo view, gh auth status <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/19" target="_blank" rel="noopener">#19</a> Registar execução em decisions.md + dotfiles DECISIONS.md <span class="badge badge-done">Concluído</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Done">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/20" target="_blank" rel="noopener">#20</a> <h3>Bootstrap board &amp; OpenSpec</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-done">Concluído</span>
+        <span class="pill">Fase 0</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:100%"></div><span class="progress-label">6/6 tarefas</span></div>
+    <ul class="child-list"><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/21" target="_blank" rel="noopener">#21</a> Inicializar OpenSpec no repo <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/22" target="_blank" rel="noopener">#22</a> Criar Project platform na org <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/23" target="_blank" rel="noopener">#23</a> Campos custom Phase + Module <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/24" target="_blank" rel="noopener">#24</a> Registar epics Phase 0 restantes <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/25" target="_blank" rel="noopener">#25</a> Gerar ROADMAP.md <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/26" target="_blank" rel="noopener">#26</a> Actualizar STATUS.md com números de issues <span class="badge badge-done">Concluído</span>
+  </li></ul>
+  </article></div>
+  </div>
+    </section>
+
+    <section id="planeado">
+      <div class="section-head"><span class="section-num">3</span><h2>O que está planeado</h2></div>
+      <p class="muted" style="margin-bottom:1rem">Epics e tarefas por fase — roadmap de execução (Phase 0–4).</p>
+      <div class="phase-block">
+    <h3 class="phase-title">Fase 0</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/1" target="_blank" rel="noopener">#1</a> <h3>Architecture &amp; MVP definition</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 0</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:8%"></div><span class="progress-label">1/12 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/27" target="_blank" rel="noopener">#27</a> Grilling 1: Q-003 user roles / MVP scope <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/28" target="_blank" rel="noopener">#28</a> Grilling 2: Q-004 CMS vs DB (+ Q-007 HubSpot) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/29" target="_blank" rel="noopener">#29</a> Grilling 3: Q-005, Q-006 visitas <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/30" target="_blank" rel="noopener">#30</a> Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit &amp; placa <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/31" target="_blank" rel="noopener">#31</a> Grilling 5: Q-008 mobile (se aberto) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/32" target="_blank" rel="noopener">#32</a> User journey map por role MVP <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/33" target="_blank" rel="noopener">#33</a> Escolha home com/sem hero (Q-010) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/34" target="_blank" rel="noopener">#34</a> Completar architecture.md <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/35" target="_blank" rel="noopener">#35</a> MVP v1 vs later em platform-vision.md + decisions.md <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/36" target="_blank" rel="noopener">#36</a> Checkpoint: Q-* resolved ou deferred <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/37" target="_blank" rel="noopener">#37</a> Criar epics Phase 1–3 no board <span class="badge badge-done">Concluído</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/38" target="_blank" rel="noopener">#38</a> Fechar epic Architecture → desbloquear Phase 1 <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a> <h3>Brand assets upload</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 0</span>
+        <span class="pill">branding</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/39" target="_blank" rel="noopener">#39</a> Logo (SVG/PNG/PDF) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/40" target="_blank" rel="noopener">#40</a> Brand guide (cores, tipografia, uso) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/41" target="_blank" rel="noopener">#41</a> Hero / imagens candidatas (opcional) <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article></div>
+  </div><div class="phase-block">
+    <h3 class="phase-title">Fase 1</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/42" target="_blank" rel="noopener">#42</a> <h3>Platform environments</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 1</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/5 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/43" target="_blank" rel="noopener">#43</a> Supabase project + database-schema.sql <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/44" target="_blank" rel="noopener">#44</a> Env vars (local, Vercel staging/prod) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/45" target="_blank" rel="noopener">#45</a> Contentful configurado (se Architecture decidir) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/46" target="_blank" rel="noopener">#46</a> Smoke deploy Vercel pós-org <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/47" target="_blank" rel="noopener">#47</a> Documentar credenciais em SETUP-CREDENTIALS.md <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a> <h3>Identity, roles &amp; journey routing</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 1</span>
+        <span class="pill">auth</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/7 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/49" target="_blank" rel="noopener">#49</a> check-email + signup + reset <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/50" target="_blank" rel="noopener">#50</a> Modelo de roles / perfis (Supabase) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/51" target="_blank" rel="noopener">#51</a> Post-login redirect por perfil <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/52" target="_blank" rel="noopener">#52</a> Generalizar middleware (além de realtor-auth) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/53" target="_blank" rel="noopener">#53</a> Shell pages mínimas por role MVP <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/54" target="_blank" rel="noopener">#54</a> Provedores sociais (se MVP) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/55" target="_blank" rel="noopener">#55</a> Testes manuais: login → destino por role <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a> <h3>Public site UI finalization</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 1</span>
+        <span class="pill">site</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/10 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/57" target="_blank" rel="noopener">#57</a> Consolidar home com hero + sem hero <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/58" target="_blank" rel="noopener">#58</a> Portfólio lista + detalhe (filtros/busca se MVP) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/59" target="_blank" rel="noopener">#59</a> Sobre, Blog, Contato — polish + copy <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/60" target="_blank" rel="noopener">#60</a> Blocos blog / redes sociais (home, portfólio, footer) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/61" target="_blank" rel="noopener">#61</a> Privacidade, Termos, cookies <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/62" target="_blank" rel="noopener">#62</a> Header, footer, botões — design system <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/63" target="_blank" rel="noopener">#63</a> Wire portfólio/blog a Contentful ou Supabase <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/64" target="_blank" rel="noopener">#64</a> Mobile-first responsive (Q-019) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/65" target="_blank" rel="noopener">#65</a> Pass básico a11y/SEO meta <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/66" target="_blank" rel="noopener">#66</a> Remover dependência de data/mock.ts <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/67" target="_blank" rel="noopener">#67</a> <h3>Brand &amp; design system</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 1</span>
+        <span class="pill">branding</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/4 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/68" target="_blank" rel="noopener">#68</a> Tokens web alinhados a brand guide <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/69" target="_blank" rel="noopener">#69</a> Master templates print (placa, poster) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/70" target="_blank" rel="noopener">#70</a> Documentar uso em AGENTS.md ou design doc <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/71" target="_blank" rel="noopener">#71</a> Social templates alinhados <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article></div>
+  </div><div class="phase-block">
+    <h3 class="phase-title">Fase 2</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/72" target="_blank" rel="noopener">#72</a> <h3>Integrations MVP</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 2</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/8 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/73" target="_blank" rel="noopener">#73</a> HubSpot service real (contacts, deals mínimo) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/74" target="_blank" rel="noopener">#74</a> Lead capture matrix (form, visitas, WhatsApp, corretor) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/75" target="_blank" rel="noopener">#75</a> WhatsApp confirmações (template messages) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/76" target="_blank" rel="noopener">#76</a> Google Calendar eventos agendados <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/77" target="_blank" rel="noopener">#77</a> Tuya write password (MVP path + fallback manual) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/78" target="_blank" rel="noopener">#78</a> Contact form → HubSpot + DB <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/79" target="_blank" rel="noopener">#79</a> Env, error handling, logging comum <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/80" target="_blank" rel="noopener">#80</a> Identity verification (Q-005; manual queue se aplicável) <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/81" target="_blank" rel="noopener">#81</a> <h3>Visitas autoguiadas MVP</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 2</span>
+        <span class="pill">tours</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/4 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/82" target="_blank" rel="noopener">#82</a> Fluxo agendado end-to-end <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/83" target="_blank" rel="noopener">#83</a> Fluxo instantâneo QR (se MVP) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/84" target="_blank" rel="noopener">#84</a> Integração com Integrations MVP <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/85" target="_blank" rel="noopener">#85</a> Lead creation automática <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/86" target="_blank" rel="noopener">#86</a> <h3>Portal corretor + CRM</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 2</span>
+        <span class="pill">crm</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/5 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/87" target="_blank" rel="noopener">#87</a> Dashboard, leads, casas — dados reais <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/88" target="_blank" rel="noopener">#88</a> Corretor onboarding: termos/contrato (Q-016) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/89" target="_blank" rel="noopener">#89</a> Registo lead + protecção comissão <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/90" target="_blank" rel="noopener">#90</a> Sync HubSpot <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/91" target="_blank" rel="noopener">#91</a> Jornada corretor completa pós-login <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/92" target="_blank" rel="noopener">#92</a> <h3>Release readiness</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 2</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/5 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/93" target="_blank" rel="noopener">#93</a> Checklist UAT fluxos MVP <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/94" target="_blank" rel="noopener">#94</a> Cross-browser (Chrome, Safari, Firefox, mobile) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/95" target="_blank" rel="noopener">#95</a> Performance smoke (Lighthouse) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/96" target="_blank" rel="noopener">#96</a> LGPD copy + consent flows verificados <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/97" target="_blank" rel="noopener">#97</a> Go/no-go para uso real limitado <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article></div>
+  </div><div class="phase-block">
+    <h3 class="phase-title">Fase 3</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/98" target="_blank" rel="noopener">#98</a> <h3>House media kit &amp; materiais físicos</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">media-kit</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/6 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/99" target="_blank" rel="noopener">#99</a> Entrada portfólio (descrição, galeria, specs) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/100" target="_blank" rel="noopener">#100</a> Placa À venda + QR → micro-página <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/101" target="_blank" rel="noopener">#101</a> Posters internos por cômodo/tema <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/102" target="_blank" rel="noopener">#102</a> Narrativa de obra (timeline, fotos progresso) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/103" target="_blank" rel="noopener">#103</a> Kit corretor (fotos + copy exportável) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/104" target="_blank" rel="noopener">#104</a> Pipeline print/PDF (manual vs gerado) <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/105" target="_blank" rel="noopener">#105</a> <h3>Physical-digital bridge</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">media-kit</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/106" target="_blank" rel="noopener">#106</a> Micro-página por imóvel (QR da placa) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/107" target="_blank" rel="noopener">#107</a> CTA visita instantânea + detalhes <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/108" target="_blank" rel="noopener">#108</a> Design placa alinhado brand <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/109" target="_blank" rel="noopener">#109</a> <h3>Content operations</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">admin</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/110" target="_blank" rel="noopener">#110</a> Workflow upload progresso obra (Q-009) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/111" target="_blank" rel="noopener">#111</a> Admin UI mínima para casas + timeline <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/112" target="_blank" rel="noopener">#112</a> Ligação a media kit / portfólio <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/113" target="_blank" rel="noopener">#113</a> <h3>Motor de conteúdo social</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">social</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/4 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/114" target="_blank" rel="noopener">#114</a> Calendário editorial operacional <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/115" target="_blank" rel="noopener">#115</a> Templates IG/FB/TikTok publicáveis <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/116" target="_blank" rel="noopener">#116</a> Pipeline publicação (manual ou semi-auto) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/117" target="_blank" rel="noopener">#117</a> Integração tráfego → site / leads <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/118" target="_blank" rel="noopener">#118</a> <h3>Portais admin / proprietário / cliente</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">admin</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/119" target="_blank" rel="noopener">#119</a> Definir escopo MVP admin (pós Architecture) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/120" target="_blank" rel="noopener">#120</a> Shell portal proprietário (se MVP) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/121" target="_blank" rel="noopener">#121</a> Shell portal cliente (se MVP) <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/122" target="_blank" rel="noopener">#122</a> <h3>SEO, analytics, performance</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 3</span>
+        <span class="pill">site</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/123" target="_blank" rel="noopener">#123</a> SEO técnico (sitemap, structured data) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/124" target="_blank" rel="noopener">#124</a> Analytics (GA4 ou equivalente) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/125" target="_blank" rel="noopener">#125</a> Performance tuning pós-launch <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article></div>
+  </div><div class="phase-block">
+    <h3 class="phase-title">Fase 4</h3>
+    <div class="epic-grid"><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/126" target="_blank" rel="noopener">#126</a> <h3>LGPD hardening</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 4</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/127" target="_blank" rel="noopener">#127</a> Política retenção documentos KYC <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/128" target="_blank" rel="noopener">#128</a> Audit log acessos dados sensíveis <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/129" target="_blank" rel="noopener">#129</a> Processo pedidos titular (exclusão/export) <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/130" target="_blank" rel="noopener">#130</a> <h3>Estratégia mobile</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 4</span>
+        <span class="pill">mobile</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/131" target="_blank" rel="noopener">#131</a> Decisão PWA vs app nativo <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/132" target="_blank" rel="noopener">#132</a> Implementação v1 mobile <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/133" target="_blank" rel="noopener">#133</a> Experiência QR/on-site optimizada mobile <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article><article class="epic-card" data-status="Todo">
+    <header class="epic-head">
+      <div class="epic-title">
+        <a class="issue-link" href="https://github.com/fortegb/platform/issues/134" target="_blank" rel="noopener">#134</a> <h3>Integrações production-grade</h3>
+      </div>
+      <div class="epic-meta">
+        <span class="badge badge-todo">A fazer</span>
+        <span class="pill">Fase 4</span>
+        <span class="pill">platform</span>
+      </div>
+    </header>
+    <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div><span class="progress-label">0/3 tarefas</span></div>
+    <ul class="child-list"><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/135" target="_blank" rel="noopener">#135</a> Tuya production + monitorização <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/136" target="_blank" rel="noopener">#136</a> WhatsApp Business API production <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item ">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/137" target="_blank" rel="noopener">#137</a> HubSpot pipeline production + reporting <span class="badge badge-todo">A fazer</span>
+  </li></ul>
+  </article></div>
+  </div>
+    </section>
+  </main>
+
+  <footer class="footer-note">
+    Fonte: GitHub Project <strong>platform</strong> + <code>progress-focus.md</code>.
+    Regenerar: <code>npm run progress:report</code> (requer <code>gh</code> autenticado).
+    03/07/2026, 00:03
+  </footer>
+</body>
+</html>

@@ -22,7 +22,9 @@
 | Documento | Conteúdo |
 |-----------|----------|
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
-| [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot; refresh sob pedido |
+| [progress-focus.md](./progress-focus.md) | **Foco actual (Ricardo)** — editável; alimenta relatório de progresso |
+| [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
+| [apresentacao-socios.md](./apresentacao-socios.md) | **Apresentação sócios** — snapshot corretor; refresh sob pedido |
 | [apresentacao-socios.html](./apresentacao-socios.html) | **Apresentação gráfica** — browser / PDF |
 | [corretor-contract-template.md](./corretor-contract-template.md) | Rascunho contrato corretor (v0.1) |
 | [deliverables.md](./deliverables.md) | **Mapa produto ↔ epics** (checklist negócio) |

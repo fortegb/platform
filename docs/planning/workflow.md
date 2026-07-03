@@ -23,6 +23,7 @@ CHANGELOG.md       →  o que entrou (no close-out da change)
 |----------|-------|------------------|
 | **GitHub Project + issues** | *O quê* fazer — backlog, prioridade, status | Board |
 | **`ROADMAP.md`** | Snapshot grepável do board | Board (gerado) |
+| **`progresso-socios.html`** | Relatório sócios (feito / planeado / foco) | Board + `progress-focus.md` (gerado) |
 | **OpenSpec changes** | *Como* implementar uma unidade de trabalho | Por change |
 | **`docs/planning/`** | Visão, módulos, perguntas, decisões | Humano + sessões de design |
 | **`STATUS.md`** | Onde estamos + epics ativos + **próximo passo** | Atualizado ao mudar foco |

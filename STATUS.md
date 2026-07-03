@@ -78,6 +78,7 @@ Phase 1–4 epics: ver [`deliverables.md`](./docs/planning/deliverables.md) · r
 | Doc | Uso |
 |-----|-----|
 | [planning/README.md](./docs/planning/README.md) | Índice + ordem de arranque |
+| [progresso-socios.html](./docs/planning/progresso-socios.html) | Relatório sócios (board + foco) |
 | [deliverables.md](./docs/planning/deliverables.md) | Mapa negócio ↔ plano |
 | [open-questions.md](./docs/planning/open-questions.md) | Grilling backlog |
 | [phases.md](./docs/planning/phases.md) | Epics detalhados |
