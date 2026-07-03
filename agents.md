@@ -386,8 +386,11 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 ### Portal sócios (GitHub Pages)
 - Conteúdo em **`docs/`** — índice, planning HTML, mocks estáticos.
 - Toolbar **Atualizado … · hash** vem de **`docs/assets/build-info.json`**, carregado por **`docs/assets/portal-build.js`**.
-- **Git hook (automático):** `.githooks/post-commit` corre após commits que tocam `docs/` → `pages:build-info` → amend se o JSON mudou (hash = commit de deploy). Instalação one-time: **`npm run hooks:install`**.
-- Regeneração completa: **`npm run pages:sync`** (site estático + portal assets + relatório + build-info).
-- Agentes: commit/push normal em mudanças de portal — **não** correr `pages:build-info` à mão; o hook trata disso.
+- **Três camadas (automático):**
+  1. **Git hook** — `.githooks/post-commit` após commits em `docs/` → amend com hash correcto.
+  2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
+  3. **GitHub Action** — em push a `main` com mudanças em `docs/` (excepto só `build-info.json`), corrige JSON se um dev pushou sem hook/npm.
+- Regeneração completa: **`npm run pages:sync`**.
+- Agentes: commit/push normal em mudanças de portal — **não** correr `pages:build-info` à mão.
 
 > Importante: evitar valores de cor **arbitrários** (`to-[#xxxxxx]`) em arquivos novos — preferir cores **nomeadas** no `tailwind.config.js`, pois arbitrários em arquivos recém-criados podem não ser compilados sem rebuild.
