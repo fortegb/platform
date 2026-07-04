@@ -214,3 +214,13 @@
   - **Escopo/nome:** proteção de comissão + **auditoria** no v1 (status staff-driven, histórico visível na UI); **financeiro/pagamento fora do v1** (architecture.md §2). Rota `/admin/comissoes` → `/staff/registros`.
 - **Rationale:** `registro` por casa é a forma mínima que expressa "mesma pessoa, casas diferentes, corretores diferentes" (gap-2) e remove anomalias de tabela plana; `UNIQUE(cpf)` deixa o DB (não o código) garantir o dedup.
 - **Diferido:** lógica de transição de status (staff dispara; `registro.status=comprador` ↔ `casa.status=vendida` ↔ outros registros → encerrado) → grilling de fluxos; detalhes de propriedades HubSpot → build; varredura de terminologia (lead/prospecto → cliente) em docs antigos → follow-up.
+
+---
+
+### D-021 — Home: variantes por estilo + escolha do hero diferida (2026-07-04) — **fecha Q-010 (diferido)**
+
+- **Contexto:** 4 variantes de home em mock; pergunta Q-010 (com/sem hero, qual vence). Constatação: as variantes **diferem só no hero** — o miolo é o `HomeContent` compartilhado.
+- **Decisão:**
+  - **Renomear variantes por estilo** (não por número, para não colidir com o release v1/v2/v3): rotas `/` (default, `HeroSplit`), `/classico` (`HeroClassic`), `/slate` (`HeroSlate`, ex-`HeroV3`), `/azul` (`HeroAzul`, ex-`HeroV4`). Rotas de variante seguem `noindex`.
+  - **Escolha do hero diferida ao lançamento** — sem roadblock: o hero é componente trocável; todo o resto do site é construído independentemente. Default de produção = `/` (HeroSplit). A escolha final vive sob **Public site UI (#56)**.
+- **Consequências:** Q-010 sai como **bloqueador** do epic Architecture (#38); a decisão visual fica para quando houver os assets de marca. Sem "2 vencedores com/sem hero" — todas as variantes têm hero; a distinção é de estilo.

@@ -26,7 +26,7 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| Home | Variantes `/`–`/v4`; 2 vencedores (com/sem hero) | UI — decisão pendente |
+| Home | Variantes de hero: `/` (default), `/classico`, `/slate`, `/azul` — miolo compartilhado; escolha do hero no lançamento (Q-010 diferido) | UI |
 | Portfólio | Lista + detalhe | UI + simulado |
 | Sobre, Blog, Contato | Páginas + formulário | UI; API contato stub |
 | Legal / LGPD | Privacidade, termos, cookies | Páginas existem |
