@@ -2,30 +2,29 @@
 
 > Narrativa editável na sessão com IA; incorporada na seção **Trabalhando no momento** do relatório de progresso.
 
-**Atualizado:** 2026-07-03
+**Atualizado:** 2026-07-04
 
 ---
 
 ## Trabalhando no momento
 
-- **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grilling Q-004+; fechar #38.
-- **Platform docs** — publicados (screen map, naming Fase 0–4).
-- **Documentação de governança e corretores** — `company-structure.md`, contrato v0.1, apresentação aos sócios.
+- **Fase 0 concluída.** Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) **fechado** — stack e MVP definidos.
+- **Aguardando comando** para iniciar a **Fase 1 (build)** — identidade e site público.
 
 ## Concluído recentemente
 
-- **Board hygiene ([#139](https://github.com/fortegb/platform/issues/139))** + **screen map ([#32](https://github.com/fortegb/platform/issues/32))** — merge e Platform docs.
-- **Platform docs ([#138](https://github.com/fortegb/platform/issues/138))** — módulos, UX cards, GitHub Pages.
+- **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1))** — grillings #145 (fundacional), #28 (CRM), #33 (home) → decisões D-015..D-021; todas as perguntas resolvidas ou adiadas.
+- **pt-BR estrito** em todos os docs; terminologia unificada em **"cliente"**.
 
 ## Próximo passo
 
-1. Grilling **Q-004** — Contentful vs Supabase.
-2. **#38** Architecture Done → Fase 1 build.
-3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo.
+1. **Identidade, papéis e roteamento** ([#48](https://github.com/fortegb/platform/issues/48)) — base de login para todos os papéis.
+2. **Site público — finalização de UI** ([#56](https://github.com/fortegb/platform/issues/56)).
+3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo — depende de logos/marca.
 
 ## Notas para sócios
 
-- Fase 0 (org + board + planning) está **essencialmente concluída**; falta fechar Architecture.
-- Ainda **não há build** de Fase 1 — bloqueado até #38.
-- **#144 ambientes** ([#144](https://github.com/fortegb/platform/issues/144)) — explore dev/tst/prd; **não** bloqueia Architecture; filho de #42.
+- **Fase 0 (fundação + definição) está completa** — org, board, planning e toda a arquitetura decidida.
+- A partir de agora começa o **build da Fase 1**: primeiro o login/papéis, depois o site público real.
+- **Como a plataforma será construída** (em linguagem simples): [`arquitetura-decisoes.html`](./arquitetura-decisoes.html).
 - Decisões de negócio (corretor, comissão, Gov.br) em [`company-structure.md`](./company-structure.md) e [`apresentacao-socios.html`](./apresentacao-socios.html).
