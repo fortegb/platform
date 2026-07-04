@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-04 — Epic Architecture fechado: CRM, home e fim das grillings ([#1](https://github.com/fortegb/platform/issues/1))
+
+- **CRM ([#28](https://github.com/fortegb/platform/issues/28), Q-007/Q-018 → D-019/D-020):** **Supabase master + HubSpot sync**; modelo `cliente` (único por CPF) 1─N `registro` (por casa) + `historico`; dois níveis Contato→Cliente; feature **"Registro de Cliente"** (não "Comissões"); rota `/staff/registros`.
+- **Home ([#33](https://github.com/fortegb/platform/issues/33), Q-010 → D-021):** variantes renomeadas por **estilo** (`/`, `/classico`, `/slate`, `/azul`; `HeroSplit/Classic/Slate/Azul`) — sem colisão com release v1/v2/v3; escolha do hero diferida ao lançamento.
+- **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) fechado** (#34/#35/#36/#38): checkpoint #36 = todas Q-* resolved/deferred; **Fase 0 completa → Fase 1 desbloqueada** (#48, #56). `platform-vision.md` + `agents.md §9` + `STATUS.md` atualizados.
+- **pt-BR estrito repo-wide** (correção de português europeu) + **terminologia unificada** `lead/prospecto → cliente` (docs + títulos de issues).
+- **Platform docs:** secção "Clientes e corretores" + v1/v2/v3 no Mapa de Fases e Relatório; ponteiro de fase (Fase 0 done → Fase 1). OpenSpec `grill-crm-source-of-truth` arquivado; `#33` (home) foi change **lightweight** (branch merged, sem artefato OpenSpec).
+
 ### 2026-07-03 — Grilling 0: stances fundacionais + Q-004 ([#145](https://github.com/fortegb/platform/issues/145))
 
 - Stances fundacionais resolvidas (D-015..D-018): constraints, build-vs-buy, **Q-004** (CMS + Supabase), system shape (**serverless**), MVP boundary (**v1/v2/v3**; tours → v2).
