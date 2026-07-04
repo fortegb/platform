@@ -77,7 +77,7 @@ Integrações = epic #72, module `platform` (não novo módulo board). Card em `
 | **Q-017 condomínio/portaria** | Visitor | [#140](https://github.com/fortegb/platform/issues/140) under Architecture #1 |
 | **Follow-up pós-visita** | Visitor | [#141](https://github.com/fortegb/platform/issues/141) under Visitas #81 |
 | **Manual ID queue** | Visitor | [#80](https://github.com/fortegb/platform/issues/80) updated — staff visit exception queue; not corretor KYC |
-| **Bot WhatsApp prospecto** | Corretor | [#142](https://github.com/fortegb/platform/issues/142) under Portal corretor #86 |
+| **Bot WhatsApp cliente** | Corretor | [#142](https://github.com/fortegb/platform/issues/142) under Portal corretor #86 |
 
 **Lane reminder:** visitor WhatsApp = #75 · corretor bot = #142 · do not merge.
 

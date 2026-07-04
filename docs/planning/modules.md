@@ -59,7 +59,7 @@
 | Visita instantânea QR | `/visita/qr/[code]` | UI + API parcial |
 | Verificação de identidade | Selfie + documento | Componente; match real pendente |
 | Senha temporária + Tuya | Fechadura inteligente | Gerador simulado; Tuya stub |
-| WhatsApp + Calendar + HubSpot | Confirmações e lead | Stubs |
+| WhatsApp + Calendar + HubSpot | Confirmações e cliente | Stubs |
 
 **Epic (futuro):** *Visitas autoguiadas (MVP)*
 
@@ -69,10 +69,10 @@
 
 | Item | Descrição | Estado |
 |------|-----------|--------|
-| Portal corretor | Painel, leads, casas | UI + API parcial |
+| Portal corretor | Painel, clientes, casas | UI + API parcial |
 | Proteção de comissão | Primeiro registro ganha | Lógica BD; HubSpot pendente |
 | Sync HubSpot | Contatos, deals, pipeline | Stub |
-| Leads diretos ForteGB | Formulário, WhatsApp | Parcial |
+| Clientes diretos ForteGB | Formulário, WhatsApp | Parcial |
 
 **Epic (futuro):** *Portal corretores e HubSpot*
 

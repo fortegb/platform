@@ -191,3 +191,26 @@
   - **Lock now (fundacional, difícil reverter):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (D-016); camada de adaptadores; API-first; escolha de queue (QStash).
 - **Rationale:** corretor **antes** de tours — sem dependências de hardware/externas, protege comissão desde o 1.º par de corretores, alinhado a venda humana; tours = maior/mais arriscado build único → v2; Gov.br = integração mais arriscada do fluxo corretor → manual-first. BDUF rejeitado (viola D-011); deferimento cego rejeitado (fecharia v2/v3) — daí o guardrail "lock now".
 - **Consequências:** v2/v3 arquitetados just-in-time no grilling da fase; Q-005/006/017, Q-009/011–013, Q-008/019 diferidos para a sua fase.
+
+---
+
+### D-019 — CRM source of truth: Supabase master + HubSpot sync (2026-07-04) — **fecha Q-007**
+
+- **Contexto:** Fluxo corretor/cliente do v1 (D-018) precisa da stance de CRM. Proteção de comissão (first-wins, dedup CPF) já fechada (company-structure.md, gaps 1–8).
+- **Decisão:** **Supabase é a fonte-da-verdade** do Cliente + atribuição de comissão; **HubSpot é downstream sincronizado** (pipeline/relatórios). Cliente→Contact, Registro→Deal. Corretor registra **uma vez** (portal/bot → Supabase); sync empurra p/ HubSpot. Status autorado no Supabase (staff), sincronizado p/ fora.
+- **Rationale:** garantia "dois corretores → um ganha por timestamp, dedup CPF" exige escrita **transacional** com constraint de unicidade num DB que controlamos, não na API eventual do HubSpot; CPF é PII/LGPD; gatilho de venda lê `Casa.status=vendida` (já Supabase, D-016). HubSpot nunca decide comissão.
+- **Rejeitado:** HubSpot master (enforcement frágil, CPF em SaaS US); claim fino no Supabase + HubSpot dono do link pessoa↔casa (separa a atribuição do Deal via join CPF+casa — frágil no campo mais crítico).
+
+---
+
+### D-020 — Modelo Cliente/Registro + níveis Contato→Cliente + fontes (2026-07-04) — **fecha Q-018**
+
+- **Contexto:** Linguagem e modelo de dados do CRM para o v1.
+- **Decisão:**
+  - **Linguagem:** a pessoa é **Cliente** em todo lugar; ciclo de vida é **status** (interessado → em negociação → comprador). "Comprador" é valor de status, não entidade nova. Feature = **"Registro de Cliente"**, nunca "Comissões" (comissão é consequência).
+  - **Modelo:** **uma tabela `cliente`** (`cpf UNIQUE` nullable, `nome`, `whatsapp NOT NULL`, `email` nullable, `fonte`, `criado_em`) — linha sem CPF = nível **Contato**; preencher CPF **promove** a Cliente (UPDATE, sem migração). `cliente` **1─N** `registro` (cliente × casa: `status`, `corretor_id` null=direto, `registrado_em`) + `historico` append-only (auditoria). HubSpot: cliente→Contact, registro→Deal.
+  - **Dois níveis + reconciliação:** promoção self-service (cliente registra visita + dá CPF); CPF = autoridade de dedup; WhatsApp-match promove Contato; senão novo + merge manual staff. **WhatsApp obrigatório e atualizável** (mudança auditada); email futuro; CPF obrigatório para *ser* Cliente (padrão BR + liga à autorização por documento nas visitas, v2).
+  - **Fontes (Q-018):** v1 = portal corretor, entrada manual staff, contatos form-site/CTA-WhatsApp; v2 = QR, bots, tours. `fonte` → propriedade HubSpot.
+  - **Escopo/nome:** proteção de comissão + **auditoria** no v1 (status staff-driven, histórico visível na UI); **financeiro/pagamento fora do v1** (architecture.md §2). Rota `/admin/comissoes` → `/staff/registros`.
+- **Rationale:** `registro` por casa é a forma mínima que expressa "mesma pessoa, casas diferentes, corretores diferentes" (gap-2) e remove anomalias de tabela plana; `UNIQUE(cpf)` deixa o DB (não o código) garantir o dedup.
+- **Diferido:** lógica de transição de status (staff dispara; `registro.status=comprador` ↔ `casa.status=vendida` ↔ outros registros → encerrado) → grilling de fluxos; detalhes de propriedades HubSpot → build; varredura de terminologia (lead/prospecto → cliente) em docs antigos → follow-up.

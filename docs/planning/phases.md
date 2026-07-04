@@ -157,7 +157,7 @@ Epics (**criar no board após Architecture**):
 ### Epic: Integrations MVP — sub-tarefas
 
 1. [ ] HubSpot service real (contacts, deals mínimo)
-2. [ ] **Lead capture matrix** (form, visitas, WhatsApp, corretor — Q-018)
+2. [ ] **Cliente capture matrix** (form, visitas, WhatsApp, corretor — Q-018)
 3. [ ] WhatsApp confirmações (template messages)
 4. [ ] Google Calendar eventos agendados
 5. [ ] Tuya write password (MVP path; fallback manual documentado)
@@ -170,13 +170,13 @@ Epics (**criar no board após Architecture**):
 1. [ ] Fluxo agendado end-to-end
 2. [ ] Fluxo instantâneo QR (se MVP)
 3. [ ] Integração com Integrations MVP
-4. [ ] Lead creation automática
+4. [ ] Cliente creation automática
 
 ### Epic: Portal corretor + CRM — sub-tarefas
 
-1. [ ] Dashboard, leads, casas — dados reais
+1. [ ] Dashboard, clientes, casas — dados reais
 2. [ ] **Corretor onboarding: termos/contrato** (Q-016)
-3. [ ] Registro lead + proteção comissão
+3. [ ] Registro cliente + proteção comissão
 4. [ ] Sync HubSpot
 5. [ ] Jornada corretor completa pós-login
 

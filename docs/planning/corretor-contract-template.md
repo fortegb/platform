@@ -35,9 +35,9 @@
 
 ## Cláusula 2 — CRECI e adesão à plataforma
 
-2.1. **CRECI ativo é preferencial** mas **não obrigatório** para adesão ao esquema ForteGB. Corretores com ou sem CRECI seguem o **mesmo fluxo** de registro de leads e regras de comissão.
+2.1. **CRECI ativo é preferencial** mas **não obrigatório** para adesão ao esquema ForteGB. Corretores com ou sem CRECI seguem o **mesmo fluxo** de registro de clientes e regras de comissão.
 
-2.2. O(A) CONTRATADO(A) adere ao **portal / bot WhatsApp** ForteGB para registro formal de prospectos, conforme cláusula 4.
+2.2. O(A) CONTRATADO(A) adere ao **portal / bot WhatsApp** ForteGB para registro formal de clientes, conforme cláusula 4.
 
 ---
 
@@ -52,21 +52,21 @@
 | 1 | Assinatura do **contrato de promessa / sinal** com comprador registrado | `[PERCENTUAL_SINAL]`% da comissão total |
 | 2 | **Escritura** definitiva | Restante da comissão |
 
-3.3. Comissão devida **somente** se o **comprador** for prospecto **validamente registrado** pelo(a) CONTRATADO(A) para este imóvel (cláusula 4).
+3.3. Comissão devida **somente** se o **comprador** for cliente **validamente registrado** pelo(a) CONTRATADO(A) para este imóvel (cláusula 4).
 
 3.4. **Sem registro prévio válido** → sem comissão, salvo exceção aprovada por escrito pela(s) CONTRATANTE(S).
 
-3.5. Vendas **diretas** (prospecto nunca registrado pelo corretor e captado primeiro pela plataforma/contato direto ForteGB) → **sem comissão**.
+3.5. Vendas **diretas** (cliente nunca registrado pelo corretor e captado primeiro pela plataforma/contato direto ForteGB) → **sem comissão**.
 
 ---
 
-## Cláusula 4 — Registro de prospectos
+## Cláusula 4 — Registro de clientes
 
-4.1. O(A) CONTRATADO(A) deve **registrar cada prospecto antes** que o prospecto seja capturado pela plataforma ForteGB (formulário, WhatsApp, visita agendada, visita instantânea QR, etc.).
+4.1. O(A) CONTRATADO(A) deve **registrar cada cliente antes** que o cliente seja capturado pela plataforma ForteGB (formulário, WhatsApp, visita agendada, visita instantânea QR, etc.).
 
-4.2. **Registro:** envio de **nome completo + CPF** do prospecto via **bot WhatsApp** ForteGB ou portal. Registro válido gera **confirmação imediata** e, quando disponível, **PDF de termo de registro**.
+4.2. **Registro:** envio de **nome completo + CPF** do cliente via **bot WhatsApp** ForteGB ou portal. Registro válido gera **confirmação imediata** e, quando disponível, **PDF de termo de registro**.
 
-4.3. **Âmbito:** registro válido **por imóvel / contrato por casa**. O mesmo prospecto pode ser direto em outro imóvel ForteGB.
+4.3. **Âmbito:** registro válido **por imóvel / contrato por casa**. O mesmo cliente pode ser direto em outro imóvel ForteGB.
 
 4.4. **Validade:** atribuição mantém-se **até a venda do imóvel**, sem expiração por tempo.
 
@@ -74,13 +74,13 @@
 
 4.6. **CPF** sujeito a validação automática. Registros em volume anormal podem ser sinalizados e revogados por fraude ou abuso.
 
-4.7. ForteGB **não contata** o prospecto apenas para validar registro do corretor.
+4.7. ForteGB **não contata** o cliente apenas para validar registro do corretor.
 
 ---
 
 ## Cláusula 5 — Visitas e marketing
 
-5.1. Prospectos registrados podem usar **visitas autoguiadas** (agendadas ou instantâneas). A plataforma pode exibir *«Seu Corretor: [nome]»* ao prospecto.
+5.1. Clientes registrados podem usar **visitas autoguiadas** (agendadas ou instantâneas). A plataforma pode exibir *«Seu Corretor: [nome]»* ao cliente.
 
 5.2. O(A) CONTRATADO(A) recebe **link para agendar visita** após registro confirmado.
 
@@ -90,7 +90,7 @@
 
 6.1. Quando o imóvel for vendido, ForteGB notificará corretores com registros ativos neste imóvel (WhatsApp), com **identificação do comprador** (nome + CPF) para transparência.
 
-6.2. Comissão paga conforme cláusula 3 se o comprador for prospecto registrado do(a) CONTRATADO(A).
+6.2. Comissão paga conforme cláusula 3 se o comprador for cliente registrado do(a) CONTRATADO(A).
 
 ---
 
@@ -102,7 +102,7 @@
 
 ## Cláusula 8 — Obrigações do corretor
 
-8.1. Atuar com boa-fé; não registrar prospectos fictícios.
+8.1. Atuar com boa-fé; não registrar clientes fictícios.
 
 8.2. Violação grave (fraude, hoarding) → rescisão e perda de comissões pendentes, salvo disposição legal em contrário.
 
@@ -110,7 +110,7 @@
 
 ## Cláusula 9 — LGPD
 
-9.1. Dados de prospectos tratados apenas para venda do imóvel e cumprimento deste contrato, conforme política de privacidade ForteGB.
+9.1. Dados de clientes tratados apenas para venda do imóvel e cumprimento deste contrato, conforme política de privacidade ForteGB.
 
 ---
 
@@ -157,7 +157,7 @@
 
 **Revisão:** Ricardo apresenta à Juliana Mestrinier → redlines → aprovação trio → piloto com Juliana.
 
-**Onboarding (portal):** registro conta → termos → **por casa:** reclamar → Gov.br → staff → leads.
+**Onboarding (portal):** registro conta → termos → **por casa:** reclamar → Gov.br → staff → clientes.
 
 ```mermaid
 flowchart TB
@@ -167,7 +167,7 @@ flowchart TB
   subgraph casa [Por casa — repetível]
     C[Reclamar casa] --> G[Gov.br]
     G --> S[Staff aprova]
-    S --> L[Leads + visitas nesta casa]
+    S --> L[Clientes + visitas nesta casa]
   end
   T --> C
   L --> C2[Reclamar outra casa...]

@@ -23,10 +23,10 @@
 | Actor | Jornada | Define (Architecture) | Build |
 |-------|---------|----------------------|-------|
 | **Visitante / cliente** | Ver casas, agendar visita autoguiada | Q-003, Q-005–Q-006, journey map | P2 Visitas + Integrations |
-| **Visitante** | QR na placa → identidade → acesso → lead CRM | Q-013, Q-017 | P2 Visitas + P3 Physical-digital |
+| **Visitante** | QR na placa → identidade → acesso → cliente CRM | Q-013, Q-017 | P2 Visitas + P3 Physical-digital |
 | **Corretor** | Login | Q-003 | P1 Identity |
 | **Corretor** | **Assinar termos/contrato** com ForteGB | **Q-016** | P2 Portal corretor |
-| **Corretor** | CRUD prospectos + comissão | Q-007 | P2 Portal corretor |
+| **Corretor** | CRUD clientes + comissão | Q-007 | P2 Portal corretor |
 | **Staff ForteGB** | Admin (TBD) | Q-003 | P3 Admin + Content ops |
 
 ---
@@ -41,7 +41,7 @@
 | Senha temporária + Tuya | P2 Integrations | Q-006 (fallback) |
 | **Acesso condomínio / portaria (AI?)** | TBD | **Q-017** |
 | Confirmação WhatsApp | P2 Integrations | — |
-| Lead automático no CRM | P2 Visitas + Integrations | Q-018 |
+| Cliente automático no CRM | P2 Visitas + Integrations | Q-018 |
 | Lembretes / follow-up pós-visita | P2 Visitas ([#141](https://github.com/fortegb/platform/issues/141)) + Integrations/CRM | Ships with Visitas MVP |
 | Aprovação manual se ID falhar | P2 Integrations ([#80](https://github.com/fortegb/platform/issues/80)) | Visitor visit queue; Q-005 |
 

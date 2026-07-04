@@ -383,11 +383,11 @@ function buildHtml({ items, focus, generatedAt }) {
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.6rem;margin:0 0 0.75rem">
         <div style="border:1px solid #e2e8f0;border-radius:10px;padding:0.75rem;background:#fff">
           <span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:0.12rem 0.55rem;border-radius:999px;background:#e8f5ee;color:#2f7d52;border:1px solid #bfe3cd;margin-bottom:0.4rem">v1 · vender já</span>
-          <div style="font-size:0.78rem;color:#334155;line-height:1.4">Site + portfólio, visita por WhatsApp, login/papéis, portal do corretor (lead + comissão + HubSpot), contrato Gov.br manual.</div>
+          <div style="font-size:0.78rem;color:#334155;line-height:1.4">Site + portfólio, visita por WhatsApp, login/papéis, portal do corretor (cliente + comissão + HubSpot), contrato Gov.br manual.</div>
         </div>
         <div style="border:1px solid #e2e8f0;border-radius:10px;padding:0.75rem;background:#fff">
           <span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:0.12rem 0.55rem;border-radius:999px;background:#eef6fb;color:#1a74a1;border:1px solid #c7e4f2;margin-bottom:0.4rem">v2 · automação única</span>
-          <div style="font-size:0.78rem;color:#334155;line-height:1.4">Visitas autoguiadas (agendada + QR), identidade + Tuya + calendário, Gov.br automatizado, bots de lead.</div>
+          <div style="font-size:0.78rem;color:#334155;line-height:1.4">Visitas autoguiadas (agendada + QR), identidade + Tuya + calendário, Gov.br automatizado, bots de cliente.</div>
         </div>
         <div style="border:1px solid #e2e8f0;border-radius:10px;padding:0.75rem;background:#fff">
           <span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:0.12rem 0.55rem;border-radius:999px;background:#f4f1fb;color:#6b4fa1;border:1px solid #ddd3f0;margin-bottom:0.4rem">v3 · escala</span>
