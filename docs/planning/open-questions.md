@@ -25,7 +25,7 @@
 - **Module:** auth, admin
 - **Status:** **partial** → [`company-structure.md`](./company-structure.md) §8 + [`architecture.md`](./architecture.md) §2
 - **Question:** Público, corretor, cliente, staff ForteGB, proprietário — quem no MVP?
-- **Resolved (2026-07-02):** Roles admin/staff/corretor/cliente; matriz ecrãs em `company-structure.md` §6. Perm detail = admin vs staff only.
+- **Resolved (2026-07-02):** Roles admin/staff/corretor/cliente; matriz telas em `company-structure.md` §6. Perm detail = admin vs staff only.
 - **Blocks:** Identity epic (RBAC implementation)
 
 ### Q-016 — Corretor: assinatura de termos/contrato
@@ -131,7 +131,7 @@
 ### Q-014 — Ordem das sessões grilling
 - **Module:** platform
 - **Status:** open
-- **Recommendation:** Ver ordem no topo deste ficheiro
+- **Recommendation:** Ver ordem no topo deste arquivo
 
 ### Q-015 — CHANGELOG para docs-only
 - **Status:** deferred → D-002 area

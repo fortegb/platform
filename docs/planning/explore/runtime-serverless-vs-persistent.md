@@ -16,13 +16,13 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 - **Automação residencial** além de fechaduras — Tuya: câmaras, interruptores; controlo **+ eventos de entrada**.
 - **CRM HubSpot** — sync bidireccional contínuo.
 - **Trabalho agendado/assíncrono** — expiração de senha, lembretes, follow-ups, retries em APIs de terceiros instáveis.
-- **App mobile futura provável** — sobretudo **staff a aprovar pedidos com push** (aprovação corretor/casa, fila de excepção de identidade).
+- **App mobile futura provável** — sobretudo **staff a aprovar pedidos com push** (aprovação corretor/casa, fila de exceção de identidade).
 
 **Critérios de decisão (prioridade do Ricardo):**
 1. **Free-first** — só gastar quando provar utilidade (iniciativa nascente, pessoas físicas, pré-receita).
 2. **Zero-ops** — dev solo (Ricardo); tempo é o recurso escasso, não dinheiro.
 3. **Simplicidade / Vercel** — preferência explícita pela simplicidade e DX da Vercel; async espalhado é aceitável desde que funcione.
-4. **Escala baixa** — low-hundreds de utilizadores em picos; 1–2 casas/ano.
+4. **Escala baixa** — low-hundreds de usuários em picos; 1–2 casas/ano.
 5. **Foco no único** — construir só os fluxos únicos (visitas/identidade, corretor); comprar/gerido o resto.
 
 ---
@@ -89,7 +89,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 **Escolhido: Caso A — Serverless (Vercel Hobby → Pro quando útil).**
 
-**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam directamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou operas a VM (Oracle), ou pagas (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitectural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
+**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam diretamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou operas a VM (Oracle), ou pagas (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitectural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
 
 **O Caso B seria a escolha** se as prioridades fossem coerência arquitectural + real-time + modelo de servidor familiar acima de free-first/zero-ops.
 
@@ -124,7 +124,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 - **Q-004 (CMS vs DB) — resolvido** nesta sessão: conteúdo (casas, timeline, blog, media) → **CMS (Contentful/Sanity)**; estado operacional + PII sensível (status, leads, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado com RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa partilhado, merge no Nuxt; **social** → fora da plataforma. Detalhe → `decisions.md` (D-xxx no apply).
 - **System shape** — este doc; feeds `architecture.md` §4 (substituir «Data TBD» + diagrama por stack confirmada).
 - **Portabilidade** — manter app **Nitro-portável** (mudança de preset) como seguro barato: se a Vercel incomodar antes de tempo, migrar p/ Netlify/Cloudflare (serverless) ou Fly (persistente) sem reescrita.
-- **Gatilhos de reavaliação** → persistente: se real-time/websockets ou streaming se tornarem centrais, ou se o custo de gerir QStash+funções superar o de um processo; → Vercel Pro: feature Pro-only ou receita clara.
+- **Gatilhos de reavaliação** → persistente: se real-time/websockets ou streaming se tornarem centrais, ou se o custo de gerenciar QStash+funções superar o de um processo; → Vercel Pro: feature Pro-only ou receita clara.
 
 ---
 
@@ -133,4 +133,4 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 - [ ] Verificar quotas/custo de **Tuya** em produção.
 - [ ] Confirmar **WhatsApp Cloud API** (preços por template BR) vs Telegram-first.
 - [ ] Escolher vendor de **CMS** por longevidade de free-tier (Contentful já em `package.json` vs Sanity).
-- [ ] No apply de #145: actualizar `architecture.md` §4 + entrada em `decisions.md`.
+- [ ] No apply de #145: atualizar `architecture.md` §4 + entrada em `decisions.md`.

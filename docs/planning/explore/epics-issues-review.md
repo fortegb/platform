@@ -64,7 +64,7 @@ Journey map summarised from `jornadas-plataforma.md`; §3.1 gaps list for Topic 
 
 ### 5. `progress-focus.md` narrative — **fixed 2026-07-03 (A6)**
 
-Portal #138 movido para «Concluído recentemente»; foco actual = #139 board review + Architecture / Topic C.
+Portal #138 movido para «Concluído recentemente»; foco atual = #139 board review + Architecture / Topic C.
 
 ### 6. Canon ↔ module ↔ board field alignment — **fixed 2026-07-03 (B2c)**
 

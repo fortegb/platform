@@ -43,7 +43,7 @@
 
 ## Cláusula 3 — Comissão
 
-3.1. **Percentual:** `[PERCENTAGEM]`% sobre o valor efetivo de venda — ex. referência mercado ~5%; ForteGB prática recente 3%.
+3.1. **Percentual:** `[PORCENTAGEM]`% sobre o valor efetivo de venda — ex. referência mercado ~5%; ForteGB prática recente 3%.
 
 3.2. **Pagamento em duas etapas** (salvo acordo escrito diferente neste contrato):
 

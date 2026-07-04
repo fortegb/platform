@@ -17,7 +17,7 @@
 2. **Corretor** — self-service onboarding (registo → termos → Gov.br → staff → portal/bot/leads).
 3. **Cliente** — ver casas; visita autoguiada (agendada + QR); identidade; senha/fechadura; lead CRM.
 4. **Staff ForteGB** — admin (escopo TBD na grilling).
-5. **Mobile** — tudo usable no telemóvel (responsive v1; native/PWA TBD).
+5. **Mobile** — tudo usable no celular (responsive v1; native/PWA TBD).
 6. **Backend** — Tuya, HubSpot, WhatsApp, Calendar; CRM multi-canal.
 7. **Media kit impresso** por casa.
 
@@ -28,7 +28,7 @@
 > **Resolvido (2026-07-03, Grilling 0 [#145](https://github.com/fortegb/platform/issues/145)) → D-018.** Fatias verticais; v1 arquitetado em profundidade, v2/v3 just-in-time.
 
 - **v1** — site público + portfólio real + CTA visita **WhatsApp** · **auth + papéis** (fundação) · corretor onboarding (registo → staff aprova) · **registo de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
-- **v2** — **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de excepção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
+- **v2** — **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de exceção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
 - **v3 / Fase 3** — media kit, timeline de obra, motor social, portal cliente logado, BI.
 
 **Corretor antes de tours:** sem dependências de hardware/externas, protege comissão desde cedo, alinhado a venda humana; tours = maior build único → v2.
@@ -46,10 +46,10 @@
 | Role | Quem | Portal / access | MVP? | Notas |
 |------|------|-----------------|------|-------|
 | **Visitante** | Público | Site, blog, portfólio | Sim | |
-| **Cliente** | Comprador | Fluxo visita, contacto | Sim | CPF liga a registo corretor se existir |
+| **Cliente** | Comprador | Fluxo visita, contato | Sim | CPF liga a registo corretor se existir |
 | **Corretor** | Contratados (ex. Juliana) | Portal corretor + bot WhatsApp | Sim | CRECI preferencial; mesmo fluxo sem CRECI |
 | **Staff** | Cláudia, Gisele (+ sócios em operação) | Área logada operacional | Sim | Despesas, leads, visitas, consultas |
-| **Admin** | Ricardo, Adilson, Felipe | Staff + config, flags, excepções | Sim | Três sócios = admin |
+| **Admin** | Ricardo, Adilson, Felipe | Staff + config, flags, exceções | Sim | Três sócios = admin |
 | **Digital** | Ricardo, Felipe | Construção plataforma | Sim | Arquiteto Digital · Desenvolvedor Digital |
 | **Sócio / investidor** | Três fundadores | Admin na plataforma | — | Papel público uniforme na apresentação |
 
@@ -69,7 +69,7 @@
 
 ## 3. User journey map (MVP)
 
-> **Fonte estado-alvo:** [`jornadas-plataforma.md`](./jornadas-plataforma.md) (actualizado 2026-07-03).  
+> **Fonte estado-alvo:** [`jornadas-plataforma.md`](./jornadas-plataforma.md) (atualizado 2026-07-03).  
 > **Este §3** = resumo para Architecture; detalhe passo-a-passo permanece em jornadas.  
 > **Screen map:** [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32)).
 
@@ -83,9 +83,9 @@
 | **Corretor** | Registar prospecto | Portal ou bot WhatsApp | Nome + CPF + tel + casa → timestamp (**primeiro ganha**) → sync HubSpot → pipeline | Comissão protegida |
 | **Corretor** | Pipeline | Portal corretor | Casas com contrato; estados novo → visita → negociação → fechado; notas | Acompanhamento comercial |
 | **Staff** | Aprovar corretor / casa | Notificação em cada passo onboarding | Qualquer staff aprova ou rejeita | Corretor activo ou casa associada |
-| **Staff** | Excepção identidade | Match ID falhou (visita) | Fila de excepções → aprovar / rejeitar manualmente | Visita autorizada ou bloqueada |
+| **Staff** | Exceção identidade | Match ID falhou (visita) | Fila de exceções → aprovar / rejeitar manualmente | Visita autorizada ou bloqueada |
 | **Staff** | Operação diária | Rotina | Visitas do dia (calendário); leads recentes; lead manual (WhatsApp telefónico) → HubSpot | Operação sem escritório |
-| **Admin** | Config / governo | Área admin | Convites; API keys (Tuya, HubSpot, WhatsApp); flags (ocultar casa, manutenção); relatórios agregados; excepções comissão (com audit) | Plataforma configurada |
+| **Admin** | Config / governo | Área admin | Convites; API keys (Tuya, HubSpot, WhatsApp); flags (ocultar casa, manutenção); relatórios agregados; exceções comissão (com audit) | Plataforma configurada |
 
 **Referências jornadas:** §3.1 site · §3.2 agendada · §3.3 QR · §4 corretor · §5 staff/admin · §6–7 media/social.
 
@@ -195,7 +195,7 @@ flowchart TB
 
 ## 7. Non-functional
 
-> **Actualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
+> **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
 
 | Topic | Decision |
 |-------|----------|

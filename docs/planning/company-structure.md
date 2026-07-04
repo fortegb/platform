@@ -2,7 +2,7 @@
 
 > **Documento interno** — pessoas, papéis operacionais e governo de decisões.  
 > Alimenta Q-003 (user roles / MVP) e [`architecture.md`](./architecture.md) §2.  
-> **Última actualização:** 2026-07-03 · papéis plataforma (três admins; digital R.+F.)
+> **Última atualização:** 2026-07-03 · papéis plataforma (três admins; digital R.+F.)
 
 **Privacidade:** ForteGB é venture privada separada das carreiras públicas (ex.: LinkedIn de Ricardo não menciona ForteGB).
 
@@ -63,10 +63,10 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Papel** | Sócio / fundador / investidor / **admin** (plataforma) |
 | **Plataforma — digital** | **Arquiteto Digital** · **Desenvolvedor Digital** — constrói e evolui a plataforma |
 | **ForteGB — operações** | Projetos de engenharia, acompanhamento de obra, compras pontuais |
-| **ForteGB — vendas** | Principal contacto comercial; prospectos e negociação |
+| **ForteGB — vendas** | Principal contato comercial; prospectos e negociação |
 | **Motivação digital** | Automatizar e digitalizar vendas (visitas autoguiadas agendadas e instantâneas) |
 | **Decisões** | Com Adilson no dia-a-dia; **os três** em terreno, pricing, vendas (fecho) e acima de R$ 100k |
-| **Carreira (pública)** | Director of Technology & Innovation, ScanSource Brasil; IT Director LatAm — São Paulo |
+| **Carreira (pública)** | Diretor of Technology & Innovation, ScanSource Brasil; IT Diretor LatAm — São Paulo |
 | **Formação / experiência** | MSc Engenharia; ~29 anos liderança IT (transformação digital, agile, SAP, projetos globais) |
 | **LinkedIn** | [ricardobonon](https://www.linkedin.com/in/ricardobonon/) — **sem** menção a ForteGB |
 
@@ -82,7 +82,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Formação / experiência** | Economia; carreira como **gestor de procurement / compras** |
 | **Outro empreendimento** | Empresa de estacionamento de veículos em Campinas |
 | **ForteGB — operações** | Obra em conjunto com Ricardo; **principal responsável por compras** (mais que Ricardo) |
-| **ForteGB — projetos** | Acompanhamento de projecto (partilhado com Ricardo) |
+| **ForteGB — projetos** | Acompanhamento de projeto (partilhado com Ricardo) |
 | **ForteGB — digital** | **Não** desenvolve a plataforma; **stakeholder** em decisões de prontidão (voto com os três) |
 | **Decisões** | Com Ricardo no dia-a-dia e compras; **os três** em terreno, pricing, vendas (fecho) e acima de R$ 100k |
 
@@ -109,19 +109,19 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | Função | Quem | Notas |
 |--------|------|-------|
 | Obra / construção | **Mestre de obras** (por casa) | Um mestre por empreendimento/casa |
-| | Ricardo + Adilson | Contacto próximo; visitas **semanais** de verificação; apoio **diário** em decisões e compras |
+| | Ricardo + Adilson | Contato próximo; visitas **semanais** de verificação; apoio **diário** em decisões e compras |
 | Projetos / engenharia | Ricardo + Adilson | **Partilhado igualmente** |
-| | Escritório de **arquitetura** (externo) | Projecto arquitectónico por casa |
+| | Escritório de **arquitetura** (externo) | Projeto arquitectónico por casa |
 | | Escritório de **engenharia** (externo) | Estrutural, eléctrico, hidráulico |
 | Compras / procurement | Adilson (principal) | Ricardo apoia; decisão R+A abaixo de R$ 100k |
-| Vendas | Ricardo (principal) | **Daqui em diante** Ricardo assume (contacto com prospectos, negociação) |
-| | Gisele Herzeg | Apoio a Ricardo; utilizadora de plataformas |
+| Vendas | Ricardo (principal) | **Daqui em diante** Ricardo assume (contato com prospectos, negociação) |
+| | Gisele Herzeg | Apoio a Ricardo; usuárioa de plataformas |
 | | Adilson | Fez **a maior parte** nas **2 casas anteriores** (Ricardo apoiava); transição para Ricardo |
 | | Felipe | Não envolvido em vendas |
 | Finanças | Os três | Modelo **partilhado** — quem tiver fundos disponíveis paga, acordado entre os sócios |
 | | Meios de pagamento | Sobretudo **PIX**; também outras formas (compras loja, online, etc.) |
 | | Controlo de custos | **Quem paga** regista a linha de custo no sistema de despesas |
-| | Sistema de despesas (actual) | **Google Form + Spreadsheet** |
+| | Sistema de despesas (atual) | **Google Form + Spreadsheet** |
 | | Sistema de despesas (evolução) | Possível migração para **`app-despesas`** |
 | | Contabilidade externa | **Nenhum contador** — os três gerem contabilidade e **obrigações fiscais** |
 | | Enquadramento | Operação como **Pessoas Físicas** (ver §3) |
@@ -139,8 +139,8 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 |-------|---------|
 | **ForteGB (marca)** | **Nome fantasia / branding apenas** — **não existe** entidade legal com esse nome |
 | **Investimento** | Cada sócio investe como **Pessoa Física (PF)** |
-| **CNPJ / MEI / LTDA** | **Nenhum** actualmente |
-| **Contador** | Consultado; para o **tamanho actual** do negócio, **LTDA não compensa** |
+| **CNPJ / MEI / LTDA** | **Nenhum** atualmente |
+| **Contador** | Consultado; para o **tamanho atual** do negócio, **LTDA não compensa** |
 | **Evolução** | Formalização (ex. LTDA) faria sentido **com crescimento** do negócio — **a definir** gatilhos |
 
 ### Titularidade e contratos (PF)
@@ -161,7 +161,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Hoje** | **Stub** + operação real em **Google Form + Spreadsheet** |
 | **MVP (v1)** | **B** — substituir Form/Sheet + **dashboards** (custo por casa, quem pagou o quê) |
 | **Longo prazo** | **C** — hub completo proprietários (despesas + tarefas + docs + CRM/financeiro integrado) |
-| **Utilizadores MVP** | Mesmos **staff** (cinco) — §6 |
+| **Usuários MVP** | Mesmos **staff** (cinco) — §6 |
 | **Corretores** | **Sem** acesso a `app-despesas` — previsível **não** incluir |
 | **Auth** | **Partilhada com `platform`** — Google, Facebook, e-mail (staff); idem corretores só em `platform` |
 | **Timing** | **Depois** do MVP `platform` — desenvolvimento solo (Ricardo) |
@@ -183,7 +183,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | Casa 02 P-31 | **José Gino** |
 | Casa 03 Q-21 | **José Gino** |
 
-*(Rotativo por projecto — ver §2 obra.)*
+*(Rotativo por projeto — ver §2 obra.)*
 
 ### Subempreiteiros preferenciais
 
@@ -198,8 +198,8 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Pessoa | Relação | Papel ForteGB |
 |--------|---------|---------------|
-| **Cláudia Bonon** | Esposa de Adilson | **Sem papel operacional directo**; figura em **terrenos e documentação** (casamento em **comunhão de bens**) |
-| **Gisele Herzeg** | Esposa de Ricardo | **Sem papel operacional formal**; figura em **terrenos e documentação** (comunhão de bens); **utilizadora de plataformas** e **apoia Ricardo em vendas** |
+| **Cláudia Bonon** | Esposa de Adilson | **Sem papel operacional direto**; figura em **terrenos e documentação** (casamento em **comunhão de bens**) |
+| **Gisele Herzeg** | Esposa de Ricardo | **Sem papel operacional formal**; figura em **terrenos e documentação** (comunhão de bens); **usuárioa de plataformas** e **apoia Ricardo em vendas** |
 
 > **Nota legal:** Com **comunhão de bens**, cônjuges aparecem como partes ou co-titulares em actos patrimoniais (ex. compra de terreno), embora não sejam sócios operadores da ForteGB.
 
@@ -211,10 +211,10 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Role | Quem | Capacidades (alto nível) |
 |------|------|---------------------------|
-| **admin** | Ricardo, Adilson, Felipe | Configuração, flags hoarding, excepções atribuição, gestão corretores/contratos, gestão utilizadores |
+| **admin** | Ricardo, Adilson, Felipe | Configuração, flags hoarding, exceções atribuição, gestão corretores/contratos, gestão usuários |
 | **staff** | Cláudia, Gisele (+ sócios quando operam) | Operação quotidiana — despesas, leads, visitas, consulta registos |
 | **corretor** | Corretores contratados (ex. Juliana) | Registo leads, agendar visitas, portal — ver §7 |
-| **cliente / visitante** | Público | Site, visitas, contacto — sem login ou login mínimo |
+| **cliente / visitante** | Público | Site, visitas, contato — sem login ou login mínimo |
 
 **MVP permissões (2026-07-03):** **admin** = os **três sócios** (Ricardo, Adilson, Felipe). **staff** = Cláudia, Gisele (+ sócios em tarefas operacionais). Ricardo e Felipe = **Arquiteto Digital** · **Desenvolvedor Digital** (construção da plataforma).
 
@@ -240,7 +240,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | **Responsável** | **Ricardo** (monitorização operacional) |
 | **Canal preferido** | **Bot WhatsApp ou Telegram** — alerta em tempo real |
 | **Alternativa** | Push notification na plataforma |
-| **Gatilho** | Volume anormal de registos corretor; conflitos de atribuição; lead directo possível corretor informal |
+| **Gatilho** | Volume anormal de registos corretor; conflitos de atribuição; lead direto possível corretor informal |
 
 ---
 
@@ -252,7 +252,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 |---------|---------|
 | **Modelo** | Relação **informal** — sem contrato formal |
 | **Papel do corretor** | Traz **prospectos** e tenta **vender**; comissão acordada (sem enquadramento formal) |
-| **Fricção recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não partilhar contactos** de prospectos — e vice-versa (ForteGB também retém contactos) |
+| **Frição recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não partilhar contatos** de prospectos — e vice-versa (ForteGB também retém contatos) |
 | **Fecho das vendas** | **Ambas** as casas vendidas **via corretores** |
 | **Processo interno** | **Ricardo** lidera acordo com corretor; **validação dos três** sócios no fecho |
 
@@ -260,16 +260,16 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 ### Modelo desejado (futuro)
 
-| Objectivo | Detalhe |
+| Objetivo | Detalhe |
 |-----------|---------|
 | **Canal duplo** | **Corretores** vendem **e** ForteGB vende **em paralelo** — plataforma, marketing digital, funcionalidades (ex. visitas autoguiadas) |
-| **Não é either/or** | Queremos **máxima divulgação** por ambos os lados, não escolher corretor *ou* directo |
+| **Não é either/or** | Queremos **máxima divulgação** por ambos os lados, não escolher corretor *ou* direto |
 
 ### Dor principal (a resolver)
 
-> Corretor traz prospect → prospect vê **material de marketing** da casa (placa, site, QR, etc.) → **contacta ForteGB directamente** para evitar comissão do corretor.
+> Corretor traz prospect → prospect vê **material de marketing** da casa (placa, site, QR, etc.) → **contacta ForteGB diretamente** para evitar comissão do corretor.
 
-**Consequência:** corretores ficam **negativos e protectores** — não querem que prospectos saibam demais sobre ForteGB/contactos; retêm informação; resistem à divulgação directa da empresa.
+**Consequência:** corretores ficam **negativos e protectores** — não querem que prospectos saibam demais sobre ForteGB/contatos; retêm informação; resistem à divulgação direta da empresa.
 
 **Requisito de produto/process:** o modelo (portal, CRM, contratos, registo de leads) tem de **proteger comissão do corretor** quando ele trouxe o prospect — sem impedir ForteGB de marketar abertamente.
 
@@ -277,12 +277,12 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 ### Proposta ForteGB (rascunho acordado)
 
-1. **Preço unificado** — mesmo preço se o cliente chega via corretor ou directo (sem incentivo de bypass por preço).
+1. **Preço unificado** — mesmo preço se o cliente chega via corretor ou direto (sem incentivo de bypass por preço).
 2. **Contratos formais** — corretores que aderem ao esquema assinam termos com a ForteGB.
 3. **Portal de registo de leads** — corretores contratados acedem à plataforma para **registar formalmente** cada prospecto; fica **atribuído a esse corretor** durante toda a oferta **daquela casa**.
 4. **Compromisso contratual de comissão** — se a casa for vendida a prospecto registado por um corretor, ForteGB paga a comissão acordada — independentemente de o prospecto ter visto marketing/plataforma/material digital ForteGB.
 
-**Objectivo:** corretores deixam de temer divulgação directa ForteGB; ForteGB pode marketar abertamente sem guerra de contactos.
+**Objetivo:** corretores deixam de temer divulgação direta ForteGB; ForteGB pode marketar abertamente sem guerra de contatos.
 
 ### Regras fechadas (gaps 1–8 — entrevista 2026-07-02)
 
@@ -290,15 +290,15 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Cenário | Regra |
 |---------|--------|
-| **Lead capturado pela plataforma ForteGB** | **Directo** — sem comissão corretor (site, WhatsApp, formulário, visita QR, etc.) |
+| **Lead capturado pela plataforma ForteGB** | **Direto** — sem comissão corretor (site, WhatsApp, formulário, visita QR, etc.) |
 | **Corretor regista a tempo** | Corretor **deve registar antes** do prospecto ser capturado pela plataforma / visita — regra **explícita** no contrato e onboarding |
 | **Dois corretores** | Alerta ao registar; dedup **nome + CPF**; **primeiro registo válido** prevalece |
-| **Reclamação sem registo** | **Regra estrita:** sem registo = sem comissão; **excepções manuais** possíveis (casos raros, aprovação ForteGB) |
-| **Canal de registo** | Fricção mínima — ex. **bot WhatsApp** (nome + CPF); portal também |
+| **Reclamação sem registo** | **Regra estrita:** sem registo = sem comissão; **exceções manuais** possíveis (casos raros, aprovação ForteGB) |
+| **Canal de registo** | Frição mínima — ex. **bot WhatsApp** (nome + CPF); portal também |
 
 **Fluxo ideal (corretor → visita):**
 
-1. Corretor tem o contacto e quer **agendar visita** (ou garantir comissão antes de expor o prospecto ao marketing ForteGB).
+1. Corretor tem o contato e quer **agendar visita** (ou garantir comissão antes de expor o prospecto ao marketing ForteGB).
 2. Envia **nome + CPF** ao **bot WhatsApp** ForteGB.
 3. Recebe **confirmação imediata** — lead registado (corretor fica tranquilo).
 4. Opcional: **PDF de termo de registo** enviado + registo persistente no **portal** (prova contratual).
@@ -309,7 +309,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | Regra | Detalhe |
 |-------|---------|
 | **Por casa** | Registo é **por imóvel / casa** — não global ForteGB |
-| **Cross-house** | O mesmo prospecto pode ser **corretor numa casa** e **directo noutra** |
+| **Cross-house** | O mesmo prospecto pode ser **corretor numa casa** e **direto noutra** |
 | **Validade temporal** | **Sem expiração por tempo** — prospecto fixo ao corretor naquela casa **até a casa ser vendida** |
 | **Casa vendida a outro comprador** | Oferta encerrada; comissão só se o **comprador** for prospecto registado desse corretor |
 
@@ -319,7 +319,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Regra | Detalhe |
 |-------|---------|
-| **Sem contacto com prospecto** | ForteGB **não contacta** o prospecto no fluxo de registo corretor |
+| **Sem contato com prospecto** | ForteGB **não contacta** o prospecto no fluxo de registo corretor |
 | **Validação CPF** | Automática quando possível |
 | **Registo imediato** | Sem aprovação manual — CPF válido → registado + confirmação |
 | **Monitorização** | Volume anormal → flag **staff** |
@@ -340,14 +340,14 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 |-------|---------|
 | **Preferencial** | Incentivar assinatura (vantagens do esquema formal) |
 | **Sem contrato** | Acordos informais ainda possíveis |
-| **Marketing ForteGB** | Nunca impedir contacto directo do prospecto |
-| **Direct + corretor informal** | Rastrear e resolver via staff / excepção manual |
+| **Marketing ForteGB** | Nunca impedir contato direto do prospecto |
+| **Direct + corretor informal** | Rastrear e resolver via staff / exceção manual |
 
 #### Gap 5 — Comissão ✅
 
 | Regra | Detalhe |
 |-------|---------|
-| **Percentagem** | Negociada **por casa e por corretor** — no contrato |
+| **Porcentagem** | Negociada **por casa e por corretor** — no contrato |
 | **Referência mercado** | ~5% região; **3%** nas duas casas vendidas |
 | **Pagamento** | Duas etapas: **sinal** + **escritura** (detalhe por contrato) |
 
@@ -355,7 +355,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Fluxo | Detalhe |
 |-------|---------|
-| **Direct** | Sem contacto prévio nem registo corretor → visita instantânea ou agendada |
+| **Direct** | Sem contato prévio nem registo corretor → visita instantânea ou agendada |
 | **Com corretor** | Visitas permitidas; UX: *«Seu Corretor: [nome]»* |
 | **Corretor** | Registo → **link para agendar** visita |
 
@@ -363,7 +363,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Cenário | Regra |
 |---------|--------|
-| **Venda directa** (sem registo corretor) | **Sem comissão** — margem integral para os sócios |
+| **Venda direta** (sem registo corretor) | **Sem comissão** — margem integral para os sócios |
 | **Prospecto registado por corretor** | **Comissão paga** ao corretor mesmo que Ricardo/Gisele fechem |
 
 ### Onboarding corretor — self-service (implementação #2 + UX)

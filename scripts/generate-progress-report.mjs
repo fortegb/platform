@@ -89,7 +89,7 @@ function fetchAllItems() {
 }
 
 function parseFocusMarkdown(raw) {
-  const updatedMatch = raw.match(/\*\*(?:Atualizado|Actualizado):\*\*\s*(.+)/);
+  const updatedMatch = raw.match(/\*\*(?:Atualizado|Atualizado):\*\*\s*(.+)/);
   const updated = updatedMatch?.[1]?.trim() ?? '—';
   const sections = {};
   const parts = raw.split(/^## /m).slice(1);

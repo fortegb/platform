@@ -229,7 +229,7 @@ function modulesShell(bodyHtml) {
       <strong>Nota:</strong> resumo visual em
       <a href="./mapa-fases.html">Mapa por fases</a>;
       rotas MVP em
-      <a href="./screen-map.html">Mapa de ecrãs</a>;
+      <a href="./screen-map.html">Mapa de telas</a>;
       execução em
       <a href="./progresso-socios.html">Relatório de progresso</a>;
       jornadas em
@@ -271,7 +271,7 @@ function screenMapShell(bodyHtml) {
 
 `;
   return planningDocShell({
-    title: 'Mapa de ecrãs MVP',
+    title: 'Mapa de telas MVP',
     subtitle: 'Rotas por papel — simulado, novo, fase e epic.',
     noticeHtml: notice,
     bodyHtml,

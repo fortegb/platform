@@ -79,7 +79,7 @@ ideia → rbo-create-issue (epic ou sub-issue)
 
 ### Quando regenerar / editar HTML
 
-| Mudou… | Acção |
+| Mudou… | Ação |
 |--------|--------|
 | Board ou `progress-focus.md` | `npm run progress:report` |
 | `modules.md`, `screen-map.md`, contrato corretor | `npm run pages:portal` |

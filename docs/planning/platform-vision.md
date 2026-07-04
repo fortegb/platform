@@ -16,13 +16,13 @@ Plataforma digital para operação real de construção e venda de imóveis em C
 3. **Backend** — visitas agendadas e instantâneas (QR), identidade, Tuya, CRM.
 4. **CRM** — capturar atenção/leads de website, mobile e outros canais.
 5. **Media kit impresso** por casa.
-6. **Mobile** — uso completo via telemóvel (responsive v1; app nativo TBD).
+6. **Mobile** — uso completo via celular (responsive v1; app nativo TBD).
 
 **Marca:** transparência, confiança, proximidade, abertura (família ForteGB).
 
 ---
 
-## Estado actual do código
+## Estado atual do código
 
 | Área | Hoje |
 |------|------|

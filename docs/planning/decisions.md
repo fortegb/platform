@@ -14,7 +14,7 @@
 
 ### D-002 — Papéis de STATUS, CHANGELOG e ROADMAP (2026-07-01)
 
-- **Contexto:** Sobreposição possível entre ficheiros de controle.
+- **Contexto:** Sobreposição possível entre arquivos de controle.
 - **Decisão:**
   - **`STATUS.md`** = bússola de sessão (epics ativos + próximo passo) — **mantido**.
   - **`ROADMAP.md`** = espelho gerado do board — **não editar à mão**.
@@ -26,7 +26,7 @@
 
 ### D-003 — GitHub Organization — Opção A (2026-07-01)
 
-- **Contexto:** Conta `fortegb` é **User**; issue types e board de equipa favorecem org.
+- **Contexto:** Conta `fortegb` é **User**; issue types e board de equipe favorecem org.
 - **Decisão:**
   1. Renomear personal **`fortegb` → `fortegb-admin`** (email `contato@fortegb.com` mantém-se).
   2. Criar **Organization `fortegb`**.
@@ -71,14 +71,14 @@
 ### D-007 — Preparar GitHub faz parte do epic org (2026-07-01)
 
 - **Contexto:** “Quando GitHub estiver pronto” vs trabalho de preparação.
-- **Decisão:** Todo o trabalho de **estado actual → org desejada** (GitHub + dotfiles + remotes + Vercel + verificação) vive **dentro do epic** *GitHub org migration* — documentado em [github-org-migration.md](./github-org-migration.md).
+- **Decisão:** Todo o trabalho de **estado atual → org desejada** (GitHub + dotfiles + remotes + Vercel + verificação) vive **dentro do epic** *GitHub org migration* — documentado em [github-org-migration.md](./github-org-migration.md).
 - **Consequências:** Não bloquear documentação de planning; execução segue runbook.
 
 ---
 
 ### D-009 — Epic Architecture após preparação GitHub (2026-07-01)
 
-- **Contexto:** Refinamento arquitectural estava implícito em “grilling”; utilizador quer epic explícito e sequenciado.
+- **Contexto:** Refinamento arquitectural estava implícito em “grilling”; usuário quer epic explícito e sequenciado.
 - **Decisão:**
   - Epic **`Architecture & MVP definition`** em Phase 0.
   - **Ordem:** org migration → bootstrap board & OpenSpec → **Architecture epic** → Phase 1 epics.
@@ -92,7 +92,7 @@
 ### D-008 — Dotfiles: namespace `fortegb` vs login `fortegb-admin` (2026-07-01)
 
 - **Contexto:** `repo_clone fortegb/repo` usa `fortegb` como owner na URL (org) e pasta local.
-- **Decisão (interina):** Manter chave de conta **`fortegb`** no `dotfiles.conf` como **namespace da org**; PAT/Keychain actualizados para token emitido por **`fortegb-admin`** após rename. Documentar em dotfiles `DECISIONS.md` na execução.
+- **Decisão (interina):** Manter chave de conta **`fortegb`** no `dotfiles.conf` como **namespace da org**; PAT/Keychain atualizados para token emitido por **`fortegb-admin`** após rename. Documentar em dotfiles `DECISIONS.md` na execução.
 - **Consequências:** Remote pode ser `https://fortegb-admin@github.com/fortegb/sandbox.git`; pasta local `~/Documents/GitHub/fortegb/` **mantém-se**.
 - **Fecha:** Q-002 (abordagem; execução pendente)
 
@@ -117,7 +117,7 @@
 - **Decisão:**
   - `platform-vision.md` e `architecture.md` usam linguagem **proposta / TBD**.
   - Escolhas (CMS, KYC, Tuya fallback, mobile, condomínio, HubSpot model) resolvem-se em **`rbo-grilling`** no epic Architecture.
-  - Cada resolução → `decisions.md` + actualização de `architecture.md`.
+  - Cada resolução → `decisions.md` + atualização de `architecture.md`.
 - **Consequências:** Phase 1 build só após Architecture Done; ver [`deliverables.md`](./deliverables.md).
 
 ---
@@ -186,7 +186,7 @@
 - **Contexto:** Escopo total = muitos meses para dev solo; precisa de fatias verticais.
 - **Decisão:**
   - **v1:** site público + portfólio real + CTA visita WhatsApp · **auth + papéis** · corretor onboarding (registo → staff aprova) · **registo de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
-  - **v2:** **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de excepção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
+  - **v2:** **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de exceção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
   - **v3 / Fase 3:** media kit, timeline de obra, motor social, portal cliente, BI.
   - **Lock now (fundacional, difícil reverter):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (D-016); camada de adaptadores; API-first; escolha de queue (QStash).
 - **Rationale:** corretor **antes** de tours — sem dependências de hardware/externas, protege comissão desde o 1.º par de corretores, alinhado a venda humana; tours = maior/mais arriscado build único → v2; Gov.br = integração mais arriscada do fluxo corretor → manual-first. BDUF rejeitado (viola D-011); deferimento cego rejeitado (fecharia v2/v3) — daí o guardrail "lock now".

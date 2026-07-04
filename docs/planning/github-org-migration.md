@@ -26,13 +26,13 @@
 - [ ] Conta `rbonon` disponível como co-owner
 - [ ] Email `contato@fortegb.com` verificado na conta que será renomeada
 - [ ] Janela ~30–60 min (sem deploys críticos)
-- [ ] Ler secção **Dotfiles** abaixo e repo `~/Documents/GitHub/rbonon/dotfiles` antes do rename
+- [ ] Ler seção **Dotfiles** abaixo e repo `~/Documents/GitHub/rbonon/dotfiles` antes do rename
 
 ---
 
 ## Fase A — Preparação (antes de renomear)
 
-### A1. PAT novo (conta actual `fortegb`, antes ou logo após rename)
+### A1. PAT novo (conta atual `fortegb`, antes ou logo após rename)
 
 GitHub → Settings → Developer settings → PAT (classic):
 
@@ -45,7 +45,7 @@ GitHub → Settings → Developer settings → PAT (classic):
 # Repos sob ~/Documents/GitHub/fortegb/
 ls ~/Documents/GitHub/fortegb/
 
-# Remote actual
+# Remote atual
 git -C ~/Documents/GitHub/fortegb/sandbox remote -v
 
 # Verificar gh
@@ -111,7 +111,7 @@ gh api orgs/fortegb/issue-types --jq '.[].name'
 
 ## Fase C — Dotfiles
 
-> Repo: `~/Documents/GitHub/rbonon/dotfiles` · Conta actual: `account fortegb` em `dotfiles.conf`
+> Repo: `~/Documents/GitHub/rbonon/dotfiles` · Conta atual: `account fortegb` em `dotfiles.conf`
 
 ### C1. Modelo acordado (D-008)
 
@@ -122,7 +122,7 @@ gh api orgs/fortegb/issue-types --jq '.[].name'
 | Email commits ForteGB | **`contato@fortegb.com`** |
 | Pasta local | **`~/Documents/GitHub/fortegb/sandbox`** (sem mover) |
 
-### C2. Actualizar `dotfiles.conf`
+### C2. Atualizar `dotfiles.conf`
 
 Manter bloco com chave **`fortegb`** (namespace org):
 
@@ -141,7 +141,7 @@ cd ~/Documents/GitHub/rbonon/dotfiles
 ./scripts/setup/setup_check
 ```
 
-Keychain: entrada `-a fortegb-admin` + `-s github.com` (ou manter `-a fortegb` se URL usar `fortegb@` — preferir **`fortegb-admin@`** na URL para match correcto).
+Keychain: entrada `-a fortegb-admin` + `-s github.com` (ou manter `-a fortegb` se URL usar `fortegb@` — preferir **`fortegb-admin@`** na URL para match correto).
 
 ### C4. Remote URL recomendada
 
@@ -162,12 +162,12 @@ Entrada em `dotfiles/DECISIONS.md`: org namespace `fortegb` vs auth login `forte
 
 ---
 
-## Fase D — Repo sandbox (este projecto)
+## Fase D — Repo sandbox (este projeto)
 
 ```bash
 cd ~/Documents/GitHub/fortegb/sandbox
 git remote set-url origin https://fortegb-admin@github.com/fortegb/sandbox.git
-# Actualizar referências em docs se ainda apontarem user vs org
+# Atualizar referências em docs se ainda apontarem user vs org
 ```
 
 ### OpenSpec / skills
@@ -213,7 +213,7 @@ Seguir [phases.md](./phases.md) epic *Bootstrap board & OpenSpec*:
 - [ ] Vercel deploy OK
 - [ ] `gh project list --owner fortegb` lista project `platform`
 - [ ] Issue types visíveis ao criar issue
-- [ ] `STATUS.md` actualizado com IDs de issues
+- [ ] `STATUS.md` atualizado com IDs de issues
 
 **Outras máquinas:** ver [setup-mac-mini.md](../setup-mac-mini.md).
 

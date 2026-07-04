@@ -2,7 +2,7 @@
 
 > **Para quem:** sócios, staff e corretores — visão do produto **quando estiver concluído**.  
 > **Não é** cronograma de execução (ver [`phases.md`](./phases.md) e [`progresso-socios.html`](./progresso-socios.html)).  
-> **Actualizado:** 2026-07-03 · **Estado:** rascunho vivo — detalhes técnicos fecham no epic Architecture.
+> **Atualizado:** 2026-07-03 · **Estado:** rascunho vivo — detalhes técnicos fecham no epic Architecture.
 
 ---
 
@@ -12,14 +12,14 @@ A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataf
 
 **Quando concluída, a plataforma entrega:**
 
-| Pilar | O que o utilizador vê |
+| Pilar | O que o usuário vê |
 |-------|------------------------|
-| **Site público** | Marca ForteGB, portfólio de casas, blog, contacto (WhatsApp + formulário) |
+| **Site público** | Marca ForteGB, portfólio de casas, blog, contato (WhatsApp + formulário) |
 | **Visitas autoguiadas** | Agendar ou entrar na hora (QR na placa), verificar identidade, receber senha, visitar sozinho |
 | **CRM e corretores** | Corretores registam prospectos; comissão protegida; leads de todos os canais no HubSpot |
-| **Staff operacional** | Aprovar corretores, visitas, excepções; acompanhar leads e visitas |
+| **Staff operacional** | Aprovar corretores, visitas, exceções; acompanhar leads e visitas |
 | **Media kit** | Por casa: placa com QR, posters internos, narrativa de obra, kit para corretor |
-| **Mobile** | Tudo utilizável no telemóvel (responsive; app nativo só se decidirmos depois) |
+| **Mobile** | Tudo utilizável no celular (responsive; app nativo só se decidirmos depois) |
 
 Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-vision.md`](./platform-vision.md) — **proposta**, não contrato fechado.
 
@@ -29,12 +29,12 @@ Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-visio
 
 | Papel | Quem | O que faz na plataforma |
 |-------|------|-------------------------|
-| **Visitante** | Qualquer pessoa | Navega site, lê blog, vê portfólio, inicia contacto ou visita |
+| **Visitante** | Qualquer pessoa | Navega site, lê blog, vê portfólio, inicia contato ou visita |
 | **Cliente / comprador** | Interessado num imóvel | Agenda ou faz visita instantânea; envia documentos; recebe senha |
 | **Corretor** | Parceiro comercial (ex. Juliana) | Regista-se, assina contratos por casa, regista prospectos, acompanha comissão |
-| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e excepções; gere visitas e leads do dia-a-dia |
+| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e exceções; gere visitas e leads do dia-a-dia |
 | **Admin** | Ricardo, Adilson, Felipe | Configuração, convites, flags sensíveis, visão global |
-| **Digital** | Ricardo, Felipe | Construção e evolução da plataforma (não é “utilizador de negócio”) |
+| **Digital** | Ricardo, Felipe | Construção e evolução da plataforma (não é “usuário de negócio”) |
 
 Detalhe de governação: [`company-structure.md`](./company-structure.md).
 
@@ -55,7 +55,7 @@ Google / redes / indicação
 
 **Funcionalidades envolvidas:** site institucional, CMS de conteúdo, CTAs WhatsApp, formulário → HubSpot.
 
-**Estado actual:** UI e mocks prontos; conteúdo real e integrações pendentes.
+**Estado atual:** UI e mocks prontos; conteúdo real e integrações pendentes.
 
 ---
 
@@ -66,7 +66,7 @@ Para quem planeia ir à casa num horário combinado.
 | Passo | O que acontece | Canal |
 |-------|----------------|-------|
 | 1 | Cliente escolhe casa no portfólio e clica **Agendar visita** | Web |
-| 2 | Preenche nome, telemóvel (WhatsApp), data/hora preferida | Web |
+| 2 | Preenche nome, celular (WhatsApp), data/hora preferida | Web |
 | 3 | Tira selfie e envia foto do documento (RG ou CNH) | Web (câmara) |
 | 4 | Sistema compara rosto ↔ documento; se OK, aprova automaticamente | Plataforma |
 | 5 | Se falhar, staff recebe alerta para aprovação manual | Staff |
@@ -105,7 +105,7 @@ Para quem está **em frente à casa** e quer entrar na hora.
 ```
 Registo no site (Google / Facebook / e-mail)
     → Aceitar termos gerais ForteGB
-    → Preencher perfil (CRECI se tiver; dados contacto)
+    → Preencher perfil (CRECI se tiver; dados contato)
     → Staff notificado em cada passo
     → Staff aprova conta
     → Acesso ao portal corretor
@@ -166,7 +166,7 @@ No portal corretor:
 | Tarefa | Quando |
 |--------|--------|
 | Aprovar / rejeitar corretor (onboarding ou nova casa) | Notificação em cada passo |
-| Aprovar visita quando identidade falhou | Fila de excepções |
+| Aprovar visita quando identidade falhou | Fila de exceções |
 | Consultar visitas do dia | Calendário integrado |
 | Ver leads recentes | Dashboard operacional |
 | Registar lead manual (WhatsApp telefónico) | Entrada manual → HubSpot |
@@ -179,11 +179,11 @@ No portal corretor:
 
 | Tarefa | Restrito a admin |
 |--------|------------------|
-| Convidar utilizadores (staff, corretores) | Sim |
+| Convidar usuários (staff, corretores) | Sim |
 | Configurar chaves API (Tuya, HubSpot, WhatsApp) | Sim |
 | Flags sensíveis (ex. ocultar casa, modo manutenção) | Sim |
 | Relatórios agregados (conversão, corretores, visitas) | Sim |
-| Excepções de comissão / void de registo | Staff + audit |
+| Exceções de comissão / void de registo | Staff + audit |
 
 ---
 
@@ -201,7 +201,7 @@ Quando uma casa entra em **venda** ou **obra visível**:
 | Timeline de obra | Web + redes + poster |
 | Kit corretor (fotos + textos) | Download / HubSpot |
 
-**Estado actual:** módulo reconhecido; templates e automação por definir (Q-011, Q-012).
+**Estado atual:** módulo reconhecido; templates e automação por definir (Q-011, Q-012).
 
 ---
 
@@ -213,7 +213,7 @@ Quando uma casa entra em **venda** ou **obra visível**:
 | Calendário editorial | Manual → futuro motor na plataforma |
 | Publicação | Manual (Instagram/Facebook) — automação Phase 4+ |
 
-Objectivo: acelerar vendas enquanto a casa está em construção.
+Objetivo: acelerar vendas enquanto a casa está em construção.
 
 ---
 
@@ -229,7 +229,7 @@ Resumo por área — detalhe técnico em [`modules.md`](./modules.md).
 | **Integrações** | Tuya, HubSpot, WhatsApp, Google Calendar | Phase 2 |
 | **CRM / Corretor** | Portal, prospectos, comissão, contratos | Phase 2 |
 | **Media kit** | Placa, posters, kit PDF, timeline obra | Phase 3 |
-| **Social** | Motor de conteúdo (além dos ficheiros estáticos) | Phase 3–4 |
+| **Social** | Motor de conteúdo (além dos arquivos estáticos) | Phase 3–4 |
 | **Admin** | Portais staff/admin completos | Phase 3 |
 | **Mobile** | PWA ou app nativo (se decidido) | Phase 4 |
 
@@ -277,9 +277,9 @@ Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 | [`phases.md`](./phases.md) | Sequência Phase 0–4 |
 | [`architecture.md`](./architecture.md) | ADR e fluxos (a completar) |
 | [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governação |
-| [`progresso-socios.html`](./progresso-socios.html) | Progresso actual (issues) |
+| [`progresso-socios.html`](./progresso-socios.html) | Progresso atual (issues) |
 | [`mapa-fases.html`](./mapa-fases.html) | Visão por fases e módulos |
 
 ---
 
-*Este documento deve ser actualizado quando o epic Architecture fechar o MVP e quando jornadas mudarem após validação com sócios e corretores.*
+*Este documento deve ser atualizado quando o epic Architecture fechar o MVP e quando jornadas mudarem após validação com sócios e corretores.*

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ForteGB — Mapa de ecrãs MVP</title>
+  <title>ForteGB — Mapa de telas MVP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -32,7 +32,7 @@
   </div>
 
   <header class="hero">
-    <h1>Mapa de ecrãs MVP</h1>
+    <h1>Mapa de telas MVP</h1>
     <p>Rotas por papel — simulado, novo, fase e epic.</p>
   </header>
 
@@ -48,7 +48,7 @@
 
 <blockquote><strong>Estado:</strong> publicado (2026-07-03) — aceite sob Architecture #1 (<a href="https://github.com/fortegb/platform/issues/32">#32</a> concluído).  </blockquote>
 <blockquote><strong>Jornadas:</strong> <a href="./architecture.md"><code>architecture.md</code></a> §3 · <a href="./jornadas-plataforma.md"><code>jornadas-plataforma.md</code></a>  </blockquote>
-<blockquote><strong>Legenda:</strong> <code>simulado</code> = UI existe, sem back-end · <code>novo</code> = ecrã/rota por construir · <strong>Fase</strong> = fase no plano</blockquote>
+<blockquote><strong>Legenda:</strong> <code>simulado</code> = UI existe, sem back-end · <code>novo</code> = tela/rota por construir · <strong>Fase</strong> = fase no plano</blockquote>
 <hr/>
 <h2>Visitante / cliente (público + visita)</h2>
 <table><thead><tr><th>Passo da jornada</th><th>Rota</th><th>Estado</th><th>Fase</th><th>Epic</th></tr></thead><tbody>
@@ -80,7 +80,7 @@
 <tr><td>Área staff (estrutura pós-login)</td><td><code>/staff</code> ou redirect de <code>/login</code></td><td>novo</td><td>1 estrutura / 2 funcionalidades</td><td>#48 / epic staff TBD</td></tr>
 <tr><td>Aprovar corretor</td><td><code>/staff/corretores</code></td><td>novo</td><td>2</td><td>#86</td></tr>
 <tr><td>Aprovar casa associada</td><td><code>/staff/casas-pendentes</code></td><td>novo</td><td>2</td><td>#86</td></tr>
-<tr><td>Fila excepção identidade (visita)</td><td><code>/staff/visitas/excepcoes</code></td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/80">#80</a></td></tr>
+<tr><td>Fila exceção identidade (visita)</td><td><code>/staff/visitas/excecoes</code></td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/80">#80</a></td></tr>
 <tr><td>Calendário visitas do dia</td><td><code>/staff/visitas</code></td><td>novo</td><td>2</td><td>#81</td></tr>
 <tr><td>Lead manual (WhatsApp telefónico)</td><td><code>/staff/leads/novo</code></td><td>novo</td><td>2</td><td>Integrações / CRM</td></tr>
 </tbody></table>
@@ -88,10 +88,10 @@
 <h2>Admin (sócios)</h2>
 <table><thead><tr><th>Passo da jornada</th><th>Rota</th><th>Estado</th><th>Fase</th><th>Epic</th></tr></thead><tbody>
 <tr><td>Config / painel admin</td><td><code>/admin</code></td><td>novo</td><td>2+</td><td><a href="https://github.com/fortegb/platform/issues/119">#119</a></td></tr>
-<tr><td>Convites utilizador</td><td><code>/admin/utilizadores</code></td><td>novo</td><td>2+</td><td>#119</td></tr>
+<tr><td>Convites usuário</td><td><code>/admin/usuários</code></td><td>novo</td><td>2+</td><td>#119</td></tr>
 <tr><td>Chaves API (Tuya, HubSpot, WhatsApp)</td><td><code>/admin/integracoes</code></td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/72">#72</a></td></tr>
 <tr><td>Flags (ocultar casa, manutenção)</td><td><code>/admin/casas</code></td><td>novo</td><td>2+</td><td>#119</td></tr>
-<tr><td>Excepções comissão (auditoria)</td><td><code>/admin/comissoes</code></td><td>novo</td><td>3+</td><td>TBD</td></tr>
+<tr><td>Exceções comissão (auditoria)</td><td><code>/admin/comissoes</code></td><td>novo</td><td>3+</td><td>TBD</td></tr>
 </tbody></table>
 <p><strong>Nota:</strong> limites admin vs staff → <a href="./architecture.md"><code>architecture.md</code></a> §2.</p>
 <hr/>
@@ -99,12 +99,12 @@
 <table><thead><tr><th>Lacuna (§3.1)</th><th>Decisão</th></tr></thead><tbody>
 <tr><td>Jornadas staff</td><td>Passos acima; detalhe passo-a-passo → jornadas §5.1 (completar em grilling)</td></tr>
 <tr><td>UI admin vs staff</td><td>Rotas separadas <code>/staff/<em></code> vs <code>/admin/</em></code></td></tr>
-<tr><td>Condomínio / portaria</td><td><a href="https://github.com/fortegb/platform/issues/140">#140</a>; ecrã TBD no fluxo visita</td></tr>
-<tr><td>Aprovação manual ID</td><td><code>/staff/visitas/excepcoes</code> · <a href="https://github.com/fortegb/platform/issues/80">#80</a></td></tr>
-<tr><td>Follow-up pós-visita</td><td><a href="https://github.com/fortegb/platform/issues/141">#141</a> · sem ecrã MVP (automação/back-end)</td></tr>
+<tr><td>Condomínio / portaria</td><td><a href="https://github.com/fortegb/platform/issues/140">#140</a>; tela TBD no fluxo visita</td></tr>
+<tr><td>Aprovação manual ID</td><td><code>/staff/visitas/excecoes</code> · <a href="https://github.com/fortegb/platform/issues/80">#80</a></td></tr>
+<tr><td>Follow-up pós-visita</td><td><a href="https://github.com/fortegb/platform/issues/141">#141</a> · sem tela MVP (automação/back-end)</td></tr>
 <tr><td>Bot WhatsApp corretor</td><td><a href="https://github.com/fortegb/platform/issues/142">#142</a> · canal externo</td></tr>
 <tr><td>Portal cliente logado</td><td>Fora MVP v1</td></tr>
-<tr><td>Integrações</td><td>Back-end; sem ecrã de utilizador (jornadas §7)</td></tr>
+<tr><td>Integrações</td><td>Back-end; sem tela de usuário (jornadas §7)</td></tr>
 </tbody></table>
 <hr/>
 <h2>Definição → construção</h2>

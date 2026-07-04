@@ -58,7 +58,7 @@ Seed docs/planning (✅)
 3. [x] Campos custom: **Phase**, **Module** ([#23](https://github.com/fortegb/platform/issues/23))
 4. [x] Registar epics Phase 0 restantes como issues pai ([#24](https://github.com/fortegb/platform/issues/24))
 5. [x] Gerar `ROADMAP.md` pela primeira vez ([#25](https://github.com/fortegb/platform/issues/25))
-6. [x] Actualizar `STATUS.md` com números de issues ([#26](https://github.com/fortegb/platform/issues/26))
+6. [x] Atualizar `STATUS.md` com números de issues ([#26](https://github.com/fortegb/platform/issues/26))
 
 ### Epic: Architecture & MVP definition ([#1](https://github.com/fortegb/platform/issues/1)) — sub-tarefas
 
@@ -119,7 +119,7 @@ Epics (**criar no board após Architecture**):
 4. [ ] Generalizar middleware (além de `realtor-auth`)
 5. [ ] Shell pages mínimas por role MVP (placeholder OK)
 6. [ ] Provedores sociais (se MVP)
-7. [ ] Testes manuais: jornada login → destino correcto por role
+7. [ ] Testes manuais: jornada login → destino correto por role
 
 ### Epic: Public site UI finalization — sub-tarefas
 
@@ -176,7 +176,7 @@ Epics (**criar no board após Architecture**):
 
 1. [ ] Dashboard, leads, casas — dados reais
 2. [ ] **Corretor onboarding: termos/contrato** (Q-016)
-3. [ ] Registo lead + protecção comissão
+3. [ ] Registo lead + proteção comissão
 4. [ ] Sync HubSpot
 5. [ ] Jornada corretor completa pós-login
 

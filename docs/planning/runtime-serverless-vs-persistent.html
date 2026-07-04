@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Avaliação de Grilling 0 (03/07/2026).</strong>
-      Resumo para sócios/equipa em <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
+      Resumo para sócios/equipe em <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
       Fonte técnica (canon): <code>docs/planning/explore/runtime-serverless-vs-persistent.md</code> · decisão <code>D-017</code>.
     </p>
 
@@ -44,7 +44,7 @@
       (bots WhatsApp/Telegram, sync HubSpot, dispositivos Tuya, trabalho agendado) e com um <strong>cliente mobile futuro provável</strong>
       (staff a aprovar pedidos com push). A escolha da forma de rodar precisa suportar isso.
     </p>
-    <p><strong>Critérios (prioridade do Ricardo):</strong> free-first · zero-ops · simplicidade (Vercel) · escala baixa (centenas de utilizadores; 1–2 casas/ano) · foco no que é único.</p>
+    <p><strong>Critérios (prioridade do Ricardo):</strong> free-first · zero-ops · simplicidade (Vercel) · escala baixa (centenas de usuários; 1–2 casas/ano) · foco no que é único.</p>
 
     <h2>Caso A — Serverless <span class="chosen">ESCOLHIDO</span></h2>
     <p>App <strong>Nuxt/Nitro</strong> em modo serverless na Vercel; rotas = funções; <strong>API-first</strong> (web = 1.º cliente; PWA/native/bots reutilizam). Sem processo sempre ligado.</p>

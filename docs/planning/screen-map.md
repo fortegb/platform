@@ -1,8 +1,8 @@
-# Mapa de ecrãs MVP — Plataforma ForteGB
+# Mapa de telas MVP — Plataforma ForteGB
 
 > **Estado:** publicado (2026-07-03) — aceite sob Architecture #1 ([#32](https://github.com/fortegb/platform/issues/32) concluído).  
 > **Jornadas:** [`architecture.md`](./architecture.md) §3 · [`jornadas-plataforma.md`](./jornadas-plataforma.md)  
-> **Legenda:** `simulado` = UI existe, sem back-end · `novo` = ecrã/rota por construir · **Fase** = fase no plano
+> **Legenda:** `simulado` = UI existe, sem back-end · `novo` = tela/rota por construir · **Fase** = fase no plano
 
 ---
 
@@ -45,7 +45,7 @@
 | Área staff (estrutura pós-login) | `/staff` ou redirect de `/login` | novo | 1 estrutura / 2 funcionalidades | #48 / epic staff TBD |
 | Aprovar corretor | `/staff/corretores` | novo | 2 | #86 |
 | Aprovar casa associada | `/staff/casas-pendentes` | novo | 2 | #86 |
-| Fila excepção identidade (visita) | `/staff/visitas/excepcoes` | novo | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
+| Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
 | Calendário visitas do dia | `/staff/visitas` | novo | 2 | #81 |
 | Lead manual (WhatsApp telefónico) | `/staff/leads/novo` | novo | 2 | Integrações / CRM |
 
@@ -56,10 +56,10 @@
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
 | Config / painel admin | `/admin` | novo | 2+ | [#119](https://github.com/fortegb/platform/issues/119) |
-| Convites utilizador | `/admin/utilizadores` | novo | 2+ | #119 |
+| Convites usuário | `/admin/usuários` | novo | 2+ | #119 |
 | Chaves API (Tuya, HubSpot, WhatsApp) | `/admin/integracoes` | novo | 2 | [#72](https://github.com/fortegb/platform/issues/72) |
 | Flags (ocultar casa, manutenção) | `/admin/casas` | novo | 2+ | #119 |
-| Excepções comissão (auditoria) | `/admin/comissoes` | novo | 3+ | TBD |
+| Exceções comissão (auditoria) | `/admin/comissoes` | novo | 3+ | TBD |
 
 **Nota:** limites admin vs staff → [`architecture.md`](./architecture.md) §2.
 
@@ -71,12 +71,12 @@
 |---------------|---------|
 | Jornadas staff | Passos acima; detalhe passo-a-passo → jornadas §5.1 (completar em grilling) |
 | UI admin vs staff | Rotas separadas `/staff/*` vs `/admin/*` |
-| Condomínio / portaria | [#140](https://github.com/fortegb/platform/issues/140); ecrã TBD no fluxo visita |
-| Aprovação manual ID | `/staff/visitas/excepcoes` · [#80](https://github.com/fortegb/platform/issues/80) |
-| Follow-up pós-visita | [#141](https://github.com/fortegb/platform/issues/141) · sem ecrã MVP (automação/back-end) |
+| Condomínio / portaria | [#140](https://github.com/fortegb/platform/issues/140); tela TBD no fluxo visita |
+| Aprovação manual ID | `/staff/visitas/excecoes` · [#80](https://github.com/fortegb/platform/issues/80) |
+| Follow-up pós-visita | [#141](https://github.com/fortegb/platform/issues/141) · sem tela MVP (automação/back-end) |
 | Bot WhatsApp corretor | [#142](https://github.com/fortegb/platform/issues/142) · canal externo |
 | Portal cliente logado | Fora MVP v1 |
-| Integrações | Back-end; sem ecrã de utilizador (jornadas §7) |
+| Integrações | Back-end; sem tela de usuário (jornadas §7) |
 
 ---
 

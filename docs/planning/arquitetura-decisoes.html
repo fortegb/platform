@@ -26,7 +26,7 @@
 
   <header class="hero">
     <h1>Arquitetura e decisões</h1>
-    <p>Como a plataforma é construída e por quê — em linguagem simples, para sócios e equipa.</p>
+    <p>Como a plataforma é construída e por quê — em linguagem simples, para sócios e equipe.</p>
   </header>
 
   <main class="container doc-body">
@@ -48,7 +48,7 @@
       <li><strong>Uma pessoa a desenvolver</strong> (Ricardo), ao longo de meses, sem prazo rígido.</li>
       <li><strong>Custo primeiro:</strong> começar em planos gratuitos; iniciativa nascente, ainda de pessoas físicas.</li>
       <li><strong>Sem trabalho de operação/servidores</strong> — o tempo é o recurso escasso, não o dinheiro.</li>
-      <li><strong>Escala pequena:</strong> centenas de utilizadores em picos, 1 a 2 casas por ano.</li>
+      <li><strong>Escala pequena:</strong> centenas de usuários em picos, 1 a 2 casas por ano.</li>
     </ul>
 
     <h2>Onde fica cada tipo de conteúdo</h2>
@@ -59,7 +59,7 @@
     <table>
       <thead><tr><th>Tipo</th><th>Onde vive</th><th>Porquê</th></tr></thead>
       <tbody>
-        <tr><td>Fotos, plantas, descrições, blog, timeline da obra</td><td><strong>CMS</strong> (ferramenta de conteúdo)</td><td>Editar com facilidade, do computador ou do telemóvel, sem programar</td></tr>
+        <tr><td>Fotos, plantas, descrições, blog, timeline da obra</td><td><strong>CMS</strong> (ferramenta de conteúdo)</td><td>Editar com facilidade, do computador ou do celular, sem programar</td></tr>
         <tr><td>Estado da casa (disponível/reservada/vendida), leads, visitas, verificações</td><td><strong>Supabase</strong> (base de dados)</td><td>É o que a plataforma consulta e move; muda com a venda, não com a edição</td></tr>
         <tr><td>Vídeos</td><td><strong>YouTube/Vimeo</strong></td><td>Vídeo é pesado; deixamos quem faz isso bem tratar dele</td></tr>
         <tr><td>Documentos sensíveis (contratos, RG/CNH)</td><td><strong>Supabase — área privada</strong></td><td>Proteção LGPD: acesso restrito, encriptação, prazo de retenção</td></tr>
@@ -71,7 +71,7 @@
     <h2>Como a plataforma corre (infraestrutura)</h2>
     <p>
       Escolhemos o modelo <strong>“serverless” na Vercel</strong> — começa <strong>grátis</strong> e sobe para o plano pago
-      (~US$20/mês) só quando fizer sentido. É simples, não exige gerir servidores, e a esta escala não há custo forçado.
+      (~US$20/mês) só quando fizer sentido. É simples, não exige gerenciar servidores, e a esta escala não há custo forçado.
       Tarefas com atraso (lembretes, expiração de senha) e reenvios usam um serviço auxiliar gratuito (QStash).
     </p>
     <p>
@@ -81,7 +81,7 @@
     </p>
     <p>
       Construímos <strong>“API-first”</strong>: o site é o primeiro cliente, mas a mesma base serve, no futuro,
-      um <strong>app/PWA</strong> (por exemplo, para a equipa aprovar pedidos pelo telemóvel) e os <strong>bots</strong> de WhatsApp/Telegram.
+      um <strong>app/PWA</strong> (por exemplo, para a equipe aprovar pedidos pelo celular) e os <strong>bots</strong> de WhatsApp/Telegram.
     </p>
 
     <h2>O que entra em cada versão</h2>
@@ -114,7 +114,7 @@
     <p>
       Desenhamos a <strong>v1 com profundidade</strong>, mas deixamos os detalhes da v2/v3 para quando lá chegarmos —
       decidir tudo agora, sem informação completa, seria desperdício. Fixámos apenas as <strong>fundações difíceis de mudar depois</strong>:
-      o modelo de dados e os identificadores, os papéis de utilizador, onde fica cada conteúdo, a forma de ligar integrações e a fila de tarefas.
+      o modelo de dados e os identificadores, os papéis de usuário, onde fica cada conteúdo, a forma de ligar integrações e a fila de tarefas.
     </p>
 
     <h2>O que ainda fica em aberto</h2>

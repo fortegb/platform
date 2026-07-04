@@ -5,7 +5,7 @@
 > **Versão gráfica:** abrir [`apresentacao-socios.html`](./apresentacao-socios.html) no browser (ou imprimir como PDF).
 
 > **Manutenção:** este documento é um **snapshot para apresentação** — foco forte em **corretores** (jul/2026).  
-> **Fonte da verdade:** [`company-structure.md`](./company-structure.md). Pedir **refresh** a Ricardo/AI quando decisões mudarem — não actualizar à mão em paralelo ao canon.
+> **Fonte da verdade:** [`company-structure.md`](./company-structure.md). Pedir **refresh** a Ricardo/AI quando decisões mudarem — não atualizar à mão em paralelo ao canon.
 
 **Documento completo (referência):** [`company-structure.md`](./company-structure.md)
 
@@ -13,7 +13,7 @@
 
 ## 1. Resumo executivo
 
-A ForteGB constrói e vende casas em Campinas. Queremos **vender mais** com **menos fricção** — site, visitas autoguiadas, marketing aberto — **sem** brigar com corretores.
+A ForteGB constrói e vende casas em Campinas. Queremos **vender mais** com **menos frição** — site, visitas autoguiadas, marketing aberto — **sem** brigar com corretores.
 
 **Ideia central:**
 
@@ -66,7 +66,7 @@ flowchart TB
 | Finanças | PIX; registo partilhado (planilha hoje) |
 | Legal | PF — **ForteGB = marca**; sem CNPJ/LTDA por agora |
 
-**Casas concluídas:** 01 R-35 · 02 P-31 · 03 Q-21 (em curso/venda conforme estado actual).
+**Casas concluídas:** 01 R-35 · 02 P-31 · 03 Q-21 (em curso/venda conforme estado atual).
 
 ---
 
@@ -75,9 +75,9 @@ flowchart TB
 ```mermaid
 flowchart LR
   C[Corretor traz prospecto] --> M[Prospecto vê placa/site]
-  M --> D[Contacta ForteGB directo]
+  M --> D[Contacta ForteGB direto]
   D --> X[Corretor perde comissão?]
-  X --> F[Corretor esconde contactos]
+  X --> F[Corretor esconde contatos]
   F --> G[Guerra com marketing ForteGB]
 ```
 
@@ -91,7 +91,7 @@ flowchart LR
 
 ### Cinco pilares
 
-1. **Preço unificado** — mesmo valor corretor ou directo  
+1. **Preço unificado** — mesmo valor corretor ou direto  
 2. **Contrato por casa** — Gov.br; Juliana Mestrinier revisa modelo v0.1  
 3. **Registo de lead** — bot WhatsApp (nome + CPF) **antes** da visita  
 4. **Comissão garantida** — se comprador era registado  
@@ -108,7 +108,7 @@ sequenceDiagram
   Cor->>Bot: Nome + CPF
   Bot->>Cor: Confirmação + PDF
   Note over P,FG: Prospecto vê marketing / visita
-  P->>FG: Contacto ou visita
+  P->>FG: Contato ou visita
   FG->>FG: Lead ligado ao corretor
   Note over FG,Cor: Venda → comissão se comprador registado
 ```
@@ -117,8 +117,8 @@ sequenceDiagram
 
 | Regra | Detalhe |
 |-------|---------|
-| Registo **por casa** | Mesmo prospecto pode ser corretor numa casa e directo noutra |
-| Sem registo prévio | Lead **directo** ForteGB — sem comissão |
+| Registo **por casa** | Mesmo prospecto pode ser corretor numa casa e direto noutra |
+| Sem registo prévio | Lead **direto** ForteGB — sem comissão |
 | Validade | Até a **casa ser vendida** (sem prazo 30 dias) |
 | Informal | Ainda possível, mas **sem** garantias do portal |
 
@@ -161,7 +161,7 @@ flowchart LR
 **Funcionalidades principais (visão):**
 
 - Site + portfólio + marketing  
-- **Visitas autoguiadas** (QR + agendada) — directo ou *«Seu corretor: …»*  
+- **Visitas autoguiadas** (QR + agendada) — direto ou *«Seu corretor: …»*  
 - Portal corretor + bot WhatsApp  
 - **`app-despesas`** depois — substituir planilha (custos por casa)  
 
@@ -179,7 +179,7 @@ flowchart LR
 
 ## 9. Próximos passos
 
-| # | Acção | Quem |
+| # | Ação | Quem |
 |---|--------|------|
 | 1 | Reunião de validação (esta apresentação) | Trio |
 | 2 | Juliana revisa contrato v0.1 | Ricardo + Juliana |

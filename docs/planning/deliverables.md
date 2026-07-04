@@ -14,11 +14,11 @@
 | Blog | P1 Public site UI | ✅ |
 | Ponteiros para blog / redes (tráfego) | P1 Public site UI (sub-task) | ✅ |
 | Privacidade, termos, cookies | P1 Public site UI | ✅ |
-| WhatsApp / contacto | P1 Public site UI | ✅ |
+| WhatsApp / contato | P1 Public site UI | ✅ |
 
 ---
 
-## 2. Jornadas de utilizador (website + mobile web)
+## 2. Jornadas de usuário (website + mobile web)
 
 | Actor | Jornada | Define (Architecture) | Build |
 |-------|---------|----------------------|-------|
