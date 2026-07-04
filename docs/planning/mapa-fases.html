@@ -50,6 +50,14 @@
     .st-planned::before { background: #cbd5e1; }
     .legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
     .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .release-track { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0.75rem; margin: 0.5rem 0 1rem; }
+    .release-card { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1rem; }
+    .release-card .rtag { display:inline-block; font-size:0.72rem; font-weight:700; padding:0.15rem 0.6rem; border-radius:999px; margin-bottom:0.5rem; }
+    .release-card.v1 .rtag { background:#e8f5ee; color:#2f7d52; border:1px solid #bfe3cd; }
+    .release-card.v2 .rtag { background:#eef6fb; color:#1a74a1; border:1px solid #c7e4f2; }
+    .release-card.v3 .rtag { background:#f4f1fb; color:#6b4fa1; border:1px solid #ddd3f0; }
+    .release-card ul { margin:0; padding-left:1.1rem; font-size:0.8rem; color:var(--navy); line-height:1.5; }
+    .release-card .rmap { font-size:0.7rem; color:var(--muted); margin-top:0.5rem; }
   </style>
 </head>
 <body>
@@ -95,6 +103,46 @@
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem">
       Fase 1 só começa após epic <strong>Architecture</strong> concluído (#38). Screen map (#32) e board hygiene (#139) fechados; grilling técnico em curso.
     </p>
+
+    <h2 class="section-title">Lançamentos (v1 → v3)</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem">
+      Marcos de <strong>lançamento</strong> — o que chega ao cliente e quando (decisão do grilling de arquitetura, D-018).
+      É um eixo <strong>diferente das Fases</strong> acima (que são etapas de construção): um lançamento pode cruzar fases.
+      Detalhe → <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
+    </p>
+    <div class="release-track">
+      <div class="release-card v1">
+        <span class="rtag">v1 · vender já</span>
+        <ul>
+          <li>Site público + portfólio real</li>
+          <li>CTA de visita por WhatsApp</li>
+          <li>Login + papéis</li>
+          <li>Portal do corretor: lead + comissão (primeiro ganha) + HubSpot</li>
+          <li>Contrato/Gov.br manual</li>
+        </ul>
+        <div class="rmap">≈ Fase 1 + parte da Fase 2</div>
+      </div>
+      <div class="release-card v2">
+        <span class="rtag">v2 · automação única</span>
+        <ul>
+          <li>Visitas autoguiadas (agendada + QR)</li>
+          <li>Identidade + fechadura Tuya + calendário</li>
+          <li>Gov.br automatizado</li>
+          <li>Bots WhatsApp/Telegram de lead</li>
+        </ul>
+        <div class="rmap">≈ resto da Fase 2</div>
+      </div>
+      <div class="release-card v3">
+        <span class="rtag">v3 · escala</span>
+        <ul>
+          <li>Media kit impresso + placa QR</li>
+          <li>Timeline da obra pública</li>
+          <li>Motor de conteúdo social</li>
+          <li>Portal do cliente + relatórios</li>
+        </ul>
+        <div class="rmap">≈ Fase 3–4</div>
+      </div>
+    </div>
 
     <h2 class="section-title">Módulos — prontidão atual</h2>
     <div class="legend">
