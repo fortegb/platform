@@ -68,6 +68,22 @@
     </table>
     <p>Uma casa junta as duas partes por um <strong>identificador comum</strong> — simples de ligar, sem duplicar informação.</p>
 
+    <h2>Clientes e corretores</h2>
+    <p>
+      Cada pessoa é um <strong>Cliente</strong>, identificado pelo <strong>CPF</strong> (padrão do Brasil, e o mesmo dado que autoriza a visita por documento mais adiante).
+      Quem só deixou nome e WhatsApp (sem CPF) fica como <strong>contato</strong> e vira Cliente assim que informa o CPF — de preferência ele mesmo, ao <strong>agendar uma visita</strong>. O WhatsApp é obrigatório.
+    </p>
+    <p>
+      O interesse é registrado <strong>por casa</strong>: a mesma pessoa pode estar com um corretor numa casa e vir direto em outra.
+      Quando um corretor <strong>registra um cliente</strong> para uma casa, ele fica protegido: se aquela casa for vendida a esse cliente, a comissão é do corretor — regra do <strong>primeiro registro válido</strong> (sem duplicar por CPF).
+      Todo esse histórico fica <strong>visível na plataforma</strong> (auditoria), sem precisar de banco de dados.
+    </p>
+    <p>
+      Onde isso mora: a <strong>fonte-da-verdade é a nossa base (Supabase)</strong> — é lá que a atribuição e a proteção de comissão são garantidas — e o <strong>HubSpot</strong> recebe uma cópia sincronizada para o acompanhamento de vendas.
+      No v1 entra a <strong>proteção e o histórico</strong>; o <strong>pagamento</strong> da comissão (valores/financeiro) fica para depois.
+      <em>(Isto é sobre registrar cliente e proteger o corretor — não é um módulo de "comissões".)</em>
+    </p>
+
     <h2>Como a plataforma corre (infraestrutura)</h2>
     <p>
       Escolhemos o modelo <strong>“serverless” na Vercel</strong> — começa <strong>grátis</strong> e sobe para o plano pago

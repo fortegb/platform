@@ -151,7 +151,7 @@ flowchart TB
 | Estado operacional da casa (status, links a leads/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
 | Vídeo | **YouTube/Vimeo** (embed) | URL como campo; não passa pelo backend |
 | Docs sensíveis (contratos Gov.br, RG/CNH) | **Supabase** bucket privado + RLS | LGPD: encriptação + retenção |
-| Leads / CRM | **HubSpot** (+ Supabase) | *Q-007 (source-of-truth) ainda aberto*; Q-018 fontes multi-canal |
+| Cliente / atribuição / CRM | **Supabase** (master) → **HubSpot** (sync) | **Q-007 → D-019**: Supabase é master; HubSpot downstream. Cliente→Contact, Registro→Deal |
 | Social | **Fora da plataforma** | drafts IA + scheduler grátis opcional |
 
 ---
@@ -174,11 +174,14 @@ flowchart TB
 - **Tuya:** senha temporária; expiração pós-janela de visita.
 - **Condomínio / portaria:** Q-017 — fluxo extra ou aviso; **não detalhado**.
 
-### 6.3 Corretor & CRM *(Q-007, Q-016, Q-018)*
+### 6.3 Cliente & CRM *(Q-007 → D-019, Q-018 → D-020; Q-016)*
 
-- Onboarding + contrato **por casa** + Gov.br (Q-016) ([§4](./jornadas-plataforma.md#4-jornadas--corretor)).
-- Prospectos: primeiro registro ganha; sync HubSpot; bot WhatsApp TBD.
-- **Lead sources matrix:** form site, visitas, corretor, WhatsApp (Q-018) — [`deliverables.md`](./deliverables.md) §4.
+- **Fonte-da-verdade:** **Supabase master + HubSpot sync** (D-019). Atribuição/first-wins/auditoria/venda avaliados no Supabase; HubSpot nunca decide comissão.
+- **Modelo (D-020):** **1 tabela `cliente`** (`cpf UNIQUE` nullable, `whatsapp NOT NULL`, `email` nullable, `fonte`) — sem CPF = **Contato**, com CPF = **Cliente** (promoção por UPDATE). `cliente` **1─N** `registro` (cliente × casa: status, `corretor_id` null=direto, timestamp) + `historico` append-only. Cliente→Contact, Registro→Deal.
+- **Promoção self-service** (visita + CPF); reconciliação CPF-wins / WhatsApp-match / senão novo + merge staff.
+- **Linguagem:** "**Cliente**" em todo lugar; feature = "**Registro de Cliente**" (não "Comissões"); rota `/staff/registros`.
+- **Escopo:** proteção de comissão + **auditoria visível** no v1; **financeiro/pagamento fora do v1**.
+- **Fontes (Q-018):** v1 = portal corretor, staff manual, contatos form-site/CTA-WhatsApp; v2 = QR, bots, tours. `fonte` → propriedade HubSpot. Onboarding + contrato por casa + Gov.br = Q-016 ([§4](./jornadas-plataforma.md#4-jornadas--corretor)).
 
 ### 6.4 Media kit & physical *(Q-009, Q-011–Q-013)*
 

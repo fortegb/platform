@@ -59,7 +59,7 @@
 | Convites usuário | `/admin/usuários` | novo | 2+ | #119 |
 | Chaves API (Tuya, HubSpot, WhatsApp) | `/admin/integracoes` | novo | 2 | [#72](https://github.com/fortegb/platform/issues/72) |
 | Flags (ocultar casa, manutenção) | `/admin/casas` | novo | 2+ | #119 |
-| Exceções comissão (auditoria) | `/admin/comissoes` | novo | 3+ | TBD |
+| Registro de Cliente / histórico (auditoria, exceções) | `/staff/registros` | novo | 2 | [#86](https://github.com/fortegb/platform/issues/86) |
 
 **Nota:** limites admin vs staff → [`architecture.md`](./architecture.md) §2.
 

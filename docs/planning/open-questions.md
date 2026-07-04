@@ -74,14 +74,16 @@
 
 ### Q-007 — HubSpot como source of truth?
 - **Module:** crm
-- **Status:** open
+- **Status:** **resolved** → D-019 · [`architecture.md`](./architecture.md) §5 · Grilling #28
 - **Question:** CRM master vs DB local + sync?
+- **Resolved (2026-07-04):** **Supabase é master** do Cliente + atribuição de comissão; **HubSpot é downstream sincronizado** (Cliente→Contact, Registro→Deal). first-wins/dedup CPF, auditoria e gatilho de venda (`Casa.status=vendida`, D-016) avaliados no Supabase; HubSpot nunca decide comissão.
 
 ### Q-018 — Capturar toda atenção / leads (multi-canal)
 - **Module:** crm
-- **Status:** open
+- **Status:** **resolved** → D-020 · Grilling #28
 - **Question:** Lista fechada de fontes day-one: form site, visita agendada, QR instantâneo, WhatsApp, corretor, walk-in, social? Propriedades HubSpot?
 - **Context:** “Capture every attention on our houses from website, mobile, other channels.”
+- **Resolved (2026-07-04):** **v1** = portal corretor, entrada manual staff, contatos de form-site/CTA-WhatsApp; **v2** = QR, bots, tours. Cada entrada carimba `fonte` → propriedade de origem no HubSpot. Modelo Cliente (único por CPF) + dois níveis Contato→Cliente + Registro por casa.
 
 ---
 
