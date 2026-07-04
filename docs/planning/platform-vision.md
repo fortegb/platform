@@ -1,7 +1,7 @@
 # Visão da plataforma — ForteGB
 
-> Última atualização: 2026-07-01  
-> **Stack abaixo = proposta (D-011).** Decisões finais no epic Architecture + [`open-questions.md`](./open-questions.md).
+> Última atualização: 2026-07-04  
+> **Stack agora largamente confirmada** no epic Architecture (grillings → `decisions.md` D-015..D-021). O que resta é `deferred` para o grilling da fase — ver [`open-questions.md`](./open-questions.md).
 
 ---
 
@@ -35,22 +35,33 @@ Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 
 ---
 
-## Stack proposta *(não fechada)*
+## Fronteira de MVP — v1 / v2 / v3 *(D-018)*
 
-| Camada | Candidato |
-|--------|-----------|
-| App | Nuxt 3, Vue, Tailwind, DaisyUI |
-| CMS | Contentful |
-| DB / Auth | Supabase |
-| CRM | HubSpot |
-| Locks | Tuya |
-| WhatsApp / Calendar | Business API / Google |
-| Hosting | Vercel |
+> Marcos de **lançamento** (não confundir com Fases de construção). Detalhe → [`architecture.md`](./architecture.md) §1.
+
+- **v1** — site público + portfólio + CTA visita WhatsApp · auth + papéis · **portal do corretor** (registro de cliente + proteção de comissão + HubSpot) · contrato/Gov.br manual.
+- **v2** — **visitas autoguiadas** (agendada + QR) + identidade + Tuya + calendário · Gov.br automatizado · bots.
+- **v3** — media kit impresso, timeline da obra, motor social, portal do cliente, relatórios.
+
+---
+
+## Stack *(confirmada onde decidida)*
+
+| Camada | Escolha | Estado |
+|--------|---------|--------|
+| App / runtime | Nuxt 3 · **serverless na Vercel** (Hobby→Pro), API-first, QStash | ✅ D-017 |
+| Conteúdo (CMS) | Contentful/Sanity (vendor reversível) | ✅ D-016 |
+| DB / Auth / Storage | **Supabase** (master de dados + PII) | ✅ D-016/D-019 |
+| CRM | **HubSpot** (downstream, sync do Supabase) | ✅ D-019 |
+| Mensageria | **Telegram-first** (grátis); WhatsApp pago-quando-útil | ✅ D-017 |
+| UI | Tailwind, DaisyUI | ✅ |
+| Locks | Tuya | proposta (grilling tours v2) |
+| Calendar | Google | proposta (grilling tours v2) |
 
 ---
 
 ## Próximo passo operacional
 
-**Phase 0:** GitHub org migration → bootstrap board → **Architecture epic (grilling)** → Phase 1 build.
+**Phase 0 concluída** (org, board, OpenSpec, Architecture). Epic Architecture pronto para fechar (#38) → **desbloqueia Fase 1** (Identity #48, Public site #56).
 
 Ver [`STATUS.md`](../../STATUS.md).
