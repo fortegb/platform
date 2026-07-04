@@ -1,7 +1,9 @@
 ```markdown
 # agents.md — ForteGB (Project Context + Agent Instructions)
 
-> **Primary rule:** I (the user) will interact with AI in **English**, but **ALL deliverables** (website copy, UI text, blog posts, social posts, emails, pages, etc.) **MUST be in Brazilian Portuguese (pt-BR)**. This is mandatory.
+> **Primary rule:** I (the user) will interact with AI in **English**, but **ALL deliverables** (website copy, UI text, blog posts, social posts, emails, pages, docs, Platform docs, issue titles, etc.) **MUST be in Brazilian Portuguese (pt-BR)**. This is mandatory.
+>
+> **pt-BR is strict — never European Portuguese (pt-PT).** Do not generate pt-PT vocabulary or spelling. Examples (pt-PT → **pt-BR**): ecrã → **tela** · telemóvel → **celular** · utilizador → **usuário** · ficheiro → **arquivo** · registo/registar → **registro/registrar** · contacto → **contato** · gerir → **gerenciar** · equipa → **equipe** · actual/actualizar → **atual/atualizar** · activo → **ativo** · directo → **direto** · projecto → **projeto** · secção → **seção** · excepção → **exceção** · controlo → **controle** · planeamento → **planejamento** · aceder → **acessar** · "está a fazer" → **"está fazendo"**. (Keep genuine pt-BR forms like **fricção/detecção** that legitimately retain `cç`.)
 
 ---
 
@@ -365,12 +367,12 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | `docs/planning/` | Canon de design: visão, módulos, fases, perguntas, decisões, runbooks | Grilling, decisões de arquitetura, novos módulos (ex.: media kit) |
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
-### Estágio actual
+### Estágio atual
 - **Phase 0 — Fundação** — planning finalizado; org migration + board + OpenSpec **Done**. Architecture epic **em curso** (grilling). Ver **`docs/planning/README.md`** e **`STATUS.md`**.
 - **Grilling 0 (#145) resolvido** — stances fundacionais + **Q-004** (D-015..D-018): stack agora **parcialmente confirmada** (serverless Vercel, CMS + Supabase, MVP v1/v2/v3). Restam abertas Q-007/Q-018 (CRM), Q-010 (home), tours/media/mobile diferidos.
 - **Decisões técnicas:** o que foi resolvido está em `decisions.md`; o resto continua aberto (D-011) até o grilling da fase.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
-- **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, secção "Não versionado".
+- **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".
 
 ### Convenções já estabelecidas (resumo)
 - **Idioma:** comunicação com IA em inglês; **entregáveis em pt-BR**.

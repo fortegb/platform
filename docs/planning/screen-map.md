@@ -34,7 +34,7 @@
 | Leads lista / novo | `/corretor/leads`, `/corretor/leads/novo` | simulado | 2 | #86 |
 | Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo | 2 | #86 |
 | Contrato por casa + Gov.br (Q-016) | `/corretor/casas/[id]/contrato` | novo | 2 | #86 |
-| Bot WhatsApp (registo prospecto) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
+| Bot WhatsApp (registro prospecto) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
 
 ---
 

@@ -55,7 +55,7 @@
 |----------------|------|----------|
 | Formulário site | P2 Integrations | Q-018 |
 | Visita agendada / instantânea | P2 Visitas | Q-018 |
-| Registo corretor | P2 Portal corretor | Q-007, Q-018 |
+| Registro corretor | P2 Portal corretor | Q-007, Q-018 |
 | WhatsApp | P2 Integrations | Q-018 |
 | Redes / outros | Phase 3+ | Q-018 |
 | HubSpot pipeline & propriedades | Architecture + P2 | Q-007 |

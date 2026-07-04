@@ -34,14 +34,14 @@
 - [#16](https://github.com/fortegb/platform/issues/16) Reconectar Vercel ao repo na org
 - [#17](https://github.com/fortegb/platform/issues/17) Habilitar Issue types (Epic, Feature, Task)
 - [#18](https://github.com/fortegb/platform/issues/18) Smoke test: clone, push, gh repo view, gh auth status
-- [#19](https://github.com/fortegb/platform/issues/19) Registar execução em decisions.md + dotfiles DECISIONS.md
+- [#19](https://github.com/fortegb/platform/issues/19) Registrar execução em decisions.md + dotfiles DECISIONS.md
 - [#20](https://github.com/fortegb/platform/issues/20) Epic: Bootstrap board & OpenSpec
 - [#21](https://github.com/fortegb/platform/issues/21) Inicializar OpenSpec no repo
 - [#22](https://github.com/fortegb/platform/issues/22) Criar Project platform na org
 - [#23](https://github.com/fortegb/platform/issues/23) Campos custom Phase + Module
-- [#24](https://github.com/fortegb/platform/issues/24) Registar epics Phase 0 restantes
+- [#24](https://github.com/fortegb/platform/issues/24) Registrar epics Phase 0 restantes
 - [#25](https://github.com/fortegb/platform/issues/25) Gerar ROADMAP.md
-- [#26](https://github.com/fortegb/platform/issues/26) Actualizar STATUS.md com números de issues
+- [#26](https://github.com/fortegb/platform/issues/26) Atualizar STATUS.md com números de issues
 - [#32](https://github.com/fortegb/platform/issues/32) Journey map + screen map MVP por role
 - [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
@@ -104,7 +104,7 @@
 - [#86](https://github.com/fortegb/platform/issues/86) Epic: Portal corretor + CRM
 - [#87](https://github.com/fortegb/platform/issues/87) Dashboard, leads, casas — dados reais
 - [#88](https://github.com/fortegb/platform/issues/88) Corretor onboarding: termos/contrato (Q-016)
-- [#89](https://github.com/fortegb/platform/issues/89) Registo lead + protecção comissão
+- [#89](https://github.com/fortegb/platform/issues/89) Registro lead + proteção comissão
 - [#90](https://github.com/fortegb/platform/issues/90) Sync HubSpot
 - [#91](https://github.com/fortegb/platform/issues/91) Jornada corretor completa pós-login
 - [#92](https://github.com/fortegb/platform/issues/92) Epic: Release readiness
@@ -114,7 +114,7 @@
 - [#96](https://github.com/fortegb/platform/issues/96) LGPD copy + consent flows verificados
 - [#97](https://github.com/fortegb/platform/issues/97) Go/no-go para uso real limitado
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
-- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registo prospecto corretor
+- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro prospecto corretor
 
 # 3
 

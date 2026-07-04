@@ -70,7 +70,7 @@
 | Item | Descrição | Estado |
 |------|-----------|--------|
 | Portal corretor | Painel, leads, casas | UI + API parcial |
-| Proteção de comissão | Primeiro registo ganha | Lógica BD; HubSpot pendente |
+| Proteção de comissão | Primeiro registro ganha | Lógica BD; HubSpot pendente |
 | Sync HubSpot | Contatos, deals, pipeline | Stub |
 | Leads diretos ForteGB | Formulário, WhatsApp | Parcial |
 

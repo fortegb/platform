@@ -6,7 +6,7 @@
 
 ---
 
-## Fase actual
+## Fase atual
 
 **Fase 0 — Fundação** (quase completa) → Fase 1 build bloqueada até Architecture Done (#38)
 

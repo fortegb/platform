@@ -16,9 +16,9 @@
 
 ### 2026-07-03 — Platform docs: screen map + naming (publish)
 
-- Índice `docs/index.html` — **Documentação da plataforma**, card mapa de ecrãs.
+- Índice `docs/index.html` — **Documentação da plataforma**, card mapa de telas.
 - `screen-map.html` gerado a partir de `screen-map.md`.
-- Marcas alinhadas; `mapa-fases` Phase 0 actual; scripts `pages:portal` actualizados.
+- Marcas alinhadas; `mapa-fases` Phase 0 atual; scripts `pages:portal` atualizados.
 
 ### 2026-07-03 — Board hygiene + screen map MVP ([#139](https://github.com/fortegb/platform/issues/139), [#32](https://github.com/fortegb/platform/issues/32))
 
@@ -30,14 +30,14 @@
 - Página `modules.html` gerada a partir de `modules.md`; card no index e links no mapa-fases.
 - Jornadas: pilares → módulos; cards de papel → âncoras; hover só em cards clicáveis.
 - `portal.css`: lift restrito a `a.card` / `.card-interactive`.
-- Mapa-fases: label "Relatório de Progresso"; secção obsoleta removida.
-- GitHub Pages: publish legacy `/docs`; GHA auto-deploy desactivado.
+- Mapa-fases: label "Relatório de Progresso"; seção obsoleta removida.
+- GitHub Pages: publish legacy `/docs`; GHA auto-deploy desativado.
 - OpenSpec `partner-portal-polish` arquivado; spec `partner-portal` criada.
 
 ### 2026-07-01 — Sessão handoff (máquina principal)
 
 - Push sync `0a6af59` para `origin/main`; working tree limpa.
-- `STATUS.md` actualizado para próxima sessão (Mac Mini ou Architecture).
+- `STATUS.md` atualizado para próxima sessão (Mac Mini ou Architecture).
 - `docs/setup-mac-mini.md` — troubleshooting Git LFS lock verify.
 
 ### 2026-07-01 — Phase 0 fundação (org + platform)
@@ -72,7 +72,7 @@
 - Removido epic Phase 0 Home 2 vencedores (absorvido em Public site UI P1).
 - Criada pasta **`docs/planning/`** com visão, módulos, fases, perguntas abertas, decisões (D-001–D-008), workflow e runbook de migração GitHub org.
 - **`STATUS.md`** reestruturado como bússola de sessão (epics, próximo passo, links planning).
-- **`AGENTS.md`** secção 9 actualizada (planning canon, ROADMAP, Phase 0).
+- **`AGENTS.md`** seção 9 atualizada (planning canon, ROADMAP, Phase 0).
 
 ### 2026-06-28
 

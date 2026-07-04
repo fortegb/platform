@@ -13,11 +13,11 @@
 
 ## 1. Resumo executivo
 
-A ForteGB constrói e vende casas em Campinas. Queremos **vender mais** com **menos frição** — site, visitas autoguiadas, marketing aberto — **sem** brigar com corretores.
+A ForteGB constrói e vende casas em Campinas. Queremos **vender mais** com **menos fricção** — site, visitas autoguiadas, marketing aberto — **sem** brigar com corretores.
 
 **Ideia central:**
 
-> **Preço único** para todos · Corretor **regista o prospecto antes** · ForteGB pode divulgar à vontade · **Comissão garantida** se o comprador era registado.
+> **Preço único** para todos · Corretor **registra o prospecto antes** · ForteGB pode divulgar à vontade · **Comissão garantida** se o comprador era registrado.
 
 **Valores:** transparência, confiança, proximidade — sem jogos (inclui aviso aos corretores na venda com dados do comprador).
 
@@ -63,7 +63,7 @@ flowchart TB
 |------|------|
 | Obra | Mestre de obras por casa; acompanhamento pelos sócios |
 | Negócio | Compras, vendas e marcos — decisão **entre os três** quando relevante |
-| Finanças | PIX; registo partilhado (planilha hoje) |
+| Finanças | PIX; registro partilhado (planilha hoje) |
 | Legal | PF — **ForteGB = marca**; sem CNPJ/LTDA por agora |
 
 **Casas concluídas:** 01 R-35 · 02 P-31 · 03 Q-21 (em curso/venda conforme estado atual).
@@ -93,8 +93,8 @@ flowchart LR
 
 1. **Preço unificado** — mesmo valor corretor ou direto  
 2. **Contrato por casa** — Gov.br; Juliana Mestrinier revisa modelo v0.1  
-3. **Registo de lead** — bot WhatsApp (nome + CPF) **antes** da visita  
-4. **Comissão garantida** — se comprador era registado  
+3. **Registro de lead** — bot WhatsApp (nome + CPF) **antes** da visita  
+4. **Comissão garantida** — se comprador era registrado  
 5. **Transparência na venda** — WhatsApp + PDF (nome + CPF comprador) a todos os corretores da casa  
 
 ### Fluxo do lead
@@ -110,15 +110,15 @@ sequenceDiagram
   Note over P,FG: Prospecto vê marketing / visita
   P->>FG: Contato ou visita
   FG->>FG: Lead ligado ao corretor
-  Note over FG,Cor: Venda → comissão se comprador registado
+  Note over FG,Cor: Venda → comissão se comprador registrado
 ```
 
 ### Regras importantes
 
 | Regra | Detalhe |
 |-------|---------|
-| Registo **por casa** | Mesmo prospecto pode ser corretor numa casa e direto noutra |
-| Sem registo prévio | Lead **direto** ForteGB — sem comissão |
+| Registro **por casa** | Mesmo prospecto pode ser corretor numa casa e direto noutra |
+| Sem registro prévio | Lead **direto** ForteGB — sem comissão |
 | Validade | Até a **casa ser vendida** (sem prazo 30 dias) |
 | Informal | Ainda possível, mas **sem** garantias do portal |
 
@@ -128,7 +128,7 @@ sequenceDiagram
 
 ### Conta (uma vez)
 
-Registo e-mail → apresentação + termos no site → **staff notificado em cada passo**
+Registro e-mail → apresentação + termos no site → **staff notificado em cada passo**
 
 ### Por casa (repete)
 
@@ -141,7 +141,7 @@ flowchart LR
   E --> A
 ```
 
-- **Reclamar casa:** 1.ª casa no onboarding **ou** corretor já activo vê **outras ofertas**  
+- **Reclamar casa:** 1.ª casa no onboarding **ou** corretor já ativo vê **outras ofertas**  
 - **Qualquer staff** pode aprovar  
 - **CRECI** preferencial, **mesmo fluxo** sem CRECI  
 
@@ -170,7 +170,7 @@ flowchart LR
 ## 8. O que pedimos ao trio — checklist
 
 - [ ] Confirmar limiar **R$ 100k** e decisões a três  
-- [ ] Confirmar modelo corretor (preço único + registo antes)  
+- [ ] Confirmar modelo corretor (preço único + registro antes)  
 - [ ] Confirmar papéis na plataforma — **três admins**; digital Ricardo + Felipe  
 - [ ] Confirmar contrato **por casa** + aprovação **staff**  
 - [ ] Autorizar Ricardo + Juliana a fechar contrato v0.1?  

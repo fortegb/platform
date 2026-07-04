@@ -18,7 +18,7 @@
 - **Decisão:**
   - **`STATUS.md`** = bússola de sessão (epics ativos + próximo passo) — **mantido**.
   - **`ROADMAP.md`** = espelho gerado do board — **não editar à mão**.
-  - **`CHANGELOG.md`** = registo no close-out de changes — **não duplicar cada issue**.
+  - **`CHANGELOG.md`** = registro no close-out de changes — **não duplicar cada issue**.
   - **`docs/planning/`** = canon de design — **separado do board**.
 - **Consequências:** Atualizar `STATUS.md` ao mudar foco; grilling escreve em `planning/`.
 
@@ -185,7 +185,7 @@
 
 - **Contexto:** Escopo total = muitos meses para dev solo; precisa de fatias verticais.
 - **Decisão:**
-  - **v1:** site público + portfólio real + CTA visita WhatsApp · **auth + papéis** · corretor onboarding (registo → staff aprova) · **registo de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
+  - **v1:** site público + portfólio real + CTA visita WhatsApp · **auth + papéis** · corretor onboarding (registro → staff aprova) · **registro de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
   - **v2:** **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de exceção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
   - **v3 / Fase 3:** media kit, timeline de obra, motor social, portal cliente, BI.
   - **Lock now (fundacional, difícil reverter):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (D-016); camada de adaptadores; API-first; escolha de queue (QStash).

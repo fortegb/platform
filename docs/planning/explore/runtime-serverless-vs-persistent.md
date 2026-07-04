@@ -1,7 +1,7 @@
 # Runtime & system shape — Serverless vs Persistente (avaliação)
 
 > **Estado:** captura de explore (2026-07-03) — sessão *Grilling 0: Foundational architecture stances* ([#145](https://github.com/fortegb/platform/issues/145)).
-> **Decisão:** **Serverless** (ver §4). Este doc regista **ambas** as opções avaliadas.
+> **Decisão:** **Serverless** (ver §4). Este doc registra **ambas** as opções avaliadas.
 > **Feeds:** [`architecture.md`](../architecture.md) §4 (System context) + [`decisions.md`](../decisions.md) (D-xxx no apply/close).
 > **Relacionado:** Q-004 (CMS vs DB) — **resolvido** na mesma sessão (ver §6).
 
@@ -13,7 +13,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 - **Bots** WhatsApp *e* Telegram (clientes e corretores) — bidireccionais, conversacionais, stateful.
 - **Notificações** de saída (WhatsApp/Telegram/SMS) — confirmações, lembretes, **pedidos de aprovação a staff**.
-- **Automação residencial** além de fechaduras — Tuya: câmaras, interruptores; controlo **+ eventos de entrada**.
+- **Automação residencial** além de fechaduras — Tuya: câmaras, interruptores; controle **+ eventos de entrada**.
 - **CRM HubSpot** — sync bidireccional contínuo.
 - **Trabalho agendado/assíncrono** — expiração de senha, lembretes, follow-ups, retries em APIs de terceiros instáveis.
 - **App mobile futura provável** — sobretudo **staff a aprovar pedidos com push** (aprovação corretor/casa, fila de exceção de identidade).
@@ -52,7 +52,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 | Notificações event-triggered | Disparar/enfileirar a partir do handler |
 | Trabalho **com atraso** (lembrete, expiração, follow-up) | **QStash** ("chama este endpoint daqui a 1h", com retry) — Vercel Cron sozinho é grosseiro/diário |
 | **Retries** em Tuya/HubSpot/WA | QStash com retry + dead-letter |
-| Controlo de dispositivos (fechadura, interruptor) | Chamada de saída a partir da função |
+| Controle de dispositivos (fechadura, interruptor) | Chamada de saída a partir da função |
 | **Streaming de câmara ao vivo** | **Não passar pelo backend** — vídeo ao vivo fica na app/cloud do fornecedor (Tuya/RTSP); embed/link |
 | PWA/native futura + push | Rotas API-first servem todos os clientes; push via FCM/web-push |
 | Retenção LGPD | Varredura agendada (QStash/cron) |

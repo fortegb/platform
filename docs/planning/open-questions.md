@@ -32,7 +32,7 @@
 - **Module:** crm, auth
 - **Status:** **partial** → [`corretor-contract-template.md`](./corretor-contract-template.md) v0.1
 - **Question:** Corretor deve assinar contrato/termos com ForteGB antes do portal? Formato (checkbox auditável, PDF, e-sign)?
-- **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registo de lead (bot). Revisão Juliana Mestrinier.
+- **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registro de lead (bot). Revisão Juliana Mestrinier.
 - **Onboarding:** conta self-service + **contrato por casa** (reclamar → Gov.br → staff); staff notificado em **todos** os passos; **qualquer staff** aprova; casas extra = novo contrato reutilizando dados.
 - **Review process:** Ricardo → Juliana redlines v0.1 → trio approve → Juliana pilot corretor.
 - **Blocks:** P2 Portal corretor (integração Gov.br)

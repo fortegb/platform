@@ -97,7 +97,7 @@ Incluir no **`rbo-close-change`** ou merge manual quando aplicável:
 
 Trabalho pontual (ex. board hygiene #139) **fecha a issue**; não deixa epic de documentação aberto.
 
-Epic [#143](https://github.com/fortegb/platform/issues/143) regista **esta convenção** (Done) — não operações contínuas.
+Epic [#143](https://github.com/fortegb/platform/issues/143) registra **esta convenção** (Done) — não operações contínuas.
 
 ---
 

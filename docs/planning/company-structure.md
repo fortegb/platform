@@ -120,7 +120,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | | Felipe | Não envolvido em vendas |
 | Finanças | Os três | Modelo **partilhado** — quem tiver fundos disponíveis paga, acordado entre os sócios |
 | | Meios de pagamento | Sobretudo **PIX**; também outras formas (compras loja, online, etc.) |
-| | Controlo de custos | **Quem paga** regista a linha de custo no sistema de despesas |
+| | Controle de custos | **Quem paga** registra a linha de custo no sistema de despesas |
 | | Sistema de despesas (atual) | **Google Form + Spreadsheet** |
 | | Sistema de despesas (evolução) | Possível migração para **`app-despesas`** |
 | | Contabilidade externa | **Nenhum contador** — os três gerem contabilidade e **obrigações fiscais** |
@@ -212,8 +212,8 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | Role | Quem | Capacidades (alto nível) |
 |------|------|---------------------------|
 | **admin** | Ricardo, Adilson, Felipe | Configuração, flags hoarding, exceções atribuição, gestão corretores/contratos, gestão usuários |
-| **staff** | Cláudia, Gisele (+ sócios quando operam) | Operação quotidiana — despesas, leads, visitas, consulta registos |
-| **corretor** | Corretores contratados (ex. Juliana) | Registo leads, agendar visitas, portal — ver §7 |
+| **staff** | Cláudia, Gisele (+ sócios quando operam) | Operação cotidiana — despesas, leads, visitas, consulta registros |
+| **corretor** | Corretores contratados (ex. Juliana) | Registro leads, agendar visitas, portal — ver §7 |
 | **cliente / visitante** | Público | Site, visitas, contato — sem login ou login mínimo |
 
 **MVP permissões (2026-07-03):** **admin** = os **três sócios** (Ricardo, Adilson, Felipe). **staff** = Cláudia, Gisele (+ sócios em tarefas operacionais). Ricardo e Felipe = **Arquiteto Digital** · **Desenvolvedor Digital** (construção da plataforma).
@@ -230,7 +230,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | Platform config (integrações, API keys) | **Sim** | |
 | Void / revoke corretor registration | Não | Todo staff |
 
-**Onboarding corretor:** conta (registo + termos) → **por casa:** reclamar → Gov.br → staff aprova → leads/visitas dessa casa.
+**Onboarding corretor:** conta (registro + termos) → **por casa:** reclamar → Gov.br → staff aprova → leads/visitas dessa casa.
 
 
 ### Alertas staff (hoarding / abuso)
@@ -240,7 +240,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | **Responsável** | **Ricardo** (monitorização operacional) |
 | **Canal preferido** | **Bot WhatsApp ou Telegram** — alerta em tempo real |
 | **Alternativa** | Push notification na plataforma |
-| **Gatilho** | Volume anormal de registos corretor; conflitos de atribuição; lead direto possível corretor informal |
+| **Gatilho** | Volume anormal de registros corretor; conflitos de atribuição; lead direto possível corretor informal |
 
 ---
 
@@ -252,7 +252,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 |---------|---------|
 | **Modelo** | Relação **informal** — sem contrato formal |
 | **Papel do corretor** | Traz **prospectos** e tenta **vender**; comissão acordada (sem enquadramento formal) |
-| **Frição recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não partilhar contatos** de prospectos — e vice-versa (ForteGB também retém contatos) |
+| **Fricção recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não partilhar contatos** de prospectos — e vice-versa (ForteGB também retém contatos) |
 | **Fecho das vendas** | **Ambas** as casas vendidas **via corretores** |
 | **Processo interno** | **Ricardo** lidera acordo com corretor; **validação dos três** sócios no fecho |
 
@@ -271,7 +271,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 **Consequência:** corretores ficam **negativos e protectores** — não querem que prospectos saibam demais sobre ForteGB/contatos; retêm informação; resistem à divulgação direta da empresa.
 
-**Requisito de produto/process:** o modelo (portal, CRM, contratos, registo de leads) tem de **proteger comissão do corretor** quando ele trouxe o prospect — sem impedir ForteGB de marketar abertamente.
+**Requisito de produto/process:** o modelo (portal, CRM, contratos, registro de leads) tem de **proteger comissão do corretor** quando ele trouxe o prospect — sem impedir ForteGB de marketar abertamente.
 
 *(Solução proposta — próximo passo.)*
 
@@ -279,8 +279,8 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 1. **Preço unificado** — mesmo preço se o cliente chega via corretor ou direto (sem incentivo de bypass por preço).
 2. **Contratos formais** — corretores que aderem ao esquema assinam termos com a ForteGB.
-3. **Portal de registo de leads** — corretores contratados acedem à plataforma para **registar formalmente** cada prospecto; fica **atribuído a esse corretor** durante toda a oferta **daquela casa**.
-4. **Compromisso contratual de comissão** — se a casa for vendida a prospecto registado por um corretor, ForteGB paga a comissão acordada — independentemente de o prospecto ter visto marketing/plataforma/material digital ForteGB.
+3. **Portal de registro de leads** — corretores contratados acessam à plataforma para **registrar formalmente** cada prospecto; fica **atribuído a esse corretor** durante toda a oferta **daquela casa**.
+4. **Compromisso contratual de comissão** — se a casa for vendida a prospecto registrado por um corretor, ForteGB paga a comissão acordada — independentemente de o prospecto ter visto marketing/plataforma/material digital ForteGB.
 
 **Objetivo:** corretores deixam de temer divulgação direta ForteGB; ForteGB pode marketar abertamente sem guerra de contatos.
 
@@ -291,37 +291,37 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 | Cenário | Regra |
 |---------|--------|
 | **Lead capturado pela plataforma ForteGB** | **Direto** — sem comissão corretor (site, WhatsApp, formulário, visita QR, etc.) |
-| **Corretor regista a tempo** | Corretor **deve registar antes** do prospecto ser capturado pela plataforma / visita — regra **explícita** no contrato e onboarding |
-| **Dois corretores** | Alerta ao registar; dedup **nome + CPF**; **primeiro registo válido** prevalece |
-| **Reclamação sem registo** | **Regra estrita:** sem registo = sem comissão; **exceções manuais** possíveis (casos raros, aprovação ForteGB) |
-| **Canal de registo** | Frição mínima — ex. **bot WhatsApp** (nome + CPF); portal também |
+| **Corretor registra a tempo** | Corretor **deve registrar antes** do prospecto ser capturado pela plataforma / visita — regra **explícita** no contrato e onboarding |
+| **Dois corretores** | Alerta ao registrar; dedup **nome + CPF**; **primeiro registro válido** prevalece |
+| **Reclamação sem registro** | **Regra estrita:** sem registro = sem comissão; **exceções manuais** possíveis (casos raros, aprovação ForteGB) |
+| **Canal de registro** | Fricção mínima — ex. **bot WhatsApp** (nome + CPF); portal também |
 
 **Fluxo ideal (corretor → visita):**
 
 1. Corretor tem o contato e quer **agendar visita** (ou garantir comissão antes de expor o prospecto ao marketing ForteGB).
 2. Envia **nome + CPF** ao **bot WhatsApp** ForteGB.
-3. Recebe **confirmação imediata** — lead registado (corretor fica tranquilo).
-4. Opcional: **PDF de termo de registo** enviado + registo persistente no **portal** (prova contratual).
+3. Recebe **confirmação imediata** — lead registrado (corretor fica tranquilo).
+4. Opcional: **PDF de termo de registro** enviado + registro persistente no **portal** (prova contratual).
 5. **Desde esse momento** o prospecto fica atribuído ao corretor para **aquela casa**, conforme contrato — garantia **upfront**, antes de visita ou captura pela plataforma.
 
-#### Gap 2 — Âmbito do registo ✅
+#### Gap 2 — Âmbito do registro ✅
 
 | Regra | Detalhe |
 |-------|---------|
-| **Por casa** | Registo é **por imóvel / casa** — não global ForteGB |
+| **Por casa** | Registro é **por imóvel / casa** — não global ForteGB |
 | **Cross-house** | O mesmo prospecto pode ser **corretor numa casa** e **direto noutra** |
 | **Validade temporal** | **Sem expiração por tempo** — prospecto fixo ao corretor naquela casa **até a casa ser vendida** |
-| **Casa vendida a outro comprador** | Oferta encerrada; comissão só se o **comprador** for prospecto registado desse corretor |
+| **Casa vendida a outro comprador** | Oferta encerrada; comissão só se o **comprador** for prospecto registrado desse corretor |
 
-**Transparência na venda:** notificar corretores com registos na casa via **WhatsApp** + **PDF** (nome + CPF do comprador) — transparência total (cartório).
+**Transparência na venda:** notificar corretores com registros na casa via **WhatsApp** + **PDF** (nome + CPF do comprador) — transparência total (cartório).
 
-#### Gap 3 — Registos fictícios / hoarding ✅
+#### Gap 3 — Registros fictícios / hoarding ✅
 
 | Regra | Detalhe |
 |-------|---------|
-| **Sem contato com prospecto** | ForteGB **não contacta** o prospecto no fluxo de registo corretor |
+| **Sem contato com prospecto** | ForteGB **não contacta** o prospecto no fluxo de registro corretor |
 | **Validação CPF** | Automática quando possível |
-| **Registo imediato** | Sem aprovação manual — CPF válido → registado + confirmação |
+| **Registro imediato** | Sem aprovação manual — CPF válido → registrado + confirmação |
 | **Monitorização** | Volume anormal → flag **staff** |
 | **Alertas** | **Ricardo** — preferência **bot WhatsApp ou Telegram**; alternativa push na plataforma |
 
@@ -355,16 +355,16 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | Fluxo | Detalhe |
 |-------|---------|
-| **Direct** | Sem contato prévio nem registo corretor → visita instantânea ou agendada |
+| **Direct** | Sem contato prévio nem registro corretor → visita instantânea ou agendada |
 | **Com corretor** | Visitas permitidas; UX: *«Seu Corretor: [nome]»* |
-| **Corretor** | Registo → **link para agendar** visita |
+| **Corretor** | Registro → **link para agendar** visita |
 
 #### Gap 8 — Vendas internas ✅
 
 | Cenário | Regra |
 |---------|--------|
-| **Venda direta** (sem registo corretor) | **Sem comissão** — margem integral para os sócios |
-| **Prospecto registado por corretor** | **Comissão paga** ao corretor mesmo que Ricardo/Gisele fechem |
+| **Venda direta** (sem registro corretor) | **Sem comissão** — margem integral para os sócios |
+| **Prospecto registrado por corretor** | **Comissão paga** ao corretor mesmo que Ricardo/Gisele fechem |
 
 ### Onboarding corretor — self-service (implementação #2 + UX)
 
@@ -374,10 +374,10 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 | # | Fase | O que acontece |
 |---|------|----------------|
-| **0** | **Registo** | Auto-registo (**e-mail** validado + Google/Facebook) |
+| **0** | **Registro** | Auto-registro (**e-mail** validado + Google/Facebook) |
 | **1** | **Apresentação** | Site: ideia ForteGB, modelo parceria, termos gerais — UX guiada |
 
-**Staff:** notificado em **cada passo** de **todos** os corretores (registo, conclusão termos, etc.).
+**Staff:** notificado em **cada passo** de **todos** os corretores (registro, conclusão termos, etc.).
 
 #### Contrato por casa (repetível)
 
@@ -385,17 +385,17 @@ Cada imóvel = **contrato separado** (mais seguro juridicamente). Dados do corre
 
 | # | Fase | O que acontece |
 |---|------|----------------|
-| **2a** | **Reclamar casa** | Corretor vê **ofertas de casas** disponíveis e **reclama** associação — **primeira vez** (onboarding ligado a uma casa) **ou** corretor **já activo** noutra casa e reclama **casas adicionais** |
+| **2a** | **Reclamar casa** | Corretor vê **ofertas de casas** disponíveis e **reclama** associação — **primeira vez** (onboarding ligado a uma casa) **ou** corretor **já ativo** noutra casa e reclama **casas adicionais** |
 | **2b** | **Assinatura** | **Gov.br** — contrato **por casa** |
 | **3** | **Aprovação staff** | **Qualquer staff** pode aprovar; fila visível no portal |
-| **4** | **Activo (casa)** | Pode **registar leads** e **agendar visitas** **só para essa casa** |
+| **4** | **Ativo (casa)** | Pode **registrar leads** e **agendar visitas** **só para essa casa** |
 
-**Reclamar casa:** self-service — corretor vê imóveis disponíveis no portal e pede contrato para aquele imóvel (1.ª casa no onboarding ou casas extra se já activo noutra).
+**Reclamar casa:** self-service — corretor vê imóveis disponíveis no portal e pede contrato para aquele imóvel (1.ª casa no onboarding ou casas extra se já ativo noutra).
 
 **Casas adicionais:** corretor **já na plataforma** (contrato aprovado n≥1 casa) → vê **outras ofertas** → reclama → novo contrato + Gov.br + aprovação staff.
 
 **Regras:**
-- Registo de leads / bot — **só** para casas com contrato **aprovado** (fase 4).
+- Registro de leads / bot — **só** para casas com contrato **aprovado** (fase 4).
 - **Staff notificado** em **todas** as fases, **todos** os corretores, **todas** as casas.
 - E-sign SaaS = longo prazo.
 
@@ -408,7 +408,7 @@ Cada imóvel = **contrato separado** (mais seguro juridicamente). Dados do corre
 | **Fluxo** | **A** — Ricardo apresenta v0.1 à **Juliana Mestrinier** → ela faz redlines → **trio** aprova versão final |
 | **Piloto** | Juliana como **primeira corretora** no esquema formal assinado |
 
-**Onboarding corretor:** registo self-service → apresentação/termos → Gov.br → aprovação staff → activo.
+**Onboarding corretor:** registro self-service → apresentação/termos → Gov.br → aprovação staff → ativo.
 
 
 ---

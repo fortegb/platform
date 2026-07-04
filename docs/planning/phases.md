@@ -49,14 +49,14 @@ Seed docs/planning (✅)
 8. [x] Reconectar **Vercel** ao repo na org ([#16](https://github.com/fortegb/platform/issues/16))
 9. [x] Habilitar **Issue types** (Epic, Feature, Task) em Settings → Planning ([#17](https://github.com/fortegb/platform/issues/17))
 10. [x] Smoke test: clone, push, `gh repo view`, `gh auth status` ([#18](https://github.com/fortegb/platform/issues/18))
-11. [x] Registar execução em `decisions.md` / dotfiles `DECISIONS.md` se aplicável ([#19](https://github.com/fortegb/platform/issues/19))
+11. [x] Registrar execução em `decisions.md` / dotfiles `DECISIONS.md` se aplicável ([#19](https://github.com/fortegb/platform/issues/19))
 
 ### Epic: Bootstrap board & OpenSpec ([#20](https://github.com/fortegb/platform/issues/20)) — sub-tarefas
 
 1. [x] Inicializar OpenSpec no repo (`openspec/` + CLI) ([#21](https://github.com/fortegb/platform/issues/21))
 2. [x] Criar Project **`platform`** na org ([#22](https://github.com/fortegb/platform/issues/22))
 3. [x] Campos custom: **Phase**, **Module** ([#23](https://github.com/fortegb/platform/issues/23))
-4. [x] Registar epics Phase 0 restantes como issues pai ([#24](https://github.com/fortegb/platform/issues/24))
+4. [x] Registrar epics Phase 0 restantes como issues pai ([#24](https://github.com/fortegb/platform/issues/24))
 5. [x] Gerar `ROADMAP.md` pela primeira vez ([#25](https://github.com/fortegb/platform/issues/25))
 6. [x] Atualizar `STATUS.md` com números de issues ([#26](https://github.com/fortegb/platform/issues/26))
 
@@ -176,7 +176,7 @@ Epics (**criar no board após Architecture**):
 
 1. [ ] Dashboard, leads, casas — dados reais
 2. [ ] **Corretor onboarding: termos/contrato** (Q-016)
-3. [ ] Registo lead + proteção comissão
+3. [ ] Registro lead + proteção comissão
 4. [ ] Sync HubSpot
 5. [ ] Jornada corretor completa pós-login
 
