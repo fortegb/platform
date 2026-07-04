@@ -8,15 +8,14 @@
 
 ## Fase atual
 
-**Fase 0 — Fundação** (quase completa) → Fase 1 build bloqueada até Architecture Done (#38)
+**Fase 0 — Fundação: COMPLETA.** Epic Architecture (#1) fechado → **Fase 1 build DESBLOQUEADA.**
 
 ```
 ✅ Seed planning · org migration · bootstrap board · OpenSpec
 ✅ Board hygiene #139 + screen map #32 + Platform docs publicados
-✅ Grilling 0 #145 — stances fundacionais + Q-004 resolvido (D-015..D-018)
-→ EM CURSO: change grill-foundational-architecture (aplicado, aguarda touches → close-out)
-→ TODO: grilling restante (Q-005/006 tours, media kit…) → #38
-→ Fase 1 build (Identity, Public site, …) após #38
+✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home) → D-015..D-021
+✅ Checkpoint #36: todas Q-* resolved/deferred · Epic Architecture #1 DONE (#38)
+→ PRÓXIMO (aguardando comando): Fase 1 build — Identity/papéis (#48), Public site UI (#56)
 ```
 
 ---
@@ -28,10 +27,10 @@
 | Seed `docs/planning/` | **Done** | — |
 | GitHub org migration | **Done** | — |
 | Bootstrap board & OpenSpec | **Done** | — |
-| Architecture & MVP definition | **In Progress** | Grilling 0 (#145) feito; próximo grilling tours/media kit → #38 |
+| Architecture & MVP definition | **Done** | Fechado (#38) — D-015..D-021; todas Q-* resolved/deferred |
 | Brand assets upload | **Todo** | Paralelo — AGENTS.md §7 |
 
-Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); build bloqueado até Architecture Done. Ver [`deliverables.md`](./docs/planning/deliverables.md).
+Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); **build desbloqueado**. Ver [`deliverables.md`](./docs/planning/deliverables.md).
 
 ---
 
@@ -47,18 +46,16 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 
 ---
 
-## Esta sessão (Claude — 2026-07-03)
+## Esta sessão (Claude — 2026-07-03/04)
 
-- [x] Grilling 0 (#145) — stances fundacionais: constraints, build-vs-buy, Q-004, system shape, MVP boundary
-- [x] Q-004 **resolvido** (D-016); serverless escolhido (D-017); v1/v2/v3 boundary (D-018)
-- [x] OpenSpec change `grill-foundational-architecture` — propose + apply (docs); **não** arquivado (touches pendentes)
-- [x] Platform docs — nova página `arquitetura-decisoes.html` + card no índice
+- [x] Grilling #145 (fundacional), #28 (CRM Q-007/Q-018), #33 (home Q-010) — todos fechados
+- [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia lead/prospecto → cliente
+- [x] Checkpoint #36 (0 Q abertas) → **Epic Architecture #1 fechado (#38)** — Fase 1 desbloqueada
 
-## Próxima sessão
+## Próxima sessão (aguardando comando)
 
-- [ ] Touches do Ricardo → `rbo-close-change` #145 (archive → merge → close; subsumir #28)
-- [ ] `rbo-grilling` tours (Q-005/Q-006) — próximo na ordem
-- [ ] Avançar fecho Architecture → #38
+- [ ] **Fase 1 build** — Identity/papéis (#48), Public site UI (#56) — código, não grilling
+- [ ] (paralelo) Brand assets upload (#2); follow-up terminologia lead→cliente em docs antigos
 
 ---
 

@@ -368,9 +368,10 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
 ### Estágio atual
-- **Phase 0 — Fundação** — planning finalizado; org migration + board + OpenSpec **Done**. Architecture epic **em curso** (grilling). Ver **`docs/planning/README.md`** e **`STATUS.md`**.
-- **Grilling 0 (#145) resolvido** — stances fundacionais + **Q-004** (D-015..D-018): stack agora **parcialmente confirmada** (serverless Vercel, CMS + Supabase, MVP v1/v2/v3). Restam abertas Q-007/Q-018 (CRM), Q-010 (home), tours/media/mobile diferidos.
-- **Decisões técnicas:** o que foi resolvido está em `decisions.md`; o resto continua aberto (D-011) até o grilling da fase.
+- **Phase 0 — Fundação: COMPLETA.** org + board + OpenSpec + **Architecture epic (#1) fechado (#38)** → **Fase 1 build desbloqueada**. Ver **`docs/planning/README.md`** e **`STATUS.md`**.
+- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home) → **D-015..D-021**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
+- **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-021); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
+- **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".
 
