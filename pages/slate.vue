@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroV3 />
+    <HeroSlate />
     <HomeContent />
   </div>
 </template>

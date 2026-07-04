@@ -383,7 +383,7 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
   - **Outline navy** = ação secundária (ex.: "Ver Detalhes", "Ver Todos").
   - Botões compactos e de tamanho consistente (`px-* py-*` padronizados, borda 1px com `border`/`border-transparent` para igualar caixas).
 - **Cores de marca:** `primary-500` `#203045` (navy) é o fundo de header e footer; `hero-slate` `#4a5a72` adicionado ao tema.
-- **Home com variantes (em avaliação):** `/` (split, azul original), `/v2` (clássico), `/v3` (slate), `/v4` (azul `primary-400`). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`.
+- **Home com variantes de hero (em avaliação):** `/` (`HeroSplit`, split azul original, default), `/classico` (`HeroClassic`), `/slate` (`HeroSlate`), `/azul` (`HeroAzul`, `primary-400`). Rotas por **estilo**, não por número (evita colisão com release v1/v2/v3). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`. Escolha do hero diferida ao lançamento (Q-010 → D-021).
 - **Login:** fluxo *identifier-first* (UI/mock) em `pages/login.vue`. Comportamento e pendências de back-end em **`docs/autenticacao-login.md`**.
 
 ### Platform docs (GitHub Pages)

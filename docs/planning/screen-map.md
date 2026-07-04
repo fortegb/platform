@@ -10,7 +10,7 @@
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
-| Home (variantes Q-010) | `/`, `/v2`, `/v3`, `/v4` | simulado | 1 | [#56](https://github.com/fortegb/platform/issues/56) Site público UI |
+| Home (variantes hero — Q-010) | `/`, `/classico`, `/slate`, `/azul` | simulado | 1 | [#56](https://github.com/fortegb/platform/issues/56) Site público UI |
 | Portfólio lista | `/portfolio` | simulado | 1 | #56 |
 | Portfólio detalhe | `/portfolio/[slug]` | simulado | 1 | #56 |
 | Blog lista / post | `/blog`, `/blog/[slug]` | simulado | 1 | #56 |
