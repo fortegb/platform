@@ -23,9 +23,9 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 ### Portal de Corretores
 - ✅ Autenticação de corretores
 - ✅ Dashboard com estatísticas
-- ✅ Registro de leads com proteção de comissão
+- ✅ Registro de clientes com proteção de comissão
 - ✅ Visualização de casas disponíveis
-- ✅ Gestão de leads
+- ✅ Gestão de clientes
 
 ### Área Logada / Login
 - ✅ Tela de login em fluxo *identifier-first* (e-mail → login ou cadastro) — UI pronta
@@ -35,7 +35,7 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 > Comportamento atual (UI + mock) e pendências de back-end documentados em [`docs/autenticacao-login.md`](docs/autenticacao-login.md).
 
 ### Integrações
-- ✅ HubSpot CRM para gestão de leads
+- ✅ HubSpot CRM para gestão de clientes
 - ✅ Supabase para banco de dados e autenticação
 - ✅ Contentful CMS para conteúdo
 - ✅ WhatsApp Business API

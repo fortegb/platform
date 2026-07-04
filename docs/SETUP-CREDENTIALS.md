@@ -75,7 +75,7 @@ CONTENTFUL_ACCESS_TOKEN=seu-access-token-aqui
 
 ### 3. HubSpot CRM (Obrigatório para Portal de Corretores)
 
-**O que é:** CRM para gerenciar leads e comissões de corretores.
+**O que é:** CRM para gerenciar clientes e comissões de corretores.
 
 **Como obter:**
 1. Acesse [hubspot.com](https://www.hubspot.com)

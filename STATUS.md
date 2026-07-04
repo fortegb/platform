@@ -49,13 +49,13 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 ## Esta sessão (Claude — 2026-07-03/04)
 
 - [x] Grilling #145 (fundacional), #28 (CRM Q-007/Q-018), #33 (home Q-010) — todos fechados
-- [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia lead/prospecto → cliente
+- [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia **lead/prospecto → cliente concluída** (planning + README + SETUP)
 - [x] Checkpoint #36 (0 Q abertas) → **Epic Architecture #1 fechado (#38)** — Fase 1 desbloqueada
 
 ## Próxima sessão (aguardando comando)
 
 - [ ] **Fase 1 build** — Identity/papéis (#48), Public site UI (#56) — código, não grilling
-- [ ] (paralelo) Brand assets upload (#2); follow-up terminologia lead→cliente em docs antigos
+- [ ] (paralelo) Brand assets upload (#2)
 
 ---
 
