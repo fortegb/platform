@@ -3,7 +3,6 @@
 ## Todo
 - [#1](https://github.com/fortegb/platform/issues/1) Epic: Architecture & MVP definition
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
-- [#27](https://github.com/fortegb/platform/issues/27) Grilling 1: Q-003 user roles / MVP scope
 - [#28](https://github.com/fortegb/platform/issues/28) Grilling: Q-007 HubSpot source-of-truth + Q-018 lead sources (CRM)
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
@@ -42,6 +41,7 @@
 - [#24](https://github.com/fortegb/platform/issues/24) Registrar epics Phase 0 restantes
 - [#25](https://github.com/fortegb/platform/issues/25) Gerar ROADMAP.md
 - [#26](https://github.com/fortegb/platform/issues/26) Atualizar STATUS.md com números de issues
+- [#27](https://github.com/fortegb/platform/issues/27) Grilling 1: Q-003 user roles / MVP scope
 - [#32](https://github.com/fortegb/platform/issues/32) Journey map + screen map MVP por role
 - [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
