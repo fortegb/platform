@@ -31,10 +31,10 @@
 | Login | `/login` | simulado | 1 | [#48](https://github.com/fortegb/platform/issues/48) Identidade |
 | Painel | `/corretor/dashboard` | simulado | 2 | [#86](https://github.com/fortegb/platform/issues/86) Portal corretor |
 | Casas / reclamar | `/corretor/casas` | simulado | 2 | #86 |
-| Leads lista / novo | `/corretor/leads`, `/corretor/leads/novo` | simulado | 2 | #86 |
+| Clientes lista / novo | `/corretor/clientes`, `/corretor/clientes/novo` | simulado | 2 | #86 |
 | Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo | 2 | #86 |
 | Contrato por casa + Gov.br (Q-016) | `/corretor/casas/[id]/contrato` | novo | 2 | #86 |
-| Bot WhatsApp (registro prospecto) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
+| Bot WhatsApp (registro cliente) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
 
 ---
 
@@ -47,7 +47,7 @@
 | Aprovar casa associada | `/staff/casas-pendentes` | novo | 2 | #86 |
 | Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
 | Calendário visitas do dia | `/staff/visitas` | novo | 2 | #81 |
-| Lead manual (WhatsApp telefónico) | `/staff/leads/novo` | novo | 2 | Integrações / CRM |
+| Cliente manual (WhatsApp telefónico) | `/staff/clientes/novo` | novo | 2 | Integrações / CRM |
 
 ---
 

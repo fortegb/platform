@@ -196,7 +196,7 @@
 
 ### D-019 — CRM source of truth: Supabase master + HubSpot sync (2026-07-04) — **fecha Q-007**
 
-- **Contexto:** Fluxo corretor/lead do v1 (D-018) precisa da stance de CRM. Proteção de comissão (first-wins, dedup CPF) já fechada (company-structure.md, gaps 1–8).
+- **Contexto:** Fluxo corretor/cliente do v1 (D-018) precisa da stance de CRM. Proteção de comissão (first-wins, dedup CPF) já fechada (company-structure.md, gaps 1–8).
 - **Decisão:** **Supabase é a fonte-da-verdade** do Cliente + atribuição de comissão; **HubSpot é downstream sincronizado** (pipeline/relatórios). Cliente→Contact, Registro→Deal. Corretor registra **uma vez** (portal/bot → Supabase); sync empurra p/ HubSpot. Status autorado no Supabase (staff), sincronizado p/ fora.
 - **Rationale:** garantia "dois corretores → um ganha por timestamp, dedup CPF" exige escrita **transacional** com constraint de unicidade num DB que controlamos, não na API eventual do HubSpot; CPF é PII/LGPD; gatilho de venda lê `Casa.status=vendida` (já Supabase, D-016). HubSpot nunca decide comissão.
 - **Rejeitado:** HubSpot master (enforcement frágil, CPF em SaaS US); claim fino no Supabase + HubSpot dono do link pessoa↔casa (separa a atribuição do Deal via join CPF+casa — frágil no campo mais crítico).

@@ -8,7 +8,7 @@
 
 ## 1. O que a plataforma será
 
-A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataforma digital não substitui a confiança e proximidade da família — **amplifica** transparência, captura de leads e operação de visitas sem escritório físico.
+A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataforma digital não substitui a confiança e proximidade da família — **amplifica** transparência, captura de clientes e operação de visitas sem escritório físico.
 
 **Quando concluída, a plataforma entrega:**
 
@@ -16,8 +16,8 @@ A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataf
 |-------|------------------------|
 | **Site público** | Marca ForteGB, portfólio de casas, blog, contato (WhatsApp + formulário) |
 | **Visitas autoguiadas** | Agendar ou entrar na hora (QR na placa), verificar identidade, receber senha, visitar sozinho |
-| **CRM e corretores** | Corretores registram prospectos; comissão protegida; leads de todos os canais no HubSpot |
-| **Staff operacional** | Aprovar corretores, visitas, exceções; acompanhar leads e visitas |
+| **CRM e corretores** | Corretores registram clientes; comissão protegida; clientes de todos os canais no HubSpot |
+| **Staff operacional** | Aprovar corretores, visitas, exceções; acompanhar clientes e visitas |
 | **Media kit** | Por casa: placa com QR, posters internos, narrativa de obra, kit para corretor |
 | **Mobile** | Tudo utilizável no celular (responsive; app nativo só se decidirmos depois) |
 
@@ -31,8 +31,8 @@ Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-visio
 |-------|------|-------------------------|
 | **Visitante** | Qualquer pessoa | Navega site, lê blog, vê portfólio, inicia contato ou visita |
 | **Cliente / comprador** | Interessado num imóvel | Agenda ou faz visita instantânea; envia documentos; recebe senha |
-| **Corretor** | Parceiro comercial (ex. Juliana) | Registra-se, assina contratos por casa, registra prospectos, acompanha comissão |
-| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e exceções; gere visitas e leads do dia-a-dia |
+| **Corretor** | Parceiro comercial (ex. Juliana) | Registra-se, assina contratos por casa, registra clientes, acompanha comissão |
+| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e exceções; gere visitas e clientes do dia-a-dia |
 | **Admin** | Ricardo, Adilson, Felipe | Configuração, convites, flags sensíveis, visão global |
 | **Digital** | Ricardo, Felipe | Construção e evolução da plataforma (não é “usuário de negócio”) |
 
@@ -50,7 +50,7 @@ Google / redes / indicação
     → Portfólio (casas disponíveis)
     → Detalhe da casa (fotos, planta, bairro, status obra)
     → Blog (conteúdo educativo)
-    → Contato (WhatsApp ou formulário → lead no CRM)
+    → Contato (WhatsApp ou formulário → cliente no CRM)
 ```
 
 **Funcionalidades envolvidas:** site institucional, CMS de conteúdo, CTAs WhatsApp, formulário → HubSpot.
@@ -72,10 +72,10 @@ Para quem planeia ir à casa num horário combinado.
 | 5 | Se falhar, staff recebe alerta para aprovação manual | Staff |
 | 6 | Visita criada no calendário; senha temporária enviada à fechadura (Tuya) | Backend |
 | 7 | Cliente recebe WhatsApp: data, morada, senha, validade (ex. 2–4 h) | WhatsApp |
-| 8 | Lead registrado no HubSpot; lembrete antes da visita | CRM |
+| 8 | Cliente registrado no HubSpot; lembrete antes da visita | CRM |
 | 9 | Após visita: senha expira; follow-up automático ou manual | CRM / WhatsApp |
 
-**Resultado:** cliente visita sem corretor presente; ForteGB tem lead identificado e audit trail (LGPD).
+**Resultado:** cliente visita sem corretor presente; ForteGB tem cliente identificado e audit trail (LGPD).
 
 ---
 
@@ -90,7 +90,7 @@ Para quem está **em frente à casa** e quer entrar na hora.
 | 3 | Mesmo fluxo de identidade (selfie + documento) |
 | 4 | Se aprovado: senha gerada **na hora** (validade curta, ex. 1–2 h) |
 | 5 | Senha por WhatsApp (preferencial) ou SMS |
-| 6 | Lead criado no CRM com origem “QR placa” |
+| 6 | Cliente criado no CRM com origem “QR placa” |
 
 **Dependências:** media kit físico (placa + QR), Tuya, verificação de identidade, WhatsApp.
 
@@ -117,7 +117,7 @@ Registro no site (Google / Facebook / e-mail)
 
 ### 4.2 Associar-se a uma casa (contrato por imóvel)
 
-Cada casa exige **aceitação de termos específicos** antes de registrar prospectos nessa casa.
+Cada casa exige **aceitação de termos específicos** antes de registrar clientes nessa casa.
 
 | Passo | O que acontece |
 |-------|----------------|
@@ -125,7 +125,7 @@ Cada casa exige **aceitação de termos específicos** antes de registrar prospe
 | 2 | **Reclama** uma casa → abre contrato daquela casa |
 | 3 | Assina electronicamente (Gov.br ou fluxo equivalente — Q-016) |
 | 4 | Staff aprova |
-| 5 | Corretor pode registrar prospectos **só nessa casa** |
+| 5 | Corretor pode registrar clientes **só nessa casa** |
 
 Casas adicionais: repetir “reclamar → contrato → aprovação”.
 
@@ -133,7 +133,7 @@ Modelo legal: [`corretor-contract-template.md`](./corretor-contract-template.md)
 
 ---
 
-### 4.3 Registrar prospecto (proteção de comissão)
+### 4.3 Registrar cliente (proteção de comissão)
 
 | Passo | O que acontece |
 |-------|----------------|
@@ -152,7 +152,7 @@ Também via **bot WhatsApp** (mesma lógica) — detalhe na Architecture epic.
 No portal corretor:
 
 - Casas com contrato ativo  
-- Prospectos registrados e estado (novo → visita → negociação → fechado)  
+- Clientes registrados e estado (novo → visita → negociação → fechado)  
 - Histórico e notas  
 
 **Integração:** pipeline HubSpot espelhado ou consultado via API.
@@ -168,8 +168,8 @@ No portal corretor:
 | Aprovar / rejeitar corretor (onboarding ou nova casa) | Notificação em cada passo |
 | Aprovar visita quando identidade falhou | Fila de exceções |
 | Consultar visitas do dia | Calendário integrado |
-| Ver leads recentes | Dashboard operacional |
-| Registrar lead manual (WhatsApp telefónico) | Entrada manual → HubSpot |
+| Ver clientes recentes | Dashboard operacional |
+| Registrar cliente manual (WhatsApp telefónico) | Entrada manual → HubSpot |
 
 **Fora do MVP plataforma:** despesas por obra (continua em `app-despesas`).
 
@@ -227,7 +227,7 @@ Resumo por área — detalhe técnico em [`modules.md`](./modules.md).
 | **Auth** | Login, roles, middleware por perfil | Phase 1 |
 | **Visitas** | Agendamento, QR, identidade, senha, calendário | Phase 2 |
 | **Integrações** | Tuya, HubSpot, WhatsApp, Google Calendar | Phase 2 |
-| **CRM / Corretor** | Portal, prospectos, comissão, contratos | Phase 2 |
+| **CRM / Corretor** | Portal, clientes, comissão, contratos | Phase 2 |
 | **Media kit** | Placa, posters, kit PDF, timeline obra | Phase 3 |
 | **Social** | Motor de conteúdo (além dos arquivos estáticos) | Phase 3–4 |
 | **Admin** | Portais staff/admin completos | Phase 3 |
@@ -243,8 +243,8 @@ Resumo por área — detalhe técnico em [`modules.md`](./modules.md).
 | Login corretor + staff + admin | Automação completa redes sociais |
 | Visita agendada + QR básico | Acesso condomínio automatizado |
 | Identidade frontend + aprovação manual fallback | Match facial avançado / terceiros |
-| HubSpot leads principais | BI avançado |
-| Portal corretor (prospectos + casas) | Portal cliente logado |
+| HubSpot clientes principais | BI avançado |
+| Portal corretor (clientes + casas) | Portal cliente logado |
 | Placa QR (design + landing) | Geração PDF totalmente automática |
 | WhatsApp confirmações | SMS como canal principal |
 

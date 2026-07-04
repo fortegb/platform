@@ -14,8 +14,8 @@
 ## 0. Visão confirmada (produto)
 
 1. **Website** — presença corporativa (UI, marca, valores), portfólio, blog, pontes para redes.
-2. **Corretor** — self-service onboarding (registro → termos → Gov.br → staff → portal/bot/leads).
-3. **Cliente** — ver casas; visita autoguiada (agendada + QR); identidade; senha/fechadura; lead CRM.
+2. **Corretor** — self-service onboarding (registro → termos → Gov.br → staff → portal/bot/clientes).
+3. **Cliente** — ver casas; visita autoguiada (agendada + QR); identidade; senha/fechadura; cliente CRM.
 4. **Staff ForteGB** — admin (escopo TBD na grilling).
 5. **Mobile** — tudo usable no celular (responsive v1; native/PWA TBD).
 6. **Backend** — Tuya, HubSpot, WhatsApp, Calendar; CRM multi-canal.
@@ -27,13 +27,13 @@
 
 > **Resolvido (2026-07-03, Grilling 0 [#145](https://github.com/fortegb/platform/issues/145)) → D-018.** Fatias verticais; v1 arquitetado em profundidade, v2/v3 just-in-time.
 
-- **v1** — site público + portfólio real + CTA visita **WhatsApp** · **auth + papéis** (fundação) · corretor onboarding (registro → staff aprova) · **registro de lead + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + leads · admin config mínimo.
-- **v2** — **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de exceção · **Gov.br automatizado** · bots WhatsApp/Telegram de lead.
+- **v1** — site público + portfólio real + CTA visita **WhatsApp** · **auth + papéis** (fundação) · corretor onboarding (registro → staff aprova) · **registro de cliente + timestamp de comissão (primeiro ganha) + sync HubSpot** · contrato/Gov.br **manual-first** · staff aprovações + clientes · admin config mínimo.
+- **v2** — **visitas autoguiadas (agendada + QR)** + identidade + Tuya + calendário + fila de exceção · **Gov.br automatizado** · bots WhatsApp/Telegram de cliente.
 - **v3 / Fase 3** — media kit, timeline de obra, motor social, portal cliente logado, BI.
 
 **Corretor antes de tours:** sem dependências de hardware/externas, protege comissão desde cedo, alinhado a venda humana; tours = maior build único → v2.
 
-**Lock now (fundacional, difícil reverter — mesmo com a feature diferida):** modelo de dados core + IDs estáveis (house, user, lead, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (§5); camada de adaptadores; API-first; escolha de queue (QStash).
+**Lock now (fundacional, difícil reverter — mesmo com a feature diferida):** modelo de dados core + IDs estáveis (house, user, cliente, corretor; visit/contract como refs forward-looking); RBAC cobrindo todos os papéis; taxonomia de armazenamento (§5); camada de adaptadores; API-first; escolha de queue (QStash).
 
 **Diferido para o grilling da fase:** tours (Q-005/006/017), media kit (Q-009/011–013), social, mobile (Q-008/019), design conversacional dos bots. Estado-alvo → jornadas §8.
 
@@ -48,7 +48,7 @@
 | **Visitante** | Público | Site, blog, portfólio | Sim | |
 | **Cliente** | Comprador | Fluxo visita, contato | Sim | CPF liga a registro corretor se existir |
 | **Corretor** | Contratados (ex. Juliana) | Portal corretor + bot WhatsApp | Sim | CRECI preferencial; mesmo fluxo sem CRECI |
-| **Staff** | Cláudia, Gisele (+ sócios em operação) | Área logada operacional | Sim | Despesas, leads, visitas, consultas |
+| **Staff** | Cláudia, Gisele (+ sócios em operação) | Área logada operacional | Sim | Despesas, clientes, visitas, consultas |
 | **Admin** | Ricardo, Adilson, Felipe | Staff + config, flags, exceções | Sim | Três sócios = admin |
 | **Digital** | Ricardo, Felipe | Construção plataforma | Sim | Arquiteto Digital · Desenvolvedor Digital |
 | **Sócio / investidor** | Três fundadores | Admin na plataforma | — | Papel público uniforme na apresentação |
@@ -62,7 +62,7 @@
 | Hoarding flags | Sim |
 | User/role invite | Sim |
 | Platform config / API keys | Sim |
-| Lead exceptions, corretor onboarding, void registro | Staff |
+| Cliente exceptions, corretor onboarding, void registro | Staff |
 | Financials cross-house | Fora do MVP plataforma (TBD pós-sucesso) |
 
 ---
@@ -75,16 +75,16 @@
 
 | Role | Jornada | Trigger | Steps (resumo) | Outcome |
 |------|---------|---------|----------------|---------|
-| **Visitante** | Descobrir ForteGB | Google / redes / indicação | Home → portfólio → detalhe casa → blog → contato (WhatsApp / form) | Lead ou interesse; confiança na marca |
-| **Cliente** | Visita agendada | Clica **Agendar visita** no portfólio | Form (nome, WhatsApp, data/hora) → selfie + documento → match ID → (fallback staff) → calendário + Tuya + WhatsApp confirmação → lead HubSpot → lembrete → expiração senha / follow-up | Visita sem corretor; lead identificado (LGPD) |
-| **Cliente** | Visita instantânea (QR) | QR na placa “À venda” | Micro-página mobile → mesmo fluxo identidade → senha imediata (1–2 h) → WhatsApp/SMS → lead origem “QR placa” | Entrada na hora; lead capturado |
+| **Visitante** | Descobrir ForteGB | Google / redes / indicação | Home → portfólio → detalhe casa → blog → contato (WhatsApp / form) | Cliente ou interesse; confiança na marca |
+| **Cliente** | Visita agendada | Clica **Agendar visita** no portfólio | Form (nome, WhatsApp, data/hora) → selfie + documento → match ID → (fallback staff) → calendário + Tuya + WhatsApp confirmação → cliente HubSpot → lembrete → expiração senha / follow-up | Visita sem corretor; cliente identificado (LGPD) |
+| **Cliente** | Visita instantânea (QR) | QR na placa “À venda” | Micro-página mobile → mesmo fluxo identidade → senha imediata (1–2 h) → WhatsApp/SMS → cliente origem “QR placa” | Entrada na hora; cliente capturado |
 | **Corretor** | Onboarding (conta) | Registro no site | OAuth/e-mail → termos gerais → perfil (CRECI opcional) → staff notificado → staff aprova → portal `/corretor` | Conta ativa |
-| **Corretor** | Associar casa (1.ª ou extra) | Portal: casas disponíveis | **Reclamar** casa → contrato por imóvel → assinatura (Gov.br — Q-016) → staff aprova | Pode registrar prospectos **só nessa casa** |
-| **Corretor** | Registrar prospecto | Portal ou bot WhatsApp | Nome + CPF + tel + casa → timestamp (**primeiro ganha**) → sync HubSpot → pipeline | Comissão protegida |
+| **Corretor** | Associar casa (1.ª ou extra) | Portal: casas disponíveis | **Reclamar** casa → contrato por imóvel → assinatura (Gov.br — Q-016) → staff aprova | Pode registrar clientes **só nessa casa** |
+| **Corretor** | Registrar cliente | Portal ou bot WhatsApp | Nome + CPF + tel + casa → timestamp (**primeiro ganha**) → sync HubSpot → pipeline | Comissão protegida |
 | **Corretor** | Pipeline | Portal corretor | Casas com contrato; estados novo → visita → negociação → fechado; notas | Acompanhamento comercial |
 | **Staff** | Aprovar corretor / casa | Notificação em cada passo onboarding | Qualquer staff aprova ou rejeita | Corretor ativo ou casa associada |
 | **Staff** | Exceção identidade | Match ID falhou (visita) | Fila de exceções → aprovar / rejeitar manualmente | Visita autorizada ou bloqueada |
-| **Staff** | Operação diária | Rotina | Visitas do dia (calendário); leads recentes; lead manual (WhatsApp telefónico) → HubSpot | Operação sem escritório |
+| **Staff** | Operação diária | Rotina | Visitas do dia (calendário); clientes recentes; cliente manual (WhatsApp telefónico) → HubSpot | Operação sem escritório |
 | **Admin** | Config / governo | Área admin | Convites; API keys (Tuya, HubSpot, WhatsApp); flags (ocultar casa, manutenção); relatórios agregados; exceções comissão (com audit) | Plataforma configurada |
 
 **Referências jornadas:** §3.1 site · §3.2 agendada · §3.3 QR · §4 corretor · §5 staff/admin · §6–7 media/social.
@@ -148,7 +148,7 @@ flowchart TB
 |---------|-----------------|-------|
 | Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (Contentful/Sanity) | autoria com UI; vendor reversível via camada de serviço |
 | Blog | **CMS** | autoria unificada |
-| Estado operacional da casa (status, links a leads/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
+| Estado operacional da casa (status, links a clientes/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
 | Vídeo | **YouTube/Vimeo** (embed) | URL como campo; não passa pelo backend |
 | Docs sensíveis (contratos Gov.br, RG/CNH) | **Supabase** bucket privado + RLS | LGPD: encriptação + retenção |
 | Cliente / atribuição / CRM | **Supabase** (master) → **HubSpot** (sync) | **Q-007 → D-019**: Supabase é master; HubSpot downstream. Cliente→Contact, Registro→Deal |
@@ -190,7 +190,7 @@ flowchart TB
 
 ### 6.5 Staff & admin operations
 
-- Staff: aprovações, fila ID, calendário visitas, leads manuais ([§5.1](./jornadas-plataforma.md#51-staff-operacional)).
+- Staff: aprovações, fila ID, calendário visitas, clientes manuais ([§5.1](./jornadas-plataforma.md#51-staff-operacional)).
 - Admin: convites, API keys, flags, relatórios ([§5.2](./jornadas-plataforma.md#52-admin-sócios)).
 - **Screen map:** [`screen-map.md`](./screen-map.md); staff/admin shells P1, features P2+.
 

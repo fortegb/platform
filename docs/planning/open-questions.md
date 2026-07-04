@@ -32,7 +32,7 @@
 - **Module:** crm, auth
 - **Status:** **partial** → [`corretor-contract-template.md`](./corretor-contract-template.md) v0.1
 - **Question:** Corretor deve assinar contrato/termos com ForteGB antes do portal? Formato (checkbox auditável, PDF, e-sign)?
-- **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registro de lead (bot). Revisão Juliana Mestrinier.
+- **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registro de cliente (bot). Revisão Juliana Mestrinier.
 - **Onboarding:** conta self-service + **contrato por casa** (reclamar → Gov.br → staff); staff notificado em **todos** os passos; **qualquer staff** aprova; casas extra = novo contrato reutilizando dados.
 - **Review process:** Ricardo → Juliana redlines v0.1 → trio approve → Juliana pilot corretor.
 - **Blocks:** P2 Portal corretor (integração Gov.br)
@@ -45,7 +45,7 @@
 - **Module:** site, media-kit
 - **Status:** **resolved** → D-016 · [`architecture.md`](./architecture.md) §5 · Grilling 0 ([#145](https://github.com/fortegb/platform/issues/145))
 - **Question:** Contentful vs Supabase vs híbrido para listings, blog, timeline obra, media kit?
-- **Resolved (2026-07-03):** Taxonomia por tipo de conteúdo — conteúdo (listings, blog, timeline, media) → **CMS** (Contentful/Sanity); estado operacional + PII sensível (status, leads, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa; **social** → fora da plataforma. Vendor CMS (Contentful vs Sanity) reversível via camada de serviço. Detalhe → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md) §6.
+- **Resolved (2026-07-03):** Taxonomia por tipo de conteúdo — conteúdo (listings, blog, timeline, media) → **CMS** (Contentful/Sanity); estado operacional + PII sensível (status, clientes, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa; **social** → fora da plataforma. Vendor CMS (Contentful vs Sanity) reversível via camada de serviço. Detalhe → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md) §6.
 
 ---
 
@@ -78,7 +78,7 @@
 - **Question:** CRM master vs DB local + sync?
 - **Resolved (2026-07-04):** **Supabase é master** do Cliente + atribuição de comissão; **HubSpot é downstream sincronizado** (Cliente→Contact, Registro→Deal). first-wins/dedup CPF, auditoria e gatilho de venda (`Casa.status=vendida`, D-016) avaliados no Supabase; HubSpot nunca decide comissão.
 
-### Q-018 — Capturar toda atenção / leads (multi-canal)
+### Q-018 — Capturar toda atenção / clientes (multi-canal)
 - **Module:** crm
 - **Status:** **resolved** → D-020 · Grilling #28
 - **Question:** Lista fechada de fontes day-one: form site, visita agendada, QR instantâneo, WhatsApp, corretor, walk-in, social? Propriedades HubSpot?

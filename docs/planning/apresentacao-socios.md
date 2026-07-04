@@ -17,7 +17,7 @@ A ForteGB constrói e vende casas em Campinas. Queremos **vender mais** com **me
 
 **Ideia central:**
 
-> **Preço único** para todos · Corretor **registra o prospecto antes** · ForteGB pode divulgar à vontade · **Comissão garantida** se o comprador era registrado.
+> **Preço único** para todos · Corretor **registra o cliente antes** · ForteGB pode divulgar à vontade · **Comissão garantida** se o comprador era registrado.
 
 **Valores:** transparência, confiança, proximidade — sem jogos (inclui aviso aos corretores na venda com dados do comprador).
 
@@ -74,7 +74,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  C[Corretor traz prospecto] --> M[Prospecto vê placa/site]
+  C[Corretor traz cliente] --> M[Cliente vê placa/site]
   M --> D[Contacta ForteGB direto]
   D --> X[Corretor perde comissão?]
   X --> F[Corretor esconde contatos]
@@ -93,23 +93,23 @@ flowchart LR
 
 1. **Preço unificado** — mesmo valor corretor ou direto  
 2. **Contrato por casa** — Gov.br; Juliana Mestrinier revisa modelo v0.1  
-3. **Registro de lead** — bot WhatsApp (nome + CPF) **antes** da visita  
+3. **Registro de Cliente** — bot WhatsApp (nome + CPF) **antes** da visita  
 4. **Comissão garantida** — se comprador era registrado  
 5. **Transparência na venda** — WhatsApp + PDF (nome + CPF comprador) a todos os corretores da casa  
 
-### Fluxo do lead
+### Fluxo do cliente
 
 ```mermaid
 sequenceDiagram
   participant Cor as Corretor
   participant Bot as WhatsApp ForteGB
-  participant P as Prospecto
+  participant P as Cliente
   participant FG as ForteGB
   Cor->>Bot: Nome + CPF
   Bot->>Cor: Confirmação + PDF
-  Note over P,FG: Prospecto vê marketing / visita
+  Note over P,FG: Cliente vê marketing / visita
   P->>FG: Contato ou visita
-  FG->>FG: Lead ligado ao corretor
+  FG->>FG: Cliente ligado ao corretor
   Note over FG,Cor: Venda → comissão se comprador registrado
 ```
 
@@ -117,8 +117,8 @@ sequenceDiagram
 
 | Regra | Detalhe |
 |-------|---------|
-| Registro **por casa** | Mesmo prospecto pode ser corretor numa casa e direto noutra |
-| Sem registro prévio | Lead **direto** ForteGB — sem comissão |
+| Registro **por casa** | Mesmo cliente pode ser corretor numa casa e direto noutra |
+| Sem registro prévio | Cliente **direto** ForteGB — sem comissão |
 | Validade | Até a **casa ser vendida** (sem prazo 30 dias) |
 | Informal | Ainda possível, mas **sem** garantias do portal |
 
@@ -136,7 +136,7 @@ Registro e-mail → apresentação + termos no site → **staff notificado em ca
 flowchart LR
   A[Reclamar casa] --> B[Gov.br]
   B --> C[Staff aprova]
-  C --> D[Leads + visitas]
+  C --> D[Clientes + visitas]
   D --> E[Outra casa?]
   E --> A
 ```

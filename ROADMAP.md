@@ -3,7 +3,6 @@
 ## Todo
 - [#1](https://github.com/fortegb/platform/issues/1) Epic: Architecture & MVP definition
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
-- [#28](https://github.com/fortegb/platform/issues/28) Grilling: Q-007 HubSpot source-of-truth + Q-018 lead sources (CRM)
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
@@ -16,6 +15,9 @@
 - [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
 - [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
 - [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
+
+## In Progress
+- [#28](https://github.com/fortegb/platform/issues/28) Grilling: Q-007 HubSpot source-of-truth + Q-018 fontes de cliente (CRM)
 
 ## Done
 - [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
@@ -89,7 +91,7 @@
 ## Todo
 - [#72](https://github.com/fortegb/platform/issues/72) Epic: Integrations MVP
 - [#73](https://github.com/fortegb/platform/issues/73) HubSpot service real (contacts, deals mínimo)
-- [#74](https://github.com/fortegb/platform/issues/74) Lead capture matrix (form, visitas, WhatsApp, corretor)
+- [#74](https://github.com/fortegb/platform/issues/74) Matriz de captura de clientes (form, visitas, WhatsApp, corretor)
 - [#75](https://github.com/fortegb/platform/issues/75) WhatsApp confirmações (template messages)
 - [#76](https://github.com/fortegb/platform/issues/76) Google Calendar eventos agendados
 - [#77](https://github.com/fortegb/platform/issues/77) Tuya write password (MVP path + fallback manual)
@@ -100,11 +102,11 @@
 - [#82](https://github.com/fortegb/platform/issues/82) Fluxo agendado end-to-end
 - [#83](https://github.com/fortegb/platform/issues/83) Fluxo instantâneo QR (se MVP)
 - [#84](https://github.com/fortegb/platform/issues/84) Integração com Integrations MVP
-- [#85](https://github.com/fortegb/platform/issues/85) Lead creation automática
+- [#85](https://github.com/fortegb/platform/issues/85) Criação automática de cliente
 - [#86](https://github.com/fortegb/platform/issues/86) Epic: Portal corretor + CRM
-- [#87](https://github.com/fortegb/platform/issues/87) Dashboard, leads, casas — dados reais
+- [#87](https://github.com/fortegb/platform/issues/87) Dashboard, clientes, casas — dados reais
 - [#88](https://github.com/fortegb/platform/issues/88) Corretor onboarding: termos/contrato (Q-016)
-- [#89](https://github.com/fortegb/platform/issues/89) Registro lead + proteção comissão
+- [#89](https://github.com/fortegb/platform/issues/89) Registro de cliente + proteção comissão
 - [#90](https://github.com/fortegb/platform/issues/90) Sync HubSpot
 - [#91](https://github.com/fortegb/platform/issues/91) Jornada corretor completa pós-login
 - [#92](https://github.com/fortegb/platform/issues/92) Epic: Release readiness
@@ -114,7 +116,7 @@
 - [#96](https://github.com/fortegb/platform/issues/96) LGPD copy + consent flows verificados
 - [#97](https://github.com/fortegb/platform/issues/97) Go/no-go para uso real limitado
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
-- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro prospecto corretor
+- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 
 # 3
 
@@ -138,7 +140,7 @@
 - [#114](https://github.com/fortegb/platform/issues/114) Calendário editorial operacional
 - [#115](https://github.com/fortegb/platform/issues/115) Templates IG/FB/TikTok publicáveis
 - [#116](https://github.com/fortegb/platform/issues/116) Pipeline publicação (manual ou semi-auto)
-- [#117](https://github.com/fortegb/platform/issues/117) Integração tráfego → site / leads
+- [#117](https://github.com/fortegb/platform/issues/117) Integração tráfego → site / clientes
 - [#118](https://github.com/fortegb/platform/issues/118) Epic: Portais admin / proprietário / cliente
 - [#119](https://github.com/fortegb/platform/issues/119) Definir escopo MVP admin (pós Architecture)
 - [#120](https://github.com/fortegb/platform/issues/120) Shell portal proprietário (se MVP)

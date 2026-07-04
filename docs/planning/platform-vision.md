@@ -12,9 +12,9 @@ Plataforma digital para operação real de construção e venda de imóveis em C
 **Pilares (visão confirmada):**
 
 1. **Website** — presença corporativa, UI alinhada à marca, portfólio, blog, ligação a conteúdo social.
-2. **Jornadas** — corretor (termos + prospectos/comissão); cliente (visitas autoguiadas); staff (admin TBD).
+2. **Jornadas** — corretor (termos + clientes/comissão); cliente (visitas autoguiadas); staff (admin TBD).
 3. **Backend** — visitas agendadas e instantâneas (QR), identidade, Tuya, CRM.
-4. **CRM** — capturar atenção/leads de website, mobile e outros canais.
+4. **CRM** — capturar atenção/clientes de website, mobile e outros canais.
 5. **Media kit impresso** por casa.
 6. **Mobile** — uso completo via celular (responsive v1; app nativo TBD).
 
