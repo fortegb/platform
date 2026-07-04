@@ -362,7 +362,7 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | Arquivo | Finalidade | Quando atualizar |
 | --- | --- | --- |
 | `AGENTS.md` (este arquivo) | Contexto do projeto, regras e convenções para IA | Ao mudar regras, stack, convenções ou diretrizes duradouras |
-| `STATUS.md` | **Bússola de sessão:** epics activos, próximo passo, foco Phase 0+ | Ao mudar foco ou concluir passo de epic |
+| `STATUS.md` | **Bússola de sessão:** epics ativos, próximo passo, foco Phase 0+ | Ao mudar foco ou concluir passo de epic |
 | `CHANGELOG.md` | Histórico do que foi feito (close-out de changes) | Ao concluir mudanças concretas (UI, código, docs) |
 | `docs/planning/` | Canon de design: visão, módulos, fases, perguntas, decisões, runbooks | Grilling, decisões de arquitetura, novos módulos (ex.: media kit) |
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
@@ -371,7 +371,6 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 - **Phase 0 — Fundação: COMPLETA.** org + board + OpenSpec + **Architecture epic (#1) fechado (#38)** → **Fase 1 build desbloqueada**. Ver **`docs/planning/README.md`** e **`STATUS.md`**.
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home) → **D-015..D-021**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-021); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
-- **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".
 

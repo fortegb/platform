@@ -14,6 +14,7 @@
 - **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) fechado** (#34/#35/#36/#38): checkpoint #36 = todas Q-* resolved/deferred; **Fase 0 completa → Fase 1 desbloqueada** (#48, #56). `platform-vision.md` + `agents.md §9` + `STATUS.md` atualizados.
 - **pt-BR estrito repo-wide** (correção de português europeu) + **terminologia unificada** `lead/prospecto → cliente` (docs + títulos de issues).
 - **Platform docs:** secção "Clientes e corretores" + v1/v2/v3 no Mapa de Fases e Relatório; ponteiro de fase (Fase 0 done → Fase 1). OpenSpec `grill-crm-source-of-truth` arquivado; `#33` (home) foi change **lightweight** (branch merged, sem artefato OpenSpec).
+- **Correções pós-auditoria:** linha duplicada em `agents.md` §9 (introduzida nesta sessão) removida; pt-PT `activos → ativos` em `agents.md` (straggler que a varredura excluíra); regra CHANGELOG reforçada no skill `rbo-close-change`.
 
 ### 2026-07-03 — Grilling 0: stances fundacionais + Q-004 ([#145](https://github.com/fortegb/platform/issues/145))
 
