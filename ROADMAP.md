@@ -6,7 +6,6 @@
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
-- [#33](https://github.com/fortegb/platform/issues/33) Escolha home com/sem hero (Q-010)
 - [#34](https://github.com/fortegb/platform/issues/34) Completar architecture.md
 - [#35](https://github.com/fortegb/platform/issues/35) MVP v1 vs later em platform-vision.md + decisions.md
 - [#36](https://github.com/fortegb/platform/issues/36) Checkpoint: Q-* resolved ou deferred
@@ -43,6 +42,7 @@
 - [#27](https://github.com/fortegb/platform/issues/27) Grilling 1: Q-003 user roles / MVP scope
 - [#28](https://github.com/fortegb/platform/issues/28) Grilling: Q-007 HubSpot source-of-truth + Q-018 fontes de cliente (CRM)
 - [#32](https://github.com/fortegb/platform/issues/32) Journey map + screen map MVP por role
+- [#33](https://github.com/fortegb/platform/issues/33) Escolha home com/sem hero (Q-010)
 - [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
 - [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
