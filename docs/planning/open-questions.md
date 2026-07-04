@@ -3,6 +3,8 @@
 > Backlog para **`rbo-grilling`** durante o epic **Architecture & MVP definition**.  
 > **Uma pergunta de cada vez.** Escolher a melhor solução no momento — nada de stack/arquitectura está fechado até aqui.
 
+> ✅ **Checkpoint #36 (2026-07-04): todas as Q-* estão `resolved` ou `deferred` — 0 abertas.** Epic Architecture pronto para fechar (#38) → desbloqueia Fase 1. Deferidos (tours v2, media kit v3, mobile) reabrem no grilling da sua fase.
+
 **Legenda:** `open` | `resolved` | `deferred`
 
 **Ordem sugerida (Q-014):** Q-003 → Q-016 → Q-004 → Q-007 → Q-018 → Q-005 → Q-006 → Q-017 → Q-013 → Q-009–Q-012 → Q-010 → Q-008/Q-019
@@ -23,14 +25,14 @@
 
 ### Q-003 — Quem são os user types no day one?
 - **Module:** auth, admin
-- **Status:** **partial** → [`company-structure.md`](./company-structure.md) §8 + [`architecture.md`](./architecture.md) §2
+- **Status:** **resolved** → papéis admin/staff/corretor/cliente (`company-structure.md` §6, `architecture.md` §2); RBAC no Identity epic (#48)
 - **Question:** Público, corretor, cliente, staff ForteGB, proprietário — quem no MVP?
 - **Resolved (2026-07-02):** Roles admin/staff/corretor/cliente; matriz telas em `company-structure.md` §6. Perm detail = admin vs staff only.
 - **Blocks:** Identity epic (RBAC implementation)
 
 ### Q-016 — Corretor: assinatura de termos/contrato
 - **Module:** crm, auth
-- **Status:** **partial** → [`corretor-contract-template.md`](./corretor-contract-template.md) v0.1
+- **Status:** **resolved** → contrato via Gov.br (MVP); build no onboarding corretor (#88)
 - **Question:** Corretor deve assinar contrato/termos com ForteGB antes do portal? Formato (checkbox auditável, PDF, e-sign)?
 - **Resolved (2026-07-02):** Contrato parceria via **assinatura Gov.br** (MVP); e-sign SaaS = longo prazo. PDF termo por registro de cliente (bot). Revisão Juliana Mestrinier.
 - **Onboarding:** conta self-service + **contrato por casa** (reclamar → Gov.br → staff); staff notificado em **todos** os passos; **qualquer staff** aprova; casas extra = novo contrato reutilizando dados.
@@ -53,18 +55,18 @@
 
 ### Q-005 — Verificação de identidade
 - **Module:** tours
-- **Status:** open
+- **Status:** **deferred** → v2 (tours) — grilling da fase (D-018)
 - **Question:** Face match client-side vs KYC SaaS vs aprovação manual staff?
 - **Related:** Falha na verificação — fila manual?
 
 ### Q-006 — MVP visitas: agendada, instantânea, fallback
 - **Module:** tours
-- **Status:** open
+- **Status:** **deferred** → v2 (tours) — grilling da fase (D-018)
 - **Question:** Ambos no MVP? Ordem? Fallback se Tuya falhar (senha manual, staff)?
 
 ### Q-017 — Acesso condomínio / portaria
 - **Module:** tours
-- **Status:** open
+- **Status:** **deferred** → v2 (tours/condomínio) — grilling da fase (D-018)
 - **Question:** Só fechadura Tuya na casa, ou integração portaria/condomínio / “AI authorization at gate”? MVP scope?
 - **Note:** Distinto de smart lock; pode ser out-of-scope v1.
 
@@ -91,12 +93,12 @@
 
 ### Q-008 — PWA ou app nativo (longo prazo)
 - **Module:** mobile
-- **Status:** open
+- **Status:** **deferred** → Fase 4 (mobile nativo/PWA) (D-018)
 - **Question:** App nativo necessário ou web responsive + QR suficiente?
 
 ### Q-019 — Mobile v1 (MVP)
 - **Module:** mobile, site
-- **Status:** open
+- **Status:** **resolved** → responsive web no v1 (D-018); reavaliar PWA/native Fase 4
 - **Question:** MVP = responsive web only (corretor + cliente no browser) — confirmar?
 - **Recommendation:** Sim para v1; reavaliar PWA/native Phase 4.
 
@@ -106,7 +108,7 @@
 
 ### Q-009 — Quem mantém timeline de construção?
 - **Module:** media-kit, admin
-- **Status:** open
+- **Status:** **deferred** → v3 (media kit) — grilling da fase (D-018)
 
 ### Q-010 — Quais variantes home = com/sem hero?
 - **Module:** site
@@ -116,15 +118,15 @@
 
 ### Q-011 — Media kit MVP: manual vs gerado?
 - **Module:** media-kit
-- **Status:** open
+- **Status:** **deferred** → v3 (media kit) — grilling da fase (D-018)
 
 ### Q-012 — Placa à venda: regras Campinas?
 - **Module:** media-kit
-- **Status:** open
+- **Status:** **deferred** → v3 (media kit) — grilling da fase (D-018)
 
 ### Q-013 — QR da placa → destino
 - **Module:** media-kit, tours
-- **Status:** open
+- **Status:** **deferred** → v3 (media kit) — grilling da fase (D-018)
 - **Recommendation:** Micro-página do imóvel + CTA visita instantânea
 
 ---
@@ -133,7 +135,7 @@
 
 ### Q-014 — Ordem das sessões grilling
 - **Module:** platform
-- **Status:** open
+- **Status:** **resolved** → ordem de grilling seguida; processo concluído
 - **Recommendation:** Ver ordem no topo deste arquivo
 
 ### Q-015 — CHANGELOG para docs-only
