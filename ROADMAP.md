@@ -82,6 +82,35 @@
 - [#69](https://github.com/fortegb/platform/issues/69) Master templates print (placa, poster)
 - [#70](https://github.com/fortegb/platform/issues/70) Documentar uso em AGENTS.md ou design doc
 - [#71](https://github.com/fortegb/platform/issues/71) Social templates alinhados
+- [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
+- [#147](https://github.com/fortegb/platform/issues/147) Ambientes: definir tiers local/staging/prod (propósito + regras)
+- [#148](https://github.com/fortegb/platform/issues/148) Ambientes: mapeamento branch → ambiente (main/staging/feat)
+- [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
+- [#150](https://github.com/fortegb/platform/issues/150) Ambientes: domínios por ambiente (prod/staging/preview)
+- [#151](https://github.com/fortegb/platform/issues/151) Dados: projetos Supabase por ambiente (staging/prod/local)
+- [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
+- [#153](https://github.com/fortegb/platform/issues/153) Dados: runbook Supabase local (Docker/OrbStack)
+- [#154](https://github.com/fortegb/platform/issues/154) Dados: seed/test data + LGPD (sem PII real fora de prod)
+- [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
+- [#156](https://github.com/fortegb/platform/issues/156) CMS: environments/datasets por ambiente
+- [#157](https://github.com/fortegb/platform/issues/157) CMS: modelo de conteúdo (casa, blog, timeline, media)
+- [#158](https://github.com/fortegb/platform/issues/158) Integrações: modelo 3-tiers (mock / staging safe-target / prod-live)
+- [#159](https://github.com/fortegb/platform/issues/159) Integrações: mapa por integração → tier + alvo de teste
+- [#160](https://github.com/fortegb/platform/issues/160) Integrações: alvos de teste seguros (fechadura, WhatsApp sandbox, HubSpot teste)
+- [#161](https://github.com/fortegb/platform/issues/161) Integrações: callbacks/webhooks por ambiente (URLs públicas, túneis)
+- [#162](https://github.com/fortegb/platform/issues/162) Config: inventário + convenção de nomes de env vars
+- [#163](https://github.com/fortegb/platform/issues/163) Config: modelo de scoping (Vercel Production/Preview + .env local)
+- [#164](https://github.com/fortegb/platform/issues/164) Config: gestão de secrets + política de acesso
+- [#165](https://github.com/fortegb/platform/issues/165) Config: .env.example + estrutura SETUP-CREDENTIALS
+- [#166](https://github.com/fortegb/platform/issues/166) CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
+- [#167](https://github.com/fortegb/platform/issues/167) CI/CD: pipeline de deploy (branch→Vercel)
+- [#168](https://github.com/fortegb/platform/issues/168) CI/CD: automação de migrações (aplicar on merge)
+- [#169](https://github.com/fortegb/platform/issues/169) CI/CD: processo de promoção/release (staging→main)
+- [#170](https://github.com/fortegb/platform/issues/170) Dev local: toolchain (Node, Docker/OrbStack, Supabase CLI, ngrok)
+- [#171](https://github.com/fortegb/platform/issues/171) Dev local: runbook de bootstrap
+- [#172](https://github.com/fortegb/platform/issues/172) Dev local: estratégia de mock de integrações
+
+## Done
 - [#144](https://github.com/fortegb/platform/issues/144) Explorar estratégia de ambientes (dev / tst / prd)
 
 # 2
