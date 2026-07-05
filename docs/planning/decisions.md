@@ -234,3 +234,30 @@
 - **Princípios já firmados (a formalizar nas folhas):** config env-var-scoped por ambiente; isolamento total por ambiente (Supabase project por env; CMS datasets); **integrações em 3 tiers** (mock local / staging safe-target / prod-live — nunca abrir porta real em teste); migrações como schema-as-code; secrets em scopes Vercel; dev local com Supabase (Docker/OrbStack).
 - **Reavaliação aberta:** **D-017 (serverless vs persistente)** revisita-se dentro de #146 (áreas D/F) — ver [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md) §8.
 - **Consequências:** corrige a mensagem prematura de "Fase 1 build desbloqueada"; #144 superseded por #146; ordem de trabalho = #146 antes do build.
+
+---
+
+### D-023 — Método do projeto como espinha de governança (2026-07-05)
+
+- **Contexto:** o projeto começou pela execução (scaffold, mocks, epics de build) e vinha preenchendo a definição por cima — origem do retrabalho. Faltava uma espinha explícita que ordenasse o trabalho e gateasse o build; o campo `Phase` (0–4) misturava estágio de ciclo de vida com pacote de entrega.
+- **Decisão:** adotar o **Método** ([`metodo.md`](./metodo.md)) — **9 passos em 3 estágios** — como estrutura **controladora**, não descritiva:
+  - **Definição** (1 Contexto · 2 Funcionalidades · 3 Componentes · 4 Arquitetura · 5 Jornadas/telas · 6 Design system · 7 Quebra em versões) · **Execução** (8 Build) · **Evolução** (9 Manutenção).
+  - Passos 1–6 fecham via **grilling**; tudo corre sob **change management** (`rbo-*` + OpenSpec).
+- **Gates:** **G1** (sequência da Definição; paralelos declarados são exceção) · **G2** (build só após toda a Definição/passos 1–7 fechada; gate ativo = 4–6; sinal = Milestone `v0` a 100%) · **G3** (versão N+1 após readiness de N).
+- **Enforcement:** doc + `rbo-create-change` (checa o gate antes de ramificar) + `STATUS.md` (próximo passo derivado). **Sem hard-gate por GitHub Action** por ora (dev solo; adiciona-se se houver pulo de gate). O board não bloqueia cliques — os gates controlam **estado visível**, não a transição.
+- **Rationale:** corrige a inversão de origem; o build passa a ser **dirigido pela definição**, não front-loaded (alinha a D-011, anti-BDUF). Cadência por **releases scope-boxed (Milestones)**, **não sprints** time-boxed — inadequadas a dev solo em rajadas; promoção de código é assunto de pipeline (#146).
+- **Consequências:** passos 5 e 6 **re-validam após o passo 4** (#146) — `jornadas-plataforma.md` e `screen-map.md` marcados rascunho. Build da Fase 1 gated por passos 4–6. O modelo de board que representa isto = **D-024**.
+
+---
+
+### D-024 — Modelo de board: Etapa + Milestones + tipos nativos (supersede Phase 0–4) (2026-07-05)
+
+- **Contexto:** o método (D-023) precisa ser **estrutural no board**, não em prosa/memória (fragilidade sinalizada: rastrear passo à mão é perigoso). O org já tem **tipos de issue nativos** (Task/Bug/Feature/Epic) e o campo **Milestone** nativo, ambos sem uso.
+- **Decisão:**
+  - **`Etapa`** — campo single-select com **9 opções** (`1 Contexto` … `9 Evolução`), **supersede `Phase`** (0–4). Todo item carrega uma. Os 3 estágios são **derivados** do passo, não um campo à parte.
+  - **`Milestone`** (nativo) — **`v0 Definição`** (agrupa Etapa 1–7; 100% = luz verde do G2) → **`v1`** → **`v2`** → **`v3`** (v1–v3 subdividem a Etapa 8).
+  - **Tipo** (nativo) — **Feature / Bug / Task / Epic** (opção A). Substitui a dependência do prefixo `Epic:`. `chore` fica só em commits (mapeia a Task).
+  - **Atribuição de versão = passo 7:** epic de Execução **sem Milestone** = fila; DoD do passo 7 = "todo epic de Execução tem Milestone" (nada esquecido — ex.: #122 SEO, #126 LGPD, #130 mobile ficam para o passo 7).
+- **Rationale:** um campo estrutural queryable torna o relatório verídico e remove o eixo duplicado (Phase 1–3 ≈ v1/v2/v3). Entidades nativas do GitHub em vez de stand-ins custom. `v0` é levemente derivável de Etapa 1–7 mas ganha lugar pela **barra de progresso nativa** + evento "milestone fechado".
+- **Rejeitado:** campo de 3 macro-estágios + passo no corpo da issue (perde a granularidade por passo, que é onde se passa a maior parte do tempo, e volta a ser dirigido à mão); renomear org Task→Chore (config extra por ganho cosmético).
+- **Consequências:** **este change não migra o board** — só define o modelo. A criação de campos/Milestones/tipos e o retag de ~171 itens são **migração A** (Etapa + tipos + `v0` + 2 epics novos + overhaul do relatório) e **migração B** (Milestones v1/v2/v3 + retag Execução, perto do passo 7). O `Phase` fica intocado até a migração A (board nunca meio-definido).

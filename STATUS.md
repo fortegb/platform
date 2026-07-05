@@ -2,21 +2,23 @@
 
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
-> **Decisões técnicas:** fechadas (D-015..D-022); itens `deferred` reabrem no grilling da fase.
+> **Espinha:** [`metodo.md`](./docs/planning/metodo.md) — 9 passos, gates G1/G2/G3.  
+> **Decisões técnicas:** fechadas (D-015..D-024); itens `deferred` reabrem no grilling da fase.
 
 ---
 
-## Fase atual
+## Passo atual (Método)
 
-**Fase 0 — Fundação (produto/stack) concluída. Build da Fase 1 GATED por definição de arquitetura (#146).**
+**Passo 4 — Arquitetura. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar.**
 
 ```
-✅ Seed planning · org migration · bootstrap board · OpenSpec
-✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home) → D-015..D-021 · Epic Architecture #1 DONE
-⚠️ #1 cobriu produto/stack — a arquitetura de infra/ambientes/integrações NÃO estava definida
-→ EM CURSO: Epic **#146** — Arquitetura da solução & ambientes (definição completa, 26 folhas #147-172)
-→ #146 **precede** o build da Fase 1 (#48/#56) — build gated até definição pronta
+✅ Passos 1–3 (Contexto · Funcionalidades · Componentes) — produto/stack, D-015..D-021
+✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home), método (#173) → D-015..D-024
+→ EM CURSO passo 4: Epic **#146** — Arquitetura da solução & ambientes (26 folhas #147-172)
+→ ∥ paralelo: passos 1–2 (validação de contexto/funcionalidades)
+→ DEPOIS: passo 5 (jornadas re-validação) · passo 6 (design) → G2 abre (v0 a 100%) → build
 → PRÓXIMO: começar #146 em A1 (#147) via rbo-create-change
+⚠️ Migração do board (Etapa/Milestones/tipos, D-024) pendente — próxima após #173
 ```
 
 ---
@@ -52,7 +54,7 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 - [x] Grilling #145 (fundacional), #28 (CRM Q-007/Q-018), #33 (home Q-010) — todos fechados
 - [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia **lead/prospecto → cliente concluída** (planning + README + SETUP)
 - [x] Checkpoint #36 → Epic Architecture #1 fechado; **depois**: reconhecido que infra/ambientes/integrações não estavam definidos → criado Epic **#146** (26 folhas)
-- [x] Convenção de dependências (`Depends on: #X`); reavaliação D-017 registada (explore §8)
+- [x] Convenção de dependências (`Depends on: #X`); reavaliação D-017 registrada (explore §8)
 
 ## Próxima sessão (aguardando comando)
 
