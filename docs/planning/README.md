@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **Fase 0 execução concluída** — próximo: epic Architecture (grilling).
+> Canon de design e sequenciamento. **Fase 0 (produto/stack) concluída** — próximo: Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), definição de infra/ambientes/integrações), que precede o build.
 
 ---
 
@@ -11,9 +11,9 @@
 | 1 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
 | 2 | GitHub org migration Fase A | [`github-org-migration.md`](./github-org-migration.md) |
 | 3 | Bootstrap board + OpenSpec | [`workflow.md`](./workflow.md) |
-| 4 | **`rbo-grilling`** (Q-003 primeiro) | [`open-questions.md`](./open-questions.md) |
+| 4 | **`rbo-create-change`** no Epic #146 (Arquitetura da solução & ambientes) | [`decisions.md`](./decisions.md) |
 
-**Grilling:** decisões arquitecturais **abertas** até epic Architecture (D-011). Escolher melhor solução em cada sessão.
+**Decisões de produto/stack fechadas** (D-015..D-022). O que resta é `deferred` (tours/media/mobile) e a **definição de infra/ambientes** (#146). O histórico de grilling está em [`open-questions.md`](./open-questions.md).
 
 **Documentação da plataforma:** HTML estático em [`../`](../index.html) no GitHub Pages ([fortegb.github.io/platform](https://fortegb.github.io/platform/)) — planejamento para sócios; **não** é o produto Nuxt nem portais logados (corretor/staff). **Todo o conteúdo sócios = pt-BR.**
 
@@ -40,11 +40,11 @@
 | [corretor-contract-template.md](./corretor-contract-template.md) | Rascunho contrato corretor (v0.1) |
 | [corretor-contract.html](./corretor-contract.html) | Contrato v0.1 — HTML (gerado) |
 | [deliverables.md](./deliverables.md) | **Mapa produto ↔ epics** (checklist negócio) |
-| [platform-vision.md](./platform-vision.md) | Visão + stack proposta |
-| [architecture.md](./architecture.md) | Template ADR (preencher na grilling) |
+| [platform-vision.md](./platform-vision.md) | Visão + stack **confirmada** (D-015..D-022) |
+| [architecture.md](./architecture.md) | Arquitetura & MVP — **preenchido** (D-015..D-022) |
 | [phases.md](./phases.md) | Epics + sub-tarefas Fases 0–4 |
-| [open-questions.md](./open-questions.md) | Backlog grilling (Q-001–Q-019) |
-| [decisions.md](./decisions.md) | Decisões fechadas (D-001–D-011) |
+| [open-questions.md](./open-questions.md) | Backlog grilling (Q-001–Q-019) — **resolved/deferred** |
+| [decisions.md](./decisions.md) | Decisões fechadas (D-001–**D-022**) |
 | [workflow.md](./workflow.md) | Board, OpenSpec, session open/close |
 | [github-org-migration.md](./github-org-migration.md) | Runbook org + dotfiles |
 | [setup-mac-mini.md](../setup-mac-mini.md) | Checklist Mac Mini pós-migração |

@@ -184,7 +184,7 @@ flowchart LR
 | 1 | Reunião de validação (esta apresentação) | Trio |
 | 2 | Juliana revisa contrato v0.1 | Ricardo + Juliana |
 | 3 | Piloto: 1 corretor + 1 casa | ForteGB |
-| 4 | Continuar arquitectura (CMS, integrações) | Ricardo (+ Felipe opcional) |
+| 4 | Definir arquitetura de infra/ambientes/integrações (Epic #146) antes do build | Ricardo (+ Felipe opcional) |
 
 ---
 

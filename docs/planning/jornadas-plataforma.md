@@ -21,7 +21,7 @@ A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataf
 | **Media kit** | Por casa: placa com QR, posters internos, narrativa de obra, kit para corretor |
 | **Mobile** | Tudo utilizável no celular (responsive; app nativo só se decidirmos depois) |
 
-Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-vision.md`](./platform-vision.md) — **proposta**, não contrato fechado.
+Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-vision.md`](./platform-vision.md) — **confirmadas** (D-015..D-022); a arquitetura de infra/ambientes/integrações é definida no Epic [#146](https://github.com/fortegb/platform/issues/146).
 
 ---
 

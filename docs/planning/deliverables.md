@@ -1,7 +1,7 @@
 # Deliverables — mapa produto ↔ plano
 
-> Visão de negócio (confirmada) mapeada para epics. **Decisões técnicas abertas** até epic Architecture (`open-questions.md`).  
-> Stack em `platform-vision.md` = **proposta**, não fechada.
+> Visão de negócio (confirmada) mapeada para epics. **Decisões técnicas de produto/stack fechadas** (D-015..D-022); o que resta é `deferred` (tours/media/mobile) ou a definição de infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)).  
+> Stack **confirmada** em `platform-vision.md`.
 
 ---
 
@@ -45,7 +45,7 @@
 | Lembretes / follow-up pós-visita | P2 Visitas ([#141](https://github.com/fortegb/platform/issues/141)) + Integrations/CRM | Ships with Visitas MVP |
 | Aprovação manual se ID falhar | P2 Integrations ([#80](https://github.com/fortegb/platform/issues/80)) | Visitor visit queue; Q-005 |
 
-*Todas as escolhas de implementação ficam abertas até grilling.*
+*Escolhas de produto/stack **fechadas** (D-015..D-022); mecânica de tours/media/mobile **diferida** para o grilling da fase.*
 
 ---
 
@@ -80,7 +80,7 @@
 | Site usable on phone (responsive) | P1 Public site UI | Q-008, Q-019 |
 | App nativo / PWA instalável | Phase 4 (default) | Q-008, Q-019 |
 
-**Default proposto para grilling:** MVP = **web responsive**; native/PWA só se decisão explícita.
+**Resolvido (Q-019):** v1 = **web responsive**; PWA/native reavaliado na Fase 4.
 
 ---
 

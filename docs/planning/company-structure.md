@@ -273,7 +273,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 
 **Requisito de produto/process:** o modelo (portal, CRM, contratos, registro de clientes) tem de **proteger comissão do corretor** quando ele trouxe o cliente — sem impedir ForteGB de marketar abertamente.
 
-*(Solução proposta — próximo passo.)*
+*(Solução acordada — regras fechadas abaixo; modelo de dados em `decisions.md` D-019/D-020.)*
 
 ### Proposta ForteGB (rascunho acordado)
 
