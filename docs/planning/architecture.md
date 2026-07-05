@@ -199,6 +199,7 @@ flowchart TB
 ## 7. Non-functional
 
 > **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
+> **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes local/staging/prod, isolamento por ambiente, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
 
 | Topic | Decision |
 |-------|----------|

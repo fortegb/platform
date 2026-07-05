@@ -8,14 +8,15 @@
 
 ## Fase atual
 
-**Fase 0 — Fundação: COMPLETA.** Epic Architecture (#1) fechado → **Fase 1 build DESBLOQUEADA.**
+**Fase 0 — Fundação (produto/stack) concluída. Build da Fase 1 GATED por definição de arquitetura (#146).**
 
 ```
 ✅ Seed planning · org migration · bootstrap board · OpenSpec
-✅ Board hygiene #139 + screen map #32 + Platform docs publicados
-✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home) → D-015..D-021
-✅ Checkpoint #36: todas Q-* resolved/deferred · Epic Architecture #1 DONE (#38)
-→ PRÓXIMO (aguardando comando): Fase 1 build — Identity/papéis (#48), Public site UI (#56)
+✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home) → D-015..D-021 · Epic Architecture #1 DONE
+⚠️ #1 cobriu produto/stack — a arquitetura de infra/ambientes/integrações NÃO estava definida
+→ EM CURSO: Epic **#146** — Arquitetura da solução & ambientes (definição completa, 26 folhas #147-172)
+→ #146 **precede** o build da Fase 1 (#48/#56) — build gated até definição pronta
+→ PRÓXIMO: começar #146 em A1 (#147) via rbo-create-change
 ```
 
 ---
@@ -30,7 +31,7 @@
 | Architecture & MVP definition | **Done** | Fechado (#38) — D-015..D-021; todas Q-* resolved/deferred |
 | Brand assets upload | **Todo** | Paralelo — AGENTS.md §7 |
 
-Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); **build desbloqueado**. Ver [`deliverables.md`](./docs/planning/deliverables.md).
+Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issues/37)); **build gated por #146** (definição de arquitetura da solução & ambientes). Ver [`deliverables.md`](./docs/planning/deliverables.md).
 
 ---
 
@@ -50,11 +51,13 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 
 - [x] Grilling #145 (fundacional), #28 (CRM Q-007/Q-018), #33 (home Q-010) — todos fechados
 - [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia **lead/prospecto → cliente concluída** (planning + README + SETUP)
-- [x] Checkpoint #36 (0 Q abertas) → **Epic Architecture #1 fechado (#38)** — Fase 1 desbloqueada
+- [x] Checkpoint #36 → Epic Architecture #1 fechado; **depois**: reconhecido que infra/ambientes/integrações não estavam definidos → criado Epic **#146** (26 folhas)
+- [x] Convenção de dependências (`Depends on: #X`); reavaliação D-017 registada (explore §8)
 
 ## Próxima sessão (aguardando comando)
 
-- [ ] **Fase 1 build** — Identity/papéis (#48), Public site UI (#56) — código, não grilling
+- [ ] **#146 — Arquitetura da solução & ambientes** (começar A1/#147); **precede** o build
+- [ ] Build da Fase 1 (Identity #48, Public site #56) **só após #146**
 - [ ] (paralelo) Brand assets upload (#2)
 
 ---

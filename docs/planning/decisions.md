@@ -224,3 +224,13 @@
   - **Renomear variantes por estilo** (não por número, para não colidir com o release v1/v2/v3): rotas `/` (default, `HeroSplit`), `/classico` (`HeroClassic`), `/slate` (`HeroSlate`, ex-`HeroV3`), `/azul` (`HeroAzul`, ex-`HeroV4`). Rotas de variante seguem `noindex`.
   - **Escolha do hero diferida ao lançamento** — sem roadblock: o hero é componente trocável; todo o resto do site é construído independentemente. Default de produção = `/` (HeroSplit). A escolha final vive sob **Public site UI (#56)**.
 - **Consequências:** Q-010 sai como **bloqueador** do epic Architecture (#38); a decisão visual fica para quando houver os assets de marca. Sem "2 vencedores com/sem hero" — todas as variantes têm hero; a distinção é de estilo.
+
+---
+
+### D-022 — Definição de arquitetura estendida ao full-solution (infra/ambientes) via epic #146 (2026-07-04)
+
+- **Contexto:** O epic Architecture (#1) foi fechado cobrindo **produto/stack** (D-015..D-021), mas **não** definiu em profundidade a arquitetura de **infra, ambientes (local/staging/prod) e integrações**. Ao explorar ambientes (#144), ficou claro que decidir isto só no v1 arriscava armadilhas para v2, e que a complexidade (multi-ambiente × múltiplas integrações) precisa de desenho deliberado.
+- **Decisão:** Definir a arquitetura da **solução completa** à frente, num epic dedicado **#146 — Arquitetura da solução & ambientes (definição completa)** — 26 folhas (A Ambientes · B Dados · C CMS · D Integrações · E Config/secrets · F CI-CD · G Dev local). Output = docs + decisões + **templates de config**. **Adoção incremental** pelos epics de build; **#146 precede/gate o build da Fase 1** (#48/#56).
+- **Princípios já firmados (a formalizar nas folhas):** config env-var-scoped por ambiente; isolamento total por ambiente (Supabase project por env; CMS datasets); **integrações em 3 tiers** (mock local / staging safe-target / prod-live — nunca abrir porta real em teste); migrações como schema-as-code; secrets em scopes Vercel; dev local com Supabase (Docker/OrbStack).
+- **Reavaliação aberta:** **D-017 (serverless vs persistente)** revisita-se dentro de #146 (áreas D/F) — ver [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md) §8.
+- **Consequências:** corrige a mensagem prematura de "Fase 1 build desbloqueada"; #144 superseded por #146; ordem de trabalho = #146 antes do build.

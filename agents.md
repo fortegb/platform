@@ -373,7 +373,7 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 - `STATUS.md` "próximo passo" = ponteiro legível no topo; a fonte de verdade é o board + as linhas `Depends on:`.
 
 ### Estágio atual
-- **Phase 0 — Fundação: COMPLETA.** org + board + OpenSpec + **Architecture epic (#1) fechado (#38)** → **Fase 1 build desbloqueada**. Ver **`docs/planning/README.md`** e **`STATUS.md`**.
+- **Phase 0 (produto/stack) concluída** — org + board + OpenSpec + Architecture epic (#1) fechado. **Mas #1 cobriu produto/stack, não infra/ambientes/integrações** → Epic **#146** (Arquitetura da solução & ambientes, 26 folhas) faz essa definição e **precede o build da Fase 1** (#48/#56). Ver **`STATUS.md`**.
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home) → **D-015..D-021**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-021); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.

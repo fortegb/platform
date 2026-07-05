@@ -62,6 +62,6 @@ Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 
 ## Próximo passo operacional
 
-**Phase 0 concluída** (org, board, OpenSpec, Architecture). Epic Architecture pronto para fechar (#38) → **desbloqueia Fase 1** (Identity #48, Public site #56).
+**Phase 0 (produto/stack) concluída** (org, board, OpenSpec, Architecture #1). **Próximo: Epic #146 — Arquitetura da solução & ambientes (definição completa de infra/ambientes/integrações)**, que **precede** o build da Fase 1 (Identity #48, Public site #56).
 
 Ver [`STATUS.md`](../../STATUS.md).

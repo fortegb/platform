@@ -133,12 +133,17 @@
       o modelo de dados e os identificadores, os papéis de usuário, onde fica cada conteúdo, a forma de ligar integrações e a fila de tarefas.
     </p>
 
+    <h2>Em definição agora — antes do build</h2>
+    <p>
+      Antes de começar a construir, estamos a <strong>definir a arquitetura técnica completa</strong> — os <strong>ambientes de teste e produção</strong> e como cada serviço (base de dados, conteúdo, integrações) se separa entre eles, para construir certo desde o início (Epic #146). Inclui a regra de segurança: <strong>em teste nunca se abre uma porta real nem se envia mensagem a um cliente real</strong> — usam-se alvos de teste.
+    </p>
+
     <h2>O que ainda fica em aberto</h2>
     <ul>
-      <li>Escolha final da ferramenta de conteúdo (Contentful vs Sanity) — reversível, decidimos ao construir.</li>
-      <li>HubSpot como “fonte da verdade” dos clientes (Q-007) — próxima decisão de CRM.</li>
-      <li>Mecânica das visitas, identidade e media kit — nos grillings das respetivas fases.</li>
+      <li>Escolha final da ferramenta de conteúdo (Contentful vs Sanity) — reversível.</li>
+      <li>Mecânica das visitas, identidade e media kit — nos grillings das respetivas fases (v2/v3).</li>
       <li>Custos a confirmar: mensagens de WhatsApp (pagas por mensagem) e cotas da Tuya.</li>
+      <li>Modelo de execução (serverless vs servidor sempre-ligado) — em reavaliação dentro do #146.</li>
     </ul>
   </main>
 

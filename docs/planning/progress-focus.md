@@ -8,8 +8,8 @@
 
 ## Trabalhando no momento
 
-- **Fase 0 concluída.** Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) **fechado** — stack e MVP definidos.
-- **Aguardando comando** para iniciar a **Fase 1 (build)** — identidade e site público.
+- **Fase 0 (produto/stack) concluída.** Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) fechado — stack e MVP definidos.
+- **Em curso: definição de arquitetura da solução & ambientes** (Epic [#146](https://github.com/fortegb/platform/issues/146), 26 sub-tarefas) — infra, ambientes (staging/prod), integrações. **Precede o build.**
 
 ## Concluído recentemente
 
@@ -18,13 +18,13 @@
 
 ## Próximo passo
 
-1. **Identidade, papéis e roteamento** ([#48](https://github.com/fortegb/platform/issues/48)) — base de login para todos os papéis.
-2. **Site público — finalização de UI** ([#56](https://github.com/fortegb/platform/issues/56)).
+1. **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)) — definir ambientes, dados, CMS, integrações, config, CI/CD, dev local (26 sub-tarefas, começar em A1/#147).
+2. **Depois:** build da Fase 1 — Identidade ([#48](https://github.com/fortegb/platform/issues/48)), Site público ([#56](https://github.com/fortegb/platform/issues/56)).
 3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo — depende de logos/marca.
 
 ## Notas para sócios
 
-- **Fase 0 (fundação + definição) está completa** — org, board, planning e toda a arquitetura decidida.
-- A partir de agora começa o **build da Fase 1**: primeiro o login/papéis, depois o site público real.
+- **Fundação e decisões de produto/stack estão completas.** Antes do build, estamos a **definir a arquitetura técnica completa** (ambientes de teste/produção, dados, integrações) — para construir certo desde o início.
+- **Depois dessa definição**, começa o build: primeiro login/papéis, depois o site público real.
 - **Como a plataforma será construída** (em linguagem simples): [`arquitetura-decisoes.html`](./arquitetura-decisoes.html).
 - Decisões de negócio (corretor, comissão, Gov.br) em [`company-structure.md`](./company-structure.md) e [`apresentacao-socios.html`](./apresentacao-socios.html).
