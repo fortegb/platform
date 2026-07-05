@@ -367,6 +367,11 @@ Este projeto mantém **três arquivos de controle** na raiz. Agentes de IA devem
 | `docs/planning/` | Canon de design: visão, módulos, fases, perguntas, decisões, runbooks | Grilling, decisões de arquitetura, novos módulos (ex.: media kit) |
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
+### Ordem de trabalho (dependências)
+- **Ordem = Fase + dependências**, **não** o número da issue (número = ordem de criação).
+- Dependências registadas no **corpo da issue** com linha `**Depends on:** #X` (o "blocked by" nativo do GitHub não é scriptável via `gh`). **"Próximo" = issues `Todo` da fase atual sem `Depends on:` por fechar.**
+- `STATUS.md` "próximo passo" = ponteiro legível no topo; a fonte de verdade é o board + as linhas `Depends on:`.
+
 ### Estágio atual
 - **Phase 0 — Fundação: COMPLETA.** org + board + OpenSpec + **Architecture epic (#1) fechado (#38)** → **Fase 1 build desbloqueada**. Ver **`docs/planning/README.md`** e **`STATUS.md`**.
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home) → **D-015..D-021**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
