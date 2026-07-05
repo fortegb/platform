@@ -10,7 +10,7 @@
 
 ## Phase 0 — Fundação (planning + infra)
 
-**Objetivo:** org GitHub, workflow formal, **arquitectura validada**, MVP definido.
+**Objetivo:** org GitHub, workflow formal, **arquitetura validada**, MVP definido.
 
 **Ordem Phase 0 (dependências):**
 
@@ -27,7 +27,8 @@ Seed docs/planning (✅)
 | 1 | **Seed docs/planning** | [#4](https://github.com/fortegb/platform/issues/4) | platform | ✅ Done (2026-07-01) | — |
 | 2 | **GitHub org migration** | [#8](https://github.com/fortegb/platform/issues/8) | platform | ✅ Done (2026-07-01) | — |
 | 3 | **Bootstrap board & OpenSpec** | [#20](https://github.com/fortegb/platform/issues/20) | platform | ✅ Done (2026-07-01) | — |
-| 4 | **Architecture & MVP definition** | [#1](https://github.com/fortegb/platform/issues/1) | platform | Todo | — |
+| 4 | **Architecture & MVP definition** (produto/stack) | [#1](https://github.com/fortegb/platform/issues/1) | platform | ✅ Done | — |
+| 4b | **Arquitetura da solução & ambientes** (infra/env/integrações) | [#146](https://github.com/fortegb/platform/issues/146) | platform | Todo | precede build |
 | 5 | **Brand assets upload** | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo) |
 
 | Epic | Doc / runbook |
@@ -60,23 +61,19 @@ Seed docs/planning (✅)
 5. [x] Gerar `ROADMAP.md` pela primeira vez ([#25](https://github.com/fortegb/platform/issues/25))
 6. [x] Atualizar `STATUS.md` com números de issues ([#26](https://github.com/fortegb/platform/issues/26))
 
-### Epic: Architecture & MVP definition ([#1](https://github.com/fortegb/platform/issues/1)) — sub-tarefas
+### Epic: Architecture & MVP definition ([#1](https://github.com/fortegb/platform/issues/1)) — ✅ Done (produto/stack)
 
-> **Define only** — grilling + docs. **Implement** roles/UI/integrations in Phase 1+ epics.  
-> Uses **`rbo-grilling`**. Deliverable: [`architecture.md`](./architecture.md) completo.
+> Produto/stack definidos via **`rbo-grilling`**. Deliverables: [`architecture.md`](./architecture.md) + [`decisions.md`](./decisions.md) **D-015..D-021**.
 
-1. [ ] Sessão grilling 1: Q-003 user roles / MVP scope
-2. [ ] Sessão grilling 2: Q-004 CMS vs DB (+ Q-007 HubSpot truth)
-3. [ ] Sessão grilling 3: Q-005, Q-006 visitas
-4. [ ] Sessão grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
-5. [ ] Sessão grilling 5: Q-008 mobile (se ainda aberto)
-6. [x] **Journey map + screen map MVP** → `architecture.md` §3 + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32))
-7. [ ] Escolha home com/sem hero (Q-010) → `architecture.md` + D-005
-8. [ ] Completar `architecture.md` (contexto, dados, fluxos, NFR)
-9. [ ] MVP v1 vs later em `platform-vision.md` + `decisions.md`
-10. [ ] Checkpoint: Q-* **resolved** ou **deferred**
-11. [x] Criar epics **Phase 1–4** no board ([#37](https://github.com/fortegb/platform/issues/37))
-12. [ ] Epic **Done** → Phase 1 desbloqueada
+1. [x] Grilling fundacional — constraints, build-vs-buy, **Q-004** (CMS + Supabase), system shape (serverless), MVP v1/v2/v3 → D-015..D-018
+2. [x] Grilling CRM — **Q-007** (Supabase master + HubSpot sync) + **Q-018** (fontes de cliente) → D-019/D-020
+3. [x] Grilling home — **Q-010** → D-021 (variantes por estilo; escolha do hero **diferida ao lançamento**)
+4. [x] Journey map + screen map MVP → `architecture.md` §3 + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32))
+5. [x] `architecture.md` completo · MVP v1/v2/v3 (D-018) em `platform-vision.md`
+6. [x] Checkpoint: todas Q-* **resolved** ou **deferred** (tours/media/mobile diferidos para a sua fase)
+7. [x] Epics Phase 1–4 criados no board ([#37](https://github.com/fortegb/platform/issues/37))
+
+> **#1 cobriu produto/stack.** A arquitetura de **infra/ambientes/integrações** é definida no Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), D-022) — que **precede o build da Fase 1**.
 
 ### Epic: Brand assets upload ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
 
@@ -90,13 +87,13 @@ Seed docs/planning (✅)
 
 **Objetivo:** ambientes estáveis, identidade & routing, site público finalizado, design system.
 
-Epics (**criar no board após Architecture**):
+Epics **já criados no board**. **Build gated por [#146](https://github.com/fortegb/platform/issues/146)** (Arquitetura da solução & ambientes).
 
 | Epic | Module | Depende de |
 |------|--------|------------|
-| **Platform environments** | platform | Architecture |
-| **Identity, roles & journey routing** | auth | Architecture, Platform environments |
-| **Public site UI finalization** | site | Architecture, Brand assets (ideal) |
+| **Platform environments** | platform | #146 (definição) |
+| **Identity, roles & journey routing** | auth | #146, Platform environments |
+| **Public site UI finalization** | site | #146, Brand assets (ideal) |
 | **Brand & design system** | branding | Brand assets |
 
 > **Removido como epics separados:** “Autenticação e papéis”, “Consolidação home”, “Portfólio + blog” — absorvidos abaixo.
@@ -123,9 +120,9 @@ Epics (**criar no board após Architecture**):
 
 ### Epic: Public site UI finalization — sub-tarefas
 
-> Inclui **2 vencedores home** (D-005, Q-010). Site institucional “pronto para uso”.
+> Home: variantes por **estilo** (`/`, `/classico`, `/slate`, `/azul`); **escolha do hero diferida ao lançamento** (Q-010 → D-021). Site institucional “pronto para uso”.
 
-1. [ ] Consolidar home **com hero** + **sem hero**; remover variantes não escolhidas
+1. [ ] Escolher o hero de produção (Q-010 diferido, D-021) e remover variantes não escolhidas
 2. [ ] Portfólio lista + detalhe (layout final; **filtros/busca** se MVP)
 3. [ ] Sobre, Blog, Contato — polish + copy
 4. [ ] Blocos **blog / redes sociais** (homepage, portfólio, footer) para tráfego
@@ -149,7 +146,7 @@ Epics (**criar no board após Architecture**):
 
 | Epic | Module | Notas |
 |------|--------|-------|
-| **Integrations MVP** | platform | Hub hub antes de features |
+| **Integrations MVP** | platform | Hub central antes de features |
 | **Visitas autoguiadas MVP** | tours | Consome integrations |
 | **Portal corretor + CRM** | crm | Consome integrations; features corretor |
 | **Release readiness** | platform | UAT, cross-browser, checklist pré-lançamento |
@@ -234,7 +231,7 @@ Epics (**criar no board após Architecture**):
 | Screen map | [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32)) | **Identity…** (P1) shells; features P2+ |
 | Journey features corretor | §5 | **Portal corretor** (P2) |
 | Journey visitante | §5 | **Visitas MVP** (P2) |
-| Home 2 vencedores | Q-010 | **Public site UI finalization** (P1) |
+| Home (hero — escolha diferida) | Q-010 → D-021 | **Public site UI finalization** (P1) |
 | Site público completo | MVP scope | **Public site UI finalization** (P1) |
 | Integrações | §3–4 | **Integrations MVP** (P2) |
 | Media kit / placa / QR | Q-009–Q-013 | **Media kit** + **Physical-digital** (P3) |
@@ -244,8 +241,7 @@ Epics (**criar no board após Architecture**):
 
 ## O que NÃO fazer ainda
 
-- Phase 1 build antes de Architecture **Done**
+- Phase 1 build antes de **#146 (Arquitetura da solução & ambientes)** pronto
 - OpenSpec em epics (só em sub-issues folha)
-- Remover variantes home sem Q-010 resolvido
+- Remover variantes home antes da escolha do hero (Q-010 diferido ao lançamento, D-021)
 - Integrações production antes de **Integrations MVP** scoped
-- Duplicar epic “Home 2 vencedores” em Phase 0 — folded into **Public site UI** (P1)
