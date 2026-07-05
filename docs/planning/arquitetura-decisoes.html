@@ -31,9 +31,9 @@
 
   <main class="container doc-body">
     <p class="notice-inline">
-      <strong>Resumo das decisões do epic Architecture (grillings #145, #28, #33 — jul/2026).</strong>
-      Detalhe técnico: <code>docs/planning/architecture.md</code> e <code>docs/planning/decisions.md</code> (D-015 a D-021).
-      Comparação completa de infraestrutura: <a href="./runtime-serverless-vs-persistent.html">serverless vs persistente</a>.
+      <strong>Resumo das decisões de arquitetura de produto e stack (jul/2026).</strong>
+      A <strong>arquitetura de infra e ambientes</strong> (teste/produção, integrações) está sendo definida a seguir — ver <em>“Definir tudo agora, construir aos poucos”</em>.
+      Detalhe técnico: <code>docs/planning/architecture.md</code> e <code>docs/planning/decisions.md</code> (D-015 a D-022).
     </p>
 
     <h2>A ideia em uma frase</h2>
@@ -57,7 +57,7 @@
       de <strong>dados operacionais e sensíveis</strong> (o que faz a plataforma funcionar e o que a lei protege):
     </p>
     <table>
-      <thead><tr><th>Tipo</th><th>Onde vive</th><th>Porquê</th></tr></thead>
+      <thead><tr><th>Tipo</th><th>Onde vive</th><th>Motivo</th></tr></thead>
       <tbody>
         <tr><td>Fotos, plantas, descrições, blog, timeline da obra</td><td><strong>CMS</strong> (ferramenta de conteúdo)</td><td>Editar com facilidade, do computador ou do celular, sem programar</td></tr>
         <tr><td>Estado da casa (disponível/reservada/vendida), clientes, visitas, verificações</td><td><strong>Supabase</strong> (base de dados)</td><td>É o que a plataforma consulta e move; muda com a venda, não com a edição</td></tr>
@@ -91,9 +91,12 @@
       Tarefas com atraso (lembretes, expiração de senha) e reenvios usam um serviço auxiliar gratuito (QStash).
     </p>
     <p>
-      Avaliámos também a alternativa (<strong>um servidor sempre ligado</strong>) — mais “tradicional” e elegante para
-      automação — mas <em>grátis + sempre ligado + sem operação</em> não coexistem. Ficou documentada, caso um dia compense mudar.
+      Avaliamos também a alternativa (<strong>um servidor sempre ligado</strong>) — mais “tradicional” e elegante para
+      automação — mas <em>grátis + sempre ligado + sem operação</em> não coexistem.
       <a href="./runtime-serverless-vs-persistent.html">Ver a comparação completa das duas opções →</a>
+    </p>
+    <p>
+      <em>Esta escolha está sendo <strong>reconfirmada</strong> na definição de arquitetura em curso</em> — a separação teste/produção e as integrações podem pesar na decisão final.
     </p>
     <p>
       Construímos <strong>“API-first”</strong>: o site é o primeiro cliente, mas a mesma base serve, no futuro,
@@ -126,16 +129,12 @@
       protege a comissão desde cedo e acompanha a venda humana. As visitas autoguiadas são o maior bloco técnico — ficam para a v2.
     </p>
 
-    <h2>Porquê decidir agora só o essencial</h2>
+    <h2>Definir tudo agora, construir aos poucos</h2>
     <p>
-      Desenhamos a <strong>v1 com profundidade</strong>, mas deixamos os detalhes da v2/v3 para quando lá chegarmos —
-      decidir tudo agora, sem informação completa, seria desperdício. Fixámos apenas as <strong>fundações difíceis de mudar depois</strong>:
-      o modelo de dados e os identificadores, os papéis de usuário, onde fica cada conteúdo, a forma de ligar integrações e a fila de tarefas.
+      A arquitetura da solução é <strong>definida por inteiro à frente</strong> — não só o essencial do v1. Definir o todo agora evita <strong>armadilhas</strong> em que uma escolha do v1 dificultaria o v2/v3. O que é <strong>incremental é a construção</strong>: adotamos cada peça na fase em que é construída.
     </p>
-
-    <h2>Em definição agora — antes do build</h2>
     <p>
-      Antes de começar a construir, estamos a <strong>definir a arquitetura técnica completa</strong> — os <strong>ambientes de teste e produção</strong> e como cada serviço (base de dados, conteúdo, integrações) se separa entre eles, para construir certo desde o início (Epic #146). Inclui a regra de segurança: <strong>em teste nunca se abre uma porta real nem se envia mensagem a um cliente real</strong> — usam-se alvos de teste.
+      <strong>Em definição agora, antes de construir</strong> (Epic <em>“Arquitetura da solução &amp; ambientes”</em>): os <strong>ambientes de teste e produção</strong> e como cada serviço (base de dados, conteúdo, integrações) se separa entre eles — para construir certo desde o início. Inclui a regra de segurança: <strong>em teste nunca se abre uma porta real nem se envia mensagem a um cliente real</strong>; usam-se alvos de teste.
     </p>
 
     <h2>O que ainda fica em aberto</h2>
