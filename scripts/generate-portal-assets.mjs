@@ -227,7 +227,7 @@ ${noticeHtml}${bodyHtml}
 function modulesShell(bodyHtml) {
   const notice = `    <p class="notice-inline">
       <strong>Nota:</strong> resumo visual em
-      <a href="./mapa-fases.html">Mapa por fases</a>;
+      <a href="./mapa-roteiro.html">Roteiro do Projeto</a>;
       rotas MVP em
       <a href="./screen-map.html">Mapa de telas</a>;
       execução em

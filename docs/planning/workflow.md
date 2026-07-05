@@ -85,7 +85,7 @@ ideia → rbo-create-issue (epic ou sub-issue)
 | `modules.md`, `screen-map.md`, contrato corretor | `npm run pages:portal` |
 | Mocks Nuxt exportados | `npm run pages:site` |
 | Várias superfícies | `npm run pages:sync` |
-| Nav, cards, páginas só HTML | Editar `docs/index.html`, `mapa-fases.html`, etc. |
+| Nav, cards, páginas só HTML | Editar `docs/index.html`, `mapa-roteiro.html`, etc. |
 
 ### Checklist (issue / change close-out)
 

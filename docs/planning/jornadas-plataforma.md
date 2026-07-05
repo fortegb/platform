@@ -2,7 +2,7 @@
 
 > **Para quem:** sócios, staff e corretores — visão do produto **quando estiver concluído**.  
 > **Não é** cronograma de execução (ver [`phases.md`](./phases.md) e [`progresso-socios.html`](./progresso-socios.html)).  
-> **Atualizado:** 2026-07-03 · **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas) após o passo 4 (Arquitetura, [#146](https://github.com/fortegb/platform/issues/146)). Foi escrito mock-first, antes de a arquitetura fechar; fluxos e telas podem mudar. Ver [`metodo.md`](./metodo.md).
+> **Atualizado:** 2026-07-03 · **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas) após o passo 4 (Arquitetura, [#146](https://github.com/fortegb/platform/issues/146)). Foi escrito mock-first, antes de a arquitetura fechar; fluxos e telas podem mudar. Ver [`roteiro.md`](./roteiro.md).
 
 ---
 
@@ -278,7 +278,7 @@ Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 | [`architecture.md`](./architecture.md) | ADR e fluxos (a completar) |
 | [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governança |
 | [`progresso-socios.html`](./progresso-socios.html) | Progresso atual (issues) |
-| [`mapa-fases.html`](./mapa-fases.html) | Visão por fases e módulos |
+| [`mapa-roteiro.html`](./mapa-roteiro.html) | Visão por fases e módulos |
 
 ---
 

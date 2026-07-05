@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-05 — Migração A: board para o Roteiro + overhaul das Platform docs ([#174](https://github.com/fortegb/platform/issues/174))
+
+- **Board migrado para o modelo D-024:** novo campo **`Etapa`** (9 passos, ex-`Phase`), **~173 itens re-tagueados** (mapa por epic; folhas herdam o epic; `Phase` deletado). Milestone nativo **`v0 — Definição`** em todos os itens de Etapa 1–7 (barra de prontidão do G2). **Tipos de issue nativos** backfilled (Epic/Feature/Task). 2 epics novos: **Contexto & Funcionalidades** ([#175](https://github.com/fortegb/platform/issues/175), Etapa 1–2) e **Jornadas re-validação** ([#176](https://github.com/fortegb/platform/issues/176), Etapa 5); #42 → `Depends on #146`.
+- **Renomeação Método → Roteiro** (o nome "Método" não descrevia uma sequência de passos): `metodo.md → roteiro.md`, D-023/D-024, `agents.md §9`, `STATUS.md`, README, títulos das issues #173/#174. Passo 7 renomeado **Quebra → Versionamento**; passo 8 = **Execução** (ex-"Build"). Board Etapa option 7 renomeado in-place.
+- **Platform docs (overhaul):** `mapa-fases.html` → novo **`mapa-roteiro.html`** — track horizontal por passo (9 nós, 3 estágios em bandas), barra `v0` ao vivo, portões **G1/G2/G3** definidos e mostrados, cards v1/v2/v3. Gerador `generate-progress-report.mjs` reescrito para agrupar por **Etapa + Milestone** (novo `etapa-labels.mjs`); `progresso-socios.html` regenerado; `index.html`/`arquitetura-decisoes.html` de-Phased.
+- **Fora de escopo:** migração B (Milestones v1/v2/v3 + atribuição de versão no passo 7). Sem código de produto tocado.
+
 ### 2026-07-05 — Método do projeto: espinha de governança ([#173](https://github.com/fortegb/platform/issues/173))
 
 - **Novo canon `docs/planning/metodo.md`** — a **espinha controladora**: 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com propósito/artefato por passo, gates **G1** (sequência), **G2** (build só após Definição 1–7 fechada; ativo 4–6; sinal = Milestone `v0` a 100%), **G3** (versão N+1 após readiness de N). Enforcement soft (doc + `rbo-create-change` + STATUS; sem hard-gate Action).

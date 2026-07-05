@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **A espinha é o [Método](./metodo.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo atual: 4 Arquitetura** — Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)), que precede/gate o build (G2).
+> Canon de design e sequenciamento. **A espinha é o [Roteiro](./roteiro.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo atual: 4 Arquitetura** — Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)), que precede/gate o build (G2).
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Ordem | Ação | Doc |
 |-------|--------|-----|
-| 1 | Ler o **Método** (a espinha) | [`metodo.md`](./metodo.md) |
+| 1 | Ler o **Roteiro** (a espinha) | [`roteiro.md`](./roteiro.md) |
 | 2 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
 | 3 | **`rbo-create-change`** no passo atual (4 Arquitetura, Epic #146) | [`decisions.md`](./decisions.md) |
 
@@ -22,7 +22,7 @@
 
 | Documento | Conteúdo |
 |-----------|----------|
-| [metodo.md](./metodo.md) | **Método — a espinha** (9 passos, gates G1/G2/G3, modelo de board Etapa/Milestones) |
+| [roteiro.md](./roteiro.md) | **Roteiro — a espinha** (9 passos, gates G1/G2/G3, modelo de board Etapa/Milestones) |
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco atual (Ricardo)** — editável; alimenta relatório de progresso |
 | [../index.html](../index.html) | **Documentação da plataforma** — índice GitHub Pages: mocks, progresso, planning HTML |
@@ -30,7 +30,7 @@
 | [jornadas-plataforma.html](./jornadas-plataforma.html) | Jornadas — versão gráfica |
 | [screen-map.md](./screen-map.md) | **Mapa de telas MVP** — rotas por papel (canon) |
 | [screen-map.html](./screen-map.html) | Mapa de telas — versão gráfica (gerado) |
-| [mapa-fases.html](./mapa-fases.html) | **Mapa por fases** — visão macro Fases 0–4 + módulos |
+| [mapa-roteiro.html](./mapa-roteiro.html) | **Roteiro do Projeto** — visão macro Fases 0–4 + módulos |
 | [modules.md](./modules.md) | **Módulos de produto** — canon editável |
 | [modules.html](./modules.html) | **Módulos da plataforma** — detalhe por área (gerado de `modules.md`) |
 | [progresso-socios.html](./progresso-socios.html) | **Relatório de progresso** — epics/issues do board (gerado) |
@@ -53,7 +53,7 @@
 
 ## Regras
 
-- **[`metodo.md`](./metodo.md)** = a espinha (ordem + gates); o board a representa via campo **`Etapa`** (9) + **`Milestone`** (v0–v3) + tipo nativo
+- **[`roteiro.md`](./roteiro.md)** = a espinha (ordem + gates); o board a representa via campo **`Etapa`** (9) + **`Milestone`** (v0–v3) + tipo nativo
 - **Board** = execução · **`docs/planning/`** = pensamento · **OpenSpec** = 1:1 sub-issue folha
 - **`ROADMAP.md`** = gerado; não editar à mão
 - **`STATUS.md`** = bússola de sessão
