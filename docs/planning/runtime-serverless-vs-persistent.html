@@ -42,7 +42,7 @@
     <p>
       A plataforma não é um site de conteúdo com poucas integrações — é um sistema <strong>pesado em integrações e orientado a eventos</strong>
       (bots WhatsApp/Telegram, sync HubSpot, dispositivos Tuya, trabalho agendado) e com um <strong>cliente mobile futuro provável</strong>
-      (staff a aprovar pedidos com push). A escolha da forma de rodar precisa suportar isso.
+      (staff aprovando pedidos com push). A escolha da forma de rodar precisa suportar isso.
     </p>
     <p><strong>Critérios (prioridade do Ricardo):</strong> free-first · zero-ops · simplicidade (Vercel) · escala baixa (centenas de usuários; 1–2 casas/ano) · foco no que é único.</p>
 
@@ -76,14 +76,14 @@
         <tr><td>Bots / integrações</td><td>Telegram (grátis) + WhatsApp; Tuya/HubSpot/Google com pools quentes</td><td class="warn">⚠️ WA pago</td></tr>
       </tbody>
     </table>
-    <p><strong>Prós:</strong> async/bots/eventos/real-time <strong>naturais</strong> num só processo; <strong>menos serviços</strong> (pg-boss substitui QStash; websockets substituem push); sem cold starts; modelo familiar (servidor a correr).<br>
-    <strong>Contras:</strong> <strong>grátis + sempre ligado + zero-ops não coexistem</strong> — Render grátis dorme (mata o agendador), Oracle é VM crua (operas OS/TLS/deploy), Fly/Railway são suaves mas ~US$5/mo; não escala a zero; mais DevOps para dev solo.</p>
+    <p><strong>Prós:</strong> async/bots/eventos/real-time <strong>naturais</strong> num só processo; <strong>menos serviços</strong> (pg-boss substitui QStash; websockets substituem push); sem cold starts; modelo familiar (servidor rodando).<br>
+    <strong>Contras:</strong> <strong>grátis + sempre ligado + zero-ops não coexistem</strong> — Render grátis dorme (mata o agendador), Oracle é VM crua (você opera OS/TLS/deploy), Fly/Railway são suaves mas ~US$5/mo; não escala a zero; mais DevOps para dev solo.</p>
 
     <h2>Comparação</h2>
     <table>
       <thead><tr><th></th><th>Serverless (escolhido)</th><th>Persistente</th></tr></thead>
       <tbody>
-        <tr><td>Grátis + zero-ops</td><td class="ok">✅</td><td class="no">❌ (dorme, ou operas, ou pagas)</td></tr>
+        <tr><td>Grátis + zero-ops</td><td class="ok">✅</td><td class="no">❌ (dorme, ou você opera, ou paga)</td></tr>
         <tr><td>Coerência async / bots / real-time</td><td class="warn">⚠️ espalhado, mas funciona</td><td class="ok">✅ natural</td></tr>
         <tr><td>Familiar (modelo de servidor)</td><td class="warn">⚠️</td><td class="ok">✅</td></tr>
         <tr><td>Escala a zero em repouso</td><td class="ok">✅</td><td class="no">❌</td></tr>
@@ -94,14 +94,14 @@
       <strong>Decisão — Serverless (Vercel Hobby → Pro quando útil).</strong>
       As prioridades declaradas — <strong>free-first + zero-ops + simplicidade Vercel</strong> — apontam para serverless:
       nenhum host sempre-ligado oferece “não-dorme” e “sem-operação” de graça ao mesmo tempo. O que se abdica é a coerência
-      do assíncrono (fica espalhado por funções + QStash), aceite pelo dono (“não me importo desde que funcione”). O Caso B
+      do assíncrono (fica espalhado por funções + QStash), aceito pelo dono (“não me importo desde que funcione”). O Caso B
       seria escolhido se coerência/real-time pesassem mais que free-first/zero-ops — fica documentado para reavaliação.
     </div>
 
     <h2>Condições da escolha (olhos abertos)</h2>
     <ol>
-      <li><strong>Adicionar QStash</strong> — é o que torna o assíncrono espalhado <em>fiável</em> (jobs com atraso + retries); o cron da Vercel sozinho é grosseiro.</li>
-      <li><strong>Não passar vídeo ao vivo pelo backend</strong> — câmaras ao vivo ficam na app/cloud do fornecedor; embed/link.</li>
+      <li><strong>Adicionar QStash</strong> — é o que torna o assíncrono espalhado <em>confiável</em> (jobs com atraso + retries); o cron da Vercel sozinho é grosseiro.</li>
+      <li><strong>Não passar vídeo ao vivo pelo backend</strong> — câmeras ao vivo ficam na app/cloud do fornecedor; embed/link.</li>
       <li><strong>Vercel Hobby agora → Pro quando útil</strong> — a 1–2 casas/ano o uso não dispara upgrade; Pro é escolha discricionária.</li>
     </ol>
 

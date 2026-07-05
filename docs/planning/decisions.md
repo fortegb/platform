@@ -78,7 +78,7 @@
 
 ### D-009 — Epic Architecture após preparação GitHub (2026-07-01)
 
-- **Contexto:** Refinamento arquitectural estava implícito em “grilling”; usuário quer epic explícito e sequenciado.
+- **Contexto:** Refinamento arquitetural estava implícito em “grilling”; usuário quer epic explícito e sequenciado.
 - **Decisão:**
   - Epic **`Architecture & MVP definition`** em Phase 0.
   - **Ordem:** org migration → bootstrap board & OpenSpec → **Architecture epic** → Phase 1 epics.
@@ -111,7 +111,7 @@
 
 ---
 
-### D-011 — Decisões arquitecturais abertas até grilling (2026-07-01)
+### D-011 — Decisões arquiteturais abertas até grilling (2026-07-01)
 
 - **Contexto:** Stack e soluções técnicas não devem estar fechadas na preparação.
 - **Decisão:**
@@ -125,7 +125,7 @@
 ### D-012 — Repo principal: `platform` (2026-07-01)
 
 - **Contexto:** Após migração para org, `sandbox` era nome temporário de desenvolvimento.
-- **Decisão:** Renomear **`fortegb/sandbox` → `fortegb/platform`** — website + backend + arquitectura num único repo.
+- **Decisão:** Renomear **`fortegb/sandbox` → `fortegb/platform`** — website + backend + arquitetura num único repo.
 - **Consequências:** Local `~/Documents/GitHub/fortegb/platform/`; GitHub Project **`platform`**; OpenSpec neste repo.
 
 ---
@@ -177,7 +177,7 @@
 - **Contexto:** Plataforma integration-heavy e event-driven (bots WA/Telegram, HubSpot, Tuya, trabalho agendado) + cliente mobile futuro provável. Prioridades: free-first + zero-ops + simplicidade Vercel.
 - **Decisão:** **Serverless** — Nuxt/Nitro na **Vercel** (Hobby grátis → Pro ~$20/mo quando útil), **API-first** (web = 1.º cliente; PWA/native/bots reutilizam), **Upstash QStash** para jobs com atraso + retries, **camada de adaptadores** de integração (um módulo por terceiro), **Telegram-first** (grátis; WhatsApp pago-quando-útil), vídeo ao vivo offloaded ao fornecedor, app **Nitro-portável** como seguro.
 - **Alternativa avaliada:** processo Node persistente (Fly.io/Oracle/Railway) + pg-boss in-process + websockets — mais coerente para eventos/real-time e mais familiar (C/LAMP), mas **grátis + always-on + zero-ops não coexistem**. Comparação completa → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md).
-- **Consequências:** async fica espalhado por funções + QStash (aceite: "não me importo desde que funcione"); a 1–2 casas/ano o uso não dispara upgrade; Pro é escolha discricionária posterior.
+- **Consequências:** async fica espalhado por funções + QStash (aceito: "não me importo desde que funcione"); a 1–2 casas/ano o uso não dispara upgrade; Pro é escolha discricionária posterior.
 
 ---
 

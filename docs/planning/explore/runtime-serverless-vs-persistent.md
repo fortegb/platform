@@ -11,12 +11,12 @@
 
 A plataforma **não é** um site de conteúdo com poucas integrações — é um sistema **integration-heavy e event-driven**, com um **segundo cliente (mobile) provável**. Cargas que pesam na escolha:
 
-- **Bots** WhatsApp *e* Telegram (clientes e corretores) — bidireccionais, conversacionais, stateful.
+- **Bots** WhatsApp *e* Telegram (clientes e corretores) — bidirecionais, conversacionais, stateful.
 - **Notificações** de saída (WhatsApp/Telegram/SMS) — confirmações, lembretes, **pedidos de aprovação a staff**.
-- **Automação residencial** além de fechaduras — Tuya: câmaras, interruptores; controle **+ eventos de entrada**.
-- **CRM HubSpot** — sync bidireccional contínuo.
+- **Automação residencial** além de fechaduras — Tuya: câmeras, interruptores; controle **+ eventos de entrada**.
+- **CRM HubSpot** — sync bidirecional contínuo.
 - **Trabalho agendado/assíncrono** — expiração de senha, lembretes, follow-ups, retries em APIs de terceiros instáveis.
-- **App mobile futura provável** — sobretudo **staff a aprovar pedidos com push** (aprovação corretor/casa, fila de exceção de identidade).
+- **App mobile futura provável** — sobretudo **staff aprovando pedidos com push** (aprovação corretor/casa, fila de exceção de identidade).
 
 **Critérios de decisão (prioridade do Ricardo):**
 1. **Free-first** — só gastar quando provar utilidade (iniciativa nascente, pessoas físicas, pré-receita).
@@ -53,7 +53,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 | Trabalho **com atraso** (lembrete, expiração, follow-up) | **QStash** ("chama este endpoint daqui a 1h", com retry) — Vercel Cron sozinho é grosseiro/diário |
 | **Retries** em Tuya/HubSpot/WA | QStash com retry + dead-letter |
 | Controle de dispositivos (fechadura, interruptor) | Chamada de saída a partir da função |
-| **Streaming de câmara ao vivo** | **Não passar pelo backend** — vídeo ao vivo fica na app/cloud do fornecedor (Tuya/RTSP); embed/link |
+| **Streaming de câmera ao vivo** | **Não passar pelo backend** — vídeo ao vivo fica na app/cloud do fornecedor (Tuya/RTSP); embed/link |
 | PWA/native futura + push | Rotas API-first servem todos os clientes; push via FCM/web-push |
 | Retenção LGPD | Varredura agendada (QStash/cron) |
 
@@ -80,8 +80,8 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 | Deploy/CI | GitHub Actions → Docker → `fly deploy` | ✅ |
 | Monitoring | Sentry (grátis), UptimeRobot/BetterStack (grátis) | ✅ |
 
-**Prós:** async/bots/eventos/real-time **naturais** num só processo; **menos SaaS** (pg-boss no Postgres substitui QStash; websockets substituem FCM); sem cold starts; pools quentes; tarefas longas/streaming possíveis; **modelo familiar** (servidor a correr — instinto C/LAMP).
-**Contras:** **grátis + always-on + zero-ops não coexistem** — Render grátis dorme (mata o scheduler), Oracle Always Free é IaaS crua (operas OS/TLS/deploy), Fly/Railway são PaaS suaves mas ~$5/mo (quebra free-first); não faz scale-to-zero; mais superfície de DevOps para dev solo.
+**Prós:** async/bots/eventos/real-time **naturais** num só processo; **menos SaaS** (pg-boss no Postgres substitui QStash; websockets substituem FCM); sem cold starts; pools quentes; tarefas longas/streaming possíveis; **modelo familiar** (servidor rodando — instinto C/LAMP).
+**Contras:** **grátis + always-on + zero-ops não coexistem** — Render grátis dorme (mata o scheduler), Oracle Always Free é IaaS crua (você opera OS/TLS/deploy), Fly/Railway são PaaS suaves mas ~$5/mo (quebra free-first); não faz scale-to-zero; mais superfície de DevOps para dev solo.
 
 ---
 
@@ -89,12 +89,12 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 **Escolhido: Caso A — Serverless (Vercel Hobby → Pro quando útil).**
 
-**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam diretamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou operas a VM (Oracle), ou pagas (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitetural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
+**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam diretamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou você opera a VM (Oracle), ou você paga (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitetural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
 
 **O Caso B seria a escolha** se as prioridades fossem coerência arquitetural + real-time + modelo de servidor familiar acima de free-first/zero-ops.
 
 **Condições da escolha serverless (olhos abertos):**
-1. **Adicionar QStash** (scheduler+queue gerido) — é o que torna o async espalhado *fiável* (jobs com atraso + retries). Vercel Cron sozinho é grosseiro/diário.
+1. **Adicionar QStash** (scheduler+queue gerido) — é o que torna o async espalhado *confiável* (jobs com atraso + retries). Vercel Cron sozinho é grosseiro/diário.
 2. **Não fazer proxy de vídeo ao vivo** pelo backend — offload para o fornecedor.
 3. **Vercel Hobby agora → Pro (~$20/mo) quando provar utilidade** (o tier grátis é «não-comercial», mas para iniciativa nascente/pré-receita/baixo tráfego é zona cinzenta, softly enforced; a nível de **uso** não há gatilho a esta escala — 1–2 casas/ano não chega perto de nenhuma quota).
 

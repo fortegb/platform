@@ -13,7 +13,7 @@
 - **Home ([#33](https://github.com/fortegb/platform/issues/33), Q-010 → D-021):** variantes renomeadas por **estilo** (`/`, `/classico`, `/slate`, `/azul`; `HeroSplit/Classic/Slate/Azul`) — sem colisão com release v1/v2/v3; escolha do hero diferida ao lançamento.
 - **Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) fechado** (#34/#35/#36/#38): checkpoint #36 = todas Q-* resolved/deferred; **Fase 0 completa → Fase 1 desbloqueada** (#48, #56). `platform-vision.md` + `agents.md §9` + `STATUS.md` atualizados.
 - **pt-BR estrito repo-wide** (correção de português europeu) + **terminologia unificada** `lead/prospecto → cliente` (docs + títulos de issues).
-- **Platform docs:** secção "Clientes e corretores" + v1/v2/v3 no Mapa de Fases e Relatório; ponteiro de fase (Fase 0 done → Fase 1). OpenSpec `grill-crm-source-of-truth` arquivado; `#33` (home) foi change **lightweight** (branch merged, sem artefato OpenSpec).
+- **Platform docs:** seção "Clientes e corretores" + v1/v2/v3 no Mapa de Fases e Relatório; ponteiro de fase (Fase 0 done → Fase 1). OpenSpec `grill-crm-source-of-truth` arquivado; `#33` (home) foi change **lightweight** (branch merged, sem artefato OpenSpec).
 - **Correções pós-auditoria:** linha duplicada em `agents.md` §9 (introduzida nesta sessão) removida; pt-PT `activos → ativos` em `agents.md` (straggler que a varredura excluíra); regra CHANGELOG reforçada no skill `rbo-close-change`.
 
 ### 2026-07-03 — Grilling 0: stances fundacionais + Q-004 ([#145](https://github.com/fortegb/platform/issues/145))
@@ -70,7 +70,7 @@
 
 **Planning finalizado — pronto para Phase 0 execução**
 - **`docs/planning/`** completo: README, platform-vision, architecture (template), phases, modules, open-questions (Q-001–Q-019), decisions (D-001–D-011), workflow, github-org-migration, **deliverables** (mapa produto ↔ epics).
-- **D-011:** decisões arquitecturais abertas até epic Architecture + `rbo-grilling`.
+- **D-011:** decisões arquiteturais abertas até epic Architecture + `rbo-grilling`.
 - Gaps de produto mapeados: corretor termos (Q-016), condomínio/portaria (Q-017), CRM multi-canal (Q-018), mobile (Q-019).
 - **`STATUS.md`** — próximo passo: GitHub org migration Fase A.
 

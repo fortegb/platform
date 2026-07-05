@@ -1,6 +1,6 @@
 # Mapa de telas MVP — Plataforma ForteGB
 
-> **Estado:** publicado (2026-07-03) — aceite sob Architecture #1 ([#32](https://github.com/fortegb/platform/issues/32) concluído).  
+> **Estado:** publicado (2026-07-03) — aceito sob Architecture #1 ([#32](https://github.com/fortegb/platform/issues/32) concluído).  
 > **Jornadas:** [`architecture.md`](./architecture.md) §3 · [`jornadas-plataforma.md`](./jornadas-plataforma.md)  
 > **Legenda:** `simulado` = UI existe, sem back-end · `novo` = tela/rota por construir · **Fase** = fase no plano
 
