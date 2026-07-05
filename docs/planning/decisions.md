@@ -237,11 +237,11 @@
 
 ---
 
-### D-023 — Método do projeto como espinha de governança (2026-07-05)
+### D-023 — Roteiro do projeto como espinha de governança (2026-07-05)
 
 - **Contexto:** o projeto começou pela execução (scaffold, mocks, epics de build) e vinha preenchendo a definição por cima — origem do retrabalho. Faltava uma espinha explícita que ordenasse o trabalho e gateasse o build; o campo `Phase` (0–4) misturava estágio de ciclo de vida com pacote de entrega.
-- **Decisão:** adotar o **Método** ([`metodo.md`](./metodo.md)) — **9 passos em 3 estágios** — como estrutura **controladora**, não descritiva:
-  - **Definição** (1 Contexto · 2 Funcionalidades · 3 Componentes · 4 Arquitetura · 5 Jornadas/telas · 6 Design system · 7 Quebra em versões) · **Execução** (8 Build) · **Evolução** (9 Manutenção).
+- **Decisão:** adotar o **Roteiro** ([`roteiro.md`](./roteiro.md)) — **9 passos em 3 estágios** — como estrutura **controladora**, não descritiva:
+  - **Definição** (1 Contexto · 2 Funcionalidades · 3 Componentes · 4 Arquitetura · 5 Jornadas/telas · 6 Design system · 7 Versionamento) · **Execução** (8 Build) · **Evolução** (9 Manutenção).
   - Passos 1–6 fecham via **grilling**; tudo corre sob **change management** (`rbo-*` + OpenSpec).
 - **Gates:** **G1** (sequência da Definição; paralelos declarados são exceção) · **G2** (build só após toda a Definição/passos 1–7 fechada; gate ativo = 4–6; sinal = Milestone `v0` a 100%) · **G3** (versão N+1 após readiness de N).
 - **Enforcement:** doc + `rbo-create-change` (checa o gate antes de ramificar) + `STATUS.md` (próximo passo derivado). **Sem hard-gate por GitHub Action** por ora (dev solo; adiciona-se se houver pulo de gate). O board não bloqueia cliques — os gates controlam **estado visível**, não a transição.
@@ -252,7 +252,7 @@
 
 ### D-024 — Modelo de board: Etapa + Milestones + tipos nativos (supersede Phase 0–4) (2026-07-05)
 
-- **Contexto:** o método (D-023) precisa ser **estrutural no board**, não em prosa/memória (fragilidade sinalizada: rastrear passo à mão é perigoso). O org já tem **tipos de issue nativos** (Task/Bug/Feature/Epic) e o campo **Milestone** nativo, ambos sem uso.
+- **Contexto:** o roteiro (D-023) precisa ser **estrutural no board**, não em prosa/memória (fragilidade sinalizada: rastrear passo à mão é perigoso). O org já tem **tipos de issue nativos** (Task/Bug/Feature/Epic) e o campo **Milestone** nativo, ambos sem uso.
 - **Decisão:**
   - **`Etapa`** — campo single-select com **9 opções** (`1 Contexto` … `9 Evolução`), **supersede `Phase`** (0–4). Todo item carrega uma. Os 3 estágios são **derivados** do passo, não um campo à parte.
   - **`Milestone`** (nativo) — **`v0 Definição`** (agrupa Etapa 1–7; 100% = luz verde do G2) → **`v1`** → **`v2`** → **`v3`** (v1–v3 subdividem a Etapa 8).

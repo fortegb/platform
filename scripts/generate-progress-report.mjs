@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { faseHeading, fasePill } from './phase-labels.mjs';
+import { etapaHeading, etapaPill, passoNum } from './etapa-labels.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -28,6 +28,7 @@ const PROJECT_QUERY = `query($cursor: String) {
               state
               url
               issueType { name }
+              milestone { title }
               parent { number title }
             }
           }
@@ -78,7 +79,8 @@ function fetchAllItems() {
         parentNumber: c.parent?.number ?? null,
         parentTitle: c.parent?.title ?? null,
         status: fieldValue(node, 'Status') ?? 'Todo',
-        phase: fieldValue(node, 'Phase') ?? '—',
+        etapa: fieldValue(node, 'Etapa') ?? '—',
+        milestone: c.milestone?.title ?? '—',
         module: fieldValue(node, 'Module') ?? '—',
       });
     }
@@ -172,8 +174,8 @@ function epicCard(epic, children) {
       </div>
       <div class="epic-meta">
         ${statusBadge(epic.status)}
-        <span class="pill">${esc(fasePill(epic.phase))}</span>
-        <span class="pill">${esc(epic.module)}</span>
+        <span class="pill">${esc(etapaPill(epic.etapa))}</span>
+        ${epic.milestone && epic.milestone !== '—' ? `<span class="pill">${esc(epic.milestone)}</span>` : ''}
       </div>
     </header>
     ${total ? `<div class="progress-wrap"><div class="progress-bar" style="width:${pct}%"></div><span class="progress-label">${done}/${total} tarefas</span></div>` : ''}
@@ -181,10 +183,10 @@ function epicCard(epic, children) {
   </article>`;
 }
 
-function phaseSection(phase, epics, childrenByParent) {
+function etapaSection(etapa, epics, childrenByParent) {
   const sorted = [...epics].sort((a, b) => a.number - b.number);
   const cards = sorted.map((e) => epicCard(e, childrenByParent.get(e.number) ?? [])).join('');
-  const label = faseHeading(phase);
+  const label = etapaHeading(etapa);
   return `<div class="phase-block">
     <h3 class="phase-title">${esc(label)}</h3>
     <div class="epic-grid">${cards}</div>
@@ -206,18 +208,14 @@ function buildHtml({ items, focus, generatedAt }) {
   const doneEpics = epics.filter((e) => e.status === 'Done');
   const todoEpics = epics.filter((e) => e.status !== 'Done');
 
-  const groupByPhase = (list) => {
+  const groupByEtapa = (list) => {
     const map = new Map();
     for (const e of list) {
-      const p = e.phase ?? '—';
+      const p = e.etapa ?? '—';
       if (!map.has(p)) map.set(p, []);
       map.get(p).push(e);
     }
-    return [...map.entries()].sort(([a], [b]) => {
-      const na = a === '—' ? 99 : Number(a);
-      const nb = b === '—' ? 99 : Number(b);
-      return na - nb;
-    });
+    return [...map.entries()].sort(([a], [b]) => passoNum(a) - passoNum(b));
   };
 
   const focusNow = focus.sections['Trabalhando no momento'] ?? focus.sections['Em foco agora'] ?? '';
@@ -237,15 +235,15 @@ function buildHtml({ items, focus, generatedAt }) {
       : `<ul class="in-progress-list">${inProgress
           .map(
             (i) =>
-              `<li>${issueLink(i)} ${esc(i.title)} ${statusBadge(i.status)} <span class="pill">${esc(fasePill(i.phase))}</span></li>`
+              `<li>${issueLink(i)} ${esc(i.title)} ${statusBadge(i.status)} <span class="pill">${esc(etapaPill(i.etapa))}</span></li>`
           )
           .join('')}</ul>`;
 
-  const donePhases = groupByPhase(doneEpics)
-    .map(([p, es]) => phaseSection(p, es, childrenByParent))
+  const donePhases = groupByEtapa(doneEpics)
+    .map(([p, es]) => etapaSection(p, es, childrenByParent))
     .join('');
-  const todoPhases = groupByPhase(todoEpics)
-    .map(([p, es]) => phaseSection(p, es, childrenByParent))
+  const todoPhases = groupByEtapa(todoEpics)
+    .map(([p, es]) => etapaSection(p, es, childrenByParent))
     .join('');
 
   return `<!DOCTYPE html>
@@ -395,9 +393,9 @@ function buildHtml({ items, focus, generatedAt }) {
         </div>
       </div>
       <p class="muted" style="font-size:0.78rem;margin:0 0 1.25rem">
-        <strong>v1/v2/v3</strong> = marcos de <strong>lançamento</strong> (o que chega ao cliente e quando — decisão D-018), eixo distinto das <strong>Fases</strong> de construção abaixo. Detalhe no <a href="./mapa-fases.html">Mapa por fases</a> e em <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
+        <strong>v1/v2/v3</strong> = marcos de <strong>lançamento</strong> (o que chega ao cliente e quando — decisão D-018), que subdividem a Execução (passo 8) do Roteiro. Detalhe no <a href="./mapa-roteiro.html">Roteiro do Projeto</a> e em <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
       </p>
-      <p class="muted" style="margin-bottom:1rem">Epics e tarefas por fase — roadmap de execução (Fases 0–4).</p>
+      <p class="muted" style="margin-bottom:1rem">Epics e tarefas por <strong>passo do Roteiro</strong> — Definição (1–7) → Execução (8) → Evolução (9).</p>
       ${todoPhases}
     </section>
   </main>

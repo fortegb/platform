@@ -2,18 +2,18 @@
 
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
-> **Espinha:** [`metodo.md`](./docs/planning/metodo.md) — 9 passos, gates G1/G2/G3.  
+> **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
 > **Decisões técnicas:** fechadas (D-015..D-024); itens `deferred` reabrem no grilling da fase.
 
 ---
 
-## Passo atual (Método)
+## Passo atual (Roteiro)
 
 **Passo 4 — Arquitetura. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar.**
 
 ```
 ✅ Passos 1–3 (Contexto · Funcionalidades · Componentes) — produto/stack, D-015..D-021
-✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home), método (#173) → D-015..D-024
+✅ Grillings: #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173) → D-015..D-024
 → EM CURSO passo 4: Epic **#146** — Arquitetura da solução & ambientes (26 folhas #147-172)
 → ∥ paralelo: passos 1–2 (validação de contexto/funcionalidades)
 → DEPOIS: passo 5 (jornadas re-validação) · passo 6 (design) → G2 abre (v0 a 100%) → build

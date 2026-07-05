@@ -1,14 +1,14 @@
-# Método do projeto — a espinha (ForteGB Platform)
+# Roteiro do projeto — a espinha (ForteGB Platform)
 
 > **O que é:** a estrutura **controladora** do trabalho — não um documento decorativo. Define **a ordem** (do contexto à entrega) e **os portões** (quando é legítimo construir).
 > **Como é representada:** no **board** (campo `Etapa` + `Milestone` + tipo nativo), não em prosa nem em memória. Este doc define a semântica e os gates; o **estado** vive no board.
-> **Decisões:** [D-023](./decisions.md) (método + gates) · [D-024](./decisions.md) (modelo de board).
+> **Decisões:** [D-023](./decisions.md) (roteiro + gates) · [D-024](./decisions.md) (modelo de board).
 
 ---
 
 ## Por que existe
 
-O projeto começou pela **execução** (scaffold gerado, mocks, epics de build) e vinha preenchendo a **definição** por cima — origem do retrabalho e das premissas erradas ("começamos com o pé errado"). Faltava uma espinha explícita que **ordenasse** o trabalho e **gateasse** o build. O antigo campo `Phase` (0–4) misturava estágio de ciclo de vida com pacote de entrega. Este método corrige isso.
+O projeto começou pela **execução** (scaffold gerado, mocks, epics de build) e vinha preenchendo a **definição** por cima — origem do retrabalho e das premissas erradas ("começamos com o pé errado"). Faltava uma espinha explícita que **ordenasse** o trabalho e **gateasse** o build. O antigo campo `Phase` (0–4) misturava estágio de ciclo de vida com pacote de entrega. Este roteiro corrige isso.
 
 Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o grilling** do passo — não se antecipa (anti-BDUF). Mas a arquitetura da **solução completa** é definida à frente (D-022); adota-se por partes.
 
@@ -24,8 +24,8 @@ Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o
 | | 4 | Arquitetura | Que componentes, front/back, serverless/persistente, infra, ambientes, integrações — dentro das restrições | grilling | `architecture.md` + `decisions.md` + templates de config (**#146**) |
 | | 5 | Jornadas/telas | Fluxos e telas finais por usuário | grilling | `jornadas-plataforma.md`, `screen-map.md` (**re-validar pós-4**) |
 | | 6 | Design system | Linguagem visual, comportamento e tokens | grilling | design system + `agents.md` §9 (convenções UI) |
-| | 7 | Quebra em versões | Fatiar o definido em v1/v2/v3 (atribuir epics a Milestones) | planejamento | Milestones no board |
-| **Execução** | 8 | Build | Construir até entregar (por versão) | change mgmt | código + deploy |
+| | 7 | Versionamento | Fatiar o definido em v1/v2/v3 (atribuir epics a Milestones) | planejamento | Milestones no board |
+| **Execução** | 8 | Execução | Construir até entregar (por versão) | change mgmt | código + deploy |
 | **Evolução** | 9 | Manutenção | Manter e desenvolver o novo | change mgmt | — |
 
 > **Estágio = derivado do passo** (1–7 ⇒ Definição · 8 ⇒ Execução · 9 ⇒ Evolução). Não há campo de estágio separado no board.
@@ -44,7 +44,7 @@ Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o
 
 ---
 
-## Modelo de board (representa o método)
+## Modelo de board (representa o roteiro)
 
 Ver [D-024](./decisions.md). Resumo:
 
@@ -69,6 +69,6 @@ Ver [D-024](./decisions.md). Resumo:
 ## Estado atual e o que falta implementar
 
 - **Passo atual: 4 (Arquitetura)** — Epic **#146** em curso (26 folhas). Passos 1–2 rodam **em paralelo** (validação de contexto/funcionalidades).
-- **Este método é definição; não migra o board.** A criação efetiva de `Etapa`/Milestones/tipos e o retag dos itens são changes separados:
-  - **Migração A** (próxima): renomear `Phase → Etapa` (9 opções) + retag · criar `v0 Definição` · backfill de tipos nativos · criar os 2 epics novos (contexto+funcionalidades, jornadas re-validação) · **+ overhaul do relatório** (`mapa-metodo.html` horizontal por passo + `progresso-socios.html`).
+- **Este roteiro é definição; não migra o board.** A criação efetiva de `Etapa`/Milestones/tipos e o retag dos itens são changes separados:
+  - **Migração A** (próxima): renomear `Phase → Etapa` (9 opções) + retag · criar `v0 Definição` · backfill de tipos nativos · criar os 2 epics novos (contexto+funcionalidades, jornadas re-validação) · **+ overhaul do relatório** (`mapa-roteiro.html` horizontal por passo + `progresso-socios.html`).
   - **Migração B** (perto do passo 7): Milestones `v1/v2/v3` + atribuir epics de Execução.

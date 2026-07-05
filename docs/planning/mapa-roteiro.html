@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Roteiro do Projeto</title>
+  <!-- portal: roteiro do projeto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <style>
+    .phase-track {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.5rem;
+    }
+    .phase-node {
+      flex: 1; min-width: 132px; text-align: center; padding: 0.9rem 0.65rem;
+      border-radius: var(--radius); border: 2px solid var(--border);
+      background: var(--card); position: relative;
+    }
+    .phase-node.done { border-color: var(--green); background: #f0faf4; }
+    .phase-node.current { border-color: var(--blue); background: #eef6fb; box-shadow: var(--shadow); }
+    .phase-node.future { opacity: 0.75; }
+    .phase-node.parallel { border-color: var(--blue); border-style: dashed; background: #f7fbfe; }
+    .phase-node.parallel::after {
+      content: '∥ em paralelo'; position: absolute; top: -0.55rem; left: 50%; transform: translateX(-50%);
+      background: #eef6fb; color: var(--blue); border: 1px solid #c7e4f2; font-size: 0.6rem; font-weight: 700;
+      padding: 0.1rem 0.45rem; border-radius: 999px; white-space: nowrap;
+    }
+    .phase-node .num { font-size: 0.68rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .phase-node .label { font-size: 0.86rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0; }
+    .phase-node .desc { font-size: 0.7rem; color: var(--muted); line-height: 1.3; }
+    .phase-node.current::after {
+      content: 'Estamos aqui'; position: absolute; top: -0.55rem; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: #fff; font-size: 0.63rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap;
+    }
+    .stage-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 1.25rem 0 0.25rem; }
+    .gate-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem; margin: 0.75rem 0;
+      background: #fdf6e9; border: 1px solid #f0d9a8; color: #8a5a12;
+      font-size: 0.78rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 8px;
+    }
+    .phase-node.solo { flex: 0 0 auto; min-width: 190px; }
+    .v0-wrap { margin: 0.5rem 0 0.25rem; }
+    .v0-bar-track { height: 8px; background: var(--bg); border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
+    .v0-bar { height: 100%; background: var(--green); width: 0%; }
+    .v0-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; }
+    .release-track { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0.75rem; margin: 0.5rem 0 1rem; }
+    .release-card { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1rem; opacity: 0.9; }
+    .release-card .rtag { display:inline-block; font-size:0.72rem; font-weight:700; padding:0.15rem 0.6rem; border-radius:999px; margin-bottom:0.5rem; }
+    .release-card.v1 .rtag { background:#e8f5ee; color:#2f7d52; border:1px solid #bfe3cd; }
+    .release-card.v2 .rtag { background:#eef6fb; color:#1a74a1; border:1px solid #c7e4f2; }
+    .release-card.v3 .rtag { background:#f4f1fb; color:#6b4fa1; border:1px solid #ddd3f0; }
+    .release-card ul { margin:0; padding-left:1.1rem; font-size:0.8rem; color:var(--navy); line-height:1.5; }
+    .release-card .rmap { font-size:0.7rem; color:var(--muted); margin-top:0.5rem; }
+    /* legend: estágios + gates */
+    .legend-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:0.85rem; margin:1.25rem 0 0.5rem; }
+    .legend-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem 1.1rem; }
+    .legend-card h3 { font-size:0.92rem; color:var(--navy); margin-bottom:0.65rem; }
+    .legend-card dl { margin:0; font-size:0.8rem; line-height:1.4; }
+    .legend-card dt { font-weight:700; color:var(--navy); margin-bottom:0.1rem; }
+    .legend-card dd { margin:0 0 0.55rem; color:var(--muted); }
+    .gate-tag { display:inline-block; font-weight:700; font-size:0.72rem; padding:0.05rem 0.42rem; border-radius:5px; background:#fdf6e9; color:#8a5a12; border:1px solid #f0d9a8; margin-right:0.35rem; }
+    .estagio-tag { display:inline-block; font-weight:700; font-size:0.72rem; padding:0.05rem 0.42rem; border-radius:5px; margin-right:0.35rem; }
+    .est-def { background:#eef6fb; color:var(--blue); border:1px solid #c7e4f2; }
+    .est-exec { background:#e8f5ee; color:#2f7d52; border:1px solid #bfe3cd; }
+    .est-evol { background:var(--bg); color:var(--muted); border:1px solid var(--border); }
+    /* estágio bands */
+    .estagio { border-left:4px solid var(--border); padding:0.1rem 0 0.35rem 1rem; margin:1.4rem 0; }
+    .estagio.def { border-left-color:var(--blue); }
+    .estagio.exec { border-left-color:#2f7d52; }
+    .estagio.evol { border-left-color:var(--muted); }
+    .stage-head { display:flex; align-items:baseline; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.15rem; }
+    .stage-head h2 { font-size:1.05rem; color:var(--navy); }
+    .stage-head .st-desc { font-size:0.78rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../index.html">← Documentação da plataforma — ForteGB</a></div>
+  </div>
+
+  <header class="hero">
+    <h1>Roteiro do Projeto</h1>
+    <p>A espinha do projeto — 9 passos em 3 estágios. Complemento visual ao <a href="./progresso-socios.html" style="color:#fff;text-decoration:underline">relatório de progresso</a> (que traz o detalhe por passo, do board).</p>
+  </header>
+
+  <main class="container">
+    <div class="legend-grid">
+      <div class="legend-card">
+        <h3>Os 3 estágios</h3>
+        <dl>
+          <dt><span class="estagio-tag est-def">Definição</span> passos 1–7</dt>
+          <dd>Descobrir e desenhar a solução — cada passo fecha via grilling.</dd>
+          <dt><span class="estagio-tag est-exec">Execução</span> passo 8</dt>
+          <dd>Construir e entregar, por versão (v1 → v2 → v3).</dd>
+          <dt><span class="estagio-tag est-evol">Evolução</span> passo 9</dt>
+          <dd>Manter e evoluir depois do lançamento.</dd>
+        </dl>
+      </div>
+      <div class="legend-card">
+        <h3>Os 3 portões (gates)</h3>
+        <dl>
+          <dt><span class="gate-tag">G1</span> critério de avanço na Definição</dt>
+          <dd>Um passo só abre quando o anterior fecha (paralelos declarados são exceção).</dd>
+          <dt><span class="gate-tag">G2</span> critério de avanço para a Execução</dt>
+          <dd>A Execução (passo 8) só começa quando toda a Definição (1–7) fecha — sinal: marco <code>v0</code> a 100%.</dd>
+          <dt><span class="gate-tag">G3</span> critério de avanço entre versões</dt>
+          <dd>Cada versão só começa quando a anterior passa no checklist de lançamento.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="estagio def">
+      <div class="stage-head"><span class="estagio-tag est-def">Definição</span><h2>Passos 1–7</h2><span class="st-desc">descobrir e desenhar — fecham via grilling</span></div>
+      <div class="gate-chip">🔒 G1 · avanço na Definição — cada passo só abre quando o anterior fecha (paralelos declarados são exceção)</div>
+      <div class="phase-track">
+        <div class="phase-node done"><div class="num">Passo 1</div><div class="label">Contexto</div><div class="desc">Quem somos, o que temos e queremos</div></div>
+        <div class="phase-node parallel"><div class="num">Passo 2</div><div class="label">Funcionalidades</div><div class="desc">O que a plataforma oferece (validação)</div></div>
+        <div class="phase-node done"><div class="num">Passo 3</div><div class="label">Componentes</div><div class="desc">Site, CRM, visitas, fechaduras…</div></div>
+        <div class="phase-node current"><div class="num">Passo 4</div><div class="label">Arquitetura</div><div class="desc">Infra, ambientes, integrações (#146)</div></div>
+        <div class="phase-node future"><div class="num">Passo 5</div><div class="label">Jornadas</div><div class="desc">Fluxos e telas finais (re-validar)</div></div>
+        <div class="phase-node future"><div class="num">Passo 6</div><div class="label">Design</div><div class="desc">Linguagem visual + design system</div></div>
+        <div class="phase-node future"><div class="num">Passo 7</div><div class="label">Versionamento</div><div class="desc">Fatiar em versões v1/v2/v3</div></div>
+      </div>
+      <div class="v0-wrap">
+        <div class="v0-bar-track"><div class="v0-bar" id="v0-bar"></div></div>
+        <div class="v0-label"><strong>Marco <code>v0 — Definição</code></strong> — <span id="v0-count">carregando…</span>. A 100%, o portão <strong>G2</strong> abre e a Execução fica liberada.</div>
+      </div>
+    </div>
+
+    <div class="gate-chip">🔒 G2 · avanço para a Execução — só começa quando a Definição (1–7) fechar (v0 a 100%)</div>
+
+    <div class="estagio exec">
+      <div class="stage-head"><span class="estagio-tag est-exec">Execução</span><h2>Passo 8 — Execução</h2><span class="st-desc">construir e entregar, por versão</span></div>
+      <div class="phase-track">
+        <div class="phase-node future solo"><div class="num">Passo 8</div><div class="label">Execução</div><div class="desc">Construir até entregar — por versão ↓</div></div>
+      </div>
+      <div class="gate-chip">🔒 G3 · avanço entre versões — cada versão só começa após o readiness (UAT/perf/LGPD) da anterior</div>
+      <div class="release-track">
+      <div class="release-card v1">
+        <span class="rtag">v1 · vender já</span>
+        <ul>
+          <li>Site público + portfólio real</li>
+          <li>CTA de visita por WhatsApp</li>
+          <li>Login + papéis</li>
+          <li>Portal do corretor: cliente + comissão + HubSpot</li>
+        </ul>
+        <div class="rmap">Milestone criado no passo 7 (migração B)</div>
+      </div>
+      <div class="release-card v2">
+        <span class="rtag">v2 · automação única</span>
+        <ul>
+          <li>Visitas autoguiadas (agendada + QR)</li>
+          <li>Identidade + fechadura Tuya + calendário</li>
+          <li>Bots WhatsApp/Telegram de cliente</li>
+        </ul>
+        <div class="rmap">Milestone criado no passo 7</div>
+      </div>
+      <div class="release-card v3">
+        <span class="rtag">v3 · escala</span>
+        <ul>
+          <li>Media kit impresso + placa QR</li>
+          <li>Timeline da obra pública</li>
+          <li>Motor de conteúdo social + portal do cliente</li>
+        </ul>
+        <div class="rmap">Milestone criado no passo 7</div>
+      </div>
+      </div>
+    </div>
+
+    <div class="estagio evol">
+      <div class="stage-head"><span class="estagio-tag est-evol">Evolução</span><h2>Passo 9</h2><span class="st-desc">manter e evoluir depois do lançamento</span></div>
+      <div class="phase-track">
+        <div class="phase-node future solo"><div class="num">Passo 9</div><div class="label">Evolução</div><div class="desc">Manutenção e novas ideias — definido quando chegarmos lá</div></div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>Como isto controla o trabalho:</strong> cada item do board carrega uma <strong>Etapa</strong> (passo 1–9); o build (passo 8) fica bloqueado pelo portão <strong>G2</strong> até a Definição fechar. Detalhe: <a href="./roteiro.md">roteiro.md</a> · <a href="./arquitetura-decisoes.html">Arquitetura e decisões</a>.
+    </div>
+  </main>
+
+  <footer class="footer-note">
+    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+  </footer>
+  <script src="../assets/portal-build.js" defer></script>
+  <script>
+    // v0 progress from the milestone (open+closed) via public API
+    fetch('https://api.github.com/repos/fortegb/platform/milestones?state=all&per_page=100')
+      .then((r) => (r.ok ? r.json() : []))
+      .then((ms) => {
+        const v0 = ms.find((m) => /v0/.test(m.title));
+        if (!v0) return;
+        const total = v0.open_issues + v0.closed_issues;
+        const pct = total ? Math.round((v0.closed_issues / total) * 100) : 0;
+        const bar = document.getElementById('v0-bar');
+        if (bar) bar.style.width = pct + '%';
+        const c = document.getElementById('v0-count');
+        if (c) c.textContent = `${v0.closed_issues}/${total} issues fechadas (${pct}%)`;
+      })
+      .catch(() => {
+        const c = document.getElementById('v0-count');
+        if (c) c.textContent = 'progresso no board';
+      });
+  </script>
+</body>
+</html>

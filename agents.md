@@ -357,13 +357,13 @@ After processing this file, the AI should:
 
 ## 9) Controle do Projeto (para Agentes de IA)
 
-> **A espinha do projeto é o [Método](./docs/planning/metodo.md)** — 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com gates G1/G2/G3. É **controlador**, não decorativo, e é representado no board (campo `Etapa` + `Milestone` + tipo nativo), não em prosa. **Passo atual: 4 Arquitetura** (#146). Ver `metodo.md` antes de escolher trabalho.
+> **A espinha do projeto é o [Roteiro](./docs/planning/roteiro.md)** — 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com gates G1/G2/G3. É **controlador**, não decorativo, e é representado no board (campo `Etapa` + `Milestone` + tipo nativo), não em prosa. **Passo atual: 4 Arquitetura** (#146). Ver `roteiro.md` antes de escolher trabalho.
 
 Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los no início** e **mantê-los atualizados** ao final de mudanças relevantes:
 
 | Arquivo | Finalidade | Quando atualizar |
 | --- | --- | --- |
-| `docs/planning/metodo.md` | **Método — a espinha** (passos, gates, modelo de board) | Ao mudar passos, gates ou modelo de board |
+| `docs/planning/roteiro.md` | **Roteiro — a espinha** (passos, gates, modelo de board) | Ao mudar passos, gates ou modelo de board |
 | `AGENTS.md` (este arquivo) | Contexto do projeto, regras e convenções para IA | Ao mudar regras, stack, convenções ou diretrizes duradouras |
 | `STATUS.md` | **Bússola de sessão:** epics ativos, próximo passo, foco Phase 0+ | Ao mudar foco ou concluir passo de epic |
 | `CHANGELOG.md` | Histórico do que foi feito (close-out de changes) | Ao concluir mudanças concretas (UI, código, docs) |
@@ -371,14 +371,14 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
 ### Ordem de trabalho (Etapa + dependências)
-- **Ordem = passo do Método (campo `Etapa`) + dependências**, **não** o número da issue (número = ordem de criação).
+- **Ordem = passo do Roteiro (campo `Etapa`) + dependências**, **não** o número da issue (número = ordem de criação).
 - **`Etapa`** (campo de board, 9 opções, supersede `Phase`) situa cada item no passo 1–9; **`Milestone`** (`v0 Definição` → v1 → v2 → v3) é o pacote de entrega; **tipo nativo** (Feature/Bug/Task/Epic) classifica.
 - Dependências registradas no **corpo da issue** com linha `**Depends on:** #X` (o "blocked by" nativo do GitHub não é scriptável via `gh`). **"Próximo" = item do passo atual sem `Depends on:` por fechar.**
-- Gates (`metodo.md`): **G2** = build (Etapa 8) só após toda a Definição (1–7) fechada — `v0` a 100%. `STATUS.md` "próximo passo" = ponteiro legível; fonte de verdade = board (`Etapa` + `Depends on:`).
+- Gates (`roteiro.md`): **G2** = build (Etapa 8) só após toda a Definição (1–7) fechada — `v0` a 100%. `STATUS.md` "próximo passo" = ponteiro legível; fonte de verdade = board (`Etapa` + `Depends on:`).
 
 ### Estágio atual
-- **Passo 4 (Arquitetura) — em curso.** Definição (produto/stack, passos 1–3) concluída; falta fechar 4 (infra/ambientes/integrações, Epic **#146**, 26 folhas), depois 5 (jornadas re-validação) e 6 (design). **G2: build da Fase 1 (#48/#56) gated até 4–6 fecharem** (`v0 Definição` a 100%). Ver **`metodo.md`** + **`STATUS.md`**.
-- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), + método (#173) → **D-015..D-024**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
+- **Passo 4 (Arquitetura) — em curso.** Definição (produto/stack, passos 1–3) concluída; falta fechar 4 (infra/ambientes/integrações, Epic **#146**, 26 folhas), depois 5 (jornadas re-validação) e 6 (design). **G2: build da Fase 1 (#48/#56) gated até 4–6 fecharem** (`v0 Definição` a 100%). Ver **`roteiro.md`** + **`STATUS.md`**.
+- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), + roteiro (#173) → **D-015..D-024**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-024); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
 - **Migração do board pendente:** modelo Etapa/Milestones/tipos definido (D-024) mas ainda **não aplicado** ao board (campo `Phase` 0–4 em uso até a migração A).
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
@@ -386,7 +386,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 
 ### Convenções já estabelecidas (resumo)
 - **Idioma:** comunicação com IA em inglês; **entregáveis em pt-BR**.
-- **Board (método, D-024):** campo **`Etapa`** (9 passos, supersede `Phase`) + **`Milestone`** nativo (`v0 Definição` → v1 → v2 → v3) + **tipo de issue nativo** — **Feature / Bug / Task / Epic** (usar o tipo nativo do GitHub, não o prefixo `Epic:`; `chore` fica só em commits e mapeia a **Task**). *(Modelo definido; migração do board pendente.)*
+- **Board (roteiro, D-024):** campo **`Etapa`** (9 passos, supersede `Phase`) + **`Milestone`** nativo (`v0 Definição` → v1 → v2 → v3) + **tipo de issue nativo** — **Feature / Bug / Task / Epic** (usar o tipo nativo do GitHub, não o prefixo `Epic:`; `chore` fica só em commits e mapeia a **Task**). *(Modelo definido; migração do board pendente.)*
 - **Escala de UI:** base global reduzida para `81.25%` (`assets/css/main.css`) — tende a um visual compacto.
 - **Sistema de botões:**
   - **Verde WhatsApp** `#3E8E5E` (hover `#34784F`) = ações de WhatsApp.

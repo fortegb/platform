@@ -2,14 +2,14 @@
 
 > Narrativa editável na sessão com IA; incorporada na seção **Trabalhando no momento** do relatório de progresso.
 
-**Atualizado:** 2026-07-04
+**Atualizado:** 2026-07-05
 
 ---
 
 ## Trabalhando no momento
 
-- **Fase 0 (produto/stack) concluída.** Epic Architecture ([#1](https://github.com/fortegb/platform/issues/1)) fechado — stack e MVP definidos.
-- **Em curso: definição de arquitetura da solução & ambientes** (Epic [#146](https://github.com/fortegb/platform/issues/146), 26 sub-tarefas) — infra, ambientes (staging/prod), integrações. **Precede o build.**
+- **Roteiro (a espinha):** Definição (passos 1–7) → Execução (8) → Evolução (9). Passos 1–3 (produto/stack) fechados; **passo atual = 4 Arquitetura**. Ver [Roteiro do Projeto](./mapa-roteiro.html).
+- **Em curso: passo 4 — arquitetura da solução & ambientes** (Epic [#146](https://github.com/fortegb/platform/issues/146), 26 sub-tarefas) — infra, ambientes (staging/prod), integrações. Portão **G2**: o build só começa quando a Definição fechar (marco `v0`).
 
 ## Concluído recentemente
 
@@ -19,7 +19,7 @@
 ## Próximo passo
 
 1. **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)) — definir ambientes, dados, CMS, integrações, config, CI/CD, dev local (26 sub-tarefas, começar em A1/#147).
-2. **Depois:** build da Fase 1 — Identidade ([#48](https://github.com/fortegb/platform/issues/48)), Site público ([#56](https://github.com/fortegb/platform/issues/56)).
+2. **Depois (passo 8, Execução):** build v1 — Identidade ([#48](https://github.com/fortegb/platform/issues/48)), Site público ([#56](https://github.com/fortegb/platform/issues/56)).
 3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo — depende de logos/marca.
 
 ## Notas para sócios
