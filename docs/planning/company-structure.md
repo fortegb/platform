@@ -95,7 +95,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Relação** | Terceiro fundador; **filho** de Adilson, **sobrinho** de Ricardo |
 | **Papel** | Sócio / fundador / investidor / **admin** (plataforma) |
 | **Carreira** | Arquiteto de sistemas sénior, **CI&T** — Campinas |
-| **Formação / experiência** | Arquitectura de sistemas IT |
+| **Formação / experiência** | Arquitetura de sistemas IT |
 | **Plataforma — digital** | **Arquiteto Digital** · **Desenvolvedor Digital** — co-desenvolve a plataforma com Ricardo |
 | **Decisões** | Voto igual; unanimidade obrigatória acima de **R$ 100k** e em vendas/terreno/pricing; no dia-a-dia alinha-se com Ricardo e Adilson |
 | **LinkedIn** | [felipe-bonon-goncalves](https://www.linkedin.com/in/felipe-bonon-gon%C3%A7alves-7429943a0/) |
@@ -111,7 +111,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | Obra / construção | **Mestre de obras** (por casa) | Um mestre por empreendimento/casa |
 | | Ricardo + Adilson | Contato próximo; visitas **semanais** de verificação; apoio **diário** em decisões e compras |
 | Projetos / engenharia | Ricardo + Adilson | **Partilhado igualmente** |
-| | Escritório de **arquitetura** (externo) | Projeto arquitectónico por casa |
+| | Escritório de **arquitetura** (externo) | Projeto arquitetônico por casa |
 | | Escritório de **engenharia** (externo) | Estrutural, eléctrico, hidráulico |
 | Compras / procurement | Adilson (principal) | Ricardo apoia; decisão R+A abaixo de R$ 100k |
 | Vendas | Ricardo (principal) | **Daqui em diante** Ricardo assume (contato com clientes, negociação) |

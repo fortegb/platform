@@ -89,9 +89,9 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 **Escolhido: Caso A — Serverless (Vercel Hobby → Pro quando útil).**
 
-**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam diretamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou operas a VM (Oracle), ou pagas (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitectural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
+**Porquê:** as prioridades declaradas — **free-first + zero-ops + simplicidade Vercel** — apontam diretamente para serverless. Nenhum host persistente oferece *simultaneamente* «não-dorme» e «zero-ops» de graça: ou dorme (Render), ou operas a VM (Oracle), ou pagas (Fly/Railway). O que se **abdica** ao escolher serverless é a coerência arquitetural do async/real-time (fica espalhado por funções + QStash) — aceitável, dado que o Ricardo declarou não se importar com async espalhado «desde que funcione», e a §2 mostra que funciona.
 
-**O Caso B seria a escolha** se as prioridades fossem coerência arquitectural + real-time + modelo de servidor familiar acima de free-first/zero-ops.
+**O Caso B seria a escolha** se as prioridades fossem coerência arquitetural + real-time + modelo de servidor familiar acima de free-first/zero-ops.
 
 **Condições da escolha serverless (olhos abertos):**
 1. **Adicionar QStash** (scheduler+queue gerido) — é o que torna o async espalhado *fiável* (jobs com atraso + retries). Vercel Cron sozinho é grosseiro/diário.
