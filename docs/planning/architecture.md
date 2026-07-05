@@ -1,7 +1,7 @@
 # Architecture & MVP — ForteGB Platform
 
-> **Status:** rascunho — preenchido no epic **Architecture & MVP definition** (Phase 0).  
-> **Princípio (D-011):** decisões técnicas **abertas** até grilling — escolher a melhor solução no momento, não na preparação.
+> **Status:** produto/stack **definidos** (grillings Phase 0 concluídas → D-015..D-022); infra/ambientes/integrações em definição no epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)).  
+> **Princípio (D-011, cumprido):** decisões técnicas ficaram abertas até grilling; itens `deferred` reabrem no grilling da fase respectiva.
 
 **Pré-requisito:** GitHub org + bootstrap board.  
 **Entrada:** [`open-questions.md`](./open-questions.md) · **Saída:** este doc + [`decisions.md`](./decisions.md) + epics no board  
