@@ -1,15 +1,3 @@
-# 0
-
-## Todo
-- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
-- [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
-- [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
-- [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
-- [#39](https://github.com/fortegb/platform/issues/39) Logo (SVG/PNG/PDF)
-- [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
-- [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
-- [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
-
 ## Done
 - [#1](https://github.com/fortegb/platform/issues/1) Epic: Architecture & MVP definition
 - [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
@@ -47,11 +35,20 @@
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
 - [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
 - [#143](https://github.com/fortegb/platform/issues/143) Epic: Documentação da plataforma (Platform docs)
+- [#144](https://github.com/fortegb/platform/issues/144) Explorar estratégia de ambientes (dev / tst / prd)
 - [#145](https://github.com/fortegb/platform/issues/145) Grilling 0: Foundational architecture stances (constraints, build-vs-buy, data ownership, MVP boundary)
 
-# 1
+## In Progress
+- [#173](https://github.com/fortegb/platform/issues/173) Método do projeto: espinha de governança (Definição → Execução → Evolução)
 
 ## Todo
+- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
+- [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
+- [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
+- [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
+- [#39](https://github.com/fortegb/platform/issues/39) Logo (SVG/PNG/PDF)
+- [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
+- [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
 - [#42](https://github.com/fortegb/platform/issues/42) Epic: Platform environments
 - [#43](https://github.com/fortegb/platform/issues/43) Supabase project + database-schema.sql
 - [#44](https://github.com/fortegb/platform/issues/44) Env vars (local, Vercel staging/prod)
@@ -82,40 +79,6 @@
 - [#69](https://github.com/fortegb/platform/issues/69) Master templates print (placa, poster)
 - [#70](https://github.com/fortegb/platform/issues/70) Documentar uso em AGENTS.md ou design doc
 - [#71](https://github.com/fortegb/platform/issues/71) Social templates alinhados
-- [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#147](https://github.com/fortegb/platform/issues/147) Ambientes: definir tiers local/staging/prod (propósito + regras)
-- [#148](https://github.com/fortegb/platform/issues/148) Ambientes: mapeamento branch → ambiente (main/staging/feat)
-- [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
-- [#150](https://github.com/fortegb/platform/issues/150) Ambientes: domínios por ambiente (prod/staging/preview)
-- [#151](https://github.com/fortegb/platform/issues/151) Dados: projetos Supabase por ambiente (staging/prod/local)
-- [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
-- [#153](https://github.com/fortegb/platform/issues/153) Dados: runbook Supabase local (Docker/OrbStack)
-- [#154](https://github.com/fortegb/platform/issues/154) Dados: seed/test data + LGPD (sem PII real fora de prod)
-- [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
-- [#156](https://github.com/fortegb/platform/issues/156) CMS: environments/datasets por ambiente
-- [#157](https://github.com/fortegb/platform/issues/157) CMS: modelo de conteúdo (casa, blog, timeline, media)
-- [#158](https://github.com/fortegb/platform/issues/158) Integrações: modelo 3-tiers (mock / staging safe-target / prod-live)
-- [#159](https://github.com/fortegb/platform/issues/159) Integrações: mapa por integração → tier + alvo de teste
-- [#160](https://github.com/fortegb/platform/issues/160) Integrações: alvos de teste seguros (fechadura, WhatsApp sandbox, HubSpot teste)
-- [#161](https://github.com/fortegb/platform/issues/161) Integrações: callbacks/webhooks por ambiente (URLs públicas, túneis)
-- [#162](https://github.com/fortegb/platform/issues/162) Config: inventário + convenção de nomes de env vars
-- [#163](https://github.com/fortegb/platform/issues/163) Config: modelo de scoping (Vercel Production/Preview + .env local)
-- [#164](https://github.com/fortegb/platform/issues/164) Config: gestão de secrets + política de acesso
-- [#165](https://github.com/fortegb/platform/issues/165) Config: .env.example + estrutura SETUP-CREDENTIALS
-- [#166](https://github.com/fortegb/platform/issues/166) CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
-- [#167](https://github.com/fortegb/platform/issues/167) CI/CD: pipeline de deploy (branch→Vercel)
-- [#168](https://github.com/fortegb/platform/issues/168) CI/CD: automação de migrações (aplicar on merge)
-- [#169](https://github.com/fortegb/platform/issues/169) CI/CD: processo de promoção/release (staging→main)
-- [#170](https://github.com/fortegb/platform/issues/170) Dev local: toolchain (Node, Docker/OrbStack, Supabase CLI, ngrok)
-- [#171](https://github.com/fortegb/platform/issues/171) Dev local: runbook de bootstrap
-- [#172](https://github.com/fortegb/platform/issues/172) Dev local: estratégia de mock de integrações
-
-## Done
-- [#144](https://github.com/fortegb/platform/issues/144) Explorar estratégia de ambientes (dev / tst / prd)
-
-# 2
-
-## Todo
 - [#72](https://github.com/fortegb/platform/issues/72) Epic: Integrations MVP
 - [#73](https://github.com/fortegb/platform/issues/73) HubSpot service real (contacts, deals mínimo)
 - [#74](https://github.com/fortegb/platform/issues/74) Matriz de captura de clientes (form, visitas, WhatsApp, corretor)
@@ -142,12 +105,6 @@
 - [#95](https://github.com/fortegb/platform/issues/95) Performance smoke (Lighthouse)
 - [#96](https://github.com/fortegb/platform/issues/96) LGPD copy + consent flows verificados
 - [#97](https://github.com/fortegb/platform/issues/97) Go/no-go para uso real limitado
-- [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
-- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
-
-# 3
-
-## Todo
 - [#98](https://github.com/fortegb/platform/issues/98) Epic: House media kit & materiais físicos
 - [#99](https://github.com/fortegb/platform/issues/99) Entrada portfólio (descrição, galeria, specs)
 - [#100](https://github.com/fortegb/platform/issues/100) Placa À venda + QR → micro-página
@@ -176,10 +133,6 @@
 - [#123](https://github.com/fortegb/platform/issues/123) SEO técnico (sitemap, structured data)
 - [#124](https://github.com/fortegb/platform/issues/124) Analytics (GA4 ou equivalente)
 - [#125](https://github.com/fortegb/platform/issues/125) Performance tuning pós-launch
-
-# 4
-
-## Todo
 - [#126](https://github.com/fortegb/platform/issues/126) Epic: LGPD hardening
 - [#127](https://github.com/fortegb/platform/issues/127) Política retenção documentos KYC
 - [#128](https://github.com/fortegb/platform/issues/128) Audit log acessos dados sensíveis
@@ -192,4 +145,34 @@
 - [#135](https://github.com/fortegb/platform/issues/135) Tuya production + monitorização
 - [#136](https://github.com/fortegb/platform/issues/136) WhatsApp Business API production
 - [#137](https://github.com/fortegb/platform/issues/137) HubSpot pipeline production + reporting
+- [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
+- [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
+- [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
+- [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
+- [#147](https://github.com/fortegb/platform/issues/147) Ambientes: definir tiers local/staging/prod (propósito + regras)
+- [#148](https://github.com/fortegb/platform/issues/148) Ambientes: mapeamento branch → ambiente (main/staging/feat)
+- [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
+- [#150](https://github.com/fortegb/platform/issues/150) Ambientes: domínios por ambiente (prod/staging/preview)
+- [#151](https://github.com/fortegb/platform/issues/151) Dados: projetos Supabase por ambiente (staging/prod/local)
+- [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
+- [#153](https://github.com/fortegb/platform/issues/153) Dados: runbook Supabase local (Docker/OrbStack)
+- [#154](https://github.com/fortegb/platform/issues/154) Dados: seed/test data + LGPD (sem PII real fora de prod)
+- [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
+- [#156](https://github.com/fortegb/platform/issues/156) CMS: environments/datasets por ambiente
+- [#157](https://github.com/fortegb/platform/issues/157) CMS: modelo de conteúdo (casa, blog, timeline, media)
+- [#158](https://github.com/fortegb/platform/issues/158) Integrações: modelo 3-tiers (mock / staging safe-target / prod-live)
+- [#159](https://github.com/fortegb/platform/issues/159) Integrações: mapa por integração → tier + alvo de teste
+- [#160](https://github.com/fortegb/platform/issues/160) Integrações: alvos de teste seguros (fechadura, WhatsApp sandbox, HubSpot teste)
+- [#161](https://github.com/fortegb/platform/issues/161) Integrações: callbacks/webhooks por ambiente (URLs públicas, túneis)
+- [#162](https://github.com/fortegb/platform/issues/162) Config: inventário + convenção de nomes de env vars
+- [#163](https://github.com/fortegb/platform/issues/163) Config: modelo de scoping (Vercel Production/Preview + .env local)
+- [#164](https://github.com/fortegb/platform/issues/164) Config: gestão de secrets + política de acesso
+- [#165](https://github.com/fortegb/platform/issues/165) Config: .env.example + estrutura SETUP-CREDENTIALS
+- [#166](https://github.com/fortegb/platform/issues/166) CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
+- [#167](https://github.com/fortegb/platform/issues/167) CI/CD: pipeline de deploy (branch→Vercel)
+- [#168](https://github.com/fortegb/platform/issues/168) CI/CD: automação de migrações (aplicar on merge)
+- [#169](https://github.com/fortegb/platform/issues/169) CI/CD: processo de promoção/release (staging→main)
+- [#170](https://github.com/fortegb/platform/issues/170) Dev local: toolchain (Node, Docker/OrbStack, Supabase CLI, ngrok)
+- [#171](https://github.com/fortegb/platform/issues/171) Dev local: runbook de bootstrap
+- [#172](https://github.com/fortegb/platform/issues/172) Dev local: estratégia de mock de integrações
 

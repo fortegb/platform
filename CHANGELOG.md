@@ -7,6 +7,15 @@
 
 ## Não versionado
 
+### 2026-07-05 — Método do projeto: espinha de governança ([#173](https://github.com/fortegb/platform/issues/173))
+
+- **Novo canon `docs/planning/metodo.md`** — a **espinha controladora**: 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com propósito/artefato por passo, gates **G1** (sequência), **G2** (build só após Definição 1–7 fechada; ativo 4–6; sinal = Milestone `v0` a 100%), **G3** (versão N+1 após readiness de N). Enforcement soft (doc + `rbo-create-change` + STATUS; sem hard-gate Action).
+- **Modelo de board (D-024)** — campo **`Etapa`** (9 opções, supersede `Phase` 0–4) + **`Milestone`** nativo (`v0 Definição` → v1 → v2 → v3) + **tipos de issue nativos** (Feature/Bug/Task/Epic; `chore` só em commits → Task). Atribuição de versão = passo 7 (epic sem Milestone = fila; nada esquecido). **Sem sprints** (releases scope-boxed).
+- **D-023** (método como espinha + gates) e **D-024** (modelo de board) em `decisions.md`.
+- **Wiring:** ponteiros a `metodo.md` em `README.md` (planning), `agents.md §9` (+ convenção de tipos nativos), `STATUS.md` (passo atual = 4 Arquitetura).
+- **Draft-mark:** `jornadas-plataforma.md` e `screen-map.md` → re-validar no passo 5 (após #146).
+- **Escopo:** só canon/docs — **board não migrado** (Phase 0–4 em uso até migração A, que também refaz as Platform docs). Sem código de produto tocado.
+
 ### 2026-07-05 — Epic Arquitetura da solução & ambientes ([#146](https://github.com/fortegb/platform/issues/146)) + auditoria repo-wide
 
 - **Novo epic "Arquitetura da solução & ambientes (definição completa)" ([#146](https://github.com/fortegb/platform/issues/146))** com 26 issues folha (#147–#172) em 7 áreas: A Ambientes · B Dados · C CMS · D Integrações · E Config/secrets · F CI/CD · G Dev local. Motivo (→ **D-022**): o epic Architecture (#1) cobriu produto/stack, mas **não** infra/ambientes/integrações — a definição completa **precede o build da Fase 1** (#48/#56). Correção do overclaim "Fase 1 desbloqueada" da entrada de 2026-07-04.

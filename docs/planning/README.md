@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **Fase 0 (produto/stack) concluída** — próximo: Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), definição de infra/ambientes/integrações), que precede o build.
+> Canon de design e sequenciamento. **A espinha é o [Método](./metodo.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo atual: 4 Arquitetura** — Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)), que precede/gate o build (G2).
 
 ---
 
@@ -8,10 +8,9 @@
 
 | Ordem | Ação | Doc |
 |-------|--------|-----|
-| 1 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
-| 2 | GitHub org migration Fase A | [`github-org-migration.md`](./github-org-migration.md) |
-| 3 | Bootstrap board + OpenSpec | [`workflow.md`](./workflow.md) |
-| 4 | **`rbo-create-change`** no Epic #146 (Arquitetura da solução & ambientes) | [`decisions.md`](./decisions.md) |
+| 1 | Ler o **Método** (a espinha) | [`metodo.md`](./metodo.md) |
+| 2 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
+| 3 | **`rbo-create-change`** no passo atual (4 Arquitetura, Epic #146) | [`decisions.md`](./decisions.md) |
 
 **Decisões de produto/stack fechadas** (D-015..D-022). O que resta é `deferred` (tours/media/mobile) e a **definição de infra/ambientes** (#146). O histórico de grilling está em [`open-questions.md`](./open-questions.md).
 
@@ -23,6 +22,7 @@
 
 | Documento | Conteúdo |
 |-----------|----------|
+| [metodo.md](./metodo.md) | **Método — a espinha** (9 passos, gates G1/G2/G3, modelo de board Etapa/Milestones) |
 | [company-structure.md](./company-structure.md) | **Pessoas, papéis operacionais, governo, corretores** (interno) |
 | [progress-focus.md](./progress-focus.md) | **Foco atual (Ricardo)** — editável; alimenta relatório de progresso |
 | [../index.html](../index.html) | **Documentação da plataforma** — índice GitHub Pages: mocks, progresso, planning HTML |
@@ -44,7 +44,7 @@
 | [architecture.md](./architecture.md) | Arquitetura & MVP — **preenchido** (D-015..D-022) |
 | [phases.md](./phases.md) | Epics + sub-tarefas Fases 0–4 |
 | [open-questions.md](./open-questions.md) | Backlog grilling (Q-001–Q-019) — **resolved/deferred** |
-| [decisions.md](./decisions.md) | Decisões fechadas (D-001–**D-022**) |
+| [decisions.md](./decisions.md) | Decisões fechadas (D-001–**D-024**) |
 | [workflow.md](./workflow.md) | Board, OpenSpec, session open/close |
 | [github-org-migration.md](./github-org-migration.md) | Runbook org + dotfiles |
 | [setup-mac-mini.md](../setup-mac-mini.md) | Checklist Mac Mini pós-migração |
@@ -53,6 +53,7 @@
 
 ## Regras
 
+- **[`metodo.md`](./metodo.md)** = a espinha (ordem + gates); o board a representa via campo **`Etapa`** (9) + **`Milestone`** (v0–v3) + tipo nativo
 - **Board** = execução · **`docs/planning/`** = pensamento · **OpenSpec** = 1:1 sub-issue folha
 - **`ROADMAP.md`** = gerado; não editar à mão
 - **`STATUS.md`** = bússola de sessão
