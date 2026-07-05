@@ -32,7 +32,7 @@
 ### 2026-07-03 — Board hygiene + screen map MVP ([#139](https://github.com/fortegb/platform/issues/139), [#32](https://github.com/fortegb/platform/issues/32))
 
 - Topics A + B: `phases.md`, `architecture.md`, `deliverables.md`, `modules.md`, explore notes.
-- **`screen-map.md`** — routes por role (mock/new, phase, epic); #32 aceite.
+- **`screen-map.md`** — routes por role (mock/new, phase, epic); #32 aceito.
 - Platform docs naming; Integrações → module `platform` (#72); workflow close-out.
 - OpenSpec `epics-issues-review` arquivado.
 

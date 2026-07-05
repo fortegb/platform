@@ -24,7 +24,7 @@
 
 ## Notas para sócios
 
-- **Fundação e decisões de produto/stack estão completas.** Antes do build, estamos a **definir a arquitetura técnica completa** (ambientes de teste/produção, dados, integrações) — para construir certo desde o início.
+- **Fundação e decisões de produto/stack estão completas.** Antes do build, estamos **definindo a arquitetura técnica completa** (ambientes de teste/produção, dados, integrações) — para construir certo desde o início.
 - **Depois dessa definição**, começa o build: primeiro login/papéis, depois o site público real.
 - **Como a plataforma será construída** (em linguagem simples): [`arquitetura-decisoes.html`](./arquitetura-decisoes.html).
 - Decisões de negócio (corretor, comissão, Gov.br) em [`company-structure.md`](./company-structure.md) e [`apresentacao-socios.html`](./apresentacao-socios.html).

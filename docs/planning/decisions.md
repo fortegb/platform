@@ -54,7 +54,7 @@
 - **Decisão:** Manter **dois** layouts finais:
   - Com imagem no hero (split)
   - Sem imagem no hero
-  - Restante styling partilhado entre ambos
+  - Restante styling compartilhado entre ambos
 - **Consequências:** Consolidação em change dedicada — **não executar** até autorizado; variantes `/v2`–`/v4` removidas depois da escolha.
 - **Fecha:** Q-010 (parcial — quais variantes exatas ainda em aberto).
 
@@ -140,7 +140,7 @@
 
 ### D-014 — Repos org: nomes finais (2026-07-01)
 
-- **Decisão:** Repos partilhados na org `fortegb`:
+- **Decisão:** Repos compartilhados na org `fortegb`:
   - `platform` (app principal; ex-`sandbox`)
   - `app-despesas` (ex-`fortegb-despesas`)
   - `ai-assets` (ex-`Resources_IA`)
@@ -166,7 +166,7 @@
   - Estado operacional + PII sensível (status, leads, visitas, verificação, contratos Gov.br, RG/CNH) → **Supabase** (Postgres + bucket **privado** com RLS + retenção LGPD).
   - **Vídeo** → embed YouTube/Vimeo (URL como campo); não passar pelo backend.
   - **Social** → fora da plataforma.
-  - **Join** conteúdo ↔ operacional por **ID de casa** partilhado, merge no Nuxt.
+  - **Join** conteúdo ↔ operacional por **ID de casa** compartilhado, merge no Nuxt.
 - **Alternativas rejeitadas:** Supabase-only (UX de autoria fraca); admin self-hosted sobre Postgres/Directus (viola zero-ops); largar Contentful por completo (revertido — um CMS compensa na autoria).
 - **Consequências:** vendor CMS (Contentful já em `package.json` vs free-tier mais generoso do Sanity) reversível via camada de serviço; decidido no build. Pré-resolve armazenamento de Q-005/Q-016 (bucket privado RLS).
 

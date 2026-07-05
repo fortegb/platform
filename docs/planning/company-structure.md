@@ -82,7 +82,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Formação / experiência** | Economia; carreira como **gestor de procurement / compras** |
 | **Outro empreendimento** | Empresa de estacionamento de veículos em Campinas |
 | **ForteGB — operações** | Obra em conjunto com Ricardo; **principal responsável por compras** (mais que Ricardo) |
-| **ForteGB — projetos** | Acompanhamento de projeto (partilhado com Ricardo) |
+| **ForteGB — projetos** | Acompanhamento de projeto (compartilhado com Ricardo) |
 | **ForteGB — digital** | **Não** desenvolve a plataforma; **stakeholder** em decisões de prontidão (voto com os três) |
 | **Decisões** | Com Ricardo no dia-a-dia e compras; **os três** em terreno, pricing, vendas (fecho) e acima de R$ 100k |
 
@@ -110,7 +110,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 |--------|------|-------|
 | Obra / construção | **Mestre de obras** (por casa) | Um mestre por empreendimento/casa |
 | | Ricardo + Adilson | Contato próximo; visitas **semanais** de verificação; apoio **diário** em decisões e compras |
-| Projetos / engenharia | Ricardo + Adilson | **Partilhado igualmente** |
+| Projetos / engenharia | Ricardo + Adilson | **Compartilhado igualmente** |
 | | Escritório de **arquitetura** (externo) | Projeto arquitetônico por casa |
 | | Escritório de **engenharia** (externo) | Estrutural, eléctrico, hidráulico |
 | Compras / procurement | Adilson (principal) | Ricardo apoia; decisão R+A abaixo de R$ 100k |
@@ -118,14 +118,14 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | | Gisele Herzeg | Apoio a Ricardo; usuárioa de plataformas |
 | | Adilson | Fez **a maior parte** nas **2 casas anteriores** (Ricardo apoiava); transição para Ricardo |
 | | Felipe | Não envolvido em vendas |
-| Finanças | Os três | Modelo **partilhado** — quem tiver fundos disponíveis paga, acordado entre os sócios |
+| Finanças | Os três | Modelo **compartilhado** — quem tiver fundos disponíveis paga, acordado entre os sócios |
 | | Meios de pagamento | Sobretudo **PIX**; também outras formas (compras loja, online, etc.) |
 | | Controle de custos | **Quem paga** registra a linha de custo no sistema de despesas |
 | | Sistema de despesas (atual) | **Google Form + Spreadsheet** |
 | | Sistema de despesas (evolução) | Possível migração para **`app-despesas`** |
 | | Contabilidade externa | **Nenhum contador** — os três gerem contabilidade e **obrigações fiscais** |
 | | Enquadramento | Operação como **Pessoas Físicas** (ver §3) |
-| Jurídico / contratos | Os três | Modelo **partilhado** |
+| Jurídico / contratos | Os três | Modelo **compartilhado** |
 | | Contratos com empreiteiros / fornecedores | **Adilson** mais proponente dos termos; **Ricardo** apoia; **Felipe** deferente |
 | | Contratos com corretores | Modelo: [`corretor-contract-template.md`](./corretor-contract-template.md) — revisão **Juliana Mestrinier** (ver §7) |
 | Marketing / comunicação | Ricardo | **Experimental**; tudo sob Ricardo (digital + não-digital: placas, fotos, redes, etc.) |
@@ -163,7 +163,7 @@ Ricardo Bonon (53) ── cunhado ── Adilson Antonio Gonçalves (66)
 | **Longo prazo** | **C** — hub completo proprietários (despesas + tarefas + docs + CRM/financeiro integrado) |
 | **Usuários MVP** | Mesmos **staff** (cinco) — §6 |
 | **Corretores** | **Sem** acesso a `app-despesas` — previsível **não** incluir |
-| **Auth** | **Partilhada com `platform`** — Google, Facebook, e-mail (staff); idem corretores só em `platform` |
+| **Auth** | **Compartilhada com `platform`** — Google, Facebook, e-mail (staff); idem corretores só em `platform` |
 | **Timing** | **Depois** do MVP `platform` — desenvolvimento solo (Ricardo) |
 | **Integração** | Modelo de dados partilhável (`casa_id`, etc.) quando fizer sentido |
 
@@ -252,7 +252,7 @@ Os **três fundadores** — ver §1. Sem **funcionários fixos (CLT)**.
 |---------|---------|
 | **Modelo** | Relação **informal** — sem contrato formal |
 | **Papel do corretor** | Traz **clientes** e tenta **vender**; comissão acordada (sem enquadramento formal) |
-| **Fricção recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não partilhar contatos** de clientes — e vice-versa (ForteGB também retém contatos) |
+| **Fricção recorrente** | Corretores **não gostam** que a ForteGB **anuncie por conta própria**; tendência a **não compartilhar contatos** de clientes — e vice-versa (ForteGB também retém contatos) |
 | **Fecho das vendas** | **Ambas** as casas vendidas **via corretores** |
 | **Processo interno** | **Ricardo** lidera acordo com corretor; **validação dos três** sócios no fecho |
 

@@ -32,11 +32,11 @@ Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-visio
 | **Visitante** | Qualquer pessoa | Navega site, lê blog, vê portfólio, inicia contato ou visita |
 | **Cliente / comprador** | Interessado num imóvel | Agenda ou faz visita instantânea; envia documentos; recebe senha |
 | **Corretor** | Parceiro comercial (ex. Juliana) | Registra-se, assina contratos por casa, registra clientes, acompanha comissão |
-| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e exceções; gere visitas e clientes do dia-a-dia |
+| **Staff** | Cláudia, Gisele (+ sócios em operação) | Aprova corretores e exceções; gerencia visitas e clientes do dia-a-dia |
 | **Admin** | Ricardo, Adilson, Felipe | Configuração, convites, flags sensíveis, visão global |
 | **Digital** | Ricardo, Felipe | Construção e evolução da plataforma (não é “usuário de negócio”) |
 
-Detalhe de governação: [`company-structure.md`](./company-structure.md).
+Detalhe de governança: [`company-structure.md`](./company-structure.md).
 
 ---
 
@@ -61,17 +61,17 @@ Google / redes / indicação
 
 ### 3.2 Visita autoguiada — agendada
 
-Para quem planeia ir à casa num horário combinado.
+Para quem planeja ir à casa num horário combinado.
 
 | Passo | O que acontece | Canal |
 |-------|----------------|-------|
 | 1 | Cliente escolhe casa no portfólio e clica **Agendar visita** | Web |
 | 2 | Preenche nome, celular (WhatsApp), data/hora preferida | Web |
-| 3 | Tira selfie e envia foto do documento (RG ou CNH) | Web (câmara) |
+| 3 | Tira selfie e envia foto do documento (RG ou CNH) | Web (câmera) |
 | 4 | Sistema compara rosto ↔ documento; se OK, aprova automaticamente | Plataforma |
 | 5 | Se falhar, staff recebe alerta para aprovação manual | Staff |
 | 6 | Visita criada no calendário; senha temporária enviada à fechadura (Tuya) | Backend |
-| 7 | Cliente recebe WhatsApp: data, morada, senha, validade (ex. 2–4 h) | WhatsApp |
+| 7 | Cliente recebe WhatsApp: data, endereço, senha, validade (ex. 2–4 h) | WhatsApp |
 | 8 | Cliente registrado no HubSpot; lembrete antes da visita | CRM |
 | 9 | Após visita: senha expira; follow-up automático ou manual | CRM / WhatsApp |
 
@@ -123,7 +123,7 @@ Cada casa exige **aceitação de termos específicos** antes de registrar client
 |-------|----------------|
 | 1 | Corretor vê casas disponíveis para parceria no portal |
 | 2 | **Reclama** uma casa → abre contrato daquela casa |
-| 3 | Assina electronicamente (Gov.br ou fluxo equivalente — Q-016) |
+| 3 | Assina eletronicamente (Gov.br ou fluxo equivalente — Q-016) |
 | 4 | Staff aprova |
 | 5 | Corretor pode registrar clientes **só nessa casa** |
 
@@ -169,7 +169,7 @@ No portal corretor:
 | Aprovar visita quando identidade falhou | Fila de exceções |
 | Consultar visitas do dia | Calendário integrado |
 | Ver clientes recentes | Dashboard operacional |
-| Registrar cliente manual (WhatsApp telefónico) | Entrada manual → HubSpot |
+| Registrar cliente manual (WhatsApp telefônico) | Entrada manual → HubSpot |
 
 **Fora do MVP plataforma:** despesas por obra (continua em `app-despesas`).
 
@@ -195,7 +195,7 @@ Quando uma casa entra em **venda** ou **obra visível**:
 
 | Entregável | Uso |
 |------------|-----|
-| Página web da casa | Site + partilha |
+| Página web da casa | Site + compartilha |
 | Placa “À venda” + QR | Rua → visita instantânea |
 | Posters internos (por cômodo) | Durante visita autoguiada |
 | Timeline de obra | Web + redes + poster |
@@ -276,7 +276,7 @@ Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 | [`modules.md`](./modules.md) | Módulos técnicos |
 | [`phases.md`](./phases.md) | Sequência Phase 0–4 |
 | [`architecture.md`](./architecture.md) | ADR e fluxos (a completar) |
-| [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governação |
+| [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governança |
 | [`progresso-socios.html`](./progresso-socios.html) | Progresso atual (issues) |
 | [`mapa-fases.html`](./mapa-fases.html) | Visão por fases e módulos |
 

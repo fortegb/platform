@@ -121,7 +121,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 ## 6. Ligações
 
-- **Q-004 (CMS vs DB) — resolvido** nesta sessão: conteúdo (casas, timeline, blog, media) → **CMS (Contentful/Sanity)**; estado operacional + PII sensível (status, clientes, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado com RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa partilhado, merge no Nuxt; **social** → fora da plataforma. Detalhe → `decisions.md` (D-xxx no apply).
+- **Q-004 (CMS vs DB) — resolvido** nesta sessão: conteúdo (casas, timeline, blog, media) → **CMS (Contentful/Sanity)**; estado operacional + PII sensível (status, clientes, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado com RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa compartilhado, merge no Nuxt; **social** → fora da plataforma. Detalhe → `decisions.md` (D-xxx no apply).
 - **System shape** — este doc; feeds `architecture.md` §4 (substituir «Data TBD» + diagrama por stack confirmada).
 - **Portabilidade** — manter app **Nitro-portável** (mudança de preset) como seguro barato: se a Vercel incomodar antes de tempo, migrar p/ Netlify/Cloudflare (serverless) ou Fly (persistente) sem reescrita.
 - **Gatilhos de reavaliação** → persistente: se real-time/websockets ou streaming se tornarem centrais, ou se o custo de gerenciar QStash+funções superar o de um processo; → Vercel Pro: feature Pro-only ou receita clara.

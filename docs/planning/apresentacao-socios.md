@@ -63,7 +63,7 @@ flowchart TB
 |------|------|
 | Obra | Mestre de obras por casa; acompanhamento pelos sócios |
 | Negócio | Compras, vendas e marcos — decisão **entre os três** quando relevante |
-| Finanças | PIX; registro partilhado (planilha hoje) |
+| Finanças | PIX; registro compartilhado (planilha hoje) |
 | Legal | PF — **ForteGB = marca**; sem CNPJ/LTDA por agora |
 
 **Casas concluídas:** 01 R-35 · 02 P-31 · 03 Q-21 (em curso/venda conforme estado atual).

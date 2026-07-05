@@ -53,7 +53,7 @@
 | **Digital** | Ricardo, Felipe | Construção plataforma | Sim | Arquiteto Digital · Desenvolvedor Digital |
 | **Sócio / investidor** | Três fundadores | Admin na plataforma | — | Papel público uniforme na apresentação |
 
-**Auth (MVP):** Google, Facebook, e-mail — staff e corretores em `platform`; SSO partilhado com `app-despesas` (fase posterior).
+**Auth (MVP):** Google, Facebook, e-mail — staff e corretores em `platform`; SSO compartilhado com `app-despesas` (fase posterior).
 
 **MVP (2026-07-03):** **admin** = Ricardo, Adilson, Felipe · **staff** = Cláudia, Gisele (+ sócios).
 
@@ -84,7 +84,7 @@
 | **Corretor** | Pipeline | Portal corretor | Casas com contrato; estados novo → visita → negociação → fechado; notas | Acompanhamento comercial |
 | **Staff** | Aprovar corretor / casa | Notificação em cada passo onboarding | Qualquer staff aprova ou rejeita | Corretor ativo ou casa associada |
 | **Staff** | Exceção identidade | Match ID falhou (visita) | Fila de exceções → aprovar / rejeitar manualmente | Visita autorizada ou bloqueada |
-| **Staff** | Operação diária | Rotina | Visitas do dia (calendário); clientes recentes; cliente manual (WhatsApp telefónico) → HubSpot | Operação sem escritório |
+| **Staff** | Operação diária | Rotina | Visitas do dia (calendário); clientes recentes; cliente manual (WhatsApp telefônico) → HubSpot | Operação sem escritório |
 | **Admin** | Config / governo | Área admin | Convites; API keys (Tuya, HubSpot, WhatsApp); flags (ocultar casa, manutenção); relatórios agregados; exceções comissão (com audit) | Plataforma configurada |
 
 **Referências jornadas:** §3.1 site · §3.2 agendada · §3.3 QR · §4 corretor · §5 staff/admin · §6–7 media/social.
@@ -142,7 +142,7 @@ flowchart TB
 
 ## 5. Data & content strategy
 
-> **Resolvido Q-004 (2026-07-03) → D-016.** Taxonomia por tipo de conteúdo; join por **ID de casa** partilhado, merge no Nuxt.
+> **Resolvido Q-004 (2026-07-03) → D-016.** Taxonomia por tipo de conteúdo; join por **ID de casa** compartilhado, merge no Nuxt.
 
 | Domínio | Source of truth | Notas |
 |---------|-----------------|-------|

@@ -47,7 +47,7 @@
 | Aprovar casa associada | `/staff/casas-pendentes` | novo | 2 | #86 |
 | Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
 | Calendário visitas do dia | `/staff/visitas` | novo | 2 | #81 |
-| Cliente manual (WhatsApp telefónico) | `/staff/clientes/novo` | novo | 2 | Integrações / CRM |
+| Cliente manual (WhatsApp telefônico) | `/staff/clientes/novo` | novo | 2 | Integrações / CRM |
 
 ---
 

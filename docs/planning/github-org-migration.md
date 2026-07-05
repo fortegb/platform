@@ -56,7 +56,7 @@ gh api users/fortegb --jq .type   # deve ser "User" hoje
 ### A3. Vercel / integrações
 
 - Anotar project Vercel ligado a `fortegb/sandbox`
-- Planear reconexão pós-transferência (Settings → Git)
+- Planejar reconexão pós-transferência (Settings → Git)
 
 ---
 
