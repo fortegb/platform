@@ -134,3 +134,18 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 - [ ] Confirmar **WhatsApp Cloud API** (preços por template BR) vs Telegram-first.
 - [ ] Escolher vendor de **CMS** por longevidade de free-tier (Contentful já em `package.json` vs Sanity).
 - [ ] No apply de #145: atualizar `architecture.md` §4 + entrada em `decisions.md`.
+
+---
+
+## 8. Reavaliação — serverless vs persistente à luz da separação staging/prod (2026-07-04)
+
+> Levantado por Ricardo no grilling de ambientes (#144): o modelo **persistente** seria mais simples dada a complexidade staging/prod?
+
+**Conclusão: praticamente um empate — reequilibra, não dissolve a complexidade.**
+
+- **Persistente simplifica UMA peça (a mais incómoda):** scheduler **in-process** (pg-boss no Postgres do Supabase) → **sem QStash** (menos um serviço a configurar/isolar por ambiente) e, sobretudo, os jobs agendados correm dentro do processo e batem na BD diretamente → **desaparece o round-trip cloud→local (túnel)** para trabalho agendado.
+- **Persistente adiciona complexidade no compute:** **dois servidores always-on** (staging + prod) a manter/monitorizar/pagar; perde-se o **staging (Preview) gerido e grátis** da Vercel + scale-to-zero.
+- **Inalterado (o grosso do "labirinto"):** Supabase por ambiente, datasets de CMS, **integrações 3-tiers (alvos de teste seguros)**, migrações, secrets — tudo puxado por *muitas integrações × múltiplos ambientes*, **não** pelo modelo de compute.
+- **Alavanca real de simplificação = escopo** (menos integrações / estratégia de alvos de teste mais simples), não o modelo de compute.
+
+**Ação:** **D-017 não está fechado para reavaliação.** Rever explicitamente dentro do epic **Arquitetura da solução & ambientes** (áreas **D** integrações / **F** CI-CD), porque o modelo de compute afeta fila + webhooks de entrada + dev local.
