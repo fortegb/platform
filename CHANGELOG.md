@@ -7,7 +7,12 @@
 
 ## Não versionado
 
-### 2026-07-04 — Epic Architecture fechado: CRM, home e fim das grillings ([#1](https://github.com/fortegb/platform/issues/1))
+### 2026-07-05 — Epic Arquitetura da solução & ambientes ([#146](https://github.com/fortegb/platform/issues/146)) + auditoria repo-wide
+
+- **Novo epic "Arquitetura da solução & ambientes (definição completa)" ([#146](https://github.com/fortegb/platform/issues/146))** com 26 issues folha (#147–#172) em 7 áreas: A Ambientes · B Dados · C CMS · D Integrações · E Config/secrets · F CI/CD · G Dev local. Motivo (→ **D-022**): o epic Architecture (#1) cobriu produto/stack, mas **não** infra/ambientes/integrações — a definição completa **precede o build da Fase 1** (#48/#56). Correção do overclaim "Fase 1 desbloqueada" da entrada de 2026-07-04.
+- **Modelo de integrações em 3 camadas** (local=mock · staging=API real contra alvos seguros próprios · prod=live) — motivado pelo risco de código com bug destrancar portas reais. **D-017 (serverless) em reavaliação** no #146 (explore §8: staging/prod ≈ empate com persistente).
+- **Convenção de ordem de trabalho:** dependências registradas no corpo da issue (`**Depends on:** #X`); próximo = Todo da fase sem dependência aberta.
+- **Auditoria de staleness + pt-BR (repo-wide, 7 lotes):** deep-read de todos os docs de planejamento e Platform docs; correção de informação desatualizada (gate do build = #146, home por estilo, D-015..D-022) e varredura pt-PT ampliada (45+ termos, incl. `arquitectura`, gerúndios "está a …", `planeado`, `partilhado`, `aceite`) — inclusive em `decisions.md`/`CHANGELOG.md` (regra: pt-BR vence append-only para correção de língua). Varredura final = 0 ocorrências no escopo docs/ + arquivos de controle.
 
 - **CRM ([#28](https://github.com/fortegb/platform/issues/28), Q-007/Q-018 → D-019/D-020):** **Supabase master + HubSpot sync**; modelo `cliente` (único por CPF) 1─N `registro` (por casa) + `historico`; dois níveis Contato→Cliente; feature **"Registro de Cliente"** (não "Comissões"); rota `/staff/registros`.
 - **Home ([#33](https://github.com/fortegb/platform/issues/33), Q-010 → D-021):** variantes renomeadas por **estilo** (`/`, `/classico`, `/slate`, `/azul`; `HeroSplit/Classic/Slate/Azul`) — sem colisão com release v1/v2/v3; escolha do hero diferida ao lançamento.

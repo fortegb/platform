@@ -2,7 +2,7 @@
 
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
-> **Decisões técnicas:** abertas até epic Architecture (D-011) + `rbo-grilling`.
+> **Decisões técnicas:** fechadas (D-015..D-022); itens `deferred` reabrem no grilling da fase.
 
 ---
 
