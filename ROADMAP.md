@@ -37,8 +37,6 @@
 - [#143](https://github.com/fortegb/platform/issues/143) Epic: Documentação da plataforma (Platform docs)
 - [#144](https://github.com/fortegb/platform/issues/144) Explorar estratégia de ambientes (dev / tst / prd)
 - [#145](https://github.com/fortegb/platform/issues/145) Grilling 0: Foundational architecture stances (constraints, build-vs-buy, data ownership, MVP boundary)
-
-## In Progress
 - [#173](https://github.com/fortegb/platform/issues/173) Método do projeto: espinha de governança (Definição → Execução → Evolução)
 
 ## Todo
