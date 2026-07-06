@@ -3,6 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
+> **Handoff da última sessão:** [`docs/planning/handoff.md`](./docs/planning/handoff.md) (2026-07-06 — snapshot; este STATUS é a fonte viva).  
 > **Decisões técnicas:** fechadas (D-015..D-024); itens `deferred` reabrem no grilling da fase.
 
 ---
