@@ -380,7 +380,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 - **Passo 4 (Arquitetura) — em curso.** Definição (produto/stack, passos 1–3) concluída; falta fechar 4 (infra/ambientes/integrações, Epic **#146**, 26 folhas), depois 5 (jornadas re-validação) e 6 (design). **G2: build da Fase 1 (#48/#56) gated até 4–6 fecharem** (`v0 Definição` a 100%). Ver **`roteiro.md`** + **`STATUS.md`**.
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), + roteiro (#173) → **D-015..D-024**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-024); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
-- **Migração do board pendente:** modelo Etapa/Milestones/tipos definido (D-024) mas ainda **não aplicado** ao board (campo `Phase` 0–4 em uso até a migração A).
+- **Board no modelo Roteiro (migração A feita, #174):** campo **`Etapa`** (9 passos, ex-`Phase`) + Milestone **`v0 — Definição`** + tipos nativos, aplicado a todos os itens. **Migração B** (Milestones v1/v2/v3) diferida ao passo 7. Platform docs (`mapa-roteiro.html` + relatório por Etapa) publicadas no GitHub Pages.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".
 
