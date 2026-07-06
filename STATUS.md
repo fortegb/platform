@@ -18,7 +18,8 @@
 → ∥ paralelo: passos 1–2 (validação de contexto/funcionalidades)
 → DEPOIS: passo 5 (jornadas re-validação) · passo 6 (design) → G2 abre (v0 a 100%) → build
 → PRÓXIMO: começar #146 em A1 (#147) via rbo-create-change
-⚠️ Migração do board (Etapa/Milestones/tipos, D-024) pendente — próxima após #173
+✅ Board no modelo Roteiro (Etapa 9 passos + Milestone v0 + tipos nativos) — migração A feita (#174)
+⚠️ Migração B (Milestones v1/v2/v3) diferida ao passo 7 (Versionamento)
 ```
 
 ---
@@ -49,12 +50,12 @@ Phase 1–4 epics: já no board ([#37](https://github.com/fortegb/platform/issue
 
 ---
 
-## Esta sessão (Claude — 2026-07-03/04)
+## Esta sessão (Claude — 2026-07-05)
 
-- [x] Grilling #145 (fundacional), #28 (CRM Q-007/Q-018), #33 (home Q-010) — todos fechados
-- [x] Decisões D-015..D-021; pt-BR estrito repo-wide; terminologia **lead/prospecto → cliente concluída** (planning + README + SETUP)
-- [x] Checkpoint #36 → Epic Architecture #1 fechado; **depois**: reconhecido que infra/ambientes/integrações não estavam definidos → criado Epic **#146** (26 folhas)
-- [x] Convenção de dependências (`Depends on: #X`); reavaliação D-017 registrada (explore §8)
+- [x] **Roteiro do projeto** (#173) — espinha de 9 passos/3 estágios + gates G1/G2/G3 (`roteiro.md`, D-023/D-024). Nome "Método" → **Roteiro**; passo 7 Quebra → **Versionamento**; passo 8 = **Execução**.
+- [x] **Migração A** (#174) — board para o modelo: campo **Etapa** (9, ex-`Phase`), retag ~173 itens, Milestone **v0 — Definição**, tipos nativos (Epic/Feature/Task), 2 epics novos (#175 contexto, #176 jornadas re-validação).
+- [x] **Platform docs overhaul** — `mapa-fases.html` → **`mapa-roteiro.html`** (track por passo, 3 bandas, G1/G2/G3, barra v0); relatório agrupa por Etapa; **publicado no GitHub Pages**.
+- [x] Sessões anteriores (2026-07-03/04): grillings #145/#28/#33 → D-015..D-021; #146 criado; pt-BR estrito; terminologia cliente.
 
 ## Próxima sessão (aguardando comando)
 
