@@ -199,7 +199,20 @@ flowchart TB
 ## 7. Non-functional
 
 > **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
-> **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes local/staging/prod, isolamento por ambiente, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
+> **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes, isolamento, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
+> **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html). Folhas seguintes: branches (#148), Vercel (#149), domínios (#150).
+
+### 7.1 Ambientes (D-025)
+
+| Ambiente | Propósito | Dados | Integrações |
+|----------|-----------|-------|-------------|
+| **local** | Dev na máquina (Nuxt/Node; isolado por padrão) | Seed / descartável; sem PII real | **Mock** |
+| **staging** | Pré-prod privada (dev + UAT sócio opcional) | Seed / anonimizado; sem cópia PII prod por padrão | **Safe-target** |
+| **prod** | Sistema ao vivo | PII real (LGPD) | **Prod-live** |
+
+- Identidade: `APP_ENV` ∈ `{local, staging, prod}` (`NODE_ENV` não basta).
+- Promoção: staging (ou backends classe-staging) antes de prod; hotfix = exceção explícita/registrada (procedimento → #169).
+- Preview/ephemeral = mecanismo de entrega, não quarto nome.
 
 | Topic | Decision |
 |-------|----------|
