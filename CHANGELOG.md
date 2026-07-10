@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Dados: runbook Supabase local ([#153](https://github.com/fortegb/platform/issues/153))
+
+- **D-032:** OrbStack preferido no macOS (Docker Desktop OK); checklist local (CLI start/stop/status, Studio/keys, `db reset`, falhas comuns).
+- Docs only — sem `supabase init`; scaffold → #171 / #43. Template `supabase-local.md` + Ambientes.
+
 ### 2026-07-10 — Dados: migrações Supabase CLI ([#152](https://github.com/fortegb/platform/issues/152))
 
 - **D-031:** `supabase/migrations/` = fonte da verdade; apply via CLI (local Docker; staging→prod); sem migrate no deploy Vercel; forward-only; seed separado (#154).

@@ -160,4 +160,17 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Rationale:** Matches Supabase local/cloud; keeps deploys from mutating schema by surprise.
 
 **Implications:**
-- Canon: D-031; template + Ambientes. Init/first migration/runbook → #153.
+- Canon: D-031; template + Ambientes. Local runbook → #153 / D-032. Init/scaffold → #171 / #43.
+
+---
+
+## 2026-07-10 — Local Supabase runbook (#153 / B3)
+
+### OrbStack preferred; docs-only; init deferred
+
+**Decision:** Document local Supabase day-to-day: OrbStack preferred on macOS (Docker Desktop OK); install CLI; start/stop/status; Studio + keys → `.env`; `db reset`; common failures. **No** `supabase init` / `supabase/` scaffold in this leaf — that belongs to bootstrap (#171) and/or schema build (#43). Toolchain inventory stays #170; seed #154; cloud push remains D-031.
+
+**Rationale:** Closes the operational gap without mixing repo scaffold into definition docs; keeps #153 focused vs #170/#171.
+
+**Implications:**
+- Canon: D-032; `templates/supabase-local.md` + Ambientes pointer. Next dados leaf: #154 seed.
