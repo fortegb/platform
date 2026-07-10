@@ -132,3 +132,7 @@ integrationBranch: staging
 ## Supabase local — runbook (D-032 / #153)
 
 Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no macOS; ciclo `start` / `status` / Studio+keys / `db reset` / `stop`; falhas comuns. **Docs only** neste leaf (sem `supabase init` aqui).
+
+## Seed / LGPD não-prod (D-033 / #154)
+
+Ver **[`seed-lgpd.md`](./seed-lgpd.md)** — pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod. CMS fixtures → #156/#157; hardening → #126.
