@@ -40,3 +40,35 @@ APP_ENV=prod
 ## Inventário completo de env vars
 
 Diferido à área E do epic #146 (#162+). Este template só fixa `APP_ENV` e o contrato acima.
+
+## Branches → ambientes (D-026 / #148)
+
+| Linha git | Ambiente lógico | Notas |
+|-----------|-----------------|-------|
+| laptop (sem branch de deploy) | `local` | `npm run dev` |
+| `feat/*`, `fix/*` | `staging` (via Preview) | backends classe-staging; URL temporária |
+| `staging` (longa duração) | `staging` | pré-prod / UAT sócio |
+| `main` | `prod` | produção |
+
+**Caminho normal:** `feat/*` ou `fix/*` → merge em `staging` → promover `staging` → `main` (passo separado; não automático na Vercel).
+
+**Close vs promote:** o close de um change **deve** aterrar na *integration branch* (ForteGB: `staging`). Promover para produção é outro passo (#169).
+
+## Lifecycle config — contrato opt-in (implementação → #166)
+
+Ficheiro pequeno e explícito → arquivo:
+
+Arquivo pequeno e explícito (caminho sugerido: `.rbo/lifecycle.yml`). O skill global **não** lê markdown de ambientes.
+
+```yaml
+# Presente só em repos que optam in (ex.: ForteGB).
+# Ausente → close faz merge para main (comportamento atual; outros produtos intactos).
+integrationBranch: staging
+```
+
+| Situação | Merge no close |
+|----------|----------------|
+| Sem arquivo | `main` (default) |
+| `integrationBranch: staging` | `staging` |
+
+**Lacuna até #166:** este contrato está especificado; o código do `rbo-close-change` ainda não o lê — close continua → `main`.

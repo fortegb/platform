@@ -34,8 +34,8 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Branches, hospedagem, domínios e dados de teste vêm a seguir.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisão D-025.
+      Hospedagem (Vercel), domínios e dados de teste vêm a seguir.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 e D-026.
     </p>
 
     <h2>Em uma frase</h2>
@@ -81,8 +81,45 @@
       <li><strong>Staging não é beta público</strong> — não é um ambiente para corretores ou clientes em geral; é privado.</li>
       <li><strong>Local isolado</strong> — no dia a dia o site corre no computador com Node (Nuxt), com base e integrações locais/simuladas. Não é “rodar a Vercel” na máquina. Ligar o local ao staging só de propósito; nunca à produção.</li>
       <li><strong>Como a aplicação sabe onde está</strong> — uma variável chamada <code>APP_ENV</code> com valor <code>local</code>, <code>staging</code> ou <code>prod</code>.</li>
-      <li><strong>Pré-visualizações na hospedagem</strong> (Preview) — são uma forma de publicar um rascunho; <em>não</em> são um quarto ambiente com nome próprio. O mapeamento disso vem depois.</li>
+      <li><strong>Pré-visualizações na hospedagem</strong> (Preview) — URL temporária de um <code>feat/…</code> ou <code>fix/…</code>; usam a mesma classe de backends do <em>staging</em> — <strong>não</strong> são um quarto ambiente.</li>
     </ul>
+
+    <h2>Branches (qual linha git é qual ambiente)</h2>
+    <table>
+      <thead>
+        <tr><th>Onde está o código</th><th>Ambiente</th><th>Em linguagem simples</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No seu computador</td>
+          <td><span class="env-pill local">local</span></td>
+          <td>Desenvolvimento diário (<code>npm run dev</code>)</td>
+        </tr>
+        <tr>
+          <td>Branch <code>feat/…</code> ou <code>fix/…</code> (Preview)</td>
+          <td><span class="env-pill staging">staging</span></td>
+          <td>Rascunho na nuvem, ainda em modo teste</td>
+        </tr>
+        <tr>
+          <td>Branch <code>staging</code> (permanente)</td>
+          <td><span class="env-pill staging">staging</span></td>
+          <td>Validação compartilhada / UAT dos sócios (privado)</td>
+        </tr>
+        <tr>
+          <td>Branch <code>main</code></td>
+          <td><span class="env-pill prod">produção</span></td>
+          <td>Sistema ao vivo</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <strong>Caminho normal:</strong> trabalho numa feature → entra em <code>staging</code> → só depois se <strong>promove</strong> para <code>main</code> (produção).
+      A Vercel <strong>não</strong> promove sozinha: alguém (ou um passo de release) decide quando staging vira produção.
+    </p>
+    <p>
+      <strong>Fechar um change</strong> (no fluxo de desenvolvimento) deve aterrar em <code>staging</code>.
+      <em>Nota:</em> a ferramenta automática de close ainda faz merge para <code>main</code> até atualizarmos o skill com um arquivo de config opcional — isso fica para uma tarefa seguinte (#166).
+    </p>
 
     <h2>Correção urgente (hotfix)</h2>
     <p>
@@ -93,11 +130,11 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>Qual branch vai para qual ambiente</li>
       <li>Como a Vercel fica organizada (um projeto, pré-visualizações, etc.)</li>
       <li>Domínios (endereços) de cada ambiente</li>
       <li>O pacote concreto de dados de teste (seed)</li>
       <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
+      <li>O passo a passo completo de promoção staging → produção</li>
     </ul>
     <p>
       Voltar à visão geral:

@@ -7,6 +7,12 @@
 
 ## Não versionado
 
+### 2026-07-10 — Ambientes: mapeamento branch → ambiente ([#148](https://github.com/fortegb/platform/issues/148))
+
+- **Mapa git → ambiente:** `main`=prod · `staging`=staging · `feat/*`/`fix/*` Preview=staging-class; caminho feat→staging→main; close vs promote separados.
+- **Contrato opt-in** para `rbo-close-change` (default merge→`main` se sem config; `integrationBranch` se presente) — **código do skill diferido a #166**.
+- Canon D-026; template + página Ambientes atualizados. Sem provisionar branch remota nem Vercel.
+
 ### 2026-07-10 — Ambientes: contrato local / staging / prod ([#147](https://github.com/fortegb/platform/issues/147))
 
 - **Spec dos três ambientes lógicos** (grilling A1): propósito, dados, integrações (mock / safe-target / prod-live), promoção staging→prod, hotfix como exceção explícita/registrada, `APP_ENV`, local isolado (Nuxt/Node), staging privado.
