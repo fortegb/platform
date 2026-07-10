@@ -127,4 +127,8 @@ integrationBranch: staging
 | Higiene | só forward; seed separado (#154); RLS nas migrações |
 | Wrappers | npm scripts finos opcionais; sem motor custom |
 
-**Layout:** contrato = pasta `supabase/` no repo (init concreto → setup / #153).
+**Layout:** contrato = pasta `supabase/` no repo (init concreto → #171 bootstrap / #43 schema build).
+
+## Supabase local — runbook (D-032 / #153)
+
+Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no macOS; ciclo `start` / `status` / Studio+keys / `db reset` / `stop`; falhas comuns. **Docs only** neste leaf (sem `supabase init` aqui).

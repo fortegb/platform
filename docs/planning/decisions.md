@@ -376,4 +376,19 @@
   - **Higiene:** só forward (não editar migração já aplicada); seed ≠ schema (#154); RLS nas migrações com o schema.
   - **Wrappers:** npm scripts finos opcionais depois; sem motor custom.
 - **Rationale:** alinhado ao stack Supabase/local Docker; evita surpresa de schema em Preview/Production builds.
-- **Consequências:** template + Ambientes; **este change não** corre `supabase init` nem escreve a 1.ª migração — runbook local → #153.
+- **Consequências:** template + Ambientes; **este change não** corre `supabase init` nem escreve a 1.ª migração — runbook local → #153 (D-032); init concreto → #171 / #43.
+
+---
+
+### D-032 — Runbook Supabase local (2026-07-10) — **#153 / B3**
+
+- **Contexto:** D-030/D-031 exigem stack local via Docker + CLI; faltava o passo a passo escrito. Board já tem toolchain (#170) e bootstrap (#171).
+- **Decisão:**
+  - **Motor:** OrbStack **preferido** no macOS; Docker Desktop (ou engine compatível) **aceitável**.
+  - **DoD do runbook:** instalar motor + CLI; `start` / `stop` / `status`; Studio + chaves → `.env`; `db reset`; falhas comuns (engine parado, portas ocupadas).
+  - **Docs only neste leaf:** **não** corre `supabase init` nem cria `supabase/` aqui.
+  - **Init / scaffold:** #171 (bootstrap) e/ou #43 (schema em build). O runbook descreve o comando como pré-requisito futuro.
+  - **Limites:** #170 = inventário de toolchain; #171 = bootstrap amplo; #154 = seed; cloud `link`/`db push` = D-031 (fora do DoD local).
+  - **Artefacto:** `docs/planning/templates/supabase-local.md` + ponteiro em Ambientes.
+- **Rationale:** fecha a lacuna operacional sem misturar scaffold de código na Definição; evita duplicar #170/#171.
+- **Consequências:** template + Ambientes; supersede o apontar “init → #153” de D-031 — init fica em #171/#43.
