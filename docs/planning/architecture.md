@@ -200,7 +200,8 @@ flowchart TB
 
 > **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
 > **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes, isolamento, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
-> **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html). Folhas seguintes: branches (#148), Vercel (#149), domínios (#150).
+> **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
+> **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166. Folhas seguintes: Vercel (#149), domínios (#150).
 
 ### 7.1 Ambientes (D-025)
 
@@ -214,6 +215,17 @@ flowchart TB
 - Promoção: staging (ou backends classe-staging) antes de prod; hotfix = exceção explícita/registrada (procedimento → #169).
 - Preview/ephemeral = mecanismo de entrega, não quarto nome.
 
+### 7.2 Branches → ambientes (D-026)
+
+| Git | Ambiente |
+|-----|----------|
+| laptop | `local` |
+| `feat/*`, `fix/*` (Preview) | `staging` (backends classe-staging) |
+| `staging` | `staging` |
+| `main` | `prod` |
+
+- Caminho normal: feat/fix → `staging` → (promote) `main`.
+- Lifecycle config opt-in (default merge→`main` se ausente) — implementação do skill → #166.
 | Topic | Decision |
 |-------|----------|
 | Hosting | **Vercel Hobby (grátis) → Pro (~$20/mo) quando útil**; Nitro-portável (Netlify/Cloudflare) como seguro |

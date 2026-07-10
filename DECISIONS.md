@@ -81,3 +81,17 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Implications:**
 - Canon: `docs/planning/decisions.md` D-025; template `docs/planning/templates/environments.md`; sócios page `docs/planning/ambientes.html`.
 - Unblocks branch mapping, Vercel topology, and domains leaves with a shared vocabulary.
+
+---
+
+## 2026-07-10 — Branch → environment map (#148 / A2)
+
+### Git lines map to local / staging / prod
+
+**Decision:** Long-lived `staging` + `main` (prod) + short-lived `feat/*` and `fix/*` (Preview → staging-class backends). Normal path: feature → merge to `staging` → separate promote to `main`. Close targets the integration branch (`staging` for ForteGB); promote is not automatic in Vercel. Global close skill stays agnostic: default merge-to-`main`; optional repo config `integrationBranch` (implemented later in #166). Until then, docs/skill may disagree — gap called out in STATUS.
+
+**Rationale:** Keeps the three-environment contract honest in git without hardcoding ForteGB into a multi-product skill.
+
+**Implications:**
+- Canon: D-026; template branches section; Ambientes page updated.
+- #166 DoD: read opt-in config; ForteGB adds the file.

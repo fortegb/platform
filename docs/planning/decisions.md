@@ -276,3 +276,25 @@
   - Identidade de runtime: variável **`APP_ENV`** ∈ `{local, staging, prod}`; `NODE_ENV` sozinho **não** distingue staging de prod.
 - **Rationale:** três é o mínimo que separa trabalho descartável, validação partilhada e clientes reais sem multiplicar contas/secrets num setup free-first solo. Posturas mock / safe-target / prod-live (já em D-022) ficam como contrato de A1; alvos concretos por vendor → #158–#160.
 - **Consequências:** template em [`templates/environments.md`](./templates/environments.md); página sócios [`ambientes.html`](./ambientes.html); desbloqueia A2–A4 (#148–#150) com vocabulário comum. **Este change não provisiona** cloud, branches nem domínios.
+
+---
+
+### D-026 — Mapeamento branch → ambiente + contrato de config de lifecycle (2026-07-10) — **#148 / A2**
+
+- **Contexto:** D-025 definiu os três ambientes lógicos; faltava como as **linhas git** se ligam a eles, e como close/promote se separam sem tornar o skill global `rbo-close-change` específico da ForteGB.
+- **Decisão (mapa):**
+  | Linha git | Ambiente lógico | Notas |
+  |-----------|-----------------|-------|
+  | laptop (sem deploy) | `local` | `npm run dev` |
+  | `feat/*`, `fix/*` | `staging` (via Preview) | backends classe-staging; URL temporária |
+  | `staging` (longa duração) | `staging` | pré-prod compartilhada / UAT sócio |
+  | `main` | `prod` | produção |
+- **Caminho normal:** `feat/*` ou `fix/*` → merge em `staging` → promover `staging` → `main` (passo separado). Hotfix para `main` = exceção (procedimento → #169).
+- **Close vs promote:** close de change **deve** aterrar na **integration branch** (ForteGB: `staging`). Promover para prod **não** é automático na Vercel.
+- **Contrato de config (opt-in, para #166 — não implementado aqui):**
+  - **Default (sem arquivo de config):** close continua a fazer merge para `main` (comportamento atual; outros produtos intactos).
+  - **Opt-in:** arquivo pequeno e explícito (ex. `.rbo/lifecycle.yml`) com `integrationBranch: staging` → close faz merge para essa branch.
+  - O skill **não** interpreta markdown de ambientes; só config explícita.
+- **Lacuna temporária:** até #166, a documentação diz close→staging mas o skill ainda faz merge→`main`. Registrado em `STATUS.md`.
+- **Rationale:** mapa humano + contrato agnóstico (default seguro) evita hardcode `staging` no skill global.
+- **Consequências:** template e página Ambientes atualizados; DoD de #166 = ler config + ForteGB adiciona o arquivo. **Sem** alteração de código em `ai-skills` neste change; **sem** criar branch remota `staging`.
