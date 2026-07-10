@@ -102,7 +102,7 @@
     <p>Relatório para sócios<br>O que está planejado, o que já foi feito e o que está sendo trabalhado no momento</p>
     <div class="stats">
       <span>5/26 epics concluídos</span>
-      <span>36/149 tarefas concluídas</span>
+      <span>37/149 tarefas concluídas</span>
       <span>175 itens no board</span>
     </div>
   </header>
@@ -112,14 +112,14 @@
       <div class="section-head"><span class="section-num">1</span><h2>Trabalhando no momento</h2></div>
       <div class="report-card">
         <h3>Resumo</h3>
-        <ul class="focus-list"><li><strong>Roteiro (a espinha):</strong> Definição (passos 1–7) → Execução (8) → Evolução (9). Passos 1–3 (produto/stack) fechados; <strong>passo atual = 4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Em curso: passo 4 — arquitetura da solução & ambientes</strong> (Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — A1 (três ambientes) feito; seguem branches, Vercel, domínios, dados, integrações… Portão <strong>G2</strong>: o build só começa quando a Definição fechar (marco <code>v0</code>).</li><li><strong>Ambientes (spec):</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> — local / staging / produção.</li></ul>
+        <ul class="focus-list"><li><strong>Roteiro:</strong> passo atual = <strong>4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>:</strong> A1 (ambientes) e A2 (branches) feitos; seguem Vercel, domínios, dados, integrações…</li><li><strong>Ambientes:</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> — três ambientes + mapa de branches.</li></ul>
       </div>
       <div class="report-card">
         <h3>Itens em andamento no board</h3>
         <p class="muted">Nenhum item em andamento no board.</p>
       </div>
-      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura da solução & ambientes</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — próximo: A2 mapeamento branch → ambiente (<a href="https://github.com/fortegb/platform/issues/148" target="_blank" rel="noopener">#148</a>).</li><li><strong>Depois (passo 8, Execução):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo — depende de logos/marca.</li></ol></div>
-      <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li><strong>Fundação e decisões de produto/stack estão completas.</strong> Antes do build, estamos <strong>definindo a arquitetura técnica completa</strong> (ambientes de teste/produção, dados, integrações) — para construir certo desde o início.</li><li><strong>Os três ambientes já estão especificados</strong> (ainda não criados na nuvem): <a href="./ambientes.html" target="_blank" rel="noopener"><code>ambientes.html</code></a>.</li><li><strong>Depois dessa definição</strong>, começa o build: primeiro login/papéis, depois o site público real.</li><li><strong>Como a plataforma será construída</strong> (em linguagem simples): <a href="./arquitetura-decisoes.html" target="_blank" rel="noopener"><code>arquitetura-decisoes.html</code></a>.</li><li>Decisões de negócio (corretor, comissão, Gov.br) em <a href="./company-structure.md" target="_blank" rel="noopener"><code>company-structure.md</code></a> e <a href="./apresentacao-socios.html" target="_blank" rel="noopener"><code>apresentacao-socios.html</code></a>.</li></ul></div>
+      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — próximo: A3 topologia Vercel (<a href="https://github.com/fortegb/platform/issues/149" target="_blank" rel="noopener">#149</a>).</li><li><strong>Depois (passo 8):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo.</li></ol></div>
+      <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Os três ambientes e o mapa de branches já estão <strong>especificados</strong> (ainda não criados na nuvem): <a href="./ambientes.html" target="_blank" rel="noopener"><code>ambientes.html</code></a>.</li><li>Fechar um change deve aterrar em staging; a ferramenta automática ainda faz merge para main até a config opt-in (#166).</li></ul></div>
     </section>
 
     <section id="feito">
@@ -318,11 +318,11 @@
         <span class="pill">v0 — Definição</span>
       </div>
     </header>
-    <div class="progress-wrap"><div class="progress-bar" style="width:4%"></div><span class="progress-label">1/26 tarefas</span></div>
+    <div class="progress-wrap"><div class="progress-bar" style="width:8%"></div><span class="progress-label">2/26 tarefas</span></div>
     <ul class="child-list"><li class="child-item done">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/147" target="_blank" rel="noopener">#147</a> Ambientes: definir tiers local/staging/prod (propósito + regras) <span class="badge badge-done">Concluído</span>
-  </li><li class="child-item ">
-    <a class="issue-link" href="https://github.com/fortegb/platform/issues/148" target="_blank" rel="noopener">#148</a> Ambientes: mapeamento branch → ambiente (main/staging/feat) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/148" target="_blank" rel="noopener">#148</a> Ambientes: mapeamento branch → ambiente (main/staging/feat) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item ">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/149" target="_blank" rel="noopener">#149</a> Ambientes: topologia Vercel (1 projeto, scopes Preview/Production) <span class="badge badge-todo">A fazer</span>
   </li><li class="child-item ">
