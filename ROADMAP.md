@@ -39,6 +39,7 @@
 - [#145](https://github.com/fortegb/platform/issues/145) Grilling 0: Foundational architecture stances (constraints, build-vs-buy, data ownership, MVP boundary)
 - [#147](https://github.com/fortegb/platform/issues/147) Ambientes: definir tiers local/staging/prod (propósito + regras)
 - [#148](https://github.com/fortegb/platform/issues/148) Ambientes: mapeamento branch → ambiente (main/staging/feat)
+- [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 
@@ -150,7 +151,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
 - [#150](https://github.com/fortegb/platform/issues/150) Ambientes: domínios por ambiente (prod/staging/preview)
 - [#151](https://github.com/fortegb/platform/issues/151) Dados: projetos Supabase por ambiente (staging/prod/local)
 - [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
