@@ -201,7 +201,8 @@ flowchart TB
 > **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
 > **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes, isolamento, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
 > **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
-> **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166. Folhas seguintes: Vercel (#149), domínios (#150).
+> **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166.
+> **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview. Domínios → #150.
 
 ### 7.1 Ambientes (D-025)
 
@@ -226,6 +227,17 @@ flowchart TB
 
 - Caminho normal: feat/fix → `staging` → (promote) `main`.
 - Lifecycle config opt-in (default merge→`main` se ausente) — implementação do skill → #166.
+
+### 7.3 Vercel (D-027)
+
+| Item | Decisão |
+|------|---------|
+| Projetos | **Um** |
+| Production | branch `main` |
+| Preview | `staging` + `feat/*` / `fix/*` |
+| Proteção Preview | senha compartilhada (sem conta Vercel para sócios) |
+| Env | Production = prod · Preview = staging-class (shared) |
+
 | Topic | Decision |
 |-------|----------|
 | Hosting | **Vercel Hobby (grátis) → Pro (~$20/mo) quando útil**; Nitro-portável (Netlify/Cloudflare) como seguro |

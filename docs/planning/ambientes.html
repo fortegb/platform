@@ -34,8 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Hospedagem (Vercel), domínios e dados de teste vêm a seguir.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 e D-026.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-027.
     </p>
 
     <h2>Em uma frase</h2>
@@ -121,6 +120,23 @@
       <em>Nota:</em> a ferramenta automática de close ainda faz merge para <code>main</code> até atualizarmos o skill com um arquivo de config opcional — isso fica para uma tarefa seguinte (#166).
     </p>
 
+    <h2>Hospedagem (Vercel)</h2>
+    <p>
+      Usamos <strong>um único projeto</strong> na Vercel:
+    </p>
+    <ul>
+      <li><strong>Produção</strong> — só o que está em <code>main</code> (site ao vivo).</li>
+      <li><strong>Preview</strong> — <code>staging</code> e branches de feature: URLs de teste. Existem <em>ao mesmo tempo</em> que a produção; não é preciso “desligar” o site real para testar. Se ninguém acessa há um tempo, o primeiro clique pode demorar um pouco (cold start).</li>
+    </ul>
+    <p>
+      <strong>Acesso ao staging / Previews:</strong> uma <strong>senha compartilhada</strong> na porta da Vercel (sócios <strong>não</strong> precisam de conta Vercel).
+      Digita uma vez no navegador → o site de teste inteiro fica liberado (até expirar o cookie ou limpar dados do browser).
+      O login da plataforma (quando existir na página) é <strong>outra camada</strong>, depois dessa senha.
+    </p>
+    <p>
+      Endereços fixos (domínios bonitos) para staging/produção ficam para o próximo passo de especificação.
+    </p>
+
     <h2>Correção urgente (hotfix)</h2>
     <p>
       Em emergência pode ser preciso corrigir produção fora do caminho normal.
@@ -130,11 +146,11 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>Como a Vercel fica organizada (um projeto, pré-visualizações, etc.)</li>
       <li>Domínios (endereços) de cada ambiente</li>
       <li>O pacote concreto de dados de teste (seed)</li>
       <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
       <li>O passo a passo completo de promoção staging → produção</li>
+      <li>Criar de fato o projeto na Vercel (isto é só a especificação)</li>
     </ul>
     <p>
       Voltar à visão geral:

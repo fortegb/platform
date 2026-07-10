@@ -298,3 +298,18 @@
 - **Lacuna temporária:** até #166, a documentação diz close→staging mas o skill ainda faz merge→`main`. Registrado em `STATUS.md`.
 - **Rationale:** mapa humano + contrato agnóstico (default seguro) evita hardcode `staging` no skill global.
 - **Consequências:** template e página Ambientes atualizados; DoD de #166 = ler config + ForteGB adiciona o arquivo. **Sem** alteração de código em `ai-skills` neste change; **sem** criar branch remota `staging`.
+
+---
+
+### D-027 — Topologia Vercel: um projeto, Production vs Preview, proteção por senha (2026-07-10) — **#149 / A3**
+
+- **Contexto:** D-025/D-026 definiram ambientes e branches; faltava como a **Vercel** hospeda isso sem confundir Preview com “desligar produção”.
+- **Decisão:**
+  - **Um** projeto Vercel para o app Nuxt.
+  - **Production** = só branch `main` (`prod`).
+  - **Preview** = `staging` + `feat/*` / `fix/*` (staging lógico). Production e Previews **coexistem**; cold start serverless ≠ precisar desligar prod.
+  - **Proteção de Preview:** senha compartilhada na camada da Vercel; sócios **não** precisam de conta Vercel; um desbloqueio por browser (cookie) libera o deployment inteiro; auth da app (Supabase) continua por baixo, separada.
+  - **Env vars:** scope Production → `APP_ENV=prod` + backends prod; scope Preview → `APP_ENV=staging` + backends classe-staging (compartilhado por todos os Previews).
+- **Rationale:** free-first / zero-ops; alinha ao mapa D-026; senha evita beta público sem forçar sócios no time Vercel.
+- **Riscos:** modo senha pode exigir plano Pro — confirmar no provisionamento; webhooks em Preview podem precisar bypass (#161).
+- **Consequências:** template + página Ambientes; **este change não cria** o projeto Vercel nem domínios (#150).

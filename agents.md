@@ -377,7 +377,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 - Gates (`roteiro.md`): **G2** = build (Etapa 8) só após toda a Definição (1–7) fechada — `v0` a 100%. `STATUS.md` "próximo passo" = ponteiro legível; fonte de verdade = board (`Etapa` + `Depends on:`).
 
 ### Estágio atual
-- **Passo 4 (Arquitetura) — em curso.** A1/A2 feitos (D-025 ambientes, D-026 branches); faltam #149–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #149 topologia Vercel. **Lacuna:** close skill ainda →`main` até #166 (config opt-in). Ver **`roteiro.md`** + **`STATUS.md`**.
+- **Passo 4 (Arquitetura) — em curso.** A1–A3 feitos (D-025..D-027: ambientes, branches, Vercel); faltam #150–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #150 domínios. **Lacuna:** close skill ainda →`main` até #166. Ver **`roteiro.md`** + **`STATUS.md`**.
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), + roteiro (#173) → **D-015..D-024**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-024); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
 - **Board no modelo Roteiro (migração A feita, #174):** campo **`Etapa`** (9 passos, ex-`Phase`) + Milestone **`v0 — Definição`** + tipos nativos, aplicado a todos os itens. **Migração B** (Milestones v1/v2/v3) diferida ao passo 7. Platform docs (`mapa-roteiro.html` + relatório por Etapa) publicadas no GitHub Pages.
