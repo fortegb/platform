@@ -415,6 +415,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
   2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
   3. **GitHub Action** — backup em push a `main` se o hook não correr.
 - Regeneração: **`node scripts/generate-progress-report.mjs`**, **`node scripts/generate-portal-assets.mjs`**, ou **`npm run pages:sync`** (completo).
+- **Close-out:** `rbo-close-change` corre **`npm run pages:sync`** depois do board `Done`, para o relatório sócios refletir a issue fechada (commit + push em `main`).
 - Agentes: commit/push normal em mudanças em Platform docs — **não** correr `pages:build-info` à mão.
 
 > Importante: evitar valores de cor **arbitrários** (`to-[#xxxxxx]`) em arquivos novos — preferir cores **nomeadas** no `tailwind.config.js`, pois arbitrários em arquivos recém-criados podem não ser compilados sem rebuild.
