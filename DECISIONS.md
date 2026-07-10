@@ -200,3 +200,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-034. D-016 taxonomy unchanged (CMS + Supabase). Living docs/code no longer point at Contentful as the stack.
+
+---
+
+## 2026-07-10 — Sanity datasets per environment (#156 / C2)
+
+### Two datasets; Previews share staging; explicit promote
+
+**Decision:** One Sanity project; datasets `staging` + `production`. Local + staging + all Vercel Previews → `staging`; prod → `production`. Promote content with explicit CLI/copy — not on Vercel deploy. Preview env → staging dataset; Production → production; local → staging or mocks. Exact var names → #162+. Content model → #157.
+
+**Rationale:** Mirrors Supabase/Vercel staging-class sharing; fits free tier; prevents deploy from publishing draft content.
+
+**Implications:**
+- Canon: D-035; template + Ambientes. No Sanity project created in this change. Next: #157 content model.

@@ -7,6 +7,10 @@
 
 ## Não versionado
 
+### 2026-07-10 — CMS: datasets por ambiente ([#156](https://github.com/fortegb/platform/issues/156))
+
+- **D-035:** 1 projeto Sanity; datasets `staging` + `production`; Previews/local → staging; prod → production; promote explícito (não no deploy Vercel).
+
 ### 2026-07-10 — CMS: vendor Sanity ([#155](https://github.com/fortegb/platform/issues/155))
 
 - **D-034:** CMS = **Sanity**; Contentful removido do stack (`package.json`, `useContentful` → `useCms` mocks).
