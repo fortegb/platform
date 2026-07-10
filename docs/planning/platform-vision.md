@@ -50,7 +50,7 @@ Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 | Camada | Escolha | Estado |
 |--------|---------|--------|
 | App / runtime | Nuxt 3 · **serverless na Vercel** (Hobby→Pro), API-first, QStash | ✅ D-017 |
-| Conteúdo (CMS) | Contentful/Sanity (vendor reversível) | ✅ D-016 |
+| Conteúdo (CMS) | **Sanity** (D-034) | ✅ D-016/D-034 |
 | DB / Auth / Storage | **Supabase** (master de dados + PII) | ✅ D-016/D-019 |
 | CRM | **HubSpot** (downstream, sync do Supabase) | ✅ D-019 |
 | Mensageria | **Telegram-first** (grátis); WhatsApp pago-quando-útil | ✅ D-017 |

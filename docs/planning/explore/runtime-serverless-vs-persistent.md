@@ -106,7 +106,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 |------------|-----------------|------|
 | Vercel Hobby | ⚠️ zona cinzenta | «não-comercial» na letra; a esta escala sem gatilho de uso; Pro quando útil |
 | Supabase | ✅ | 500MB DB, 1GB storage, 50k auth; **fotos** = 1.º a crescer (offload p/ Cloudflare R2); projeto grátis **pausa após 7d inativo** (site vivo evita) |
-| CMS (Contentful/Sanity) | ✅ verificar | Sanity com free-tier mais generoso/durável — reconsiderar vendor (reversível via camada de serviço) |
+| CMS (Sanity) | ✅ D-034 | Sanity free-tier; Contentful descartado |
 | Upstash QStash | ✅ | ~500 msg/dia — muito acima do volume inicial |
 | HubSpot | ✅ | CRM grátis real; pago só p/ automação avançada |
 | Telegram bot | ✅ | Sem custo por mensagem, sempre |
@@ -132,7 +132,7 @@ A plataforma **não é** um site de conteúdo com poucas integrações — é um
 
 - [ ] Verificar quotas/custo de **Tuya** em produção.
 - [ ] Confirmar **WhatsApp Cloud API** (preços por template BR) vs Telegram-first.
-- [ ] Escolher vendor de **CMS** por longevidade de free-tier (Contentful já em `package.json` vs Sanity).
+- [x] Escolher vendor de **CMS** — **Sanity** (D-034).
 - [ ] No apply de #145: atualizar `architecture.md` §4 + entrada em `decisions.md`.
 
 ---

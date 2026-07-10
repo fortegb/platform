@@ -47,7 +47,7 @@
 - **Module:** site, media-kit
 - **Status:** **resolved** → D-016 · [`architecture.md`](./architecture.md) §5 · Grilling 0 ([#145](https://github.com/fortegb/platform/issues/145))
 - **Question:** Contentful vs Supabase vs híbrido para listings, blog, timeline obra, media kit?
-- **Resolved (2026-07-03):** Taxonomia por tipo de conteúdo — conteúdo (listings, blog, timeline, media) → **CMS** (Contentful/Sanity); estado operacional + PII sensível (status, clientes, visitas, verificação, contratos, RG/CNH) → **Supabase** (Postgres + bucket privado RLS); **vídeo** → embed YouTube/Vimeo; **join** por ID de casa; **social** → fora da plataforma. Vendor CMS (Contentful vs Sanity) reversível via camada de serviço. Detalhe → [`explore/runtime-serverless-vs-persistent.md`](./explore/runtime-serverless-vs-persistent.md) §6.
+- **Resolved (2026-07-03):** Taxonomia por tipo de conteúdo — conteúdo (listings, blog, timeline, media) → **CMS**; estado operacional + PII sensível → **Supabase**; vídeo → embed; join por ID de casa; social fora. **Vendor CMS = Sanity (D-034 / 2026-07-10).** Detalhe → [`decisions.md`](./decisions.md).
 
 ---
 

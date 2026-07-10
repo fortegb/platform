@@ -37,8 +37,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Private keys (only available on server-side)
-    contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
-    contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
     hubspotApiKey: process.env.HUBSPOT_API_KEY,

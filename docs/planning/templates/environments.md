@@ -136,3 +136,7 @@ Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no mac
 ## Seed / LGPD não-prod (D-033 / #154)
 
 Ver **[`seed-lgpd.md`](./seed-lgpd.md)** — pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod. CMS fixtures → #156/#157; hardening → #126.
+
+## CMS vendor (D-034 / #155)
+
+Ver **[`cms-vendor.md`](./cms-vendor.md)** — **Sanity**; Contentful removido do stack instalado.

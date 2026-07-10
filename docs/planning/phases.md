@@ -102,7 +102,7 @@ Epics **já criados no board**. **Build gated por [#146](https://github.com/fort
 
 1. [ ] Supabase project + aplicar `docs/database-schema.sql`
 2. [ ] Env vars (local, Vercel staging/prod)
-3. [ ] Contentful configurado (se Architecture decidir)
+3. [ ] Sanity configurado (CMS — D-034)
 4. [ ] Smoke deploy Vercel pós-org
 5. [ ] Documentar credenciais em `docs/SETUP-CREDENTIALS.md` (sem secrets no repo)
 
@@ -128,7 +128,7 @@ Epics **já criados no board**. **Build gated por [#146](https://github.com/fort
 4. [ ] Blocos **blog / redes sociais** (homepage, portfólio, footer) para tráfego
 5. [ ] Privacidade, Termos, cookies
 6. [ ] Header, footer, botões — alinhar design system
-7. [ ] Wire portfólio/blog a Contentful ou Supabase (conforme Architecture)
+7. [ ] Wire portfólio/blog a Sanity (CMS) + status operacional no Supabase
 8. [ ] **Mobile-first responsive** (Q-019)
 9. [ ] Pass básico a11y/SEO meta
 10. [ ] Remover dependência de `data/mock.ts` onde dados reais existirem

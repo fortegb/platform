@@ -8,7 +8,7 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 - ✅ Página inicial com hero section e valores da empresa
 - ✅ Portfólio de casas com filtros e busca
 - ✅ Página sobre a empresa
-- ✅ Blog com posts do Contentful
+- ✅ Blog com posts (CMS Sanity — mocks até provisionar)
 - ✅ Página de contato com formulário
 - ✅ Política de Privacidade e Termos de Uso (LGPD compliant)
 
@@ -37,7 +37,7 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 ### Integrações
 - ✅ HubSpot CRM para gestão de clientes
 - ✅ Supabase para banco de dados e autenticação
-- ✅ Contentful CMS para conteúdo
+- ✅ Sanity CMS para conteúdo (D-034)
 - ✅ WhatsApp Business API
 - ✅ Google Calendar API
 - ✅ Tuya API para smart locks
@@ -46,7 +46,7 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 
 - **Frontend/Backend**: Nuxt 3 (Vue 3) com SSR/SSG
 - **Estilização**: Tailwind CSS + DaisyUI
-- **CMS**: Contentful (headless CMS)
+- **CMS**: Sanity (headless CMS)
 - **Database**: PostgreSQL via Supabase
 - **Autenticação**: Supabase Auth
 - **Hosting**: Vercel
@@ -57,7 +57,7 @@ Plataforma digital completa da ForteGB, empresa familiar de construção imobili
 - Node.js 18+ 
 - npm ou yarn
 - Conta Supabase
-- Conta Contentful (opcional)
+- Conta Sanity (quando provisionar CMS)
 - Credenciais das APIs (HubSpot, Tuya, WhatsApp, Google Calendar)
 
 ## 🚀 Setup
@@ -74,7 +74,7 @@ cp .env.example .env
 
 Edite o arquivo `.env` com suas credenciais:
 - Supabase (URL, Service Role Key, Anon Key)
-- Contentful (Space ID, Access Token)
+- Sanity (quando provisionar — ver `docs/SETUP-CREDENTIALS.md`)
 - HubSpot API Key
 - Tuya (Access ID, Access Secret)
 - WhatsApp API
@@ -108,10 +108,10 @@ http://localhost:3000
 │   ├── IdentityVerification.vue
 │   └── CookieConsent.vue
 ├── composables/        # Composables Vue
-│   ├── useContentful.ts
+│   ├── useCms.ts
 │   └── useSupabase.ts
 ├── content/            # Conteúdo estático
-│   ├── blog/          # Posts do blog (se não usar Contentful)
+│   ├── blog/          # Posts do blog (mocks até Sanity)
 │   └── social-media/   # Ideias e templates para redes sociais
 ├── layouts/           # Layouts da aplicação
 │   └── default.vue
@@ -197,7 +197,7 @@ O projeto pode ser deployado em qualquer plataforma que suporte Nuxt 3:
 2. **Popular conteúdo:**
    - Adicionar casas ao portfólio
    - Criar posts do blog
-   - Configurar Contentful
+   - Configurar Sanity (CMS)
 
 3. **Testes:**
    - Testar fluxo de visitas

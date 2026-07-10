@@ -162,13 +162,13 @@
 
 - **Contexto:** "CMS vs DB" é falso binário; a casa tem dados operacionais/relacionais **e** conteúdo/media.
 - **Decisão:** Taxonomia por tipo de conteúdo:
-  - Conteúdo (listings, blog, timeline de obra, media) → **CMS** (Contentful/Sanity).
+  - Conteúdo (listings, blog, timeline de obra, media) → **CMS** (**Sanity** — D-034).
   - Estado operacional + PII sensível (status, leads, visitas, verificação, contratos Gov.br, RG/CNH) → **Supabase** (Postgres + bucket **privado** com RLS + retenção LGPD).
   - **Vídeo** → embed YouTube/Vimeo (URL como campo); não passar pelo backend.
   - **Social** → fora da plataforma.
   - **Join** conteúdo ↔ operacional por **ID de casa** compartilhado, merge no Nuxt.
-- **Alternativas rejeitadas:** Supabase-only (UX de autoria fraca); admin self-hosted sobre Postgres/Directus (viola zero-ops); largar Contentful por completo (revertido — um CMS compensa na autoria).
-- **Consequências:** vendor CMS (Contentful já em `package.json` vs free-tier mais generoso do Sanity) reversível via camada de serviço; decidido no build. Pré-resolve armazenamento de Q-005/Q-016 (bucket privado RLS).
+- **Alternativas rejeitadas:** Supabase-only (UX de autoria fraca); admin self-hosted sobre Postgres/Directus (viola zero-ops); largar CMS por completo.
+- **Consequências:** vendor CMS fechado em **D-034 (Sanity)**; Contentful removido do stack instalado. Pré-resolve armazenamento de Q-005/Q-016 (bucket privado RLS).
 
 ---
 
@@ -409,3 +409,15 @@
   - **Fora:** hardening LGPD completo → #126.
 - **Rationale:** UAT e ID-verification precisam de dados e docs de teste realistas sem contaminar prod nem violar LGPD.
 - **Consequências:** template + Ambientes; sem `seed.sql`/PNGs neste change.
+
+---
+
+### D-034 — Vendor CMS: Sanity (2026-07-10) — **#155 / C1**
+
+- **Contexto:** D-016 deixou Contentful vs Sanity em aberto; Contentful estava em `package.json`. Free-first (D-015) e mapa staging/prod (#156) favorecem Sanity.
+- **Decisão:**
+  - **Vendor = Sanity** (não Contentful).
+  - **Rationale:** free tier mais durável; 2 datasets no free (staging+prod); schema-as-code; evita cliff de preço do Contentful; escala ForteGB (poucas casas/ano).
+  - **Limpeza:** docs vivos apontam Sanity; remover dependência `contentful`; composable `useCms` (mocks até provisionar); retitular #45/#63.
+  - **Ainda depois:** datasets (#156), modelo de conteúdo (#157), Studio/API live.
+- **Consequências:** D-016 taxonomia mantém-se; só o vendor fecha. Service boundary permanece (troca futura possível, mas Contentful deixa de ser o cliente instalado).
