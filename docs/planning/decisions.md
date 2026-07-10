@@ -392,3 +392,20 @@
   - **Artefacto:** `docs/planning/templates/supabase-local.md` + ponteiro em Ambientes.
 - **Rationale:** fecha a lacuna operacional sem misturar scaffold de código na Definição; evita duplicar #170/#171.
 - **Consequências:** template + Ambientes; supersede o apontar “init → #153” de D-031 — init fica em #171/#43.
+
+---
+
+### D-033 — Seed / dados de teste + LGPD (não-prod) (2026-07-10) — **#154 / B4**
+
+- **Contexto:** D-025/D-030 proíbem PII de prod fora de prod; faltava o contrato do pacote de seed (conteúdo, docs dummy, logins, recreação).
+- **Decisão:**
+  - **Pacote base único** para local + staging; prod não recebe este seed por padrão.
+  - **Supabase operacional:** corretores, leads, visitas, `house_id`s estáveis; conteúdo CMS → #156/#157.
+  - **Identidade sintética:** lookalike realista pt-BR; **nunca** clientes reais; **nunca** dump de prod por padrão.
+  - **Documentos:** fixtures dummy de RG/CNH no repo; upload só local/staging — **nunca** bucket prod.
+  - **Auth de teste:** contas conhecidas (corretor + staff) com passwords documentadas (só não-prod).
+  - **Recriável:** wipe + reseed por comando curto (ex. `db reset`).
+  - **Artefacto:** `docs/planning/templates/seed-lgpd.md`. Implementação dos ficheiros → após #171/#43.
+  - **Fora:** hardening LGPD completo → #126.
+- **Rationale:** UAT e ID-verification precisam de dados e docs de teste realistas sem contaminar prod nem violar LGPD.
+- **Consequências:** template + Ambientes; sem `seed.sql`/PNGs neste change.
