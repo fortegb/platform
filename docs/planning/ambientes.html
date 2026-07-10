@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-035.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-036.
     </p>
 
     <h2>Em uma frase</h2>
@@ -208,6 +208,7 @@
       <li><strong>No computador:</strong> sobe-se o Supabase local com Docker (no Mac preferimos OrbStack; Docker Desktop também serve). O passo a passo técnico está em <code>docs/planning/templates/supabase-local.md</code>. Criar a pasta <code>supabase/</code> no repositório é setup/bootstrap depois — não faz parte só desta especificação.</li>
       <li><strong>Dados de teste (seed):</strong> o mesmo pacote sintético em local e staging — pessoas com aparência realista em português do Brasil (inventadas), documentos RG/CNH <em>dummy</em> só para teste, contas de login de corretor/staff documentadas. Pode apagar e recriar. Nunca se copia a base de produção. Detalhe: <code>docs/planning/templates/seed-lgpd.md</code>.</li>
       <li><strong>Conteúdo (Sanity):</strong> um projeto com dois <em>datasets</em> — <code>staging</code> (local, staging e Previews) e <code>production</code> (site ao vivo). Publicar conteúdo novo no ar exige um passo explícito de promoção (não acontece só porque o site fez deploy). Detalhe técnico em <code>docs/planning/templates/environments.md</code>.</li>
+      <li><strong>Modelo de conteúdo:</strong> tipos <code>house</code>, <code>blogPost</code>, e stubs de timeline/media kit. Marketing (textos, fotos, preço de exibição) fica no Sanity; status da casa, fechadura e QR ficam no Supabase — o site junta os dois pelo mesmo ID. Detalhe: <code>docs/planning/templates/cms-content-model.md</code>.</li>
     </ul>
 
     <h2>Correção urgente (hotfix)</h2>

@@ -435,3 +435,16 @@
   - Nomes exactos das env vars → #162+. Modelo de conteúdo → #157.
 - **Rationale:** espelha Supabase (Previews partilham staging); cabe no free; evita publicar conteúdo de teste em prod por acidente de deploy.
 - **Consequências:** template + Ambientes; **este change não cria** o projeto Sanity.
+
+### D-036 — CMS content model (Sanity document types + house split) (2026-07-10) — **#157 / C3**
+- **Status:** accepted
+- **Contexto:** #157 after D-034/D-035. Need a shared contract for Studio (#45) and portfolio (#63) without implementing schemas yet.
+- **Decisão:**
+  - **Types:** `house`, `blogPost`, `constructionTimeline`, `mediaKit`.
+  - **Depth:** v1 full marketing fields on `house` + `blogPost`; timeline/mediaKit **stub** (house-linked) for later versions (D-018).
+  - **House split:** Sanity = marketing (slug, copy, gallery, specs, display price, video URLs) + `houseId` UUID; Supabase = ops (`id` = same UUID, **status**, Tuya device, QR). Nuxt merges by `houseId`. Status is never CMS source of truth.
+  - **Video:** external YouTube/Vimeo URL fields only.
+  - **Locale:** pt-BR only until a later i18n decision.
+  - **DoD this leaf:** docs only — D-036 + `templates/cms-content-model.md`. Schema TS → #45.
+- **Rationale:** keeps CMS free of PII/ops; aligns with D-016 dual-store; stubs avoid over-modeling v3 modules in Architecture.
+- **Consequences:** template + Ambientes; Studio implements schemas from this inventory.
