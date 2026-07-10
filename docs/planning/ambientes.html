@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-027.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-029.
     </p>
 
     <h2>Em uma frase</h2>
@@ -133,8 +133,43 @@
       Digita uma vez no navegador → o site de teste inteiro fica liberado (até expirar o cookie ou limpar dados do browser).
       O login da plataforma (quando existir na página) é <strong>outra camada</strong>, depois dessa senha.
     </p>
+
+    <h2>Domínios (endereços)</h2>
+    <table>
+      <thead>
+        <tr><th>Uso</th><th>Endereço</th><th>Em linguagem simples</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="env-pill local">local</span></td>
+          <td><code>localhost</code></td>
+          <td>Só no computador de quem desenvolve — sem domínio na internet</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill staging">staging</span> (fixo)</td>
+          <td><code>staging.fortegb.com</code></td>
+          <td>Bookmark dos sócios para validar (com senha)</td>
+        </tr>
+        <tr>
+          <td>Preview de feature</td>
+          <td><code>*.vercel.app</code></td>
+          <td>URL temporária de cada branch — sem nome “bonito” por PR</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill prod">produção</span></td>
+          <td><code>fortegb.com</code> e <code>www.fortegb.com</code></td>
+          <td>Site ao vivo (os dois apontam para o mesmo app)</td>
+        </tr>
+        <tr>
+          <td>Brasil (<code>.com.br</code>)</td>
+          <td><code>fortegb.com.br</code> / <code>www.fortegb.com.br</code></td>
+          <td>Redirecionam (301) para <code>https://fortegb.com</code> — não são o app em si</td>
+        </tr>
+      </tbody>
+    </table>
     <p>
-      Endereços fixos (domínios bonitos) para staging/produção ficam para o próximo passo de especificação.
+      A documentação da plataforma (sócios) continua no GitHub Pages — endereço separado do app.
+      Criar DNS / ligar na Vercel / configurar o redirect do <code>.com.br</code> é <strong>setup depois</strong>; aqui só está o contrato.
     </p>
 
     <h2>Correção urgente (hotfix)</h2>
@@ -146,11 +181,10 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>Domínios (endereços) de cada ambiente</li>
       <li>O pacote concreto de dados de teste (seed)</li>
       <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
       <li>O passo a passo completo de promoção staging → produção</li>
-      <li>Criar de fato o projeto na Vercel (isto é só a especificação)</li>
+      <li>Criar de fato o projeto na Vercel e ligar os DNS (isto é só a especificação)</li>
     </ul>
     <p>
       Voltar à visão geral:

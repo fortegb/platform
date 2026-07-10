@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Ambientes: domínios por ambiente ([#150](https://github.com/fortegb/platform/issues/150))
+
+- **D-029:** prod=`fortegb.com`+`www`; staging=`staging.fortegb.com`; Previews=`*.vercel.app`; local=`localhost`; `.com.br` 301→`.com` (não host do app).
+- Template + página Ambientes. Sem provisionar DNS/Vercel.
+
 ### 2026-07-10 — Passos 1–2: validação + higiene docs ([#177](https://github.com/fortegb/platform/issues/177))
 
 - **D-028:** Contexto e Funcionalidades validados por grilling; mapa de oferta aceito; sem novos módulos inventados; jornadas/telas ficam no passo 5 (#176).

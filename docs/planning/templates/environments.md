@@ -82,4 +82,18 @@ integrationBranch: staging
 | Proteção Preview | senha compartilhada (sócios sem conta Vercel); um desbloqueio → deployment inteiro |
 | Auth da app | Camada separada (Supabase etc.), depois do gate da Vercel |
 
-**Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Domínios → #150. Bypass de webhooks em Preview → #161.
+**Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Bypass de webhooks em Preview → #161.
+
+## Domínios (D-029 / #150)
+
+| Uso | Hostnames | Notas |
+|-----|-----------|-------|
+| `local` | `localhost` | Sem DNS custom; Nuxt `npm run dev` |
+| `staging` (branch `staging`) | `staging.fortegb.com` | Domínio custom no Preview; senha D-027 |
+| Preview `feat/*` / `fix/*` | `*.vercel.app` | Sem subdomínio custom por PR |
+| `prod` (`main`) | `fortegb.com`, `www.fortegb.com` | Mesmo Deployment Production |
+| TLD `.com.br` | `fortegb.com.br`, `www.fortegb.com.br` | **301** → `https://fortegb.com` (registrar/CDN); **não** hosts do app Nuxt |
+| — | — | **Sem** `staging.fortegb.com.br` |
+| Platform docs | `fortegb.github.io/platform` | Fora do mapa de app |
+
+**Provisionamento** (DNS, attach Vercel, redirects) = setup posterior — este arquivo é o contrato.
