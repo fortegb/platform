@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Dados: seed/test data + LGPD ([#154](https://github.com/fortegb/platform/issues/154))
+
+- **D-033:** pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod.
+- Template `seed-lgpd.md` + Ambientes. Sem `seed.sql` neste change. Hardening → #126; CMS fixtures → #156/#157.
+
 ### 2026-07-10 — Dados: runbook Supabase local ([#153](https://github.com/fortegb/platform/issues/153))
 
 - **D-032:** OrbStack preferido no macOS (Docker Desktop OK); checklist local (CLI start/stop/status, Studio/keys, `db reset`, falhas comuns).

@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-032.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-033.
     </p>
 
     <h2>Em uma frase</h2>
@@ -206,6 +206,7 @@
       <li>Criar os projetos e colar as chaves na Vercel é <strong>setup depois</strong>; aqui só está o contrato.</li>
       <li><strong>Estrutura das tabelas:</strong> ficheiros de migração no repositório (Supabase CLI) — iguais em local, staging e produção. Quem desenvolve aplica no Docker; na nuvem aplica-se primeiro no staging e só depois na produção. O deploy do site na Vercel <strong>não</strong> muda a base de dados sozinho.</li>
       <li><strong>No computador:</strong> sobe-se o Supabase local com Docker (no Mac preferimos OrbStack; Docker Desktop também serve). O passo a passo técnico está em <code>docs/planning/templates/supabase-local.md</code>. Criar a pasta <code>supabase/</code> no repositório é setup/bootstrap depois — não faz parte só desta especificação.</li>
+      <li><strong>Dados de teste (seed):</strong> o mesmo pacote sintético em local e staging — pessoas com aparência realista em português do Brasil (inventadas), documentos RG/CNH <em>dummy</em> só para teste, contas de login de corretor/staff documentadas. Pode apagar e recriar. Nunca se copia a base de produção. Detalhe: <code>docs/planning/templates/seed-lgpd.md</code>.</li>
     </ul>
 
     <h2>Correção urgente (hotfix)</h2>
@@ -217,10 +218,9 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>O pacote concreto de dados de teste (seed)</li>
       <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
       <li>O passo a passo completo de promoção staging → produção</li>
-      <li>Criar de fato Vercel, DNS, projetos Supabase e secrets (isto é só a especificação)</li>
+      <li>Criar de fato Vercel, DNS, projetos Supabase, secrets e o ficheiro de seed (isto é só a especificação)</li>
     </ul>
     <p>
       Voltar à visão geral:

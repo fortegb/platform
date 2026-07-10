@@ -174,3 +174,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-032; `templates/supabase-local.md` + Ambientes pointer. Next dados leaf: #154 seed.
+
+---
+
+## 2026-07-10 — Seed / test data + LGPD non-prod (#154 / B4)
+
+### Shared synthetic pack; dummy docs; test logins; recreatable
+
+**Decision:** One base seed pack for local+staging (not prod). Supabase operational rows + stable house IDs; CMS fixtures later (#156/#157). Realistic pt-BR synthetic people; dummy RG/CNH repo fixtures → local/staging storage only. Known corretor+staff test auth accounts (non-prod). Disposable and one-command recreatable. No prod dumps. Full LGPD hardening → #126. Docs only in this leaf (`templates/seed-lgpd.md`).
+
+**Rationale:** Safe UAT and ID-verification testing without real customer PII.
+
+**Implications:**
+- Canon: D-033. Implement seed files after supabase scaffold. Next epic leaf: #155 CMS vendor.

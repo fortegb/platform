@@ -203,7 +203,7 @@ flowchart TB
 > **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
 > **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166.
 > **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview.
-> **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging). **Migrações → D-031 / #152** (CLI; não no deploy Vercel). **Runbook local → D-032 / #153** (OrbStack preferido; docs only; init → #171/#43).
+> **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging). **Migrações → D-031 / #152** (CLI; não no deploy Vercel). **Runbook local → D-032 / #153** (OrbStack preferido; docs only; init → #171/#43). **Seed/LGPD → D-033 / #154** (pacote sintético; dummy docs; logins teste).
 
 ### 7.1 Ambientes (D-025)
 

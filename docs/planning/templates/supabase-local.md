@@ -41,7 +41,7 @@ supabase stop
 |---------|------|
 | `supabase init` / criar `supabase/` | #171 / #43 |
 | Inventário completo de ferramentas | #170 |
-| Conteúdo do seed / LGPD | #154 |
+| Conteúdo do seed / LGPD | [`seed-lgpd.md`](./seed-lgpd.md) (D-033) |
 | `supabase link` / `db push` staging→prod | D-031 |
 | Nomes finais das env vars | #162+ |
 
