@@ -45,6 +45,7 @@
 - [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
 - [#153](https://github.com/fortegb/platform/issues/153) Dados: runbook Supabase local (Docker/OrbStack)
 - [#154](https://github.com/fortegb/platform/issues/154) Dados: seed/test data + LGPD (sem PII real fora de prod)
+- [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
@@ -61,7 +62,7 @@
 - [#42](https://github.com/fortegb/platform/issues/42) Epic: Platform environments
 - [#43](https://github.com/fortegb/platform/issues/43) Supabase project + database-schema.sql
 - [#44](https://github.com/fortegb/platform/issues/44) Env vars (local, Vercel staging/prod)
-- [#45](https://github.com/fortegb/platform/issues/45) Contentful configurado (se Architecture decidir)
+- [#45](https://github.com/fortegb/platform/issues/45) Sanity CMS configurado (projeto + Studio)
 - [#46](https://github.com/fortegb/platform/issues/46) Smoke deploy Vercel pós-org
 - [#47](https://github.com/fortegb/platform/issues/47) Documentar credenciais em SETUP-CREDENTIALS.md
 - [#48](https://github.com/fortegb/platform/issues/48) Epic: Identity, roles & journey routing
@@ -79,7 +80,7 @@
 - [#60](https://github.com/fortegb/platform/issues/60) Blocos blog / redes sociais (home, portfólio, footer)
 - [#61](https://github.com/fortegb/platform/issues/61) Privacidade, Termos, cookies
 - [#62](https://github.com/fortegb/platform/issues/62) Header, footer, botões — design system
-- [#63](https://github.com/fortegb/platform/issues/63) Wire portfólio/blog a Contentful ou Supabase
+- [#63](https://github.com/fortegb/platform/issues/63) Wire portfólio/blog a Sanity (CMS) + status no Supabase
 - [#64](https://github.com/fortegb/platform/issues/64) Mobile-first responsive (Q-019)
 - [#65](https://github.com/fortegb/platform/issues/65) Pass básico a11y/SEO meta
 - [#66](https://github.com/fortegb/platform/issues/66) Remover dependência de data/mock.ts
@@ -158,7 +159,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
 - [#156](https://github.com/fortegb/platform/issues/156) CMS: environments/datasets por ambiente
 - [#157](https://github.com/fortegb/platform/issues/157) CMS: modelo de conteúdo (casa, blog, timeline, media)
 - [#158](https://github.com/fortegb/platform/issues/158) Integrações: modelo 3-tiers (mock / staging safe-target / prod-live)
