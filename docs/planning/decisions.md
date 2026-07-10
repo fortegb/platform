@@ -313,3 +313,16 @@
 - **Rationale:** free-first / zero-ops; alinha ao mapa D-026; senha evita beta público sem forçar sócios no time Vercel.
 - **Riscos:** modo senha pode exigir plano Pro — confirmar no provisionamento; webhooks em Preview podem precisar bypass (#161).
 - **Consequências:** template + página Ambientes; **este change não cria** o projeto Vercel nem domínios (#150).
+
+---
+
+### D-028 — Passos 1–2 (Contexto & Funcionalidades) validados (2026-07-10) — **#177**
+
+- **Contexto:** Epic #175 pedia consolidação/validação dos passos 1–2; conteúdo histórico já existia; grilling confirmou que não faltava escopo de produto — faltava decisão explícita + higiene de estado obsoleto.
+- **Decisão:**
+  - **Passo 1 (Contexto)** aceito: `company-structure.md` + `platform-vision.md`.
+  - **Passo 2 (Funcionalidades)** aceito: mapa de oferta em `deliverables.md` + lista em `modules.md`; **sem** novos módulos/itens inventados só para fechar o epic.
+  - **Jornadas/telas** (fluxos e screen map) permanecem no **passo 5** (`jornadas-plataforma.md`, `screen-map.md`, epic #176) — rascunho mock-first; re-validar após o passo 4.
+  - Higiene: docs de planning não devem contradizer fatos conhecidos (org/board feitos; Architecture produto/stack #1→#38 Done; Q-* resolved/deferred; próximo de definição = passo 4 / #146).
+- **Rationale:** DoD de 1–2 = grilling + artefato canônico, não reescrever jornadas; inventar folhas vazias seria progresso falso.
+- **Consequências:** fecha #177; habilita fechar #175; passo 5 continua dono das jornadas; build ainda gated por G2 (passos 4–7).

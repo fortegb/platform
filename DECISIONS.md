@@ -108,3 +108,17 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-027; template + Ambientes page. Domains → #150. Project not provisioned in this change.
+
+---
+
+## 2026-07-10 — Passos 1–2 validated (#177)
+
+### Contexto & Funcionalidades closed by grilling (journeys stay in step 5)
+
+**Decision:** Passos 1–2 are validated. Canonical artifacts accepted (`company-structure.md`, `platform-vision.md`, `deliverables.md`, `modules.md`). No new offer items. Deep journey/screen re-validation remains passo 5 (#176). Planning hygiene must not contradict known board/org/Architecture state.
+
+**Rationale:** Content was already sufficient; a leafless epic needed a real DoD (decision + hygiene), not invented product scope.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-028.
+- Closes #177; enables closing epic #175. G2 still gates build until Definição 4–7 close.

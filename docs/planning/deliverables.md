@@ -1,7 +1,7 @@
 # Deliverables — mapa produto ↔ plano
 
-> Visão de negócio (confirmada) mapeada para epics. **Decisões técnicas de produto/stack fechadas** (D-015..D-022); o que resta é `deferred` (tours/media/mobile) ou a definição de infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)).  
-> Stack **confirmada** em `platform-vision.md`.
+> Visão de negócio (confirmada) mapeada para epics. **Passos 1–2 validados (D-028).** Decisões técnicas de produto/stack fechadas (D-015..D-022); o que resta é `deferred` (tours/media/mobile) ou a definição de infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)).  
+> Stack **confirmada** em `platform-vision.md`. Jornadas/telas → passo 5 (#176).
 
 ---
 
@@ -97,11 +97,15 @@
 
 ## 8. Checklist “pronto para Phase 1 build”
 
+> **Nota (roteiro):** Architecture produto/stack está Done; o **portão G2** ainda exige fechar a Definição (passos 4–7) antes do build — ver [`roteiro.md`](./roteiro.md).
+
 - [x] GitHub org + board ([#8](https://github.com/fortegb/platform/issues/8))
 - [x] OpenSpec + workflow ([#20](https://github.com/fortegb/platform/issues/20))
-- [ ] Architecture & MVP fechado ([#1](https://github.com/fortegb/platform/issues/1) → [#38](https://github.com/fortegb/platform/issues/38))
+- [x] Architecture & MVP fechado ([#1](https://github.com/fortegb/platform/issues/1) → [#38](https://github.com/fortegb/platform/issues/38))
 - [ ] Brand assets ([#2](https://github.com/fortegb/platform/issues/2)) — paralelo, não bloqueia build
-- [x] `architecture.md` + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32) Done)
-- [ ] Q-003–Q-019 resolved ou deferred com rationale
+- [x] `architecture.md` + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32) Done) — screen-map ainda rascunho passo 5
+- [x] Q-003–Q-019 resolved ou deferred com rationale ([`open-questions.md`](./open-questions.md))
 - [x] Epics Phase 1–4 no board ([#37](https://github.com/fortegb/platform/issues/37))
 - [x] `ROADMAP.md` gerado
+- [x] Passos 1–2 validados (D-028 / [#177](https://github.com/fortegb/platform/issues/177))
+- [ ] Passo 4 Arquitetura & ambientes ([#146](https://github.com/fortegb/platform/issues/146)) — em curso

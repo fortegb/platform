@@ -1,7 +1,7 @@
 # Visão da plataforma — ForteGB
 
-> Última atualização: 2026-07-04  
-> **Stack agora largamente confirmada** no epic Architecture (grillings → `decisions.md` D-015..D-021). O que resta é `deferred` para o grilling da fase — ver [`open-questions.md`](./open-questions.md).
+> Última atualização: 2026-07-10  
+> **Stack confirmada** (grillings → `decisions.md` D-015..D-021). Passos 1–2 validados (**D-028**). O que resta de produto é `deferred` para o grilling da fase — ver [`open-questions.md`](./open-questions.md). Infra/ambientes em curso no passo 4 ([#146](https://github.com/fortegb/platform/issues/146)).
 
 ---
 
@@ -29,7 +29,7 @@ Plataforma digital para operação real de construção e venda de imóveis em C
 | Site público UI | Mock + variantes home |
 | Login | UI/mock |
 | Visitas / integrações | UI + stubs |
-| Planning / board | Docs locais; org GitHub pendente |
+| Planning / board | Org `fortegb` + Project `platform` + OpenSpec; docs em `docs/planning/` |
 
 Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 
@@ -62,6 +62,6 @@ Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 
 ## Próximo passo operacional
 
-**Phase 0 (produto/stack) concluída** (org, board, OpenSpec, Architecture #1). **Próximo: Epic #146 — Arquitetura da solução & ambientes (definição completa de infra/ambientes/integrações)**, que **precede** o build da Fase 1 (Identity #48, Public site #56).
+**Passos 1–2 validados (D-028).** Produto/stack de Architecture (#1 → #38) fechados. **Em curso: passo 4 — Epic [#146](https://github.com/fortegb/platform/issues/146)** (arquitetura da solução & ambientes). Build (passo 8) permanece **gated por G2** até a Definição (passos 1–7) fechar — ver [`roteiro.md`](./roteiro.md).
 
 Ver [`STATUS.md`](../../STATUS.md).

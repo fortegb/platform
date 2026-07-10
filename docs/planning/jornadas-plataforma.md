@@ -262,7 +262,7 @@ Resumo por área — detalhe técnico em [`modules.md`](./modules.md).
 | Corretor | Dashboard UI | HubSpot, Gov.br, contratos |
 | CRM | Stubs | Pipeline, sync, regras comissão |
 | Media kit | — | Design + templates + QR |
-| Board / planning | Epics, docs, portal sócios | Architecture Done → Phase 1 build |
+| Board / planning | Epics, docs, portal sócios | Passo 4 (#146) → depois 5–7; G2 antes do build |
 
 Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 
@@ -275,11 +275,11 @@ Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 | [`deliverables.md`](./deliverables.md) | Mapa negócio ↔ epics |
 | [`modules.md`](./modules.md) | Módulos técnicos |
 | [`phases.md`](./phases.md) | Sequência Phase 0–4 |
-| [`architecture.md`](./architecture.md) | ADR e fluxos (a completar) |
+| [`architecture.md`](./architecture.md) | ADR e fluxos (produto/stack Done; infra em #146) |
 | [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governança |
 | [`progresso-socios.html`](./progresso-socios.html) | Progresso atual (issues) |
 | [`mapa-roteiro.html`](./mapa-roteiro.html) | Visão por fases e módulos |
 
 ---
 
-*Este documento deve ser atualizado quando o epic Architecture fechar o MVP e quando jornadas mudarem após validação com sócios e corretores.*
+*Este documento é rascunho do **passo 5** — re-validar jornadas/telas após o passo 4 (#146), com sócios e corretores. Produto/stack Architecture (#1→#38) já fechou; não bloqueia este rascunho.*
