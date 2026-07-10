@@ -140,3 +140,12 @@ Ver **[`seed-lgpd.md`](./seed-lgpd.md)** — pacote sintético partilhado local+
 ## CMS vendor (D-034 / #155)
 
 Ver **[`cms-vendor.md`](./cms-vendor.md)** — **Sanity**; Contentful removido do stack instalado.
+
+## Sanity — datasets por ambiente (D-035 / #156)
+
+| Alvo do app | Dataset Sanity |
+|-------------|----------------|
+| `local` + `staging` + Previews Vercel | **`staging`** |
+| `prod` (Production / `main`) | **`production`** |
+
+**Regras:** 1 projeto Sanity; promoção de conteúdo `staging` → `production` **explícita** (não no deploy Vercel); Studio edita `staging` por padrão; vars exactas → #162+.

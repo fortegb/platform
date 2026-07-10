@@ -15,8 +15,17 @@
 |-------|--------|
 | Decisão + limpeza Contentful | Provisionar projeto Sanity |
 | `useCms` (mocks) | Wire live API |
-| | Datasets por ambiente (#156) |
+| | Datasets por ambiente — **D-035 / #156** (mapa fechado) |
 | | Modelo casa/blog/timeline/media (#157) |
+
+## Datasets (D-035)
+
+| App | Dataset |
+|-----|---------|
+| local / staging / Previews | `staging` |
+| prod | `production` |
+
+Promoção de conteúdo = passo explícito (não deploy Vercel). Detalhe: [`environments.md`](./environments.md).
 
 ## App boundary
 

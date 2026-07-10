@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-034); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-035); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -14,10 +14,10 @@
 ```
 ✅ Passos 1–2 → D-028
 ✅ A1–A4 ambientes → D-025..D-027, D-029
-✅ B1–B4 Dados Supabase → D-030..D-033
-✅ C1/#155 CMS vendor → D-034 (Sanity)
-→ EM CURSO passo 4: Epic **#146** — restantes (#156–172)
-→ PRÓXIMO: #156 — CMS: environments/datasets por ambiente
+✅ B1–B4 Dados → D-030..D-033
+✅ C1–C2 CMS → D-034..D-035 (Sanity + datasets)
+→ EM CURSO passo 4: Epic **#146** — restantes (#157–172)
+→ PRÓXIMO: #157 — CMS: modelo de conteúdo (casa, blog, timeline, media)
 ⚠️ Lacuna: rbo-close-change ainda merge→main até #166
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -26,13 +26,13 @@
 
 ## Esta sessão (Cursor — 2026-07-10)
 
-- [x] B4/#154 seed/LGPD closed
-- [x] C1/#155 Sanity vendor + Contentful cleanup
+- [x] C1/#155 Sanity vendor closed
+- [x] C2/#156 datasets grilled → PAC
 
 ## Próxima sessão
 
-- [ ] **#156 — CMS datasets por ambiente**
-- [ ] #166 quando priorizar (lifecycle config no skill)
+- [ ] **#157 — CMS content model**
+- [ ] #166 quando priorizar
 - [ ] (paralelo) Brand assets (#2)
 
 ---
@@ -41,8 +41,7 @@
 
 | Doc | Uso |
 |-----|-----|
-| [ambientes.html](./docs/planning/ambientes.html) | Ambientes + Supabase + seed |
-| [templates/cms-vendor.md](./docs/planning/templates/cms-vendor.md) | Vendor CMS = Sanity |
-| [templates/seed-lgpd.md](./docs/planning/templates/seed-lgpd.md) | Contrato seed / LGPD não-prod |
+| [ambientes.html](./docs/planning/ambientes.html) | Ambientes + Supabase + Sanity datasets |
+| [templates/cms-vendor.md](./docs/planning/templates/cms-vendor.md) | Vendor + pointer datasets |
+| [templates/environments.md](./docs/planning/templates/environments.md) | Contrato técnico |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |
-| [mapa-roteiro.html](./docs/planning/mapa-roteiro.html) | Mapa live do board |

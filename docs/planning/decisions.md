@@ -419,5 +419,19 @@
   - **Vendor = Sanity** (não Contentful).
   - **Rationale:** free tier mais durável; 2 datasets no free (staging+prod); schema-as-code; evita cliff de preço do Contentful; escala ForteGB (poucas casas/ano).
   - **Limpeza:** docs vivos apontam Sanity; remover dependência `contentful`; composable `useCms` (mocks até provisionar); retitular #45/#63.
-  - **Ainda depois:** datasets (#156), modelo de conteúdo (#157), Studio/API live.
+  - **Ainda depois:** modelo de conteúdo (#157), Studio/API live. Datasets → **D-035**.
 - **Consequências:** D-016 taxonomia mantém-se; só o vendor fecha. Service boundary permanece (troca futura possível, mas Contentful deixa de ser o cliente instalado).
+
+---
+
+### D-035 — Datasets Sanity por ambiente (2026-07-10) — **#156 / C2**
+
+- **Contexto:** D-034 escolheu Sanity (2 datasets no free); faltava o mapa para `local` / `staging` / `prod` / Previews, alinhado a D-027/D-030.
+- **Decisão:**
+  - **1 projeto Sanity**, datasets **`staging`** e **`production`**.
+  - **Mapa:** local + staging + todos os Previews Vercel → dataset `staging`; prod (`main`) → `production`.
+  - **Promoção de conteúdo:** editar/validar em `staging`; copiar para `production` com passo **explícito** (CLI/export) — **não** no deploy Vercel.
+  - **Scopes:** Vercel Preview → dataset staging; Production → production; local → staging (ou mocks se sem credenciais).
+  - Nomes exactos das env vars → #162+. Modelo de conteúdo → #157.
+- **Rationale:** espelha Supabase (Previews partilham staging); cabe no free; evita publicar conteúdo de teste em prod por acidente de deploy.
+- **Consequências:** template + Ambientes; **este change não cria** o projeto Sanity.
