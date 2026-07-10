@@ -122,3 +122,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Implications:**
 - Canon: `docs/planning/decisions.md` D-028.
 - Closes #177; enables closing epic #175. G2 still gates build until Definição 4–7 close.
+
+---
+
+## 2026-07-10 — Domains per environment (#150 / A4)
+
+### Hostnames for local / staging / preview / prod + .com.br redirects
+
+**Decision:** Prod = `fortegb.com` + `www.fortegb.com` (same Production). Stable staging = `staging.fortegb.com`. Feature Previews = `*.vercel.app` only. Local = localhost. `fortegb.com.br` / `www.fortegb.com.br` = 301 → `https://fortegb.com` (not app hosts; no staging `.com.br`). Platform docs stay on GitHub Pages.
+
+**Rationale:** One staging bookmark; ephemeral PR URLs; `.com` canonical; `.com.br` via HTTP redirect at registrar/CDN.
+
+**Implications:**
+- Canon: D-029; template + Ambientes page. DNS/Vercel attach not done in this change. Next data leaf: #151.

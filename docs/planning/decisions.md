@@ -326,3 +326,20 @@
   - Higiene: docs de planning não devem contradizer fatos conhecidos (org/board feitos; Architecture produto/stack #1→#38 Done; Q-* resolved/deferred; próximo de definição = passo 4 / #146).
 - **Rationale:** DoD de 1–2 = grilling + artefato canônico, não reescrever jornadas; inventar folhas vazias seria progresso falso.
 - **Consequências:** fecha #177; habilita fechar #175; passo 5 continua dono das jornadas; build ainda gated por G2 (passos 4–7).
+
+---
+
+### D-029 — Domínios por ambiente (2026-07-10) — **#150 / A4**
+
+- **Contexto:** D-025..D-027 fecharam tiers, branches e Vercel; faltavam **hostnames** para prod, staging estável, Previews e o TLD `.com.br`.
+- **Decisão:**
+  | Uso | Hostnames |
+  |-----|-----------|
+  | `local` | `localhost` (sem DNS custom) |
+  | `staging` (branch `staging`) | `staging.fortegb.com` (Preview + senha D-027) |
+  | Preview `feat/*` / `fix/*` | só `*.vercel.app` (sem subdomínio custom por PR) |
+  | `prod` (`main`) | `fortegb.com` **e** `www.fortegb.com` no mesmo Deployment Production |
+  | `.com.br` | `fortegb.com.br` + `www.fortegb.com.br` → **301** para `https://fortegb.com` (registrar/CDN); **não** hosts do app; **sem** `staging.fortegb.com.br` |
+  | Platform docs | GitHub Pages (inalterado) |
+- **Rationale:** um bookmark de staging para sócios; Previews efêmeros; `.com` canônico; `.com.br` só redireciona (DNS sozinho não redireciona HTTP).
+- **Consequências:** template + página Ambientes; **este change não provisiona** DNS nem domínios na Vercel. Direção exacta apex↔www no setup. Próximo na área A/dados: #151.
