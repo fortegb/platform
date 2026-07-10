@@ -135,3 +135,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-029; template + Ambientes page. DNS/Vercel attach not done in this change. Next data leaf: #151.
+
+---
+
+## 2026-07-10 — Supabase projects per environment (#151 / B1)
+
+### Two cloud projects + local Docker; Previews share staging
+
+**Decision:** Cloud projects `fortegb-staging` and `fortegb-prod` only. Local = Docker/OrbStack (CLI), not a third cloud project. All Vercel Previews use staging. No prod PII in non-prod by default. One schema-as-code across targets. Auth redirects and Vercel Production/Preview secret scopes map to those projects. Free-tier: 2 active projects; ~7d pause caveat; storage caps known.
+
+**Rationale:** Matches Free plan; Previews already staging-class (D-027); local doesn’t burn a cloud slot.
+
+**Implications:**
+- Canon: D-030; template + Ambientes page. Projects/secrets not provisioned in this change. Seed → #154.

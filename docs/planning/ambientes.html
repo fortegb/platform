@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-029.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-030.
     </p>
 
     <h2>Em uma frase</h2>
@@ -172,6 +172,40 @@
       Criar DNS / ligar na Vercel / configurar o redirect do <code>.com.br</code> é <strong>setup depois</strong>; aqui só está o contrato.
     </p>
 
+    <h2>Dados (Supabase)</h2>
+    <p>
+      A base de dados, login e ficheiros sensíveis ficam no <strong>Supabase</strong>.
+      No plano gratuito cabem <strong>dois projetos activos</strong> na nuvem — usamos exactamente isso, mais um ambiente local no computador:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Onde corre o app</th><th>Supabase</th><th>Em linguagem simples</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="env-pill local">local</span></td>
+          <td>No computador (Docker)</td>
+          <td>Não gasta um dos dois projetos grátis da nuvem</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill staging">staging</span> + Previews</td>
+          <td>Projeto <code>fortegb-staging</code></td>
+          <td>Um só projeto de teste partilhado (incluindo branches de feature)</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill prod">produção</span></td>
+          <td>Projeto <code>fortegb-prod</code></td>
+          <td>Dados reais dos clientes — separado do teste</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Sem dados reais de clientes no teste</strong> — staging e local usam dados fictícios / de seed.</li>
+      <li><strong>Mesma estrutura de tabelas</strong> nos três sítios; o que muda são os dados e as chaves secretas.</li>
+      <li><strong>Plano gratuito:</strong> se o staging ficar sem uso ~7 dias, a Supabase pode “pausar” o projeto — reativa-se no painel. Limites de espaço (BD/ficheiros) existem; quando apertar, avalia-se o plano Pro.</li>
+      <li>Criar os projetos e colar as chaves na Vercel é <strong>setup depois</strong>; aqui só está o contrato.</li>
+    </ul>
+
     <h2>Correção urgente (hotfix)</h2>
     <p>
       Em emergência pode ser preciso corrigir produção fora do caminho normal.
@@ -184,7 +218,7 @@
       <li>O pacote concreto de dados de teste (seed)</li>
       <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
       <li>O passo a passo completo de promoção staging → produção</li>
-      <li>Criar de fato o projeto na Vercel e ligar os DNS (isto é só a especificação)</li>
+      <li>Criar de fato Vercel, DNS, projetos Supabase e secrets (isto é só a especificação)</li>
     </ul>
     <p>
       Voltar à visão geral:
