@@ -42,6 +42,7 @@
 - [#149](https://github.com/fortegb/platform/issues/149) Ambientes: topologia Vercel (1 projeto, scopes Preview/Production)
 - [#150](https://github.com/fortegb/platform/issues/150) Ambientes: domínios por ambiente (prod/staging/preview)
 - [#151](https://github.com/fortegb/platform/issues/151) Dados: projetos Supabase por ambiente (staging/prod/local)
+- [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
@@ -155,7 +156,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#152](https://github.com/fortegb/platform/issues/152) Dados: estratégia de migrações (Supabase CLI)
 - [#153](https://github.com/fortegb/platform/issues/153) Dados: runbook Supabase local (Docker/OrbStack)
 - [#154](https://github.com/fortegb/platform/issues/154) Dados: seed/test data + LGPD (sem PII real fora de prod)
 - [#155](https://github.com/fortegb/platform/issues/155) CMS: escolha final do vendor (Contentful vs Sanity)
