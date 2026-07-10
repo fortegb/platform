@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — CMS: vendor Sanity ([#155](https://github.com/fortegb/platform/issues/155))
+
+- **D-034:** CMS = **Sanity**; Contentful removido do stack (`package.json`, `useContentful` → `useCms` mocks).
+- Docs vivos + SETUP/README atualizados; #45/#63 retitulados. Datasets → #156; modelo → #157.
+
 ### 2026-07-10 — Dados: seed/test data + LGPD ([#154](https://github.com/fortegb/platform/issues/154))
 
 - **D-033:** pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod.

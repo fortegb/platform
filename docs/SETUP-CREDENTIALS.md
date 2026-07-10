@@ -52,24 +52,23 @@ NUXT_PUBLIC_SUPABASE_ANON_KEY=sua-anon-key-aqui
 
 ---
 
-### 2. Contentful (Opcional - para Blog)
+### 2. Sanity CMS (conteúdo — listings, blog)
 
-**O que é:** CMS headless para gerenciar conteúdo do blog.
+**O que é:** CMS headless (D-034) para portfólio, blog e conteúdo de marketing.
 
-**Como obter:**
-1. Acesse [contentful.com](https://www.contentful.com)
-2. Crie uma conta gratuita
-3. Crie um novo "Space"
-4. Vá em **Settings** → **API keys**
-5. Crie uma nova API key
+**Como obter (quando provisionar):**
+1. Acesse [sanity.io](https://www.sanity.io)
+2. Crie um projeto
+3. Datasets staging/prod → folha #156; modelo de conteúdo → #157
 
 ```env
-# Contentful CMS
-CONTENTFUL_SPACE_ID=seu-space-id-aqui
-CONTENTFUL_ACCESS_TOKEN=seu-access-token-aqui
+# Sanity CMS (nomes exactos → inventário #162+ quando provisionar)
+# NUXT_PUBLIC_SANITY_PROJECT_ID=
+# NUXT_PUBLIC_SANITY_DATASET=
+# SANITY_API_TOKEN=
 ```
 
-**Nota:** Se não usar Contentful, você pode usar dados mockados ou criar posts diretamente no banco de dados.
+**Nota:** Até o Sanity estar ligado, o app usa mocks / dados locais via `useCms`.
 
 ---
 

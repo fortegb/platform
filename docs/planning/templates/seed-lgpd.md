@@ -3,7 +3,7 @@
 > Contrato do pacote sintético para **local** e **staging**.  
 > **Docs only** neste leaf — ficheiros `seed.sql` / PNGs de RG·CNH → quando existir `supabase/` (#171/#43).  
 > Hardening LGPD completo (retenção, auditoria, páginas) → [#126](https://github.com/fortegb/platform/issues/126).  
-> Fixtures de conteúdo CMS → [#156](https://github.com/fortegb/platform/issues/156) / [#157](https://github.com/fortegb/platform/issues/157).
+> Fixtures de conteúdo CMS (Sanity) → [#156](https://github.com/fortegb/platform/issues/156) / [#157](https://github.com/fortegb/platform/issues/157).
 
 ## Regras
 

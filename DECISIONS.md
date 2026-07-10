@@ -187,3 +187,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-033. Implement seed files after supabase scaffold. Next epic leaf: #155 CMS vendor.
+
+---
+
+## 2026-07-10 — CMS vendor: Sanity (#155 / C1)
+
+### Sanity chosen; Contentful removed from installed stack
+
+**Decision:** CMS vendor = **Sanity**. Free-tier longevity, 2 datasets for staging/prod, schema-as-code, avoid Contentful pricing cliff. Remove `contentful` dependency; `useCms` composable (mocks until provisioned). Retitle build issues #45/#63. Datasets → #156; content model → #157.
+
+**Rationale:** Matches D-015 free-first and ForteGB scale.
+
+**Implications:**
+- Canon: D-034. D-016 taxonomy unchanged (CMS + Supabase). Living docs/code no longer point at Contentful as the stack.

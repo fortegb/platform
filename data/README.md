@@ -15,7 +15,7 @@ Os dados mock são automaticamente carregados nas seguintes páginas:
 
 ## Substituição por Dados Reais
 
-Quando o banco de dados (Supabase) ou CMS (Contentful) estiver configurado:
+Quando o banco de dados (Supabase) ou CMS (Sanity) estiver configurado:
 
 1. Remover ou comentar os imports de `~/data/mock`
 2. Implementar as chamadas reais ao banco/CMS

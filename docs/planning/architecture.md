@@ -113,7 +113,7 @@ flowchart TB
   end
   subgraph data [Dados & conteúdo]
     SB[(Supabase · Postgres/Auth/Storage+RLS)]
-    CMS[CMS · Contentful/Sanity]
+    CMS[CMS · Sanity]
     VID[YouTube/Vimeo · vídeo]
   end
   subgraph integrations [Integrações via adaptadores]
@@ -146,8 +146,8 @@ flowchart TB
 
 | Domínio | Source of truth | Notas |
 |---------|-----------------|-------|
-| Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (Contentful/Sanity) | autoria com UI; vendor reversível via camada de serviço |
-| Blog | **CMS** | autoria unificada |
+| Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (**Sanity** — D-034) | autoria com Studio; join por house ID |
+| Blog | **CMS** (Sanity) | autoria unificada |
 | Estado operacional da casa (status, links a clientes/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
 | Vídeo | **YouTube/Vimeo** (embed) | URL como campo; não passa pelo backend |
 | Docs sensíveis (contratos Gov.br, RG/CNH) | **Supabase** bucket privado + RLS | LGPD: encriptação + retenção |
