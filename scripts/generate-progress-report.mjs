@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generate docs/planning/progresso-socios.html from GitHub Project + progress-focus.md
+ * Generate docs/planning/progresso-socios.html and mapa-roteiro.html
+ * from GitHub Project + progress-focus.md
  * Usage: node scripts/generate-progress-report.mjs
  */
 
@@ -9,11 +10,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { etapaHeading, etapaPill, passoNum } from './etapa-labels.mjs';
+import { buildMapaHtml, derivePassoStates } from './mapa-roteiro.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const FOCUS_PATH = path.join(ROOT, 'docs/planning/progress-focus.md');
 const OUT_PATH = path.join(ROOT, 'docs/planning/progresso-socios.html');
+const MAPA_PATH = path.join(ROOT, 'docs/planning/mapa-roteiro.html');
 
 const PROJECT_QUERY = `query($cursor: String) {
   organization(login: "fortegb") {
@@ -425,6 +428,11 @@ function main() {
   const html = buildHtml({ items, focus, generatedAt });
   fs.writeFileSync(OUT_PATH, html, 'utf8');
   console.log(`Wrote ${OUT_PATH}`);
+
+  const mapa = buildMapaHtml(items);
+  fs.writeFileSync(MAPA_PATH, mapa, 'utf8');
+  const { states, current } = derivePassoStates(items);
+  console.log(`Wrote ${MAPA_PATH} (current=passo ${current}; 1–7: ${[1, 2, 3, 4, 5, 6, 7].map((n) => `${n}=${states[n]}`).join(', ')})`);
 }
 
 main();

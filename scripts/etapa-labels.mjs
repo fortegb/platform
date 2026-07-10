@@ -12,6 +12,19 @@ export const PASSO_TITLES = {
   9: 'Evolução',
 };
 
+/** Short desc for mapa-roteiro nodes (sócios). */
+export const PASSO_DESCS = {
+  1: 'Quem somos, o que temos e queremos',
+  2: 'O que a plataforma oferece',
+  3: 'Site, CRM, visitas, fechaduras…',
+  4: 'Infra, ambientes, integrações',
+  5: 'Fluxos e telas finais (re-validar)',
+  6: 'Linguagem visual + design system',
+  7: 'Fatiar em versões v1/v2/v3',
+  8: 'Construir até entregar — por versão',
+  9: 'Manutenção e novas ideias',
+};
+
 /** passo number (1–9) from an Etapa value like "4 Arquitetura" */
 export function passoNum(etapa) {
   if (etapa == null || etapa === '' || etapa === '—') return 99;

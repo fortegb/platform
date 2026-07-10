@@ -1,4 +1,84 @@
-<!DOCTYPE html>
+/**
+ * Live mapa-roteiro.html from GitHub Project Etapa/Status.
+ * Used by generate-progress-report.mjs (same fetch) and optionally standalone.
+ */
+
+import { PASSO_TITLES, PASSO_DESCS, passoNum } from './etapa-labels.mjs';
+
+/**
+ * Derive node class per passo 1–9 from board items.
+ *
+ * - current = highest passo with Status "In Progress"; else lowest passo with open work
+ * - parallel = open work on a passo *before* current (G1 exception still visible)
+ * - done = no open items and (has Done items OR passo < current)
+ * - future = otherwise (queued ahead or not started)
+ */
+export function derivePassoStates(items) {
+  const byPasso = new Map();
+  for (let n = 1; n <= 9; n++) byPasso.set(n, { open: 0, done: 0, inProgress: 0 });
+
+  for (const item of items) {
+    const n = passoNum(item.etapa);
+    if (n < 1 || n > 9) continue;
+    const bucket = byPasso.get(n);
+    if (item.status === 'Done') bucket.done += 1;
+    else {
+      bucket.open += 1;
+      if (item.status === 'In Progress') bucket.inProgress += 1;
+    }
+  }
+
+  const inProgressPassos = [...byPasso.entries()]
+    .filter(([, b]) => b.inProgress > 0)
+    .map(([n]) => n);
+  const openPassos = [...byPasso.entries()]
+    .filter(([, b]) => b.open > 0)
+    .map(([n]) => n);
+
+  let current;
+  if (inProgressPassos.length) current = Math.max(...inProgressPassos);
+  else if (openPassos.length) current = Math.min(...openPassos);
+  else current = 4; // fallback: Definição frontier when board is quiet
+
+  const states = {};
+  for (let n = 1; n <= 9; n++) {
+    const b = byPasso.get(n);
+    if (b.open === 0) {
+      states[n] = b.done > 0 || n < current ? 'done' : 'future';
+    } else if (n === current) {
+      states[n] = 'current';
+    } else if (n < current) {
+      states[n] = 'parallel';
+    } else {
+      states[n] = 'future';
+    }
+  }
+
+  return { states, current, byPasso };
+}
+
+function v0Stats(items) {
+  const v0 = items.filter((i) => i.milestone && /v0/i.test(i.milestone));
+  const closed = v0.filter((i) => i.status === 'Done').length;
+  const total = v0.length;
+  const pct = total ? Math.round((closed / total) * 100) : 0;
+  return { closed, total, pct };
+}
+
+function nodeHtml(n, state) {
+  const solo = n === 8 || n === 9 ? ' solo' : '';
+  return `<div class="phase-node ${state}${solo}"><div class="num">Passo ${n}</div><div class="label">${PASSO_TITLES[n]}</div><div class="desc">${PASSO_DESCS[n]}</div></div>`;
+}
+
+export function buildMapaHtml(items) {
+  const { states } = derivePassoStates(items);
+  const v0 = v0Stats(items);
+
+  const defNodes = [1, 2, 3, 4, 5, 6, 7].map((n) => nodeHtml(n, states[n])).join('\n        ');
+  const execNode = nodeHtml(8, states[8]);
+  const evolNode = nodeHtml(9, states[9]);
+
+  return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -43,7 +123,7 @@
     .phase-node.solo { flex: 0 0 auto; min-width: 190px; }
     .v0-wrap { margin: 0.5rem 0 0.25rem; }
     .v0-bar-track { height: 8px; background: var(--bg); border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
-    .v0-bar { height: 100%; background: var(--green); width: 54%; }
+    .v0-bar { height: 100%; background: var(--green); width: ${v0.pct}%; }
     .v0-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; }
     .release-track { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0.75rem; margin: 0.5rem 0 1rem; }
     .release-card { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1rem; opacity: 0.9; }
@@ -113,17 +193,11 @@
       <div class="stage-head"><span class="estagio-tag est-def">Definição</span><h2>Passos 1–7</h2><span class="st-desc">descobrir e desenhar — fecham via grilling</span></div>
       <div class="gate-chip">🔒 G1 · avanço na Definição — cada passo só abre quando o anterior fecha (paralelos declarados são exceção)</div>
       <div class="phase-track">
-        <div class="phase-node done"><div class="num">Passo 1</div><div class="label">Contexto</div><div class="desc">Quem somos, o que temos e queremos</div></div>
-        <div class="phase-node done"><div class="num">Passo 2</div><div class="label">Funcionalidades</div><div class="desc">O que a plataforma oferece</div></div>
-        <div class="phase-node done"><div class="num">Passo 3</div><div class="label">Componentes</div><div class="desc">Site, CRM, visitas, fechaduras…</div></div>
-        <div class="phase-node current"><div class="num">Passo 4</div><div class="label">Arquitetura</div><div class="desc">Infra, ambientes, integrações</div></div>
-        <div class="phase-node future"><div class="num">Passo 5</div><div class="label">Jornadas</div><div class="desc">Fluxos e telas finais (re-validar)</div></div>
-        <div class="phase-node future"><div class="num">Passo 6</div><div class="label">Design</div><div class="desc">Linguagem visual + design system</div></div>
-        <div class="phase-node future"><div class="num">Passo 7</div><div class="label">Versionamento</div><div class="desc">Fatiar em versões v1/v2/v3</div></div>
+        ${defNodes}
       </div>
       <div class="v0-wrap">
         <div class="v0-bar-track"><div class="v0-bar" id="v0-bar"></div></div>
-        <div class="v0-label"><strong>Marco <code>v0 — Definição</code></strong> — <span id="v0-count">45/83 issues no marco fechadas (54%)</span>. A 100%, o portão <strong>G2</strong> abre e a Execução fica liberada.</div>
+        <div class="v0-label"><strong>Marco <code>v0 — Definição</code></strong> — <span id="v0-count">${v0.closed}/${v0.total} issues no marco fechadas (${v0.pct}%)</span>. A 100%, o portão <strong>G2</strong> abre e a Execução fica liberada.</div>
       </div>
     </div>
 
@@ -132,7 +206,7 @@
     <div class="estagio exec">
       <div class="stage-head"><span class="estagio-tag est-exec">Execução</span><h2>Passo 8 — Execução</h2><span class="st-desc">construir e entregar, por versão</span></div>
       <div class="phase-track">
-        <div class="phase-node future solo"><div class="num">Passo 8</div><div class="label">Execução</div><div class="desc">Construir até entregar — por versão</div></div>
+        ${execNode}
       </div>
       <div class="gate-chip">🔒 G3 · avanço entre versões — cada versão só começa após o readiness (UAT/perf/LGPD) da anterior</div>
       <div class="release-track">
@@ -170,7 +244,7 @@
     <div class="estagio evol">
       <div class="stage-head"><span class="estagio-tag est-evol">Evolução</span><h2>Passo 9</h2><span class="st-desc">manter e evoluir depois do lançamento</span></div>
       <div class="phase-track">
-        <div class="phase-node future solo"><div class="num">Passo 9</div><div class="label">Evolução</div><div class="desc">Manutenção e novas ideias</div></div>
+        ${evolNode}
       </div>
     </div>
 
@@ -185,3 +259,5 @@
   <script src="../assets/portal-build.js" defer></script>
 </body>
 </html>
+`;
+}
