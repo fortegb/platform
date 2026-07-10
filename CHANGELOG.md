@@ -7,6 +7,12 @@
 
 ## Não versionado
 
+### 2026-07-10 — Passos 1–2: validação + higiene docs ([#177](https://github.com/fortegb/platform/issues/177))
+
+- **D-028:** Contexto e Funcionalidades validados por grilling; mapa de oferta aceito; sem novos módulos inventados; jornadas/telas ficam no passo 5 (#176).
+- **Higiene:** `platform-vision.md` / `deliverables.md` (checklist Architecture + Q-* alinhados; nota G2); retoques mínimos em `jornadas-plataforma.md` (estado atual, sem reescrever fluxos).
+- Fecha a folha de consolidação sob #175. Build ainda gated por G2.
+
 ### 2026-07-10 — Ambientes: topologia Vercel ([#149](https://github.com/fortegb/platform/issues/149))
 
 - **Um projeto Vercel:** Production=`main`; Preview=`staging`+feat/fix; senha compartilhada nos Previews (sócios sem conta Vercel); env Production vs Preview (staging-class).
