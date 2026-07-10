@@ -148,3 +148,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-030; template + Ambientes page. Projects/secrets not provisioned in this change. Seed → #154.
+
+---
+
+## 2026-07-10 — Supabase CLI migration strategy (#152 / B2)
+
+### Migrations in repo; CLI apply; not on Vercel deploy
+
+**Decision:** Schema source of truth = `supabase/migrations/` via Supabase CLI. Apply local against Docker; staging/prod via CLI `db push` (staging before prod). No auto-migrate on Vercel. Forward-only; seed separate (#154); RLS in migrations. `docs/database-schema.sql` = legacy until ported. Optional thin npm wrappers later — no custom migrator.
+
+**Rationale:** Matches Supabase local/cloud; keeps deploys from mutating schema by surprise.
+
+**Implications:**
+- Canon: D-031; template + Ambientes. Init/first migration/runbook → #153.

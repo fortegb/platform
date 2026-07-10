@@ -114,3 +114,17 @@ integrationBranch: staging
 5. **Free tier:** 2 projetos activos; pause ~7 dias sem actividade na BD (staging pode pausar); ~500 MB DB / 1 GB storage por projeto.
 
 **Provisionamento** (criar projetos, aplicar migrações, colar secrets) = setup posterior.
+
+## Migrações — Supabase CLI (D-031 / #152)
+
+| Item | Decisão |
+|------|---------|
+| Fonte da verdade | `supabase/migrations/*.sql` |
+| Ferramenta | Supabase CLI (`db reset` / migrate local; `db push` nos projetos cloud) |
+| Legado | `docs/database-schema.sql` — referência até portar; não segunda fonte viva |
+| Vercel deploy | **Não** aplica migrações |
+| Ordem cloud | staging → smoke → prod |
+| Higiene | só forward; seed separado (#154); RLS nas migrações |
+| Wrappers | npm scripts finos opcionais; sem motor custom |
+
+**Layout:** contrato = pasta `supabase/` no repo (init concreto → setup / #153).

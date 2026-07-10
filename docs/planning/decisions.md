@@ -362,3 +362,18 @@
   - **Free tier:** 2 projetos activos cabem; pause ~7d sem actividade na BD é caveat aceite (staging); caps 500 MB DB / 1 GB storage por projeto.
 - **Rationale:** free-first; Previews não precisam de 3.º projeto; local no Docker não gasta slot cloud.
 - **Consequências:** template + página Ambientes; **este change não cria** projetos Supabase nem liga secrets na Vercel. Seed → #154.
+
+---
+
+### D-031 — Estratégia de migrações Supabase CLI (2026-07-10) — **#152 / B2**
+
+- **Contexto:** D-030 exige schema-as-code nos três alvos; faltava a ferramenta e o fluxo de apply.
+- **Decisão:**
+  - **Fonte da verdade:** `supabase/migrations/*.sql` via **Supabase CLI**.
+  - **Legado:** `docs/database-schema.sql` = referência até portar; não manter duas fontes vivas.
+  - **Apply:** local → CLI no Docker; staging/prod → `supabase db push` (ou equivalente) por projeto ligado — **não** no deploy Vercel.
+  - **Ordem cloud:** staging primeiro, depois prod após smoke.
+  - **Higiene:** só forward (não editar migração já aplicada); seed ≠ schema (#154); RLS nas migrações com o schema.
+  - **Wrappers:** npm scripts finos opcionais depois; sem motor custom.
+- **Rationale:** alinhado ao stack Supabase/local Docker; evita surpresa de schema em Preview/Production builds.
+- **Consequências:** template + Ambientes; **este change não** corre `supabase init` nem escreve a 1.ª migração — runbook local → #153.
