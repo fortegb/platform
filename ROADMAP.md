@@ -176,4 +176,5 @@
 - [#172](https://github.com/fortegb/platform/issues/172) Dev local: estratégia de mock de integrações
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
 - [#176](https://github.com/fortegb/platform/issues/176) Epic: Jornadas, telas e fluxos — re-validação pós-arquitetura
+- [#177](https://github.com/fortegb/platform/issues/177) Higiene docs passos 1–2 + validação D-028
 
