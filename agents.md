@@ -379,8 +379,8 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 ### Estágio atual
 - **Passo 4 (Arquitetura) — em curso.** A1–A4 feitos (D-025..D-029: ambientes, branches, Vercel, domínios); faltam #151–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #151 Supabase por ambiente. **Lacuna:** close skill ainda →`main` até #166. Ver **`roteiro.md`** + **`STATUS.md`**.
 - **Passos 1–2 validados (D-028 / #177):** contexto + mapa de funcionalidades aceitos; jornadas/telas no passo 5 (#176).
-- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173), passos 1–2 (#177), A1–A4 → **D-015..D-029**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
-- **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-029); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
+- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173), passos 1–2 (#177), A1–A4 + B1 Supabase → **D-015..D-030**. Stack confirmada: serverless Vercel, CMS (Contentful/Sanity) + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
+- **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-030); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
 - **Board no modelo Roteiro (migração A feita, #174):** campo **`Etapa`** (9 passos, ex-`Phase`) + Milestone **`v0 — Definição`** + tipos nativos, aplicado a todos os itens. **Migração B** (Milestones v1/v2/v3) diferida ao passo 7. Platform docs (`mapa-roteiro.html` + relatório por Etapa) publicadas no GitHub Pages.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".

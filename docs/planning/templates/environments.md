@@ -97,3 +97,20 @@ integrationBranch: staging
 | Platform docs | `fortegb.github.io/platform` | Fora do mapa de app |
 
 **Provisionamento** (DNS, attach Vercel, redirects) = setup posterior — este arquivo é o contrato.
+
+## Supabase — projetos por ambiente (D-030 / #151)
+
+| Alvo | Projeto / stack | Notas |
+|------|-----------------|-------|
+| `local` | Docker / OrbStack (Supabase CLI) | Não consome slot free cloud |
+| `staging` + Previews Vercel | Cloud **`fortegb-staging`** | Partilhado por branch `staging` e `feat/*`/`fix/*` |
+| `prod` | Cloud **`fortegb-prod`** | Só Production (`main`) |
+
+**Regras:**
+1. **Sem PII de prod** em staging/local por padrão — seed/fictício apenas.
+2. **Schema-as-code** único (migrações) nos três alvos; dados e secrets diferem.
+3. **Auth allowlist:** prod = `fortegb.com` + `www`; staging = `staging.fortegb.com` + Previews `*.vercel.app`; local = `http://localhost:3000`.
+4. **Vercel env scopes:** Production → credenciais prod; Preview → credenciais staging; local → `.env` / CLI.
+5. **Free tier:** 2 projetos activos; pause ~7 dias sem actividade na BD (staging pode pausar); ~500 MB DB / 1 GB storage por projeto.
+
+**Provisionamento** (criar projetos, aplicar migrações, colar secrets) = setup posterior.

@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Dados: Supabase por ambiente ([#151](https://github.com/fortegb/platform/issues/151))
+
+- **D-030:** 2 projetos cloud (`fortegb-staging` + `fortegb-prod`) + local Docker; Previews partilham staging; sem PII de prod no não-prod; schema-as-code único; auth redirects e scopes Vercel Production/Preview.
+- Free tier: 2 activos; caveat de pause ~7d; caps de storage conhecidos. Sem provisionar projetos neste change.
+
 ### 2026-07-10 — Ambientes: domínios por ambiente ([#150](https://github.com/fortegb/platform/issues/150))
 
 - **D-029:** prod=`fortegb.com`+`www`; staging=`staging.fortegb.com`; Previews=`*.vercel.app`; local=`localhost`; `.com.br` 301→`.com` (não host do app).

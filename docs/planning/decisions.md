@@ -343,3 +343,22 @@
   | Platform docs | GitHub Pages (inalterado) |
 - **Rationale:** um bookmark de staging para sócios; Previews efêmeros; `.com` canônico; `.com.br` só redireciona (DNS sozinho não redireciona HTTP).
 - **Consequências:** template + página Ambientes; **este change não provisiona** DNS nem domínios na Vercel. Direção exacta apex↔www no setup. Próximo na área A/dados: #151.
+
+---
+
+### D-030 — Projetos Supabase por ambiente (2026-07-10) — **#151 / B1**
+
+- **Contexto:** D-022 pediu isolamento por projeto Supabase; free tier limita a **2 projetos ativos**; Previews já partilham backends classe-staging (D-027).
+- **Decisão:**
+  | Alvo | Supabase |
+  |------|----------|
+  | `local` | Docker / OrbStack (CLI) — **não** 3.º projeto cloud |
+  | `staging` + todos os Previews Vercel | projeto cloud **`fortegb-staging`** (partilhado) |
+  | `prod` | projeto cloud **`fortegb-prod`** |
+  - **PII:** sem cópia de PII de prod para staging/local por padrão (só seed/fictício).
+  - **Schema:** um schema-as-code (migrações) nos três alvos; dados/secrets diferem. Ferramenta de migração pode ficar para folha posterior.
+  - **Auth redirects:** prod → `fortegb.com`/`www`; staging → `staging.fortegb.com` + padrão Preview `*.vercel.app`; local → `http://localhost:3000`.
+  - **Secrets:** scope Vercel Production → chaves prod; Preview → chaves staging; local → `.env`/CLI. Nomes exactos das vars → inventário (#162+).
+  - **Free tier:** 2 projetos activos cabem; pause ~7d sem actividade na BD é caveat aceite (staging); caps 500 MB DB / 1 GB storage por projeto.
+- **Rationale:** free-first; Previews não precisam de 3.º projeto; local no Docker não gasta slot cloud.
+- **Consequências:** template + página Ambientes; **este change não cria** projetos Supabase nem liga secrets na Vercel. Seed → #154.

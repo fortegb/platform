@@ -202,7 +202,8 @@ flowchart TB
 > **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes, isolamento, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
 > **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
 > **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166.
-> **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview. **Domínios → D-029 / #150.**
+> **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview.
+> **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging).
 
 ### 7.1 Ambientes (D-025)
 
