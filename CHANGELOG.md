@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Ambientes: topologia Vercel ([#149](https://github.com/fortegb/platform/issues/149))
+
+- **Um projeto Vercel:** Production=`main`; Preview=`staging`+feat/fix; senha compartilhada nos Previews (sócios sem conta Vercel); env Production vs Preview (staging-class).
+- Canon D-027; template + página Ambientes. Sem provisionar o projeto nem domínios (#150).
+
 ### 2026-07-10 — Ambientes: mapeamento branch → ambiente ([#148](https://github.com/fortegb/platform/issues/148))
 
 - **Mapa git → ambiente:** `main`=prod · `staging`=staging · `feat/*`/`fix/*` Preview=staging-class; caminho feat→staging→main; close vs promote separados.

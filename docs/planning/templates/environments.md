@@ -56,8 +56,6 @@ Diferido à área E do epic #146 (#162+). Este template só fixa `APP_ENV` e o c
 
 ## Lifecycle config — contrato opt-in (implementação → #166)
 
-Ficheiro pequeno e explícito → arquivo:
-
 Arquivo pequeno e explícito (caminho sugerido: `.rbo/lifecycle.yml`). O skill global **não** lê markdown de ambientes.
 
 ```yaml
@@ -72,3 +70,16 @@ integrationBranch: staging
 | `integrationBranch: staging` | `staging` |
 
 **Lacuna até #166:** este contrato está especificado; o código do `rbo-close-change` ainda não o lê — close continua → `main`.
+
+## Vercel — topologia (D-027 / #149)
+
+| Item | Decisão |
+|------|---------|
+| Projetos | **Um** projeto Vercel (app Nuxt) |
+| Production | branch `main` → `APP_ENV=prod` + secrets/backends de produção |
+| Preview | `staging`, `feat/*`, `fix/*` → `APP_ENV=staging` + backends classe-staging |
+| Coexistência | Production e Previews ao mesmo tempo; cold start ≠ desligar prod |
+| Proteção Preview | senha compartilhada (sócios sem conta Vercel); um desbloqueio → deployment inteiro |
+| Auth da app | Camada separada (Supabase etc.), depois do gate da Vercel |
+
+**Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Domínios → #150. Bypass de webhooks em Preview → #161.

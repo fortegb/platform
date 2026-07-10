@@ -95,3 +95,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Implications:**
 - Canon: D-026; template branches section; Ambientes page updated.
 - #166 DoD: read opt-in config; ForteGB adds the file.
+
+---
+
+## 2026-07-10 — Vercel topology (#149 / A3)
+
+### One project · Production vs Preview · password gate
+
+**Decision:** Single Vercel project. Production tracks `main` only. `staging` and feature branches deploy as Previews (coexist with Production; cold start ≠ powering off prod). Previews use shared-password host protection (no Vercel account for partners; one unlock per browser). App auth remains a separate layer. Env: Production scope = prod; Preview scope = staging-class for all Previews.
+
+**Rationale:** Matches the branch map with minimal ops; keeps staging private without onboarding sócios to Vercel.
+
+**Implications:**
+- Canon: D-027; template + Ambientes page. Domains → #150. Project not provisioned in this change.
