@@ -32,8 +32,9 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Resumo das decisões de arquitetura de produto e stack (jul/2026).</strong>
-      A <strong>arquitetura de infra e ambientes</strong> (teste/produção, integrações) está sendo definida a seguir — ver <em>“Definir tudo agora, construir aos poucos”</em>.
-      Detalhe técnico: <code>docs/planning/architecture.md</code> e <code>docs/planning/decisions.md</code> (D-015 a D-022).
+      O contrato dos <strong>três ambientes</strong> (local / staging / produção) já está especificado —
+      <a href="./ambientes.html">ver página Ambientes →</a>.
+      Detalhe técnico: <code>docs/planning/architecture.md</code> e <code>docs/planning/decisions.md</code> (D-015 a D-025).
     </p>
 
     <h2>A ideia em uma frase</h2>
@@ -134,7 +135,10 @@
       A arquitetura da solução é <strong>definida por inteiro à frente</strong> — não só o essencial do v1. Definir o todo agora evita <strong>armadilhas</strong> em que uma escolha do v1 dificultaria o v2/v3. O que é <strong>incremental é a construção</strong>: adotamos cada peça na fase em que é construída.
     </p>
     <p>
-      <strong>Em definição agora, antes de construir</strong> (Epic <em>“Arquitetura da solução &amp; ambientes”</em>): os <strong>ambientes de teste e produção</strong> e como cada serviço (base de dados, conteúdo, integrações) se separa entre eles — para construir certo desde o início. Inclui a regra de segurança: <strong>em teste nunca se abre uma porta real nem se envia mensagem a um cliente real</strong>; usam-se alvos de teste.
+      <strong>Ambientes (especificação pronta):</strong> local, staging e produção — propósito, dados, integrações, promoção e hotfix.
+      <a href="./ambientes.html">Ler a página Ambientes →</a>
+      Ainda em definição no mesmo epic: como branches e hospedagem se ligam a esses ambientes, dados de teste, CMS e integrações concretas.
+      Regra de segurança já fechada: <strong>em teste nunca se abre uma porta real nem se envia mensagem a um cliente real</strong>.
     </p>
 
     <h2>O que ainda fica em aberto</h2>

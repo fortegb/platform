@@ -67,3 +67,17 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Implications:**
 - v2/v3 architecture decided just-in-time at each phase's grilling.
 - #28 (standalone Q-004 grilling) subsumed by #145.
+
+---
+
+## 2026-07-10 — Environment tiers (#147 / A1)
+
+### Three logical environments — local / staging / prod
+
+**Decision:** Exactly three logical environments. Preview deploys are a delivery mechanism, not a fourth name. `local` = isolated laptop (Nuxt/Node + local DB/mocks). `staging` = private pre-prod (dev + optional partner UAT). `prod` = live. Data outside prod is seed/fake by default (no prod PII copy). Integrations: mock / safe-target / prod-live — never a real door or real-customer WhatsApp off prod. Promote via staging before prod; emergency hotfixes are exceptional, explicit, and logged (procedure later). Runtime identity: `APP_ENV`.
+
+**Rationale:** Minimum set that separates disposable work, shared validation, and real customers without multiplying free-tier accounts for a solo free-first setup. Spec only in this step — delivery (branches, hosting, domains, seed packs) comes in later leaves.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-025; template `docs/planning/templates/environments.md`; sócios page `docs/planning/ambientes.html`.
+- Unblocks branch mapping, Vercel topology, and domains leaves with a shared vocabulary.

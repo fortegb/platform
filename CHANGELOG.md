@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-10 — Ambientes: contrato local / staging / prod ([#147](https://github.com/fortegb/platform/issues/147))
+
+- **Spec dos três ambientes lógicos** (grilling A1): propósito, dados, integrações (mock / safe-target / prod-live), promoção staging→prod, hotfix como exceção explícita/registrada, `APP_ENV`, local isolado (Nuxt/Node), staging privado.
+- **Canon:** D-025 em `decisions.md`; template `docs/planning/templates/environments.md`; §7.1 em `architecture.md`; entrada em `DECISIONS.md` / `STATUS.md`.
+- **Platform docs:** nova página sócios [`ambientes.html`](./docs/planning/ambientes.html) + card no índice + ponteiro em `arquitetura-decisoes.html`.
+- **Fora de escopo:** provisionar cloud, mapear branches, Vercel, domínios ou pacote de seed (folhas seguintes).
+
 ### 2026-07-05 — Migração A: board para o Roteiro + overhaul das Platform docs ([#174](https://github.com/fortegb/platform/issues/174))
 
 - **Board migrado para o modelo D-024:** novo campo **`Etapa`** (9 passos, ex-`Phase`), **~173 itens re-tagueados** (mapa por epic; folhas herdam o epic; `Phase` deletado). Milestone nativo **`v0 — Definição`** em todos os itens de Etapa 1–7 (barra de prontidão do G2). **Tipos de issue nativos** backfilled (Epic/Feature/Task). 2 epics novos: **Contexto & Funcionalidades** ([#175](https://github.com/fortegb/platform/issues/175), Etapa 1–2) e **Jornadas re-validação** ([#176](https://github.com/fortegb/platform/issues/176), Etapa 5); #42 → `Depends on #146`.

@@ -261,3 +261,18 @@
 - **Rationale:** um campo estrutural queryable torna o relatório verídico e remove o eixo duplicado (Phase 1–3 ≈ v1/v2/v3). Entidades nativas do GitHub em vez de stand-ins custom. `v0` é levemente derivável de Etapa 1–7 mas ganha lugar pela **barra de progresso nativa** + evento "milestone fechado".
 - **Rejeitado:** campo de 3 macro-estágios + passo no corpo da issue (perde a granularidade por passo, que é onde se passa a maior parte do tempo, e volta a ser dirigido à mão); renomear org Task→Chore (config extra por ganho cosmético).
 - **Consequências:** **este change não migra o board** — só define o modelo. A criação de campos/Milestones/tipos e o retag de ~171 itens são **migração A** (Etapa + tipos + `v0` + 2 epics novos + overhaul do relatório) e **migração B** (Milestones v1/v2/v3 + retag Execução, perto do passo 7). O `Phase` fica intocado até a migração A (board nunca meio-definido).
+
+---
+
+### D-025 — Três ambientes lógicos: local / staging / prod (2026-07-10) — **#147 / A1**
+
+- **Contexto:** D-022 abriu o epic #146 e nomeou os tiers, mas não fechou propósito nem regras de cada um. Grilling A1 (2026-07-10) formalizou o contrato antes das folhas de branches, Vercel, domínios, dados e integrações.
+- **Decisão:**
+  - Exatamente **três ambientes lógicos:** `local`, `staging`, `prod`. Preview/ephemeral é **mecanismo de entrega**, não um quarto nome (mapeamento → #148/#149).
+  - **`local`:** máquina do desenvolvedor; isolado por padrão (Nuxt/Node `npm run dev` + DB/mocks locais — não “rodar Vercel”); dados descartáveis/seed; integrações **mock**; nunca fechadura real nem WhatsApp pago a cliente real; apontar para staging só como override consciente; nunca para prod.
+  - **`staging`:** pré-produção **privada** (dev + UAT opcional de sócio — não beta público); dados não-prod (seed/anonimizados; **sem cópia de PII de prod por padrão** — conteúdo do seed → #154); integrações só **safe-target**.
+  - **`prod`:** sistema ao vivo; PII real sob LGPD; integrações **prod-live**.
+  - **Promoção:** caminho normal exige validação em staging (ou backends classe-staging) antes de prod — **sem** local→prod como padrão. **Hotfix** existe como exceção **explícita, excepcional e registrada**; procedimento completo → folha de promoção/release (#169).
+  - Identidade de runtime: variável **`APP_ENV`** ∈ `{local, staging, prod}`; `NODE_ENV` sozinho **não** distingue staging de prod.
+- **Rationale:** três é o mínimo que separa trabalho descartável, validação partilhada e clientes reais sem multiplicar contas/secrets num setup free-first solo. Posturas mock / safe-target / prod-live (já em D-022) ficam como contrato de A1; alvos concretos por vendor → #158–#160.
+- **Consequências:** template em [`templates/environments.md`](./templates/environments.md); página sócios [`ambientes.html`](./ambientes.html); desbloqueia A2–A4 (#148–#150) com vocabulário comum. **Este change não provisiona** cloud, branches nem domínios.

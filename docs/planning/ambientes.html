@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForteGB — Ambientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <style>
+    .notice-inline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .doc-body h2 { scroll-margin-top: 4rem; margin-top: 2.2rem; }
+    .doc-body table { font-size: 0.86rem; }
+    .env-pill {
+      display: inline-block; font-size: 0.75rem; font-weight: 600;
+      padding: 0.12rem 0.55rem; border-radius: 999px; border: 1px solid var(--border);
+    }
+    .env-pill.local { background: #f4f1fb; color: #6b4fa1; border-color: #ddd3f0; }
+    .env-pill.staging { background: #eef6fb; color: #1a74a1; border-color: #c7e4f2; }
+    .env-pill.prod { background: #e8f5ee; color: #2f7d52; border-color: #bfe3cd; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="brand"><a href="../index.html">← Documentação da plataforma — ForteGB</a></div>
+  </div>
+
+  <header class="hero">
+    <h1>Ambientes</h1>
+    <p>Os três ambientes da plataforma — o que cada um é, o que pode e o que não pode — em linguagem simples.</p>
+  </header>
+
+  <main class="container doc-body">
+    <p class="notice-inline">
+      <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
+      Branches, hospedagem, domínios e dados de teste vêm a seguir.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisão D-025.
+    </p>
+
+    <h2>Em uma frase</h2>
+    <p>
+      Trabalhamos em <strong>três ambientes</strong>: o computador do desenvolvedor (<em>local</em>),
+      um espaço privado de validação (<em>staging</em>) e o sistema real dos clientes (<em>produção</em>).
+      Em teste <strong>nunca</strong> se abre uma porta real nem se manda mensagem paga a um cliente real.
+    </p>
+
+    <h2>Os três ambientes</h2>
+    <table>
+      <thead>
+        <tr><th>Ambiente</th><th>Para quê</th><th>Dados</th><th>Integrações</th><th>Quem usa</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="env-pill local">local</span></td>
+          <td>Desenvolver e depurar no computador</td>
+          <td>Dados fictícios / de teste — sem dados reais de clientes</td>
+          <td>Simulações (mocks) — sem fechadura nem WhatsApp reais</td>
+          <td>Quem desenvolve</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill staging">staging</span></td>
+          <td>Validar antes de ir ao ar</td>
+          <td>Dados de teste / anonimizados — sem copiar a base de produção por padrão</td>
+          <td>Alvos seguros de teste (sandbox, dispositivo de teste)</td>
+          <td>Desenvolvimento + UAT opcional dos sócios (privado)</td>
+        </tr>
+        <tr>
+          <td><span class="env-pill prod">produção</span></td>
+          <td>Sistema ao vivo</td>
+          <td>Dados reais, protegidos pela LGPD</td>
+          <td>Serviços reais (fechadura, WhatsApp, CRM, etc.)</td>
+          <td>Clientes, corretores, equipe</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Regras que importam</h2>
+    <ul>
+      <li><strong>Staging antes de produção</strong> — o caminho normal é validar no staging e só então promover. Não se sobe direto do computador para produção.</li>
+      <li><strong>Staging não é beta público</strong> — não é um ambiente para corretores ou clientes em geral; é privado.</li>
+      <li><strong>Local isolado</strong> — no dia a dia o site corre no computador com Node (Nuxt), com base e integrações locais/simuladas. Não é “rodar a Vercel” na máquina. Ligar o local ao staging só de propósito; nunca à produção.</li>
+      <li><strong>Como a aplicação sabe onde está</strong> — uma variável chamada <code>APP_ENV</code> com valor <code>local</code>, <code>staging</code> ou <code>prod</code>.</li>
+      <li><strong>Pré-visualizações na hospedagem</strong> (Preview) — são uma forma de publicar um rascunho; <em>não</em> são um quarto ambiente com nome próprio. O mapeamento disso vem depois.</li>
+    </ul>
+
+    <h2>Correção urgente (hotfix)</h2>
+    <p>
+      Em emergência pode ser preciso corrigir produção fora do caminho normal.
+      Isso <strong>existe no desenho</strong> como exceção: tem de ser <strong>explícita, excepcional e registrada</strong>.
+      O passo a passo detalhado será definido quando desenharmos a promoção e o release — não inventamos o procedimento aqui.
+    </p>
+
+    <h2>O que ainda não está neste documento</h2>
+    <ul>
+      <li>Qual branch vai para qual ambiente</li>
+      <li>Como a Vercel fica organizada (um projeto, pré-visualizações, etc.)</li>
+      <li>Domínios (endereços) de cada ambiente</li>
+      <li>O pacote concreto de dados de teste (seed)</li>
+      <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
+    </ul>
+    <p>
+      Voltar à visão geral:
+      <a href="./arquitetura-decisoes.html">Arquitetura e decisões →</a>
+    </p>
+  </main>
+
+  <footer class="footer-note">
+    <span id="portal-build-meta"></span> · <a href="https://github.com/orgs/fortegb/projects/1" target="_blank" rel="noopener">Board GitHub</a>
+  </footer>
+  <script src="../assets/portal-build.js" defer></script>
+</body>
+</html>
