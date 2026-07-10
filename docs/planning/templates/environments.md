@@ -135,7 +135,7 @@ Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no mac
 
 ## Seed / LGPD não-prod (D-033 / #154)
 
-Ver **[`seed-lgpd.md`](./seed-lgpd.md)** — pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod. CMS fixtures → #156/#157; hardening → #126.
+Ver **[`seed-lgpd.md`](./seed-lgpd.md)** — pacote sintético partilhado local+staging; lookalike pt-BR; dummy RG/CNH; logins de teste; recreável; sem dump de prod. CMS fixtures → #157+; hardening → #126.
 
 ## CMS vendor (D-034 / #155)
 
@@ -149,3 +149,7 @@ Ver **[`cms-vendor.md`](./cms-vendor.md)** — **Sanity**; Contentful removido d
 | `prod` (Production / `main`) | **`production`** |
 
 **Regras:** 1 projeto Sanity; promoção de conteúdo `staging` → `production` **explícita** (não no deploy Vercel); Studio edita `staging` por padrão; vars exactas → #162+.
+
+## CMS — modelo de conteúdo (D-036 / #157)
+
+Ver **[`cms-content-model.md`](./cms-content-model.md)** — types `house` / `blogPost` / stubs timeline+mediaKit; split marketing (Sanity) vs ops (Supabase) por `houseId`.

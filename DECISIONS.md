@@ -213,3 +213,17 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-035; template + Ambientes. No Sanity project created in this change. Next: #157 content model.
+
+---
+
+## 2026-07-10 — CMS content model (#157)
+
+### Document types + house CMS/Supabase split
+
+**Decision:** Sanity types `house`, `blogPost`, `constructionTimeline`, `mediaKit`. v1 full depth on house + blogPost; timeline/mediaKit stub for later (D-018). Sanity holds marketing + `houseId`; Supabase holds ops (status, Tuya, QR). Nuxt merges by `houseId`. Video = YouTube/Vimeo URLs. Locale = pt-BR only. This leaf = docs only; Studio schemas → #45.
+
+**Rationale:** Keeps PII/ops out of CMS; shared contract for Studio and portfolio without over-modeling v3 modules in Architecture.
+
+**Implications:**
+- Canon: D-036; `templates/cms-content-model.md` + Ambientes. Next Architecture leaf: #158 integrations 3-tier model.
+

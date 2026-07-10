@@ -16,7 +16,7 @@
 | Decisão + limpeza Contentful | Provisionar projeto Sanity |
 | `useCms` (mocks) | Wire live API |
 | | Datasets por ambiente — **D-035 / #156** (mapa fechado) |
-| | Modelo casa/blog/timeline/media (#157) |
+| | Modelo casa/blog/timeline/media — **D-036 / #157** (inventário fechado) |
 
 ## Datasets (D-035)
 
@@ -26,6 +26,10 @@
 | prod | `production` |
 
 Promoção de conteúdo = passo explícito (não deploy Vercel). Detalhe: [`environments.md`](./environments.md).
+
+## Modelo de conteúdo (D-036)
+
+Inventário de types/campos e split house: [`cms-content-model.md`](./cms-content-model.md). Schemas Studio → #45.
 
 ## App boundary
 

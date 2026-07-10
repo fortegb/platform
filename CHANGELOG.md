@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — CMS: modelo de conteúdo ([#157](https://github.com/fortegb/platform/issues/157))
+
+- **D-036:** types `house` / `blogPost` / stubs timeline+mediaKit; split marketing (Sanity) vs ops (Supabase) por `houseId`; vídeo URL; pt-BR only; docs only (schemas → #45).
+- Template `cms-content-model.md` + Ambientes/architecture.
+
 ### 2026-07-10 — CMS: datasets por ambiente ([#156](https://github.com/fortegb/platform/issues/156))
 
 - **D-035:** 1 projeto Sanity; datasets `staging` + `production`; Previews/local → staging; prod → production; promote explícito (não no deploy Vercel).

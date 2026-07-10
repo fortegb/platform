@@ -146,7 +146,7 @@ flowchart TB
 
 | Domínio | Source of truth | Notas |
 |---------|-----------------|-------|
-| Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (**Sanity** — D-034) | autoria com Studio; join por house ID |
+| Conteúdo de casa (fotos, plantas, descrição, timeline) | **CMS** (**Sanity** — D-034/D-036) | autoria com Studio; join por `houseId`; status em Supabase |
 | Blog | **CMS** (Sanity) | autoria unificada |
 | Estado operacional da casa (status, links a clientes/visitas/verificação) | **Supabase** (Postgres) | queryable; drive de tours/CRM; status ≠ conteúdo |
 | Vídeo | **YouTube/Vimeo** (embed) | URL como campo; não passa pelo backend |
@@ -203,7 +203,7 @@ flowchart TB
 > **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
 > **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166.
 > **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview.
-> **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging). **Migrações → D-031 / #152** (CLI; não no deploy Vercel). **Runbook local → D-032 / #153** (OrbStack preferido; docs only; init → #171/#43). **Seed/LGPD → D-033 / #154** (pacote sintético; dummy docs; logins teste). **Sanity → D-034/D-035** (vendor + datasets staging/production; promote ≠ deploy).
+> **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging). **Migrações → D-031 / #152** (CLI; não no deploy Vercel). **Runbook local → D-032 / #153** (OrbStack preferido; docs only; init → #171/#43). **Seed/LGPD → D-033 / #154** (pacote sintético; dummy docs; logins teste). **Sanity → D-034/D-035/D-036** (vendor + datasets + content model / house split).
 
 ### 7.1 Ambientes (D-025)
 
