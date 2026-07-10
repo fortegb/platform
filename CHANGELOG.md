@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Dados: migrações Supabase CLI ([#152](https://github.com/fortegb/platform/issues/152))
+
+- **D-031:** `supabase/migrations/` = fonte da verdade; apply via CLI (local Docker; staging→prod); sem migrate no deploy Vercel; forward-only; seed separado (#154).
+- `docs/database-schema.sql` legado até portar. Sem init/primeira migração neste change (#153).
+
 ### 2026-07-10 — Dados: Supabase por ambiente ([#151](https://github.com/fortegb/platform/issues/151))
 
 - **D-030:** 2 projetos cloud (`fortegb-staging` + `fortegb-prod`) + local Docker; Previews partilham staging; sem PII de prod no não-prod; schema-as-code único; auth redirects e scopes Vercel Production/Preview.
