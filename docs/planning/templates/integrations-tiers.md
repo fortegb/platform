@@ -1,6 +1,6 @@
 # Integrações — modelo 3-tiers (D-037 / #158)
 
-> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → D-040; mocks → #172; nomes de env → #162.
+> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → D-040; mocks → #172; nomes de env → D-041.
 
 ## Posturas
 
@@ -30,8 +30,8 @@
 
 Factory do adaptador (D-017) escolhe mock vs cliente real conforme o tier efetivo. Diferença **safe-target vs prod-live** = sobretudo **quais credenciais / base URL** (classes → [`integrations-map.md`](./integrations-map.md); contrato/slots → [`integrations-safe-targets.md`](./integrations-safe-targets.md)), não um terceiro caminho de código salvo necessidade do vendor.
 
-Nomes exactos das env vars → #162.
+Nomes exactos das env vars → [`env-vars.md`](./env-vars.md) (D-041).
 
 ## Relação
 
-- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`integrations-webhooks.md`](./integrations-webhooks.md) (D-040) · [`environments.md`](./environments.md) · Ambientes · #172 mocks locais
+- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`integrations-webhooks.md`](./integrations-webhooks.md) (D-040) · [`env-vars.md`](./env-vars.md) (D-041) · [`environments.md`](./environments.md) · Ambientes · #172 mocks locais

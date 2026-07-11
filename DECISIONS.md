@@ -270,3 +270,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-040; `templates/integrations-webhooks.md`. Next Architecture leaf: #162 env var inventory. Tunnel tooling → #170; mocks → #172.
+
+## 2026-07-10 — Env var inventory + naming (#162)
+
+### Convention + canonical name list
+
+**Decision:** Document SCREAMING_SNAKE naming; `NUXT_PUBLIC_*` for client-only; vendor prefixes; `INTEGRATION_TIER_<VENDOR>` overrides (D-037). Inventory covers APP_ENV, Supabase, Sanity, HubSpot, WhatsApp, Telegram, QStash, Tuya, Google Calendar, webhook secrets, and overrides — with v1/v2 phase tags. Docs only; no values; no `.env.example`.
+
+**Rationale:** Stops ad-hoc key invention before Vercel/local setup; absorbs existing `nuxt.config.ts` names.
+
+**Implications:**
+- Canon: D-041; `templates/env-vars.md`. Next: #163 scoping (Production/Preview/local).

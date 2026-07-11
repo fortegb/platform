@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-040.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-041.
     </p>
 
     <h2>Em uma frase</h2>
@@ -212,6 +212,7 @@
       <li><strong>Integrações (3 posturas):</strong> em teste o sistema <em>não</em> fala com fechadura real nem manda WhatsApp pago a cliente. Local usa simulação (<em>mock</em>); staging/Previews usam contas/dispositivos de teste (<em>safe-target</em>); só produção usa alvos ao vivo (<em>prod-live</em>). Detalhe: <code>docs/planning/templates/integrations-tiers.md</code>.</li>
       <li><strong>Mapa por integração:</strong> HubSpot, WhatsApp e fila (QStash) no lançamento; Telegram preparado cedo; fechadura Tuya e calendário na fase de visitas autoguiadas. Em teste: portal CRM de teste, número WhatsApp sandbox, fechadura de teste (nunca a da casa à venda), etc. Contas concretas: contrato e slots em <code>docs/planning/templates/integrations-safe-targets.md</code> (preencher no setup).</li>
       <li><strong>Callbacks / webhooks:</strong> vendors só registram URLs em <code>fortegb.com</code> (produção) ou <code>staging.fortegb.com</code> (teste estável). Previews de feature <em>não</em> recebem webhook (URL temporária + senha da Vercel). No computador: simulação, ou túnel só quando for testar de propósito. Detalhe: <code>docs/planning/templates/integrations-webhooks.md</code>.</li>
+      <li><strong>Nomes das variáveis de ambiente:</strong> lista canónica e regras de nome (o que é público no browser vs secreto) em <code>docs/planning/templates/env-vars.md</code>. Onde cada valor vive (Vercel Production/Preview vs ficheiro local) e o ficheiro de exemplo vêm nas folhas seguintes de config.</li>
     </ul>
 
     <h2>Correção urgente (hotfix)</h2>

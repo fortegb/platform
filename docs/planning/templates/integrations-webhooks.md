@@ -1,7 +1,7 @@
 # Integrações — callbacks / webhooks por ambiente (D-040 / #161)
 
 > Onde vendors **empurram** eventos (HTTPS público). Posturas: [`integrations-tiers.md`](./integrations-tiers.md). Alvos: [`integrations-safe-targets.md`](./integrations-safe-targets.md).  
-> **Docs only** — não registrar webhooks nos consoles neste leaf; túnel local → #170; mocks → #172; nomes de env → #162.
+> **Docs only** — não registrar webhooks nos consoles neste leaf; túnel local → #170; mocks → #172; nomes de env → [`env-vars.md`](./env-vars.md) (D-041).
 
 ## Bases canônicas (registro no vendor)
 
@@ -55,4 +55,4 @@ Todo webhook **real** (safe-target ou prod-live) **deve** verificar assinatura/s
 
 ## Relação
 
-- [`integrations-tiers.md`](./integrations-tiers.md) · [`integrations-map.md`](./integrations-map.md) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) · [`environments.md`](./environments.md) · Ambientes · #162 env · #170 túnel · #172 mocks
+- [`integrations-tiers.md`](./integrations-tiers.md) · [`integrations-map.md`](./integrations-map.md) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) · [`environments.md`](./environments.md) · Ambientes · [`env-vars.md`](./env-vars.md) · #170 túnel · #172 mocks

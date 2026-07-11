@@ -494,3 +494,13 @@
   - **DoD:** docs only — D-040 + `templates/integrations-webhooks.md`. Env names → #162; túnel → #170; mocks → #172; handlers → build.
 - **Rationale:** Preview não é host estável nem atravessável por vendor atrás da senha; free-first aceita um sink de staging.
 - **Consequências:** template + Ambientes; UAT de inbound no staging estável.
+
+### D-041 — Config: inventário + convenção de nomes de env vars (2026-07-10) — **#162**
+- **Status:** accepted
+- **Contexto:** D-025 fixou `APP_ENV`; D-027/D-030/D-035/D-037–D-040 diferiram nomes exactos. `nuxt.config.ts` já tem um subconjunto.
+- **Decisão:**
+  - **Convenção:** `SCREAMING_SNAKE`; cliente só `NUXT_PUBLIC_*`; secrets sem esse prefixo; prefixos por vendor; overrides `INTEGRATION_TIER_<VENDOR>` (D-037).
+  - **Inventário:** tabela canónica (runtime, Supabase, Sanity, HubSpot, WA, Telegram, QStash, Tuya, Calendar, webhook secrets, overrides) com fase v1/v2.
+  - **DoD:** docs only — D-041 + `templates/env-vars.md`. Scoping → #163; política → #164; `.env.example` → #165. Sem valores no git.
+- **Rationale:** um contrato de nomes evita drift no setup Vercel e no `.env.example`.
+- **Consequências:** template + Ambientes; código alinha no build.
