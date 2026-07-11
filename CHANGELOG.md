@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — CI/CD: stage vs close + lifecycle.yml ([#166](https://github.com/fortegb/platform/issues/166))
+
+- **D-045:** `rbo-stage-change` → `staging` (sem archive); `rbo-close-change` → archive + `staging`→`main` quando `.rbo/lifecycle.yml` presente; default sem ficheiro inalterado.
+- Ficheiro opt-in `.rbo/lifecycle.yml`; templates/Ambientes/spec atualizados. Skills → ciclo em `ai-skills`; remote `staging` → #167.
+
 ### 2026-07-10 — Config: .env.example + SETUP-CREDENTIALS ([#165](https://github.com/fortegb/platform/issues/165))
 
 - **D-044:** `.env.example` canónico; SETUP reescrito sem secrets/Contentful; `.env` gitignored; docs only de estrutura (valores → #47).

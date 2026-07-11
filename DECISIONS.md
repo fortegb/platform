@@ -314,3 +314,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-044; `.env.example` + SETUP + `templates/env-example.md`. Config area E definition complete; next Architecture leaf: #166 CI/CD close→staging.
+
+---
+
+## 2026-07-10 — CI/CD stage vs close (#166)
+
+### Stage lands on staging; close archives to main
+
+**Decision:** Opt-in `.rbo/lifecycle.yml` (`integrationBranch: staging`). **Stage** merges `feat/*` → staging without OpenSpec archive or issue close. **Close** archives then merges staging → `main` (`Closes` + Done + `pages:sync`). No config → close unchanged (`feat/*` → `main`). Fail if remote staging missing on stage; fail-closed on close if not staged. Supersedes D-026 “close lands on staging” only; branch map unchanged. Skills implemented in companion `ai-skills` issue (not this platform leaf alone).
+
+**Rationale:** UAT may fail after land; archive/close must wait until production ship. Global skills stay safe via opt-in.
+
+**Implications:**
+- Canon: D-045; `.rbo/lifecycle.yml`; environments template + Ambientes. Remote `staging` → #167. Skill code → `ai-skills`.

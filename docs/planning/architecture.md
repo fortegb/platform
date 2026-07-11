@@ -201,7 +201,7 @@ flowchart TB
 > **Atualizado (2026-07-03) → D-015, D-017.** Free-first + zero-ops.
 > **Arquitetura de infra/ambientes/integrações (full-solution) definida no Epic #146 → D-022** (ambientes, isolamento, integrações 3-tiers, migrações, config/secrets, CI-CD, dev local). **Precede o build.** D-017 (serverless vs persistente) em reavaliação lá.
 > **Ambientes (contrato) → D-025 / #147:** exatamente três lógicos — `local` / `staging` / `prod`. Ver [`templates/environments.md`](./templates/environments.md) e página sócios [`ambientes.html`](./ambientes.html).
-> **Branches → D-026 / #148:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. Close→integration (`staging` intent); promote separado. Config opt-in do skill → #166.
+> **Branches → D-026 / #148 + D-045 / #166:** `main`=`prod` · `staging`=`staging` · `feat/*`/`fix/*` Preview=staging-class. **Stage** → `staging` (sem archive); **close** → `main` (archive + Done) quando `.rbo/lifecycle.yml` presente; sem ficheiro → close `feat/*`→`main`. Skills → ai-skills.
 > **Vercel → D-027 / #149:** um projeto; Production=`main`; Preview=staging+feat; senha compartilhada nos Previews; env Production vs Preview.
 > **Domínios → D-029 / #150.** **Supabase → D-030 / #151** (2 cloud + local Docker; Previews → staging). **Migrações → D-031 / #152** (CLI; não no deploy Vercel). **Runbook local → D-032 / #153** (OrbStack preferido; docs only; init → #171/#43). **Seed/LGPD → D-033 / #154** (pacote sintético; dummy docs; logins teste). **Sanity → D-034/D-035/D-036** (vendor + datasets + content model). **Integrações → D-037..D-040** (posturas + mapa + alvos + webhooks/callbacks). **Env/config → D-041..D-044** (nomes + scoping + acesso + `.env.example` / SETUP-CREDENTIALS).
 
@@ -226,8 +226,8 @@ flowchart TB
 | `staging` | `staging` |
 | `main` | `prod` |
 
-- Caminho normal: feat/fix → `staging` → (promote) `main`.
-- Lifecycle config opt-in (default merge→`main` se ausente) — implementação do skill → #166.
+- Caminho normal: feat/fix → **stage** `staging` → **close** `main` (D-045).
+- Lifecycle opt-in: `.rbo/lifecycle.yml` (`integrationBranch: staging`). Skills → companheiro em `ai-skills`; remote `staging` → #167.
 
 ### 7.3 Vercel (D-027)
 
