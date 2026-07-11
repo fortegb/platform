@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-046); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-047); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -20,7 +20,8 @@
 ✅ E1–E4 Config → D-041..D-044
 ✅ #166 CI/CD lifecycle → D-045 + `.rbo/lifecycle.yml` (skills ai-skills v0.6.0)
 ✅ #167 CI/CD pipeline de deploy branch→Vercel → D-046 (decisão apenas; sem provisionamento)
-→ PRÓXIMO: #168 — CI/CD: automação de migrações (aplicar on merge)
+✅ #168 CI/CD automação de migrações → D-047 (manual, não CI; gatilhos stage/close; rastreabilidade por commit)
+→ PRÓXIMO: #169 — CI/CD: processo de promoção/release (staging→main)
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -37,12 +38,15 @@
 ## Esta sessão (Claude Code — 2026-07-11)
 
 - [x] **#167** — CI/CD: pipeline de deploy (branch→Vercel) → D-046 (gatilho, gate de merge, rollback, notificações, timing de `origin/staging`)
+- [x] Board hygiene: re-parented #29/#140→#81, #30→#98, #31→#130; epic #175 Etapa 1→2 (Passo 2 agora aparece no relatório)
+- [x] **#168** — CI/CD: automação de migrações (aplicar on merge) → D-047 (manual, gatilhos stage/close, rastreabilidade por commit, sem detector automático)
 
 ## Próxima sessão
 
-- [ ] **#168** — CI/CD: automação de migrações (aplicar on merge)
-- [ ] #169+ CI/CD restantes
+- [ ] **#169** — CI/CD: processo de promoção/release (staging→main)
+- [ ] #170+ CI/CD restantes
 - [ ] (paralelo) Brand assets (#2)
+- [ ] Companion `ai-skills` cycle: fold migration trigger + commit convention into `rbo-stage-change`/`rbo-close-change` (flagged, not yet an issue)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change` symlink missing
 
 ---

@@ -340,3 +340,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-046; `templates/cicd-deploy-pipeline.md`; `environments.md` pointers. Branch protection toggle + `origin/staging` creation → #42/#46 (Execução).
+
+---
+
+## 2026-07-11 — CI/CD migrations on merge (#168)
+
+### Manual apply, trigger points tied to stage/close, commit-message traceability
+
+**Decision:** Migration apply stays manual — no CI automation (new workflow + secrets surface + approval gate needed to preserve D-031's staging→smoke→prod order, real cost with no demonstrated need). Trigger points: after `rbo-stage-change` lands on staging, apply against staging; after `rbo-close-change` merges to `main` post-smoke, apply against prod. Traceability via commit message (migration filename referenced), no tooling. No automated pending-migration check — a missed migration surfaces as a loud, immediate application error, same accepted-risk reasoning as D-046's rollback/notifications choices.
+
+**Rationale:** Proportionate to solo/family scale; avoids a new CI/secrets surface without demonstrated need; not a closed door — revisit if forgetting becomes a real recurring problem.
+
+**Implications:**
+- Canon: D-047; `environments.md` pointer near D-031/D-032. Skill instruction changes (`rbo-stage-change`/`rbo-close-change`) → separate companion cycle in `ai-skills`, not this leaf.

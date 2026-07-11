@@ -145,6 +145,13 @@ Execução (#42/#46), não nesta Definição.
 
 **Layout:** contrato = pasta `supabase/` no repo (init concreto → #171 bootstrap / #43 schema build).
 
+**Gatilho de apply (D-047 / #168):** manual, não CI. Após `rbo-stage-change`
+pousar em `staging` → aplicar contra staging. Após `rbo-close-change` fechar
+para `main` (pós-smoke) → aplicar contra prod. Nome do arquivo referenciado
+na mensagem de commit (rastreabilidade sem ferramenta). Sem detector
+automático de migração pendente — esquecimento é auto-corretivo (erro
+visível). Skills → ciclo companheiro em `ai-skills`.
+
 ## Supabase local — runbook (D-032 / #153)
 
 Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no macOS; ciclo `start` / `status` / Studio+keys / `db reset` / `stop`; falhas comuns. **Docs only** neste leaf (sem `supabase init` aqui).

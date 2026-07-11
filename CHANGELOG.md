@@ -7,6 +7,16 @@
 
 ## Não versionado
 
+### 2026-07-11 — CI/CD: automação de migrações (aplicar on merge) ([#168](https://github.com/fortegb/platform/issues/168))
+
+- **D-047:** apply manual (sem CI); gatilhos = após `rbo-stage-change` (staging) e após `rbo-close-change` pós-smoke (prod); rastreabilidade via nome do arquivo na mensagem de commit; sem detector automático de migração pendente (esquecimento é auto-corretivo).
+- Pointer em `environments.md` perto de D-031/D-032. Skills → ciclo companheiro em `ai-skills`.
+
+### 2026-07-11 — Board hygiene: re-parenting + Etapa fix (sem issue própria)
+
+- Epic #1 estava `Done` com 4 sub-issues abertas (#29, #30, #31, #140), todas deferidas a v2/v3 por D-018. Re-parented para #81 (Visitas autoguiadas), #98 (Media kit), #130 (Estratégia mobile).
+- Epic #175 corrigido de Etapa 1 → 2, para o relatório de progresso mostrar Passo 2 corretamente.
+
 ### 2026-07-11 — CI/CD: pipeline de deploy branch→Vercel ([#167](https://github.com/fortegb/platform/issues/167))
 
 - **D-046:** gatilho = integração git nativa da Vercel (sem CI custom agora); gate de merge só em `main` (deploy com sucesso obrigatório); `staging` fica sem gate; rollback = dashboard Vercel; sem notificações custom.

@@ -567,3 +567,15 @@
   - **DoD:** D-046 + `templates/cicd-deploy-pipeline.md` + pointers em `environments.md`.
 - **Rationale:** decisão sem provisionamento — G2 continua a gatear Execução; branch protection só em `main` porque `staging` existe para acomodar falhas, não bloqueá-las.
 - **Consequências:** canon fechado; toggle de branch protection + criação de `origin/staging` ficam para #42/#46 (Execução).
+
+### D-047 — CI/CD: automação de migrações (aplicar on merge) (2026-07-11) — **#168**
+- **Status:** accepted
+- **Contexto:** D-031 fixou o mecanismo de migrações (CLI, ordem staging→prod); faltava decidir se o apply é automático (CI) ou manual, e como evitar esquecimento.
+- **Decisão:**
+  - **Manual, não automatizado.** Automatizar exigiria workflow CI novo, superfície de secrets própria (fora dos scopes Vercel de D-042/D-043) e gate de aprovação para preservar a ordem staging→smoke→prod de D-031 — custo real sem necessidade identificada agora. Não é porta fechada: revisitar se esquecimento virar problema recorrente real.
+  - **Gatilhos:** após `rbo-stage-change` pousar em `staging` → aplicar migração no projeto staging. Após `rbo-close-change` fechar para `main` (pós-smoke) → aplicar no projeto prod.
+  - **Rastreabilidade:** nome do arquivo de migração referenciado na mensagem de commit do stage/close — sem ferramenta nova.
+  - **Sem detector automático de migração pendente.** Esquecimento gera erro de aplicação visível e imediato (código espera schema que não existe) — mesmo raciocínio de risco aceitável/auto-corretivo já usado em D-046 (rollback, notificações).
+  - **DoD:** D-047 + pointer em `environments.md` perto de D-031/D-032. Skills (`rbo-stage-change`/`rbo-close-change`) → ciclo companheiro em `ai-skills`, fora deste leaf.
+- **Rationale:** proporcional à escala solo/família; evita nova superfície de CI/secrets sem necessidade demonstrada; mesma lógica de "porta não fechada" de D-046.
+- **Consequências:** canon fechado; implementação dos passos de gatilho nas skills → `ai-skills` (ciclo separado).
