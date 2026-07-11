@@ -56,6 +56,7 @@
 - [#163](https://github.com/fortegb/platform/issues/163) Config: modelo de scoping (Vercel Production/Preview + .env local)
 - [#164](https://github.com/fortegb/platform/issues/164) Config: gestão de secrets + política de acesso
 - [#165](https://github.com/fortegb/platform/issues/165) Config: .env.example + estrutura SETUP-CREDENTIALS
+- [#166](https://github.com/fortegb/platform/issues/166) CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
@@ -169,7 +170,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#166](https://github.com/fortegb/platform/issues/166) CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
 - [#167](https://github.com/fortegb/platform/issues/167) CI/CD: pipeline de deploy (branch→Vercel)
 - [#168](https://github.com/fortegb/platform/issues/168) CI/CD: automação de migrações (aplicar on merge)
 - [#169](https://github.com/fortegb/platform/issues/169) CI/CD: processo de promoção/release (staging→main)
