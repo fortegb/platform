@@ -102,7 +102,7 @@
     <p>Relatório para sócios<br>O que está planejado, o que já foi feito e o que está sendo trabalhado no momento</p>
     <div class="stats">
       <span>6/26 epics concluídos</span>
-      <span>55/150 tarefas concluídas</span>
+      <span>56/150 tarefas concluídas</span>
       <span>176 itens no board</span>
     </div>
   </header>
@@ -112,13 +112,13 @@
       <div class="section-head"><span class="section-num">1</span><h2>Trabalhando no momento</h2></div>
       <div class="report-card">
         <h3>Resumo</h3>
-        <ul class="focus-list"><li><strong>Roteiro:</strong> passo atual = <strong>4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>:</strong> área E config fechada (D-041..D-044); próximo = lifecycle CI/CD / close→staging (<a href="https://github.com/fortegb/platform/issues/166" target="_blank" rel="noopener">#166</a>).</li><li><strong>Ambientes:</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> · credenciais: <a href="../SETUP-CREDENTIALS.md" target="_blank" rel="noopener"><code>SETUP-CREDENTIALS.md</code></a>.</li></ul>
+        <ul class="focus-list"><li><strong>Roteiro:</strong> passo atual = <strong>4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>:</strong> D-045 lifecycle stage/close (<a href="https://github.com/fortegb/platform/issues/166" target="_blank" rel="noopener">#166</a>); skills → ai-skills; próximo após fecho = #167+.</li><li><strong>Ambientes:</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> · credenciais: <a href="../SETUP-CREDENTIALS.md" target="_blank" rel="noopener"><code>SETUP-CREDENTIALS.md</code></a>.</li></ul>
       </div>
       <div class="report-card">
         <h3>Itens em andamento no board</h3>
         <p class="muted">Nenhum item em andamento no board.</p>
       </div>
-      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — CI/CD lifecycle (<a href="https://github.com/fortegb/platform/issues/166" target="_blank" rel="noopener">#166</a>).</li><li><strong>Depois (passo 8):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo.</li></ol></div>
+      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — fechar skills stage/close (ai-skills) + #167 remote `staging`.</li><li><strong>Depois (passo 8):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo.</li></ol></div>
       <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Tech copia <code>.env.example</code> → <code>.env</code> e preenche chaves <strong>fora</strong> do GitHub.</li><li>Sócios não precisam de ficheiros de credenciais — só Preview com senha.</li><li>Spec: <a href="./ambientes.html" target="_blank" rel="noopener"><code>ambientes.html</code></a> · setup: <a href="../SETUP-CREDENTIALS.md" target="_blank" rel="noopener"><code>SETUP-CREDENTIALS.md</code></a>.</li></ul></div>
     </section>
 
@@ -317,7 +317,7 @@
         <span class="pill">v0 — Definição</span>
       </div>
     </header>
-    <div class="progress-wrap"><div class="progress-bar" style="width:73%"></div><span class="progress-label">19/26 tarefas</span></div>
+    <div class="progress-wrap"><div class="progress-bar" style="width:77%"></div><span class="progress-label">20/26 tarefas</span></div>
     <ul class="child-list"><li class="child-item done">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/147" target="_blank" rel="noopener">#147</a> Ambientes: definir tiers local/staging/prod (propósito + regras) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item done">
@@ -356,8 +356,8 @@
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/164" target="_blank" rel="noopener">#164</a> Config: gestão de secrets + política de acesso <span class="badge badge-done">Concluído</span>
   </li><li class="child-item done">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/165" target="_blank" rel="noopener">#165</a> Config: .env.example + estrutura SETUP-CREDENTIALS <span class="badge badge-done">Concluído</span>
-  </li><li class="child-item ">
-    <a class="issue-link" href="https://github.com/fortegb/platform/issues/166" target="_blank" rel="noopener">#166</a> CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/166" target="_blank" rel="noopener">#166</a> CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item ">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/167" target="_blank" rel="noopener">#167</a> CI/CD: pipeline de deploy (branch→Vercel) <span class="badge badge-todo">A fazer</span>
   </li><li class="child-item ">
