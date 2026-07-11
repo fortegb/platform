@@ -102,7 +102,7 @@
     <p>Relatório para sócios<br>O que está planejado, o que já foi feito e o que está sendo trabalhado no momento</p>
     <div class="stats">
       <span>6/26 epics concluídos</span>
-      <span>52/150 tarefas concluídas</span>
+      <span>53/150 tarefas concluídas</span>
       <span>176 itens no board</span>
     </div>
   </header>
@@ -112,14 +112,14 @@
       <div class="section-head"><span class="section-num">1</span><h2>Trabalhando no momento</h2></div>
       <div class="report-card">
         <h3>Resumo</h3>
-        <ul class="focus-list"><li><strong>Roteiro:</strong> passo atual = <strong>4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>:</strong> inventário de env vars feito (D-041); próximo = scoping Vercel/local (<a href="https://github.com/fortegb/platform/issues/163" target="_blank" rel="noopener">#163</a>).</li><li><strong>Ambientes:</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> — tiers + mapa + alvos + webhooks + nomes de env.</li></ul>
+        <ul class="focus-list"><li><strong>Roteiro:</strong> passo atual = <strong>4 Arquitetura</strong>. Ver <a href="./mapa-roteiro.html" target="_blank" rel="noopener">Roteiro do Projeto</a>.</li><li><strong>Epic <a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>:</strong> nomes + scoping de env feitos (D-041/D-042); próximo = política de secrets (<a href="https://github.com/fortegb/platform/issues/164" target="_blank" rel="noopener">#164</a>).</li><li><strong>Ambientes:</strong> <a href="./ambientes.html" target="_blank" rel="noopener">página Ambientes</a> — inclui onde vivem os valores de config.</li></ul>
       </div>
       <div class="report-card">
         <h3>Itens em andamento no board</h3>
         <p class="muted">Nenhum item em andamento no board.</p>
       </div>
-      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — scoping de config (<a href="https://github.com/fortegb/platform/issues/163" target="_blank" rel="noopener">#163</a>).</li><li><strong>Depois (passo 8):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo.</li></ol></div>
-      <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Nomes das variáveis estão definidos; valores e ficheiro de exemplo vêm nas próximas folhas de config.</li><li>Webhooks de teste apontam só para <code>staging.fortegb.com</code>.</li><li>Spec: <a href="./ambientes.html" target="_blank" rel="noopener"><code>ambientes.html</code></a> · env: <a href="./templates/env-vars.md" target="_blank" rel="noopener"><code>templates/env-vars.md</code></a>.</li></ul></div>
+      <div class="report-card"><h3>Próximo passo</h3><ol class="focus-list"><li><strong>Arquitetura</strong> (<a href="https://github.com/fortegb/platform/issues/146" target="_blank" rel="noopener">#146</a>) — secrets / acesso (<a href="https://github.com/fortegb/platform/issues/164" target="_blank" rel="noopener">#164</a>).</li><li><strong>Depois (passo 8):</strong> build v1 — Identidade (<a href="https://github.com/fortegb/platform/issues/48" target="_blank" rel="noopener">#48</a>), Site público (<a href="https://github.com/fortegb/platform/issues/56" target="_blank" rel="noopener">#56</a>).</li><li><strong>Brand assets</strong> (<a href="https://github.com/fortegb/platform/issues/2" target="_blank" rel="noopener">#2</a>) em paralelo.</li></ol></div>
+      <div class="report-card"><h3>Notas para sócios</h3><ul class="focus-list"><li>Produção e teste usam o <strong>mesmo nome</strong> de variável, com <strong>valores diferentes</strong> (Vercel Production vs Preview).</li><li>No computador: ficheiro <code>.env</code> local — nunca credenciais de produção por default.</li><li>Spec: <a href="./ambientes.html" target="_blank" rel="noopener"><code>ambientes.html</code></a> · scoping: <a href="./templates/env-scoping.md" target="_blank" rel="noopener"><code>templates/env-scoping.md</code></a>.</li></ul></div>
     </section>
 
     <section id="feito">
@@ -317,7 +317,7 @@
         <span class="pill">v0 — Definição</span>
       </div>
     </header>
-    <div class="progress-wrap"><div class="progress-bar" style="width:62%"></div><span class="progress-label">16/26 tarefas</span></div>
+    <div class="progress-wrap"><div class="progress-bar" style="width:65%"></div><span class="progress-label">17/26 tarefas</span></div>
     <ul class="child-list"><li class="child-item done">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/147" target="_blank" rel="noopener">#147</a> Ambientes: definir tiers local/staging/prod (propósito + regras) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item done">
@@ -350,8 +350,8 @@
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/161" target="_blank" rel="noopener">#161</a> Integrações: callbacks/webhooks por ambiente (URLs públicas, túneis) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item done">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/162" target="_blank" rel="noopener">#162</a> Config: inventário + convenção de nomes de env vars <span class="badge badge-done">Concluído</span>
-  </li><li class="child-item ">
-    <a class="issue-link" href="https://github.com/fortegb/platform/issues/163" target="_blank" rel="noopener">#163</a> Config: modelo de scoping (Vercel Production/Preview + .env local) <span class="badge badge-todo">A fazer</span>
+  </li><li class="child-item done">
+    <a class="issue-link" href="https://github.com/fortegb/platform/issues/163" target="_blank" rel="noopener">#163</a> Config: modelo de scoping (Vercel Production/Preview + .env local) <span class="badge badge-done">Concluído</span>
   </li><li class="child-item ">
     <a class="issue-link" href="https://github.com/fortegb/platform/issues/164" target="_blank" rel="noopener">#164</a> Config: gestão de secrets + política de acesso <span class="badge badge-todo">A fazer</span>
   </li><li class="child-item ">
