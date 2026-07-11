@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-11 — CI/CD: processo de promoção/hotfix (staging→main) ([#169](https://github.com/fortegb/platform/issues/169))
+
+- **D-048:** promoção uma change staged de cada vez (explícito, não efeito colateral do merge); hotfix branch `hotfix/<nome>` a partir de `main`, bypass do requisito de staging via `rbo-close-change` v0.5; sync `main`→`staging` obrigatório pós-hotfix; registro via trilha normal de issue/OpenSpec (sem entrada extra por uso).
+- Suporte de skills já entregue em ciclo separado: `ai-skills` v0.7.0 (`uniform-hotfix-exception`, ai-skills#10) — `rbo-create-change` 0.3, `rbo-close-change` 0.5.
+
 ### 2026-07-11 — CI/CD: automação de migrações (aplicar on merge) ([#168](https://github.com/fortegb/platform/issues/168))
 
 - **D-047:** apply manual (sem CI); gatilhos = após `rbo-stage-change` (staging) e após `rbo-close-change` pós-smoke (prod); rastreabilidade via nome do arquivo na mensagem de commit; sem detector automático de migração pendente (esquecimento é auto-corretivo).
