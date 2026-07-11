@@ -4,7 +4,7 @@
 **Valid until:** 2026-07-12T23:40:00-03:00
 **Status:** active
 
-> Advisory only. Board + STATUS.md win. Catch-up MUST ignore this file if Status is not `active`, or if now is after Valid until.
+> Advisory only. Board + STATUS.md win. Catch-up MUST ignore this file if Status is not `active`, or if now is after Valid until. **L2 catch-up sets Status to `consumed` after it uses this file** (offer commit so it sticks on remote).
 
 ## Context
 Passo 4 (Arquitetura) epic #146. Cursor session closed the CI/CD **lifecycle contract** (#166 / D-045): stage vs close, opt-in `.rbo/lifecycle.yml`, and companion skills in `rbonon/ai-skills` (v0.6.0). Also fixed lifecycle.yml comments to en-US (code/config ≠ pt-BR). Skills `rbo-handoff` 0.3 + `rbo-catch-up` 0.2 add repo handoff TTL rules (ai-skills #6).
