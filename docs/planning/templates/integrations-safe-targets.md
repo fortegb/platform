@@ -10,7 +10,7 @@
 - **Owner:** ForteGB tech. Ao preencher um slot, anotar data.
 - **Secrets** (keys/tokens): Vercel env (Preview = staging-class; Production = prod) + `.env` local gitignored — **nunca** git / HTML público.
 - Labels não-secretos (ex. nome do portal de teste) podem ficar neste template.
-- Nomes exactos de env vars → [`env-vars.md`](./env-vars.md) (D-041) · política de acesso → #164 · runbook credenciais → #165.
+- Nomes exactos de env vars → [`env-vars.md`](./env-vars.md) (D-041) · política de acesso → [`secrets-access.md`](./secrets-access.md) (D-043) · runbook → [`SETUP-CREDENTIALS.md`](../../SETUP-CREDENTIALS.md) (D-044)
 
 ## Slots por vendor
 

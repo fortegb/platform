@@ -1,6 +1,6 @@
 # Config — gestão de secrets e política de acesso (D-043 / #164)
 
-> Quem pode ver/editar secrets e como lidar com vazamento/rotação. **Docs only** — sem valores. Nomes → [`env-vars.md`](./env-vars.md); superfícies → [`env-scoping.md`](./env-scoping.md). Estrutura SETUP-CREDENTIALS / `.env.example` → #165.
+> Quem pode ver/editar secrets e como lidar com vazamento/rotação. **Docs only** — sem valores. Nomes → [`env-vars.md`](./env-vars.md); superfícies → [`env-scoping.md`](./env-scoping.md); exemplo → [`env-example.md`](./env-example.md).
 
 ## Ownership
 
@@ -36,7 +36,7 @@ Bus factor = 1 (aceito no free-first familiar). Recuperação: e-mail owner Verc
 
 **Calendário periódico:** opcional (free-first) — não obrigatório.
 
-**Após rotação:** atualizar Vercel (Production e/ou Preview conforme afetado) + `.env` local; anotar data só em runbook **privado** (#165) — não nas Platform docs públicas.
+**Após rotação:** atualizar Vercel (Production e/ou Preview conforme afetado) + `.env` local; anotar data só em nota **privada** — não em SETUP-CREDENTIALS público nem no HTML das Platform docs.
 
 ## Resposta a vazamento (outline)
 
@@ -51,4 +51,4 @@ v1: **sem** gestor de secrets pago obrigatório (Vercel + `.env` + dashboards). 
 
 ## Relação
 
-- [`env-vars.md`](./env-vars.md) · [`env-scoping.md`](./env-scoping.md) · Ambientes · #165 `.env.example` / SETUP-CREDENTIALS
+- [`env-vars.md`](./env-vars.md) · [`env-scoping.md`](./env-scoping.md) · [`env-example.md`](./env-example.md) · Ambientes

@@ -303,3 +303,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-043; `templates/secrets-access.md`. Next: #165 `.env.example` + SETUP-CREDENTIALS structure.
+
+## 2026-07-10 — .env.example + SETUP-CREDENTIALS structure (#165)
+
+### Commitable example file; secret-free runbook
+
+**Decision:** Add root `.env.example` with all D-041 names and empty/non-secret placeholders. Rewrite `docs/SETUP-CREDENTIALS.md` as obtain/place runbook (local vs Vercel Preview/Production) with D-042/D-043 pointers — no secret values, no Contentful. Gitignore `.env` / `.env.local` / `.env.*.local`. Rotation dates stay in a private note. Filling real credentials deferred to setup (#47).
+
+**Rationale:** Gives a safe copy-paste bootstrap; removes outdated/dangerous sample material from SETUP.
+
+**Implications:**
+- Canon: D-044; `.env.example` + SETUP + `templates/env-example.md`. Config area E definition complete; next Architecture leaf: #166 CI/CD close→staging.
