@@ -67,8 +67,7 @@ Ver **[`env-vars.md`](./env-vars.md)** (D-041 / #162) — convenção + tabela c
 Arquivo: **`.rbo/lifecycle.yml`**. O skill global **não** lê markdown de ambientes.
 
 ```yaml
-# Presente só em repos que optam in (ex.: ForteGB).
-# Ausente → close faz merge feat/* → main (comportamento atual).
+# Opt-in only (e.g. ForteGB). Absent → close merges feat/* → main (default).
 integrationBranch: staging
 ```
 

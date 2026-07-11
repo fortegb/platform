@@ -1,5 +1,4 @@
-# Presente só em repos que optam in (ex.: ForteGB).
-# Ausente → close faz merge feat/* → main (comportamento atual; outros produtos intactos).
-# Presente → rbo-stage-change aterra em integrationBranch; rbo-close-change faz
-#   archive + integrationBranch → main (não feat/* → main). Ver D-045 / #166.
+# Opt-in only (e.g. ForteGB). Absent → close merges feat/* → main (default; other products unchanged).
+# Present → rbo-stage-change lands on integrationBranch; rbo-close-change archives then
+#   merges integrationBranch → main (not feat/* → main). See D-045 / #166.
 integrationBranch: staging
