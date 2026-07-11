@@ -156,4 +156,8 @@ Ver **[`cms-content-model.md`](./cms-content-model.md)** — types `house` / `bl
 
 ## Integrações — modelo 3-tiers (D-037 / #158)
 
-Ver **[`integrations-tiers.md`](./integrations-tiers.md)** — posturas mock / safe-target / prod-live; defaults por `APP_ENV`; overrides; seleção de adaptadores. Mapa/alvos → #159/#160.
+Ver **[`integrations-tiers.md`](./integrations-tiers.md)** — posturas mock / safe-target / prod-live; defaults por `APP_ENV`; overrides; seleção de adaptadores.
+
+## Integrações — mapa por vendor (D-038 / #159)
+
+Ver **[`integrations-map.md`](./integrations-map.md)** — inventário, classe de safe-target e fase MVP. Alvos concretos → #160.

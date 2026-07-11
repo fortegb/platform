@@ -237,3 +237,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-037; `templates/integrations-tiers.md` + Ambientes. Next: #159 per-integration map.
+
+## 2026-07-10 — Integration map per vendor (#159)
+
+### Inventory, safe-target classes, MVP phases
+
+**Decision:** Map HubSpot, Tuya, WhatsApp, Telegram, Google Calendar, QStash (+ Gov.br deferred). Safe-target classes: test portal / test lock / sandbox number / dev bot / test calendar / non-prod QStash creds. Phases: HubSpot+WA+QStash v1; Telegram v1 seam; Tuya+Calendar v2; Gov.br manual. Not Supabase/Sanity. Docs only; concrete targets → #160.
+
+**Rationale:** Separates inventory/classes from account provisioning; aligns with D-018.
+
+**Implications:**
+- Canon: D-038; `templates/integrations-map.md`. Next: #160 concrete safe targets.

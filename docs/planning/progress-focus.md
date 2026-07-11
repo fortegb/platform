@@ -9,22 +9,22 @@
 ## Trabalhando no momento
 
 - **Roteiro:** passo atual = **4 Arquitetura**. Ver [Roteiro do Projeto](./mapa-roteiro.html).
-- **Epic [#146](https://github.com/fortegb/platform/issues/146):** CMS + modelo 3-tiers feitos; próximo = mapa por integração ([#159](https://github.com/fortegb/platform/issues/159)).
-- **Ambientes:** [página Ambientes](./ambientes.html) — inclui posturas mock / safe-target / prod-live.
+- **Epic [#146](https://github.com/fortegb/platform/issues/146):** posturas + mapa feitos; próximo = alvos concretos de teste ([#160](https://github.com/fortegb/platform/issues/160)).
+- **Ambientes:** [página Ambientes](./ambientes.html) — tiers + mapa por integração.
 
 ## Concluído recentemente
 
+- **Mapa por integração** ([#159](https://github.com/fortegb/platform/issues/159)) — D-038.
 - **Integrações 3-tiers** ([#158](https://github.com/fortegb/platform/issues/158)) — D-037.
 - **C3 CMS content model** ([#157](https://github.com/fortegb/platform/issues/157)) — D-036.
-- **C2 CMS datasets** ([#156](https://github.com/fortegb/platform/issues/156)) — D-035.
 
 ## Próximo passo
 
-1. **Arquitetura** ([#146](https://github.com/fortegb/platform/issues/146)) — mapa por integração ([#159](https://github.com/fortegb/platform/issues/159)).
+1. **Arquitetura** ([#146](https://github.com/fortegb/platform/issues/146)) — alvos de teste seguros ([#160](https://github.com/fortegb/platform/issues/160)).
 2. **Depois (passo 8):** build v1 — Identidade ([#48](https://github.com/fortegb/platform/issues/48)), Site público ([#56](https://github.com/fortegb/platform/issues/56)).
 3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo.
 
 ## Notas para sócios
 
-- Em teste o sistema **não** abre fechadura real nem manda WhatsApp pago a cliente: local simula; staging usa contas/dispositivos de teste; só produção é ao vivo.
-- Spec: [`ambientes.html`](./ambientes.html) · tiers: [`templates/integrations-tiers.md`](./templates/integrations-tiers.md).
+- Em teste: CRM de teste, WhatsApp sandbox, fechadura de teste (nunca a da casa à venda). Contas concretas ainda a definir (#160).
+- Spec: [`ambientes.html`](./ambientes.html) · mapa: [`templates/integrations-map.md`](./templates/integrations-map.md).
