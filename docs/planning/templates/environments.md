@@ -91,6 +91,14 @@ integrationBranch: staging
 
 **Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Bypass de webhooks em Preview → D-040 / [`integrations-webhooks.md`](./integrations-webhooks.md).
 
+## Pipeline de deploy (D-046 / #167)
+
+Gatilho, gate de merge, rollback, notificações, e o timing de criação de
+`origin/staging` → [`cicd-deploy-pipeline.md`](./cicd-deploy-pipeline.md).
+Resumo: gatilho = integração git nativa da Vercel; gate de merge só em
+`main`; rollback = dashboard Vercel; `origin/staging` criado no bootstrap de
+Execução (#42/#46), não nesta Definição.
+
 
 ## Domínios (D-029 / #150)
 

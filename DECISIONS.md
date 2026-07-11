@@ -327,3 +327,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-045; `.rbo/lifecycle.yml`; environments template + Ambientes. Remote `staging` → #167. Skill code → `ai-skills`.
+
+---
+
+## 2026-07-11 — CI/CD deploy pipeline branch→Vercel (#167)
+
+### Native Vercel trigger, main-only merge gate, deferred staging bootstrap
+
+**Decision:** Deploy trigger is Vercel's native git integration — no custom CI now (custom build hooks addable later if needed). Merge into `main` requires a passing Vercel deploy; `staging` stays ungated (integration/validation role, per D-045). Rollback uses Vercel's built-in dashboard rollback. No custom deploy notifications — Vercel's default emails suffice. `origin/staging` creation is decided now (long-lived, from `main`) but deferred to Execução bootstrap (#42/#46), not this Definição leaf. Definição leaves closing before staging exists merge `feat/*`→`main` directly, same as #166.
+
+**Rationale:** Decision-only leaf, no provisioning (G2 still gates Execução). `main`-only gating matches staging's role as a place to catch problems, not block them.
+
+**Implications:**
+- Canon: D-046; `templates/cicd-deploy-pipeline.md`; `environments.md` pointers. Branch protection toggle + `origin/staging` creation → #42/#46 (Execução).
