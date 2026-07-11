@@ -39,7 +39,7 @@ APP_ENV=prod
 
 ## Inventário completo de env vars
 
-Ver **[`env-vars.md`](./env-vars.md)** (D-041 / #162) — convenção + tabela canónica. Scoping Vercel/local → #163; `.env.example` → #165.
+Ver **[`env-vars.md`](./env-vars.md)** (D-041 / #162) — convenção + tabela canónica. Scoping → [`env-scoping.md`](./env-scoping.md) (D-042); `.env.example` → #165.
 
 ## Branches → ambientes (D-026 / #148)
 
@@ -170,3 +170,7 @@ Ver **[`integrations-safe-targets.md`](./integrations-safe-targets.md)** — mus
 ## Integrações — callbacks / webhooks (D-040 / #161)
 
 Ver **[`integrations-webhooks.md`](./integrations-webhooks.md)** — bases `fortegb.com` / `staging.fortegb.com`; Preview = bypass; local mock/túnel; path `/api/webhooks/<vendor>`.
+
+## Config — scoping de valores (D-042 / #163)
+
+Ver **[`env-scoping.md`](./env-scoping.md)** — Production / Preview / `.env` local; mesmos nomes, valores por superfície.

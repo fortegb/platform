@@ -504,3 +504,14 @@
   - **DoD:** docs only — D-041 + `templates/env-vars.md`. Scoping → #163; política → #164; `.env.example` → #165. Sem valores no git.
 - **Rationale:** um contrato de nomes evita drift no setup Vercel e no `.env.example`.
 - **Consequências:** template + Ambientes; código alinha no build.
+
+### D-042 — Config: modelo de scoping (Vercel Production/Preview + .env local) (2026-07-10) — **#163**
+- **Status:** accepted
+- **Contexto:** D-027/D-030/D-041 fixaram topologia e nomes; faltava o contrato de **onde** cada valor vive.
+- **Decisão:**
+  - **Três superfícies:** Vercel Production (`APP_ENV=prod` + backends prod); Vercel Preview (`APP_ENV=staging` + staging-class, partilhado por `staging` e `feat/*`); local `.env`/`.env.local` (`APP_ENV=local`, mock/local por default).
+  - **Mesmos nomes** (D-041); valores por superfície. Development Vercel **não** obrigatório.
+  - **Must-not:** prod secrets em Preview ou local por default; nomes distintos por scope.
+  - **DoD:** docs only — D-042 + `templates/env-scoping.md`. Acesso → #164; `.env.example` → #165.
+- **Rationale:** um Preview set evita proliferar secrets; alinha Supabase/Sanity já partilhados.
+- **Consequências:** template + Ambientes; provisionar valores no setup.

@@ -1,6 +1,6 @@
 # Config — inventário e convenção de env vars (D-041 / #162)
 
-> Nomes canônicos das variáveis de ambiente. **Docs only** — sem valores, sem `.env.example` (#165), sem matriz fina de scopes Vercel (#163), sem política de acesso (#164).
+> Nomes canônicos das variáveis de ambiente. **Docs only** — sem valores; scoping → [`env-scoping.md`](./env-scoping.md) (D-042); `.env.example` → #165; política de acesso → #164.
 
 ## Convenção
 
@@ -58,10 +58,10 @@
 
 | Folha | Escopo |
 |-------|--------|
-| [#163](https://github.com/fortegb/platform/issues/163) | Qual valor em Production vs Preview vs `.env` local |
+| [`env-scoping.md`](./env-scoping.md) (D-042 / #163) | Qual valor em Production vs Preview vs `.env` local |
 | [#164](https://github.com/fortegb/platform/issues/164) | Quem acessa secrets; rotação |
 | [#165](https://github.com/fortegb/platform/issues/165) | `.env.example` + estrutura SETUP-CREDENTIALS |
 
 ## Relação
 
-- [`environments.md`](./environments.md) · [`integrations-tiers.md`](./integrations-tiers.md) · [`integrations-webhooks.md`](./integrations-webhooks.md) · Ambientes · #163–#165
+- [`env-scoping.md`](./env-scoping.md) (D-042) · [`environments.md`](./environments.md) · Ambientes · #164–#165
