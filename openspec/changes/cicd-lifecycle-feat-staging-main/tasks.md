@@ -15,5 +15,5 @@
 
 ## 3. Close-out prep
 
-- [ ] 3.1 Human validation
-- [ ] 3.2 Archive → merge with `Closes #166` (default close feat→main — `origin/staging` not required for this docs leaf; stage path needs #167)
+- [x] 3.1 Human validation
+- [x] 3.2 Archive → merge with `Closes #166` (default close feat→main — `origin/staging` not required for this docs leaf; stage path needs #167)
