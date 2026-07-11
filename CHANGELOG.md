@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Integrações: modelo 3-tiers ([#158](https://github.com/fortegb/platform/issues/158))
+
+- **D-037:** posturas mock / safe-target / prod-live; defaults por `APP_ENV`; overrides seguros; seleção de adaptadores; docs only (mapa → #159).
+- Template `integrations-tiers.md` + Ambientes.
+
 ### 2026-07-10 — CMS: modelo de conteúdo ([#157](https://github.com/fortegb/platform/issues/157))
 
 - **D-036:** types `house` / `blogPost` / stubs timeline+mediaKit; split marketing (Sanity) vs ops (Supabase) por `houseId`; vídeo URL; pt-BR only; docs only (schemas → #45).

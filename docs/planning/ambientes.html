@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-036.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-037.
     </p>
 
     <h2>Em uma frase</h2>
@@ -209,6 +209,7 @@
       <li><strong>Dados de teste (seed):</strong> o mesmo pacote sintético em local e staging — pessoas com aparência realista em português do Brasil (inventadas), documentos RG/CNH <em>dummy</em> só para teste, contas de login de corretor/staff documentadas. Pode apagar e recriar. Nunca se copia a base de produção. Detalhe: <code>docs/planning/templates/seed-lgpd.md</code>.</li>
       <li><strong>Conteúdo (Sanity):</strong> um projeto com dois <em>datasets</em> — <code>staging</code> (local, staging e Previews) e <code>production</code> (site ao vivo). Publicar conteúdo novo no ar exige um passo explícito de promoção (não acontece só porque o site fez deploy). Detalhe técnico em <code>docs/planning/templates/environments.md</code>.</li>
       <li><strong>Modelo de conteúdo:</strong> tipos <code>house</code>, <code>blogPost</code>, e stubs de timeline/media kit. Marketing (textos, fotos, preço de exibição) fica no Sanity; status da casa, fechadura e QR ficam no Supabase — o site junta os dois pelo mesmo ID. Detalhe: <code>docs/planning/templates/cms-content-model.md</code>.</li>
+      <li><strong>Integrações (3 posturas):</strong> em teste o sistema <em>não</em> fala com fechadura real nem manda WhatsApp pago a cliente. Local usa simulação (<em>mock</em>); staging/Previews usam contas/dispositivos de teste (<em>safe-target</em>); só produção usa alvos ao vivo (<em>prod-live</em>). Detalhe: <code>docs/planning/templates/integrations-tiers.md</code>.</li>
     </ul>
 
     <h2>Correção urgente (hotfix)</h2>
@@ -220,7 +221,7 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>Quais sandboxes usar em cada integração (fechadura, WhatsApp, HubSpot…)</li>
+      <li>Quais sandboxes concretos usar em cada integração (fechadura, WhatsApp, HubSpot…) — mapa #159 / alvos #160; o <em>modelo</em> 3-tiers já está em <code>templates/integrations-tiers.md</code></li>
       <li>O passo a passo completo de promoção staging → produção</li>
       <li>Criar de fato Vercel, DNS, projetos Supabase, secrets e o ficheiro de seed (isto é só a especificação)</li>
     </ul>

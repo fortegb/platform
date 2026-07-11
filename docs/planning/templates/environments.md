@@ -153,3 +153,7 @@ Ver **[`cms-vendor.md`](./cms-vendor.md)** — **Sanity**; Contentful removido d
 ## CMS — modelo de conteúdo (D-036 / #157)
 
 Ver **[`cms-content-model.md`](./cms-content-model.md)** — types `house` / `blogPost` / stubs timeline+mediaKit; split marketing (Sanity) vs ops (Supabase) por `houseId`.
+
+## Integrações — modelo 3-tiers (D-037 / #158)
+
+Ver **[`integrations-tiers.md`](./integrations-tiers.md)** — posturas mock / safe-target / prod-live; defaults por `APP_ENV`; overrides; seleção de adaptadores. Mapa/alvos → #159/#160.

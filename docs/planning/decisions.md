@@ -448,3 +448,15 @@
   - **DoD this leaf:** docs only — D-036 + `templates/cms-content-model.md`. Schema TS → #45.
 - **Rationale:** keeps CMS free of PII/ops; aligns with D-016 dual-store; stubs avoid over-modeling v3 modules in Architecture.
 - **Consequences:** template + Ambientes; Studio implements schemas from this inventory.
+
+### D-037 — Integrações: modelo 3-tiers (posturas) (2026-07-10) — **#158**
+- **Status:** accepted
+- **Contexto:** D-022/D-025 nomearam mock / safe-target / prod-live; faltava o contrato de posturas, defaults, overrides e seleção de adaptadores. Mapa por vendor → #159; alvos → #160.
+- **Decisão:**
+  - **Posturas (não ambientes):** `mock` (stub in-process), `safe-target` (API real → sandbox/teste), `prod-live` (API real → produção).
+  - **Defaults:** `local` → mock; `staging` + Previews → safe-target; `prod` → prod-live.
+  - **Overrides:** só em local/staging, só entre `{mock, safe-target}`; `prod` sempre prod-live; nunca prod-live fora de prod; nunca inferir de credenciais.
+  - **Seleção:** `effective = override[integration] ?? default(APP_ENV)`; seam de adaptadores (D-017); nomes de env → #162.
+  - **DoD:** docs only — D-037 + `templates/integrations-tiers.md`.
+- **Rationale:** separa segurança de comportamento da topologia de ambientes; permite local→sandbox sem abrir produção.
+- **Consequências:** template + Ambientes; #159–#160/#172 preenchem mapa/alvos/mocks sem reabrir regras.

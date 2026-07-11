@@ -227,3 +227,13 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 **Implications:**
 - Canon: D-036; `templates/cms-content-model.md` + Ambientes. Next Architecture leaf: #158 integrations 3-tier model.
 
+## 2026-07-10 — Integration 3-tier model (#158)
+
+### Postures mock / safe-target / prod-live
+
+**Decision:** Integration tiers are postures (not environments): mock, safe-target, prod-live. Defaults: local→mock, staging+Previews→safe-target, prod→prod-live. Overrides only on local/staging within {mock, safe-target}; prod always live; never prod-live outside prod; never infer from credentials. Effective tier = override ?? default(APP_ENV). Docs only; map/targets/mocks → #159/#160/#172; env names → #162.
+
+**Rationale:** Locks safety rules before per-vendor maps; allows conscious local→sandbox without opening production.
+
+**Implications:**
+- Canon: D-037; `templates/integrations-tiers.md` + Ambientes. Next: #159 per-integration map.
