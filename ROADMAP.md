@@ -64,6 +64,7 @@
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
 - [#177](https://github.com/fortegb/platform/issues/177) Higiene docs passos 1–2 + validação D-028
+- [#178](https://github.com/fortegb/platform/issues/178) CI/CD: remove redundant portal-build-info GitHub Action
 
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
