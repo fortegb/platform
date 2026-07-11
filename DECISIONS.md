@@ -292,3 +292,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-042; `templates/env-scoping.md`. Next: #164 secrets access policy.
+
+## 2026-07-10 — Secrets access policy (#164)
+
+### Tech-only ownership; no partner API keys; rotate on leak
+
+**Decision:** ForteGB tech owns Production and staging-class secrets (Vercel env + vendor API keys). Sócios get Preview password access only, not env/API keys. Secrets never in git, public docs, issues/PRs/OpenSpec, or partner chat. Rotate on leak/device loss/vendor compromise; periodic rotation optional. No paid vault required for v1. Docs only.
+
+**Rationale:** Least privilege for a solo-tech family operation; prevents casual secret sharing.
+
+**Implications:**
+- Canon: D-043; `templates/secrets-access.md`. Next: #165 `.env.example` + SETUP-CREDENTIALS structure.
