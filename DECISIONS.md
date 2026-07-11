@@ -281,3 +281,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-041; `templates/env-vars.md`. Next: #163 scoping (Production/Preview/local).
+
+## 2026-07-10 — Env value scoping (#163)
+
+### Production / Preview / local surfaces
+
+**Decision:** Three required value surfaces — Vercel Production (`APP_ENV=prod` + prod backends), Vercel Preview (`APP_ENV=staging` + staging-class for `staging` and all `feat/*`/`fix/*`), local gitignored `.env`/`.env.local` (`APP_ENV=local`, mock/local default). Same D-041 names; different values. Vercel Development scope not required. Docs only.
+
+**Rationale:** Matches existing one-Preview-secret-set topology; prevents prod keys leaking into Previews.
+
+**Implications:**
+- Canon: D-042; `templates/env-scoping.md`. Next: #164 secrets access policy.

@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Config: scoping Production/Preview/local ([#163](https://github.com/fortegb/platform/issues/163))
+
+- **D-042:** três superfícies de valores; `APP_ENV` + classe de backends por scope; Development Vercel não obrigatório; docs only.
+- Template `env-scoping.md` + Ambientes. Acesso → #164; `.env.example` → #165.
+
 ### 2026-07-10 — Config: inventário + nomes de env vars ([#162](https://github.com/fortegb/platform/issues/162))
 
 - **D-041:** convenção `SCREAMING_SNAKE` / `NUXT_PUBLIC_*` / prefixos vendor; inventário canónico (v1/v2); overrides `INTEGRATION_TIER_*`; docs only.
