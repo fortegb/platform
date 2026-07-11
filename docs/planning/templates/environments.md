@@ -50,26 +50,34 @@ Ver **[`env-vars.md`](./env-vars.md)** (D-041 / #162) — convenção + tabela c
 | `staging` (longa duração) | `staging` | pré-prod / UAT sócio |
 | `main` | `prod` | produção |
 
-**Caminho normal:** `feat/*` ou `fix/*` → merge em `staging` → promover `staging` → `main` (passo separado; não automático na Vercel).
+**Caminho normal:** `feat/*` ou `fix/*` → **stage** em `staging` → UAT → **close** (`staging` → `main`). A Vercel **não** promove sozinha.
 
-**Close vs promote:** o close de um change **deve** aterrar na *integration branch* (ForteGB: `staging`). Promover para produção é outro passo (#169).
+**Stage vs close (D-045 / #166):**
+| Passo | Skill | Git | OpenSpec | Issue |
+|-------|-------|-----|----------|-------|
+| Stage | `rbo-stage-change` | `feat/*` → `staging` | ativo | aberta (In Progress) |
+| Close | `rbo-close-change` | archive + `staging` → `main` | arquivado | `Closes` + Done |
 
-## Lifecycle config — contrato opt-in (implementação → #166)
+- Stage **não** corre `pages:sync`. Close sim (quando o repo tem Platform docs).
+- Stage **falha** se `origin/staging` não existir (sem auto-criar) — bootstrap → #167.
+- Hotfix / ceremony de release → #169; `rbo-product-release` não faz merge git.
 
-Arquivo pequeno e explícito (caminho sugerido: `.rbo/lifecycle.yml`). O skill global **não** lê markdown de ambientes.
+## Lifecycle config — contrato opt-in (D-045 / #166)
+
+Arquivo: **`.rbo/lifecycle.yml`**. O skill global **não** lê markdown de ambientes.
 
 ```yaml
 # Presente só em repos que optam in (ex.: ForteGB).
-# Ausente → close faz merge para main (comportamento atual; outros produtos intactos).
+# Ausente → close faz merge feat/* → main (comportamento atual).
 integrationBranch: staging
 ```
 
-| Situação | Merge no close |
-|----------|----------------|
-| Sem arquivo | `main` (default) |
-| `integrationBranch: staging` | `staging` |
+| Situação | Stage | Close |
+|----------|-------|-------|
+| Sem arquivo | n/a (não usar stage) | `feat/*` → `main` (default) |
+| `integrationBranch: staging` | `feat/*` → `staging` | archive + `staging` → `main` (fail se não staged) |
 
-**Lacuna até #166:** este contrato está especificado; o código do `rbo-close-change` ainda não o lê — close continua → `main`.
+**Lacuna skills:** contrato + ficheiro neste repo; código de `rbo-stage-change` / patch de `rbo-close-change` → ciclo em `ai-skills` (companheiro de #166).
 
 ## Vercel — topologia (D-027 / #149)
 

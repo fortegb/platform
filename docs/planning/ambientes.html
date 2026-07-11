@@ -112,12 +112,14 @@
       </tbody>
     </table>
     <p>
-      <strong>Caminho normal:</strong> trabalho numa feature → entra em <code>staging</code> → só depois se <strong>promove</strong> para <code>main</code> (produção).
-      A Vercel <strong>não</strong> promove sozinha: alguém (ou um passo de release) decide quando staging vira produção.
+      <strong>Caminho normal:</strong> trabalho numa feature → <strong>entra em</strong> <code>staging</code> (validação) → só depois se <strong>fecha para</strong> <code>main</code> (produção).
+      A Vercel <strong>não</strong> promove sozinha: alguém decide quando staging vira produção.
     </p>
     <p>
-      <strong>Fechar um change</strong> (no fluxo de desenvolvimento) deve aterrar em <code>staging</code>.
-      <em>Nota:</em> a ferramenta automática de close ainda faz merge para <code>main</code> até atualizarmos o skill com um arquivo de config opcional — isso fica para uma tarefa seguinte (#166).
+      <strong>Dois passos:</strong> (1) <em>stage</em> — a feature entra em <code>staging</code> sem encerrar a tarefa;
+      (2) <em>close</em> — depois do OK no staging, o trabalho vai para <code>main</code> e a tarefa fecha.
+      Config opt-in no repo (<code>.rbo/lifecycle.yml</code>). Skills de stage/close → atualização em curso (#166 + companheiro em ai-skills).
+      Branch remota <code>staging</code> → #167.
     </p>
 
     <h2>Hospedagem (Vercel)</h2>

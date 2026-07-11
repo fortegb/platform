@@ -540,3 +540,16 @@
   - **DoD:** D-044 + `.env.example` + SETUP reescrito + `templates/env-example.md`. Preencher valores reais → #47 / setup.
 - **Rationale:** um template commitável evita drift; SETUP antigo misturava exemplos tipo JWT e stack obsoleto.
 - **Consequências:** Ambientes aponta aos artefactos; área E de config (#162–#165) fechada na definição.
+
+### D-045 — CI/CD: stage vs close + lifecycle opt-in (2026-07-10) — **#166**
+- **Status:** accepted
+- **Contexto:** D-026 mapeou branches e propôs close→`staging`; grilling de #166 mostrou que arquivar/fechar a issue no land é cedo demais (UAT em staging pode falhar). Skills globais não podem hardcodar ForteGB.
+- **Decisão:**
+  - **Dois passos humanos:** (1) **`rbo-stage-change`** — `feat/*` → `integrationBranch` (`staging`); OpenSpec **ativo**; issue **aberta**; Status permanece In Progress; **sem** `pages:sync`. (2) **`rbo-close-change`** — archive + `staging`→`main` + `Closes`/Done + `pages:sync` (quando o repo suporta).
+  - **Opt-in:** `.rbo/lifecycle.yml` com `integrationBranch: staging`. **Ausente** → close inalterado (`feat/*`→`main`).
+  - **Fail-closed:** stage falha se `origin/<integrationBranch>` não existir (sem auto-criar). Close com config presente **não** faz fallback `feat/*`→`main` se o change não estiver em staging.
+  - **D-026:** mantém o mapa de branches; **supersede** só a semântica “close aterra em staging”.
+  - **Fora deste leaf:** criar remote `staging` (#167); Status de board `Staging`; hotfix/promote ceremony (#169).
+  - **DoD plataforma:** D-045 + `.rbo/lifecycle.yml` + templates/Ambientes/spec. **Skills** → issue companheira em `ai-skills` (ciclo completo).
+- **Rationale:** “close” continua a significar “pronto de verdade”; staging é integração, não produção; outros produtos sem o ficheiro ficam intactos.
+- **Consequências:** canon + ficheiro opt-in neste repo; implementação dos skills noutro ciclo em `ai-skills`.
