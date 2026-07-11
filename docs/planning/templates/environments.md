@@ -39,7 +39,7 @@ APP_ENV=prod
 
 ## Inventário completo de env vars
 
-Diferido à área E do epic #146 (#162+). Este template só fixa `APP_ENV` e o contrato acima.
+Ver **[`env-vars.md`](./env-vars.md)** (D-041 / #162) — convenção + tabela canónica. Scoping Vercel/local → #163; `.env.example` → #165.
 
 ## Branches → ambientes (D-026 / #148)
 
@@ -149,7 +149,7 @@ Ver **[`cms-vendor.md`](./cms-vendor.md)** — **Sanity**; Contentful removido d
 | `local` + `staging` + Previews Vercel | **`staging`** |
 | `prod` (Production / `main`) | **`production`** |
 
-**Regras:** 1 projeto Sanity; promoção de conteúdo `staging` → `production` **explícita** (não no deploy Vercel); Studio edita `staging` por padrão; vars exactas → #162+.
+**Regras:** 1 projeto Sanity; promoção de conteúdo `staging` → `production` **explícita** (não no deploy Vercel); Studio edita `staging` por padrão; vars exactas → [`env-vars.md`](./env-vars.md) (D-041).
 
 ## CMS — modelo de conteúdo (D-036 / #157)
 

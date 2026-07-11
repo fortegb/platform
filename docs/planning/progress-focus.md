@@ -9,24 +9,23 @@
 ## Trabalhando no momento
 
 - **Roteiro:** passo atual = **4 Arquitetura**. Ver [Roteiro do Projeto](./mapa-roteiro.html).
-- **Epic [#146](https://github.com/fortegb/platform/issues/146):** D1–D4 integrações feitos; próximo = inventário de env vars ([#162](https://github.com/fortegb/platform/issues/162)).
-- **Ambientes:** [página Ambientes](./ambientes.html) — tiers + mapa + alvos + webhooks (Preview = bypass).
+- **Epic [#146](https://github.com/fortegb/platform/issues/146):** inventário de env vars feito (D-041); próximo = scoping Vercel/local ([#163](https://github.com/fortegb/platform/issues/163)).
+- **Ambientes:** [página Ambientes](./ambientes.html) — tiers + mapa + alvos + webhooks + nomes de env.
 
 ## Concluído recentemente
 
+- **Inventário env vars** ([#162](https://github.com/fortegb/platform/issues/162)) — D-041.
 - **Callbacks/webhooks** ([#161](https://github.com/fortegb/platform/issues/161)) — D-040.
 - **Alvos de teste seguros** ([#160](https://github.com/fortegb/platform/issues/160)) — D-039.
-- **Mapa por integração** ([#159](https://github.com/fortegb/platform/issues/159)) — D-038.
-- **Integrações 3-tiers** ([#158](https://github.com/fortegb/platform/issues/158)) — D-037.
 
 ## Próximo passo
 
-1. **Arquitetura** ([#146](https://github.com/fortegb/platform/issues/146)) — config env vars ([#162](https://github.com/fortegb/platform/issues/162)).
+1. **Arquitetura** ([#146](https://github.com/fortegb/platform/issues/146)) — scoping de config ([#163](https://github.com/fortegb/platform/issues/163)).
 2. **Depois (passo 8):** build v1 — Identidade ([#48](https://github.com/fortegb/platform/issues/48)), Site público ([#56](https://github.com/fortegb/platform/issues/56)).
 3. **Brand assets** ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo.
 
 ## Notas para sócios
 
-- Webhooks de teste apontam só para `staging.fortegb.com` — não para Previews de feature.
-- Em teste: CRM/WhatsApp/fechadura de **teste** (nunca a da casa à venda). IDs das contas ainda TBD — preencher no setup.
-- Spec: [`ambientes.html`](./ambientes.html) · webhooks: [`templates/integrations-webhooks.md`](./templates/integrations-webhooks.md).
+- Nomes das variáveis estão definidos; valores e ficheiro de exemplo vêm nas próximas folhas de config.
+- Webhooks de teste apontam só para `staging.fortegb.com`.
+- Spec: [`ambientes.html`](./ambientes.html) · env: [`templates/env-vars.md`](./templates/env-vars.md).

@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Config: inventário + nomes de env vars ([#162](https://github.com/fortegb/platform/issues/162))
+
+- **D-041:** convenção `SCREAMING_SNAKE` / `NUXT_PUBLIC_*` / prefixos vendor; inventário canónico (v1/v2); overrides `INTEGRATION_TIER_*`; docs only.
+- Template `env-vars.md` + Ambientes. Scoping → #163; `.env.example` → #165.
+
 ### 2026-07-10 — Integrações: callbacks/webhooks por ambiente ([#161](https://github.com/fortegb/platform/issues/161))
 
 - **D-040:** bases `fortegb.com` / `staging.fortegb.com`; Preview = bypass; local mock/túnel; path `/api/webhooks/<vendor>`; assinatura obrigatória; docs only.

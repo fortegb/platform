@@ -23,7 +23,7 @@ supabase start
 supabase status
 
 # 4) Studio (URL típica impressa pelo status — ex. http://127.0.0.1:54323)
-# Copiar API URL + anon key + service_role (só local) para .env — nomes exactos → inventário (#162+)
+# Copiar API URL + anon key + service_role (só local) para .env — nomes exactos → [`env-vars.md`](./env-vars.md) (D-041)
 
 # 5) Aplicar migrações + seed SQL do CLI (se configurado)
 supabase db reset
@@ -43,7 +43,7 @@ supabase stop
 | Inventário completo de ferramentas | #170 |
 | Conteúdo do seed / LGPD | [`seed-lgpd.md`](./seed-lgpd.md) (D-033) |
 | `supabase link` / `db push` staging→prod | D-031 |
-| Nomes finais das env vars | #162+ |
+| Nomes finais das env vars | [`env-vars.md`](./env-vars.md) (D-041) |
 
 ## Falhas comuns
 

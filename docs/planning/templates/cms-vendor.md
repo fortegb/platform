@@ -34,4 +34,4 @@ Inventário de types/campos e split house: [`cms-content-model.md`](./cms-conten
 ## App boundary
 
 - Composable: `composables/useCms.ts` (não `useContentful`).
-- Env vars Sanity → inventário (#162+) / setup quando provisionar.
+- Env vars Sanity → [`env-vars.md`](./env-vars.md) (D-041) / setup quando provisionar.
