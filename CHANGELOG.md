@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-11 — CI/CD: pipeline de deploy branch→Vercel ([#167](https://github.com/fortegb/platform/issues/167))
+
+- **D-046:** gatilho = integração git nativa da Vercel (sem CI custom agora); gate de merge só em `main` (deploy com sucesso obrigatório); `staging` fica sem gate; rollback = dashboard Vercel; sem notificações custom.
+- `origin/staging` decidido agora (long-lived, de `main`), criação real adiada para bootstrap de Execução (#42/#46). Template `cicd-deploy-pipeline.md` + pointer em `environments.md`.
+
 ### 2026-07-10 — CI/CD: stage vs close + lifecycle.yml ([#166](https://github.com/fortegb/platform/issues/166))
 
 - **D-045:** `rbo-stage-change` → `staging` (sem archive); `rbo-close-change` → archive + `staging`→`main` quando `.rbo/lifecycle.yml` presente; default sem ficheiro inalterado.

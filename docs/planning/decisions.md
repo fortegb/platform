@@ -553,3 +553,17 @@
   - **DoD plataforma:** D-045 + `.rbo/lifecycle.yml` + templates/Ambientes/spec. **Skills** → issue companheira em `ai-skills` (ciclo completo).
 - **Rationale:** “close” continua a significar “pronto de verdade”; staging é integração, não produção; outros produtos sem o ficheiro ficam intactos.
 - **Consequências:** canon + ficheiro opt-in neste repo; implementação dos skills noutro ciclo em `ai-skills`.
+
+### D-046 — CI/CD: pipeline de deploy branch→Vercel (2026-07-11) — **#167**
+- **Status:** accepted
+- **Contexto:** D-027 fixou a topologia Vercel (Production/Preview); faltava decidir gatilho de deploy, gate de merge, rollback, notificações, e o timing de criação do `origin/staging` (D-045 já o exige mas não existe).
+- **Decisão:**
+  - **Gatilho:** integração git nativa da Vercel **é** o pipeline; sem GitHub Actions custom agora. Hooks de build custom podem ser adicionados depois, se surgir necessidade concreta.
+  - **Gate de merge:** `main` exige deploy Vercel com sucesso antes do merge. `staging` **não** — seu papel é integração/validação (D-045), não gatekeeping.
+  - **Rollback:** rollback nativo do dashboard Vercel; sem procedimento custom.
+  - **Notificações:** e-mails default da Vercel bastam; sem integração custom (Telegram/Slack).
+  - **`origin/staging`:** decisão travada agora (long-lived, a partir de `main`, per `environments.md`); criação real **adiada para o bootstrap de Execução** (#42/#46), não neste leaf de Definição.
+  - **Gap temporário:** leaves de Definição que fecharem antes do bootstrap de `staging` fazem merge `feat/*`→`main` direto — mesmo padrão usado para fechar o próprio #166.
+  - **DoD:** D-046 + `templates/cicd-deploy-pipeline.md` + pointers em `environments.md`.
+- **Rationale:** decisão sem provisionamento — G2 continua a gatear Execução; branch protection só em `main` porque `staging` existe para acomodar falhas, não bloqueá-las.
+- **Consequências:** canon fechado; toggle de branch protection + criação de `origin/staging` ficam para #42/#46 (Execução).

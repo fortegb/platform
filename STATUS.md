@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-045); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-046); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -19,8 +19,9 @@
 ✅ D1–D4 Integrações → D-037..D-040
 ✅ E1–E4 Config → D-041..D-044
 ✅ #166 CI/CD lifecycle → D-045 + `.rbo/lifecycle.yml` (skills ai-skills v0.6.0)
-→ PRÓXIMO: #167 — CI/CD: pipeline de deploy (branch→Vercel)
-⚠️ `origin/staging` ainda ausente — `rbo-stage-change` falha de propósito até a branch existir
+✅ #167 CI/CD pipeline de deploy branch→Vercel → D-046 (decisão apenas; sem provisionamento)
+→ PRÓXIMO: #168 — CI/CD: automação de migrações (aplicar on merge)
+⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
 
@@ -33,10 +34,14 @@
 - [x] **#166** — D-045 + lifecycle.yml → closed
 - [x] Fix: `.rbo/lifecycle.yml` comments → en-US
 
-## Próxima sessão (Claude Code)
+## Esta sessão (Claude Code — 2026-07-11)
 
-- [ ] **#167** — CI/CD: pipeline de deploy (branch→Vercel) — grill/propose; ensure remote `staging` plan
-- [ ] #168+ CI/CD restantes
+- [x] **#167** — CI/CD: pipeline de deploy (branch→Vercel) → D-046 (gatilho, gate de merge, rollback, notificações, timing de `origin/staging`)
+
+## Próxima sessão
+
+- [ ] **#168** — CI/CD: automação de migrações (aplicar on merge)
+- [ ] #169+ CI/CD restantes
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change` symlink missing
 
