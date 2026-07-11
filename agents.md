@@ -3,6 +3,8 @@
 
 > **Primary rule:** I (the user) will interact with AI in **English**, but **ALL deliverables** (website copy, UI text, blog posts, social posts, emails, pages, docs, Platform docs, issue titles, etc.) **MUST be in Brazilian Portuguese (pt-BR)**. This is mandatory.
 >
+> **Code / config / application comments** (source, YAML, scripts, OpenSpec skill bodies in `ai-skills`) stay in **en-US**. pt-BR is for product/UI and planning prose only.
+>
 > **pt-BR is strict — never European Portuguese (pt-PT).** Do not generate pt-PT vocabulary or spelling. Examples (pt-PT → **pt-BR**): ecrã → **tela** · telemóvel → **celular** · utilizador → **usuário** · ficheiro → **arquivo** · registo/registar → **registro/registrar** · contacto → **contato** · gerir → **gerenciar** · equipa → **equipe** · actual/actualizar → **atual/atualizar** · activo → **ativo** · directo → **direto** · projecto → **projeto** · secção → **seção** · excepção → **exceção** · controlo → **controle** · planeamento → **planejamento** · aceder → **acessar** · "está a fazer" → **"está fazendo"**. (Keep genuine pt-BR forms like **fricção/detecção** that legitimately retain `cç`.)
 
 ---
@@ -377,7 +379,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 - Gates (`roteiro.md`): **G2** = build (Etapa 8) só após toda a Definição (1–7) fechada — `v0` a 100%. `STATUS.md` "próximo passo" = ponteiro legível; fonte de verdade = board (`Etapa` + `Depends on:`).
 
 ### Estágio atual
-- **Passo 4 (Arquitetura) — em curso.** A1–A4 + B1–B4 + C1–C3 + D1–D4 + E1–E4 feitos (D-025..D-044); **#166** D-045 + `.rbo/lifecycle.yml` (stage vs close). Faltam skills em `ai-skills` + #167–172, depois 5 e 6. **G2** gated até 4–6. Ver **`roteiro.md`** + **`STATUS.md`**.
+- **Passo 4 (Arquitetura) — em curso.** A1–A4 + B1–B4 + C1–C3 + D1–D4 + E1–E4 + **#166** feitos (D-025..D-045 + `.rbo/lifecycle.yml`; skills em ai-skills **v0.6.0**). Faltam #167–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #167. Ver **`roteiro.md`** + **`STATUS.md`**.
 - **Passos 1–2 validados (D-028 / #177):** contexto + mapa de funcionalidades aceitos; jornadas/telas no passo 5 (#176).
 - **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173), passos 1–2 (#177), A–E config + lifecycle contract → **D-015..D-045**. Stack confirmada: serverless Vercel, **Sanity** + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
 - **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-045); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
@@ -386,7 +388,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".
 
 ### Convenções já estabelecidas (resumo)
-- **Idioma:** comunicação com IA em inglês; **entregáveis em pt-BR**.
+- **Idioma:** comunicação com IA em inglês; **entregáveis** (UI, copy, Platform docs, issues) **em pt-BR**. **Código / config / comentários de aplicação** → **en-US** (ex.: `.rbo/lifecycle.yml`).
 - **Board (roteiro, D-024):** campo **`Etapa`** (9 passos, supersede `Phase`) + **`Milestone`** nativo (`v0 Definição` → v1 → v2 → v3) + **tipo de issue nativo** — **Feature / Bug / Task / Epic** (usar o tipo nativo do GitHub, não o prefixo `Epic:`; `chore` fica só em commits e mapeia a **Task**). *(Modelo definido; migração do board pendente.)*
 - **Escala de UI:** base global reduzida para `81.25%` (`assets/css/main.css`) — tende a um visual compacto.
 - **Sistema de botões:**
