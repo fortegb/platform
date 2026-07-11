@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Integrações: mapa por vendor ([#159](https://github.com/fortegb/platform/issues/159))
+
+- **D-038:** inventário HubSpot/Tuya/WA/Telegram/Calendar/QStash; classes de safe-target; fases MVP; docs only (alvos → #160).
+- Template `integrations-map.md` + Ambientes.
+
 ### 2026-07-10 — Integrações: modelo 3-tiers ([#158](https://github.com/fortegb/platform/issues/158))
 
 - **D-037:** posturas mock / safe-target / prod-live; defaults por `APP_ENV`; overrides seguros; seleção de adaptadores; docs only (mapa → #159).

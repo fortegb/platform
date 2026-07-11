@@ -28,10 +28,10 @@
 
 `effectiveTier(integration) = override[integration] ?? default(APP_ENV)`
 
-Factory do adaptador (D-017) escolhe mock vs cliente real conforme o tier efetivo. Diferença **safe-target vs prod-live** = sobretudo **quais credenciais / base URL** (alvos → #159/#160), não um terceiro caminho de código salvo necessidade do vendor.
+Factory do adaptador (D-017) escolhe mock vs cliente real conforme o tier efetivo. Diferença **safe-target vs prod-live** = sobretudo **quais credenciais / base URL** (classes → [`integrations-map.md`](./integrations-map.md); IDs → #160), não um terceiro caminho de código salvo necessidade do vendor.
 
 Nomes exactos das env vars → #162.
 
 ## Relação
 
-- [`environments.md`](./environments.md) · Ambientes · #159 mapa · #160 alvos · #172 mocks locais
+- [`integrations-map.md`](./integrations-map.md) (D-038) · [`environments.md`](./environments.md) · Ambientes · #160 alvos · #172 mocks locais

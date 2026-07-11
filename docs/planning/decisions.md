@@ -460,3 +460,14 @@
   - **DoD:** docs only — D-037 + `templates/integrations-tiers.md`.
 - **Rationale:** separa segurança de comportamento da topologia de ambientes; permite local→sandbox sem abrir produção.
 - **Consequências:** template + Ambientes; #159–#160/#172 preenchem mapa/alvos/mocks sem reabrir regras.
+
+### D-038 — Integrações: mapa por vendor (classe de alvo + fase) (2026-07-10) — **#159**
+- **Status:** accepted
+- **Contexto:** D-037 fechou posturas; faltava inventário, classe de safe-target e fase MVP por vendor. Alvos concretos → #160.
+- **Decisão:**
+  - **Inventário:** HubSpot, Tuya, WhatsApp, Telegram, Google Calendar, QStash; Gov.br linha deferred/manual. **Não** remapear Supabase/Sanity.
+  - **Safe-target (classe):** HubSpot = portal teste; Tuya = dispositivo teste; WA = número sandbox; Telegram = bot dev; Calendar = calendário teste; QStash = credenciais dev/teste.
+  - **Fases (D-018):** HubSpot + WA + QStash = v1; Telegram = seam v1 / bots depois; Tuya + Calendar = v2; Gov.br = manual v1.
+  - **DoD:** docs only — D-038 + `templates/integrations-map.md`.
+- **Rationale:** #160 provisiona sem reabrir inventário; v2 classes documentadas cedo.
+- **Consequências:** template + Ambientes; IDs/contas → #160.
