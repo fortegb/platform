@@ -528,3 +528,15 @@
   - **DoD:** docs only — D-043 + `templates/secrets-access.md`. SETUP-CREDENTIALS / `.env.example` → #165.
 - **Rationale:** least privilege numa operação familiar solo-tech; evita vazamento por “partilhar para ajudar”.
 - **Consequências:** template + Ambientes; #165 referencia esta política sem colar valores.
+
+### D-044 — Config: .env.example + estrutura SETUP-CREDENTIALS (2026-07-10) — **#165**
+- **Status:** accepted
+- **Contexto:** D-041..D-043 fecharam nomes, superfícies e acesso; faltavam os artefactos copiáveis e o runbook sem secrets.
+- **Decisão:**
+  - **`.env.example`** na raiz: todos os nomes D-041; valores vazios / `APP_ENV=local`; comentários de fase; commitável.
+  - **`docs/SETUP-CREDENTIALS.md`:** runbook por vendor (como obter + onde colar local/Preview/Production); sem valores secretos; sem Contentful; aponta D-042/D-043.
+  - **Gitignore:** `.env`, `.env.local`, `.env.*.local`.
+  - **Nota de rotação:** privada (fora deste ficheiro / fora do HTML público).
+  - **DoD:** D-044 + `.env.example` + SETUP reescrito + `templates/env-example.md`. Preencher valores reais → #47 / setup.
+- **Rationale:** um template commitável evita drift; SETUP antigo misturava exemplos tipo JWT e stack obsoleto.
+- **Consequências:** Ambientes aponta aos artefactos; área E de config (#162–#165) fechada na definição.

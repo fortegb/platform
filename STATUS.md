@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-043); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-044); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -17,9 +17,9 @@
 ✅ B1–B4 Dados → D-030..D-033
 ✅ C1–C3 CMS → D-034..D-036
 ✅ D1–D4 Integrações → D-037..D-040
-✅ E1–E3 Config → D-041..D-043 (nomes + scoping + acesso secrets)
-→ EM CURSO passo 4: Epic **#146** — restantes (#165–172)
-→ PRÓXIMO: #165 — Config: .env.example + estrutura SETUP-CREDENTIALS
+✅ E1–E4 Config → D-041..D-044 (nomes + scoping + acesso + .env.example)
+→ EM CURSO passo 4: Epic **#146** — restantes (#166–172)
+→ PRÓXIMO: #166 — CI/CD: lifecycle feat→staging→main (+ atualizar rbo-close-change)
 ⚠️ Lacuna: rbo-close-change ainda merge→main até #166
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -28,13 +28,12 @@
 
 ## Esta sessão (Cursor — 2026-07-10)
 
-- [x] #158–#163 integrações + env names/scoping → PAC
-- [x] #164 secrets access → PAC
+- [x] #158–#164 integrações + config env → PAC
+- [x] #165 .env.example / SETUP → PAC
 
 ## Próxima sessão
 
-- [ ] **#165 — Config: .env.example + estrutura SETUP-CREDENTIALS**
-- [ ] #166 quando priorizar
+- [ ] **#166 — CI/CD: lifecycle feat→staging→main (+ rbo-close-change)**
 - [ ] (paralelo) Brand assets (#2)
 
 ---
@@ -44,7 +43,7 @@
 | Doc | Uso |
 |-----|-----|
 | [ambientes.html](./docs/planning/ambientes.html) | Ambientes + integrações |
-| [templates/secrets-access.md](./docs/planning/templates/secrets-access.md) | Owner / acesso / rotação (D-043) |
-| [templates/env-scoping.md](./docs/planning/templates/env-scoping.md) | Production / Preview / local (D-042) |
-| [templates/env-vars.md](./docs/planning/templates/env-vars.md) | Convenção + inventário (D-041) |
+| [SETUP-CREDENTIALS.md](./docs/SETUP-CREDENTIALS.md) | Runbook credenciais (sem secrets) |
+| [.env.example](./.env.example) | Template de env (raiz) |
+| [templates/env-example.md](./docs/planning/templates/env-example.md) | Ponteiro D-044 |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |

@@ -178,3 +178,7 @@ Ver **[`env-scoping.md`](./env-scoping.md)** — Production / Preview / `.env` l
 ## Config — secrets e acesso (D-043 / #164)
 
 Ver **[`secrets-access.md`](./secrets-access.md)** — owner tech; sócios sem API keys; rotação em vazamento; sem vault pago no v1.
+
+## Config — .env.example + SETUP (D-044 / #165)
+
+Ver **[`env-example.md`](./env-example.md)** — `.env.example` na raiz + [`SETUP-CREDENTIALS.md`](../../SETUP-CREDENTIALS.md) sem secrets.

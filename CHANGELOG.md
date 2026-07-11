@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Config: .env.example + SETUP-CREDENTIALS ([#165](https://github.com/fortegb/platform/issues/165))
+
+- **D-044:** `.env.example` canónico; SETUP reescrito sem secrets/Contentful; `.env` gitignored; docs only de estrutura (valores → #47).
+- Template `env-example.md` + Ambientes. Área E de config (#162–#165) fechada na definição.
+
 ### 2026-07-10 — Config: gestão de secrets + acesso ([#164](https://github.com/fortegb/platform/issues/164))
 
 - **D-043:** owner = ForteGB tech; sócios sem API keys; must-not em git/chat/docs; rotação em vazamento; sem vault pago no v1; docs only.
