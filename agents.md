@@ -377,10 +377,10 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 - Gates (`roteiro.md`): **G2** = build (Etapa 8) só após toda a Definição (1–7) fechada — `v0` a 100%. `STATUS.md` "próximo passo" = ponteiro legível; fonte de verdade = board (`Etapa` + `Depends on:`).
 
 ### Estágio atual
-- **Passo 4 (Arquitetura) — em curso.** A1–A4 feitos (D-025..D-029: ambientes, branches, Vercel, domínios); faltam #151–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #151 Supabase por ambiente. **Lacuna:** close skill ainda →`main` até #166. Ver **`roteiro.md`** + **`STATUS.md`**.
+- **Passo 4 (Arquitetura) — em curso.** A1–A4 + B1–B4 + C1–C3 + D1–D4 feitos (D-025..D-040); faltam #162–172, depois 5 e 6. **G2** gated até 4–6. **Próximo:** #162 inventário de env vars. **Lacuna:** close skill ainda →`main` até #166. Ver **`roteiro.md`** + **`STATUS.md`**.
 - **Passos 1–2 validados (D-028 / #177):** contexto + mapa de funcionalidades aceitos; jornadas/telas no passo 5 (#176).
-- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173), passos 1–2 (#177), A1–A4 + B1–B4 + C1–C3 CMS + D1–D3 integrações → **D-015..D-039**. Stack confirmada: serverless Vercel, **Sanity** + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
-- **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-039); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
+- **Grillings concluídos:** #145 (fundacional), #28 (CRM), #33 (home), roteiro (#173), passos 1–2 (#177), A1–A4 + B1–B4 + C1–C3 CMS + D1–D4 integrações → **D-015..D-040**. Stack confirmada: serverless Vercel, **Sanity** + **Supabase master** + HubSpot sync, Telegram-first. MVP em **v1/v2/v3** (D-018).
+- **Decisões técnicas:** fechadas em `decisions.md` (D-015..D-040); o que resta é `deferred` (tours v2, media v3, mobile) — reabre no grilling da fase.
 - **Board no modelo Roteiro (migração A feita, #174):** campo **`Etapa`** (9 passos, ex-`Phase`) + Milestone **`v0 — Definição`** + tipos nativos, aplicado a todos os itens. **Migração B** (Milestones v1/v2/v3) diferida ao passo 7. Platform docs (`mapa-roteiro.html` + relatório por Etapa) publicadas no GitHub Pages.
 - **Fluxo formal:** issue → OpenSpec change → close (`rbo-*` skills). OpenSpec **1:1** com sub-issues folha, não com epics.
 - **Ainda sem números de versão** — entradas no `CHANGELOG.md` por **data**, seção "Não versionado".

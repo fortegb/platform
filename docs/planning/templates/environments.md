@@ -82,7 +82,8 @@ integrationBranch: staging
 | Proteção Preview | senha compartilhada (sócios sem conta Vercel); um desbloqueio → deployment inteiro |
 | Auth da app | Camada separada (Supabase etc.), depois do gate da Vercel |
 
-**Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Bypass de webhooks em Preview → #161.
+**Provisionamento** do projeto e toggles exatos na UI Vercel = passo de setup posterior (este arquivo é o contrato). Bypass de webhooks em Preview → D-040 / [`integrations-webhooks.md`](./integrations-webhooks.md).
+
 
 ## Domínios (D-029 / #150)
 
@@ -165,3 +166,7 @@ Ver **[`integrations-map.md`](./integrations-map.md)** — inventário, classe d
 ## Integrações — alvos de teste seguros (D-039 / #160)
 
 Ver **[`integrations-safe-targets.md`](./integrations-safe-targets.md)** — must/must-not + slots TBD; secrets só em Vercel/`.env`.
+
+## Integrações — callbacks / webhooks (D-040 / #161)
+
+Ver **[`integrations-webhooks.md`](./integrations-webhooks.md)** — bases `fortegb.com` / `staging.fortegb.com`; Preview = bypass; local mock/túnel; path `/api/webhooks/<vendor>`.

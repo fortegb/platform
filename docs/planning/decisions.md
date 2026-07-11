@@ -311,7 +311,7 @@
   - **Proteção de Preview:** senha compartilhada na camada da Vercel; sócios **não** precisam de conta Vercel; um desbloqueio por browser (cookie) libera o deployment inteiro; auth da app (Supabase) continua por baixo, separada.
   - **Env vars:** scope Production → `APP_ENV=prod` + backends prod; scope Preview → `APP_ENV=staging` + backends classe-staging (compartilhado por todos os Previews).
 - **Rationale:** free-first / zero-ops; alinha ao mapa D-026; senha evita beta público sem forçar sócios no time Vercel.
-- **Riscos:** modo senha pode exigir plano Pro — confirmar no provisionamento; webhooks em Preview podem precisar bypass (#161).
+- **Riscos:** modo senha pode exigir plano Pro — confirmar no provisionamento; webhooks em Preview = bypass (D-040 / #161).
 - **Consequências:** template + página Ambientes; **este change não cria** o projeto Vercel nem domínios (#150).
 
 ---
@@ -482,3 +482,15 @@
   - **DoD:** docs only — D-039 + `templates/integrations-safe-targets.md`. Env names → #162; runbook → #164/#165.
 - **Rationale:** mesmo padrão Ambientes (contrato antes do setup); evita secrets no repo.
 - **Consequências:** template + Ambientes; preencher slots no setup.
+
+### D-040 — Integrações: callbacks/webhooks por ambiente (2026-07-10) — **#161**
+- **Status:** accepted
+- **Contexto:** D-027/D-029 deram hosts e senha em Preview; D-037..D-039 fecharam posturas/mapa/alvos. Faltava **onde** registrar URLs de callback sem usar Preview efêmero.
+- **Decisão:**
+  - **Bases canônicas:** `prod` → `https://fortegb.com`; staging estável → `https://staging.fortegb.com`; local → mock default, túnel opcional (#170).
+  - **Preview `feat/*`/`fix/*`:** **bypass** — nunca registrar `*.vercel.app`; senha Vercel permanece (D-027).
+  - **Sink único de teste:** sandboxes apontam só a `staging.fortegb.com`.
+  - **Path:** `/api/webhooks/<vendor>`; verificação de assinatura obrigatória em inbound real; secrets como D-039.
+  - **DoD:** docs only — D-040 + `templates/integrations-webhooks.md`. Env names → #162; túnel → #170; mocks → #172; handlers → build.
+- **Rationale:** Preview não é host estável nem atravessável por vendor atrás da senha; free-first aceita um sink de staging.
+- **Consequências:** template + Ambientes; UAT de inbound no staging estável.
