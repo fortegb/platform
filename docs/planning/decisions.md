@@ -579,3 +579,15 @@
   - **DoD:** D-047 + pointer em `environments.md` perto de D-031/D-032. Skills (`rbo-stage-change`/`rbo-close-change`) → ciclo companheiro em `ai-skills`, fora deste leaf.
 - **Rationale:** proporcional à escala solo/família; evita nova superfície de CI/secrets sem necessidade demonstrada; mesma lógica de "porta não fechada" de D-046.
 - **Consequências:** canon fechado; implementação dos passos de gatilho nas skills → `ai-skills` (ciclo separado).
+
+### D-048 — CI/CD: processo de promoção/release (staging→main) (2026-07-11) — **#169**
+- **Status:** accepted
+- **Contexto:** D-025 nomeou "hotfix" como exceção sancionada mas adiou o procedimento; D-026 separou close de promote mas não definiu o que acontece com múltiplas changes staged simultaneamente. Ambos fecham aqui.
+- **Decisão:**
+  - **Promoção uma change de cada vez.** Fechar uma change staged promove tudo que está em `staging` para `main` (propriedade do merge de `rbo-close-change`) — decisão explícita, não efeito colateral acidental. Na prática: não fechar uma change staged enquanto outra ainda está em validação na mesma branch.
+  - **Hotfix:** branch `hotfix/<nome>` a partir de `main`; `rbo-close-change` (v0.5, `ai-skills`) reconhece o prefixo e faz bypass do requisito de staging, merge direto para `main` — mesmo caminho que repos sem CI/CD já usam. Continua com tracking normal de issue + OpenSpec; só o passo de staging é pulado.
+  - **Sync obrigatório pós-hotfix:** merge `main`→`staging` imediatamente após o hotfix aterrar em `main` — não opcional, não depende de memória.
+  - **Registro:** trilha normal de issue/OpenSpec/commit basta. `decisions.md` regista o procedimento (este leaf), não cada uso individual.
+  - **DoD:** D-048 + pointer em `environments.md` perto de D-045/D-046/D-047. Suporte de skills já implementado em `ai-skills` v0.7.0 (`uniform-hotfix-exception`, ai-skills#10) — ciclo separado, não este leaf.
+- **Rationale:** promoção seletiva exigiria tooling nova sem necessidade demonstrada; sync pós-hotfix é barato agora e caro de descobrir em falta depois; registro por uso seria cerimônia desproporcional a um mecanismo de exceção.
+- **Consequências:** canon fechado; implementação de skills já entregue em ciclo separado (`ai-skills`).

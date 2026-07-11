@@ -154,6 +154,19 @@ visível). Skills → ciclo companheiro em `ai-skills`.
 
 ## Supabase local — runbook (D-032 / #153)
 
+## Promoção / hotfix (D-048 / #169)
+
+**Promoção:** uma change staged de cada vez — fechar uma promove tudo que
+está em `staging`, então não fechar enquanto outra ainda está em validação
+na mesma branch.
+
+**Hotfix:** branch `hotfix/<nome>` a partir de `main`; `rbo-close-change`
+(v0.5, `ai-skills`) reconhece o prefixo e faz bypass do requisito de
+staging — merge direto para `main`, tracking normal de issue + OpenSpec
+mantido. **Sync obrigatório:** `main`→`staging` imediatamente após o
+hotfix aterrar. **Registro:** trilha normal de issue/OpenSpec basta — sem
+entrada extra em `decisions.md` por uso individual.
+
 Ver **[`supabase-local.md`](./supabase-local.md)** — OrbStack preferido no macOS; ciclo `start` / `status` / Studio+keys / `db reset` / `stop`; falhas comuns. **Docs only** neste leaf (sem `supabase init` aqui).
 
 ## Seed / LGPD não-prod (D-033 / #154)

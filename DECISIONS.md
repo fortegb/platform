@@ -353,3 +353,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-047; `environments.md` pointer near D-031/D-032. Skill instruction changes (`rbo-stage-change`/`rbo-close-change`) → separate companion cycle in `ai-skills`, not this leaf.
+
+---
+
+## 2026-07-11 — CI/CD promotion/hotfix process (#169)
+
+### One-at-a-time promotion, hotfix bypass with mandatory staging sync
+
+**Decision:** Promotion happens one staged change at a time — closing a staged change promotes everything on `staging`, so don't close one while another is still mid-validation on the same branch (explicit decision, not accidental git-merge behavior). Hotfix: branch `hotfix/<name>` from `main`; `rbo-close-change` (v0.5, already shipped in `ai-skills`) recognizes the prefix and bypasses staging, merging straight to `main`. Mandatory `main`→`staging` sync immediately after a hotfix lands — not optional. Recording: normal issue/OpenSpec tracking is sufficient per use; `decisions.md` records the procedure once, not each invocation.
+
+**Rationale:** Selective promotion tooling has no demonstrated need; staging sync is cheap now, expensive to discover missing later; per-use logging would be ceremony disproportionate to an exception mechanism.
+
+**Implications:**
+- Canon: D-048; `environments.md` pointer near D-045/D-046/D-047. Skill support already delivered separately (`ai-skills` v0.7.0, `uniform-hotfix-exception`).
