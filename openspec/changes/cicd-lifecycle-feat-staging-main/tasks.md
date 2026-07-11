@@ -8,12 +8,12 @@
 
 ## 2. ai-skills companion (latest close baseline)
 
-- [ ] 2.1 Re-read current `rbo-close-change` on `ai-skills` `main` before editing; preserve unrelated steps (CHANGELOG required, pages:sync, ROADMAP)
-- [ ] 2.2 Add `rbo-stage-change` skill: `feat/*` → `integrationBranch`, no archive, issue open, fail if remote integration missing, no pages:sync
-- [ ] 2.3 Patch `rbo-close-change`: if lifecycle.yml present → archive then `integrationBranch`→default branch, fail-closed if not staged; if absent → unchanged
-- [ ] 2.4 Update `docs/rbo-change-lifecycle.md` (+ catalog/README pointers) for the two-step opted-in flow
+- [x] 2.1 Re-read current `rbo-close-change` on `ai-skills` `main` before editing; preserve unrelated steps (CHANGELOG required, pages:sync, ROADMAP)
+- [x] 2.2 Add `rbo-stage-change` skill: `feat/*` → `integrationBranch`, no archive, issue open, fail if remote integration missing, no pages:sync
+- [x] 2.3 Patch `rbo-close-change`: if lifecycle.yml present → archive then `integrationBranch`→default branch, fail-closed if not staged; if absent → unchanged
+- [x] 2.4 Update `docs/rbo-change-lifecycle.md` (+ catalog/README pointers) for the two-step opted-in flow
 
 ## 3. Close-out prep
 
 - [ ] 3.1 Human validation
-- [ ] 3.2 Archive → merge with `Closes #166` (via current close path until skills land; or stage+close once skills exist)
+- [ ] 3.2 Archive → merge with `Closes #166` (default close feat→main — `origin/staging` not required for this docs leaf; stage path needs #167)

@@ -18,8 +18,8 @@
 ✅ C1–C3 CMS → D-034..D-036
 ✅ D1–D4 Integrações → D-037..D-040
 ✅ E1–E4 Config → D-041..D-044
-→ EM CURSO: #166 CI/CD lifecycle (D-045 + `.rbo/lifecycle.yml` neste change)
-⚠️ Skills stage/close → issue companheira em ai-skills; remote `staging` → #167
+→ EM CURSO: #166 CI/CD lifecycle (D-045 + `.rbo/lifecycle.yml`) — skills shipped (ai-skills#5 / v0.6.0)
+⚠️ Remote `staging` ainda em falta → #167; até lá close deste leaf = feat→main (não stage)
 → PRÓXIMO após fecho #166: #167+
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -29,12 +29,13 @@
 ## Esta sessão (Cursor — 2026-07-10)
 
 - [x] #158–#165 integrações + config → PAC
-- [ ] **#166** — D-045 + lifecycle.yml (apply em curso); skills → ai-skills
+- [x] ai-skills #5 / v0.6.0 — `rbo-stage-change` + close 0.3
+- [ ] **#166** — D-045 + lifecycle.yml aplicados; aguarda validação / close
 
 ## Próxima sessão
 
-- [ ] Fechar #166 (plataforma) + ciclo skills em ai-skills
-- [ ] #167 — branch remota `staging` (se ainda em falta)
+- [ ] Fechar #166 (plataforma) com close default feat→main
+- [ ] #167 — branch remota `staging`
 - [ ] (paralelo) Brand assets (#2)
 
 ---
