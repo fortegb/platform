@@ -8,4 +8,4 @@
 ## 2. Close-out prep
 
 - [x] 2.1 Human validation of docs
-- [ ] 2.2 Archive → merge with `Closes #161` (via `rbo-close-change`)
+- [x] 2.2 Archive → merge with `Closes #161` (via `rbo-close-change`)
