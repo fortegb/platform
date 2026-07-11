@@ -248,3 +248,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-038; `templates/integrations-map.md`. Next: #160 concrete safe targets.
+
+## 2026-07-10 — Safe-target concrete contract (#160)
+
+### Must/must-not, TBD slots, secret placement
+
+**Decision:** Document concrete safe-target contract with TBD slots (no invented IDs). Per-vendor must/must-not (esp. Tuya ≠ sale-house lock). Secrets in Vercel Preview/Production scopes + local `.env` only — never git/HTML. Owner = ForteGB tech. Docs only; fill slots at setup. Env names → #162; credential runbook → #164/#165.
+
+**Rationale:** Spec-before-provision pattern; keeps secrets out of the repo.
+
+**Implications:**
+- Canon: D-039; `templates/integrations-safe-targets.md`. Next Architecture leaf: #161 webhooks.

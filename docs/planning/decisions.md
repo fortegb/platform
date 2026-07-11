@@ -471,3 +471,14 @@
   - **DoD:** docs only — D-038 + `templates/integrations-map.md`.
 - **Rationale:** #160 provisiona sem reabrir inventário; v2 classes documentadas cedo.
 - **Consequências:** template + Ambientes; IDs/contas → #160.
+
+### D-039 — Integrações: alvos de teste seguros (contrato + slots) (2026-07-10) — **#160**
+- **Status:** accepted
+- **Contexto:** D-038 definiu classes; faltava o contrato concreto (must/must-not, slots, onde vivem secrets) sem inventar IDs.
+- **Decisão:**
+  - **Spec agora, provisionar depois:** slots TBD; sem IDs inventados; sem criar contas neste leaf.
+  - **Must/must-not** por vendor (ex. Tuya ≠ fechadura de casa à venda; HubSpot ≠ portal de vendas ao vivo).
+  - **Secrets:** Vercel (Preview=staging-class; Production=prod) + `.env` local; nunca git/HTML. Labels não-secretos podem ir no template. Owner = ForteGB tech.
+  - **DoD:** docs only — D-039 + `templates/integrations-safe-targets.md`. Env names → #162; runbook → #164/#165.
+- **Rationale:** mesmo padrão Ambientes (contrato antes do setup); evita secrets no repo.
+- **Consequências:** template + Ambientes; preencher slots no setup.

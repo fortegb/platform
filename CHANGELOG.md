@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Integrações: alvos de teste seguros ([#160](https://github.com/fortegb/platform/issues/160))
+
+- **D-039:** contrato must/must-not + slots TBD; secrets só Vercel/`.env`; docs only (sem IDs inventados).
+- Template `integrations-safe-targets.md` + Ambientes.
+
 ### 2026-07-10 — Integrações: mapa por vendor ([#159](https://github.com/fortegb/platform/issues/159))
 
 - **D-038:** inventário HubSpot/Tuya/WA/Telegram/Calendar/QStash; classes de safe-target; fases MVP; docs only (alvos → #160).

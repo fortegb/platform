@@ -160,4 +160,8 @@ Ver **[`integrations-tiers.md`](./integrations-tiers.md)** — posturas mock / s
 
 ## Integrações — mapa por vendor (D-038 / #159)
 
-Ver **[`integrations-map.md`](./integrations-map.md)** — inventário, classe de safe-target e fase MVP. Alvos concretos → #160.
+Ver **[`integrations-map.md`](./integrations-map.md)** — inventário, classe de safe-target e fase MVP.
+
+## Integrações — alvos de teste seguros (D-039 / #160)
+
+Ver **[`integrations-safe-targets.md`](./integrations-safe-targets.md)** — must/must-not + slots TBD; secrets só em Vercel/`.env`.

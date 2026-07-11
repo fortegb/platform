@@ -34,7 +34,7 @@
   <main class="container doc-body">
     <p class="notice-inline">
       <strong>Isto é a especificação</strong> dos ambientes (jul/2026), não a criação deles na nuvem.
-      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-038.
+      Detalhe técnico: <code>docs/planning/templates/environments.md</code> · decisões D-025 a D-039.
     </p>
 
     <h2>Em uma frase</h2>
@@ -210,7 +210,7 @@
       <li><strong>Conteúdo (Sanity):</strong> um projeto com dois <em>datasets</em> — <code>staging</code> (local, staging e Previews) e <code>production</code> (site ao vivo). Publicar conteúdo novo no ar exige um passo explícito de promoção (não acontece só porque o site fez deploy). Detalhe técnico em <code>docs/planning/templates/environments.md</code>.</li>
       <li><strong>Modelo de conteúdo:</strong> tipos <code>house</code>, <code>blogPost</code>, e stubs de timeline/media kit. Marketing (textos, fotos, preço de exibição) fica no Sanity; status da casa, fechadura e QR ficam no Supabase — o site junta os dois pelo mesmo ID. Detalhe: <code>docs/planning/templates/cms-content-model.md</code>.</li>
       <li><strong>Integrações (3 posturas):</strong> em teste o sistema <em>não</em> fala com fechadura real nem manda WhatsApp pago a cliente. Local usa simulação (<em>mock</em>); staging/Previews usam contas/dispositivos de teste (<em>safe-target</em>); só produção usa alvos ao vivo (<em>prod-live</em>). Detalhe: <code>docs/planning/templates/integrations-tiers.md</code>.</li>
-      <li><strong>Mapa por integração:</strong> HubSpot, WhatsApp e fila (QStash) no lançamento; Telegram preparado cedo; fechadura Tuya e calendário na fase de visitas autoguiadas. Em teste: portal CRM de teste, número WhatsApp sandbox, fechadura de teste (nunca a da casa à venda), etc. Contas concretas vêm depois. Detalhe: <code>docs/planning/templates/integrations-map.md</code>.</li>
+      <li><strong>Mapa por integração:</strong> HubSpot, WhatsApp e fila (QStash) no lançamento; Telegram preparado cedo; fechadura Tuya e calendário na fase de visitas autoguiadas. Em teste: portal CRM de teste, número WhatsApp sandbox, fechadura de teste (nunca a da casa à venda), etc. Contas concretas: contrato e slots em <code>docs/planning/templates/integrations-safe-targets.md</code> (preencher no setup).</li>
     </ul>
 
     <h2>Correção urgente (hotfix)</h2>
@@ -222,7 +222,7 @@
 
     <h2>O que ainda não está neste documento</h2>
     <ul>
-      <li>Contas/IDs concretos de sandbox por integração (fechadura, WhatsApp, HubSpot…) — #160; o <em>mapa de classes</em> já está em <code>templates/integrations-map.md</code></li>
+      <li>Preencher slots de sandbox (IDs/números) quando as contas existirem — contrato em <code>templates/integrations-safe-targets.md</code></li>
       <li>O passo a passo completo de promoção staging → produção</li>
       <li>Criar de fato Vercel, DNS, projetos Supabase, secrets e o ficheiro de seed (isto é só a especificação)</li>
     </ul>

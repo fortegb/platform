@@ -1,7 +1,7 @@
 # Integrações — mapa por vendor (D-038 / #159)
 
 > Inventário + classe de safe-target + fase MVP. Posturas: [`integrations-tiers.md`](./integrations-tiers.md) (D-037).  
-> Alvos concretos (IDs, números, tokens) → **#160**. Docs only.
+> Alvos concretos: contrato + slots em [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039). Docs only.
 
 ## Inventário
 
@@ -23,4 +23,4 @@ Postura efetiva segue D-037 (`APP_ENV` + override). Este mapa só diz **para ond
 
 ## Relação
 
-- [`integrations-tiers.md`](./integrations-tiers.md) · Ambientes · #160 alvos · #161 webhooks · #172 mocks
+- [`integrations-tiers.md`](./integrations-tiers.md) · Ambientes · [`integrations-safe-targets.md`](./integrations-safe-targets.md) · #161 webhooks · #172 mocks
