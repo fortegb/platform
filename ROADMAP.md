@@ -52,6 +52,7 @@
 - [#159](https://github.com/fortegb/platform/issues/159) Integrações: mapa por integração → tier + alvo de teste
 - [#160](https://github.com/fortegb/platform/issues/160) Integrações: alvos de teste seguros (fechadura, WhatsApp sandbox, HubSpot teste)
 - [#161](https://github.com/fortegb/platform/issues/161) Integrações: callbacks/webhooks por ambiente (URLs públicas, túneis)
+- [#162](https://github.com/fortegb/platform/issues/162) Config: inventário + convenção de nomes de env vars
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
@@ -165,7 +166,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#162](https://github.com/fortegb/platform/issues/162) Config: inventário + convenção de nomes de env vars
 - [#163](https://github.com/fortegb/platform/issues/163) Config: modelo de scoping (Vercel Production/Preview + .env local)
 - [#164](https://github.com/fortegb/platform/issues/164) Config: gestão de secrets + política de acesso
 - [#165](https://github.com/fortegb/platform/issues/165) Config: .env.example + estrutura SETUP-CREDENTIALS
