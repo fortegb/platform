@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Integrações: callbacks/webhooks por ambiente ([#161](https://github.com/fortegb/platform/issues/161))
+
+- **D-040:** bases `fortegb.com` / `staging.fortegb.com`; Preview = bypass; local mock/túnel; path `/api/webhooks/<vendor>`; assinatura obrigatória; docs only.
+- Template `integrations-webhooks.md` + Ambientes.
+
 ### 2026-07-10 — Integrações: alvos de teste seguros ([#160](https://github.com/fortegb/platform/issues/160))
 
 - **D-039:** contrato must/must-not + slots TBD; secrets só Vercel/`.env`; docs only (sem IDs inventados).

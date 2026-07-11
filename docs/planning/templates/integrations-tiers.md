@@ -1,6 +1,6 @@
 # Integrações — modelo 3-tiers (D-037 / #158)
 
-> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → #161; mocks → #172; nomes de env → #162.
+> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → D-040; mocks → #172; nomes de env → #162.
 
 ## Posturas
 
@@ -34,4 +34,4 @@ Nomes exactos das env vars → #162.
 
 ## Relação
 
-- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`environments.md`](./environments.md) · Ambientes · #172 mocks locais
+- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`integrations-webhooks.md`](./integrations-webhooks.md) (D-040) · [`environments.md`](./environments.md) · Ambientes · #172 mocks locais

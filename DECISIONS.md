@@ -259,3 +259,14 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-039; `templates/integrations-safe-targets.md`. Next Architecture leaf: #161 webhooks.
+
+## 2026-07-10 — Webhooks / callbacks by environment (#161)
+
+### Stable hosts only; Preview bypass; staging sink
+
+**Decision:** Vendor-registered callbacks use only `https://fortegb.com` (prod) and `https://staging.fortegb.com` (stable staging). Preview `feat/*`/`fix/*` never get vendor webhook URLs (ephemeral + Vercel password). Local defaults to mock inbound; optional ephemeral tunnel for deliberate tests. Path convention `/api/webhooks/<vendor>`; signature verification required on real inbound. Docs only.
+
+**Rationale:** Preview cannot be a reliable public callback target; one staging sink fits free-first solo UAT.
+
+**Implications:**
+- Canon: D-040; `templates/integrations-webhooks.md`. Next Architecture leaf: #162 env var inventory. Tunnel tooling → #170; mocks → #172.
