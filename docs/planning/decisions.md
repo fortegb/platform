@@ -515,3 +515,16 @@
   - **DoD:** docs only — D-042 + `templates/env-scoping.md`. Acesso → #164; `.env.example` → #165.
 - **Rationale:** um Preview set evita proliferar secrets; alinha Supabase/Sanity já partilhados.
 - **Consequências:** template + Ambientes; provisionar valores no setup.
+
+### D-043 — Config: gestão de secrets + política de acesso (2026-07-10) — **#164**
+- **Status:** accepted
+- **Contexto:** D-039/D-041/D-042 fixaram placement e nomes; faltava **quem** acessa e **quando** rotacionar.
+- **Decisão:**
+  - **Owner:** ForteGB tech — único com escrita em env Production/Preview e API keys.
+  - **Sócios:** sem acesso a secrets; Preview via senha (D-027).
+  - **Must-not:** git, HTML público, issues/PRs/OpenSpec, chat com sócios, sync de `.env` em cloud pessoal.
+  - **Rotação:** em vazamento / device loss / vendor compromise; calendário periódico opcional.
+  - **Vault pago:** não obrigatório no v1.
+  - **DoD:** docs only — D-043 + `templates/secrets-access.md`. SETUP-CREDENTIALS / `.env.example` → #165.
+- **Rationale:** least privilege numa operação familiar solo-tech; evita vazamento por “partilhar para ajudar”.
+- **Consequências:** template + Ambientes; #165 referencia esta política sem colar valores.

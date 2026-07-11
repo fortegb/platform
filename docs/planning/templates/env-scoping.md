@@ -1,6 +1,6 @@
 # Config — modelo de scoping de env (D-042 / #163)
 
-> Onde vivem os **valores** das variáveis (D-041 = nomes). **Docs only** — sem colar secrets; sem editar UI Vercel neste leaf. Política de acesso → #164; `.env.example` → #165.
+> Onde vivem os **valores** das variáveis (D-041 = nomes). **Docs only** — sem colar secrets; sem editar UI Vercel neste leaf. Política de acesso → [`secrets-access.md`](./secrets-access.md) (D-043); `.env.example` → #165.
 
 ## Superfícies (obrigatórias)
 
@@ -37,4 +37,4 @@ Lista de nomes: [`env-vars.md`](./env-vars.md). Este arquivo só diz **em qual s
 
 ## Relação
 
-- [`env-vars.md`](./env-vars.md) (D-041) · [`environments.md`](./environments.md) · Ambientes · #164 acesso · #165 `.env.example`
+- [`env-vars.md`](./env-vars.md) (D-041) · [`environments.md`](./environments.md) · [`secrets-access.md`](./secrets-access.md) (D-043) · Ambientes · #165 `.env.example`

@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-10 — Config: gestão de secrets + acesso ([#164](https://github.com/fortegb/platform/issues/164))
+
+- **D-043:** owner = ForteGB tech; sócios sem API keys; must-not em git/chat/docs; rotação em vazamento; sem vault pago no v1; docs only.
+- Template `secrets-access.md` + Ambientes. `.env.example` → #165.
+
 ### 2026-07-10 — Config: scoping Production/Preview/local ([#163](https://github.com/fortegb/platform/issues/163))
 
 - **D-042:** três superfícies de valores; `APP_ENV` + classe de backends por scope; Development Vercel não obrigatório; docs only.

@@ -1,6 +1,6 @@
 # Config — inventário e convenção de env vars (D-041 / #162)
 
-> Nomes canônicos das variáveis de ambiente. **Docs only** — sem valores; scoping → [`env-scoping.md`](./env-scoping.md) (D-042); `.env.example` → #165; política de acesso → #164.
+> Nomes canônicos das variáveis de ambiente. **Docs only** — sem valores; scoping → [`env-scoping.md`](./env-scoping.md) (D-042); acesso → [`secrets-access.md`](./secrets-access.md) (D-043); `.env.example` → #165.
 
 ## Convenção
 
@@ -59,9 +59,9 @@
 | Folha | Escopo |
 |-------|--------|
 | [`env-scoping.md`](./env-scoping.md) (D-042 / #163) | Qual valor em Production vs Preview vs `.env` local |
-| [#164](https://github.com/fortegb/platform/issues/164) | Quem acessa secrets; rotação |
+| [`secrets-access.md`](./secrets-access.md) (D-043 / #164) | Quem acessa secrets; rotação |
 | [#165](https://github.com/fortegb/platform/issues/165) | `.env.example` + estrutura SETUP-CREDENTIALS |
 
 ## Relação
 
-- [`env-scoping.md`](./env-scoping.md) (D-042) · [`environments.md`](./environments.md) · Ambientes · #164–#165
+- [`env-scoping.md`](./env-scoping.md) (D-042) · [`secrets-access.md`](./secrets-access.md) (D-043) · [`environments.md`](./environments.md) · Ambientes · #165
