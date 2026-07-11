@@ -1,43 +1,44 @@
-# Handoff — fortegb/platform — 2026-07-06
+# Handoff — fortegb/platform — 2026-07-10
 
 ## Context
-Session established the project's governing spine and migrated the board + Platform docs onto it. Two changes shipped end-to-end (issue → OpenSpec → apply → archive → merge → close):
-- **#173 Roteiro do projeto** — the 9-step / 3-stage spine (Definição 1–7 · Execução 8 · Evolução 9) with gates G1/G2/G3, as the controlling structure (not a doc). Concept renamed **Método → Roteiro**; passo 7 **Quebra → Versionamento**; passo 8 = **Execução**.
-- **#174 Migração A** — applied the board model (D-024) and overhauled the Platform docs.
+Passo 4 (Arquitetura) epic #146. Cursor session closed the CI/CD **lifecycle contract** (#166 / D-045): stage vs close, opt-in `.rbo/lifecycle.yml`, and companion skills in `rbonon/ai-skills` (v0.6.0). Also fixed lifecycle.yml comments to en-US (code/config ≠ pt-BR).
 
 ## Control doc paths
-- Decisions: `docs/planning/decisions.md` (D-023 spine+gates, D-024 board model)
-- Spine canon: `docs/planning/roteiro.md`
-- Session compass: `STATUS.md` (refreshed this session)
-- Context/rules: `agents.md` §9 (refreshed)
-- Planning: `docs/planning/` · ROADMAP.md = generated mirror (do not hand-edit)
+- Decisions: `docs/planning/decisions.md` (+ root `DECISIONS.md` mirror entries)
+- Session compass: `STATUS.md`
+- Context: `agents.md` / `AGENTS.md`
+- Planning: `docs/planning/` (Ambientes, templates/environments.md, progress-focus.md)
+- This file: `docs/planning/handoff.md` (overwrite each handoff)
 
 ## Current state
-**Done:**
-- Board on the Roteiro model: field **`Etapa`** (9 passos, ex-`Phase` which was deleted), ~173 items retagged; Milestone **`v0 — Definição`** on all Etapa 1–7 items (~48%); native issue types (Epic/Feature/Task).
-- 2 new Definição epics: #175 (Contexto & Funcionalidades, Etapa 1–2), #176 (Jornadas re-validação, Etapa 5). #42 → `Depends on #146`.
-- Platform docs rebuilt and **live on GitHub Pages**: `mapa-fases.html` → `mapa-roteiro.html` (per-passo track, 3 estágio bands, G1/G2/G3 defined+shown, live v0 bar); report grouped by Etapa (`etapa-labels.mjs`, rewritten `generate-progress-report.mjs`).
-- Repo clean, on `main`, all pushed (`38dbf7c`); no active OpenSpec changes; merged feat branches deleted.
+**Done**
+- #158–#165 (integrações + config) earlier in session
+- #166 closed on `main` — D-045, `.rbo/lifecycle.yml`, environments/Ambientes/spec
+- ai-skills [#5](https://github.com/rbonon/ai-skills/issues/5) closed; release [v0.6.0](https://github.com/rbonon/ai-skills/releases/tag/v0.6.0) — `rbo-stage-change` + `rbo-close-change` 0.3
+- Language rule clarified: code/config comments **en-US**; UI/planning **pt-BR**
 
-**In progress:** Passo 4 — Arquitetura (Epic #146, 26 leaves #147–172). Passos 1–2 validation (#175) can run in parallel.
+**In progress**
+- Passo 4 remaining leaves #167–#172
 
-**Deferred:** Migração B (Milestones v1/v2/v3 + version assignment) → done at passo 7 (Versionamento). Build (passo 8: #48/#56) gated by G2 until Definição (passos 4–6) closes.
+**Blocked / watch**
+- `origin/staging` **does not exist** → `rbo-stage-change` correctly **fails** until created
+- Full `npm run pages:sync` may fail on `nuxt generate` 500; progress report scripts still work
+- New skill symlink: run `setup_ai` / `dotfiles_update` if `~/.claude/skills/rbo-stage-change` missing
 
-## Artifacts (reference only)
-- Board: https://github.com/orgs/fortegb/projects/1
-- Live docs: https://fortegb.github.io/platform/ · planning/mapa-roteiro.html
-- Archived changes: `openspec/changes/archive/2026-07-05-metodo-projeto-espinha/`, `.../2026-07-05-migracao-a-etapa-e-docs/`
-- Spec: `openspec/specs/project-method/spec.md`
-- Next leaf issue: https://github.com/fortegb/platform/issues/147 (A1 — Ambientes: tiers local/staging/prod)
+## Artifacts
+- Issue closed: https://github.com/fortegb/platform/issues/166
+- Config: `.rbo/lifecycle.yml` (`integrationBranch: staging`)
+- Decision: D-045 in `docs/planning/decisions.md`
+- Skills: `~/Documents/GitHub/rbonon/ai-skills` @ `v0.6.0`
+- Lifecycle docs: `docs/rbo-change-lifecycle.md` (in ai-skills)
+- Next issue: https://github.com/fortegb/platform/issues/167 — CI/CD: pipeline de deploy (branch→Vercel)
+- Related: #168 migrations on merge · #169 promote/release staging→main
 
 ## Next session
-Start **passo 4 / #146 leaf A1** — "Ambientes: definir tiers local/staging/prod" (#147) via `rbo-create-change`. (Optionally kick off #175 contexto validation in parallel.)
-
-## Machine setup on new computer
-- `git pull` (or fresh clone) is enough to continue the architecture work — no build/node_modules needed for the grilling.
-- `npm install` only if fresh clone (deps not committed) or to install git hooks / run the Nuxt app. `package.json` unchanged this session.
+**First action:** `rbo-catch-up` (L2) on `fortegb/platform`, then grill/propose **#167** (deploy pipeline branch→Vercel). While grilling, lock **when/how** remote `staging` is created (may be part of #167 or a sibling leaf — STATUS notes stage skill fails without it).
 
 ## Suggested skills
-- `rbo-catch-up` (session open — reads STATUS.md)
-- `rbo-create-change` (start #147)
-- `rbo-grilling` (passo 4 area A grilling)
+- `rbo-catch-up` (session open)
+- `rbo-grilling` (before locking #167)
+- `rbo-create-change` → propose/apply for #167
+- After validation: default `rbo-close-change` until `origin/staging` exists; then stage→close per D-045

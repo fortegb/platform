@@ -51,5 +51,6 @@
 | [.env.example](./.env.example) | Template de env (raiz) |
 | [templates/env-example.md](./docs/planning/templates/env-example.md) | Ponteiro D-044 |
 | [`.rbo/lifecycle.yml`](./.rbo/lifecycle.yml) | Opt-in stage/close (D-045) |
+| [handoff.md](./docs/planning/handoff.md) | Último handoff de sessão (para o próximo agente) |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |
 | [ai-skills v0.6.0](https://github.com/rbonon/ai-skills/releases/tag/v0.6.0) | stage + close skills |
