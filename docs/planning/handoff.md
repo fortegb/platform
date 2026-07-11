@@ -1,7 +1,13 @@
 # Handoff — fortegb/platform — 2026-07-10
 
+**Updated:** 2026-07-10T23:40:00-03:00
+**Valid until:** 2026-07-12T23:40:00-03:00
+**Status:** active
+
+> Advisory only. Board + STATUS.md win. Catch-up MUST ignore this file if Status is not `active`, or if now is after Valid until.
+
 ## Context
-Passo 4 (Arquitetura) epic #146. Cursor session closed the CI/CD **lifecycle contract** (#166 / D-045): stage vs close, opt-in `.rbo/lifecycle.yml`, and companion skills in `rbonon/ai-skills` (v0.6.0). Also fixed lifecycle.yml comments to en-US (code/config ≠ pt-BR).
+Passo 4 (Arquitetura) epic #146. Cursor session closed the CI/CD **lifecycle contract** (#166 / D-045): stage vs close, opt-in `.rbo/lifecycle.yml`, and companion skills in `rbonon/ai-skills` (v0.6.0). Also fixed lifecycle.yml comments to en-US (code/config ≠ pt-BR). Skills `rbo-handoff` 0.3 + `rbo-catch-up` 0.2 add repo handoff TTL rules (ai-skills #6).
 
 ## Control doc paths
 - Decisions: `docs/planning/decisions.md` (+ root `DECISIONS.md` mirror entries)
