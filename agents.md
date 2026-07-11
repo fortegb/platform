@@ -413,10 +413,14 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 
 - Conteúdo: índice, planning HTML, mocks estáticos, relatório de progresso.
 - Footer **Atualizado … · hash · Board GitHub** via **`docs/assets/build-info.json`** + **`docs/assets/portal-build.js`**.
-- **Três camadas (automático):**
+- **Duas camadas (automático) — #178:**
   1. **Git hook** — após commits em `docs/`, commit separado `chore: refresh portal build-info` (hash aponta para o commit anterior com as alterações).
   2. **`npm install`** — `prepare` corre `hooks:install` (skip em CI).
-  3. **GitHub Action** — backup em push a `main` se o hook não correr.
+  - Sem GitHub Action de backup (removida em #178 — corria de forma
+    assíncrona após pushes e colidia com o hook em sessões de commits
+    rápidos, causando merge conflicts triviais mas repetidos. Gap aceito:
+    push de um clone sem `npm install` corrido fica sem essa rede de
+    segurança até o próximo commit de `docs/` de um clone configurado).
 - Regeneração: **`node scripts/generate-progress-report.mjs`** (progresso **+** `mapa-roteiro.html` live do board), **`node scripts/generate-portal-assets.mjs`**, ou **`npm run pages:sync`** (completo).
 - **Close-out:** `rbo-close-change` corre **`npm run pages:sync`** depois do board `Done`, para o relatório sócios refletir a issue fechada (commit + push em `main`).
 - Agentes: commit/push normal em mudanças em Platform docs — **não** correr `pages:build-info` à mão.
