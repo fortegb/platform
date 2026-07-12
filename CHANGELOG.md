@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-12 — Arquitetura: admin — resolução do conflito build-vs-buy ([#184](https://github.com/fortegb/platform/issues/184))
+
+- **D-056:** reframe — "admin" conflava edição de conteúdo (dashboard do vendor, regra original de `platform-architecture` mantida) com UI de fluxo operacional (categoria nova, nunca endereçada pela regra). Teste de três partes para justificar UI custom: workflow multi-etapa com efeitos colaterais; renderização específica de domínio; segurança para staff não-técnico.
+- Reclassificação: aprovação de corretor + fila de exceção de verificação (D-053) → UI custom; rotação de código de emergência Tuya (D-052) → mantido no Supabase Studio.
+- Namespace único `/staff/*`, gateado via hierarquia RBAC de D-055 — sem árvore `/admin/*` separada.
+- Emenda direta ao requirement "Build-vs-buy default" em `platform-architecture` (delta `MODIFIED`), não nova capability.
+- Novo `templates/admin-build-vs-buy.md`. **Fecha as 5 leaves do epic #179 (Arquitetura de domínio).**
+
 ### 2026-07-12 — Arquitetura: RBAC — modelo de papéis e permissões ([#183](https://github.com/fortegb/platform/issues/183))
 
 - **D-055:** enum único de papel por usuário (`cliente`/`corretor`/`staff`/`admin`) — sem multi-atribuição. "Digital" e "Sócio/investidor" são fatos organizacionais, não papéis de RBAC (não gateiam capacidade nenhuma).
