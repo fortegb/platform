@@ -24,6 +24,43 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 ---
 
+## Index
+
+> Append-only, like the rest of this file — one line per entry below, added
+> when the entry is added, never edited. Browse here before grepping when
+> you don't know the right keyword yet.
+
+- D-015–D-018 — Grilling 0: build vs buy, content placement, system shape, MVP boundary (#145)
+- D-025 — Environment tiers (#147)
+- D-026 — Branch → environment map (#148)
+- D-027 — Vercel topology (#149)
+- D-028 — Passos 1–2 validated (#177)
+- D-029 — Domains per environment (#150)
+- D-030 — Supabase projects per environment (#151)
+- D-031 — Supabase CLI migration strategy (#152)
+- D-032 — Local Supabase runbook (#153)
+- D-033 — Seed / test data + LGPD non-prod (#154)
+- D-034 — CMS vendor: Sanity (#155)
+- D-035 — Sanity datasets per environment (#156)
+- D-036 — CMS content model (#157)
+- D-037 — Integration 3-tier model (#158)
+- D-038 — Integration map per vendor (#159)
+- D-039 — Safe-target concrete contract (#160)
+- D-040 — Webhooks / callbacks by environment (#161)
+- D-041 — Env var inventory + naming (#162)
+- D-042 — Env value scoping (#163)
+- D-043 — Secrets access policy (#164)
+- D-044 — .env.example + SETUP-CREDENTIALS structure (#165)
+- D-045 — CI/CD stage vs close (#166)
+- D-046 — CI/CD deploy pipeline branch→Vercel (#167)
+- D-047 — CI/CD migrations on merge (#168)
+- D-048 — CI/CD promotion/hotfix process (#169)
+- D-049 — Dev local toolchain (#170)
+- D-050 — Dev local bootstrap runbook (#171)
+- D-051 — Dev local mock strategy (#172)
+
+---
+
 ## 2026-07-03 — Grilling 0: foundational architecture stances (#145)
 
 > Detalhe (ADR-lite, pt-BR): `docs/planning/decisions.md` D-015–D-018. Avaliação de runtime: `docs/planning/explore/runtime-serverless-vs-persistent.md`.
