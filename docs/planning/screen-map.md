@@ -41,7 +41,10 @@
 ## Corretor
 
 > Onboarding (conta) e Contrato por casa ✅ **re-validados** —
-> [#189](https://github.com/fortegb/platform/issues/189), D-062. Gov.br
+> [#189](https://github.com/fortegb/platform/issues/189), D-062 (CPF do
+> próprio corretor — lacuna aberta em [#196](https://github.com/fortegb/platform/issues/196),
+> ainda não fechada). Registrar cliente ✅ **re-validado** —
+> [#190](https://github.com/fortegb/platform/issues/190), D-063. Gov.br
 > permanece manual (não automatizado, decisão de MVP já fechada).
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
@@ -49,7 +52,7 @@
 | Login | `/login` | simulado | 1 | [#48](https://github.com/fortegb/platform/issues/48) Identidade |
 | Painel | `/corretor/dashboard` | simulado | 2 | [#86](https://github.com/fortegb/platform/issues/86) Portal corretor |
 | Casas / reclamar | `/corretor/casas` | simulado | 2 | #86 |
-| Clientes lista / novo | `/corretor/clientes`, `/corretor/clientes/novo` | simulado | 2 | #86 |
+| Clientes lista / novo | `/corretor/clientes`, `/corretor/clientes/novo` | simulado — validado #190 | 2 | #86 |
 | Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo — validado #189 | 2 | #86 |
 | Contrato por casa (minuta + upload manual) | `/corretor/casas/[id]/contrato` | novo — validado #189 | 2 | #86 |
 | Bot WhatsApp (registro cliente) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
