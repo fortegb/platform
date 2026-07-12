@@ -67,6 +67,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-058 — Jornada: scheduled-visit journey corrected against Tuya/identity architecture (#186)
 - D-059 — Jornada: instant/QR visit journey — phone-OTP reuse gate, reopens D-053 (#187)
 - D-060 — Jornada: staff verification-exception queue — reject notifies visitor, Telegram staff alert (#192)
+- D-061 — Jornada: post-visit reengagement — magic-link self-service cancel/reschedule, new cancelled status, follow-up consent split (#188)
 
 ---
 
@@ -589,3 +590,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `#80`/`#86`/`#50` (Execução) implement the screen, endpoints, and RLS without reopening architecture.
 - `#193` (staff daily-ops) can assume the exception queue has its own dedicated screen already, not something it needs to rebuild.
 - First Passo 5 leaf to build a fully greenfield screen — no pre-architecture stub existed to correct, unlike `#185`/`#186`/`#187`.
+
+---
+
+## 2026-07-12 — Jornada: post-visit reengagement (#188)
+
+### Self-service magic link over WhatsApp-mediated cancellation; new cancelled status; consent-only scope for follow-up
+
+**Decision:** Both visit journeys (`#186`, `#187`) end at "credential delivered" — nothing existed after that: no reminder, no cancel/reschedule path, no follow-up, matching a gap `screen-map.md` had already flagged and `#141` (Execução) had left as open questions (channel, timing, consent). This leaf resolves all three sub-flows. A pre-visit reminder fires ~24h ahead, transactional per `D-054` (already names "lembretes" explicitly). Cancellation/rescheduling is **self-service via a magic link**: initially considered reusing the WhatsApp-contact-staff escape-hatch pattern already established in `#186`/`#187`/`#192` (zero new UI), but explicitly rejected in favor of a unique, high-entropy token attached to the visit and delivered on the existing confirmation and reminder messages (no new send trigger) — the visitor resolves it themselves, no back-and-forth, no staff time spent per request, however rare. Opening the link shows the visit and Cancel/Reschedule actions with no login. Cancelling sets a **new terminal `visit.status: cancelled`**, kept distinct from `declined` (which means "failed verification," a security signal that shouldn't be diluted by an unrelated operational event) — additive to the visit lifecycle, not a modification to `visit-identity-verification`, since that capability never claimed to enumerate every terminal status. Cancelling a visit that already reached `access_provisioned` calls the `tuya-access` adapter's `revoke(credential)` — named in `D-052`'s interface but never given a concrete caller until now. Rescheduling cancels the current visit and re-enters the standard `#186` booking flow pre-filled, rather than editing in place. A cancel or reschedule also queues a Telegram alert to staff (same internal-notification shape as `#192`). Post-visit follow-up messaging is classified by timing using `D-054`'s existing transactional/marketing split: same-day/+24h check-ins need no extra consent, +3 days or promotional content requires explicit opt-in, off by default — resolving `#141`'s open consent question with the framework already in place, not a new one. This leaf's scope is strictly the **consent rule**, not the nurture sequence itself (content/cadence/tooling stays Execução or v2+); no new channel is introduced — email remains deferred (`D-020`) and outside `D-054`'s WhatsApp/Telegram scope.
+
+**Rationale:** Self-service prioritizes zero ongoing staff workload over lower build cost — proportional to avoiding a recurring manual step compounding over time versus a one-time no-auth page. Keeping `cancelled` distinct from `declined` preserves a security-relevant signal instead of diluting it with an unrelated voluntary event. Resolving follow-up consent through `D-054`'s existing framework avoids inventing a second consent policy for the same underlying transactional-vs-promotional distinction already solved once.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-061; `templates/jornada-pos-visita-reengajamento.md`; new `journey-post-visit-reengagement` capability (`openspec/specs/`).
+- `#141`/`#81` (Execução) implement without reopening architecture.
+- First real caller of `revoke()` sets the pattern any future cancellation-adjacent work should follow.
+- `jornadas-plataforma.md` §3.2 and `screen-map.md` move from draft to validated for this journey.

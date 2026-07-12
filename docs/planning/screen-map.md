@@ -13,9 +13,11 @@
 > visita ✅ **re-validada** — [#186](https://github.com/fortegb/platform/issues/186),
 > D-058. Visita QR ✅ **re-validada** —
 > [#187](https://github.com/fortegb/platform/issues/187), D-059 (reabre
-> D-053 para o mecanismo de renovação limitada). Fronteira compartilhada:
-> staff-review = #192 (ainda rascunho); condomínio/portaria = #140 (já
-> deferido a Execução). Sobre segue rascunho (fora do escopo de #185).
+> D-053 para o mecanismo de renovação limitada). Gerenciar visita
+> (cancelar/remarcar) ✅ **nova, validada** —
+> [#188](https://github.com/fortegb/platform/issues/188), D-061. Fronteira
+> compartilhada: staff-review = #192 (fechada); condomínio/portaria = #140
+> (já deferido a Execução). Sobre segue rascunho (fora do escopo de #185).
 > Demais linhas seguem `RASCUNHO` até suas leaves de Passo 5 fecharem.
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
@@ -29,6 +31,7 @@
 | Privacidade, Termos | `/privacidade`, `/termos` | simulado | 1 | #56 |
 | Agendar visita | `/visita/agendar/[houseId]` | simulado — validado #186 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
 | Visita QR (placa) | `/visita/qr/[code]` | simulado — validado #187 | 2 | #81 |
+| Gerenciar visita (cancelar/remarcar, sem login) | `/visita/gerenciar/[token]` | novo — validado #188 | 2 | #81 |
 | Aviso condomínio/portaria (Q-017) | TBD inline ou modal no fluxo visita | novo | 2 | [#140](https://github.com/fortegb/platform/issues/140) |
 
 **Fora MVP v1:** portal cliente logado (jornadas §8).
@@ -89,7 +92,7 @@
 | UI admin vs staff | Rotas separadas `/staff/*` vs `/admin/*` |
 | Condomínio / portaria | [#140](https://github.com/fortegb/platform/issues/140); tela TBD no fluxo visita |
 | Aprovação manual ID | `/staff/visitas/excecoes` · [#80](https://github.com/fortegb/platform/issues/80) |
-| Follow-up pós-visita | [#141](https://github.com/fortegb/platform/issues/141) · sem tela MVP (automação/back-end) |
+| Follow-up pós-visita | ✅ Regra de consentimento validada — [#188](https://github.com/fortegb/platform/issues/188), D-061 (mesmo dia/+24h transacional, +3 dias marketing/opt-in); conteúdo/cadência real → [#141](https://github.com/fortegb/platform/issues/141) (Execução, sem tela MVP) |
 | Bot WhatsApp corretor | [#142](https://github.com/fortegb/platform/issues/142) · canal externo |
 | Portal cliente logado | Fora MVP v1 |
 | Integrações | Back-end; sem tela de usuário (jornadas §7) |
