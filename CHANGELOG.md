@@ -7,6 +7,10 @@
 
 ## Não versionado
 
+### 2026-07-11 — Dev local: runbook de bootstrap ([#171](https://github.com/fortegb/platform/issues/171))
+
+- **D-050:** novo `templates/dev-local-bootstrap.md` — checklist ordenado clone→dev funcionando (toolchain D-049 → Supabase local D-032 → env vars D-044). Só local; staging/prod ficam para Execução (#42/#43/#46).
+
 ### 2026-07-11 — Dev local: toolchain ([#170](https://github.com/fortegb/platform/issues/170))
 
 - **D-049:** inventário de quatro ferramentas (Node, Docker/OrbStack, Supabase CLI, ngrok); Node com pin duplo (`.nvmrc` + `engines`); sem pin nas outras três (auto-atualização própria); ngrok confirmado opcional/só-túnel (D-040).

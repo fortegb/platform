@@ -379,3 +379,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-049; `environments.md` pointer near D-030–D-032; new `templates/dev-local-toolchain.md`. Actual install/bootstrap → #171.
+
+---
+
+## 2026-07-11 — Dev local bootstrap runbook (#171)
+
+### Local-only, ordered checklist consolidating already-decided pieces
+
+**Decision:** New `templates/dev-local-bootstrap.md` — ordered runbook: clone → toolchain (D-049) → Supabase local (D-032) → env vars (D-044) → `npm run dev` working. Local only — staging/prod bootstrap stays with #42/#43/#46 (Execução), not this leaf. Docs only, no commands executed by this leaf.
+
+**Rationale:** All the pieces already exist as decisions; this leaf only orders and consolidates them. Including staging/prod would duplicate #42/#43/#46 and blur the Definição/Execução split.
+
+**Implications:**
+- Canon: D-050; new `templates/dev-local-bootstrap.md`; `environments.md` pointer.
