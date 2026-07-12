@@ -1,6 +1,6 @@
 # Deliverables — mapa produto ↔ plano
 
-> Visão de negócio (confirmada) mapeada para epics. **Passos 1–2 validados (D-028).** Decisões técnicas de produto/stack fechadas (D-015..D-022); infra/ambientes fechada ([#146](https://github.com/fortegb/platform/issues/146)). O que resta é `deferred` (tours/media/mobile v2/v3) ou arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin).  
+> Visão de negócio (confirmada) mapeada para epics. **Passos 1–2 validados (D-028).** Decisões técnicas de produto/stack fechadas (D-015..D-022); infra/ambientes fechada ([#146](https://github.com/fortegb/platform/issues/146)); arquitetura de domínio fechada ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin). O que resta é `deferred` (tours/media/mobile v2/v3) ou o passo 5 (Jornadas, #176).  
 > Stack **confirmada** em `platform-vision.md`. Jornadas/telas → passo 5 (#176).
 
 ---
@@ -109,4 +109,4 @@
 - [x] `ROADMAP.md` gerado
 - [x] Passos 1–2 validados (D-028 / [#177](https://github.com/fortegb/platform/issues/177))
 - [x] Passo 4a Infra & ambientes ([#146](https://github.com/fortegb/platform/issues/146)) — fechado
-- [ ] Passo 4b Arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179)) — em curso
+- [x] Passo 4b Arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179)) — fechado

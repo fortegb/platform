@@ -2,7 +2,7 @@
 
 > **Para quem:** sócios, staff e corretores — visão do produto **quando estiver concluído**.  
 > **Não é** cronograma de execução (ver [`phases.md`](./phases.md) e [`progresso-socios.html`](./progresso-socios.html)).  
-> **Atualizado:** 2026-07-11 · **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas) após o passo 4 (Arquitetura) fechar. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) concluída; arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin) ainda em curso — fluxos e telas aqui podem mudar até #179 fechar. Ver [`roteiro.md`](./roteiro.md).
+> **Atualizado:** 2026-07-12 · **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas), agora que o passo 4 (Arquitetura) fechou. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) e arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin) ambas concluídas — fluxos e telas aqui serão re-validados no passo 5. Ver [`roteiro.md`](./roteiro.md).
 
 ---
 
@@ -21,7 +21,7 @@ A ForteGB opera como **construtora-vendedora de casas** em Campinas-SP. A plataf
 | **Media kit** | Por casa: placa com QR, posters internos, narrativa de obra, kit para corretor |
 | **Mobile** | Tudo utilizável no celular (responsive; app nativo só se decidirmos depois) |
 
-Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-vision.md`](./platform-vision.md) — **confirmadas** (D-015..D-022); a arquitetura de infra/ambientes/integrações foi definida no Epic [#146](https://github.com/fortegb/platform/issues/146) (fechado). Mecanismo/viabilidade de visitas, mensageria, RBAC e admin → Epic [#179](https://github.com/fortegb/platform/issues/179).
+Stack e integrações (Tuya, HubSpot, WhatsApp, etc.) estão em [`platform-vision.md`](./platform-vision.md) — **confirmadas** (D-015..D-022); a arquitetura de infra/ambientes/integrações foi definida no Epic [#146](https://github.com/fortegb/platform/issues/146) (fechado). Mecanismo/viabilidade de visitas, mensageria, RBAC e admin definidos no Epic [#179](https://github.com/fortegb/platform/issues/179) (fechado, D-052..D-056).
 
 ---
 
@@ -262,7 +262,7 @@ Resumo por área — detalhe técnico em [`modules.md`](./modules.md).
 | Corretor | Dashboard UI | HubSpot, Gov.br, contratos |
 | CRM | Stubs | Pipeline, sync, regras comissão |
 | Media kit | — | Design + templates + QR |
-| Board / planning | Epics, docs, portal sócios | Passo 4 (#146 fechado, #179 em curso) → depois 5–7; G2 antes do build |
+| Board / planning | Epics, docs, portal sócios | Passo 4 fechado (#146, #179) → passo 5 em curso; G2 antes do build (passos 5–7) |
 
 Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 
@@ -275,11 +275,11 @@ Mocks online: [portal sócios](../index.html) → **Explorar o site**.
 | [`deliverables.md`](./deliverables.md) | Mapa negócio ↔ epics |
 | [`modules.md`](./modules.md) | Módulos técnicos |
 | [`phases.md`](./phases.md) | Sequência Phase 0–4 |
-| [`architecture.md`](./architecture.md) | ADR e fluxos (produto/stack Done; infra #146 fechada; domínio em #179) |
+| [`architecture.md`](./architecture.md) | ADR e fluxos (produto/stack Done; infra #146 fechada; domínio #179 fechada) |
 | [`apresentacao-socios.html`](./apresentacao-socios.html) | Modelo de negócio e governança |
 | [`progresso-socios.html`](./progresso-socios.html) | Progresso atual (issues) |
 | [`mapa-roteiro.html`](./mapa-roteiro.html) | Visão por fases e módulos |
 
 ---
 
-*Este documento é rascunho do **passo 5** — re-validar jornadas/telas após o passo 4 fechar (#146 fechado; #179 em curso), com sócios e corretores. Produto/stack Architecture (#1→#38) já fechou; não bloqueia este rascunho.*
+*Este documento é rascunho do **passo 5** — re-validar jornadas/telas agora que o passo 4 fechou (#146 e #179 ambos fechados), com sócios e corretores. Produto/stack Architecture (#1→#38) já fechou; não bloqueia este rascunho.*

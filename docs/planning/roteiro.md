@@ -37,7 +37,7 @@ Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o
 ## Os portões (gates)
 
 - **G1 — sequência da Definição:** o passo N não abre até N−1 fechar (grilling resolveu suas open-questions **e** produziu o artefato). **Paralelos declarados são exceção** — ex.: Contexto (1–2) ∥ Arquitetura (#146); Brand assets ∥ Design (6).
-- **G2 — portão do build:** nenhum item de **Execução (passo 8)** entra em *In Progress* antes de **toda a Definição (passos 1–7) fechada**. Passos 1–3 já concluídos; o **gate ativo é 4–6**; o passo 7 (quebra em versões) é o corte final que gera o backlog de build. Sinal visível: **Milestone `v0 — Definição` a 100%**.
+- **G2 — portão do build:** nenhum item de **Execução (passo 8)** entra em *In Progress* antes de **toda a Definição (passos 1–7) fechada**. Passos 1–4 já concluídos; o **gate ativo é 5–6**; o passo 7 (quebra em versões) é o corte final que gera o backlog de build. Sinal visível: **Milestone `v0 — Definição` a 100%**.
 - **G3 — portão de versão:** a versão N+1 não começa até a versão N passar seu **readiness gate** (UAT/perf/LGPD antes de promover a prod).
 
 **Enforcement (honesto):** o board do GitHub **não bloqueia** transições de Status. Os gates controlam **estado visível** (campo `Etapa` + barra do Milestone `v0`) e o ponto de entrada `rbo-create-change` (checa o gate antes de ramificar); `STATUS.md` deriva o "próximo passo". Um **hard-gate por GitHub Action** fica **diferido** — só se houver evidência de pulo de gate (dev solo: o único ator é o Ricardo, e o v0 torna um pulo impossível de não ver).
@@ -68,7 +68,7 @@ Ver [D-024](./decisions.md). Resumo:
 
 ## Estado atual e o que falta implementar
 
-- **Passo atual: 4 (Arquitetura)** — Epic **#146** (infra/ambientes, 26 folhas) **fechado**. Revisão pós-#146 encontrou lacunas de arquitetura de domínio; novo Epic **#179** (visitas, mensageria, RBAC, admin) em curso. Passos 1–2 rodam **em paralelo** (validação de contexto/funcionalidades).
+- **Passo 4 (Arquitetura) — epics principais fechados** — Epic **#146** (infra/ambientes, 26 folhas) e Epic **#179** (arquitetura de domínio: visitas, mensageria, RBAC, admin, 5 folhas) ambos **fechados**. O relatório gerado (`mapa-roteiro.html`) ainda computa passo 4 como "current" porque #29/#30/#31/#140 (grilling `deferred` v2/v3 — visitas condomínio, media kit, mobile) seguem com `Etapa = 4 Arquitetura`, mesmo já re-parented sob epics de Execução (#81/#98/#130); reabrem "no grilling da fase" (D-018), não bloqueiam o passo 5. Passos 1–2 rodaram **em paralelo** (validação de contexto/funcionalidades).
 - **Este roteiro é definição; não migra o board.** A criação efetiva de `Etapa`/Milestones/tipos e o retag dos itens são changes separados:
   - **Migração A** (próxima): renomear `Phase → Etapa` (9 opções) + retag · criar `v0 Definição` · backfill de tipos nativos · criar os 2 epics novos (contexto+funcionalidades, jornadas re-validação) · **+ overhaul do relatório** (`mapa-roteiro.html` horizontal por passo + `progresso-socios.html`).
   - **Migração B** (perto do passo 7): Milestones `v1/v2/v3` + atribuir epics de Execução.
