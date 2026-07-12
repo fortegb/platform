@@ -27,7 +27,8 @@
 ✅ #172 Dev local: estratégia de mock de integrações → D-051 (happy-path + override booleano por vendor, sem tipos parametrizados)
 🎉 **#146 (Epic: Arquitetura da solução & ambientes) — fechado.** Todos os 26 sub-issues concluídos.
 🔍 **Revisão pós-#146 encontrou 5 lacunas de arquitetura de domínio** nunca grilled — novo epic **#179** (Arquitetura de domínio — visitas, mensageria, RBAC, admin), separado de #146 (que cobriu só infra/ambientes).
-→ PRÓXIMO: #181 — Tuya (viabilidade da API + modo de falha) — maior risco, grillar primeiro. Depois: #180 visitas, #182 mensageria, #183 RBAC, #184 admin. Todos alimentam Passo 5 (Jornadas, #176) antes de detalhar fluxos.
+✅ **#181 Tuya: viabilidade da API + modo de falha** → D-052 (leaf de maior risco de #179, fechado primeiro). `local-pool` e `tuya-live` são dois mecanismos co-iguais por trás de um adapter seam (D-017) — nenhum adiado; `local-pool` é só o default no lançamento (não espera confirmação da Cloud API); spike da Tuya Cloud API é escopo ativo de curto prazo em #77/#135, não condicional a volume. Resolve Q-006 (fallback) e um conflito real com D-039 (fechadura instalada, numa casa à venda, agora prod-only).
+→ PRÓXIMO: #180 visitas, #182 mensageria, #183 RBAC, #184 admin (#184 tem conflito real a resolver: "sem admin bespoke" vs. necessidade real de telas admin). Todos alimentam Passo 5 (Jornadas, #176) antes de detalhar fluxos.
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -54,11 +55,11 @@
 - [x] **#171** — Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
 - [x] **#172** — Dev local: estratégia de mock de integrações → D-051 (happy-path + override booleano por vendor)
 - [x] Epic **#146** — todos os 26 sub-issues fechados (última: #172)
+- [x] **#181** — Tuya: viabilidade da API + modo de falha → D-052 (leaf de maior risco de #179; `local-pool` + `tuya-live` co-iguais via adapter seam; resolve Q-006 e conflito com D-039)
 
 ## Próxima sessão
 
-- [ ] Fechar epic **#146** (board Done) — decisão do usuário, não autônomo
-- [ ] Avaliar próximo passo: Passo 5 (Jornadas, epic #176) vs. #29–31/#140 (v2/v3 deferred, já em #81/#98/#130)
+- [ ] Continuar #179 (Arquitetura de domínio): #180 visitas, #182 mensageria, #183 RBAC, #184 admin (#184 tem conflito real "sem admin bespoke" vs. necessidade real — resolver na grilling, não silenciar)
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

@@ -61,8 +61,9 @@
 
 ### Q-006 — MVP visitas: agendada, instantânea, fallback
 - **Module:** tours
-- **Status:** **deferred** → v2 (tours) — grilling da fase (D-018)
+- **Status:** **resolved (parcial)** → D-052 (#181) — fallback Tuya resolvido; ordem agendada/instantânea permanece em #180 (jornada)
 - **Question:** Ambos no MVP? Ordem? Fallback se Tuya falhar (senha manual, staff)?
+- **Resolved (2026-07-11):** Fallback = código de emergência estático por casa (local, keypad) + reagendamento — nunca deslocamento de staff. `local-pool` e `tuya-live` são dois mecanismos de primeira classe por trás do adapter seam, ambos parte ativa da arquitetura — nenhum adiado. `local-pool` é o default no lançamento (não depende de confirmação da Cloud API); `tuya-live` fica disponível assim que o spike (curto prazo, não condicional a volume) confirmar viabilidade. Detalhe → [`decisions.md`](./decisions.md) D-052 e [`templates/tuya-access-adapter.md`](./templates/tuya-access-adapter.md).
 
 ### Q-017 — Acesso condomínio / portaria
 - **Module:** tours
