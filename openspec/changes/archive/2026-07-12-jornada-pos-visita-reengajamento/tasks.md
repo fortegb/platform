@@ -20,5 +20,5 @@
       `/visita/gerenciar/[token]` route; update the "Lacunas de jornada"
       table's "Follow-up pós-visita" row to point at this leaf instead of
       only #141
-- [ ] 1.5 Sync `journey-post-visit-reengagement` spec; `openspec validate`;
+- [x] 1.5 Sync `journey-post-visit-reengagement` spec; `openspec validate`;
       archive; merge `Closes #188`
