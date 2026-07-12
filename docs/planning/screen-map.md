@@ -8,13 +8,19 @@
 
 ## Visitante / cliente (público + visita)
 
+> Home, Portfólio, Blog e Contato (descoberta) ✅ **re-validadas** —
+> [#185](https://github.com/fortegb/platform/issues/185), D-057. Sobre segue
+> rascunho (fora do escopo dessa leaf). Demais linhas seguem `RASCUNHO` até
+> suas leaves de Passo 5 fecharem.
+
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
-| Home (variantes hero — Q-010) | `/`, `/classico`, `/slate`, `/azul` | simulado | 1 | [#56](https://github.com/fortegb/platform/issues/56) Site público UI |
-| Portfólio lista | `/portfolio` | simulado | 1 | #56 |
-| Portfólio detalhe | `/portfolio/[slug]` | simulado | 1 | #56 |
-| Blog lista / post | `/blog`, `/blog/[slug]` | simulado | 1 | #56 |
-| Sobre, Contato | `/sobre`, `/contato` | simulado | 1 | #56 |
+| Home (variantes hero — Q-010) | `/`, `/classico`, `/slate`, `/azul` | simulado — validado #185 | 1 | [#56](https://github.com/fortegb/platform/issues/56) Site público UI |
+| Portfólio lista | `/portfolio` | simulado — validado #185 | 1 | #56 |
+| Portfólio detalhe | `/portfolio/[slug]` | simulado — validado #185 | 1 | #56 |
+| Blog lista / post | `/blog`, `/blog/[slug]` | simulado — validado #185 | 1 | #56 |
+| Sobre | `/sobre` | simulado | 1 | #56 |
+| Contato | `/contato` | simulado — validado #185 | 1 | #56 |
 | Privacidade, Termos | `/privacidade`, `/termos` | simulado | 1 | #56 |
 | Agendar visita | `/visita/agendar/[houseId]` | simulado | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
 | Visita QR (placa) | `/visita/qr/[code]` | simulado | 2 | #81 |

@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de descoberta e navegação do site ([#185](https://github.com/fortegb/platform/issues/185))
+
+- **D-057:** re-validação da jornada de descoberta (home → portfólio → detalhe da casa → blog → contato) contra a arquitetura de domínio fechada (D-052–D-056) — sem conflito com RBAC (D-055, `Visitante` não armazenado) nem mensageria (D-054, `wa.me` não é envio da plataforma).
+- Gap real corrigido: clique em qualquer CTA WhatsApp da jornada passa a capturar lead (fire-and-forget, `fonte: cta-whatsapp`), reaproveitando `POST /api/contact` — antes só o formulário (`fonte: form-site`) deixava rastro, apesar de `crm-source-of-truth` já listar CTA-WhatsApp como fonte v1.
+- Novo `templates/jornada-descoberta-site.md`. Nova capability OpenSpec `journey-site-discovery`. `jornadas-plataforma.md` §3.1 e `screen-map.md` (linhas Home/Portfólio/Blog/Contato) saem de rascunho para validado.
+- Implementação real (beacon frontend, persistência no endpoint) → Execução (#56, #78, #73). **Primeira leaf de Passo 5 (epic #176) fechada.**
+
 ### 2026-07-12 — Epic #179 (Arquitetura de domínio) fechado
 
 - **Epic [#179](https://github.com/fortegb/platform/issues/179) — Arquitetura de domínio (visitas, mensageria, RBAC, admin) — todas as 5 leaves concluídas:** #180 (D-053), #181 (D-052), #182 (D-054), #183 (D-055), #184 (D-056). Board `Done`; issue fechada.
