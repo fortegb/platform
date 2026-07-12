@@ -59,6 +59,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-050 — Dev local bootstrap runbook (#171)
 - D-051 — Dev local mock strategy (#172)
 - D-052 — Tuya viability + failure mode, local-pool primary (#181)
+- D-053 — Visits: data model + identity verification (#180)
 
 ---
 
@@ -458,3 +459,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-052; `templates/tuya-access-adapter.md`.
 - Resolves Q-006 (partial — fallback settled; scheduled-vs-instant ordering stays with #180). #180 and #182/#183 can proceed without waiting on Cloud API confirmation.
 - Second test lock (spec TBD) is a prerequisite before #77/#135 (Execução) can automate safe-target testing; #77/#135 should scope the Tuya API spike/implementation as near-term work, not conditional on visitor-volume growth.
+
+---
+
+## 2026-07-12 — Visits: data model + identity verification (#180)
+
+### One verification mechanism for both flows, Cliente-scoped reuse, three-entity model replacing the legacy visits table
+
+**Decision:** `client-match` (a frontend library comparing selfie to document) is the primary identity-verification mechanism for **both** the scheduled and instant/QR visit flows — no KYC SaaS (disproportionate cost/build at this scale) and no split mechanism by flow type, since `client-match` has to exist for the instant flow anyway (a visitor can't wait on live staff review) and reusing it for scheduled visits avoids duplicating the model. `staff-review` is the shared exception queue, triggered either automatically (low match confidence) or by the visitor messaging staff directly via WhatsApp when an instant verification is declined. The instant flow never engineers a synchronous wait for staff — a failed automated check is an immediate decline with a WhatsApp escape hatch, mirroring (inverted) the Tuya fallback shape from `D-052`. Any staff-review resolution — automatic or WhatsApp-initiated — is recorded as a normal `verification_attempt` and only then triggers the Tuya adapter's `provisionAccess()`; staff never hands out an ad hoc access code (local-pool or emergency) as a shortcut around verification. Verification results live on `Cliente` (`identity_verified_at`, reusing the existing CPF-keyed model from `D-020`) with a 12-month freshness window, so a recurring visitor within that window skips re-verification entirely. Retention is split by artifact: the selfie is ephemeral (deleted on approval, 30-day hold on rejection/exception), while the document photo (RG/CNH) is retained for the active 12-month verification window — covering the legitimate need to identify a visitor in case of damages/incidents — then deleted on renewal or expiry. The data model replaces the legacy denormalized `visits` table with three entities (`Cliente` + `identity_verified_at`, new `verification_attempt`, and `visit` with a `pending_verification → verified → access_provisioned → completed/declined` status progression), with a hard gate: `provisionAccess` only fires once `visit.status = verified`.
+
+**Rationale:** A single verification mechanism shared across both flows avoids building and maintaining two different pipelines; reusing the exception queue (automatic or WhatsApp-initiated) avoids inventing a second approval path. Reuse via `Cliente` avoids re-uploading documents on every recurring visit without weakening the guarantee, since the freshness window still expires. Artifact-level retention balances LGPD minimization with a real, time-bounded liability-traceability need. The hard gate between verification and access is what makes the two adapters (identity + Tuya) composable without relying on manual discipline.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-053; `templates/visitas-identidade-modelo-dados.md`.
+- Resolves Q-005. Passo 5 (#176) can design the visit journey on top of an already-decided data model; #80 (Execução) implements the concrete library/threshold/queue-UI tuning without reopening architecture.
+- #182/#183 (messaging/RBAC) can assume `Cliente.identity_verified_at` and the `visit.status` hard gate already exist.

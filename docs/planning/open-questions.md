@@ -55,9 +55,10 @@
 
 ### Q-005 — Verificação de identidade
 - **Module:** tours
-- **Status:** **deferred** → v2 (tours) — grilling da fase (D-018)
+- **Status:** **resolved** → D-053 (#180)
 - **Question:** Face match client-side vs KYC SaaS vs aprovação manual staff?
 - **Related:** Falha na verificação — fila manual?
+- **Resolved (2026-07-12):** `client-match` (biblioteca frontend) é o mecanismo primário para os dois fluxos (agendado e instantâneo) — sem KYC SaaS (custo desproporcional à escala), sem split por fluxo. `staff-review` é a fila de exceção compartilhada — automática (confiança baixa) ou pelo visitante via WhatsApp direto a staff; resolução por WhatsApp gera um `verification_attempt` registrado normalmente, nunca um atalho de acesso ad hoc. Reuso via `Cliente.identity_verified_at` (janela de 12 meses). Retenção diferenciada: selfie efêmera, documento retido enquanto a verificação estiver ativa (cobre danos/incidentes). Detalhe → [`decisions.md`](./decisions.md) D-053 e [`templates/visitas-identidade-modelo-dados.md`](./templates/visitas-identidade-modelo-dados.md).
 
 ### Q-006 — MVP visitas: agendada, instantânea, fallback
 - **Module:** tours
