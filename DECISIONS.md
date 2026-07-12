@@ -65,6 +65,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-056 — Admin: build-vs-buy conflict resolution (#184)
 - D-057 — Jornada: site discovery journey validated, WhatsApp-CTA lead capture (#185)
 - D-058 — Jornada: scheduled-visit journey corrected against Tuya/identity architecture (#186)
+- D-059 — Jornada: instant/QR visit journey — phone-OTP reuse gate, reopens D-053 (#187)
 
 ---
 
@@ -555,3 +556,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `#81`/`#80`/`#77`/`#135` (Execução) implement the endpoint/adapter/UI rewrite without reopening architecture.
 - `#192` (staff-review screen) and `#187` (instant/QR) can build against the boundary already drawn here.
 - `jornadas-plataforma.md` §3.2 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-12 — Jornada: visita instantânea via QR (#187)
+
+### Same structural corrections as #186, plus a phone-OTP reuse gate — explicit reopening of D-053
+
+**Decision:** The instant/QR visit journey (plaque → QR → micro-page → verification → immediate access) had the same pre-architecture gaps `#186` fixed for the scheduled flow: the legacy `visits` table, a raw Tuya call that swallows failures while still returning "success," a client-trusted verification boolean, synchronous WhatsApp, no 12-month reuse check, and no failure-escalation path at all (today a failed check just 403s with no recovery). This leaf applies the same corrections, plus resolves a question specific to this flow: the 12-month reuse shortcut is safe for scheduled visits because staff has a calendar entry and days of lead time to notice a mismatch, but instant/QR access has zero human-reviewable gap between a reuse match and the door unlocking. Resolution: failure handling finally implements `D-053`'s already-decided rule literally — immediate decline with a WhatsApp staff-contact escape hatch, no synchronous wait, unlike `#186`'s async "we'll confirm before your visit" state, since a visitor at the door has no useful "later" to wait on. The 12-month reuse shortcut is gated, for this flow only, behind a WhatsApp one-time-code confirmation of phone possession — `identity_verified_at` alone unlocks scheduled visits but not this one. A successful code confirmation extends `identity_verified_at`, but only up to a hard ceiling of 24 months since the `Cliente`'s last actual `client-match` verification, tracked via a new `last_client_match_at` field that only a full verification touches; past that ceiling, code-based reuse is no longer offered and a full `client-match` re-run resets both timestamps. `verification_attempt.method` gains a third value, `phone-otp`, alongside the existing `client-match`/`staff-review` values — no new entity needed. This explicitly **reopens `D-053`** for the dual-timestamp bounded-refresh mechanism; `#186`'s scheduled-flow reuse logic is unaffected, since it still reads only `identity_verified_at` unconditionally.
+
+**Rationale:** The same silent-success Tuya bug `#186` corrected existed here too and needed the same fix before it reached production. Implementing the "no synchronous wait" rule `D-053` had already decided but never built closes a real gap, not a new decision. Gating instant reuse behind phone possession recognizes that reuse risk is qualitatively different with no time slack and no human review — without that gate, anyone claiming an already-verified `Cliente`'s number would get in immediately. The 24-month ceiling stops the same person from indefinitely avoiding a real `client-match` just by repeatedly proving phone possession, preserving the intent of `D-053`'s freshness window even with the new shortcut layered on top.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-059; `templates/jornada-visita-instantanea-qr.md`; new `journey-instant-visit` capability; `MODIFIED` delta to `visit-identity-verification` (`openspec/specs/`).
+- Formally reopens `D-053` — recorded here, not silently absorbed into a journey leaf.
+- `#81`/`#80`/`#77`/`#135`/`#75` (Execução) implement without reopening architecture again; `#186` is unaffected.
+- `jornadas-plataforma.md` §3.3 and `screen-map.md` move from draft to validated for this journey.

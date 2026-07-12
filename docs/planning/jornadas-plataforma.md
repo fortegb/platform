@@ -90,18 +90,26 @@ Para quem planeja ir à casa num horário combinado.
 
 ### 3.3 Visita instantânea — QR na placa
 
+> ✅ **Re-validada no passo 5** ([#187](https://github.com/fortegb/platform/issues/187), D-059) — corrigida contra D-052 (Tuya) e D-053 (identidade/dados, **reaberta** por esta leaf para o mecanismo de renovação limitada). Detalhe: [`templates/jornada-visita-instantanea-qr.md`](./templates/jornada-visita-instantanea-qr.md).
+
 Para quem está **em frente à casa** e quer entrar na hora.
 
 | Passo | O que acontece |
 |-------|----------------|
 | 1 | Cliente lê QR na placa “À venda” |
 | 2 | Abre micro-página da casa (mobile) |
-| 3 | Mesmo fluxo de identidade (selfie + documento) |
-| 4 | Se aprovado: senha gerada **na hora** (validade curta, ex. 1–2 h) |
-| 5 | Senha por WhatsApp (preferencial) ou SMS |
-| 6 | Cliente criado no CRM com origem “QR placa” |
+| 3 | **Se `Cliente.identity_verified_at` dentro de 12 meses E `last_client_match_at` dentro de 24 meses:** código único via WhatsApp confirma posse do telefone (reuso gated — diferente do fluxo agendado, onde `identity_verified_at` sozinho basta) | |
+| 4 | Senão: mesmo fluxo de identidade (selfie + documento, `client-match`) | |
+| 5 | Se falhar (verificação ou código): **recusa imediata** + link WhatsApp para contato direto com staff — sem espera síncrona (D-053, implementado pela primeira vez nesta leaf) | |
+| 6 | Se aprovado (automático ou via `staff-review`): uma única chamada a `provisionAccess(visit)` (adapter D-052) gera e programa a senha — validade curta (ex. 1–2 h), timeout de detecção de falha mais curto que o fluxo agendado (número exato → tuning de build) | |
+| 7 | Senha entregue via WhatsApp (QStash, D-054) | |
+| 8 | Cliente criado/atualizado no CRM com origem “QR placa” | |
 
-**Dependências:** media kit físico (placa + QR), Tuya, verificação de identidade, WhatsApp.
+**Dependências:** media kit físico (placa + QR, #98/#100 — fora desta leaf), Tuya (D-052), verificação de identidade (D-053), WhatsApp (D-054).
+
+**Renovação limitada:** um código WhatsApp bem-sucedido estende `identity_verified_at`, mas nunca além de 24 meses de `last_client_match_at` (novo campo, só atualizado por um `client-match` completo) — passado esse teto, o reuso via código para, forçando uma re-verificação completa.
+
+**Fronteira:** tela de staff-review (#192), condomínio/portaria (Q-017, #140, já deferido a Execução) e placa física (#98/#100) são escopo separado.
 
 **Questões em aberto:** acesso condomínio/portaria (Q-017) — pode exigir fluxo extra ou aviso no site.
 
