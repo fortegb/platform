@@ -68,6 +68,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-059 — Jornada: instant/QR visit journey — phone-OTP reuse gate, reopens D-053 (#187)
 - D-060 — Jornada: staff verification-exception queue — reject notifies visitor, Telegram staff alert (#192)
 - D-061 — Jornada: post-visit reengagement — magic-link self-service cancel/reschedule, new cancelled status, follow-up consent split (#188)
+- D-062 — Jornada: corretor onboarding — role-model status gate, per-house association folded in, reopens crm-source-of-truth (#189)
 
 ---
 
@@ -606,3 +607,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `#141`/`#81` (Execução) implement without reopening architecture.
 - First real caller of `revoke()` sets the pattern any future cancellation-adjacent work should follow.
 - `jornadas-plataforma.md` §3.2 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-12 — Jornada: corretor onboarding (#189)
+
+### Role-model status gate replaces the pre-D-055 realtors check; per-house association folded in from an unowned draft; reopens crm-source-of-truth
+
+**Decision:** `pages/login.vue` already has working identifier-first auth UI (mocked), but its signup path is an unfinished stub and its login check queries a `realtors` table predating `D-055`'s unified `role` enum. Draft §4.2 (per-house association, contract-based partnership) had never been assigned an owning Passo 5 leaf at all — found and folded into this one during exploration. Account-level onboarding now consumes `D-055`'s role model directly: registration creates `role = corretor` plus a new `corretor.status` field (`pending_approval | approved | rejected`) — the same two-state pattern already used for `Cliente` and `visit` — since role alone can't represent "signed up, awaiting review." Both pending account applications and pending house-claim requests surface on one staff management page (`/staff/corretores`), justified as custom UI by `D-056`'s test, same reasoning as `#192`'s queue — but unlike `#192`, this leaf explicitly drops any push notification: nothing here has `#192`'s physical-waiting urgency, so staff finds pending work by checking the page, not by being pinged. Rejection (either queue) notifies the corretor via WhatsApp, since `D-054` already names corretor explicitly as an external party. Per-house association shows the unsigned contract draft (minuta, house-specific terms from the existing template) immediately to both sides on claim; signing happens entirely outside the platform, consistent with the already-decided "Gov.br manual-first" MVP-boundary stance (not reopened here, just built around). Staff — not the corretor — uploads the final signed PDF once in hand, reusing the private document bucket already built for identity verification (`D-016`/`D-030`); that upload **is** the approval act, one action rather than upload-then-separately-approve. This leaf **reopens `crm-source-of-truth`**: its "Per-house registration and audit" requirement never gated `registro.corretor_id` on house-level approval at all — without that constraint, this leaf's entire approval mechanism would be cosmetic, since a corretor could register clients for any house regardless of `/staff/corretores` outcomes. The fix adds one precondition: a `registro.corretor_id` is only valid with an `approved` `corretor_casa` for that pairing.
+
+**Rationale:** Consuming `D-055`'s role model instead of the `realtors` stub avoids two sources of truth for "who is a corretor." Dropping the push notification after re-examining why it existed in `#192` avoids copying a pattern without the justification that produced it. Staff controlling the signed-contract upload prioritizes the integrity of the official record over the marginal convenience of self-upload, proportional to this business's low volume. Closing the attribution gap in `crm-source-of-truth` is what makes house-level approval real rather than decorative.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-062; `templates/jornada-onboarding-corretor.md`; new `journey-corretor-onboarding` capability; `MODIFIED` delta to `crm-source-of-truth` (`openspec/specs/`).
+- Formally reopens `crm-source-of-truth` — recorded here, not silently absorbed.
+- `#86`/`#50` (Execução) implement without reopening architecture again.
+- §4.2 is no longer an orphaned draft section — it has an owning leaf and validated design.

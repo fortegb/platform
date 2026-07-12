@@ -120,32 +120,38 @@ Para quem está **em frente à casa** e quer entrar na hora.
 
 ### 4.1 Onboarding (primeira vez)
 
+> ✅ **Re-validada no passo 5** ([#189](https://github.com/fortegb/platform/issues/189), D-062) — corrigida contra D-055 (role model, não a tabela `realtors` legada); notificação push a staff reconsiderada e removida (sem urgência física, diferente de #192). Detalhe: [`templates/jornada-onboarding-corretor.md`](./templates/jornada-onboarding-corretor.md).
+
 ```
 Registro no site (Google / Facebook / e-mail)
     → Aceitar termos gerais ForteGB
-    → Preencher perfil (CRECI se tiver; dados contato)
-    → Staff notificado em cada passo
-    → Staff aprova conta
-    → Acesso ao portal corretor
+    → Preencher perfil (CRECI se tiver; WhatsApp obrigatório — D-054)
+    → role = corretor, corretor.status = pending_approval
+    → Aparece em /staff/corretores (sem notificação push)
+    → Staff aprova → status = approved → acesso ao portal corretor
+    → Staff rejeita → status = rejected → WhatsApp ao corretor (D-054)
 ```
 
-**Funcionalidades:** autenticação, termos legais, notificações staff, portal `/corretor`.
+**Funcionalidades:** autenticação, termos legais, `/staff/corretores` (fila unificada com §4.2), portal `/corretor`.
 
 ---
 
 ### 4.2 Associar-se a uma casa (contrato por imóvel)
 
+> ✅ **Re-validada no passo 5** ([#189](https://github.com/fortegb/platform/issues/189), D-062) — sem leaf própria antes; incorporada durante a exploração de #189. Gov.br automatizado (Q-016) permanece adiado (decisão de MVP já fechada, “manual-first”) — esta leaf desenha a jornada ao redor, não reabre isso.
+
 Cada casa exige **aceitação de termos específicos** antes de registrar clientes nessa casa.
 
 | Passo | O que acontece |
 |-------|----------------|
-| 1 | Corretor vê casas disponíveis para parceria no portal |
-| 2 | **Reclama** uma casa → abre contrato daquela casa |
-| 3 | Assina eletronicamente (Gov.br ou fluxo equivalente — Q-016) |
-| 4 | Staff aprova |
-| 5 | Corretor pode registrar clientes **só nessa casa** |
+| 1 | Corretor (já aprovado) vê casas disponíveis para parceria no portal |
+| 2 | **Reclama** uma casa → `corretor_casa` criado (`pending`) → minuta (contrato não-assinado, termos da casa) visível imediatamente para corretor **e** staff |
+| 3 | Assinatura acontece **fora da plataforma** — staff e corretor coordenam por conta própria (manual-first, Q-016 não reaberto) |
+| 4 | **Staff** (não o corretor) faz upload do PDF assinado no bucket privado (D-016/D-030) — upload **é** a aprovação, uma única ação → `corretor_casa.status = approved` |
+| 4b | Ou staff rejeita, sem upload necessário → WhatsApp ao corretor |
+| 5 | Corretor pode registrar clientes **só nessa casa** — `registro.corretor_id` só é válido com `corretor_casa` aprovado para aquele par (reabre `crm-source-of-truth`, D-062) |
 
-Casas adicionais: repetir “reclamar → contrato → aprovação”.
+Casas adicionais: repetir “reclamar → minuta → assinatura externa → upload/aprovação”.
 
 Modelo legal: [`corretor-contract-template.md`](./corretor-contract-template.md).
 

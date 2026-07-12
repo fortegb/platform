@@ -7,6 +7,16 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de onboarding do corretor ([#189](https://github.com/fortegb/platform/issues/189))
+
+- **D-062:** onboarding de conta corrigido contra D-055 — cadastro agora consome `role = corretor` + novo `corretor.status` (`pending_approval | approved | rejected`), substituindo o check pré-arquitetura na tabela `realtors`.
+- Fila unificada de staff em `/staff/corretores` (aplicações de conta + solicitações de casa juntas) — `/staff/casas-pendentes` deixa de ser rota separada.
+- Notificação push (Telegram) reconsiderada e removida — diferente de #192, nada aqui tem urgência de espera física.
+- **Associação por casa incorporada** (rascunho §4.2, sem leaf própria antes desta): minuta visível imediatamente (corretor + staff); assinatura fica fora da plataforma (Gov.br manual-first, decisão de MVP já fechada, não reaberta); **staff** (não o corretor) faz upload do PDF assinado no bucket privado (D-016/D-030) — upload é a própria aprovação, uma única ação.
+- **Reabre `crm-source-of-truth`:** `registro.corretor_id` agora só é válido com `corretor_casa` aprovado para aquele par — sem essa amarra, a aprovação por casa seria decorativa.
+- Novo `templates/jornada-onboarding-corretor.md`. Nova capability OpenSpec `journey-corretor-onboarding`; delta `MODIFIED` em `crm-source-of-truth`. `jornadas-plataforma.md` §4.1/§4.2 e `screen-map.md` saem de rascunho para validado.
+- Implementação real → Execução (#86, #50). **Sexta leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de pós-visita e reengajamento ([#188](https://github.com/fortegb/platform/issues/188))
 
 - **D-061:** especifica os três sub-fluxos que ficaram sem resposta depois de "senha entregue" nas duas jornadas de visita — lembrete pré-visita, cancelamento/reagendamento, e follow-up. Leaf greenfield (nenhum código existia para nenhum dos três).
