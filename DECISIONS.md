@@ -58,6 +58,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-049 — Dev local toolchain (#170)
 - D-050 — Dev local bootstrap runbook (#171)
 - D-051 — Dev local mock strategy (#172)
+- D-052 — Tuya viability + failure mode, local-pool primary (#181)
 
 ---
 
@@ -442,3 +443,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-051; pointer in integrations docs near D-037–D-040. Mock implementation code → Etapa 8 build.
+
+---
+
+## 2026-07-11 — Tuya: API viability + failure mode (#181)
+
+### Local-pool primary, Tuya Cloud API as future adapter swap
+
+**Decision:** The installed device (Intelar X2, Tuya WiFi lock) already confirms time-windowed temp passwords as a real capability via its consumer app; Cloud API access for this rebrand stays unverified until a manual spike (deferred to Execução, #77/#135). The adapter seam (D-017) hides the mechanism behind `provisionAccess`/`markUsed`/`revoke` — the rest of the visit journey (identity, booking, CRM, WhatsApp) never touches Tuya directly. `local-pool` (pre-provisioned per-house codes, no live API in the critical path) is the primary v2 mechanism; `tuya-live` (real Cloud API calls) is an optional future adapter swap, only once the spike confirms viability and visit volume justifies automation. Fallback for any live-API path: a static per-house emergency code (keypad-local, no cloud dependency) + reschedule — never staff dispatch as a designed tier. Failure detection is synchronous at issuance (API error/timeout/offline triggers an immediate staff WhatsApp alert), never visitor-reported; the instant/QR flow needs a much shorter timeout than the scheduled flow. Emergency codes are scoped per house, rotate monthly plus immediately after every real use, and live in a restricted Supabase table (ties to the LGPD epic #126–129) with every fallback trigger logged. v1 maintenance is via Supabase Studio, no bespoke admin UI — explicitly deferred to #184 if scale grows. This resolves a real conflict with D-039: the installed X2 is prod-only (never the staging safe-target default); a second dedicated test lock (spec TBD, matching the X2's password DP set) is required before any automated safe-target testing of the write-password flow.
+
+**Rationale:** Deciding the mechanism (local-pool vs. live API) before any build keeps the whole visit journey from being coupled to an unconfirmed real-time network dependency, without blocking a future upgrade to full automation.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-052; `templates/tuya-access-adapter.md`.
+- Resolves Q-006 (partial — fallback settled; scheduled-vs-instant ordering stays with #180). #180 and #182/#183 can proceed without waiting on Cloud API confirmation.
+- Second test lock (spec TBD) is a prerequisite before #77/#135 (Execução) can automate safe-target testing.

@@ -625,3 +625,21 @@
   - **DoD:** D-051 + pointer em `environments.md` / docs de integrações perto de D-037–D-040. Sem código de mock — implementação real → build (passo 8).
 - **Rationale:** proporcional à escala solo/família; falha genérica única já é suficiente para exercitar tratamento de erro localmente sem construir simulação elaborada.
 - **Consequências:** canon fechado; implementação real dos mocks → Execução (build).
+
+### D-052 — Tuya: viabilidade da API + modo de falha (2026-07-11) — **#181**
+- **Status:** accepted
+- **Contexto:** leaf de maior risco de #179 (Arquitetura de domínio), nunca grillado antes. Device físico já comprado e instalado: fechadura Intelar X2 (Tuya, WiFi), numa casa **atualmente à venda**. #181 escopado como mecanismo/viabilidade, não jornada (jornada = #180).
+- **Decisão:**
+  - **Viabilidade condicional:** app de consumidor Tuya já confirma senhas temporárias com janela de horário — sinal forte de capacidade do dispositivo. Acesso via Tuya Cloud API (o que o backend chamaria) permanece **não verificado** até spike manual — deferido a #77/#135 (Execução), fora do escopo deste leaf Definição.
+  - **Adapter seam (D-017) esconde o mecanismo:** interface estável `provisionAccess(visit)` / `markUsed(credential)` / `revoke(credential)`. Resto da jornada (identidade, booking, CRM/HubSpot, WhatsApp) chama só essa interface — nunca sabe qual implementação está ativa por baixo.
+  - **`local-pool` = mecanismo primário v2** (em vez de Tuya ao vivo): pool de códigos pré-provisionados por casa, escritos diretamente na fechadura via app, sem chamada de API em tempo real no caminho crítico — sem espera de rede nem timeout com visitante à porta.
+  - **`tuya-live` = upgrade futuro opcional:** troca via o mesmo seam, sem reescrever a jornada; só depois de o spike confirmar viabilidade real da Cloud API **e** volume de visitas justificar automação.
+  - **Fallback / modo de falha** (mantém-se mesmo se `tuya-live` for ativado no futuro): código de emergência estático por casa (local, keypad, sem dependência de nuvem) + reagendamento — nunca deslocamento físico de staff como camada desenhada.
+  - **Detecção de falha:** checagem síncrona no momento da emissão (erro/timeout/offline) dispara alerta a staff via WhatsApp imediatamente — nunca espera relato do visitante. Timeout mais curto no fluxo instantâneo (QR) vs. agendado (número exato → tuning de build).
+  - **Ciclo de vida do código de emergência:** escopo por casa (não um único código para todo o portfólio); rotação mensal + imediata após cada uso real.
+  - **Armazenamento/auditoria:** tabela Supabase restrita (liga-se à epic LGPD #126–129); todo gatilho de fallback gera log (casa, timestamp, staff).
+  - **Manutenção v1:** Supabase Studio (sem UI bespoke) — ligado explicitamente à resolução futura de #184 (admin) se a escala justificar mais tarde.
+  - **Conflito com D-039 resolvido:** a fechadura instalada é **prod-only** — nunca vira default de safe-target em staging (D-037: staging/Previews → safe-target por padrão). Um segundo device dedicado a teste será comprado (spec TBD — mesmo requisito mínimo: expor o mesmo Standard Instruction Set/DP de senha temporária do X2) antes de qualquer teste automatizado do fluxo de escrita de senha, mesmo padrão "spec agora, provisiona depois" de D-039.
+  - **DoD:** docs only — D-052 + `templates/tuya-access-adapter.md`. Resolve Q-006. Spike real + implementação → #77/#135 (Execução).
+- **Rationale:** decidir o mecanismo (local-pool vs. API ao vivo) antes de qualquer build evita acoplar a jornada inteira (identidade, CRM, booking) a uma dependência de rede em tempo real ainda não confirmada, sem bloquear a evolução futura para automação total.
+- **Consequências:** canon fechado; #180 (modelo de dados de visitas) e #182/#183 podem seguir sem esperar confirmação da Cloud API; segundo lock de teste é pré-requisito antes de #77/#135 avançarem para automação de safe-target.
