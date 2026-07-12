@@ -69,6 +69,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-060 — Jornada: staff verification-exception queue — reject notifies visitor, Telegram staff alert (#192)
 - D-061 — Jornada: post-visit reengagement — magic-link self-service cancel/reschedule, new cancelled status, follow-up consent split (#188)
 - D-062 — Jornada: corretor onboarding — role-model status gate, per-house association folded in, reopens crm-source-of-truth (#189)
+- D-063 — Jornada: client registration + commission protection — CPF-required, DB-enforced first-wins uniqueness (#190)
 
 ---
 
@@ -623,3 +624,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Formally reopens `crm-source-of-truth` — recorded here, not silently absorbed.
 - `#86`/`#50` (Execução) implement without reopening architecture again.
 - §4.2 is no longer an orphaned draft section — it has an owning leaf and validated design.
+
+---
+
+## 2026-07-12 — Jornada: client registration + commission protection (#190)
+
+### CPF-required broker registration; database-enforced first-wins uniqueness fixes a real race condition
+
+**Decision:** `server/api/corretor/leads.post.ts` predates `D-020` (`crm-source-of-truth`) and `#189`'s `corretor_casa` constraint. It isn't just outdated — it has a real bug: the "first-registration-wins" commission protection this journey exists to provide doesn't actually work, because the endpoint checks for a duplicate via `SELECT` and inserts via a separate `INSERT` (check-then-act), not a single transactional guarantee — two brokers submitting close together could both slip through. This leaf corrects the data model to write against the actual `cliente`/`registro` model instead of a standalone `leads` table, with `fonte: portal-corretor` as the concrete value for D-020's already-named "broker portal" source. **CPF becomes required** for broker-initiated registration, promoting the client straight to `Cliente` tier rather than the phone-only `Contato` tier `#185` uses for lower-commitment site capture — a broker's job here is specifically to establish a qualified, identified, dedupable lead, and `D-020` already names CPF (not phone) as the dedup authority; accepting phone-only would quietly weaken the exact guarantee this journey exists to protect. The race condition itself is fixed by a **database-level unique constraint** on `registro(cliente_id, casa_id)` — the second concurrent insert fails at the database layer, and the application translates that failure into a clear "already registered by you/another corretor" outcome rather than relying on an app-level pre-check that can never be fully race-free. Registration also now consumes `#189`'s `corretor_casa` approval gate (the enforcement point that constraint was built for) and the corrected `role`/`status` auth model instead of the pre-`D-055` `realtors` table check. A same-corretor resubmission is treated as idempotent (shows existing status) rather than an error. Direct/site-originated leads (`#185`, already closed) and commission reassignment (a staff/admin action with no owning leaf) are explicitly out of scope.
+
+**Rationale:** The race condition isn't a cosmetic gap — it's the exact inverse of what this journey promises ("proteção de comissão"), so fixing it before it reaches production is the leaf's central point. Requiring CPF instead of accepting phone-only keeps the dedup guarantee at the strength `D-020` already chose for this purpose, rather than silently degrading to a weaker case just because it's faster to fill in.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-063; `templates/jornada-registro-cliente-comissao.md`; new `journey-corretor-client-registration` capability (`openspec/specs/`).
+- `#86`/`#90` (Execução) implement without reopening architecture.
+- No closed decision is reopened by this leaf — purely a consumer of `D-020` and `#189`'s constraint.
+- `jornadas-plataforma.md` §4.3 and `screen-map.md` move from draft to validated for this journey.

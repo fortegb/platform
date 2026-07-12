@@ -159,13 +159,19 @@ Modelo legal: [`corretor-contract-template.md`](./corretor-contract-template.md)
 
 ### 4.3 Registrar cliente (proteção de comissão)
 
+> ✅ **Re-validada no passo 5** ([#190](https://github.com/fortegb/platform/issues/190), D-063) — corrigido um bug real no stub pré-arquitetura: a proteção "primeiro-registro-ganha" não funcionava de fato (condição de corrida check-then-insert). Detalhe: [`templates/jornada-registro-cliente-comissao.md`](./templates/jornada-registro-cliente-comissao.md).
+
 | Passo | O que acontece |
 |-------|----------------|
-| 1 | Corretor registra nome + CPF + telefone + casa associada |
-| 2 | Timestamp guardado — **primeiro registro ganha** naquela casa |
-| 3 | Dados sincronizados com HubSpot |
-| 4 | Se cliente comprar, comissão atribuída ao corretor registrado |
-| 5 | Reatribuição só com aprovação staff/admin |
+| 1 | Corretor (com `corretor_casa` aprovado para a casa — D-062) registra nome + **CPF (obrigatório)** + telefone + casa associada |
+| 2 | Sistema resolve/cria `cliente` por CPF, nível `Cliente` (não `Contato`) |
+| 3 | `registro(cliente_id, casa_id)` — **constraint de unicidade no banco**, não checagem de aplicação: primeiro registro ganha, segunda submissão concorrente falha na constraint, nunca cria duplicata |
+| 4 | Mesmo corretor reenviando o mesmo par: idempotente, mostra status existente, não erro |
+| 5 | Dados sincronizados com HubSpot (`fonte: portal-corretor`) |
+| 6 | Se cliente comprar, comissão atribuída ao corretor registrado |
+| 7 | Reatribuição só com aprovação staff/admin (ação separada, sem leaf própria ainda) |
+
+**Fora de escopo:** leads diretos/originados do site são [#185](https://github.com/fortegb/platform/issues/185) (já fechada), não esta jornada.
 
 Também via **bot WhatsApp** (mesma lógica) — detalhe na Architecture epic.
 
