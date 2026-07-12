@@ -80,10 +80,8 @@
 - [#187](https://github.com/fortegb/platform/issues/187) Jornada: visita instantânea via QR
 - [#188](https://github.com/fortegb/platform/issues/188) Jornada: pós-visita e reengajamento
 - [#189](https://github.com/fortegb/platform/issues/189) Jornada: onboarding do corretor
-- [#192](https://github.com/fortegb/platform/issues/192) Jornada: fila de exceção de verificação de identidade
-
-## In Progress
 - [#190](https://github.com/fortegb/platform/issues/190) Jornada: registro de cliente e proteção de comissão
+- [#192](https://github.com/fortegb/platform/issues/192) Jornada: fila de exceção de verificação de identidade
 
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
