@@ -359,7 +359,7 @@ After processing this file, the AI should:
 
 ## 9) Controle do Projeto (para Agentes de IA)
 
-> **A espinha do projeto é o [Roteiro](./docs/planning/roteiro.md)** — 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com gates G1/G2/G3. É **controlador**, não decorativo, e é representado no board (campo `Etapa` + `Milestone` + tipo nativo), não em prosa. **Passo atual: 4 Arquitetura** (#146). Ver `roteiro.md` antes de escolher trabalho.
+> **A espinha do projeto é o [Roteiro](./docs/planning/roteiro.md)** — 9 passos em 3 estágios (Definição 1–7 · Execução 8 · Evolução 9), com gates G1/G2/G3. É **controlador**, não decorativo, e é representado no board (campo `Etapa` + `Milestone` + tipo nativo), não em prosa. **Passo atual: 4 Arquitetura** — infra/ambientes (#146) fechado; arquitetura de domínio (#179: visitas, mensageria, RBAC, admin) em curso. Ver `roteiro.md` antes de escolher trabalho.
 
 Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los no início** e **mantê-los atualizados** ao final de mudanças relevantes:
 
