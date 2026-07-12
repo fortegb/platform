@@ -77,6 +77,7 @@
 - [#184](https://github.com/fortegb/platform/issues/184) Arquitetura: admin — resolver conflito build-vs-buy
 - [#185](https://github.com/fortegb/platform/issues/185) Jornada: descoberta e navegação do site
 - [#186](https://github.com/fortegb/platform/issues/186) Jornada: visita agendada
+- [#187](https://github.com/fortegb/platform/issues/187) Jornada: visita instantânea via QR
 
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
@@ -186,7 +187,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#176](https://github.com/fortegb/platform/issues/176) Epic: Jornadas, telas e fluxos — re-validação pós-arquitetura
-- [#187](https://github.com/fortegb/platform/issues/187) Jornada: visita instantânea via QR
 - [#188](https://github.com/fortegb/platform/issues/188) Jornada: pós-visita e reengajamento
 - [#189](https://github.com/fortegb/platform/issues/189) Jornada: onboarding do corretor
 - [#190](https://github.com/fortegb/platform/issues/190) Jornada: registro de cliente e proteção de comissão
