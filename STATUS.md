@@ -9,7 +9,7 @@
 
 ## Passo atual (Roteiro)
 
-**Passo 4 — Arquitetura. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar.**
+**Passo 5 — Jornadas. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar.**
 
 ```
 ✅ Passos 1–2 → D-028
@@ -34,7 +34,8 @@
 ✅ **#184 Admin: resolução do conflito build-vs-buy** → D-056 (última leaf de #179). Reframe: "sem admin bespoke" fica escrito só para edição de conteúdo (mantido); UI de fluxo operacional é categoria nova com teste de três partes. `/staff/*` único, gateado via hierarquia de D-055. Emenda direta ao requirement em `platform-architecture`.
 🎉 **Epic #179 (Arquitetura de domínio) — fechado.** Todas as 5 leaves concluídas (#180–#184).
 🧹 **Board hygiene:** #29/#30/#31/#140 (grilling `deferred` v2/v3 — visitas condomínio, media kit, mobile) re-tagged `Etapa 4 → 8 Execução` (já estavam re-parented sob #81/#98/#130) — `mapa-roteiro.html` agora computa **passo 5** como current corretamente.
-→ PRÓXIMO: Passo 5 — Jornadas, telas e fluxos (epic #176). Ideia inicial: ~12–13 issues por jornada (não por role), um leaf por fluxo — mesmo padrão de #179→#180-184. Ainda não criadas, aguardando go-ahead.
+✅ **Passo 5 (Jornadas, epic #176) — 11 leaves criadas** (#185–#195), uma por jornada (não por role): descoberta do site, visita agendada, visita instantânea QR, pós-visita, onboarding corretor, registro de cliente/comissão, pipeline corretor, fila de exceção de verificação, operação diária staff, gestão de acesso Tuya, config de plataforma/papéis. Todas `Etapa 5 Jornadas`, `Status Todo`, native sub-issues de #176.
+→ PRÓXIMO: `rbo-create-change` numa das 11 leaves de #176 para começar o grilling.
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
