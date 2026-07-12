@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-11 — Arquitetura: Tuya — viabilidade da API + modo de falha ([#181](https://github.com/fortegb/platform/issues/181))
+
+- **D-052:** dois mecanismos de primeira classe por trás de um adapter seam (D-017) — `local-pool` (pool de códigos pré-provisionados por casa, sem chamada Tuya Cloud API em tempo real crítico) é o default no lançamento; `tuya-live` (Tuya Cloud API real) fica disponível assim que um spike de curto prazo confirmar viabilidade, sem depender de crescimento de volume. Ambos ativos na arquitetura/jornada/grilling — nenhum adiado.
+- Fallback: código de emergência estático por casa (keypad local) + reagendamento, nunca deslocamento de staff; detecção síncrona no momento da emissão; rotação mensal + imediata após uso; auditoria em tabela Supabase restrita (liga-se à epic LGPD #126–129).
+- Resolve `Q-006` (fallback). Resolve conflito real com `D-039`: fechadura instalada (Intelar X2, numa casa à venda) declarada **prod-only**; segundo device de teste é pré-requisito antes de automação de safe-target (#77/#135).
+- Novo `templates/tuya-access-adapter.md`. Nova capability OpenSpec `tuya-access`.
+
 ### 2026-07-11 — Dev local: estratégia de mock de integrações ([#172](https://github.com/fortegb/platform/issues/172))
 
 - **D-051:** mock com happy-path por padrão + override booleano único por vendor (`MOCK_<VENDOR>_FORCE_ERROR`, convenção D-041); sem tipos de falha parametrizados; mock dentro do módulo adapter do vendor (D-017), sem diretório central. Docs only — código de mock → build.
