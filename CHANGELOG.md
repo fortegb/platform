@@ -7,6 +7,17 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de pós-visita e reengajamento ([#188](https://github.com/fortegb/platform/issues/188))
+
+- **D-061:** especifica os três sub-fluxos que ficaram sem resposta depois de "senha entregue" nas duas jornadas de visita — lembrete pré-visita, cancelamento/reagendamento, e follow-up. Leaf greenfield (nenhum código existia para nenhum dos três).
+- Cancelamento/reagendamento **self-service via magic link**, escolhido sobre WhatsApp-mediado durante a exploração — visitante resolve sozinho, zero carga de staff por pedido. Link único de alta entropia, entregue nas mensagens já existentes (confirmação + lembrete), sem envio novo.
+- Novo status terminal `cancelled`, distinto de `declined` (que significa falha de verificação, sinal de segurança) — aditivo ao ciclo de vida da visita, não modifica `visit-identity-verification`.
+- Cancelar após senha emitida chama `revoke(credential)` do adapter Tuya (D-052) — primeiro caller real dessa função, nomeada mas nunca usada até agora.
+- Remarcar = cancelar + reagendar pelo fluxo normal (#186), sem editar in-place.
+- Follow-up pós-visita classificado por timing (mesmo dia/+24h transacional; +3 dias ou promocional = marketing, opt-in explícito) — resolve a questão de consentimento que #141 deixou em aberto, usando o framework já existente de D-054. Escopo desta leaf é só a regra; conteúdo/cadência real → Execução.
+- Novo `templates/jornada-pos-visita-reengajamento.md`. Nova capability OpenSpec `journey-post-visit-reengagement`. Nova rota `/visita/gerenciar/[token]`. `jornadas-plataforma.md` §3.2 e `screen-map.md` saem de rascunho para validado.
+- Implementação real → Execução (#141, #81). **Quinta leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de fila de exceção de verificação de identidade ([#192](https://github.com/fortegb/platform/issues/192))
 
 - **D-060:** especificação da tela de staff-review que #186 e #187 já deferiam — fila compartilhada sem UI consumidora alguma até agora. Primeira leaf de Passo 5 totalmente greenfield (sem stub pré-arquitetura para corrigir).

@@ -78,13 +78,14 @@ Para quem planeja ir à casa num horário combinado.
 | 5 | Se `client-match` falhar/confiança baixa: `verification_attempt` pendente entra na fila `staff-review` **sem bloquear** o agendamento — cliente vê "confirmaremos por WhatsApp antes da visita" (assíncrono, não uma espera síncrona) | Staff (fila #192) |
 | 6 | Só após `visit.status = verified` (servidor, nunca um flag do cliente): uma única chamada a `provisionAccess(visit)` (adapter D-052) gera e programa a senha na fechadura — nunca duas ações independentes | Backend |
 | 7 | Se `provisionAccess` falhar: fallback D-052 (código de emergência estático + alerta WhatsApp imediato a staff) — nunca um "sucesso" com senha não gravada | Backend / Staff |
-| 8 | Cliente recebe WhatsApp (via QStash, D-054): data, endereço, senha, validade | WhatsApp |
-| 9 | Cliente registrado no HubSpot; lembrete antes da visita | CRM |
-| 10 | Após visita: senha expira; follow-up automático ou manual | CRM / WhatsApp |
+| 8 | Cliente recebe WhatsApp (via QStash, D-054): data, endereço, senha, validade, **+ link de gerenciamento** (D-061) | WhatsApp |
+| 9 | Cliente registrado no HubSpot; ~24h antes da visita, lembrete WhatsApp repete o link de gerenciamento | CRM / WhatsApp |
+| 10 | A qualquer momento: cliente pode cancelar ou remarcar pelo link, sem login (`/visita/gerenciar/[token]`) — cancelar após senha emitida revoga o acesso na fechadura; remarcar cancela e reagenda pelo fluxo normal | Web (self-service) |
+| 11 | Após a visita: mesmo dia/+24h = mensagem transacional ("como foi?"); +3 dias ou conteúdo promocional = marketing, exige opt-in explícito (D-061, resolve #141) | WhatsApp |
 
 **Resultado:** cliente visita sem corretor presente; ForteGB tem cliente identificado e audit trail (LGPD). Selfie apaga na aprovação; documento retido só durante a janela de 12 meses ativa (D-053, reconsiderado e mantido nesta leaf).
 
-**Fronteira:** tela de staff-review (#192) e fluxo instantâneo/QR (#187) são leaves separadas — esta jornada só especifica a entrada/saída da fila compartilhada.
+**Fronteira:** tela de staff-review (#192) e fluxo instantâneo/QR (#187) são leaves separadas — esta jornada só especifica a entrada/saída da fila compartilhada. Cancelamento/reagendamento e follow-up ✅ **re-validados** — [#188](https://github.com/fortegb/platform/issues/188), D-061. Detalhe: [`templates/jornada-pos-visita-reengajamento.md`](./templates/jornada-pos-visita-reengajamento.md).
 
 ---
 
