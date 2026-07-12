@@ -62,6 +62,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-053 — Visits: data model + identity verification (#180)
 - D-054 — Messaging: WhatsApp/Telegram provider, triggers, consent (#182)
 - D-055 — RBAC: role model and permissions (#183)
+- D-056 — Admin: build-vs-buy conflict resolution (#184)
 
 ---
 
@@ -506,3 +507,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-055; `templates/rbac-modelo-papeis.md`.
 - No prior `Q-XXX` resolved — same as `D-054`, this gap surfaced in the post-#146 review.
 - `#50` (Execução) implements RLS/profiles without reopening architecture; Passo 5 (#176) designs screens/flows on an already-decided role model; `#184` (admin) can assume `admin ⊇ staff` hierarchically when resolving its build-vs-buy conflict.
+
+---
+
+## 2026-07-12 — Admin: build-vs-buy conflict resolution (#184)
+
+### Amend the scope, not the rule — content editing stays vendor-only, operational workflow UI is a distinct, named category
+
+**Decision:** The existing `platform-architecture` requirement ("Build-vs-buy default") prohibits *"back-office admin UIs for owner-only content editing"* — but that's narrowly scoped to content (houses, photos, blog), already correctly resolved by Sanity (`D-034`). The declared need surfacing across `D-052`–`D-055` (staff approving corretores, staff reviewing the identity-verification exception queue, staff managing Tuya emergency codes, RBAC role assignment) is a different thing entirely — **operational workflow UI** — a category the original rule never addressed. This isn't a real architecture conflict; it's a requirement written too narrowly that needs amending. The resolution is a **three-part test** for when custom UI is justified (build only if at least one holds): (1) a multi-step workflow with side effects beyond changing a value (e.g. approving a corretor also notifies them and unlocks portal access; approving a verification exception triggers `provisionAccess`); (2) domain-specific rendering a generic dashboard can't reasonably do (e.g. comparing a selfie against a document photo for a human match call); (3) needs to be safe for non-technical staff (Cláudia, Gisele) without touching a database table directly. If none apply, it stays on the vendor dashboard (Supabase Studio/Sanity Studio) — unchanged from the original rule. Reclassifying what's already been decided: corretor-onboarding approval and the verification exception queue (`D-053`) hit (1) and (2) → custom UI justified; Tuya emergency-code rotation (`D-052`) hits none → stays on Supabase Studio, original call unchanged. All operational workflow UI lives under a single `/staff/*` route namespace, gated at `staff`-level via `D-055`'s RBAC middleware — Admin already passes any Staff-level check by hierarchy, so no separate `/admin/*` tree is needed; genuinely Admin-only actions (platform config, API keys, role assignment) get a stricter per-route/per-action check within the same tree. This amends `platform-architecture`'s existing requirement directly (a `MODIFIED` requirement delta), not a new capability, since it's a scope correction to an existing rule, not a new domain.
+
+**Rationale:** Treating this as a scope amendment (not an abandonment of the original rule) preserves the buy-first discipline where it's always worked well (content) while acknowledging operational workflow is a real, distinct need that was never consciously decided — only implicitly assumed across `D-052`/`D-053`. The three-part test avoids both "everything is admin, build it all" and "nothing is admin, build nothing," giving a reusable criterion for future decisions without reopening this architecture for every new screen. A single `/staff/*` namespace avoids duplicating UI trees when `D-055`'s hierarchy already resolves Admin vs. Staff at evaluation time.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-056; `templates/admin-build-vs-buy.md`; amended requirement in `openspec/specs/platform-architecture/spec.md`.
+- **Epic #179 (Arquitetura de domínio) has all 5 leaves closed** — unblocks Passo 5 (Jornadas, #176) to design screens on an already-decided foundation.
+- The corrected `platform-architecture` requirement prevents future Execução work from over-reading "no bespoke admin" more broadly than intended.
