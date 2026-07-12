@@ -154,6 +154,13 @@ visível). Skills → ciclo companheiro em `ai-skills`.
 
 ## Supabase local — runbook (D-032 / #153)
 
+## Dev local — toolchain (D-049 / #170)
+
+Inventário completo (Node, Docker/OrbStack, Supabase CLI, ngrok) →
+[`dev-local-toolchain.md`](./dev-local-toolchain.md). Resumo: Node com pin
+duplo (`.nvmrc` + `engines`); as outras três sem pin (auto-atualização
+própria); ngrok opcional, só para túnel de webhook real (D-040).
+
 ## Promoção / hotfix (D-048 / #169)
 
 **Promoção:** uma change staged de cada vez — fechar uma promove tudo que

@@ -366,3 +366,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-048; `environments.md` pointer near D-045/D-046/D-047. Skill support already delivered separately (`ai-skills` v0.7.0, `uniform-hotfix-exception`).
+
+---
+
+## 2026-07-11 — Dev local toolchain (#170)
+
+### Four-tool inventory, dual Node pin, no pinning elsewhere
+
+**Decision:** Local dev toolchain is exactly four tools — Node.js, Docker/OrbStack (D-032), Supabase CLI (D-031), ngrok. Node pinned two ways: `.nvmrc` (day-to-day `nvm use`) and `engines` in `package.json` (free safety net on `npm install`). No version pinning for the other three — human-invoked CLI tools with their own auto-update, "latest stable" is the standing expectation. ngrok confirmed optional/tunnel-only per D-040, not elevated to baseline.
+
+**Rationale:** Node is the one tool where version drift causes real, subtle bugs; the others already have their own update safety net, so a doc-only pin would be redundant, not additive.
+
+**Implications:**
+- Canon: D-049; `environments.md` pointer near D-030–D-032; new `templates/dev-local-toolchain.md`. Actual install/bootstrap → #171.

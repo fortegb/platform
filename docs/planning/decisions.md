@@ -591,3 +591,15 @@
   - **DoD:** D-048 + pointer em `environments.md` perto de D-045/D-046/D-047. Suporte de skills já implementado em `ai-skills` v0.7.0 (`uniform-hotfix-exception`, ai-skills#10) — ciclo separado, não este leaf.
 - **Rationale:** promoção seletiva exigiria tooling nova sem necessidade demonstrada; sync pós-hotfix é barato agora e caro de descobrir em falta depois; registro por uso seria cerimônia desproporcional a um mecanismo de exceção.
 - **Consequências:** canon fechado; implementação de skills já entregue em ciclo separado (`ai-skills`).
+
+### D-049 — Dev local: toolchain (2026-07-11) — **#170**
+- **Status:** accepted
+- **Contexto:** D-032 escopou #170 explicitamente como inventário de toolchain, distinto do bootstrap amplo (#171) e do seed (#154).
+- **Decisão:**
+  - **Lista:** exatamente quatro ferramentas — Node.js, Docker/OrbStack (D-032), Supabase CLI (D-031), ngrok.
+  - **Node:** pin duplo — `.nvmrc` (uso diário via `nvm use`) + `engines` em `package.json` (rede de segurança grátis no `npm install` se `nvm use` for esquecido). Nenhum substitui o outro.
+  - **Sem pin de versão** para Docker/OrbStack, Supabase CLI, ngrok — ferramentas CLI invocadas por humano, com auto-atualização própria; um pin aqui seria referência que fica desatualizada, sem mecanismo grátis (como `engines`) para detectar drift.
+  - **ngrok confirmado opcional, só para túnel** — já decidido em D-040 ("local → mock default, túnel opcional"); este leaf só documenta como parte da lista, não redecide.
+  - **DoD:** D-049 + `templates/dev-local-toolchain.md` + pointer em `environments.md` perto de D-030–D-032.
+- **Rationale:** Node é a única ferramenta onde drift de versão causa bugs reais e sutis; as outras três já têm rede de segurança própria (auto-update).
+- **Consequências:** canon fechado; instalação/bootstrap real → #171.

@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-11 — Dev local: toolchain ([#170](https://github.com/fortegb/platform/issues/170))
+
+- **D-049:** inventário de quatro ferramentas (Node, Docker/OrbStack, Supabase CLI, ngrok); Node com pin duplo (`.nvmrc` + `engines`); sem pin nas outras três (auto-atualização própria); ngrok confirmado opcional/só-túnel (D-040).
+- Novo `templates/dev-local-toolchain.md` + pointer em `environments.md`.
+
 ### 2026-07-11 — CI/CD: processo de promoção/hotfix (staging→main) ([#169](https://github.com/fortegb/platform/issues/169))
 
 - **D-048:** promoção uma change staged de cada vez (explícito, não efeito colateral do merge); hotfix branch `hotfix/<nome>` a partir de `main`, bypass do requisito de staging via `rbo-close-change` v0.5; sync `main`→`staging` obrigatório pós-hotfix; registro via trilha normal de issue/OpenSpec (sem entrada extra por uso).
