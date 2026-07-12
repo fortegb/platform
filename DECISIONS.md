@@ -61,6 +61,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-052 — Tuya viability + failure mode, local-pool primary (#181)
 - D-053 — Visits: data model + identity verification (#180)
 - D-054 — Messaging: WhatsApp/Telegram provider, triggers, consent (#182)
+- D-055 — RBAC: role model and permissions (#183)
 
 ---
 
@@ -490,3 +491,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-054; `templates/mensageria-provider-gatilhos.md`.
 - No prior `Q-XXX` resolved — this gap was identified in the post-#146 review, not previously tracked in `open-questions.md`.
 - `#75` (Execução) picks the vendor and implements without reopening architecture; Passo 5 (#176) designs the trigger-by-trigger journey on top of this already-decided policy; `#183`/`#184` (RBAC/admin) can assume the WhatsApp-external/Telegram-internal split is already settled.
+
+---
+
+## 2026-07-12 — RBAC: role model and permissions (#183)
+
+### Single role enum, hierarchy at evaluation not storage, two-layer enforcement
+
+**Decision:** `D-018` had already flagged "RBAC covering all roles" as a foundational "lock now" item, but it was never formalized — only a loose table in `architecture.md` §2 existed, with documented overlap (Ricardo as both Admin and Digital; all three founders as both Admin and Sócio/investidor). This leaf resolves it: a **single `role` enum per user** — `cliente | corretor | staff | admin` — with no multi-role assignment, since Corretor and Cliente are mutually exclusive relationships to the business (a corretor doesn't buy, a customer doesn't sell) and multi-role machinery doesn't reflect the domain's reality. "Digital" and "Sócio/investidor" are **not** RBAC roles — they're organizational facts recorded in `company-structure.md` that don't gate any distinct system capability on their own. Admin is not "Staff + Admin" stored together — it's a single role that is hierarchically superior to Staff **at permission-check evaluation time** ("requires Staff-level access" passes automatically for Admin); this hierarchy is a property of evaluation, not of what's stored on the user. Enforcement happens in two layers: app-level middleware/routing (a UX convenience, not a real security boundary) and Supabase RLS (the actual row-level security boundary), matching the pattern already used for the private document bucket (`D-016`/`D-030`) — a route-guard bug should never be the only thing standing between a Corretor and another Corretor's leads. `Visitante` is not a stored enum value — it's the default/absence case for anyone without a session; anonymous-traffic tracking (Google Ads, GA4) is a separate concern (`#124`), orthogonal to authorization.
+
+**Rationale:** A single enum per user avoids multi-role machinery the domain doesn't call for; treating "Digital"/"Sócio" as organizational facts rather than RBAC roles keeps the enum from inflating with labels that gate nothing. Hierarchy at evaluation time (not storage) resolves the documented founder overlap without multi-assignment. Two enforcement layers, not one, because middleware is UX convenience while RLS is the real security boundary — the same logic already applied to the private document bucket.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-055; `templates/rbac-modelo-papeis.md`.
+- No prior `Q-XXX` resolved — same as `D-054`, this gap surfaced in the post-#146 review.
+- `#50` (Execução) implements RLS/profiles without reopening architecture; Passo 5 (#176) designs screens/flows on an already-decided role model; `#184` (admin) can assume `admin ⊇ staff` hierarchically when resolving its build-vs-buy conflict.

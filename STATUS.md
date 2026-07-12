@@ -30,7 +30,8 @@
 ✅ **#181 Tuya: viabilidade da API + modo de falha** → D-052 (leaf de maior risco de #179, fechado primeiro). `local-pool` e `tuya-live` são dois mecanismos co-iguais por trás de um adapter seam (D-017) — nenhum adiado; `local-pool` é só o default no lançamento (não espera confirmação da Cloud API); spike da Tuya Cloud API é escopo ativo de curto prazo em #77/#135, não condicional a volume. Resolve Q-006 (fallback) e um conflito real com D-039 (fechadura instalada, numa casa à venda, agora prod-only).
 ✅ **#180 Visitas: modelo de dados + verificação de identidade** → D-053. `client-match` primário para os dois fluxos (sem split, sem KYC SaaS); `staff-review` fila de exceção compartilhada (automática ou WhatsApp), sempre registrada, nunca atalho de acesso. Reuso via `Cliente.identity_verified_at` (12 meses); retenção diferenciada por artefato. Modelo `Cliente`/`verification_attempt`/`visit` substitui a tabela legada; hard gate antes de `provisionAccess`. Resolve Q-005.
 ✅ **#182 Mensageria: WhatsApp/Telegram — provider + gatilhos + consentimento** → D-054. Split por direção — WhatsApp sempre para parte externa (visitante/cliente/corretor), Telegram só interno (justificado tecnicamente, não por custo); corrige D-017. Consentimento: transacional implícito, marketing opt-in explícito (nomeado, não construído). Provider deferido a #75 (mesmo padrão do 2º lock de Tuya); envio sempre via QStash.
-→ PRÓXIMO: #183 RBAC, #184 admin (#184 tem conflito real a resolver: "sem admin bespoke" vs. necessidade real de telas admin). Todos alimentam Passo 5 (Jornadas, #176) antes de detalhar fluxos.
+✅ **#183 RBAC: modelo de papéis e permissões** → D-055. Enum único (`cliente`/`corretor`/`staff`/`admin`), sem multi-atribuição; Digital/Sócio são fatos organizacionais, não papéis. Admin ⊇ Staff na avaliação, não no armazenamento. Enforcement em duas camadas (app + RLS). `Visitante` não armazenado.
+→ PRÓXIMO: #184 admin — conflito real a resolver: "sem admin bespoke" (D-015) vs. necessidade real de telas admin. Última leaf de #179; alimenta Passo 5 (Jornadas, #176).
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -60,10 +61,11 @@
 - [x] **#181** — Tuya: viabilidade da API + modo de falha → D-052 (leaf de maior risco de #179; `local-pool` + `tuya-live` co-iguais via adapter seam; resolve Q-006 e conflito com D-039)
 - [x] **#180** — Visitas: modelo de dados + verificação de identidade → D-053 (`client-match` primário nos dois fluxos; `staff-review` fila de exceção; reuso via Cliente 12 meses; retenção diferenciada; hard gate ao adapter Tuya; resolve Q-005)
 - [x] **#182** — Mensageria: WhatsApp/Telegram — provider + gatilhos + consentimento → D-054 (split por direção; corrige D-017; consentimento transacional/marketing; provider deferido a #75; envio via QStash)
+- [x] **#183** — RBAC: modelo de papéis e permissões → D-055 (enum único, sem multi-papel; Admin ⊇ Staff na avaliação; enforcement em duas camadas; Visitante não armazenado)
 
 ## Próxima sessão
 
-- [ ] Continuar #179 (Arquitetura de domínio): #183 RBAC, #184 admin (#184 tem conflito real "sem admin bespoke" vs. necessidade real — resolver na grilling, não silenciar)
+- [ ] Fechar #179 (Arquitetura de domínio): #184 admin — última leaf; conflito real "sem admin bespoke" (D-015) vs. necessidade real de telas admin — resolver na grilling, não silenciar
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

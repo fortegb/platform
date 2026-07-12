@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-12 — Arquitetura: RBAC — modelo de papéis e permissões ([#183](https://github.com/fortegb/platform/issues/183))
+
+- **D-055:** enum único de papel por usuário (`cliente`/`corretor`/`staff`/`admin`) — sem multi-atribuição. "Digital" e "Sócio/investidor" são fatos organizacionais, não papéis de RBAC (não gateiam capacidade nenhuma).
+- Admin é hierarquicamente superior a Staff **na avaliação da checagem de permissão**, não por armazenar dois papéis — resolve a sobreposição documentada (Ricardo = Admin+Digital) sem multi-atribuição.
+- Enforcement em duas camadas: app-level (middleware/rota, conveniência de UX) + Supabase RLS (fronteira de segurança real) — mesmo padrão do bucket privado (D-016/D-030).
+- `Visitante` não é um valor armazenado — caso default/ausência de sessão; tracking de tráfego anônimo é preocupação separada (#124).
+- Novo `templates/rbac-modelo-papeis.md`. Nova capability OpenSpec `rbac-role-model`.
+
 ### 2026-07-12 — Arquitetura: mensageria WhatsApp/Telegram — provider + gatilhos + consentimento ([#182](https://github.com/fortegb/platform/issues/182))
 
 - **D-054:** split por direção — WhatsApp sempre para qualquer parte externa (visitante, cliente, corretor); Telegram só para interno (staff/sistema, sem parte externa), justificado tecnicamente (sem aprovação de template, gratuito, setup trivial), não por preferência de custo. Corrige D-017 para o escopo exato onde "Telegram-first" ainda se aplica.
