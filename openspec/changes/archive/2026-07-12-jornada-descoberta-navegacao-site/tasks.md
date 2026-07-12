@@ -15,5 +15,5 @@
 - [x] 1.4 Update `docs/planning/screen-map.md` — clear the
       `RASCUNHO — re-validar no passo 5` flag for this journey's rows (Home,
       Portfólio lista/detalhe, Blog, Contato)
-- [ ] 1.5 Sync `journey-site-discovery` spec; `openspec validate`; archive;
+- [x] 1.5 Sync `journey-site-discovery` spec; `openspec validate`; archive;
       merge `Closes #185`
