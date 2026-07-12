@@ -78,25 +78,30 @@
 <p><strong>Fora MVP v1:</strong> portal cliente logado (jornadas §8).</p>
 <hr/>
 <h2>Corretor</h2>
+<blockquote>Onboarding (conta) e Contrato por casa ✅ <strong>re-validados</strong> —</blockquote>
+<blockquote><a href="https://github.com/fortegb/platform/issues/189">#189</a>, D-062. Gov.br</blockquote>
+<blockquote>permanece manual (não automatizado, decisão de MVP já fechada).</blockquote>
 <table><thead><tr><th>Passo da jornada</th><th>Rota</th><th>Estado</th><th>Fase</th><th>Epic</th></tr></thead><tbody>
 <tr><td>Login</td><td><code>/login</code></td><td>simulado</td><td>1</td><td><a href="https://github.com/fortegb/platform/issues/48">#48</a> Identidade</td></tr>
 <tr><td>Painel</td><td><code>/corretor/dashboard</code></td><td>simulado</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/86">#86</a> Portal corretor</td></tr>
 <tr><td>Casas / reclamar</td><td><code>/corretor/casas</code></td><td>simulado</td><td>2</td><td>#86</td></tr>
 <tr><td>Clientes lista / novo</td><td><code>/corretor/clientes</code>, <code>/corretor/clientes/novo</code></td><td>simulado</td><td>2</td><td>#86</td></tr>
-<tr><td>Onboarding (termos, perfil, CRECI)</td><td><code>/corretor/onboarding/*</code></td><td>novo</td><td>2</td><td>#86</td></tr>
-<tr><td>Contrato por casa + Gov.br (Q-016)</td><td><code>/corretor/casas/[id]/contrato</code></td><td>novo</td><td>2</td><td>#86</td></tr>
+<tr><td>Onboarding (termos, perfil, CRECI)</td><td><code>/corretor/onboarding/*</code></td><td>novo — validado #189</td><td>2</td><td>#86</td></tr>
+<tr><td>Contrato por casa (minuta + upload manual)</td><td><code>/corretor/casas/[id]/contrato</code></td><td>novo — validado #189</td><td>2</td><td>#86</td></tr>
 <tr><td>Bot WhatsApp (registro cliente)</td><td>externo WhatsApp</td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/142">#142</a></td></tr>
 </tbody></table>
 <hr/>
 <h2>Staff (operacional)</h2>
 <blockquote>Fila de exceção de verificação ✅ <strong>re-validada</strong> —</blockquote>
-<blockquote><a href="https://github.com/fortegb/platform/issues/192">#192</a>, D-060. Primeira</blockquote>
-<blockquote>tela staff a fechar; demais linhas seguem <code>RASCUNHO</code>/<code>novo</code> até suas</blockquote>
-<blockquote>leaves (#189, #193) fecharem.</blockquote>
+<blockquote><a href="https://github.com/fortegb/platform/issues/192">#192</a>, D-060. Aprovar</blockquote>
+<blockquote>corretor / casa associada ✅ <strong>re-validadas</strong> —</blockquote>
+<blockquote><a href="https://github.com/fortegb/platform/issues/189">#189</a>, D-062</blockquote>
+<blockquote>(<code>/staff/casas-pendentes</code> unificada em <code>/staff/corretores</code> — uma página,</blockquote>
+<blockquote>duas filas). Demais linhas seguem <code>RASCUNHO</code>/<code>novo</code> até suas leaves</blockquote>
+<blockquote>(#193) fecharem.</blockquote>
 <table><thead><tr><th>Passo da jornada</th><th>Rota</th><th>Estado</th><th>Fase</th><th>Epic</th></tr></thead><tbody>
 <tr><td>Área staff (estrutura pós-login)</td><td><code>/staff</code> ou redirect de <code>/login</code></td><td>novo</td><td>1 estrutura / 2 funcionalidades</td><td>#48 / epic staff TBD</td></tr>
-<tr><td>Aprovar corretor</td><td><code>/staff/corretores</code></td><td>novo</td><td>2</td><td>#86</td></tr>
-<tr><td>Aprovar casa associada</td><td><code>/staff/casas-pendentes</code></td><td>novo</td><td>2</td><td>#86</td></tr>
+<tr><td>Aprovar corretor + casa associada (fila unificada)</td><td><code>/staff/corretores</code></td><td>novo — validado #189</td><td>2</td><td>#86</td></tr>
 <tr><td>Fila exceção identidade (visita)</td><td><code>/staff/visitas/excecoes</code></td><td>novo — validado #192</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/80">#80</a></td></tr>
 <tr><td>Calendário visitas do dia</td><td><code>/staff/visitas</code></td><td>novo</td><td>2</td><td>#81</td></tr>
 <tr><td>Cliente manual (WhatsApp telefônico)</td><td><code>/staff/clientes/novo</code></td><td>novo</td><td>2</td><td>Integrações / CRM</td></tr>
