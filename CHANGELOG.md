@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-12 — Epic #179 (Arquitetura de domínio) fechado
+
+- **Epic [#179](https://github.com/fortegb/platform/issues/179) — Arquitetura de domínio (visitas, mensageria, RBAC, admin) — todas as 5 leaves concluídas:** #180 (D-053), #181 (D-052), #182 (D-054), #183 (D-055), #184 (D-056). Board `Done`; issue fechada.
+- Desbloqueia Passo 5 (Jornadas, #176) para desenhar telas/fluxos sobre uma arquitetura de domínio já decidida.
+
 ### 2026-07-12 — Arquitetura: admin — resolução do conflito build-vs-buy ([#184](https://github.com/fortegb/platform/issues/184))
 
 - **D-056:** reframe — "admin" conflava edição de conteúdo (dashboard do vendor, regra original de `platform-architecture` mantida) com UI de fluxo operacional (categoria nova, nunca endereçada pela regra). Teste de três partes para justificar UI custom: workflow multi-etapa com efeitos colaterais; renderização específica de domínio; segurança para staff não-técnico.
