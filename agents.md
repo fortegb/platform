@@ -422,6 +422,17 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
     push de um clone sem `npm install` corrido fica sem essa rede de
     segurança até o próximo commit de `docs/` de um clone configurado).
 - Regeneração: **`node scripts/generate-progress-report.mjs`** (progresso **+** `mapa-roteiro.html` live do board), **`node scripts/generate-portal-assets.mjs`**, ou **`npm run pages:sync`** (completo).
+- **"Atualizar Platform docs" ≠ só correr o script.** Vários ficheiros em
+  `docs/planning/*.md` e `*.html` são **prosa mantida à mão** (ex.:
+  `roteiro.md`, `README.md`, `phases.md`, `deliverables.md`,
+  `platform-vision.md`, `jornadas-plataforma.md`, `screen-map.md`,
+  `open-questions.md`, `apresentacao-socios.md`, `ambientes.html`,
+  `arquitetura-decisoes.html`, `progress-focus.md`) e **não** são tocados
+  por nenhum script. Sempre que o status de uma issue/epic mudar (fechar,
+  criar epic novo, etc.), fazer as duas coisas: (1) correr o gerador
+  automático, **e** (2) `grep` o número da issue/epic em todo
+  `docs/planning/` e corrigir cada referência em prosa encontrada, numa
+  só passada — não parar no primeiro ficheiro encontrado.
 - **Close-out:** `rbo-close-change` corre **`npm run pages:sync`** depois do board `Done`, para o relatório sócios refletir a issue fechada (commit + push em `main`).
 - Agentes: commit/push normal em mudanças em Platform docs — **não** correr `pages:build-info` à mão.
 
