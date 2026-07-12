@@ -63,6 +63,8 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-054 — Messaging: WhatsApp/Telegram provider, triggers, consent (#182)
 - D-055 — RBAC: role model and permissions (#183)
 - D-056 — Admin: build-vs-buy conflict resolution (#184)
+- D-057 — Jornada: site discovery journey validated, WhatsApp-CTA lead capture (#185)
+- D-058 — Jornada: scheduled-visit journey corrected against Tuya/identity architecture (#186)
 
 ---
 
@@ -537,3 +539,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-057; `templates/jornada-descoberta-site.md`; new `journey-site-discovery` capability (`openspec/specs/`).
 - `#56`/`#78`/`#73` (Execução) implement the frontend beacon and endpoint persistence without reopening architecture.
 - `jornadas-plataforma.md` §3.1 and `screen-map.md` move from draft to validated for this journey; later Passo 5 leaves (`#186`–`#195`) follow the same re-validation pattern.
+
+---
+
+## 2026-07-12 — Jornada: visita agendada (#186)
+
+### Correct the scheduled-visit journey against Tuya and identity architecture — gated provisioning, async exception handling, 12-month reuse
+
+**Decision:** The scheduled-visit journey (booking → identity verification → Tuya access → WhatsApp confirmation) predates both `D-052` (Tuya adapter seam, fallback) and `D-053` (visit/identity data model, `client-match`/`staff-review`, 12-month reuse) and was never rebuilt against them. Re-validation found structural gaps, not cosmetic ones: `server/api/visits/schedule.post.ts` writes to the legacy `visits` table `D-053` replaced; `programSmartLock()` calls Tuya directly and swallows failures (catch + log, response still says "success") instead of using `D-052`'s adapter seam and fallback; the endpoint trusts a client-supplied `verificationData.verified` boolean instead of deriving state server-side; the WhatsApp confirmation is sent synchronously instead of via QStash (`D-054`); `D-053`'s 12-month reuse window (`Cliente.identity_verified_at`) is never checked; and there is no `staff-review` code path at all — a failed `client-match` simply dead-ends in an error. This leaf corrects all of it: a returning `Cliente` verified within 12 months skips the verification step entirely (implementing `D-053`'s already-decided reuse rule for the first time); access provisioning becomes a single gated call to the adapter's `provisionAccess(visit)` only after `visit.status = verified` is persisted server-side, so the credential shown to the visitor and the one programmed on the lock can never diverge, and a failed call triggers `D-052`'s fallback (static emergency code + immediate staff WhatsApp alert) instead of a silent fake success; a failed/low-confidence `client-match` now enqueues a pending `verification_attempt` to the shared `staff-review` queue **asynchronously** — settling the one question `D-053` left open for this specific flow (it only specified synchronous-wait avoidance for the *instant* flow) — since a scheduled visit, booked at least a day ahead, has slack an instant/QR visit doesn't; and all outbound messages route through QStash. Selfie retention was reconsidered during exploration (whether to retain it indefinitely "to simplify the flow") and explicitly kept as `D-053` specified — the capture step is identical either way, so the proposed simplification didn't actually remove a flow branch, only a post-approval delete call, and retaining biometric-adjacent data longer than needed traded a real minimization safeguard for a simplification that wasn't real. This leaf explicitly draws a boundary with two sibling leaves: the staff-review screen itself is `#192`, and the instant/QR flow is `#187` — this leaf only specifies that a failure *enters* the shared queue and that its resolution *unlocks* the same `provisionAccess` path as automatic approval.
+
+**Rationale:** The pre-architecture stubs weren't just incomplete — silently returning "success" when the lock write actually failed is a real reliability bug this leaf corrects before it becomes production behavior. Closing the 12-month reuse gap avoids forcing every recurring client to re-upload documents needlessly, a burden `D-053` had already ruled out. Resolving the exception-handling timing now (rather than accidentally inheriting the instant flow's synchronous pattern) avoids building an unnecessary wait where real slack already exists. Keeping selfie retention as `D-053` specified avoids reopening an LGPD minimization decision for a simplicity gain that didn't survive scrutiny.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-058; `templates/jornada-visita-agendada.md`; new `journey-scheduled-visit` capability (`openspec/specs/`).
+- `#81`/`#80`/`#77`/`#135` (Execução) implement the endpoint/adapter/UI rewrite without reopening architecture.
+- `#192` (staff-review screen) and `#187` (instant/QR) can build against the boundary already drawn here.
+- `jornadas-plataforma.md` §3.2 and `screen-map.md` move from draft to validated for this journey.
