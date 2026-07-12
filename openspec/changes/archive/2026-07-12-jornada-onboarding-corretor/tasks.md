@@ -19,5 +19,5 @@
       status for `/corretor/onboarding/*`, `/staff/corretores`,
       `/corretor/casas/[id]/contrato` (and unify the former
       `/staff/casas-pendentes` row into `/staff/corretores`)
-- [ ] 1.5 Sync `journey-corretor-onboarding` (new) and `crm-source-of-truth`
+- [x] 1.5 Sync `journey-corretor-onboarding` (new) and `crm-source-of-truth`
       (modified) specs; `openspec validate`; archive; merge `Closes #189`
