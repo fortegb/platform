@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-12 — Arquitetura: mensageria WhatsApp/Telegram — provider + gatilhos + consentimento ([#182](https://github.com/fortegb/platform/issues/182))
+
+- **D-054:** split por direção — WhatsApp sempre para qualquer parte externa (visitante, cliente, corretor); Telegram só para interno (staff/sistema, sem parte externa), justificado tecnicamente (sem aprovação de template, gratuito, setup trivial), não por preferência de custo. Corrige D-017 para o escopo exato onde "Telegram-first" ainda se aplica.
+- Consentimento: transacional implícito (campo WhatsApp obrigatório do Cliente + ação tomada); marketing opt-in explícito, nomeado agora, não construído (v2+).
+- Provider (WhatsApp Business API vs. Twilio) não escolhido nesta leaf — critérios documentados, escolha real → #75 (Execução), mesmo padrão do segundo lock de teste de Tuya.
+- Envio sempre via QStash (D-017), nunca síncrono no handler da requisição. Mensageria é mais um vendor atrás do adapter seam existente.
+- Novo `templates/mensageria-provider-gatilhos.md`. Nova capability OpenSpec `messaging-channel-policy`.
+
 ### 2026-07-12 — Arquitetura: visitas — modelo de dados + verificação de identidade ([#180](https://github.com/fortegb/platform/issues/180))
 
 - **D-053:** `client-match` (biblioteca frontend, selfie vs. documento) é o mecanismo primário para os dois fluxos (agendado e instantâneo) — sem KYC SaaS, sem split por fluxo. `staff-review` é a fila de exceção compartilhada — automática (confiança baixa) ou pelo visitante via WhatsApp direto a staff; qualquer resolução gera um `verification_attempt` registrado, nunca um atalho de acesso ad hoc.
