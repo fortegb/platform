@@ -392,3 +392,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 
 **Implications:**
 - Canon: D-050; new `templates/dev-local-bootstrap.md`; `environments.md` pointer.
+
+---
+
+## 2026-07-11 — Dev local mock strategy (#172)
+
+### Happy-path default, per-vendor boolean env var override, adapter-colocated
+
+**Decision:** Mock posture defaults to a successful, realistic-shaped response for every vendor. A single boolean override per vendor (`MOCK_<VENDOR>_FORCE_ERROR`, following D-041's naming convention) forces a generic failure — no parameterized failure types, no config file. Mocks live inside each vendor's existing adapter module (D-017), not a separate directory. Documentation only — no mock code written in this leaf.
+
+**Rationale:** Trivial-only mocks never exercise error-handling code locally; elaborate failure-type simulation is more machinery than needed at this scale — that nuance belongs at the safe-target tier against a real sandbox API.
+
+**Implications:**
+- Canon: D-051; pointer in integrations docs near D-037–D-040. Mock implementation code → Etapa 8 build.

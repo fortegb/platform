@@ -7,6 +7,11 @@
 
 ## Não versionado
 
+### 2026-07-11 — Dev local: estratégia de mock de integrações ([#172](https://github.com/fortegb/platform/issues/172))
+
+- **D-051:** mock com happy-path por padrão + override booleano único por vendor (`MOCK_<VENDOR>_FORCE_ERROR`, convenção D-041); sem tipos de falha parametrizados; mock dentro do módulo adapter do vendor (D-017), sem diretório central. Docs only — código de mock → build.
+- **Epic #146 (Arquitetura da solução & ambientes) — todos os 26 sub-issues fechados** com este leaf.
+
 ### 2026-07-11 — Dev local: runbook de bootstrap ([#171](https://github.com/fortegb/platform/issues/171))
 
 - **D-050:** novo `templates/dev-local-bootstrap.md` — checklist ordenado clone→dev funcionando (toolchain D-049 → Supabase local D-032 → env vars D-044). Só local; staging/prod ficam para Execução (#42/#43/#46).

@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-050); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-051); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -24,7 +24,9 @@
 ✅ #169 CI/CD processo de promoção/hotfix → D-048 (1x1 promotion, hotfix/* bypass, sync obrigatório, registro normal)
 ✅ #170 Dev local: toolchain → D-049 (4 ferramentas; Node pin duplo; sem pin nas outras; ngrok opcional)
 ✅ #171 Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
-→ PRÓXIMO: #172 — Dev local: estratégia de mock de integrações
+✅ #172 Dev local: estratégia de mock de integrações → D-051 (happy-path + override booleano por vendor, sem tipos parametrizados)
+🎉 **#146 (Epic: Arquitetura da solução & ambientes) — todos os 26 sub-issues fechados.** Epic pronto para fechar.
+→ PRÓXIMO: fechar epic #146 → avaliar Passo 5 (Jornadas, epic #176) ou #29–31/#140 (deferred v2/v3, já re-parented, não bloqueiam #146)
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -49,11 +51,13 @@
 - [x] #178 — remove GitHub Action redundante de portal build-info (race com pushes)
 - [x] **#170** — Dev local: toolchain → D-049 (4 ferramentas; Node pin duplo; sem pin nas outras; ngrok opcional)
 - [x] **#171** — Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
+- [x] **#172** — Dev local: estratégia de mock de integrações → D-051 (happy-path + override booleano por vendor)
+- [x] Epic **#146** — todos os 26 sub-issues fechados (última: #172)
 
 ## Próxima sessão
 
-- [ ] **#172** — Dev local: estratégia de mock de integrações
-- [ ] Restantes de Etapa 4 (passos 5–7 depois)
+- [ ] Fechar epic **#146** (board Done) — decisão do usuário, não autônomo
+- [ ] Avaliar próximo passo: Passo 5 (Jornadas, epic #176) vs. #29–31/#140 (v2/v3 deferred, já em #81/#98/#130)
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

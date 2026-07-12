@@ -1,6 +1,6 @@
 # Integrações — modelo 3-tiers (D-037 / #158)
 
-> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → D-040; mocks → #172; nomes de env → D-041.
+> Posturas de integração (não ambientes). **Docs only** — mapa → D-038; alvos → D-039; webhooks → D-040; mocks → D-051; nomes de env → D-041.
 
 ## Posturas
 
@@ -32,6 +32,15 @@ Factory do adaptador (D-017) escolhe mock vs cliente real conforme o tier efetiv
 
 Nomes exactos das env vars → [`env-vars.md`](./env-vars.md) (D-041).
 
+## Mocks locais (D-051 / #172)
+
+Postura `mock` = happy-path por padrão em cada adapter; override booleano
+único por vendor via `MOCK_<VENDOR>_FORCE_ERROR` (convenção D-041) — sem
+ficheiro de config, sem tipos de falha parametrizados (isso valida-se no
+tier safe-target, contra sandbox real). Mock vive dentro do próprio módulo
+adapter do vendor (D-017) — sem diretório central. Docs only; código de
+mock → build (passo 8).
+
 ## Relação
 
-- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`integrations-webhooks.md`](./integrations-webhooks.md) (D-040) · [`env-vars.md`](./env-vars.md) (D-041) · [`environments.md`](./environments.md) · Ambientes · #172 mocks locais
+- [`integrations-map.md`](./integrations-map.md) (D-038) · [`integrations-safe-targets.md`](./integrations-safe-targets.md) (D-039) · [`integrations-webhooks.md`](./integrations-webhooks.md) (D-040) · [`env-vars.md`](./env-vars.md) (D-041) · [`environments.md`](./environments.md) · Ambientes
