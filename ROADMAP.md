@@ -69,6 +69,7 @@
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
 - [#177](https://github.com/fortegb/platform/issues/177) Higiene docs passos 1–2 + validação D-028
 - [#178](https://github.com/fortegb/platform/issues/178) CI/CD: remove redundant portal-build-info GitHub Action
+- [#180](https://github.com/fortegb/platform/issues/180) Arquitetura: visitas autoguiadas — modelo de dados + verificação de identidade
 - [#181](https://github.com/fortegb/platform/issues/181) Arquitetura: Tuya — viabilidade da API + modo de falha
 
 ## Todo
@@ -180,7 +181,6 @@
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#176](https://github.com/fortegb/platform/issues/176) Epic: Jornadas, telas e fluxos — re-validação pós-arquitetura
 - [#179](https://github.com/fortegb/platform/issues/179) Epic: Arquitetura de domínio — visitas, mensageria, RBAC, admin
-- [#180](https://github.com/fortegb/platform/issues/180) Arquitetura: visitas autoguiadas — modelo de dados + verificação de identidade
 - [#182](https://github.com/fortegb/platform/issues/182) Arquitetura: mensageria WhatsApp/Telegram — provider + gatilhos + consentimento
 - [#183](https://github.com/fortegb/platform/issues/183) Arquitetura: RBAC — modelo de papéis e permissões
 - [#184](https://github.com/fortegb/platform/issues/184) Arquitetura: admin — resolver conflito build-vs-buy
