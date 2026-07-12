@@ -78,6 +78,7 @@
 - [#185](https://github.com/fortegb/platform/issues/185) Jornada: descoberta e navegação do site
 - [#186](https://github.com/fortegb/platform/issues/186) Jornada: visita agendada
 - [#187](https://github.com/fortegb/platform/issues/187) Jornada: visita instantânea via QR
+- [#192](https://github.com/fortegb/platform/issues/192) Jornada: fila de exceção de verificação de identidade
 
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
@@ -191,7 +192,6 @@
 - [#189](https://github.com/fortegb/platform/issues/189) Jornada: onboarding do corretor
 - [#190](https://github.com/fortegb/platform/issues/190) Jornada: registro de cliente e proteção de comissão
 - [#191](https://github.com/fortegb/platform/issues/191) Jornada: pipeline e dashboard do corretor
-- [#192](https://github.com/fortegb/platform/issues/192) Jornada: fila de exceção de verificação de identidade
 - [#193](https://github.com/fortegb/platform/issues/193) Jornada: operação diária do staff
 - [#194](https://github.com/fortegb/platform/issues/194) Jornada: gestão de acesso Tuya
 - [#195](https://github.com/fortegb/platform/issues/195) Jornada: configuração de plataforma e papéis
