@@ -60,6 +60,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-051 — Dev local mock strategy (#172)
 - D-052 — Tuya viability + failure mode, local-pool primary (#181)
 - D-053 — Visits: data model + identity verification (#180)
+- D-054 — Messaging: WhatsApp/Telegram provider, triggers, consent (#182)
 
 ---
 
@@ -474,3 +475,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-053; `templates/visitas-identidade-modelo-dados.md`.
 - Resolves Q-005. Passo 5 (#176) can design the visit journey on top of an already-decided data model; #80 (Execução) implements the concrete library/threshold/queue-UI tuning without reopening architecture.
 - #182/#183 (messaging/RBAC) can assume `Cliente.identity_verified_at` and the `visit.status` hard gate already exist.
+
+---
+
+## 2026-07-12 — Messaging: WhatsApp/Telegram provider, triggers, consent (#182)
+
+### Direction-based channel split, deferred provider pick, QStash-routed sends
+
+**Decision:** Messaging channel is split by direction, not by cost: **WhatsApp always** for any externally-facing message (visitor, customer, **or corretor** — any party outside ForteGB), no exceptions — forcing an external party onto Telegram (install an app, create an account) is unacceptable. **Telegram** is reserved for **internal-only** notifications (staff/system, no external party involved), justified by a real technical asymmetry rather than generic preference: Telegram's Bot API needs no template-approval process, is free regardless of volume, and takes minutes to set up (BotFather), versus WhatsApp Business API's business verification and pre-approved templates for business-initiated messages outside the 24-hour window. This corrects `D-017`'s generic "Telegram-first" framing to the exact scope where it still applies, reconciling it with the WhatsApp-only pattern already assumed informally in `D-052`/`D-053`. Consent is split into two scopes: transactional/operational messages (visit confirmations, access codes, staff escalation, reminders) are implicitly covered by `Cliente`'s mandatory WhatsApp field (`D-020`) plus the specific action taken — no separate opt-in; marketing/promotional messaging is a distinct, explicit opt-in scope, off by default, named now but not built (it's `D-018`'s v2+ territory). The actual provider (WhatsApp Business API direct vs. a Twilio wrapper) is **not** chosen in this leaf — same "spec now, provision later" pattern as Tuya's second test lock (`D-052`) — only the selection criteria are documented (template support, reasonable BR pricing, serverless-compatible), with the real pick deferred to `#75` (Execução). All sends (WhatsApp or Telegram) route through QStash (`D-017`), never a synchronous call inside the triggering request handler. Messaging is simply another vendor behind the existing adapter seam (`D-017`), the same shape as Tuya (`D-052`), not a new pattern.
+
+**Rationale:** The direction-based split resolves a real tension between `D-017`'s generic Telegram-first framing and the WhatsApp usage already assumed in `D-052`/`D-053`, backed by a concrete technical reason (template/cost/setup friction) rather than preference alone. Implicit consent for transactional messages avoids disproportionate ceremony at this scale; naming the marketing consent scope now avoids future conflation without building anything prematurely. Deferring the vendor pick matches the pattern already used for Tuya — real verification needs a live account, not more speculation.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-054; `templates/mensageria-provider-gatilhos.md`.
+- No prior `Q-XXX` resolved — this gap was identified in the post-#146 review, not previously tracked in `open-questions.md`.
+- `#75` (Execução) picks the vendor and implements without reopening architecture; Passo 5 (#176) designs the trigger-by-trigger journey on top of this already-decided policy; `#183`/`#184` (RBAC/admin) can assume the WhatsApp-external/Telegram-internal split is already settled.
