@@ -3,7 +3,7 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-049); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-050); itens `deferred` reabrem no grilling da fase.
 
 ---
 
@@ -23,7 +23,8 @@
 ✅ #168 CI/CD automação de migrações → D-047 (manual, não CI; gatilhos stage/close; rastreabilidade por commit)
 ✅ #169 CI/CD processo de promoção/hotfix → D-048 (1x1 promotion, hotfix/* bypass, sync obrigatório, registro normal)
 ✅ #170 Dev local: toolchain → D-049 (4 ferramentas; Node pin duplo; sem pin nas outras; ngrok opcional)
-→ PRÓXIMO: #171 — Dev local: runbook de bootstrap
+✅ #171 Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
+→ PRÓXIMO: #172 — Dev local: estratégia de mock de integrações
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -47,11 +48,12 @@
 - [x] **#169** — CI/CD: processo de promoção/release (staging→main) → D-048 (1x1 promotion, hotfix/* bypass, sync obrigatório, registro normal)
 - [x] #178 — remove GitHub Action redundante de portal build-info (race com pushes)
 - [x] **#170** — Dev local: toolchain → D-049 (4 ferramentas; Node pin duplo; sem pin nas outras; ngrok opcional)
+- [x] **#171** — Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
 
 ## Próxima sessão
 
-- [ ] **#171** — Dev local: runbook de bootstrap
-- [ ] #172+ restantes de Etapa 4
+- [ ] **#172** — Dev local: estratégia de mock de integrações
+- [ ] Restantes de Etapa 4 (passos 5–7 depois)
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

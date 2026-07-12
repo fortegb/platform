@@ -603,3 +603,14 @@
   - **DoD:** D-049 + `templates/dev-local-toolchain.md` + pointer em `environments.md` perto de D-030–D-032.
 - **Rationale:** Node é a única ferramenta onde drift de versão causa bugs reais e sutis; as outras três já têm rede de segurança própria (auto-update).
 - **Consequências:** canon fechado; instalação/bootstrap real → #171.
+
+### D-050 — Dev local: runbook de bootstrap (2026-07-11) — **#171**
+- **Status:** accepted
+- **Contexto:** D-032/D-049 apontaram o runbook de bootstrap real para este leaf sem escrevê-lo — junta peças já decididas (toolchain, Supabase local, env vars) num checklist único e ordenado.
+- **Decisão:**
+  - **Escopo:** só local — clone → toolchain (D-049/#170) → Supabase local (D-032) → env vars (D-044) → `npm run dev` funcionando. Staging/prod **fora** — já são de #42/#43/#46 (Execução); incluir aqui duplicaria trabalho e confundiria a separação Definição/Execução que o G2 existe para impor.
+  - **Localização:** `docs/planning/templates/dev-local-bootstrap.md`, consistente com os outros templates desta sessão.
+  - **Docs only:** este leaf não corre `supabase init` nem qualquer comando de bootstrap — mesmo precedente de D-032 para o runbook local Supabase.
+  - **DoD:** D-050 + `templates/dev-local-bootstrap.md` + pointer em `environments.md`.
+- **Rationale:** as peças já existem como decisões; falta só ordenar e consolidar num documento que um novo developer segue do início ao fim sem precisar de mais nada.
+- **Consequências:** canon fechado; runbook de staging/prod é trabalho separado, na fase certa (Execução).

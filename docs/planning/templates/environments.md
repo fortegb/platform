@@ -161,6 +161,12 @@ Inventário completo (Node, Docker/OrbStack, Supabase CLI, ngrok) →
 duplo (`.nvmrc` + `engines`); as outras três sem pin (auto-atualização
 própria); ngrok opcional, só para túnel de webhook real (D-040).
 
+## Dev local — runbook de bootstrap (D-050 / #171)
+
+Checklist ordenado clone→dev funcionando →
+[`dev-local-bootstrap.md`](./dev-local-bootstrap.md). Só local — staging/prod
+ficam para Execução (#42/#43/#46).
+
 ## Promoção / hotfix (D-048 / #169)
 
 **Promoção:** uma change staged de cada vez — fechar uma promove tudo que
