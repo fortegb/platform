@@ -1,6 +1,6 @@
 # Tuya — adapter de acesso, mecanismo e modo de falha (D-052 / #181)
 
-> Mecanismo/viabilidade do acesso via fechadura Tuya. **Docs only.** Jornada completa de visitas (agendada/instantânea, identidade, booking) → #180. Spike real da Tuya Cloud API + implementação → #77/#135 (Execução).
+> Mecanismo/viabilidade do acesso via fechadura Tuya. **Docs only.** Jornada completa de visitas (agendada/instantânea, identidade, booking) → #180. Spike real da Tuya Cloud API + implementação de ambos os mecanismos → #77/#135 (Execução), como trabalho **ativo e de curto prazo** — não condicional a crescimento de volume.
 
 ## Device
 
@@ -25,16 +25,19 @@ revoke(credential)
 
 | Implementação | Papel | Quando |
 |----------------|-------|--------|
-| `local-pool` | **Primária (v2)** — atribui um código de um pool pré-provisionado por casa, escrito na fechadura via app, sem chamada de API em tempo real no caminho crítico | Default até `tuya-live` ser validado |
-| `tuya-live` | Upgrade futuro opcional — cria/revoga senha real via Tuya Cloud API | Só após spike confirmar viabilidade **e** volume de visitas justificar automação |
+| `local-pool` | **Default no lançamento** — atribui um código de um pool pré-provisionado por casa, escrito na fechadura via app, sem chamada de API em tempo real no caminho crítico | Ativa desde o v2; não depende de confirmação da Cloud API |
+| `tuya-live` | **Mecanismo de primeira classe, não um upgrade opcional de baixa prioridade** — cria/revoga senha real via Tuya Cloud API | Disponível assim que o spike (curto prazo, #77/#135) confirmar viabilidade — daí em diante, qual mecanismo é primário é decisão operacional |
 
-Troca de implementação = configuração (mesma convenção `INTEGRATION_TIER_<VENDOR>`
-de D-041), não reescrita de jornada.
+Os dois mecanismos são **igualmente parte da arquitetura, da jornada e do
+grilling** — nenhum é adiado ou tratado como "algum dia". `local-pool` é
+só o ponto de partida prático porque não fica bloqueado por uma dependência
+de rede ainda não confirmada. Troca de implementação = configuração (mesma
+convenção `INTEGRATION_TIER_<VENDOR>` de D-041), não reescrita de jornada.
 
 ## Fallback / modo de falha
 
-Aplica-se ao `local-pool` e continua válido mesmo depois de `tuya-live` estar
-ativo (nenhuma dependência de nuvem é 100% confiável):
+Aplica-se aos dois mecanismos — inclusive com `tuya-live` ativo, já que
+nenhuma dependência de nuvem é 100% confiável:
 
 1. **Código de emergência estático por casa** — local, no keypad, sem
    dependência de rede/nuvem. Relayed por staff via WhatsApp/telefone.

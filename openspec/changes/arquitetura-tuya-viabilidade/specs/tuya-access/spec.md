@@ -9,11 +9,19 @@ The system SHALL provision and revoke house access credentials for guided visits
 - **WHEN** the active access-provisioning implementation changes from `local-pool` to `tuya-live`
 - **THEN** identity verification, booking, CRM sync, and WhatsApp delivery code are unchanged
 
-### Requirement: local-pool is the default v2 mechanism
-The `local-pool` implementation SHALL be the default access-provisioning mechanism for guided visits, assigning a pre-provisioned per-house code without a real-time call to the Tuya Cloud API in the critical path. The `tuya-live` implementation (real-time Tuya Cloud API password creation) SHALL NOT become the default until an empirical spike confirms the Cloud API supports temporary/time-windowed passwords for the deployed device and visit volume justifies the added automation.
+### Requirement: local-pool and tuya-live are both first-class mechanisms
+The system SHALL treat `local-pool` and `tuya-live` as co-equal, first-class access-provisioning mechanisms behind the adapter seam. Neither mechanism SHALL be treated as deferred, shelved, or lower-priority in architecture, journey design, or grilling — validating and building both SHALL remain active, near-term scope.
 
-#### Scenario: Visit access is provisioned from the local pool
-- **WHEN** a visit's access credential is provisioned under the default configuration
+#### Scenario: Both mechanisms stay on the active plan
+- **WHEN** the platform's guided-visit architecture is reviewed or extended
+- **THEN** both `local-pool` and `tuya-live` are treated as mechanisms actively being built or validated
+- **AND** neither is described as conditional on visitor-volume growth
+
+### Requirement: local-pool is the launch default
+The `local-pool` implementation SHALL be the default access-provisioning mechanism for guided visits at launch, assigning a pre-provisioned per-house code without a real-time call to the Tuya Cloud API in the critical path. The `tuya-live` implementation SHALL become available once a near-term empirical spike confirms the Cloud API supports temporary/time-windowed passwords for the deployed device; that spike SHALL NOT be deferred pending visit-volume growth. Once `tuya-live` is confirmed viable, which mechanism is primary SHALL be an operational choice, not a re-opened architecture decision.
+
+#### Scenario: Visit access is provisioned from the local pool at launch
+- **WHEN** a visit's access credential is provisioned under the launch configuration
 - **THEN** the system assigns an available code from that house's local pool and marks it assigned
 - **AND** it does not make a synchronous Tuya Cloud API call to create that code
 

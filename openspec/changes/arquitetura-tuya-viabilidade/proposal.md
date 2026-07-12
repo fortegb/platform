@@ -7,8 +7,8 @@
 Document (definition only — no adapter code, no Tuya Cloud Project linking, no spike execution):
 
 1. Adapter seam (`provisionAccess`/`markUsed`/`revoke`, per D-017) hides the access mechanism from the rest of the visit journey (identity, booking, CRM, WhatsApp).
-2. `local-pool` (pre-provisioned per-house codes, no live API in the critical path) is the default v2 mechanism; `tuya-live` (real Cloud API calls) is a gated future upgrade, swapped in only once a spike confirms viability and visit volume justifies automation.
-3. Fallback chain: static per-house emergency code (keypad-local) + reschedule — never staff dispatch as a designed tier. Failure detection is synchronous at issuance, never visitor-reported; the instant/QR flow needs a shorter timeout than the scheduled flow.
+2. `local-pool` (pre-provisioned per-house codes, no live API in the critical path) and `tuya-live` (real Cloud API calls) are both first-class mechanisms — equally part of the architecture, journey design, and grilling, neither shelved. `local-pool` is the **launch default** since it doesn't require Cloud API confirmation to ship; `tuya-live` becomes available once a near-term spike confirms viability (not gated on visit volume).
+3. Fallback chain, applies to either mechanism: static per-house emergency code (keypad-local) + reschedule — never staff dispatch as a designed tier. Failure detection is synchronous at issuance, never visitor-reported; the instant/QR flow needs a shorter timeout than the scheduled flow.
 4. Emergency code lifecycle: scoped per house, rotates monthly + immediately after any real use, tracked and audited in a restricted Supabase table.
 5. Safe-target isolation: the installed X2 (on a house currently for sale) is prod-only and must never be the default staging safe-target (resolves a real conflict with `D-039`); a second dedicated test lock is required before any automated safe-target testing of the write-password flow.
 6. `D-052` + `templates/tuya-access-adapter.md`; resolves `Q-006` (fallback half — scheduled/instant ordering stays with #180).
@@ -23,4 +23,4 @@ Document (definition only — no adapter code, no Tuya Cloud Project linking, no
 
 ## Impact
 
-- Docs only. Tuya Cloud API spike + adapter implementation → #77/#135 (Execução). Visit journey/data model → #180. Admin maintenance-UI conflict → #184 (only referenced here, not resolved).
+- Docs only. Tuya Cloud API spike + adapter implementation for both mechanisms → #77/#135 (Execução), scoped as near-term work, not conditional on visitor-volume growth. Visit journey/data model → #180. Admin maintenance-UI conflict → #184 (only referenced here, not resolved).
