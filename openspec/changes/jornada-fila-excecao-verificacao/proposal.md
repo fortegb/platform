@@ -30,6 +30,18 @@ reopening either.
   that a reject moves `visit.status` to `declined` and queues a WhatsApp
   message (D-054) explaining the outcome, rather than leaving the visitor
   with no resolution signal at all.
+- **New:** a new pending `verification_attempt` triggers a Telegram alert
+  to staff (not WhatsApp) — this is a purely internal notification, no
+  visitor is a party to it, so it falls on the internal side of D-054's
+  already-decided direction-based channel split. This resolves a latent
+  inconsistency between D-052's literal "alerta a staff via WhatsApp" text
+  (written for the Tuya-failure case, before D-054 existed) and D-054's
+  later general rule — D-054 itself names this exact reconciliation as its
+  purpose, so applying Telegram here is following the settled rule, not
+  making a new one. The alert is a "go look" ping with a link into the
+  queue, not an inline approve/reject action inside the chat — one
+  notification per new item, no batching, proportional to this business's
+  actual visit volume.
 - RBAC gating consumes the already-decided model as-is: `/staff/*`
   namespace, `staff`-level access (admin passes by hierarchy), two-layer
   enforcement (D-055) — no new role or permission concept introduced.

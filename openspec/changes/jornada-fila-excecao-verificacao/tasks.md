@@ -5,7 +5,10 @@
 - [ ] 1.1 D-060 + `DECISIONS.md` mirror — queue prioritization by flow type,
       reject-notifies-visitor (closes a gap D-053 left open, not a
       reopening — D-053's approve path is unchanged), approval reuses the
-      existing `provisionAccess` call site, `/staff/*` RBAC consumption
+      existing `provisionAccess` call site, `/staff/*` RBAC consumption,
+      new-pending-item Telegram alert (applies D-054's already-settled
+      internal/external channel split to its first concrete case,
+      reconciling D-052's literal "WhatsApp" text for staff alerts)
 - [ ] 1.2 `docs/planning/templates/jornada-fila-excecao-verificacao.md` —
       queue contract detail (ordering rule, approve/reject outcomes,
       boundary with #193/#194/#195)

@@ -71,6 +71,23 @@ storage Execução builds per D-055 — not a new RBAC concept, just the first
 consumer of the `staff` role check where the mechanism was previously only
 decided abstractly.
 
+**New pending item triggers a Telegram alert, resolving a latent
+inconsistency rather than creating a new rule.** D-052's text says "alerta
+a staff via WhatsApp" for the Tuya-provisioning-failure case, written
+before D-054 existed. D-054 later established a clean direction-based
+split — WhatsApp for any message involving an external party, Telegram for
+purely internal staff/system notifications — and explicitly named
+reconciling D-052/D-053's informal WhatsApp usage as its purpose. A "new
+exception needs review" ping has no external party as sender or recipient,
+so it falls on Telegram under D-054's already-settled rule; this leaf just
+applies that rule to its first concrete case; it doesn't reopen D-054 or
+change its requirements. The alert is a "go look" ping (message + link into
+the queue), not an inline approve/reject action inside the chat — building
+a reply-to-approve bot flow is a materially different, currently-undecided
+mechanism and out of scope here. One notification per new pending item, no
+batching — proportional to a visit volume measured in a handful a year, not
+built for scale this business doesn't have.
+
 ## Risks / Trade-offs
 
 - **[Risk]** Flow-type prioritization means a scheduled-visit exception

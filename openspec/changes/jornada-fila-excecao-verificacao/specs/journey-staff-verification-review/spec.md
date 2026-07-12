@@ -55,6 +55,25 @@ WhatsApp message to the visitor explaining the outcome.
 - **AND** a WhatsApp message explaining the rejection is queued for the
   visitor, not left unsent
 
+### Requirement: New pending exceptions alert staff via Telegram
+The system SHALL, when a new `verification_attempt` enters the `pending`
+state, queue a Telegram notification to staff containing a link into the
+exception queue, and SHALL NOT use WhatsApp for this notification, since it
+is a purely internal message with no external party as sender or
+recipient.
+
+#### Scenario: New exception triggers a Telegram ping
+- **WHEN** a `verification_attempt` transitions to `pending`
+- **THEN** a Telegram message is queued to staff with a link to review it
+- **AND** no WhatsApp message is sent for this notification
+
+#### Scenario: Notification is a pointer, not an inline action
+- **WHEN** staff receives the Telegram notification
+- **THEN** the message links to the exception-queue screen for staff to act
+  on
+- **AND** the notification itself does not support approving or rejecting
+  the exception directly from the chat
+
 ### Requirement: Screen is restricted to staff-level access
 The system SHALL restrict the exception-queue screen and its approve/reject
 actions to users with `staff`-level access or higher (per the RBAC
