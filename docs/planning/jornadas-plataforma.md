@@ -65,21 +65,26 @@ Google / redes / indicação
 
 ### 3.2 Visita autoguiada — agendada
 
+> ✅ **Re-validada no passo 5** ([#186](https://github.com/fortegb/platform/issues/186), D-058) — corrigida contra D-052 (Tuya) e D-053 (identidade/dados); o stub pré-arquitetura tinha lacunas estruturais (fallback silencioso, sem reuso de 12 meses, sem fila de exceção), não só conteúdo pendente. Detalhe: [`templates/jornada-visita-agendada.md`](./templates/jornada-visita-agendada.md).
+
 Para quem planeja ir à casa num horário combinado.
 
 | Passo | O que acontece | Canal |
 |-------|----------------|-------|
 | 1 | Cliente escolhe casa no portfólio e clica **Agendar visita** | Web |
-| 2 | Preenche nome, celular (WhatsApp), data/hora preferida | Web |
-| 3 | Tira selfie e envia foto do documento (RG ou CNH) | Web (câmera) |
-| 4 | Sistema compara rosto ↔ documento; se OK, aprova automaticamente | Plataforma |
-| 5 | Se falhar, staff recebe alerta para aprovação manual | Staff |
-| 6 | Visita criada no calendário; senha temporária enviada à fechadura (Tuya) | Backend |
-| 7 | Cliente recebe WhatsApp: data, endereço, senha, validade (ex. 2–4 h) | WhatsApp |
-| 8 | Cliente registrado no HubSpot; lembrete antes da visita | CRM |
-| 9 | Após visita: senha expira; follow-up automático ou manual | CRM / WhatsApp |
+| 2 | Preenche nome, celular (WhatsApp), data/hora preferida (≥1 dia de antecedência) | Web |
+| 3 | **Se `Cliente.identity_verified_at` está dentro de 12 meses, pula direto para o passo 6** (reuso D-053) | Plataforma |
+| 4 | Senão: tira selfie e envia foto do documento (RG ou CNH); `client-match` compara rosto ↔ documento | Web (câmera) |
+| 5 | Se `client-match` falhar/confiança baixa: `verification_attempt` pendente entra na fila `staff-review` **sem bloquear** o agendamento — cliente vê "confirmaremos por WhatsApp antes da visita" (assíncrono, não uma espera síncrona) | Staff (fila #192) |
+| 6 | Só após `visit.status = verified` (servidor, nunca um flag do cliente): uma única chamada a `provisionAccess(visit)` (adapter D-052) gera e programa a senha na fechadura — nunca duas ações independentes | Backend |
+| 7 | Se `provisionAccess` falhar: fallback D-052 (código de emergência estático + alerta WhatsApp imediato a staff) — nunca um "sucesso" com senha não gravada | Backend / Staff |
+| 8 | Cliente recebe WhatsApp (via QStash, D-054): data, endereço, senha, validade | WhatsApp |
+| 9 | Cliente registrado no HubSpot; lembrete antes da visita | CRM |
+| 10 | Após visita: senha expira; follow-up automático ou manual | CRM / WhatsApp |
 
-**Resultado:** cliente visita sem corretor presente; ForteGB tem cliente identificado e audit trail (LGPD).
+**Resultado:** cliente visita sem corretor presente; ForteGB tem cliente identificado e audit trail (LGPD). Selfie apaga na aprovação; documento retido só durante a janela de 12 meses ativa (D-053, reconsiderado e mantido nesta leaf).
+
+**Fronteira:** tela de staff-review (#192) e fluxo instantâneo/QR (#187) são leaves separadas — esta jornada só especifica a entrada/saída da fila compartilhada.
 
 ---
 

@@ -7,6 +7,16 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de visita agendada ([#186](https://github.com/fortegb/platform/issues/186))
+
+- **D-058:** correção da jornada de visita agendada contra D-052 (Tuya) e D-053 (identidade/dados) — o stub pré-arquitetura tinha lacunas estruturais: tabela `visits` legada, `programSmartLock()` chamado direto engolindo falhas (log + "success" falso), booleano de verificação confiado do cliente, WhatsApp síncrono, sem checagem de reuso de 12 meses, sem fila `staff-review`.
+- Correções: reuso de 12 meses agora pula verificação inteiramente para `Cliente` já verificado; `provisionAccess(visit)` do adapter D-052 é chamada única e gated por `visit.status = verified` persistido no servidor; falha de provisionamento aciona o fallback (código de emergência + alerta staff), nunca sucesso silencioso; mensageria via QStash (D-054).
+- Resolve a lacuna que D-053 deixou aberta só para o fluxo agendado: exceção de verificação escala **assincronamente** (booking completa, fila resolve depois) — diferente do fluxo instantâneo (sem folga de tempo).
+- Retenção de selfie (D-053) reconsiderada durante exploração e mantida como estava — capturar é idêntico em ambos os casos, a simplificação cogitada não existia de fato.
+- Fronteira explícita com leaves vizinhas: tela de staff-review é #192; fluxo instantâneo/QR é #187.
+- Novo `templates/jornada-visita-agendada.md`. Nova capability OpenSpec `journey-scheduled-visit`. `jornadas-plataforma.md` §3.2 e `screen-map.md` (linha Agendar visita) saem de rascunho para validado.
+- Implementação real (rewrite do endpoint/adapter/UI) → Execução (#81, #80, #77/#135). **Segunda leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de descoberta e navegação do site ([#185](https://github.com/fortegb/platform/issues/185))
 
 - **D-057:** re-validação da jornada de descoberta (home → portfólio → detalhe da casa → blog → contato) contra a arquitetura de domínio fechada (D-052–D-056) — sem conflito com RBAC (D-055, `Visitante` não armazenado) nem mensageria (D-054, `wa.me` não é envio da plataforma).
