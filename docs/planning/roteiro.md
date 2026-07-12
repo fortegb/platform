@@ -68,7 +68,7 @@ Ver [D-024](./decisions.md). Resumo:
 
 ## Estado atual e o que falta implementar
 
-- **Passo 4 (Arquitetura) — epics principais fechados** — Epic **#146** (infra/ambientes, 26 folhas) e Epic **#179** (arquitetura de domínio: visitas, mensageria, RBAC, admin, 5 folhas) ambos **fechados**. O relatório gerado (`mapa-roteiro.html`) ainda computa passo 4 como "current" porque #29/#30/#31/#140 (grilling `deferred` v2/v3 — visitas condomínio, media kit, mobile) seguem com `Etapa = 4 Arquitetura`, mesmo já re-parented sob epics de Execução (#81/#98/#130); reabrem "no grilling da fase" (D-018), não bloqueiam o passo 5. Passos 1–2 rodaram **em paralelo** (validação de contexto/funcionalidades).
+- **Passo 4 (Arquitetura) fechado** — Epic **#146** (infra/ambientes, 26 folhas) e Epic **#179** (arquitetura de domínio: visitas, mensageria, RBAC, admin, 5 folhas) ambos **fechados**. **Passo atual: 5 (Jornadas)**. #29/#30/#31/#140 (grilling `deferred` v2/v3 — visitas condomínio, media kit, mobile) re-tagged `Etapa = 8 Execução` (já estavam re-parented sob #81/#98/#130); reabrem "no grilling da fase" (D-018), não são passo 4. Passos 1–2 rodaram **em paralelo** (validação de contexto/funcionalidades).
 - **Este roteiro é definição; não migra o board.** A criação efetiva de `Etapa`/Milestones/tipos e o retag dos itens são changes separados:
   - **Migração A** (próxima): renomear `Phase → Etapa` (9 opções) + retag · criar `v0 Definição` · backfill de tipos nativos · criar os 2 epics novos (contexto+funcionalidades, jornadas re-validação) · **+ overhaul do relatório** (`mapa-roteiro.html` horizontal por passo + `progresso-socios.html`).
   - **Migração B** (perto do passo 7): Milestones `v1/v2/v3` + atribuir epics de Execução.

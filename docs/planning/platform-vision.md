@@ -62,6 +62,6 @@ Ver [`deliverables.md`](./deliverables.md) para mapa completo.
 
 ## Próximo passo operacional
 
-**Passos 1–2 validados (D-028).** Produto/stack de Architecture (#1 → #38) fechados. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) fechada. **Passo 4 — epics principais fechados** — Epic [#179](https://github.com/fortegb/platform/issues/179) (arquitetura de domínio: visitas, mensageria, RBAC, admin) concluído; restam só itens `deferred` v2/v3 (#29–31/#140). **Próximo: passo 5** (Jornadas, #176). Build (passo 8) permanece **gated por G2** até a Definição (passos 1–7) fechar — ver [`roteiro.md`](./roteiro.md).
+**Passos 1–2 validados (D-028).** Produto/stack de Architecture (#1 → #38) fechados. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) fechada. **Passo 4 fechado** — Epic [#179](https://github.com/fortegb/platform/issues/179) (arquitetura de domínio: visitas, mensageria, RBAC, admin) concluído. **Em curso: passo 5** (Jornadas, #176). Build (passo 8) permanece **gated por G2** até a Definição (passos 1–7) fechar — ver [`roteiro.md`](./roteiro.md).
 
 Ver [`STATUS.md`](../../STATUS.md).

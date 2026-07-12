@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **A espinha é o [Roteiro](./roteiro.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo 4 Arquitetura — epics principais fechados**: **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)) e **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179)) ambos fechados; restam só itens `deferred` v2/v3 (#29–31/#140). **Passo 5 Jornadas** é o próximo, precede/gate o build (G2).
+> Canon de design e sequenciamento. **A espinha é o [Roteiro](./roteiro.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo 4 Arquitetura fechado**: **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)) e **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179)) ambos fechados. **Passo atual: 5 Jornadas**, precede/gate o build (G2).
 
 ---
 
@@ -10,7 +10,7 @@
 |-------|--------|-----|
 | 1 | Ler o **Roteiro** (a espinha) | [`roteiro.md`](./roteiro.md) |
 | 2 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
-| 3 | **`rbo-create-change`** no passo atual (5 Jornadas, Epic #176) | [`decisions.md`](./decisions.md) |
+| 3 | **`rbo-create-issue`**/**`rbo-create-change`** no passo atual (5 Jornadas, Epic #176) | [`decisions.md`](./decisions.md) |
 
 **Decisões de produto/stack fechadas** (D-015..D-022). Infra/ambientes fechada (#146, D-025..D-051). Arquitetura de domínio fechada (#179, D-052..D-056: visitas, Tuya, mensageria, RBAC, admin). O que resta é `deferred` (tours/media/mobile v2/v3) e o **passo 5 (Jornadas, #176)**. O histórico de grilling está em [`open-questions.md`](./open-questions.md).
 

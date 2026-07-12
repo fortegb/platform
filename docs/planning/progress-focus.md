@@ -8,7 +8,7 @@
 
 ## Trabalhando no momento
 
-- **Roteiro:** passo 4 (Arquitetura) — **epics principais fechados** (#146, #179); restam só itens `deferred` v2/v3 (#29–31/#140) sob `Etapa 4`. **Próximo: passo 5 Jornadas.** Ver [Roteiro do Projeto](./mapa-roteiro.html).
+- **Roteiro:** passo 4 (Arquitetura) **fechado** (#146, #179). **Passo atual = 5 Jornadas.** Ver [Roteiro do Projeto](./mapa-roteiro.html).
 - **Epic [#146](https://github.com/fortegb/platform/issues/146) — fechado.** Todos os 26 sub-issues concluídos (infra/ambientes).
 - **Epic [#179](https://github.com/fortegb/platform/issues/179) — fechado.** Todas as 5 leaves concluídas (arquitetura de domínio: visitas, Tuya, mensageria, RBAC, admin).
 - **Ambientes:** [página Ambientes](./ambientes.html) · credenciais: [`SETUP-CREDENTIALS.md`](../SETUP-CREDENTIALS.md) · lifecycle: [`.rbo/lifecycle.yml`](../../.rbo/lifecycle.yml).
