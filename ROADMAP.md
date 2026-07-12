@@ -60,6 +60,7 @@
 - [#167](https://github.com/fortegb/platform/issues/167) CI/CD: pipeline de deploy (branch→Vercel)
 - [#168](https://github.com/fortegb/platform/issues/168) CI/CD: automação de migrações (aplicar on merge)
 - [#169](https://github.com/fortegb/platform/issues/169) CI/CD: processo de promoção/release (staging→main)
+- [#170](https://github.com/fortegb/platform/issues/170) Dev local: toolchain (Node, Docker/OrbStack, Supabase CLI, ngrok)
 - [#173](https://github.com/fortegb/platform/issues/173) Roteiro do projeto: espinha de governança (Definição → Execução → Evolução)
 - [#174](https://github.com/fortegb/platform/issues/174) Migração A: board → modelo Roteiro (Etapa/Milestones/tipos) + overhaul das Platform docs
 - [#175](https://github.com/fortegb/platform/issues/175) Epic: Contexto & Funcionalidades — consolidação e validação
@@ -174,7 +175,6 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#146](https://github.com/fortegb/platform/issues/146) Epic: Arquitetura da solução & ambientes (definição completa)
-- [#170](https://github.com/fortegb/platform/issues/170) Dev local: toolchain (Node, Docker/OrbStack, Supabase CLI, ngrok)
 - [#171](https://github.com/fortegb/platform/issues/171) Dev local: runbook de bootstrap
 - [#172](https://github.com/fortegb/platform/issues/172) Dev local: estratégia de mock de integrações
 - [#176](https://github.com/fortegb/platform/issues/176) Epic: Jornadas, telas e fluxos — re-validação pós-arquitetura
