@@ -17,6 +17,6 @@
       (immediate decline, OTP reuse gate)
 - [x] 1.4 Update `docs/planning/screen-map.md` — clear the rascunho status
       for the `Visita QR (placa)` row
-- [ ] 1.5 Sync `journey-instant-visit` (new) and `visit-identity-
+- [x] 1.5 Sync `journey-instant-visit` (new) and `visit-identity-
       verification` (modified) specs; `openspec validate`; archive; merge
       `Closes #187`
