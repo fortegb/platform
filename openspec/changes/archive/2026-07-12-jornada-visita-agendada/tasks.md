@@ -14,5 +14,5 @@
       (reuse skip, async pending state, gated provisioning)
 - [x] 1.4 Update `docs/planning/screen-map.md` — clear the rascunho status
       for the `Agendar visita` row, note the #192 boundary
-- [ ] 1.5 Sync `journey-scheduled-visit` spec; `openspec validate`; archive;
+- [x] 1.5 Sync `journey-scheduled-visit` spec; `openspec validate`; archive;
       merge `Closes #186`
