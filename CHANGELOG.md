@@ -7,6 +7,17 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de fila de exceção de verificação de identidade ([#192](https://github.com/fortegb/platform/issues/192))
+
+- **D-060:** especificação da tela de staff-review que #186 e #187 já deferiam — fila compartilhada sem UI consumidora alguma até agora. Primeira leaf de Passo 5 totalmente greenfield (sem stub pré-arquitetura para corrigir).
+- Fila ordenada por tipo de fluxo: itens instantâneo/QR aparecem antes de agendados (só instantâneo pode ter visitante esperando na porta).
+- Aprovação reaproveita `provisionAccess` (D-052) no mesmo call site já usado por #186/#187 — sem caminho novo.
+- Lacuna real de D-053 fechada: rejeição agora notifica o visitante via WhatsApp (antes, silêncio total).
+- Novo item pendente dispara alerta a staff via **Telegram**, não WhatsApp — aplica o split de D-054 (interno vs. externo) ao seu primeiro caso concreto, reconciliando o texto literal "WhatsApp" de D-052 (escrito antes de D-054 existir).
+- Split WhatsApp/Telegram **reconsiderado durante a exploração** (já que WhatsApp é obrigatório para clientes, vale manter uma segunda ferramenta?) e **mantido**: aprovação de template Meta é por tipo de mensagem, não uma vez só; notificações internas são a categoria com mais chance de crescer. D-054 permanece sem reabertura.
+- Novo `templates/jornada-fila-excecao-verificacao.md`. Nova capability OpenSpec `journey-staff-verification-review`. `jornadas-plataforma.md` §5.1 e `screen-map.md` (linha fila de exceção) saem de rascunho para validado.
+- Implementação real → Execução (#80, #86, #50). **Quarta leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de visita instantânea via QR ([#187](https://github.com/fortegb/platform/issues/187))
 
 - **D-059:** correção da jornada instantânea/QR contra D-052 (Tuya) e D-053 (identidade/dados) — mesmas correções estruturais de #186 (tabela `visits` legada, Tuya engolindo falha, booleano de verificação confiado, WhatsApp síncrono).

@@ -188,6 +188,16 @@ No portal corretor:
 | Ver clientes recentes | Dashboard operacional |
 | Registrar cliente manual (WhatsApp telefônico) | Entrada manual → HubSpot |
 
+> ✅ **"Aprovar visita quando identidade falhou" re-validada no passo 5** —
+> [#192](https://github.com/fortegb/platform/issues/192), D-060. Fila
+> `/staff/visitas/excecoes` ordenada por tipo de fluxo (instantâneo/QR
+> primeiro), alerta Telegram por item novo, aprovação reaproveita
+> `provisionAccess` (D-052), rejeição notifica o visitante via WhatsApp
+> (gap de D-053 fechado). Detalhe:
+> [`templates/jornada-fila-excecao-verificacao.md`](./templates/jornada-fila-excecao-verificacao.md).
+> Demais tarefas desta tabela seguem rascunho até suas leaves fecharem
+> (#189, #193).
+
 **Fora do MVP plataforma:** despesas por obra (continua em `app-despesas`).
 
 ---

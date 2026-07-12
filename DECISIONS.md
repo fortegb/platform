@@ -66,6 +66,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-057 — Jornada: site discovery journey validated, WhatsApp-CTA lead capture (#185)
 - D-058 — Jornada: scheduled-visit journey corrected against Tuya/identity architecture (#186)
 - D-059 — Jornada: instant/QR visit journey — phone-OTP reuse gate, reopens D-053 (#187)
+- D-060 — Jornada: staff verification-exception queue — reject notifies visitor, Telegram staff alert (#192)
 
 ---
 
@@ -572,3 +573,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Formally reopens `D-053` — recorded here, not silently absorbed into a journey leaf.
 - `#81`/`#80`/`#77`/`#135`/`#75` (Execução) implement without reopening architecture again; `#186` is unaffected.
 - `jornadas-plataforma.md` §3.3 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-12 — Jornada: staff verification-exception queue (#192)
+
+### Purely additive consumer of D-052/D-053/D-054/D-055/D-056 — closes a gap in reject handling, reconsiders and keeps the WhatsApp/Telegram split
+
+**Decision:** Both visit journeys (`#186`, `#187`) already defer verification-exception resolution to the shared `staff-review` queue `D-053` fully specifies, and `D-056` already names this exact screen (selfie vs. document side-by-side) as its canonical example of justified custom UI — but no consuming UI existed at all, not even a stub, unlike every prior journey leaf which corrected pre-architecture code. This leaf builds it: a `/staff/*` screen listing pending `verification_attempt` records from both flows, prioritized so instant/QR items surface ahead of scheduled ones (only the instant flow can have a visitor physically waiting when an exception is created). Approval reuses the exact same `provisionAccess` call site already established by `#186`/`#187` — no new access-granting code. Rejection closes a real gap `D-053` left open (it only detailed the approve path): `visit.status` moves to `declined` and a WhatsApp message is queued explaining the outcome, rather than leaving the visitor with zero signal. A new pending item also triggers a Telegram alert to staff — resolving a latent inconsistency between `D-052`'s literal "alerta a staff via WhatsApp" text (written before `D-054` existed) and `D-054`'s later, general internal/external channel split; this is a purely internal message with no external party involved, so it falls on the Telegram side of an already-settled rule, not a new one. During exploration, the WhatsApp/Telegram split itself was reconsidered — given WhatsApp is already mandatory for customer-facing messaging, is a second tool worth it? — and kept: WhatsApp Business API requires Meta template pre-approval **per distinct message type**, not once; internal notifications are the category most likely to keep growing (this leaf adds one, more will likely follow), so collapsing everything onto WhatsApp would mean repeating that approval friction for every future internal alert, while Telegram has none of it. `D-054` is not reopened.
+
+**Rationale:** This leaf changes nothing about the underlying verification mechanism, data model, or messaging policy — it's the first journey leaf that's purely additive rather than corrective, because no code existed to correct. Flow-type prioritization mirrors the same urgency reasoning already applied in `#187`'s failure-handling design. Closing the reject-notification gap is a small, low-risk default (telling a declined visitor something is strictly better than telling them nothing) rather than a new policy decision. Keeping the WhatsApp/Telegram split after re-examining it validates the original `D-054` reasoning was about approval-process friction for a growing message category, not generic preference — worth restating explicitly now that it was questioned directly, rather than left as an unexamined inheritance.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-060; `templates/jornada-fila-excecao-verificacao.md`; new `journey-staff-verification-review` capability (`openspec/specs/`).
+- `#80`/`#86`/`#50` (Execução) implement the screen, endpoints, and RLS without reopening architecture.
+- `#193` (staff daily-ops) can assume the exception queue has its own dedicated screen already, not something it needs to rebuild.
+- First Passo 5 leaf to build a fully greenfield screen — no pre-architecture stub existed to correct, unlike `#185`/`#186`/`#187`.
