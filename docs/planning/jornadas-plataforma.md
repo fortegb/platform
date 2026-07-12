@@ -44,6 +44,8 @@ Detalhe de governança: [`company-structure.md`](./company-structure.md).
 
 ### 3.1 Descobrir a ForteGB (site público)
 
+> ✅ **Re-validada no passo 5** ([#185](https://github.com/fortegb/platform/issues/185), D-057) — sem conflito com RBAC (D-055) nem mensageria (D-054); um gap real corrigido (ver contrato de captura abaixo). Detalhe: [`templates/jornada-descoberta-site.md`](./templates/jornada-descoberta-site.md).
+
 ```
 Google / redes / indicação
     → Home (marca + CTA WhatsApp)
@@ -55,7 +57,9 @@ Google / redes / indicação
 
 **Funcionalidades envolvidas:** site institucional, CMS de conteúdo, CTAs WhatsApp, formulário → HubSpot.
 
-**Estado atual:** UI e mocks prontos; conteúdo real e integrações pendentes.
+**Contrato de captura de lead (D-057):** tanto o clique em qualquer CTA WhatsApp da jornada quanto o envio do formulário de contato criam/atualizam um `cliente` nível Contato (`fonte: cta-whatsapp` / `fonte: form-site`), reaproveitando `POST /api/contact`. O clique WhatsApp é fire-and-forget — nunca bloqueia a abertura do `wa.me`. Os links `wa.me` são navegação iniciada pelo visitante, não um envio da plataforma — não passam pela fila de mensageria (D-054).
+
+**Estado atual:** UI e mocks prontos; conteúdo real e integrações (persistência do endpoint, beacon no frontend) pendentes → Execução (#56, #78, #73).
 
 ---
 
