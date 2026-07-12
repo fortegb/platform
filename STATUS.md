@@ -25,8 +25,9 @@
 ✅ #170 Dev local: toolchain → D-049 (4 ferramentas; Node pin duplo; sem pin nas outras; ngrok opcional)
 ✅ #171 Dev local: runbook de bootstrap → D-050 (checklist ordenado, só local, staging/prod fora)
 ✅ #172 Dev local: estratégia de mock de integrações → D-051 (happy-path + override booleano por vendor, sem tipos parametrizados)
-🎉 **#146 (Epic: Arquitetura da solução & ambientes) — todos os 26 sub-issues fechados.** Epic pronto para fechar.
-→ PRÓXIMO: fechar epic #146 → avaliar Passo 5 (Jornadas, epic #176) ou #29–31/#140 (deferred v2/v3, já re-parented, não bloqueiam #146)
+🎉 **#146 (Epic: Arquitetura da solução & ambientes) — fechado.** Todos os 26 sub-issues concluídos.
+🔍 **Revisão pós-#146 encontrou 5 lacunas de arquitetura de domínio** nunca grilled — novo epic **#179** (Arquitetura de domínio — visitas, mensageria, RBAC, admin), separado de #146 (que cobriu só infra/ambientes).
+→ PRÓXIMO: #181 — Tuya (viabilidade da API + modo de falha) — maior risco, grillar primeiro. Depois: #180 visitas, #182 mensageria, #183 RBAC, #184 admin. Todos alimentam Passo 5 (Jornadas, #176) antes de detalhar fluxos.
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
