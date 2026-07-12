@@ -7,6 +7,18 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de registro de cliente e proteção de comissão ([#190](https://github.com/fortegb/platform/issues/190))
+
+- **D-063:** corrige um bug real no stub pré-arquitetura — a proteção "primeiro-registro-ganha" não funcionava de fato: o endpoint verificava duplicata (`SELECT`) e inseria (`INSERT`) como dois passos separados, permitindo que dois corretores concorrentes passassem ambos pela checagem.
+- Corrigido com **constraint de unicidade no banco** em `registro(cliente_id, casa_id)` — segunda submissão concorrente falha na constraint, não em lógica de aplicação racy.
+- **CPF passa a ser obrigatório** no registro feito pelo corretor, promovendo direto a nível `Cliente` (não `Contato`, nível usado pela captura de baixo compromisso de #185) — D-020 já nomeia CPF como autoridade de dedup; telefone-só enfraqueceria a garantia que esta jornada existe para proteger.
+- Registro consome a amarra `corretor_casa` de #189 (só corretor aprovado para a casa pode registrar) e o modelo de auth `role`/`status` corrigido, em vez da tabela `realtors` pré-arquitetura.
+- Reenvio pelo mesmo corretor é idempotente (mostra status existente), não erro. `fonte: portal-corretor` estampado.
+- Nenhuma decisão fechada reaberta — leaf puramente consumidora de D-020 e da amarra de #189.
+- Novo `templates/jornada-registro-cliente-comissao.md`. Nova capability OpenSpec `journey-corretor-client-registration`. `jornadas-plataforma.md` §4.3 e `screen-map.md` saem de rascunho para validado.
+- Durante a exploração, identificada lacuna real em D-062 (#189): CPF do próprio corretor nunca foi exigido no onboarding, necessário para pagamento futuro de comissão — registrada como issue separada **[#196](https://github.com/fortegb/platform/issues/196)**, ainda não fechada.
+- Implementação real → Execução (#86, #90). **Sétima leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de onboarding do corretor ([#189](https://github.com/fortegb/platform/issues/189))
 
 - **D-062:** onboarding de conta corrigido contra D-055 — cadastro agora consome `role = corretor` + novo `corretor.status` (`pending_approval | approved | rejected`), substituindo o check pré-arquitetura na tabela `realtors`.

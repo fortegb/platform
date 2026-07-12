@@ -14,5 +14,5 @@
 - [x] 1.4 Update `docs/planning/screen-map.md` — mark
       `/corretor/clientes/novo` validated; note the open #196 gap on the
       corretor-onboarding row
-- [ ] 1.5 Sync `journey-corretor-client-registration` spec; `openspec
+- [x] 1.5 Sync `journey-corretor-client-registration` spec; `openspec
       validate`; archive; merge `Closes #190`
