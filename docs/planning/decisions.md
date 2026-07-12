@@ -614,3 +614,14 @@
   - **DoD:** D-050 + `templates/dev-local-bootstrap.md` + pointer em `environments.md`.
 - **Rationale:** as peças já existem como decisões; falta só ordenar e consolidar num documento que um novo developer segue do início ao fim sem precisar de mais nada.
 - **Consequências:** canon fechado; runbook de staging/prod é trabalho separado, na fase certa (Execução).
+
+### D-051 — Dev local: estratégia de mock de integrações (2026-07-11) — **#172**
+- **Status:** accepted
+- **Contexto:** D-037 fixou as regras de postura (mock/safe-target/prod-live) mas adiou a estratégia de mock em si para este leaf, ao lado de #159 (mapa por vendor) e #160 (safe-targets), ambos já fechados.
+- **Decisão:**
+  - **Fidelidade:** happy-path por padrão + override booleano único por vendor. Nem trivial-só (código de erro nunca seria exercitado localmente) nem parametrização elaborada de tipos de falha (over-engineering para a escala solo/família — nuance de tipo de falha valida-se no tier safe-target, contra API sandbox real).
+  - **Mecanismo:** env var por vendor, convenção de nomes de D-041 — `MOCK_<VENDOR>_FORCE_ERROR=true` em `.env.local`. Sem ficheiro de config novo nem parâmetro de código.
+  - **Localização:** mock dentro do próprio módulo adapter de cada vendor (padrão D-017, um adapter por terceiro) — sem diretório central separado.
+  - **DoD:** D-051 + pointer em `environments.md` / docs de integrações perto de D-037–D-040. Sem código de mock — implementação real → build (passo 8).
+- **Rationale:** proporcional à escala solo/família; falha genérica única já é suficiente para exercitar tratamento de erro localmente sem construir simulação elaborada.
+- **Consequências:** canon fechado; implementação real dos mocks → Execução (build).
