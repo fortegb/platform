@@ -40,14 +40,18 @@
 
 ## Corretor
 
+> Onboarding (conta) e Contrato por casa ✅ **re-validados** —
+> [#189](https://github.com/fortegb/platform/issues/189), D-062. Gov.br
+> permanece manual (não automatizado, decisão de MVP já fechada).
+
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
 | Login | `/login` | simulado | 1 | [#48](https://github.com/fortegb/platform/issues/48) Identidade |
 | Painel | `/corretor/dashboard` | simulado | 2 | [#86](https://github.com/fortegb/platform/issues/86) Portal corretor |
 | Casas / reclamar | `/corretor/casas` | simulado | 2 | #86 |
 | Clientes lista / novo | `/corretor/clientes`, `/corretor/clientes/novo` | simulado | 2 | #86 |
-| Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo | 2 | #86 |
-| Contrato por casa + Gov.br (Q-016) | `/corretor/casas/[id]/contrato` | novo | 2 | #86 |
+| Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo — validado #189 | 2 | #86 |
+| Contrato por casa (minuta + upload manual) | `/corretor/casas/[id]/contrato` | novo — validado #189 | 2 | #86 |
 | Bot WhatsApp (registro cliente) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
 
 ---
@@ -55,15 +59,17 @@
 ## Staff (operacional)
 
 > Fila de exceção de verificação ✅ **re-validada** —
-> [#192](https://github.com/fortegb/platform/issues/192), D-060. Primeira
-> tela staff a fechar; demais linhas seguem `RASCUNHO`/`novo` até suas
-> leaves (#189, #193) fecharem.
+> [#192](https://github.com/fortegb/platform/issues/192), D-060. Aprovar
+> corretor / casa associada ✅ **re-validadas** —
+> [#189](https://github.com/fortegb/platform/issues/189), D-062
+> (`/staff/casas-pendentes` unificada em `/staff/corretores` — uma página,
+> duas filas). Demais linhas seguem `RASCUNHO`/`novo` até suas leaves
+> (#193) fecharem.
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
 | Área staff (estrutura pós-login) | `/staff` ou redirect de `/login` | novo | 1 estrutura / 2 funcionalidades | #48 / epic staff TBD |
-| Aprovar corretor | `/staff/corretores` | novo | 2 | #86 |
-| Aprovar casa associada | `/staff/casas-pendentes` | novo | 2 | #86 |
+| Aprovar corretor + casa associada (fila unificada) | `/staff/corretores` | novo — validado #189 | 2 | #86 |
 | Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo — validado #192 | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
 | Calendário visitas do dia | `/staff/visitas` | novo | 2 | #81 |
 | Cliente manual (WhatsApp telefônico) | `/staff/clientes/novo` | novo | 2 | Integrações / CRM |
