@@ -7,6 +7,16 @@
 
 ## Não versionado
 
+### 2026-07-12 — Passo 5: jornada de visita instantânea via QR ([#187](https://github.com/fortegb/platform/issues/187))
+
+- **D-059:** correção da jornada instantânea/QR contra D-052 (Tuya) e D-053 (identidade/dados) — mesmas correções estruturais de #186 (tabela `visits` legada, Tuya engolindo falha, booleano de verificação confiado, WhatsApp síncrono).
+- Regra "sem espera síncrona" de D-053 implementada pela primeira vez: falha de verificação recusa **imediatamente** + link WhatsApp para staff, sem estado de espera (diferente do fluxo agendado, assíncrono).
+- Reuso de 12 meses passa a exigir posse do telefone **só neste fluxo** (código via WhatsApp) — sem revisão humana possível entre o reuso e a porta destrancar, diferente da visita agendada.
+- **Reabre D-053** (registrado explicitamente): mecanismo de renovação limitada — código bem-sucedido estende `identity_verified_at`, nunca além de 24 meses de `last_client_match_at` (novo campo, só atualizado por `client-match` completo). Passado o teto, reuso via código para e força re-verificação completa.
+- `verification_attempt.method` ganha `phone-otp`. Fluxo agendado (#186) permanece inalterado.
+- Novo `templates/jornada-visita-instantanea-qr.md`. Nova capability OpenSpec `journey-instant-visit`; delta `MODIFIED` em `visit-identity-verification`. `jornadas-plataforma.md` §3.3 e `screen-map.md` saem de rascunho para validado.
+- Implementação real → Execução (#81, #80, #77/#135, #75). **Terceira leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de visita agendada ([#186](https://github.com/fortegb/platform/issues/186))
 
 - **D-058:** correção da jornada de visita agendada contra D-052 (Tuya) e D-053 (identidade/dados) — o stub pré-arquitetura tinha lacunas estruturais: tabela `visits` legada, `programSmartLock()` chamado direto engolindo falhas (log + "success" falso), booleano de verificação confiado do cliente, WhatsApp síncrono, sem checagem de reuso de 12 meses, sem fila `staff-review`.

@@ -11,9 +11,12 @@
 > Home, Portfólio, Blog e Contato (descoberta) ✅ **re-validadas** —
 > [#185](https://github.com/fortegb/platform/issues/185), D-057. Agendar
 > visita ✅ **re-validada** — [#186](https://github.com/fortegb/platform/issues/186),
-> D-058 (fronteira: staff-review = #192, instantâneo/QR = #187, ambas ainda
-> rascunho). Sobre segue rascunho (fora do escopo de #185). Demais linhas
-> seguem `RASCUNHO` até suas leaves de Passo 5 fecharem.
+> D-058. Visita QR ✅ **re-validada** —
+> [#187](https://github.com/fortegb/platform/issues/187), D-059 (reabre
+> D-053 para o mecanismo de renovação limitada). Fronteira compartilhada:
+> staff-review = #192 (ainda rascunho); condomínio/portaria = #140 (já
+> deferido a Execução). Sobre segue rascunho (fora do escopo de #185).
+> Demais linhas seguem `RASCUNHO` até suas leaves de Passo 5 fecharem.
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
@@ -25,7 +28,7 @@
 | Contato | `/contato` | simulado — validado #185 | 1 | #56 |
 | Privacidade, Termos | `/privacidade`, `/termos` | simulado | 1 | #56 |
 | Agendar visita | `/visita/agendar/[houseId]` | simulado — validado #186 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
-| Visita QR (placa) | `/visita/qr/[code]` | simulado | 2 | #81 |
+| Visita QR (placa) | `/visita/qr/[code]` | simulado — validado #187 | 2 | #81 |
 | Aviso condomínio/portaria (Q-017) | TBD inline ou modal no fluxo visita | novo | 2 | [#140](https://github.com/fortegb/platform/issues/140) |
 
 **Fora MVP v1:** portal cliente logado (jornadas §8).
