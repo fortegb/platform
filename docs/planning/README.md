@@ -1,6 +1,6 @@
 # Planning — ForteGB
 
-> Canon de design e sequenciamento. **A espinha é o [Roteiro](./roteiro.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo atual: 4 Arquitetura** — Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)), que precede/gate o build (G2).
+> Canon de design e sequenciamento. **A espinha é o [Roteiro](./roteiro.md)** — 9 passos em 3 estágios (Definição → Execução → Evolução), controlador do trabalho e do build. **Passo atual: 4 Arquitetura** — Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146)) fechado; Epic **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179)) em curso, precede/gate o build (G2).
 
 ---
 
@@ -10,9 +10,9 @@
 |-------|--------|-----|
 | 1 | Ler o **Roteiro** (a espinha) | [`roteiro.md`](./roteiro.md) |
 | 2 | `rbo-catch-up` + ler **STATUS.md** | [`../../STATUS.md`](../../STATUS.md) |
-| 3 | **`rbo-create-change`** no passo atual (4 Arquitetura, Epic #146) | [`decisions.md`](./decisions.md) |
+| 3 | **`rbo-create-change`** no passo atual (4 Arquitetura, Epic #179) | [`decisions.md`](./decisions.md) |
 
-**Decisões de produto/stack fechadas** (D-015..D-022). O que resta é `deferred` (tours/media/mobile) e a **definição de infra/ambientes** (#146). O histórico de grilling está em [`open-questions.md`](./open-questions.md).
+**Decisões de produto/stack fechadas** (D-015..D-022). Infra/ambientes fechada (#146, D-025..D-051). O que resta é `deferred` (tours/media/mobile v2/v3) e **arquitetura de domínio** (#179: visitas, mensageria, RBAC, admin). O histórico de grilling está em [`open-questions.md`](./open-questions.md).
 
 **Documentação da plataforma:** HTML estático em [`../`](../index.html) no GitHub Pages ([fortegb.github.io/platform](https://fortegb.github.io/platform/)) — planejamento para sócios; **não** é o produto Nuxt nem portais logados (corretor/staff). **Todo o conteúdo sócios = pt-BR.**
 

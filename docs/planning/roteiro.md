@@ -68,7 +68,7 @@ Ver [D-024](./decisions.md). Resumo:
 
 ## Estado atual e o que falta implementar
 
-- **Passo atual: 4 (Arquitetura)** — Epic **#146** em curso (26 folhas). Passos 1–2 rodam **em paralelo** (validação de contexto/funcionalidades).
+- **Passo atual: 4 (Arquitetura)** — Epic **#146** (infra/ambientes, 26 folhas) **fechado**. Revisão pós-#146 encontrou lacunas de arquitetura de domínio; novo Epic **#179** (visitas, mensageria, RBAC, admin) em curso. Passos 1–2 rodam **em paralelo** (validação de contexto/funcionalidades).
 - **Este roteiro é definição; não migra o board.** A criação efetiva de `Etapa`/Milestones/tipos e o retag dos itens são changes separados:
   - **Migração A** (próxima): renomear `Phase → Etapa` (9 opções) + retag · criar `v0 Definição` · backfill de tipos nativos · criar os 2 epics novos (contexto+funcionalidades, jornadas re-validação) · **+ overhaul do relatório** (`mapa-roteiro.html` horizontal por passo + `progresso-socios.html`).
   - **Migração B** (perto do passo 7): Milestones `v1/v2/v3` + atribuir epics de Execução.

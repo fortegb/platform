@@ -1,7 +1,7 @@
 # Perguntas abertas
 
 > Backlog para **`rbo-grilling`** durante o epic **Architecture & MVP definition**.  
-> **Uma pergunta de cada vez.** As decisões de produto/stack já estão **fechadas** (D-015..D-022, ver checkpoint abaixo); o que resta é `deferred` ou a definição de infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)).
+> **Uma pergunta de cada vez.** As decisões de produto/stack já estão **fechadas** (D-015..D-022, ver checkpoint abaixo); infra/ambientes fechada ([#146](https://github.com/fortegb/platform/issues/146)). O que resta é `deferred` (v2/v3) ou arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin).
 
 > ✅ **Checkpoint #36 (2026-07-04): todas as Q-* estão `resolved` ou `deferred` — 0 abertas.** Epic Architecture pronto para fechar (#38) → desbloqueia Fase 1. Deferidos (tours v2, media kit v3, mobile) reabrem no grilling da sua fase.
 

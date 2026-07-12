@@ -28,7 +28,8 @@ Seed docs/planning (✅)
 | 2 | **GitHub org migration** | [#8](https://github.com/fortegb/platform/issues/8) | platform | ✅ Done (2026-07-01) | — |
 | 3 | **Bootstrap board & OpenSpec** | [#20](https://github.com/fortegb/platform/issues/20) | platform | ✅ Done (2026-07-01) | — |
 | 4 | **Architecture & MVP definition** (produto/stack) | [#1](https://github.com/fortegb/platform/issues/1) | platform | ✅ Done | — |
-| 4b | **Arquitetura da solução & ambientes** (infra/env/integrações) | [#146](https://github.com/fortegb/platform/issues/146) | platform | Todo | precede build |
+| 4b | **Arquitetura da solução & ambientes** (infra/env/integrações) | [#146](https://github.com/fortegb/platform/issues/146) | platform | ✅ Done | — |
+| 4c | **Arquitetura de domínio** (visitas, mensageria, RBAC, admin) | [#179](https://github.com/fortegb/platform/issues/179) | platform | Todo | precede build |
 | 5 | **Brand assets upload** | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo) |
 
 | Epic | Doc / runbook |
@@ -73,7 +74,7 @@ Seed docs/planning (✅)
 6. [x] Checkpoint: todas Q-* **resolved** ou **deferred** (tours/media/mobile diferidos para a sua fase)
 7. [x] Epics Phase 1–4 criados no board ([#37](https://github.com/fortegb/platform/issues/37))
 
-> **#1 cobriu produto/stack.** A arquitetura de **infra/ambientes/integrações** é definida no Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), D-022) — que **precede o build da Fase 1**.
+> **#1 cobriu produto/stack.** A arquitetura de **infra/ambientes/integrações** foi definida no Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), D-022, **fechado**). Revisão pós-#146 encontrou lacunas de arquitetura de domínio — novo Epic **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin), que **precede o build da Fase 1**.
 
 ### Epic: Brand assets upload ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
 
@@ -87,12 +88,12 @@ Seed docs/planning (✅)
 
 **Objetivo:** ambientes estáveis, identidade & routing, site público finalizado, design system.
 
-Epics **já criados no board**. **Build gated por [#146](https://github.com/fortegb/platform/issues/146)** (Arquitetura da solução & ambientes).
+Epics **já criados no board**. **Build gated por [#146](https://github.com/fortegb/platform/issues/146)** (fechado) **+ [#179](https://github.com/fortegb/platform/issues/179)** (Arquitetura de domínio, em curso).
 
 | Epic | Module | Depende de |
 |------|--------|------------|
-| **Platform environments** | platform | #146 (definição) |
-| **Identity, roles & journey routing** | auth | #146, Platform environments |
+| **Platform environments** | platform | #146 (fechado) |
+| **Identity, roles & journey routing** | auth | #146, #179 (RBAC), Platform environments |
 | **Public site UI finalization** | site | #146, Brand assets (ideal) |
 | **Brand & design system** | branding | Brand assets |
 
@@ -241,7 +242,7 @@ Epics **já criados no board**. **Build gated por [#146](https://github.com/fort
 
 ## O que NÃO fazer ainda
 
-- Phase 1 build antes de **#146 (Arquitetura da solução & ambientes)** pronto
+- Phase 1 build antes de **#179 (Arquitetura de domínio)** pronto (#146 já fechado)
 - OpenSpec em epics (só em sub-issues folha)
 - Remover variantes home antes da escolha do hero (Q-010 diferido ao lançamento, D-021)
 - Integrações production antes de **Integrations MVP** scoped
