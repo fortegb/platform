@@ -82,6 +82,9 @@
 - [#189](https://github.com/fortegb/platform/issues/189) Jornada: onboarding do corretor
 - [#192](https://github.com/fortegb/platform/issues/192) Jornada: fila de exceção de verificação de identidade
 
+## In Progress
+- [#190](https://github.com/fortegb/platform/issues/190) Jornada: registro de cliente e proteção de comissão
+
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
@@ -190,9 +193,9 @@
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
 - [#176](https://github.com/fortegb/platform/issues/176) Epic: Jornadas, telas e fluxos — re-validação pós-arquitetura
-- [#190](https://github.com/fortegb/platform/issues/190) Jornada: registro de cliente e proteção de comissão
 - [#191](https://github.com/fortegb/platform/issues/191) Jornada: pipeline e dashboard do corretor
 - [#193](https://github.com/fortegb/platform/issues/193) Jornada: operação diária do staff
 - [#194](https://github.com/fortegb/platform/issues/194) Jornada: gestão de acesso Tuya
 - [#195](https://github.com/fortegb/platform/issues/195) Jornada: configuração de plataforma e papéis
+- [#196](https://github.com/fortegb/platform/issues/196) Onboarding do corretor: exigir CPF (lacuna em D-062)
 
