@@ -17,5 +17,5 @@
       exception-queue row validated with the D-060 detail
 - [x] 1.4 Update `docs/planning/screen-map.md` — clear rascunho/novo status
       for `Fila exceção identidade (visita)` (`/staff/visitas/excecoes`)
-- [ ] 1.5 Sync `journey-staff-verification-review` spec; `openspec
+- [x] 1.5 Sync `journey-staff-verification-review` spec; `openspec
       validate`; archive; merge `Closes #192`
