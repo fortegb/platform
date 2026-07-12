@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-12 — Arquitetura: visitas — modelo de dados + verificação de identidade ([#180](https://github.com/fortegb/platform/issues/180))
+
+- **D-053:** `client-match` (biblioteca frontend, selfie vs. documento) é o mecanismo primário para os dois fluxos (agendado e instantâneo) — sem KYC SaaS, sem split por fluxo. `staff-review` é a fila de exceção compartilhada — automática (confiança baixa) ou pelo visitante via WhatsApp direto a staff; qualquer resolução gera um `verification_attempt` registrado, nunca um atalho de acesso ad hoc.
+- Fluxo instantâneo em falha: sem espera síncrona ao vivo, recusa imediata + WhatsApp para staff como escape hatch (espelha o fallback de Tuya, D-052, invertido).
+- Reuso via `Cliente.identity_verified_at` (janela de 12 meses); retenção diferenciada por artefato (selfie efêmera, documento retido enquanto a verificação estiver ativa — cobre danos/incidentes).
+- Modelo de dados: `Cliente`/`verification_attempt`/`visit` substitui a tabela `visits` legada; hard gate — `provisionAccess` (adapter Tuya) só roda após `visit.status = verified`.
+- Resolve `Q-005`. Novo `templates/visitas-identidade-modelo-dados.md`. Nova capability OpenSpec `visit-identity-verification`.
+
 ### 2026-07-11 — Arquitetura: Tuya — viabilidade da API + modo de falha ([#181](https://github.com/fortegb/platform/issues/181))
 
 - **D-052:** dois mecanismos de primeira classe por trás de um adapter seam (D-017) — `local-pool` (pool de códigos pré-provisionados por casa, sem chamada Tuya Cloud API em tempo real crítico) é o default no lançamento; `tuya-live` (Tuya Cloud API real) fica disponível assim que um spike de curto prazo confirmar viabilidade, sem depender de crescimento de volume. Ambos ativos na arquitetura/jornada/grilling — nenhum adiado.
