@@ -1,91 +1,90 @@
-# Handoff — fortegb/platform — 2026-07-11
+# Handoff — fortegb/platform — 2026-07-12
 
-**Updated:** 2026-07-12T02:07:23Z
-**Status:** consumed
+**Updated:** 2026-07-12T06:33:16Z
+**Status:** active
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
 > `consumed` (no expiration). L2 catch-up sets Status to `consumed` after use.
 
 ## Context
 
-Long session (Claude Code). Closed out CI/CD + dev-local leaves #167–#172,
-closing Epic #146 (Arquitetura da solução & ambientes — infra/ambientes,
-26/26 sub-issues). Along the way: fixed a real board-hygiene issue (Epic #1
-showing Done with open v2/v3-deferred children — re-parented), removed a
-redundant GitHub Action causing repeated build-info.json merge conflicts
-(#178), and shipped a companion `ai-skills` cycle (v0.7.0 — conditional
-migration trigger + uniform hotfix exception in `rbo-create-change`/
-`rbo-close-change`).
-
-A structured post-#146 review then found real gaps: several v1-scope
-product-architecture topics (self-guided visits, Tuya, WhatsApp/Telegram
-messaging, RBAC, admin) were never grilled as their own issues — they only
-existed as line-items inside `platform-architecture`'s generic integration
-inventory. Opened a new Epic **#179** (Arquitetura de domínio) with 5 leaves
-to close that gap before Passo 5 (Jornadas, #176) can design flows on top of
-them.
-
-Also did a full sweep of `docs/planning/` for stale `#146` references (13
-files were still saying "em curso" after it closed) — this is now a
-documented habit in `agents.md`'s Platform docs section: "update platform
-docs" means grep + fix hand-maintained prose, not just running the
-generator.
+Long session (Claude Code). Grilled and closed all 5 leaves of Epic #179
+(Arquitetura de domínio) in one continuous PAC-style run: Tuya (#181, D-052),
+visits/identity (#180, D-053), messaging (#182, D-054), RBAC (#183, D-055),
+admin build-vs-buy (#184, D-056). Closed the epic itself, then did a full
+`docs/planning/` prose sweep (9 files) plus a board-hygiene fix — four
+deferred v2/v3 grilling stubs (#29/#30/#31/#140) were still tagged
+`Etapa 4` despite being re-parented under Execução epics, which made the
+generated report mis-report "current=passo 4"; retagged to `Etapa 8`, report
+now correctly shows passo 5. Advised (not created) an 11-item journey list
+for Passo 5, then on go-ahead created all 11 as native GitHub sub-issues of
+epic #176 (#185–#195). Also corrected a user-taught misunderstanding of
+"PAC" mid-session (it means "go from approval gate through close," not "skip
+grilling") and saved that + a `rbo-close-change` staging-exception nuance to
+memory.
 
 ## Control doc paths
 
-- Decisions: `docs/planning/decisions.md` (D-015–D-051) + root `DECISIONS.md`
-  mirror (now pointer-format per entry, plus an append-only index at the top)
+- Decisions: `docs/planning/decisions.md` (D-052–D-056 this session) + root
+  `DECISIONS.md` mirror (English, same pattern as before)
 - Session compass: `STATUS.md`
-- Context: `agents.md` (note: wrapped in a stray leading/trailing ` ```markdown `
-  code fence, pre-existing, not fixed this session — cosmetic, out of scope)
+- Context: `AGENTS.md` (on-disk filename is lowercase `agents.md` — git only
+  resolves case correctly via that literal path on `git add`; harmless on
+  macOS case-insensitive FS but worth knowing if `git add AGENTS.md` no-ops)
 - Planning: `docs/planning/`
 - Handoff: `docs/planning/handoff.md` (this file)
 
 ## Current state
 
 **Done**
-- Epic #146 (infra/ambientes) — closed, 26/26 sub-issues
-- #167–#172 (CI/CD pipeline, migrations, promotion/hotfix, dev toolchain,
-  bootstrap runbook, mock strategy) → D-046–D-051
-- #178 (removed redundant `portal-build-info.yml` Action)
-- Board hygiene: re-parented #29/#140→#81, #30→#98, #31→#130; epic #175
-  Etapa 1→2
-- `ai-skills` v0.7.0: `rbo-create-change` 0.3, `rbo-close-change` 0.5
-  (conditional migration trigger, uniform hotfix exception)
-- Full `docs/planning/` sweep for stale `#146` references (13 files)
+- Epic #179 (Arquitetura de domínio) — closed, all 5 leaves (#180–#184)
+- New OpenSpec capabilities: `tuya-access`, `visit-identity-verification`,
+  `messaging-channel-policy`, `rbac-role-model`; `platform-architecture`'s
+  "Build-vs-buy default" requirement amended (content-editing vs.
+  operational-workflow-UI split, three-part justification test)
+- Board hygiene: #29/#30/#31/#140 retagged `Etapa 8 Execução`
+- Full `docs/planning/` prose sweep for stale `#179` references (9 files)
+- Passo 5 (Jornadas): epic #176 now has 11 leaf issues (#185–#195), one per
+  journey (not per role) — see list below
 
 **In progress**
-- Epic **#179** (Arquitetura de domínio) — 5 leaves created, none started:
-  #181 Tuya (highest risk, grill first), #180 visitas, #182 mensageria,
-  #183 RBAC, #184 admin
+- None of the 11 Passo 5 leaves have been grilled/proposed yet — all sit at
+  `Status: Todo`, `Etapa: 5 Jornadas`
 
 **Blocked / watch**
-- `origin/staging` still doesn't exist — deferred to Execução bootstrap
-  (#42/#46); Definição leaves keep closing `feat/*`→`main` directly until
-  then (documented, not a bug)
-- `#184` (admin) has a real conflict to resolve: existing
-  `platform-architecture` requirement says "no bespoke back-office admin
-  UI," but the platform is expected to have admin pages controlling
-  customer/corretor flows — needs explicit reconciliation during grilling,
-  not silent override
+- `origin/staging` still doesn't exist (deferred to #42/#46 Execução
+  bootstrap) — `rbo-close-change` keeps using the default-mode `feat/*`→`main`
+  exception (D-046) until then
+- `npm run pages:sync`'s `pages:site` step (full Nuxt prerender) fails with a
+  500 on `/` in this local environment — pre-existing, unrelated to any
+  change made this session; worked around by running `pages:portal` +
+  `progress:report` directly each time. Worth investigating if it matters for
+  a real deploy, but Vercel's own build is what actually ships the site.
 
 ## Artifacts
 
-- Epic: https://github.com/fortegb/platform/issues/179
-- Leaves: #180, #181, #182, #183, #184
-- `ai-skills` release: https://github.com/rbonon/ai-skills/releases/tag/v0.7.0
-- Decisions this session: D-046–D-051 in `docs/planning/decisions.md`
+- Epic (closed): https://github.com/fortegb/platform/issues/179
+- New epic (open): https://github.com/fortegb/platform/issues/176 — 11 leaves:
+  #185 (descoberta/site), #186 (visita agendada), #187 (visita instantânea
+  QR), #188 (pós-visita), #189 (onboarding corretor), #190 (registro
+  cliente/comissão), #191 (pipeline corretor), #192 (fila exceção
+  verificação), #193 (operação diária staff), #194 (gestão acesso Tuya),
+  #195 (config plataforma/papéis)
+- Decisions this session: D-052–D-056 in `docs/planning/decisions.md`
 
 ## Next session
 
 **First action:** `rbo-catch-up` (L2) on `fortegb/platform`, then
-`rbo-grilling` on **#181 (Tuya)** — highest-risk leaf, grill first. Core
-question: does Tuya's API actually support time-limited remote passwords,
-and what's the failure mode if it's unreachable when someone's at the door.
+`rbo-create-change` on whichever Passo 5 leaf the user picks from #185–#195
+(no default order suggested yet — unlike #179's leaves, these don't have an
+established risk-based sequence). Reasonable starting candidates: #186/#187
+(visit journeys, since they exercise the most already-decided architecture:
+D-052/D-053) or #185 (site discovery, lowest-risk/fastest if a quick win is
+wanted first).
 
 ## Suggested skills
 
 - `rbo-catch-up` (session open) — will consume this handoff
-- `rbo-grilling` on #181, then #180/#182/#183/#184 in any order
-- `rbo-create-change` → propose/apply for each, same pattern as tonight
+- `rbo-create-change` → propose/apply for each Passo 5 leaf, same pattern as
+  #179's leaves
 - `rbo-close-change` (default mode — `origin/staging` still absent)
