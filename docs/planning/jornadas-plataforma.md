@@ -120,12 +120,12 @@ Para quem está **em frente à casa** e quer entrar na hora.
 
 ### 4.1 Onboarding (primeira vez)
 
-> ✅ **Re-validada no passo 5** ([#189](https://github.com/fortegb/platform/issues/189), D-062) — corrigida contra D-055 (role model, não a tabela `realtors` legada); notificação push a staff reconsiderada e removida (sem urgência física, diferente de #192). Detalhe: [`templates/jornada-onboarding-corretor.md`](./templates/jornada-onboarding-corretor.md).
+> ✅ **Re-validada no passo 5** ([#189](https://github.com/fortegb/platform/issues/189), D-062) — corrigida contra D-055 (role model, não a tabela `realtors` legada); notificação push a staff reconsiderada e removida (sem urgência física, diferente de #192). ✅ **CPF obrigatório adicionado** ([#196](https://github.com/fortegb/platform/issues/196), D-068) — lacuna encontrada na exploração de #190 (comissão exige CPF para pagamento a pessoa física). Detalhe: [`templates/jornada-onboarding-corretor.md`](./templates/jornada-onboarding-corretor.md).
 
 ```
 Registro no site (Google / Facebook / e-mail)
     → Aceitar termos gerais ForteGB
-    → Preencher perfil (CRECI se tiver; WhatsApp obrigatório — D-054)
+    → Preencher perfil (CRECI se tiver; WhatsApp e CPF obrigatórios — D-054, D-068)
     → role = corretor, corretor.status = pending_approval
     → Aparece em /staff/corretores (sem notificação push)
     → Staff aprova → status = approved → acesso ao portal corretor

@@ -4,12 +4,17 @@
 > Corrige onboarding de conta contra D-055 e incorpora associação por casa
 > (§4.2, sem leaf própria antes desta). Implementação real → Execução
 > (#86, #50).
+>
+> ✅ **CPF do corretor adicionado** ([#196](https://github.com/fortegb/platform/issues/196),
+> D-068) — campo obrigatório no perfil, junto com WhatsApp. Lacuna
+> encontrada durante a exploração de #190 (comissão exige CPF para
+> pagamento a pessoa física), fechada como correção pontual a D-062.
 
 ## Fluxo — conta
 
 ```
 Cadastro (e-mail/social) → aceitar termos → perfil
-    (CRECI opcional, WhatsApp obrigatório — D-054)
+    (CRECI opcional, WhatsApp e CPF obrigatórios — D-054, D-068)
     → role = corretor, corretor.status = pending_approval
     → aparece em /staff/corretores (sem notificação push)
     → staff APROVA → status = approved → portal ativo
@@ -59,11 +64,21 @@ em qualquer casa, aprovado ou não, independente do que `/staff/corretores`
 mostrasse. Corrigido: `registro.corretor_id` só é válido com um
 `corretor_casa` `approved` para aquele par corretor×casa.
 
+## CPF obrigatório (D-068 / #196)
+
+Lacuna encontrada durante a exploração de #190: nenhuma leaf modelava como
+o corretor é pago, mas pagamento a pessoa física no Brasil normalmente
+exige CPF. Coletado no mesmo passo de perfil que já exige WhatsApp — sem
+novo estado em `corretor.status`, sem mudança na fila de aprovação de
+`/staff/corretores`; validação só de formato, mesmo rigor já aceito para
+o CPF do cliente em D-063 (#190).
+
 ## Relação
 
-[`decisions.md`](../decisions.md) D-062 · `rbac-role-model` (D-055, não
-modificada) · `messaging-channel-policy` (D-054, WhatsApp para corretor) ·
-`crm-source-of-truth` (D-020, **reaberta**) · bucket privado (D-016/D-030)
-· `openspec/specs/journey-corretor-onboarding/` (capability) ·
-implementação → #86, #50 · fora de escopo → Gov.br automatizado (já
-adiado), #190 (registro de cliente), #191 (pipeline)
+[`decisions.md`](../decisions.md) D-062, D-068 · `rbac-role-model` (D-055,
+não modificada) · `messaging-channel-policy` (D-054, WhatsApp para
+corretor) · `crm-source-of-truth` (D-020, **reaberta**) · bucket privado
+(D-016/D-030) · `openspec/specs/journey-corretor-onboarding/` (capability,
+reaberta por D-068) · implementação → #86, #50 · fora de escopo → Gov.br
+automatizado (já adiado), #190 (registro de cliente), #191 (pipeline),
+mecanismo de pagamento de comissão em si

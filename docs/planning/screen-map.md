@@ -42,8 +42,8 @@
 
 > Onboarding (conta) e Contrato por casa ✅ **re-validados** —
 > [#189](https://github.com/fortegb/platform/issues/189), D-062 (CPF do
-> próprio corretor — lacuna aberta em [#196](https://github.com/fortegb/platform/issues/196),
-> ainda não fechada). Registrar cliente ✅ **re-validado** —
+> próprio corretor agora obrigatório — [#196](https://github.com/fortegb/platform/issues/196),
+> D-068, fechada). Registrar cliente ✅ **re-validado** —
 > [#190](https://github.com/fortegb/platform/issues/190), D-063. Painel/
 > pipeline ✅ **re-validado** — [#191](https://github.com/fortegb/platform/issues/191),
 > D-064 (`registro.status` definido pela primeira vez). Gov.br permanece
