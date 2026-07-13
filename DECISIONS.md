@@ -71,6 +71,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-062 — Jornada: corretor onboarding — role-model status gate, per-house association folded in, reopens crm-source-of-truth (#189)
 - D-063 — Jornada: client registration + commission protection — CPF-required, DB-enforced first-wins uniqueness (#190)
 - D-064 — Jornada: corretor pipeline/dashboard — registro.status defined for the first time, visit progress via join not duplication (#191)
+- D-065 — Jornada: staff daily operations — business-wide visibility, Contato-tier manual entry, pending-work summary (#193)
 
 ---
 
@@ -657,3 +658,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - No closed decision reopened — `registro.status` never had a formal enum, so defining it completes open detail rather than changing an existing requirement.
 - `#86`/`#90` (Execução) implement without reopening architecture.
 - `jornadas-plataforma.md` §4.4 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-13 — Jornada: staff daily operations (#193)
+
+### Business-wide visibility, Contato-tier manual entry, pending-work summary that links rather than duplicates
+
+**Decision:** The staff daily-operations screen (draft §5.1: today's visits, recent clients, manual lead entry) was fully greenfield — no code existed, the same situation `#192` was in before this session. This leaf defines it as a pure consumer of everything already decided. Staff sees today's visits and recently registered clients **business-wide** — all houses, all corretores — unlike `#191`'s corretor-scoped (`registro.corretor_id`) pipeline view; this follows directly from `D-055`'s RBAC hierarchy (staff/admin have broader operational visibility than corretor), not a new access decision. Manual lead entry (a walk-in or phone-call contact) creates a **`Contato`-tier** record — WhatsApp only, CPF optional — not the `Cliente`-tier CPF requirement `#190` established for broker registration: that requirement exists specifically to protect commission attribution when a corretor is involved, and a direct staff entry (`corretor_id` null, already modeled in `D-020`) has no such attribution at stake, so requiring CPF here would add friction without a corresponding protection benefit. Entries are tagged `fonte: staff-manual`, consistent with the existing kebab-case source values. Dedup reuses `D-020`'s existing WhatsApp-match reconciliation rather than a new mechanism — the same rule `#185` and `#190` already rely on, exercised from a third entry point. The screen also shows a pending-work summary — counts from `#189`'s corretor/house-claim queue and `#192`'s verification-exception queue, each linking to its existing screen — without reimplementing either queue's approve/reject logic, keeping those two capabilities as the sole owners of their own state transitions.
+
+**Rationale:** No design point in this leaf required a genuinely new judgment call — every choice (staff-wide scope, `Contato` tier, reconciliation reuse, link-only summary) is a direct consequence of decisions already closed (`D-020`, `D-053`, `D-055`, `#189`/`#191`/`#192`), applied correctly at this entry point for the first time.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-065; `templates/jornada-operacao-diaria-staff.md`; new `journey-staff-daily-operations` capability (`openspec/specs/`).
+- No closed decision reopened — purely a consumer.
+- `#86`/`#90`/`#81` (Execução) implement without reopening architecture.
+- `jornadas-plataforma.md` §5.1 and `screen-map.md` move from draft to validated for this journey.

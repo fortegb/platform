@@ -68,16 +68,18 @@
 > corretor / casa associada ✅ **re-validadas** —
 > [#189](https://github.com/fortegb/platform/issues/189), D-062
 > (`/staff/casas-pendentes` unificada em `/staff/corretores` — uma página,
-> duas filas). Demais linhas seguem `RASCUNHO`/`novo` até suas leaves
-> (#193) fecharem.
+> duas filas). Operação diária ✅ **re-validada** —
+> [#193](https://github.com/fortegb/platform/issues/193), D-065
+> (staff-wide, entrada manual nível Contato, resumo de pendências linkando
+> #189/#192).
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
-| Área staff (estrutura pós-login) | `/staff` ou redirect de `/login` | novo | 1 estrutura / 2 funcionalidades | #48 / epic staff TBD |
+| Área staff (estrutura pós-login, resumo de pendências) | `/staff` ou redirect de `/login` | novo — validado #193 | 1 estrutura / 2 funcionalidades | #48 / epic staff TBD |
 | Aprovar corretor + casa associada (fila unificada) | `/staff/corretores` | novo — validado #189 | 2 | #86 |
 | Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo — validado #192 | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
-| Calendário visitas do dia | `/staff/visitas` | novo | 2 | #81 |
-| Cliente manual (WhatsApp telefônico) | `/staff/clientes/novo` | novo | 2 | Integrações / CRM |
+| Visitas do dia (staff-wide) | `/staff/visitas` | novo — validado #193 | 2 | #81 |
+| Cliente manual (nível Contato, WhatsApp telefônico) | `/staff/clientes/novo` | novo — validado #193 | 2 | Integrações / CRM |
 
 ---
 

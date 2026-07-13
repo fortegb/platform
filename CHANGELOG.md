@@ -7,6 +7,17 @@
 
 ## Não versionado
 
+### 2026-07-13 — Passo 5: jornada de operação diária do staff ([#193](https://github.com/fortegb/platform/issues/193))
+
+- **D-065:** define a tela operacional de staff — visitas do dia, clientes recentes, entrada manual de lead. Leaf greenfield (nenhum código existia).
+- Staff enxerga dados **de todos os corretores/casas**, diferente do pipeline escopado por corretor de #191 — consequência direta da hierarquia RBAC de D-055.
+- Entrada manual é nível `Contato` (só WhatsApp, `fonte: staff-manual`) — não o nível `Cliente`/CPF obrigatório que #190 exige do corretor, já que sem corretor envolvido não há atribuição de comissão a proteger.
+- Dedup reaproveita a reconciliação por WhatsApp já existente de D-020 — mesma regra de #185/#190, terceiro ponto de entrada.
+- Tela resume pendências de #189 (corretor/casa) e #192 (exceção de verificação) com link direto, sem reimplementar nenhuma das duas.
+- Nenhuma decisão fechada reaberta — leaf puramente consumidora de D-020, D-053, D-055 e das leaves anteriores.
+- Novo `templates/jornada-operacao-diaria-staff.md`. Nova capability OpenSpec `journey-staff-daily-operations`. `jornadas-plataforma.md` §5.1 e `screen-map.md` saem de rascunho para validado.
+- Implementação real → Execução (#86, #90, #81). **Nona leaf de Passo 5 fechada.**
+
 ### 2026-07-13 — Passo 5: jornada de pipeline e dashboard do corretor ([#191](https://github.com/fortegb/platform/issues/191))
 
 - **D-064:** define `registro.status` pela primeira vez — nenhuma decisão fechada o enumerava antes. O stub pré-arquitetura tinha um enum de 7 estágios (`new`, `contacted`, `visit_scheduled`, `visit_completed`, `negotiating`, `closed_won`, `closed_lost`), mas dois deles duplicavam estado que já pertence a `visit.status` (D-053).
