@@ -1,99 +1,93 @@
 # Handoff — fortegb/platform — 2026-07-13
 
-**Updated:** 2026-07-13T16:05:00Z
-**Status:** consumed
+**Updated:** 2026-07-13T17:10:00-03:00
+**Status:** active
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
 > `consumed` (no expiration). L2 catch-up sets Status to `consumed` after use.
 
 ## Context
 
-Very long session (Claude Code), continuing directly from the prior
-session's handoff. Ran all 11 Passo 5 (Jornadas) leaves of epic #176 in a
-single continuous PAC-style run: #185 → #195, each through the full
-explore → propose → apply → close cycle, then closed epic #176 itself.
-Most leaves corrected pre-architecture stub code against D-052–D-056
-(same category of bug: legacy tables, silent failure swallowing,
-client-trusted state instead of server-persisted, sync sends instead of
-QStash). Two leaves went further and formally **reopened** a closed
-decision (logged explicitly, not silently folded in): #187 reopened D-053
-(phone-OTP reuse gate + bounded-refresh ceiling for instant/QR visits);
-#189 reopened `crm-source-of-truth` (added the `corretor_casa` approval
-gate on broker attribution). One leaf (#192) and two more (#193, #195)
-were genuinely additive/corrective with no prior code to fix. #194 was a
-pure re-confirmation (no build). #195 found and fixed two direct
-contradictions with closed decisions (routes vs. D-056, API-keys screen
-vs. D-043's secrets-ownership rule) rather than just lagging architecture.
+Short session, continuing directly from the prior session's handoff. That
+handoff named exactly one open loose end from Passo 5: **#196** (corretor's
+own CPF, reopens D-062). Ran it PAC-style through the full lifecycle —
+`rbo-create-change` → propose → apply → archive → merge → close, all in one
+continuous run per explicit user instruction ("pac"). Docs-only change,
+same pattern as the rest of Passo 5: D-068 recorded, `journey-corretor-
+onboarding` capability spec MODIFIED (CPF now mandatory alongside
+WhatsApp, same registration step, no new approval state, format-only
+validation matching D-063's cliente-CPF bar). Real implementation stays
+deferred to Execução (#86/#50).
 
-A real gap surfaced mid-session (during #190's exploration): #189/D-062
-never required the corretor's own CPF, needed eventually for commission
-payout. Per user instruction, spun off as its own issue+leaf rather than
-folded into #190 or silently reopening #189 — **#196, still open**,
-parented under #176 (which is why the generated `mapa-roteiro.html`
-report still shows `current=passo 5`, correctly, since #196 is tagged
-`Etapa 5 Jornadas` and not yet Done).
+One process note: an `agents.md`/`AGENTS.md` edit was staged with the
+uppercase pathspec on the `feat/*` branch and silently didn't make it into
+that branch's commit (case-mismatch against the tracked lowercase
+`agents.md` on this case-insensitive filesystem). Caught it after the
+merge to `main` — the diff was sitting uncommitted on `main` — and
+committed it there directly (`2492aba`) before pushing. **Worth knowing
+for next session:** when staging this file, `git add agents.md`
+(lowercase) is the safe form; `git add AGENTS.md` may silently no-op.
+
+With #196 closed, **Passo 5 (Jornadas) has no open items left at all** —
+`mapa-roteiro.html` now reports `current=passo 6` (previously stuck on
+passo 5 because #196 was open and tagged `Etapa 5`).
 
 ## Control doc paths
 
-- Decisions: `docs/planning/decisions.md` (D-057–D-067 this session) +
-  root `DECISIONS.md` mirror (English)
-- Session compass: `STATUS.md` (fully refreshed this session)
-- Context: `AGENTS.md` (§9 "Estágio atual" refreshed — Passo 5 fechado,
-  Passo 6 Design system is current)
-- Planning: `docs/planning/` (`jornadas-plataforma.md` and `screen-map.md`
-  both fully re-validated section-by-section, plus 11 new
-  `templates/jornada-*.md` detail docs)
+- Decisions: `docs/planning/decisions.md` (D-068 this session) + root
+  `DECISIONS.md` mirror (English)
+- Session compass: `STATUS.md` (refreshed — #196 closed, Passo 5 fully done)
+- Context: `agents.md` (§9 "Estágio atual" — #196 closed line added; note
+  the lowercase tracked filename, see Context above)
+- Planning: `docs/planning/` (`templates/jornada-onboarding-corretor.md`,
+  `jornadas-plataforma.md` §4.1, `screen-map.md` Corretor banner — all
+  updated to reflect CPF now mandatory)
 - Handoff: `docs/planning/handoff.md` (this file)
 
 ## Current state
 
 **Done**
-- Epic #176 (Jornadas, telas e fluxos) — closed, all 11 leaves (#185–#195)
-- 11 new OpenSpec capabilities (`journey-site-discovery`,
-  `journey-scheduled-visit`, `journey-instant-visit`,
-  `journey-post-visit-reengagement`, `journey-corretor-onboarding`,
-  `journey-corretor-client-registration`, `journey-corretor-pipeline`,
-  `journey-staff-verification-review`, `journey-staff-daily-operations`,
-  `journey-tuya-access-management`, `journey-platform-admin-config`)
-- 2 formal reopenings: `visit-identity-verification` (via #187, D-053 →
-  phone-otp + 24mo ceiling), `crm-source-of-truth` (via #189, D-062 →
-  `corretor_casa` gate)
-- `jornadas-plataforma.md` and `screen-map.md` — every section validated,
-  top-level banners updated from "RASCUNHO" to "Passo 5 concluído"
-- `AGENTS.md` §9 and `STATUS.md` refreshed to reflect Passo 5 closed,
-  Passo 6 (Design system) current
+- Issue #196 (corretor CPF mandatory) — closed via merge `Closes #196`,
+  board `Done`
+- D-068 recorded, reopens D-062 (`journey-corretor-onboarding`)
+- `journey-corretor-onboarding` main spec synced (MODIFIED requirement +
+  new "CPF is mandatory" scenario)
+- `ROADMAP.md` regenerated; Platform docs synced (`pages:portal` +
+  `progress:report` — same `pages:site` 500 workaround as last session)
+- **Passo 5 (Jornadas, epic #176) has zero open items** — confirmed via
+  `mapa-roteiro.html` now showing `current=passo 6`
 
 **In progress**
-- Nothing mid-flight — every branch this session was merged and deleted
+- Nothing mid-flight — the one branch this session (`feat/corretor-cpf-
+  obrigatorio`) was merged and deleted
 
 **Blocked / watch**
-- **#196 open** (corretor's own CPF, reopens D-062) — small, well-scoped,
-  not started. Natural next pick, but not required before Passo 6.
 - `origin/staging` still doesn't exist (deferred to #42/#46 Execução
   bootstrap) — `rbo-close-change` keeps using the default-mode
   `feat/*`→`main` exception (D-046) until then
 - `npm run pages:sync`'s `pages:site` step still fails with a 500 locally
-  (pre-existing, unrelated) — worked around every close-out this session
-  by running `pages:portal` + `progress:report` directly instead of the
-  full `pages:sync`
+  (pre-existing, unrelated) — keep using `pages:portal` + `progress:report`
+  directly instead of the full `pages:sync` until someone investigates it
+- Case-sensitivity footgun on `agents.md`/`AGENTS.md` staging (see Context)
+  — no fix applied, just noting it so it isn't repeated
 
 ## Artifacts
 
-- Epic (closed): https://github.com/fortegb/platform/issues/176
-- Leaves (all closed): #185, #186, #187, #188, #189, #190, #191, #192,
-  #193, #194, #195
-- Open follow-up: https://github.com/fortegb/platform/issues/196
-- Decisions this session: D-057–D-067 in `docs/planning/decisions.md`
+- Closed: https://github.com/fortegb/platform/issues/196
+- Decision this session: D-068 in `docs/planning/decisions.md`
+- Merge commit: `8f3cf62` (`Closes #196`) on `main`
 
 ## Next session
 
-**First action:** `rbo-catch-up` (L2), then choose between (a) closing
-out #196 (corretor CPF fix — small, self-contained, reopens D-062) or
-(b) starting Passo 6 (Design system) per `roteiro.md`. Neither blocks the
-other; #196 is a loose end from Passo 5, not a gate on Passo 6.
+**First action:** `rbo-catch-up` (L2), then start **Passo 6 (Design
+system)** per `roteiro.md` — nothing else is blocking it now that Passo 5
+is fully closed. Likely opens with `rbo-grilling` on epic #67 (Brand &
+design system) given the pattern this project uses before any build step.
 
 ## Suggested skills
 
 - `rbo-catch-up` (session open) — will consume this handoff
-- `rbo-create-change` on #196 if picked first
-- `rbo-grilling` likely relevant for Passo 6 (Design system) kickoff
+- `rbo-grilling` for Passo 6 (Design system) kickoff — epic #67 and its
+  sub-issues (#68 tokens, #69 print templates, #70 usage doc, #71 social
+  templates) plus Epic #2 (brand assets: #39 logo, #40 brand guide, #41
+  hero images) are the Etapa 6 backlog
