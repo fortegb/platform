@@ -5,19 +5,23 @@ TBD - created by archiving change jornada-onboarding-corretor. Update Purpose af
 ## Requirements
 ### Requirement: Account registration collects profile and creates a pending corretor
 The system SHALL, when a person registers as a corretor, collect terms
-acceptance and a profile (CRECI optional, WhatsApp number mandatory),
-assign `role = corretor` per the RBAC model, and set `corretor.status` to
-`pending_approval`.
+acceptance and a profile (CRECI optional, WhatsApp number mandatory, CPF
+mandatory), assign `role = corretor` per the RBAC model, and set
+`corretor.status` to `pending_approval`.
 
 #### Scenario: New corretor completes registration
 - **WHEN** a person completes signup, accepts terms, and submits their
-  profile with a WhatsApp number
+  profile with a WhatsApp number and CPF
 - **THEN** their account is created with `role = corretor` and
   `corretor.status = pending_approval`
 
 #### Scenario: CRECI is optional
 - **WHEN** a corretor submits their profile without a CRECI number
 - **THEN** registration still succeeds
+
+#### Scenario: CPF is mandatory
+- **WHEN** a corretor submits their profile without a CPF
+- **THEN** registration does not succeed
 
 ### Requirement: Portal access is gated on approval status, not role alone
 The system SHALL restrict full portal functionality to corretor accounts
