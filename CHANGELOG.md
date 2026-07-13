@@ -7,6 +7,15 @@
 
 ## Não versionado
 
+### 2026-07-13 — Corretor: CPF obrigatório no onboarding ([#196](https://github.com/fortegb/platform/issues/196))
+
+- **D-068:** CPF passa a ser campo obrigatório no perfil do corretor durante o cadastro, junto com WhatsApp (CRECI permanece opcional). Lacuna encontrada na exploração de #190 — pagamento de comissão a pessoa física no Brasil normalmente exige CPF, e nenhuma leaf modelava o dado.
+- **Reabre D-062** (`journey-corretor-onboarding`), registrado explicitamente — mesmo tratamento que #187 deu a D-053 e #189 deu a `crm-source-of-truth`.
+- Sem novo estado em `corretor.status`, sem mudança na fila de aprovação de `/staff/corretores` — validação só de formato (mesmo rigor de D-063 para o CPF do cliente).
+- Não modela o mecanismo de pagamento de comissão em si — só garante que o dado exista quando esse mecanismo for construído.
+- `templates/jornada-onboarding-corretor.md`, `jornadas-plataforma.md` §4.1 e `screen-map.md` atualizados. Implementação real → Execução (#86, #50).
+- **Fecha o último item aberto de Passo 5 (epic #176).**
+
 ### 2026-07-13 — Epic #176 (Jornadas, telas e fluxos) fechado — Passo 5 concluído
 
 - **Epic [#176](https://github.com/fortegb/platform/issues/176) — Jornadas, telas e fluxos (re-validação pós-arquitetura) — todas as 11 leaves concluídas:** #185 (D-057), #186 (D-058), #187 (D-059), #188 (D-061), #189 (D-062), #190 (D-063), #191 (D-064), #192 (D-060), #193 (D-065), #194 (D-066), #195 (D-067). Board `Done`; issue fechada.
