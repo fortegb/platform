@@ -72,6 +72,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-063 — Jornada: client registration + commission protection — CPF-required, DB-enforced first-wins uniqueness (#190)
 - D-064 — Jornada: corretor pipeline/dashboard — registro.status defined for the first time, visit progress via join not duplication (#191)
 - D-065 — Jornada: staff daily operations — business-wide visibility, Contato-tier manual entry, pending-work summary (#193)
+- D-066 — Jornada: Tuya access management — D-052/D-056 Supabase Studio verdict re-confirmed, no build (#194)
 
 ---
 
@@ -674,3 +675,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - No closed decision reopened — purely a consumer.
 - `#86`/`#90`/`#81` (Execução) implement without reopening architecture.
 - `jornadas-plataforma.md` §5.1 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-13 — Jornada: Tuya access management (#194)
+
+### D-052/D-056's Supabase Studio verdict re-confirmed — no build, no new decision content
+
+**Decision:** This issue's own body already named the expected answer: Tuya emergency-code management (rotation, device status) stays on Supabase Studio for v1 per `D-052`/`D-056`, no custom UI unless scale changes that call. This leaf re-applies `D-056`'s three-part test to check whether anything has shifted since — nothing has. (1) Rotating an emergency code is a single field update, not a multi-step workflow with side effects, unlike corretor approval (`#189`, unlocks portal access) or verification review (`#192`, triggers `provisionAccess`). (2) No domain-specific rendering a generic dashboard can't already do. (3) `D-056` already weighed and rejected the "must be safe for non-technical staff" criterion for this identical case, and nothing about ForteGB's operating scale has changed since. "Device status" is clarified as the existing record's fields (last rotated, in use) shown in Supabase Studio, not a new proactive monitoring dashboard — `D-052` already made failure detection reactive (a synchronous check at provisioning time triggers an immediate WhatsApp alert), never calling for a persistent status screen. This leaf introduces no new decision content; it formalizes the already-decided conclusion as an actual OpenSpec requirement for the first time (previously only decision prose), satisfying the tooling's structural delta requirement honestly rather than inventing scope.
+
+**Rationale:** Re-confirming explicitly, rather than simply skipping this leaf, keeps every sub-issue of `#176` passing through the same full cycle (issue → OpenSpec change → close) even when the correct answer is "nothing changes" — closing the issue with no record at all would leave the re-validation implicit and untraceable.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-066; new `journey-tuya-access-management` capability (`openspec/specs/`), formalization only.
+- No closed decision reopened, no new architecture decision created — `D-052`/`D-056` remain the source of truth.
+- `jornadas-plataforma.md`/`screen-map.md` mark this task re-validated, no approach change.

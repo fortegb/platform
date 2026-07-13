@@ -7,6 +7,14 @@
 
 ## Não versionado
 
+### 2026-07-13 — Passo 5: jornada de gestão de acesso Tuya ([#194](https://github.com/fortegb/platform/issues/194))
+
+- **D-066:** re-confirma a decisão de D-052/D-056 — gestão de código de emergência Tuya (rotação, status do dispositivo) continua no Supabase Studio, sem UI custom. Teste de três partes de D-056 reaplicado: veredito inalterado, nada mudou na escala do negócio.
+- "Status do dispositivo" esclarecido — são os campos já existentes no registro, não um dashboard de monitoramento novo (detecção de falha já é reativa via alerta WhatsApp, D-052).
+- Nenhum conteúdo de decisão novo. Formaliza a conclusão já fechada como requirement de spec pela primeira vez (antes só em prosa de decisão) — satisfaz a exigência estrutural do OpenSpec sem inventar escopo.
+- Nova capability OpenSpec `journey-tuya-access-management` (formalização). `jornadas-plataforma.md` e `screen-map.md` marcam a tarefa como re-validada, sem rota nova.
+- Sem implementação — decisão já era "sem UI custom". **Décima leaf de Passo 5 fechada.**
+
 ### 2026-07-13 — Passo 5: jornada de operação diária do staff ([#193](https://github.com/fortegb/platform/issues/193))
 
 - **D-065:** define a tela operacional de staff — visitas do dia, clientes recentes, entrada manual de lead. Leaf greenfield (nenhum código existia).
