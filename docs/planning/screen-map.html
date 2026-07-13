@@ -46,7 +46,7 @@
       <a href="https://github.com/fortegb/platform/issues/32">#32</a> (concluído).
     </p>
 
-<blockquote><strong>Estado:</strong> ⚠️ <strong>RASCUNHO — re-validar no passo 5</strong> (Jornadas/telas), agora que o passo 4 (Arquitetura) fechou. Infra/ambientes (<a href="https://github.com/fortegb/platform/issues/146">#146</a>) e arquitetura de domínio (<a href="https://github.com/fortegb/platform/issues/179">#179</a>) ambas concluídas. Publicado em 2026-07-03 sob Architecture #1, mas mock-first; rotas/telas podem mudar na re-validação do passo 5. Ver <a href="./roteiro.md"><code>roteiro.md</code></a>.  </blockquote>
+<blockquote><strong>Estado:</strong> ✅ <strong>Passo 5 (Jornadas/telas) concluído</strong> — todas as 11 leaves do epic <a href="https://github.com/fortegb/platform/issues/176">#176</a> re-validadas (#185–#195, D-057..D-067). Rotas/estados abaixo já refletem a re-validação; cada seção tem seu próprio marcador e link para o detalhe em <code>templates/</code>. Ver <a href="./roteiro.md"><code>roteiro.md</code></a>.  </blockquote>
 <blockquote><strong>Jornadas:</strong> <a href="./architecture.md"><code>architecture.md</code></a> §3 · <a href="./jornadas-plataforma.md"><code>jornadas-plataforma.md</code></a>  </blockquote>
 <blockquote><strong>Legenda:</strong> <code>simulado</code> = UI existe, sem back-end · <code>novo</code> = tela/rota por construir · <strong>Fase</strong> = fase no plano</blockquote>
 <hr/>
@@ -118,11 +118,15 @@
 </tbody></table>
 <hr/>
 <h2>Admin (sócios)</h2>
+<blockquote>✅ <strong>Re-validada</strong> — <a href="https://github.com/fortegb/platform/issues/195">#195</a>,</blockquote>
+<blockquote>D-067. Rotas <code>/admin/<em></code> corrigidas para <code>/staff/</em></code> (D-056, sem árvore</blockquote>
+<blockquote>separada); chaves API vira somente-leitura (D-043, edição real no Vercel</blockquote>
+<blockquote>só por ForteGB tech); ocultar-casa removida (Sanity Studio nativo, sem</blockquote>
+<blockquote>rota na plataforma).</blockquote>
 <table><thead><tr><th>Passo da jornada</th><th>Rota</th><th>Estado</th><th>Fase</th><th>Epic</th></tr></thead><tbody>
-<tr><td>Config / painel admin</td><td><code>/admin</code></td><td>novo</td><td>2+</td><td><a href="https://github.com/fortegb/platform/issues/119">#119</a></td></tr>
-<tr><td>Convites usuário</td><td><code>/admin/usuários</code></td><td>novo</td><td>2+</td><td>#119</td></tr>
-<tr><td>Chaves API (Tuya, HubSpot, WhatsApp)</td><td><code>/admin/integracoes</code></td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/72">#72</a></td></tr>
-<tr><td>Flags (ocultar casa, manutenção)</td><td><code>/admin/casas</code></td><td>novo</td><td>2+</td><td>#119</td></tr>
+<tr><td>Convidar usuário / atribuir papel (staff, admin)</td><td><code>/staff/usuarios</code></td><td>novo — validado #195</td><td>2+</td><td><a href="https://github.com/fortegb/platform/issues/119">#119</a></td></tr>
+<tr><td>Status de chaves API (somente leitura — Tuya, HubSpot, WhatsApp)</td><td><code>/staff/integracoes</code></td><td>novo — validado #195</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/72">#72</a></td></tr>
+<tr><td>Modo manutenção (flag viva, sem deploy)</td><td><code>/staff/config</code></td><td>novo — validado #195</td><td>2+</td><td>#119</td></tr>
 <tr><td>Registro de Cliente / histórico (auditoria, exceções)</td><td><code>/staff/registros</code></td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/86">#86</a></td></tr>
 </tbody></table>
 <p><strong>Nota:</strong> limites admin vs staff → <a href="./architecture.md"><code>architecture.md</code></a> §2.</p>
