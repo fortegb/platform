@@ -12,5 +12,5 @@
       validated, replace with corrected detail
 - [x] 1.4 Update `docs/planning/screen-map.md` — mark `/staff/visitas`,
       `/staff/clientes/novo` validated
-- [ ] 1.5 Sync `journey-staff-daily-operations` spec; `openspec validate`;
+- [x] 1.5 Sync `journey-staff-daily-operations` spec; `openspec validate`;
       archive; merge `Closes #193`
