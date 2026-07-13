@@ -70,6 +70,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-061 — Jornada: post-visit reengagement — magic-link self-service cancel/reschedule, new cancelled status, follow-up consent split (#188)
 - D-062 — Jornada: corretor onboarding — role-model status gate, per-house association folded in, reopens crm-source-of-truth (#189)
 - D-063 — Jornada: client registration + commission protection — CPF-required, DB-enforced first-wins uniqueness (#190)
+- D-064 — Jornada: corretor pipeline/dashboard — registro.status defined for the first time, visit progress via join not duplication (#191)
 
 ---
 
@@ -640,3 +641,19 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `#86`/`#90` (Execução) implement without reopening architecture.
 - No closed decision is reopened by this leaf — purely a consumer of `D-020` and `#189`'s constraint.
 - `jornadas-plataforma.md` §4.3 and `screen-map.md` move from draft to validated for this journey.
+
+---
+
+## 2026-07-12 — Jornada: corretor pipeline/dashboard (#191)
+
+### registro.status defined for the first time — deal-focused, not visit-focused; visit progress derived via join, never duplicated
+
+**Decision:** `pages/corretor/dashboard.vue` and `leads/index.vue` predate `D-020` and carry a 7-stage pipeline enum (`new → contacted → visit_scheduled → visit_completed → negotiating → closed_won → closed_lost`) that traces to the original pre-architecture CRM notes, not the actual `registro` model — `D-020` only names `status` generically, never enumerating it. This leaf defines `registro.status` for real, for the first time: `registrado → negociando → fechado_ganho | fechado_perdido` — deliberately smaller than the stub's list, because two of its stages (`visit_scheduled`, `visit_completed`) duplicated state that already belongs exclusively to `visit.status` (`D-053`). Keeping two copies of "has this client visited" in sync manually is the same dual-bookkeeping risk `#188` and `#190` both already had to fix elsewhere this session (respectively: isolating `cancelled` from `declined`; CPF-based dedup instead of phone). The dashboard instead derives visit progress by reading the linked `visit` record(s) directly — never a second, driftable copy. `"contacted"` becomes a `historico` entry (D-020's existing append-only event log) rather than a formal pipeline stage, sidestepping the ambiguity of whether contact is a one-time transition or resets on every follow-up. HubSpot may still display a richer pipeline (the original stage list or similar) for the corretor's own workflow without contradiction — `D-020` already established Supabase as the commission-authoritative source and HubSpot as a downstream mirror; this is a vendor-display choice, not a change to what Supabase stores as ground truth. Dashboard and pipeline list are corrected to scope by `registro.corretor_id` against the real model (with RLS as the actual boundary, `D-055`), replacing the stub's `realtor_id` filter against the legacy schema, and to authenticate via `role`/`status` instead of the `realtors` table.
+
+**Rationale:** The 7-stage enum wasn't neutral — mixing the visit lifecycle (already modeled separately in `D-053`) with the deal lifecycle (what `registro` actually exists to track) creates two sources of truth for "did the client visit," the exact bug class `#188`/`#190` already had to correct. Defining the enum correctly now avoids inheriting that problem silently. Moving "contacted" to `historico` avoids inventing a state machine for what is really just an event log entry.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-064; `templates/jornada-pipeline-dashboard-corretor.md`; new `journey-corretor-pipeline` capability (`openspec/specs/`).
+- No closed decision reopened — `registro.status` never had a formal enum, so defining it completes open detail rather than changing an existing requirement.
+- `#86`/`#90` (Execução) implement without reopening architecture.
+- `jornadas-plataforma.md` §4.4 and `screen-map.md` move from draft to validated for this journey.

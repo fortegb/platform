@@ -179,13 +179,15 @@ Também via **bot WhatsApp** (mesma lógica) — detalhe na Architecture epic.
 
 ### 4.4 Acompanhar pipeline
 
-No portal corretor:
+> ✅ **Re-validada no passo 5** ([#191](https://github.com/fortegb/platform/issues/191), D-064) — `registro.status` definido pela primeira vez (nenhuma decisão fechada o enumerava). Detalhe: [`templates/jornada-pipeline-dashboard-corretor.md`](./templates/jornada-pipeline-dashboard-corretor.md).
 
-- Casas com contrato ativo  
-- Clientes registrados e estado (novo → visita → negociação → fechado)  
-- Histórico e notas  
+No portal corretor, escopado ao próprio corretor (`registro.corretor_id`, RLS):
 
-**Integração:** pipeline HubSpot espelhado ou consultado via API.
+- Casas com contrato ativo (`corretor_casa` aprovado — D-062)
+- Clientes registrados e estado do negócio: `registrado → negociando → fechado_ganho / fechado_perdido` (D-064) — **não** um estágio de visita; progresso de visita é lido via join no `visit` ligado (D-053), nunca duplicado
+- Histórico e notas (`historico` append-only — inclui toques de contato, não um estágio formal)
+
+**Integração:** pipeline HubSpot pode mostrar mais estágios visualmente (agendada, contatada, etc.) sem contradição — Supabase continua autoridade de status comissionável, HubSpot é espelho a jusante.
 
 ---
 
