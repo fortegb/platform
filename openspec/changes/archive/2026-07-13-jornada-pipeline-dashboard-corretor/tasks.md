@@ -12,5 +12,5 @@
       validated, replace with corrected flow/model detail
 - [x] 1.4 Update `docs/planning/screen-map.md` — mark
       `/corretor/dashboard`, `/corretor/clientes` validated
-- [ ] 1.5 Sync `journey-corretor-pipeline` spec; `openspec validate`;
+- [x] 1.5 Sync `journey-corretor-pipeline` spec; `openspec validate`;
       archive; merge `Closes #191`

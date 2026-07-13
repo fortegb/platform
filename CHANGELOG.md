@@ -7,6 +7,17 @@
 
 ## Não versionado
 
+### 2026-07-13 — Passo 5: jornada de pipeline e dashboard do corretor ([#191](https://github.com/fortegb/platform/issues/191))
+
+- **D-064:** define `registro.status` pela primeira vez — nenhuma decisão fechada o enumerava antes. O stub pré-arquitetura tinha um enum de 7 estágios (`new`, `contacted`, `visit_scheduled`, `visit_completed`, `negotiating`, `closed_won`, `closed_lost`), mas dois deles duplicavam estado que já pertence a `visit.status` (D-053).
+- Novo enum, focado só em negócio: `registrado → negociando → fechado_ganho / fechado_perdido`. Progresso de visita é lido via join no `visit` ligado, nunca duplicado — mesmo risco de dessincronização que #188 e #190 já corrigiram nesta sessão.
+- "Contatado" vira entrada de `historico` (evento), não estágio formal de pipeline.
+- HubSpot pode mostrar pipeline mais rico visualmente sem contradição — Supabase continua autoridade de status comissionável, HubSpot é espelho a jusante.
+- Dashboard/lista corrigidos para escopar por `registro.corretor_id` (RLS, D-055) e autenticar via `role`/`status` (modelo de #189), não mais `realtors`.
+- Nenhuma decisão fechada reaberta — `registro.status` nunca teve enum formal antes.
+- Novo `templates/jornada-pipeline-dashboard-corretor.md`. Nova capability OpenSpec `journey-corretor-pipeline`. `jornadas-plataforma.md` §4.4 e `screen-map.md` saem de rascunho para validado.
+- Implementação real → Execução (#86, #90). **Oitava leaf de Passo 5 fechada.**
+
 ### 2026-07-12 — Passo 5: jornada de registro de cliente e proteção de comissão ([#190](https://github.com/fortegb/platform/issues/190))
 
 - **D-063:** corrige um bug real no stub pré-arquitetura — a proteção "primeiro-registro-ganha" não funcionava de fato: o endpoint verificava duplicata (`SELECT`) e inseria (`INSERT`) como dois passos separados, permitindo que dois corretores concorrentes passassem ambos pela checagem.
