@@ -1,7 +1,7 @@
 # Handoff — fortegb/platform — 2026-07-13
 
 **Updated:** 2026-07-13T16:05:00Z
-**Status:** active
+**Status:** consumed
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
 > `consumed` (no expiration). L2 catch-up sets Status to `consumed` after use.
