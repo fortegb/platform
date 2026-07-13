@@ -40,13 +40,14 @@
 ✅ **#187 Visita instantânea via QR** → D-059. Mesmas correções de #186; regra "sem espera síncrona" de D-053 implementada pela 1ª vez. **Reabre D-053** — mecanismo de renovação limitada (código WhatsApp estende `identity_verified_at`, teto de 24 meses de `last_client_match_at`).
 ✅ **#188 Pós-visita e reengajamento** → D-061. Greenfield. Cancelamento/reagendamento self-service via magic link; novo status `cancelled`; `revoke()` do adapter Tuya ganha primeiro caller real; follow-up classificado por timing (resolve #141).
 ✅ **#189 Onboarding do corretor** → D-062. Corrigido contra D-055 (`role`/`status`, não `realtors`); associação por casa incorporada (rascunho §4.2, sem leaf própria antes); staff faz upload do contrato assinado (upload = aprovação). **Reabre `crm-source-of-truth`** — `registro.corretor_id` exige `corretor_casa` aprovado.
-✅ **#190 Registro de cliente e proteção de comissão** → D-063. Corrige bug real de condição de corrida (check-then-insert) com constraint de unicidade no banco; CPF obrigatório (nível Cliente, não Contato). Lacuna encontrada: CPF do próprio corretor nunca exigido → issue separada **#196** (ainda aberta).
+✅ **#190 Registro de cliente e proteção de comissão** → D-063. Corrige bug real de condição de corrida (check-then-insert) com constraint de unicidade no banco; CPF obrigatório (nível Cliente, não Contato). Lacuna encontrada: CPF do próprio corretor nunca exigido → issue separada **#196** (D-068, fechada).
 ✅ **#191 Pipeline e dashboard do corretor** → D-064. `registro.status` definido pela 1ª vez (enum focado em negócio, não duplica `visit.status`).
 ✅ **#192 Fila de exceção de verificação** → D-060. Primeira leaf greenfield sem stub para corrigir. Rejeição notifica visitante (gap de D-053 fechado); alerta Telegram a staff.
 ✅ **#193 Operação diária do staff** → D-065. Staff-wide (não escopado por corretor); entrada manual nível Contato; resumo de pendências linkando #189/#192.
 ✅ **#194 Gestão de acesso Tuya** → D-066. Re-confirmação pura de D-052/D-056 (Supabase Studio, sem UI) — nada mudou na escala.
 ✅ **#195 Configuração de plataforma e papéis** → D-067. Duas contradições reais corrigidas: rotas `/admin/*` → `/staff/*` (D-056); chaves API vira somente-leitura (D-043, edição só por ForteGB tech). Modo manutenção = flag viva no Supabase (exceção deliberada ao padrão vendor-native). Ocultar-casa → Sanity Studio nativo.
 🎉 **Epic #176 (Jornadas, telas e fluxos) — fechado.** Todas as 11 leaves concluídas (#185–#195). **Passo 5 concluído.**
+✅ **#196 CPF do corretor obrigatório no onboarding** → D-068 (reabre D-062). Último item aberto de Passo 5 fechado.
 → PRÓXIMO: Passo 6 (Design system) — ver `roteiro.md`. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
@@ -95,12 +96,11 @@
 - [x] **#194** — Gestão de acesso Tuya → D-066 (re-confirmação pura, sem build)
 - [x] **#195** — Configuração de plataforma e papéis → D-067 (rotas `/admin/*` → `/staff/*`; chaves API somente-leitura)
 - [x] Epic **#176** — fechado (board Done), todas as 11 leaves concluídas. **Passo 5 concluído.**
-- [ ] Issue separada **#196** (CPF do próprio corretor, reabre D-062) aberta durante a exploração de #190 — ainda não fechada.
+- [x] Issue separada **#196** (CPF do próprio corretor, reabre D-062) aberta durante a exploração de #190 → **#196** — CPF obrigatório no onboarding → D-068 (reabre D-062, mesmo tratamento de #187/#189). Último item aberto de Passo 5 fechado.
 
 ## Próxima sessão
 
 - [ ] Passo 6 — Design system (linguagem visual, comportamento, tokens; `agents.md` §9) — ver `roteiro.md`
-- [ ] Fechar issue **#196** (CPF do corretor no onboarding) quando conveniente
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

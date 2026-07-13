@@ -74,6 +74,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-065 — Jornada: staff daily operations — business-wide visibility, Contato-tier manual entry, pending-work summary (#193)
 - D-066 — Jornada: Tuya access management — D-052/D-056 Supabase Studio verdict re-confirmed, no build (#194)
 - D-067 — Jornada: platform admin config — /staff/* route fix, API keys read-only per D-043, maintenance mode as live flag (#195, last Passo 5 leaf)
+- D-068 — Corretor: CPF mandatory at onboarding — collected alongside WhatsApp at registration, reopens D-062 (#196)
 
 ---
 
@@ -708,3 +709,20 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `#119`/`#72` (Execução) implement without reopening architecture.
 - `jornadas-plataforma.md` §5.2 and `screen-map.md` move from draft to validated for this journey.
 - **Last leaf of Passo 5 (epic `#176`) closed.**
+
+---
+
+## 2026-07-13 — Corretor: CPF mandatory at onboarding (#196)
+
+### CPF added as a required profile field alongside WhatsApp; reopens D-062
+
+**Decision:** A gap surfaced during `#190`'s exploration (client registration and commission protection), split off into its own issue per user instruction rather than silently reopening `#189`. `D-062` (`#189`) requires WhatsApp and leaves CRECI optional on the corretor's profile, but never required the corretor's own CPF. `#190` implies ForteGB eventually pays the corretor a commission, and paying a pessoa física in Brazil normally requires a CPF on file. CPF becomes mandatory at the same registration step as WhatsApp — not deferred to approval or first payout — because that step is already the point where the corretor is actively filling out their profile; asking later means chasing an already-active corretor for a field that was always knowable upfront, at no extra cost in the flow. No new `corretor.status` value or approval-queue change: CPF presence is form validation (same treatment as WhatsApp), not a new approval criterion — staff still approves or rejects the whole application as one decision on `/staff/corretores`, unchanged from `D-062`. Validation is format-only, matching the bar already accepted for the cliente's CPF in `D-063` (`#190`) — verifying real payout eligibility is a task for whatever payout mechanism gets built later, not this leaf.
+
+**Rationale:** A small, additive correction — one more required field on the same existing registration step — that closes a real gap before active corretores accumulate payable commissions with no CPF on file.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-068; `templates/jornada-onboarding-corretor.md` updated; `MODIFIED` delta to `journey-corretor-onboarding` (`openspec/specs/`), reopened and logged explicitly.
+- No change to `rbac-role-model`, `messaging-channel-policy`, or the per-house association flow.
+- `jornadas-plataforma.md` §4.1 and `screen-map.md` updated to reflect the closed gap.
+- Out of scope: the commission payout mechanism itself; CPF for any other role.
+- Real implementation stays deferred to Execução (`#86`/`#50`), same as the rest of `D-062`.
