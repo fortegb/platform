@@ -7,6 +7,18 @@
 
 ## Não versionado
 
+### 2026-07-13 — Passo 5: jornada de configuração de plataforma e papéis ([#195](https://github.com/fortegb/platform/issues/195)) — última leaf
+
+- **D-067:** corrige duas contradições reais com decisões já fechadas — rascunho ainda usava rotas `/admin/*` (D-056 já rejeitou árvore separada, corrigido para `/staff/*`); tela de "chaves API" implicava que qualquer admin poderia configurar secrets, contradizendo D-043 (escrita restrita a "ForteGB tech", não ao papel `admin` genericamente).
+- Chaves API vira referência somente-leitura — edição real fica no Vercel, só ForteGB tech.
+- "Ocultar casa" resolve via Sanity Studio (rascunho/despublicação nativos) — sem tela na plataforma, mesmo padrão vendor-native de Tuya (#194).
+- "Modo manutenção" é **exceção deliberada** a esse padrão — flag viva no Supabase, qualquer admin liga/desliga na hora, sem deploy — porque não é secret e seu propósito é resposta rápida a emergência.
+- Atribuição de papel (convite por e-mail, papel pré-atribuído) é funcionalidade nova sem conflito.
+- Nenhuma decisão fechada reaberta — leaf aplica testes/políticas já existentes (D-055/D-056/D-043) a telas concretas.
+- Novo `templates/jornada-configuracao-plataforma-papeis.md`. Nova capability OpenSpec `journey-platform-admin-config`. `jornadas-plataforma.md` §5.2 e `screen-map.md` saem de rascunho para validado — banners de topo dos dois docs também atualizados.
+- Implementação real → Execução (#119, #72).
+- **🎉 Décima primeira e última leaf de Passo 5 (epic #176) fechada — todas as 11 jornadas re-validadas (#185–#195, D-057..D-067). Desbloqueia Passo 6 (Design system).**
+
 ### 2026-07-13 — Passo 5: jornada de gestão de acesso Tuya ([#194](https://github.com/fortegb/platform/issues/194))
 
 - **D-066:** re-confirma a decisão de D-052/D-056 — gestão de código de emergência Tuya (rotação, status do dispositivo) continua no Supabase Studio, sem UI custom. Teste de três partes de D-056 reaplicado: veredito inalterado, nada mudou na escala do negócio.

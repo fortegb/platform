@@ -73,6 +73,7 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - D-064 — Jornada: corretor pipeline/dashboard — registro.status defined for the first time, visit progress via join not duplication (#191)
 - D-065 — Jornada: staff daily operations — business-wide visibility, Contato-tier manual entry, pending-work summary (#193)
 - D-066 — Jornada: Tuya access management — D-052/D-056 Supabase Studio verdict re-confirmed, no build (#194)
+- D-067 — Jornada: platform admin config — /staff/* route fix, API keys read-only per D-043, maintenance mode as live flag (#195, last Passo 5 leaf)
 
 ---
 
@@ -690,3 +691,20 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` D-066; new `journey-tuya-access-management` capability (`openspec/specs/`), formalization only.
 - No closed decision reopened, no new architecture decision created — `D-052`/`D-056` remain the source of truth.
 - `jornadas-plataforma.md`/`screen-map.md` mark this task re-validated, no approach change.
+
+---
+
+## 2026-07-13 — Jornada: platform admin config (#195, last Passo 5 leaf)
+
+### Route fix (D-056), API-keys screen corrected against D-043's secrets ownership, hide-house deferred to the CMS, maintenance mode as a deliberate live-flag exception
+
+**Decision:** The admin-only screens (draft §5.2: role assignment, platform flags, API keys) predate `D-055`/`D-056`/`D-043`. Unlike most prior leaves, the draft didn't just lag architecture — it directly contradicted two closed decisions. First: the draft and `screen-map.md` still used `/admin/*` routes, but `D-056` explicitly rejected a separate admin tree ("namespace único `/staff/*`... não uma segunda árvore de UI"); corrected to `/staff/usuarios`, `/staff/config`, `/staff/integracoes`. Second: the drafted "API keys" screen implied any admin could configure integration credentials, but `D-043` already restricts secrets write access to "ForteGB tech" specifically ("Sócios: sem acesso a secrets") — not the `admin` RBAC role generically, since "Digital"/tech is an organizational fact distinct from the RBAC role (`D-055` already draws that line). A sócio-admin who isn't tech (e.g. Adilson) isn't supposed to have secrets access under `D-043`. Corrected: the screen becomes a read-only status/reference view (which integrations are configured/connected); actual key values never touch the platform's own database or UI, edited only in Vercel by tech. "Ocultar casa" resolves to Sanity Studio's existing native draft/unpublish workflow — houses are Sanity-managed content (`D-015`), and building a redundant hide-flag in ForteGB's own admin UI would repeat the same over-building mistake just corrected for API keys and already avoided for Tuya (`#194`). "Modo manutenção" is a deliberate **exception** to that vendor-native pattern: a live, Supabase-stored flag any admin can toggle instantly, not a Vercel env var — because it isn't a secret (no `D-043` security rationale applies) and its entire purpose is fast emergency response; an env var would require a redeploy and, per `D-043`, could only be changed by tech, defeating the point for an admin sócio needing to act immediately. Role assignment (invite by email with a pre-assigned role, not open self-registration like `#189`'s corretor flow) is genuine new functionality with no conflict — additive to `rbac-role-model`, since the invite mechanism was never part of that capability's enum/hierarchy/enforcement scope. "Relatórios agregados" and commission-reassignment screens from the original draft are explicitly out of this issue's stated scope and remain unowned gaps, not built here.
+
+**Rationale:** The two route/secrets corrections aren't nuances — they're direct contradictions that had to be fixed before Execução inherited the wrong draft. Deferring hide-house to Sanity keeps consistency with the pattern already established for Tuya and API keys. Maintenance mode is a deliberate exception, not an inconsistency, because the pattern was never "avoid all in-app storage" — it was "avoid rebuilding what a vendor already solves," and no vendor solves "let any admin take the site down instantly."
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` D-067; `templates/jornada-configuracao-plataforma-papeis.md`; new `journey-platform-admin-config` capability (`openspec/specs/`).
+- No closed decision reopened — this leaf applies already-existing tests/policies (`D-055`/`D-056`/`D-043`) to concrete screens.
+- `#119`/`#72` (Execução) implement without reopening architecture.
+- `jornadas-plataforma.md` §5.2 and `screen-map.md` move from draft to validated for this journey.
+- **Last leaf of Passo 5 (epic `#176`) closed.**

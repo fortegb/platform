@@ -1,6 +1,6 @@
 # Mapa de telas MVP — Plataforma ForteGB
 
-> **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas), agora que o passo 4 (Arquitetura) fechou. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) e arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179)) ambas concluídas. Publicado em 2026-07-03 sob Architecture #1, mas mock-first; rotas/telas podem mudar na re-validação do passo 5. Ver [`roteiro.md`](./roteiro.md).  
+> **Estado:** ✅ **Passo 5 (Jornadas/telas) concluído** — todas as 11 leaves do epic [#176](https://github.com/fortegb/platform/issues/176) re-validadas (#185–#195, D-057..D-067). Rotas/estados abaixo já refletem a re-validação; cada seção tem seu próprio marcador e link para o detalhe em `templates/`. Ver [`roteiro.md`](./roteiro.md).  
 > **Jornadas:** [`architecture.md`](./architecture.md) §3 · [`jornadas-plataforma.md`](./jornadas-plataforma.md)  
 > **Legenda:** `simulado` = UI existe, sem back-end · `novo` = tela/rota por construir · **Fase** = fase no plano
 
@@ -88,12 +88,17 @@
 
 ## Admin (sócios)
 
+> ✅ **Re-validada** — [#195](https://github.com/fortegb/platform/issues/195),
+> D-067. Rotas `/admin/*` corrigidas para `/staff/*` (D-056, sem árvore
+> separada); chaves API vira somente-leitura (D-043, edição real no Vercel
+> só por ForteGB tech); ocultar-casa removida (Sanity Studio nativo, sem
+> rota na plataforma).
+
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
-| Config / painel admin | `/admin` | novo | 2+ | [#119](https://github.com/fortegb/platform/issues/119) |
-| Convites usuário | `/admin/usuários` | novo | 2+ | #119 |
-| Chaves API (Tuya, HubSpot, WhatsApp) | `/admin/integracoes` | novo | 2 | [#72](https://github.com/fortegb/platform/issues/72) |
-| Flags (ocultar casa, manutenção) | `/admin/casas` | novo | 2+ | #119 |
+| Convidar usuário / atribuir papel (staff, admin) | `/staff/usuarios` | novo — validado #195 | 2+ | [#119](https://github.com/fortegb/platform/issues/119) |
+| Status de chaves API (somente leitura — Tuya, HubSpot, WhatsApp) | `/staff/integracoes` | novo — validado #195 | 2 | [#72](https://github.com/fortegb/platform/issues/72) |
+| Modo manutenção (flag viva, sem deploy) | `/staff/config` | novo — validado #195 | 2+ | #119 |
 | Registro de Cliente / histórico (auditoria, exceções) | `/staff/registros` | novo | 2 | [#86](https://github.com/fortegb/platform/issues/86) |
 
 **Nota:** limites admin vs staff → [`architecture.md`](./architecture.md) §2.
