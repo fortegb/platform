@@ -9,6 +9,6 @@
       re-validated, no change to approach
 - [x] 1.3 Update `docs/planning/screen-map.md` — note re-validated, no
       route added (stays Supabase Studio, no custom UI)
-- [ ] 1.4 Sync `journey-tuya-access-management` spec (formalizes the
+- [x] 1.4 Sync `journey-tuya-access-management` spec (formalizes the
       already-decided conclusion, first time as a spec requirement);
       `openspec validate`; archive; merge `Closes #194`
