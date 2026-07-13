@@ -2,7 +2,7 @@
 
 > **Para quem:** sócios, staff e corretores — visão do produto **quando estiver concluído**.  
 > **Não é** cronograma de execução (ver [`phases.md`](./phases.md) e [`progresso-socios.html`](./progresso-socios.html)).  
-> **Atualizado:** 2026-07-12 · **Estado:** ⚠️ **RASCUNHO — re-validar no passo 5** (Jornadas/telas), agora que o passo 4 (Arquitetura) fechou. Infra/ambientes ([#146](https://github.com/fortegb/platform/issues/146)) e arquitetura de domínio ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin) ambas concluídas — fluxos e telas aqui serão re-validados no passo 5. Ver [`roteiro.md`](./roteiro.md).
+> **Atualizado:** 2026-07-13 · **Estado:** ✅ **Passo 5 (Jornadas/telas) concluído** — todas as 11 leaves do epic [#176](https://github.com/fortegb/platform/issues/176) re-validadas (#185–#195, D-057..D-067). Cada seção abaixo tem seu próprio marcador de validação e link para o detalhe em `templates/`. Ver [`roteiro.md`](./roteiro.md).
 
 ---
 
@@ -239,13 +239,18 @@ No portal corretor, escopado ao próprio corretor (`registro.corretor_id`, RLS):
 
 ### 5.2 Admin (sócios)
 
-| Tarefa | Restrito a admin |
-|--------|------------------|
-| Convidar usuários (staff, corretores) | Sim |
-| Configurar chaves API (Tuya, HubSpot, WhatsApp) | Sim |
-| Flags sensíveis (ex. ocultar casa, modo manutenção) | Sim |
-| Relatórios agregados (conversão, corretores, visitas) | Sim |
-| Exceções de comissão / void de registro | Staff + audit |
+> ✅ **Re-validada no passo 5** ([#195](https://github.com/fortegb/platform/issues/195), D-067) — duas contradições reais corrigidas (rotas `/admin/*` → `/staff/*` per D-056; chaves API era CRUD aberto a qualquer admin, contradizia D-043). Detalhe: [`templates/jornada-configuracao-plataforma-papeis.md`](./templates/jornada-configuracao-plataforma-papeis.md).
+
+| Tarefa | Restrito a admin | Rota |
+|--------|------------------|------|
+| Convidar usuários (staff, admin) — papel pré-atribuído, sem fila de aprovação | Sim | `/staff/usuarios` |
+| Ver status de chaves API (Tuya, HubSpot, WhatsApp) — **somente leitura**; edição real no Vercel, só ForteGB tech (D-043) | Sim | `/staff/integracoes` |
+| Modo manutenção — flag viva no Supabase, qualquer admin liga/desliga na hora, sem deploy | Sim | `/staff/config` |
+| Ocultar casa | **Sem tela na plataforma** — Sanity Studio (rascunho/despublicação nativos) | — |
+| Relatórios agregados (conversão, corretores, visitas) | Fora do escopo desta leaf — lacuna sem leaf própria | — |
+| Exceções de comissão / void de registro | Fora do escopo desta leaf — lacuna sem leaf própria | — |
+
+**Epic #176 (Jornadas, telas e fluxos) — todas as 11 leaves concluídas** (#185–#195). Passo 5 fechado.
 
 ---
 
