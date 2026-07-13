@@ -210,8 +210,20 @@ No portal corretor, escopado ao próprio corretor (`registro.corretor_id`, RLS):
 > `provisionAccess` (D-052), rejeição notifica o visitante via WhatsApp
 > (gap de D-053 fechado). Detalhe:
 > [`templates/jornada-fila-excecao-verificacao.md`](./templates/jornada-fila-excecao-verificacao.md).
-> Demais tarefas desta tabela seguem rascunho até suas leaves fecharem
-> (#189, #193).
+>
+> ✅ **"Consultar visitas do dia", "Ver clientes recentes" e "Registrar
+> cliente manual" re-validadas no passo 5** —
+> [#193](https://github.com/fortegb/platform/issues/193), D-065.
+> Staff-wide (todas as casas/corretores, não escopado como o pipeline do
+> corretor em #191); entrada manual é nível `Contato` (só WhatsApp,
+> `fonte: staff-manual`), diferente do nível `Cliente` (CPF obrigatório)
+> que #190 exige do corretor — sem corretor envolvido, não há atribuição
+> de comissão a proteger. Tela também resume pendências de #189/#192 com
+> link, sem reimplementar nenhuma das duas. Detalhe:
+> [`templates/jornada-operacao-diaria-staff.md`](./templates/jornada-operacao-diaria-staff.md).
+>
+> ✅ **"Aprovar / rejeitar corretor" re-validada no passo 5** —
+> [#189](https://github.com/fortegb/platform/issues/189), D-062.
 
 **Fora do MVP plataforma:** despesas por obra (continua em `app-despesas`).
 
