@@ -3,13 +3,13 @@
 > **Bússola de sessão** — após `rbo-catch-up`.  
 > **Repo:** `fortegb/platform` · **Board:** GitHub Project `platform`  
 > **Espinha:** [`roteiro.md`](./docs/planning/roteiro.md) — 9 passos, gates G1/G2/G3.  
-> **Decisões técnicas:** fechadas (D-015..D-056); itens `deferred` reabrem no grilling da fase.
+> **Decisões técnicas:** fechadas (D-015..D-067); itens `deferred` reabrem no grilling da fase.
 
 ---
 
 ## Passo atual (Roteiro)
 
-**Passo 5 — Jornadas. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar.**
+**Passo 6 — Design system. Passo 5 (Jornadas) fechado. Build (passo 8) GATED por G2 até a Definição (passos 1–7) fechar — falta 6 (Design system) + 7 (Versionamento).**
 
 ```
 ✅ Passos 1–2 → D-028
@@ -34,8 +34,20 @@
 ✅ **#184 Admin: resolução do conflito build-vs-buy** → D-056 (última leaf de #179). Reframe: "sem admin bespoke" fica escrito só para edição de conteúdo (mantido); UI de fluxo operacional é categoria nova com teste de três partes. `/staff/*` único, gateado via hierarquia de D-055. Emenda direta ao requirement em `platform-architecture`.
 🎉 **Epic #179 (Arquitetura de domínio) — fechado.** Todas as 5 leaves concluídas (#180–#184).
 🧹 **Board hygiene:** #29/#30/#31/#140 (grilling `deferred` v2/v3 — visitas condomínio, media kit, mobile) re-tagged `Etapa 4 → 8 Execução` (já estavam re-parented sob #81/#98/#130) — `mapa-roteiro.html` agora computa **passo 5** como current corretamente.
-✅ **Passo 5 (Jornadas, epic #176) — 11 leaves criadas** (#185–#195), uma por jornada (não por role): descoberta do site, visita agendada, visita instantânea QR, pós-visita, onboarding corretor, registro de cliente/comissão, pipeline corretor, fila de exceção de verificação, operação diária staff, gestão de acesso Tuya, config de plataforma/papéis. Todas `Etapa 5 Jornadas`, `Status Todo`, native sub-issues de #176.
-→ PRÓXIMO: `rbo-create-change` numa das 11 leaves de #176 para começar o grilling.
+✅ **Passo 5 (Jornadas, epic #176) — 11 leaves criadas** (#185–#195), uma por jornada (não por role): descoberta do site, visita agendada, visita instantânea QR, pós-visita, onboarding corretor, registro de cliente/comissão, pipeline corretor, fila de exceção de verificação, operação diária staff, gestão de acesso Tuya, config de plataforma/papéis.
+✅ **#185 Descoberta e navegação do site** → D-057. Sem conflito com RBAC/mensageria; gap real corrigido — clique em CTA WhatsApp passa a capturar lead (fire-and-forget, `fonte: cta-whatsapp`), reaproveitando `POST /api/contact`.
+✅ **#186 Visita agendada** → D-058. Stub pré-arquitetura tinha lacunas estruturais (fallback silencioso, sem reuso 12 meses, sem fila de exceção) — corrigidas. Exceção escala assincronamente (folga de tempo, diferente do instantâneo).
+✅ **#187 Visita instantânea via QR** → D-059. Mesmas correções de #186; regra "sem espera síncrona" de D-053 implementada pela 1ª vez. **Reabre D-053** — mecanismo de renovação limitada (código WhatsApp estende `identity_verified_at`, teto de 24 meses de `last_client_match_at`).
+✅ **#188 Pós-visita e reengajamento** → D-061. Greenfield. Cancelamento/reagendamento self-service via magic link; novo status `cancelled`; `revoke()` do adapter Tuya ganha primeiro caller real; follow-up classificado por timing (resolve #141).
+✅ **#189 Onboarding do corretor** → D-062. Corrigido contra D-055 (`role`/`status`, não `realtors`); associação por casa incorporada (rascunho §4.2, sem leaf própria antes); staff faz upload do contrato assinado (upload = aprovação). **Reabre `crm-source-of-truth`** — `registro.corretor_id` exige `corretor_casa` aprovado.
+✅ **#190 Registro de cliente e proteção de comissão** → D-063. Corrige bug real de condição de corrida (check-then-insert) com constraint de unicidade no banco; CPF obrigatório (nível Cliente, não Contato). Lacuna encontrada: CPF do próprio corretor nunca exigido → issue separada **#196** (ainda aberta).
+✅ **#191 Pipeline e dashboard do corretor** → D-064. `registro.status` definido pela 1ª vez (enum focado em negócio, não duplica `visit.status`).
+✅ **#192 Fila de exceção de verificação** → D-060. Primeira leaf greenfield sem stub para corrigir. Rejeição notifica visitante (gap de D-053 fechado); alerta Telegram a staff.
+✅ **#193 Operação diária do staff** → D-065. Staff-wide (não escopado por corretor); entrada manual nível Contato; resumo de pendências linkando #189/#192.
+✅ **#194 Gestão de acesso Tuya** → D-066. Re-confirmação pura de D-052/D-056 (Supabase Studio, sem UI) — nada mudou na escala.
+✅ **#195 Configuração de plataforma e papéis** → D-067. Duas contradições reais corrigidas: rotas `/admin/*` → `/staff/*` (D-056); chaves API vira somente-leitura (D-043, edição só por ForteGB tech). Modo manutenção = flag viva no Supabase (exceção deliberada ao padrão vendor-native). Ocultar-casa → Sanity Studio nativo.
+🎉 **Epic #176 (Jornadas, telas e fluxos) — fechado.** Todas as 11 leaves concluídas (#185–#195). **Passo 5 concluído.**
+→ PRÓXIMO: Passo 6 (Design system) — ver `roteiro.md`. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -69,9 +81,26 @@
 - [x] **#184** — Admin: resolução do conflito build-vs-buy → D-056 (reframe conteúdo vs. workflow operacional; teste de três partes; `/staff/*` único; emenda a `platform-architecture`)
 - [x] Epic **#179** — fechado (board Done), todas as 5 leaves concluídas
 
+## Esta sessão (Claude Code — 2026-07-12/13)
+
+- [x] **#185** — Descoberta e navegação do site → D-057 (lead capture em CTA WhatsApp)
+- [x] **#186** — Visita agendada → D-058 (correções estruturais vs. stub pré-arquitetura)
+- [x] **#187** — Visita instantânea via QR → D-059 (reabre D-053 — renovação limitada por telefone)
+- [x] **#188** — Pós-visita e reengajamento → D-061 (greenfield — magic link, `cancelled`, `revoke()`)
+- [x] **#189** — Onboarding do corretor → D-062 (reabre `crm-source-of-truth` — amarra `corretor_casa`)
+- [x] **#190** — Registro de cliente e proteção de comissão → D-063 (bug de corrida corrigido, CPF obrigatório)
+- [x] **#191** — Pipeline e dashboard do corretor → D-064 (`registro.status` definido)
+- [x] **#192** — Fila de exceção de verificação → D-060 (primeira leaf greenfield)
+- [x] **#193** — Operação diária do staff → D-065 (staff-wide, puramente consumidora)
+- [x] **#194** — Gestão de acesso Tuya → D-066 (re-confirmação pura, sem build)
+- [x] **#195** — Configuração de plataforma e papéis → D-067 (rotas `/admin/*` → `/staff/*`; chaves API somente-leitura)
+- [x] Epic **#176** — fechado (board Done), todas as 11 leaves concluídas. **Passo 5 concluído.**
+- [ ] Issue separada **#196** (CPF do próprio corretor, reabre D-062) aberta durante a exploração de #190 — ainda não fechada.
+
 ## Próxima sessão
 
-- [ ] Avaliar próximo passo: Passo 5 (Jornadas, epic #176) vs. #29–31/#140 (v2/v3 deferred, já em #81/#98/#130)
+- [ ] Passo 6 — Design system (linguagem visual, comportamento, tokens; `agents.md` §9) — ver `roteiro.md`
+- [ ] Fechar issue **#196** (CPF do corretor no onboarding) quando conveniente
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 

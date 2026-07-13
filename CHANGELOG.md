@@ -7,6 +7,13 @@
 
 ## Não versionado
 
+### 2026-07-13 — Epic #176 (Jornadas, telas e fluxos) fechado — Passo 5 concluído
+
+- **Epic [#176](https://github.com/fortegb/platform/issues/176) — Jornadas, telas e fluxos (re-validação pós-arquitetura) — todas as 11 leaves concluídas:** #185 (D-057), #186 (D-058), #187 (D-059), #188 (D-061), #189 (D-062), #190 (D-063), #191 (D-064), #192 (D-060), #193 (D-065), #194 (D-066), #195 (D-067). Board `Done`; issue fechada.
+- Duas reaberturas registradas durante o passo: #187 reabriu D-053 (renovação limitada por telefone); #189 reabriu `crm-source-of-truth` (amarra `corretor_casa`).
+- Um gap identificado durante a exploração de #190 virou issue separada, ainda aberta: [#196](https://github.com/fortegb/platform/issues/196) (CPF do próprio corretor no onboarding).
+- Desbloqueia Passo 6 (Design system) — Passo 5 (Jornadas/telas) concluído; G2 (gate do build) segue fechado até Passo 7 (Versionamento).
+
 ### 2026-07-13 — Passo 5: jornada de configuração de plataforma e papéis ([#195](https://github.com/fortegb/platform/issues/195)) — última leaf
 
 - **D-067:** corrige duas contradições reais com decisões já fechadas — rascunho ainda usava rotas `/admin/*` (D-056 já rejeitou árvore separada, corrigido para `/staff/*`); tela de "chaves API" implicava que qualquer admin poderia configurar secrets, contradizendo D-043 (escrita restrita a "ForteGB tech", não ao papel `admin` genericamente).
