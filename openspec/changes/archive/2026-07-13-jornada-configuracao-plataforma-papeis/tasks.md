@@ -19,5 +19,5 @@
       with `/staff/*` equivalents; remove the hide-house row (deferred to
       Sanity, no platform route); also refreshed the doc's top-level
       banner for the same reason
-- [ ] 1.5 Sync `journey-platform-admin-config` spec; `openspec validate`;
+- [x] 1.5 Sync `journey-platform-admin-config` spec; `openspec validate`;
       archive; merge `Closes #195`
