@@ -71,7 +71,9 @@
 > duas filas). Operação diária ✅ **re-validada** —
 > [#193](https://github.com/fortegb/platform/issues/193), D-065
 > (staff-wide, entrada manual nível Contato, resumo de pendências linkando
-> #189/#192).
+> #189/#192). Gestão de acesso Tuya ✅ **re-confirmada, sem UI** —
+> [#194](https://github.com/fortegb/platform/issues/194), D-066 (Supabase
+> Studio, veredito de D-052/D-056 inalterado).
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
@@ -80,6 +82,7 @@
 | Fila exceção identidade (visita) | `/staff/visitas/excecoes` | novo — validado #192 | 2 | [#80](https://github.com/fortegb/platform/issues/80) |
 | Visitas do dia (staff-wide) | `/staff/visitas` | novo — validado #193 | 2 | #81 |
 | Cliente manual (nível Contato, WhatsApp telefônico) | `/staff/clientes/novo` | novo — validado #193 | 2 | Integrações / CRM |
+| Gestão de código de emergência Tuya | Supabase Studio (sem rota na plataforma) | re-confirmado #194 — sem UI custom | — | [#77](https://github.com/fortegb/platform/issues/77) |
 
 ---
 

@@ -202,7 +202,15 @@ No portal corretor, escopado ao próprio corretor (`registro.corretor_id`, RLS):
 | Consultar visitas do dia | Calendário integrado |
 | Ver clientes recentes | Dashboard operacional |
 | Registrar cliente manual (WhatsApp telefônico) | Entrada manual → HubSpot |
+| Gerir código de emergência Tuya (rotação, status) | Supabase Studio — sem UI custom |
 
+> ✅ **"Gerir código de emergência Tuya" re-validada no passo 5** —
+> [#194](https://github.com/fortegb/platform/issues/194), D-066.
+> Re-confirmação de D-052/D-056 — teste de três partes reaplicado, veredito
+> inalterado: continua Supabase Studio, sem UI custom. "Status do
+> dispositivo" = campos já existentes no registro, não um dashboard de
+> monitoramento novo.
+>
 > ✅ **"Aprovar visita quando identidade falhou" re-validada no passo 5** —
 > [#192](https://github.com/fortegb/platform/issues/192), D-060. Fila
 > `/staff/visitas/excecoes` ordenada por tipo de fluxo (instantâneo/QR
