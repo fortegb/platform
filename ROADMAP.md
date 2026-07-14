@@ -123,9 +123,9 @@
 - [#65](https://github.com/fortegb/platform/issues/65) Pass básico a11y/SEO meta
 - [#66](https://github.com/fortegb/platform/issues/66) Remover dependência de data/mock.ts
 - [#67](https://github.com/fortegb/platform/issues/67) Epic: Brand & design system
-- [#68](https://github.com/fortegb/platform/issues/68) Tokens web alinhados a brand guide
+- [#68](https://github.com/fortegb/platform/issues/68) Fundação de tokens web (derivada do Home existente)
 - [#69](https://github.com/fortegb/platform/issues/69) Master templates print (placa, poster)
-- [#70](https://github.com/fortegb/platform/issues/70) Documentar uso em AGENTS.md ou design doc
+- [#70](https://github.com/fortegb/platform/issues/70) Gerar design system (docs, componentes, style guide)
 - [#71](https://github.com/fortegb/platform/issues/71) Social templates alinhados
 - [#72](https://github.com/fortegb/platform/issues/72) Epic: Integrations MVP
 - [#73](https://github.com/fortegb/platform/issues/73) HubSpot service real (contacts, deals mínimo)
@@ -196,4 +196,19 @@
 - [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
+- [#197](https://github.com/fortegb/platform/issues/197) Design e tokenização: Descoberta do site
+- [#198](https://github.com/fortegb/platform/issues/198) Design e tokenização: Agendar visita
+- [#199](https://github.com/fortegb/platform/issues/199) Design e tokenização: Visita QR
+- [#200](https://github.com/fortegb/platform/issues/200) Design e tokenização: Gerenciar visita
+- [#201](https://github.com/fortegb/platform/issues/201) Design e tokenização: Onboarding do corretor
+- [#202](https://github.com/fortegb/platform/issues/202) Design e tokenização: Registro de cliente
+- [#203](https://github.com/fortegb/platform/issues/203) Design e tokenização: Painel e pipeline do corretor
+- [#204](https://github.com/fortegb/platform/issues/204) Design e tokenização: Aprovação de corretor e casa
+- [#205](https://github.com/fortegb/platform/issues/205) Design e tokenização: Fila de exceção de verificação
+- [#206](https://github.com/fortegb/platform/issues/206) Design e tokenização: Operação diária do staff
+- [#207](https://github.com/fortegb/platform/issues/207) Design e tokenização: Configuração de plataforma e papéis
+- [#208](https://github.com/fortegb/platform/issues/208) Tokenizar: Visitante/cliente
+- [#209](https://github.com/fortegb/platform/issues/209) Tokenizar: Corretor
+- [#210](https://github.com/fortegb/platform/issues/210) Tokenizar: Staff
+- [#211](https://github.com/fortegb/platform/issues/211) Tokenizar: Admin
 

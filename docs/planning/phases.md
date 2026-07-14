@@ -38,6 +38,7 @@ Seed docs/planning (✅)
 | Bootstrap board & OpenSpec | [workflow.md](./workflow.md) |
 | Architecture & MVP definition | [architecture.md](./architecture.md) · [open-questions.md](./open-questions.md) |
 | Brand assets upload | AGENTS.md §7 |
+| Brand & design system | [design-system-fluxo.md](./design-system-fluxo.md) |
 
 ### Epic: GitHub org migration ([#8](https://github.com/fortegb/platform/issues/8)) — sub-tarefas
 
@@ -136,10 +137,14 @@ Epics **já criados no board**. **Build gated por G2** (passos 1–7 da Definiç
 
 ### Epic: Brand & design system — sub-tarefas
 
-1. [ ] Tokens web alinhados a brand guide
-2. [ ] Master templates print (placa, poster) — rascunho Figma ou equivalente
-3. [ ] Documentar uso em `AGENTS.md` ou design doc
-4. [ ] Social templates alinhados (ligação Phase 3)
+> Fluxo completo, granularidade das leaves e tabela de issues → [design-system-fluxo.md](./design-system-fluxo.md).
+
+1. [ ] Fundação de tokens web derivada do Home existente ([#68](https://github.com/fortegb/platform/issues/68))
+2. [ ] Leaves de design por jornada — Visitante/cliente ([#197](https://github.com/fortegb/platform/issues/197)–[#200](https://github.com/fortegb/platform/issues/200)), Corretor ([#201](https://github.com/fortegb/platform/issues/201)–[#203](https://github.com/fortegb/platform/issues/203)), Staff ([#204](https://github.com/fortegb/platform/issues/204)–[#206](https://github.com/fortegb/platform/issues/206)), Admin ([#207](https://github.com/fortegb/platform/issues/207))
+3. [ ] Varreduras de tokenização por seção de persona ([#208](https://github.com/fortegb/platform/issues/208)–[#211](https://github.com/fortegb/platform/issues/211))
+4. [ ] Master templates print (placa, poster) — rascunho Figma ou equivalente ([#69](https://github.com/fortegb/platform/issues/69))
+5. [ ] Gerar design system: docs, componentes, style guide + guia de voz e tom ([#70](https://github.com/fortegb/platform/issues/70))
+6. [ ] Social templates alinhados (ligação Phase 3) ([#71](https://github.com/fortegb/platform/issues/71))
 
 ---
 
