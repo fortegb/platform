@@ -48,7 +48,8 @@
 ✅ **#195 Configuração de plataforma e papéis** → D-067. Duas contradições reais corrigidas: rotas `/admin/*` → `/staff/*` (D-056); chaves API vira somente-leitura (D-043, edição só por ForteGB tech). Modo manutenção = flag viva no Supabase (exceção deliberada ao padrão vendor-native). Ocultar-casa → Sanity Studio nativo.
 🎉 **Epic #176 (Jornadas, telas e fluxos) — fechado.** Todas as 11 leaves concluídas (#185–#195). **Passo 5 concluído.**
 ✅ **#196 CPF do corretor obrigatório no onboarding** → D-068 (reabre D-062). Último item aberto de Passo 5 fechado.
-→ PRÓXIMO: Passo 6 (Design system) — ver `roteiro.md`. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
+✅ **Passo 6 (Design system) — estrutura de issues definida.** Epic #67: #68 reescopado (deriva de Home existente, não bloqueia em brand guide) e #70 reescopado (roda uma única vez ao final + guia de voz e tom). 11 leaves de design por jornada (#197–207, mesma granularidade das jornadas de Passo 5) + 4 varreduras de tokenização por seção de persona (#208–211). Runbook: [`design-system-fluxo.md`](./docs/planning/design-system-fluxo.md). Nenhum D-number novo — puramente estrutural/processo, sem decisão de arquitetura.
+→ PRÓXIMO: iniciar #197 (Descoberta do site) — ver `design-system-fluxo.md`. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -98,9 +99,20 @@
 - [x] Epic **#176** — fechado (board Done), todas as 11 leaves concluídas. **Passo 5 concluído.**
 - [x] Issue separada **#196** (CPF do próprio corretor, reabre D-062) aberta durante a exploração de #190 → **#196** — CPF obrigatório no onboarding → D-068 (reabre D-062, mesmo tratamento de #187/#189). Último item aberto de Passo 5 fechado.
 
+## Esta sessão (Claude Code — 2026-07-14)
+
+- [x] Consolidação do Hero identificada (não implementada) — `HeroSplit`/`HeroSlate`/`HeroAzul` viram 1 componente + prop de variante; `HeroClassic` fica separado. D-021 (escolha de produção) segue diferida. Escopo de #68.
+- [x] #68 reescopado — "Fundação de tokens web (derivada do Home existente)", não bloqueia mais em #40
+- [x] #70 reescopado — "Gerar design system (docs, componentes, style guide)" + guia de voz e tom (WhatsApp/Telegram)
+- [x] 11 leaves de design criadas (#197–207) — journey-level, sub-issues de #67. Gap sinalizado: `/staff/registros` sem jornada de Passo 5 que a valide (nota em #207)
+- [x] 4 varreduras de tokenização criadas (#208–211), uma por seção de persona
+- [x] Runbook `docs/planning/design-system-fluxo.md` criado; `phases.md` atualizado (tabela Epic\|Doc/runbook + checklist Epic #67)
+- [x] `ROADMAP.md` regenerado; Platform docs sincronizados (`pages:portal` + `progress:report` + `pages:build-info`)
+- [x] Fix ambiente: erro de push "LFS lock verify" — causa real é o repo não ter conteúdo LFS de fato (endpoint `/locks/verify` retorna 403 mesmo com credencial válida); fix correto = `git config lfs...locksverify false` por repo, não credencial. Keychain tinha entrada obsoleta da conta `fortegb` (pré-migração de org) — removida por higiene, mas não era a causa.
+
 ## Próxima sessão
 
-- [ ] Passo 6 — Design system (linguagem visual, comportamento, tokens; `agents.md` §9) — ver `roteiro.md`
+- [ ] Iniciar #197 (Descoberta do site) — revisar telas `simulado` do screen-map primeiro, depois desenhar as `novo`. Ver `design-system-fluxo.md`.
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 
@@ -116,5 +128,6 @@
 | [templates/env-example.md](./docs/planning/templates/env-example.md) | Ponteiro D-044 |
 | [`.rbo/lifecycle.yml`](./.rbo/lifecycle.yml) | Opt-in stage/close (D-045) |
 | [handoff.md](./docs/planning/handoff.md) | Último handoff de sessão (para o próximo agente) |
+| [design-system-fluxo.md](./docs/planning/design-system-fluxo.md) | Runbook Passo 6 — fluxo, granularidade de leaves, tabela de issues |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |
 | [ai-skills v0.6.0](https://github.com/rbonon/ai-skills/releases/tag/v0.6.0) | stage + close skills |
