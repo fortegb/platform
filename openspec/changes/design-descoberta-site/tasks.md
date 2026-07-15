@@ -25,8 +25,8 @@
 
 ## 5. Verification
 
-- [ ] 5.1 Visually compare `/`, `/slate`, `/azul` before/after Hero consolidation — confirm identical gradient, copy, and CTAs per variant. **Pending user visual check.**
-- [ ] 5.2 Confirm `/classico` (HeroClassic) is unaffected. **Pending user visual check.**
-- [ ] 5.3 Confirm WhatsApp CTA background/hover color is visually unchanged on Home, and on `sobre.vue`/`contato.vue`/`login.vue` after the `.btn-primary` removal (DaisyUI-generated class takes over). **Pending user visual check.**
+- [x] 5.1 Visually compare `/`, `/slate`, `/azul` before/after Hero consolidation — confirm identical gradient, copy, and CTAs per variant. **User confirmed OK.**
+- [x] 5.2 Confirm `/classico` (HeroClassic) is unaffected. **User confirmed OK.**
+- [x] 5.3 Confirm WhatsApp CTA background/hover color is visually unchanged on Home, and on `sobre.vue`/`contato.vue`/`login.vue` after the `.btn-primary` removal (DaisyUI-generated class takes over). **User confirmed OK.**
 - [x] 5.4 Grep the repo for any remaining references to `HeroSplit`, `HeroSlate`, `HeroAzul`, `.btn-secondary`, or `bg-[#3E8E5E]` / `bg-[#34784F]` to confirm no dangling references. Found and fixed one gap outside the originally audited scope: `HeroClassic.vue` also had the hardcoded WhatsApp hex — retrofitted to `bg-whatsapp`/`hover:bg-whatsapp-hover`. Matches referenced only in stale `docs/planning/site/app/_nuxt/*.js` prerendered mocks (self-heals on next `pages:sync`) and an unrelated `.btn-secondary` in `docs/assets/portal.css` (Platform docs portal styling, not app source).
 - [x] 5.5 Run `npm run build` — clean, no errors. Confirmed `.bg-whatsapp`, `.to-hero-slate`, `.to-primary-700`, `.to-primary-400` were all generated correctly by Tailwind's JIT (in Nuxt's SSR style-injection chunk, not a static `.css` file).
