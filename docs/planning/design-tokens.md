@@ -1,6 +1,8 @@
 # Design tokens — fundação web (#197)
 
-> Referência de tokens para as leaves de design do Passo 6 (#197–#207). Derivado da implementação existente de Home + dependências ([`design-descoberta-site`](../../openspec/changes/archive/) — ver arquivo do change para o audit completo), não redesenhado. Convenções de botão/cor já registradas em `AGENTS.md` §9 — este arquivo é o inventário técnico, não a duplica.
+> Referência de tokens para as leaves de design do Passo 6 (#197–#207). Derivado da implementação existente de Home + dependências, não redesenhado. Convenções de botão/cor já registradas em `AGENTS.md` §9 — este arquivo é o inventário técnico, não a duplica.
+>
+> **Resumo humano deste arquivo.** O relatório vivo canônico (`rbo-ui-tokenize`) — health check completo, decision log, migration log por arquivo — está em [`openspec/specs/design-tokens/tokenization-report.md`](../../openspec/specs/design-tokens/tokenization-report.md).
 
 ## Cores
 
