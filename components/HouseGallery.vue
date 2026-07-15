@@ -51,18 +51,25 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const ALL = 'Todas'
+
 const categories = computed(() => {
   const counts = new Map<string, number>()
   for (const image of props.images) {
     counts.set(image.category, (counts.get(image.category) ?? 0) + 1)
   }
-  return Array.from(counts, ([name, count]) => ({ name, count }))
+  return [
+    { name: ALL, count: props.images.length },
+    ...Array.from(counts, ([name, count]) => ({ name, count }))
+  ]
 })
 
-const activeCategory = ref(props.images[0]?.category ?? '')
+const activeCategory = ref(ALL)
 
 const filteredImages = computed(() =>
-  props.images.filter(image => image.category === activeCategory.value)
+  activeCategory.value === ALL
+    ? props.images
+    : props.images.filter(image => image.category === activeCategory.value)
 )
 
 const lightboxIndex = ref<number | null>(null)
