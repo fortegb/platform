@@ -7,7 +7,7 @@
 
 | Type | v1 | Campos principais (inventário) |
 |------|----|--------------------------------|
-| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title, short/full description, cover + gallery, beds/baths/area, address/location copy, optional display price, optional video URL(s), `featured` (boolean — manual homepage highlight toggle, added during #197 design pass, mock-data equivalent in `data/mock.ts`) |
+| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title, short/full description, cover + gallery (each gallery image carries a `category` string — e.g. Sala, Cozinha, Quarto, Banheiro, Área Externa — for per-house photo grouping/tabs), beds/baths/area, address/location copy, optional display price, optional video URL(s), `featured` (boolean — manual homepage highlight toggle), `features` (string list — free-form characteristics/amenities checklist, e.g. "Piscina", "Suíte master com closet"; independent per house, no fixed/shared vocabulary). `featured`/`features`/gallery `category` added during #197 design pass, mock-data equivalent in `data/mock.ts` |
 | **`blogPost`** | Full | slug, title, body, cover, publishedAt, excerpt |
 | **`constructionTimeline`** | Stub | `houseId` ref, title, entries[] (date, text, optional image) — UI v3 |
 | **`mediaKit`** | Stub | `houseId` ref, assets/refs — módulo v3 |
@@ -16,7 +16,7 @@
 
 | Sanity (marketing) | Supabase (operacional) |
 |--------------------|-------------------------|
-| slug, titles, copy, gallery, specs, display price, video URLs | `id` (= `houseId`), **status**, `tuya_device_id`, `qr_code`, ops timestamps |
+| slug, titles, copy, gallery (with per-image category), specs, features checklist, display price, video URLs, featured flag | `id` (= `houseId`), **status**, `tuya_device_id`, `qr_code`, ops timestamps |
 | — | leads, visits, PII (never in CMS) |
 
 **Merge:** Nuxt lê CMS + Supabase por `houseId`.
