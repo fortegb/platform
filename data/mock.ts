@@ -1,5 +1,8 @@
 // Dados mock temporários para visualização sem banco de dados
 // Este arquivo será usado até que o banco de dados esteja configurado
+//
+// `featured: true` controla quais casas aparecem na home (seção "Nossos Projetos").
+// Escolha manual, não automática — marque/desmarque conforme quiser trocar a vitrine.
 
 export const mockHouses = [
   {
@@ -13,7 +16,8 @@ export const mockHouses = [
     bedrooms: 3,
     bathrooms: 2,
     price: 450000,
-    status: 'disponivel' as const,
+    status: 'vendido' as const,
+    featured: false,
     location: 'Jardim dos Ipês, Campinas-SP'
   },
   {
@@ -28,6 +32,7 @@ export const mockHouses = [
     bathrooms: 3,
     price: 650000,
     status: 'em-construcao' as const,
+    featured: true,
     location: 'Vila Verde, Campinas-SP'
   },
   {
@@ -41,7 +46,8 @@ export const mockHouses = [
     bedrooms: 2,
     bathrooms: 2,
     price: 320000,
-    status: 'disponivel' as const,
+    status: 'vendido' as const,
+    featured: false,
     location: 'Parque dos Pinheiros, Campinas-SP'
   },
   {
@@ -56,6 +62,7 @@ export const mockHouses = [
     bathrooms: 3,
     price: 580000,
     status: 'disponivel' as const,
+    featured: true,
     location: 'Barueri, Campinas-SP'
   },
   {
@@ -64,12 +71,13 @@ export const mockHouses = [
     title: 'Residência Alto do Campo Belo',
     description: 'Casa espaçosa com 5 quartos, piscina, área de lazer completa e vista privilegiada. Excelente investimento.',
     fullDescription: 'Residência de alto padrão com 5 quartos (3 suítes), sala em 3 ambientes, cozinha gourmet integrada, escritório, lavabo social e área de serviço completa. Área de lazer com piscina, sauna, espaço fitness, churrasqueira e área gourmet coberta. Jardim paisagístico, sistema de irrigação automática e garagem para 4 carros. Vista panorâmica da região.',
-    image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop',
     area: 280,
     bedrooms: 5,
     bathrooms: 4,
     price: 890000,
-    status: 'reservado' as const,
+    status: 'em-construcao' as const,
+    featured: true,
     location: 'Alto do Campo Belo, Campinas-SP'
   },
   {
@@ -83,7 +91,8 @@ export const mockHouses = [
     bedrooms: 3,
     bathrooms: 2,
     price: 420000,
-    status: 'disponivel' as const,
+    status: 'vendido' as const,
+    featured: false,
     location: 'Vila Nova, Campinas-SP'
   }
 ]

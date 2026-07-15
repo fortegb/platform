@@ -122,6 +122,6 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 // Mock data temporário - usando dados do arquivo mock.ts
 const mockData = await import('~/data/mock')
 
-// Mostrar apenas as 3 primeiras casas na home
-const featuredHouses = ref(mockData.mockHouses.slice(0, 3))
+// Mostrar as casas marcadas featured: true em data/mock.ts (escolha manual)
+const featuredHouses = ref(mockData.mockHouses.filter(house => house.featured))
 </script>

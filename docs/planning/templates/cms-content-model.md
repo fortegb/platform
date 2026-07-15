@@ -7,7 +7,7 @@
 
 | Type | v1 | Campos principais (inventário) |
 |------|----|--------------------------------|
-| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title, short/full description, cover + gallery, beds/baths/area, address/location copy, optional display price, optional video URL(s) |
+| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title, short/full description, cover + gallery, beds/baths/area, address/location copy, optional display price, optional video URL(s), `featured` (boolean — manual homepage highlight toggle, added during #197 design pass, mock-data equivalent in `data/mock.ts`) |
 | **`blogPost`** | Full | slug, title, body, cover, publishedAt, excerpt |
 | **`constructionTimeline`** | Stub | `houseId` ref, title, entries[] (date, text, optional image) — UI v3 |
 | **`mediaKit`** | Stub | `houseId` ref, assets/refs — módulo v3 |

@@ -30,7 +30,7 @@
           <h2 class="text-2xl font-bold mb-4">Informações</h2>
           
           <div class="space-y-4">
-            <div v-if="house.price">
+            <div v-if="house.price && house.status !== 'vendido'">
               <p class="text-sm text-base-content/70">Preço</p>
               <p class="text-3xl font-bold text-primary-500">{{ formatPrice(house.price) }}</p>
             </div>
@@ -68,7 +68,8 @@
           </div>
           
           <div class="mt-6 space-y-2">
-            <NuxtLink 
+            <NuxtLink
+              v-if="house.status !== 'vendido'"
               :to="`/visita/agendar/${house.id}`"
               class="btn btn-primary w-full"
             >

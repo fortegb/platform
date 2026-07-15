@@ -1,15 +1,17 @@
 <template>
   <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-    <figure class="relative h-64 overflow-hidden">
-      <img 
-        :src="house.image || '/placeholder-house.jpg'" 
-        :alt="house.title"
-        class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-      />
-      <div v-if="house.status" class="absolute top-4 right-4 badge badge-lg" :class="statusBadgeClass">
-        {{ formatStatus(house.status) }}
-      </div>
-    </figure>
+    <NuxtLink :to="`/portfolio/${house.slug || house.id}`">
+      <figure class="relative h-64 overflow-hidden">
+        <img
+          :src="house.image || '/placeholder-house.jpg'"
+          :alt="house.title"
+          class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+        />
+        <div v-if="house.status" class="absolute top-4 right-4 badge badge-lg" :class="statusBadgeClass">
+          {{ formatStatus(house.status) }}
+        </div>
+      </figure>
+    </NuxtLink>
     <div class="card-body">
       <h2 class="card-title">{{ house.title }}</h2>
       <p class="text-sm text-base-content/70 line-clamp-2">{{ house.description }}</p>
@@ -24,21 +26,22 @@
           {{ house.bathrooms }} banheiros
         </span>
       </div>
-      <div v-if="house.price" class="mt-2">
+      <div v-if="house.price && house.status !== 'vendido'" class="mt-2">
         <p class="text-2xl font-bold text-primary-500">{{ formatPrice(house.price) }}</p>
       </div>
       <div class="card-actions justify-end mt-4">
-        <NuxtLink 
+        <NuxtLink
+          v-if="house.status !== 'vendido'"
+          :to="`/visita/agendar/${house.id}`"
+          class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
+        >
+          Agendar Visita
+        </NuxtLink>
+        <NuxtLink
           :to="`/portfolio/${house.slug || house.id}`"
           class="inline-flex items-center justify-center border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
         >
           Ver Detalhes
-        </NuxtLink>
-        <NuxtLink 
-          :to="`/visita/agendar/${house.id}`"
-          class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-opacity-90 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
-        >
-          Agendar Visita
         </NuxtLink>
       </div>
     </div>
@@ -57,6 +60,7 @@ interface House {
   bathrooms?: number
   price?: number
   status?: 'disponivel' | 'vendido' | 'em-construcao' | 'reservado'
+  featured?: boolean
 }
 
 interface Props {
