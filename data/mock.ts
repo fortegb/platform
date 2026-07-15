@@ -12,6 +12,14 @@ export const mockHouses = [
     description: 'Casa moderna e confortável, perfeita para famílias que buscam qualidade e tranquilidade em Campinas-SP.',
     fullDescription: 'Esta bela casa de 3 quartos oferece conforto e modernidade em um dos bairros mais tranquilos de Campinas. Com acabamento de primeira linha, a propriedade conta com sala ampla, cozinha integrada, área de serviço completa e área de lazer com piscina. Os quartos são espaçosos, sendo a suíte master com closet. Localizada próxima a escolas, comércio e vias de fácil acesso.',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=800&fit=crop'
+    ],
+    features: ['Piscina', 'Suíte master com closet', 'Cozinha integrada', 'Área de serviço completa', 'Próximo a escolas e comércio'],
+    videoUrl: undefined,
     area: 150,
     bedrooms: 3,
     bathrooms: 2,
@@ -27,6 +35,14 @@ export const mockHouses = [
     description: 'Casa espaçosa com 4 quartos, ideal para famílias grandes. Piscina, churrasqueira e área de lazer completa.',
     fullDescription: 'Excelente oportunidade! Casa em construção com 4 quartos, sendo 2 suítes. Área de lazer completa com piscina, churrasqueira coberta, espaço gourmet e playground. Sala ampla em dois ambientes, cozinha planejada com ilha, escritório e lavabo. Garagem para 3 carros. Acabamento premium em toda a residência. Previsão de entrega: 6 meses.',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&h=800&fit=crop'
+    ],
+    features: ['Piscina', 'Churrasqueira coberta', 'Espaço gourmet', 'Playground', 'Cozinha planejada com ilha', 'Escritório', 'Garagem para 3 carros'],
+    videoUrl: undefined,
     area: 200,
     bedrooms: 4,
     bathrooms: 3,
@@ -42,6 +58,14 @@ export const mockHouses = [
     description: 'Casa compacta e moderna, ideal para casais jovens ou pequenas famílias que buscam praticidade e conforto.',
     fullDescription: 'Casa nova, moderna e funcional. Com 2 quartos, sendo 1 suíte, sala integrada com cozinha, área de serviço e quintal. Perfeita para quem busca o primeiro imóvel ou investimento. Localizada em região valorizada, próxima ao centro e com fácil acesso às principais vias de Campinas. Financiamento facilitado disponível.',
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=800&fit=crop'
+    ],
+    features: ['Suíte', 'Sala integrada com cozinha', 'Quintal', 'Financiamento facilitado'],
+    videoUrl: undefined,
     area: 100,
     bedrooms: 2,
     bathrooms: 2,
@@ -57,6 +81,14 @@ export const mockHouses = [
     description: 'Casa com 3 quartos, acabamento premium, piscina e área gourmet. Perfeita para receber amigos e familiares.',
     fullDescription: 'Casa com arquitetura moderna e acabamento de alto padrão. 3 quartos (2 suítes), sala de estar e de jantar separadas, cozinha planejada com bancada em granito, área gourmet completa com churrasqueira e forno de pizza. Piscina aquecida, jardim paisagístico e garagem para 2 carros. Sistema de segurança e automação residencial.',
     image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600607688066-890987f18a86?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&h=800&fit=crop'
+    ],
+    features: ['Piscina aquecida', 'Área gourmet com forno de pizza', 'Cozinha planejada com bancada em granito', 'Jardim paisagístico', 'Sistema de segurança e automação residencial', 'Garagem para 2 carros'],
+    videoUrl: undefined,
     area: 180,
     bedrooms: 3,
     bathrooms: 3,
@@ -72,6 +104,14 @@ export const mockHouses = [
     description: 'Casa espaçosa com 5 quartos, piscina, área de lazer completa e vista privilegiada. Excelente investimento.',
     fullDescription: 'Residência de alto padrão com 5 quartos (3 suítes), sala em 3 ambientes, cozinha gourmet integrada, escritório, lavabo social e área de serviço completa. Área de lazer com piscina, sauna, espaço fitness, churrasqueira e área gourmet coberta. Jardim paisagístico, sistema de irrigação automática e garagem para 4 carros. Vista panorâmica da região.',
     image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1200&h=800&fit=crop'
+    ],
+    features: ['Piscina e sauna', 'Espaço fitness', 'Área gourmet coberta', 'Escritório', 'Irrigação automática', 'Garagem para 4 carros', 'Vista panorâmica'],
+    videoUrl: undefined,
     area: 280,
     bedrooms: 5,
     bathrooms: 4,
@@ -87,6 +127,14 @@ export const mockHouses = [
     description: 'Casa em condomínio fechado, com segurança 24h, áreas comuns e lazer completo. Ideal para famílias.',
     fullDescription: 'Casa térrea em condomínio fechado com portaria 24h, segurança monitorada e áreas de lazer com piscina, quadra esportiva e playground. A residência possui 3 quartos (1 suíte), sala ampla, cozinha planejada, área de serviço e quintal gramado. Ideal para quem busca segurança, tranquilidade e qualidade de vida.',
     image: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800&h=600&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1615873968403-89e068629265?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&h=800&fit=crop'
+    ],
+    features: ['Condomínio fechado com portaria 24h', 'Piscina e quadra esportiva', 'Playground', 'Cozinha planejada', 'Quintal gramado'],
+    videoUrl: undefined,
     area: 140,
     bedrooms: 3,
     bathrooms: 2,
