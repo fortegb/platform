@@ -21,9 +21,20 @@
         :key="image.url"
         :src="image.url"
         :alt="`${alt} — ${image.category} ${index + 1}`"
-        class="w-full aspect-[4/3] object-cover"
+        class="w-full aspect-[4/3] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+        @click="lightboxIndex = index"
       />
     </div>
+
+    <ImageLightbox
+      v-if="lightboxIndex !== null"
+      :images="filteredImages"
+      :index="lightboxIndex"
+      :alt="alt"
+      @close="lightboxIndex = null"
+      @prev="lightboxIndex = (lightboxIndex - 1 + filteredImages.length) % filteredImages.length"
+      @next="lightboxIndex = (lightboxIndex + 1) % filteredImages.length"
+    />
   </div>
 </template>
 
@@ -53,4 +64,10 @@ const activeCategory = ref(props.images[0]?.category ?? '')
 const filteredImages = computed(() =>
   props.images.filter(image => image.category === activeCategory.value)
 )
+
+const lightboxIndex = ref<number | null>(null)
+
+watch(activeCategory, () => {
+  lightboxIndex.value = null
+})
 </script>
