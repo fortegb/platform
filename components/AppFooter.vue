@@ -19,22 +19,22 @@
           <h4 class="font-semibold mb-4">Links Rápidos</h4>
           <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
-              <NuxtLink to="/" class="hover:text-primary transition-colors">
+              <NuxtLink to="/" class="hover:text-primary-100 transition-colors">
                 Início
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/portfolio" class="hover:text-primary transition-colors">
+              <NuxtLink to="/portfolio" class="hover:text-primary-100 transition-colors">
                 Portfólio
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/blog" class="hover:text-primary transition-colors">
+              <NuxtLink to="/blog" class="hover:text-primary-100 transition-colors">
                 Blog
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/sobre" class="hover:text-primary transition-colors">
+              <NuxtLink to="/sobre" class="hover:text-primary-100 transition-colors">
                 Sobre
               </NuxtLink>
             </li>
@@ -46,12 +46,12 @@
           <h4 class="font-semibold mb-4">Legal</h4>
           <ul class="space-y-2 text-sm">
             <li>
-              <NuxtLink to="/privacidade" class="hover:text-primary transition-colors">
+              <NuxtLink to="/privacidade" class="hover:text-primary-100 transition-colors">
                 Política de Privacidade
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/termos" class="hover:text-primary transition-colors">
+              <NuxtLink to="/termos" class="hover:text-primary-100 transition-colors">
                 Termos de Uso
               </NuxtLink>
             </li>

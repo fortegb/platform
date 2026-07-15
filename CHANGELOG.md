@@ -7,6 +7,12 @@
 
 ## Não versionado
 
+### 2026-07-15 — Footer: contraste de hover corrigido ([#212](https://github.com/fortegb/platform/issues/212))
+
+- `AppFooter.vue` usava `hover:text-primary` sobre `bg-primary-500` — o alias DaisyUI `primary` e o valor Tailwind `primary-500` são o mesmo hex, tornando o texto do link invisível ao passar o mouse. Corrigido para `hover:text-primary-100`, mesmo contraste que `AppHeader.vue` já usa.
+- Encontrado durante o audit de tokenização de `fundacao-tokens-web`/`design-descoberta-site` (#197); filed separado por ser bug visual, não tokenização.
+- Nova capability `ui-visual-accessibility` (primeira sobre contraste/legibilidade de estados interativos).
+
 ### 2026-07-13 — Corretor: CPF obrigatório no onboarding ([#196](https://github.com/fortegb/platform/issues/196))
 
 - **D-068:** CPF passa a ser campo obrigatório no perfil do corretor durante o cadastro, junto com WhatsApp (CRECI permanece opcional). Lacuna encontrada na exploração de #190 — pagamento de comissão a pessoa física no Brasil normalmente exige CPF, e nenhuma leaf modelava o dado.
