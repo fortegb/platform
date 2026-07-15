@@ -6,10 +6,9 @@
   <div v-else-if="house" class="container mx-auto px-4 py-8">
     <!-- Imagens -->
     <div class="mb-8">
-      <ImageCarousel
+      <HouseGallery
         :images="house.gallery && house.gallery.length ? house.gallery : [house.image || '/placeholder-house.jpg']"
         :alt="house.title"
-        :id-prefix="`house-${house.id}`"
       />
     </div>
 
