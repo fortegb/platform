@@ -15,15 +15,17 @@
       </button>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 rounded-xl overflow-hidden">
-      <img
-        v-for="(image, index) in filteredImages"
-        :key="image.url"
-        :src="image.url"
-        :alt="`${alt} — ${image.category} ${index + 1}`"
-        class="w-full aspect-[4/3] object-cover cursor-pointer hover:opacity-90 transition-opacity"
-        @click="lightboxIndex = index"
-      />
+    <div class="max-h-[500px] overflow-y-auto rounded-xl">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <img
+          v-for="(image, index) in filteredImages"
+          :key="image.url"
+          :src="image.url"
+          :alt="`${alt} — ${image.category} ${index + 1}`"
+          class="w-full aspect-[4/3] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+          @click="lightboxIndex = index"
+        />
+      </div>
     </div>
 
     <ImageLightbox
