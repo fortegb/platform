@@ -39,4 +39,4 @@ Full dependency scope of the Home page (`pages/index.vue` → `layouts/default.v
 
 No backend, API, or data model impact.
 
-**Remaining #197 scope not yet covered by this task list:** `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` still need to be reviewed against this token foundation (`simulado` screens first, per `screen-map.md`, then any `novo` ones) before this leaf closes. Not audited yet — added as tasks once this foundation batch lands, per the runbook's "as many design-check-adjust cycles as needed" allowance for leaf scope.
+**Remaining #197 scope not yet covered:** `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` still need review (`simulado` screens first, per `screen-map.md`, then any `novo` ones) before this leaf closes. `/portfolio` and `/portfolio/[slug]` are done — see tasks.md section 6.
