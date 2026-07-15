@@ -7,7 +7,7 @@
     <!-- Imagens -->
     <div class="mb-8">
       <HouseGallery
-        :images="house.gallery && house.gallery.length ? house.gallery : [house.image || '/placeholder-house.jpg']"
+        :images="house.gallery && house.gallery.length ? house.gallery : [{ category: 'Fachada', url: house.image || '/placeholder-house.jpg' }]"
         :alt="house.title"
       />
     </div>
