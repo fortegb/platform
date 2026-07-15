@@ -64,7 +64,7 @@ const categories = computed(() => {
   ]
 })
 
-const activeCategory = ref(ALL)
+const activeCategory = ref(props.images[0]?.category ?? ALL)
 
 const filteredImages = computed(() =>
   activeCategory.value === ALL
