@@ -7,7 +7,8 @@
 ## Ordem
 
 ```
-1. Fundação de tokens web (#68) — deriva do Home existente, não bloqueia em brand assets (#2)
+1. Fundação de tokens web — parte do escopo de #197 (Descoberta do site), deriva do
+   Home existente, não bloqueia em brand assets (#2). Ver design-tokens.md.
      ↓ (paralelo: #39 Logo, #40 Brand guide, #41 Hero images — confirmam/ajustam depois)
 2. Leaves de design, uma por jornada, na ordem do screen-map:
    Visitante/cliente → Corretor → Staff → Admin
@@ -21,11 +22,15 @@
 
 ---
 
-## Por que #68 não espera o brand guide
+## Por que a fundação de tokens não espera o brand guide
 
-Os 3 de 4 componentes de hero (`HeroSplit`, `HeroSlate`, `HeroAzul`) já são estruturalmente idênticos — mesmo grid, mesmos botões, mudando só o gradiente. Isso permite derivar a base de tokens web (cores, tipografia, espaçamento, botões) diretamente do que já está implementado em Home, sem esperar #40 (brand guide formal). #68 roda primeiro; #39/#40/#41 (Brand assets, epic #2) seguem em paralelo e **confirmam/ajustam** os tokens depois, não os bloqueiam.
+Os 3 de 4 componentes de hero (`HeroSplit`, `HeroSlate`, `HeroAzul`) já são estruturalmente idênticos — mesmo grid, mesmos botões, mudando só o gradiente. Isso permite derivar a base de tokens web (cores, tipografia, espaçamento, botões) diretamente do que já está implementado em Home, sem esperar #40 (brand guide formal). Essa fundação roda primeiro, como parte do escopo de #197; #39/#40/#41 (Brand assets, epic #2) seguem em paralelo e **confirmam/ajustam** os tokens depois, não os bloqueiam.
 
-**Consolidação do Hero** (parte do escopo de #68, ainda não implementada): `HeroSplit`/`HeroSlate`/`HeroAzul` viram um componente único com prop de variante; `HeroClassic` permanece separado (único com layout genuinely diferente — full-bleed vs. split). A escolha do hero de produção segue diferida ao lançamento (D-021, Q-010) — a consolidação é limpeza de código, não resolve essa decisão.
+**Consolidação do Hero** (parte do escopo de #197, implementada): `HeroSplit`/`HeroSlate`/`HeroAzul` viraram um componente único (`Hero.vue`) com prop de variante; `HeroClassic` permanece separado (único com layout genuinamente diferente — full-bleed vs. split). A escolha do hero de produção segue diferida ao lançamento (D-021, Q-010) — a consolidação é limpeza de código, não resolve essa decisão.
+
+**Inventário de tokens:** [`design-tokens.md`](./design-tokens.md).
+
+**Nota histórica:** essa fundação foi originalmente proposta como issue separada (#68), depois fechada como *not planned* e absorvida por #197 — #197 já toca os mesmos arquivos (Home e dependências) e roda primeiro na sequência de leaves de qualquer forma, então uma issue/branch separada era redundante.
 
 ---
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroSplit />
+    <Hero variant="split" />
     <HomeContent />
   </div>
 </template>

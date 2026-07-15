@@ -3,7 +3,7 @@
     :href="whatsappUrl"
     target="_blank"
     rel="noopener noreferrer"
-    class="fixed bottom-6 right-6 bg-[#3E8E5E] text-white rounded-full p-4 shadow-lg hover:bg-[#34784F] transition-all duration-300 z-50 group"
+    class="fixed bottom-6 right-6 bg-whatsapp text-white rounded-full p-4 shadow-lg hover:bg-whatsapp-hover transition-all duration-300 z-50 group"
     aria-label="Fale conosco no WhatsApp"
   >
     <svg 

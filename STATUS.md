@@ -129,5 +129,6 @@
 | [`.rbo/lifecycle.yml`](./.rbo/lifecycle.yml) | Opt-in stage/close (D-045) |
 | [handoff.md](./docs/planning/handoff.md) | Último handoff de sessão (para o próximo agente) |
 | [design-system-fluxo.md](./docs/planning/design-system-fluxo.md) | Runbook Passo 6 — fluxo, granularidade de leaves, tabela de issues |
+| [design-tokens.md](./docs/planning/design-tokens.md) | Inventário de tokens web (fundação #197) |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |
 | [ai-skills v0.6.0](https://github.com/rbonon/ai-skills/releases/tag/v0.6.0) | stage + close skills |
