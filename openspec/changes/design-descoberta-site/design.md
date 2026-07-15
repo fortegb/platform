@@ -38,7 +38,7 @@ No dark-mode tokens — the project has no dark mode requirement (confirmed abse
 ## Goals / Non-Goals
 
 **Goals:**
-- Give the 11 Passo 6 design leaves (#197–#207) one documented, accurate token inventory instead of re-deriving values from scattered component code.
+- Give this leaf (#197) and the 10 that follow (#198–#207) one documented, accurate token inventory instead of re-deriving values from scattered component code.
 - Close the three health-check gaps found (WhatsApp token, dead `.btn-secondary`, redundant `.btn-primary`) before more pages copy the duplication.
 - Eliminate the 3-way Hero duplication.
 

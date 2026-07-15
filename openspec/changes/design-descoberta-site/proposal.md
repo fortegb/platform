@@ -1,6 +1,8 @@
 ## Why
 
-Passo 6 (Design system) needs a single, documented token foundation — colors, typography, spacing, button styles — before any of the 11 journey-level design leaves (#197–#207) start applying it to screens. This is a retrofit tokenization pass (per `rbo-ui-tokenize` scenario A) over the Home page and its shared dependencies: most values are already tokenized via `tailwind.config.js` / DaisyUI, but a Phase 0 health check found gaps (an untokenized brand color, dead/duplicate button CSS) worth fixing before this becomes the reference every later leaf inherits from.
+This is leaf [#197](https://github.com/fortegb/platform/issues/197) — Design e tokenização: Descoberta do site — the first of the 11 journey-level design leaves in Passo 6 (Design system), corresponding to journey #185/D-057. It's also where the site's token foundation gets established: Home and the shared layout components (header, footer, WhatsApp button) that every later leaf's screens render inside. This is a retrofit tokenization pass (per `rbo-ui-tokenize` scenario A): most values are already tokenized via `tailwind.config.js` / DaisyUI, but a Phase 0 health check found gaps (an untokenized brand color, dead/duplicate button CSS) worth fixing now, since this becomes the reference every later leaf inherits from.
+
+(This work was originally scoped as a separate issue, #68, but folding it into #197 removes redundant issue/branch overhead — #197 already touches every file in scope here as part of reviewing Home, and running first in the leaf sequence gives #198–#207 the same token foundation regardless of which issue owns the work. #68 was closed as not planned in favor of this.)
 
 ## What Changes
 
@@ -36,3 +38,5 @@ Full dependency scope of the Home page (`pages/index.vue` → `layouts/default.v
 | `components/HeroClassic.vue`, `pages/classico.vue` | Untouched | Not in scope — structurally different layout |
 
 No backend, API, or data model impact.
+
+**Remaining #197 scope not yet covered by this task list:** `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` still need to be reviewed against this token foundation (`simulado` screens first, per `screen-map.md`, then any `novo` ones) before this leaf closes. Not audited yet — added as tasks once this foundation batch lands, per the runbook's "as many design-check-adjust cycles as needed" allowance for leaf scope.
