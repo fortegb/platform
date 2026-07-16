@@ -7,7 +7,8 @@
     <!-- Imagens -->
     <div class="mb-8">
       <HouseGallery
-        :images="house.gallery && house.gallery.length ? house.gallery : [house.image || '/placeholder-house.jpg']"
+        :images="house.gallery && house.gallery.length ? house.gallery : [{ category: 'Fachada', url: house.image || '/placeholder-house.jpg' }]"
+        :videos="house.videoUrls"
         :alt="house.title"
       />
     </div>
@@ -35,17 +36,6 @@
           </ul>
         </div>
 
-        <div v-if="videoEmbedUrl" class="mt-8">
-          <h2 class="text-2xl font-bold mb-4">Vídeo</h2>
-          <div class="aspect-video rounded-lg overflow-hidden">
-            <iframe
-              :src="videoEmbedUrl"
-              class="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </div>
-        </div>
       </div>
       
       <div class="lg:col-span-1">
@@ -185,10 +175,6 @@ const statusBadgeClass = computed(() => {
   return statusMap[house.value.status] || 'badge-neutral'
 })
 
-const videoEmbedUrl = computed(() => {
-  if (!house.value?.videoUrl) return null
-  return getVideoEmbedUrl(house.value.videoUrl)
-})
 </script>
 
 
