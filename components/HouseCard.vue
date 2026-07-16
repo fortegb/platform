@@ -38,7 +38,7 @@
       <div v-if="house.price && house.status !== 'vendido'" class="mt-2">
         <p class="text-2xl font-bold text-primary-500">{{ formatPrice(house.price) }}</p>
       </div>
-      <div class="card-actions justify-end mt-4">
+      <div class="flex items-center mt-4">
         <NuxtLink
           v-if="house.status !== 'vendido'"
           :to="`/visita/agendar/${house.id}`"
@@ -48,9 +48,9 @@
         </NuxtLink>
         <NuxtLink
           :to="`/portfolio/${house.slug || house.id}`"
-          class="inline-flex items-center justify-center border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
+          class="text-sm font-semibold text-primary-500 hover:underline ml-auto"
         >
-          Ver Detalhes
+          Ver Detalhes →
         </NuxtLink>
       </div>
     </div>
