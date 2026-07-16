@@ -16,7 +16,7 @@
     </div>
 
     <div v-if="activeCategory === VIDEO">
-      <div class="relative aspect-video rounded-xl overflow-hidden">
+      <div class="relative h-[440px] rounded-xl overflow-hidden">
         <iframe
           :src="videoEmbedUrls[videoIndex]"
           class="w-full h-full"
