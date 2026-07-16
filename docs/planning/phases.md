@@ -122,7 +122,7 @@ Epics **já criados no board**. **Build gated por G2** (passos 1–7 da Definiç
 
 ### Epic: Public site UI finalization — sub-tarefas
 
-> Home: variantes por **estilo** (`/`, `/classico`, `/slate`, `/azul`); **escolha do hero diferida ao lançamento** (Q-010 → D-021). Site institucional “pronto para uso”.
+> Home: variantes por **estilo** (`/`, `/hero`, `/slate`, `/gradient`); **escolha do hero diferida ao lançamento** (Q-010 → D-021). Site institucional “pronto para uso”.
 
 1. [ ] Escolher o hero de produção (Q-010 diferido, D-021) e remover variantes não escolhidas
 2. [ ] Portfólio lista + detalhe (layout final; **filtros/busca** se MVP)

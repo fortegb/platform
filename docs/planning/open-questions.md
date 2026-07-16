@@ -116,7 +116,7 @@
 - **Module:** site
 - **Status:** **deferred** → D-021 · escolha do hero no lançamento (#56)
 - **Blocks:** ~~P1 Public site UI~~ (não bloqueia — hero é componente trocável; default `/` = HeroSplit)
-- **Deferred (2026-07-04):** variantes diferem só no hero; renomeadas por estilo (`/`, `/classico`, `/slate`, `/azul`). Escolha final ao lançamento.
+- **Deferred (2026-07-04):** variantes diferem só no hero; renomeadas por estilo (`/`, `/hero`, `/slate`, `/gradient`). Escolha final ao lançamento.
 
 ### Q-011 — Media kit MVP: manual vs gerado?
 - **Module:** media-kit

@@ -40,7 +40,7 @@ Uma leaf por **jornada**, não por seção de persona inteira (grande demais par
 
 | # | Leaf | Rotas | Jornada (Passo 5) |
 |---|------|-------|--------------------|
-| [#197](https://github.com/fortegb/platform/issues/197) | Descoberta do site | `/`, `/classico`, `/slate`, `/azul`, `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` | #185, D-057 |
+| [#197](https://github.com/fortegb/platform/issues/197) | Descoberta do site | `/`, `/hero`, `/slate`, `/gradient`, `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` | #185, D-057 |
 | [#198](https://github.com/fortegb/platform/issues/198) | Agendar visita | `/visita/agendar/[houseId]` | #186, D-058 |
 | [#199](https://github.com/fortegb/platform/issues/199) | Visita QR | `/visita/qr/[code]` | #187, D-059 |
 | [#200](https://github.com/fortegb/platform/issues/200) | Gerenciar visita | `/visita/gerenciar/[token]`, aviso condomínio | #188, D-061 |
