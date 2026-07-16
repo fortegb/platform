@@ -1,0 +1,18 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="1000" height="500" fill="#ffffff" />
+  <g stroke="#203045" stroke-width="4" fill="none">
+    <rect x="60" y="40" width="880" height="400" />
+    <line x1="380" y1="40" x2="380" y2="440" />
+    <line x1="700" y1="40" x2="700" y2="440" />
+    <line x1="380" y1="240" x2="700" y2="240" />
+  </g>
+  <g fill="#4a5a72" font-size="26" text-anchor="middle">
+    <text x="220" y="250">Suíte Master</text>
+    <text x="540" y="150">Quarto 3</text>
+    <text x="540" y="350">Escritório</text>
+    <text x="850" y="250">Terraço</text>
+  </g>
+  <text x="500" y="480" fill="#4a5a72" font-size="22" text-anchor="middle" font-weight="bold">
+    Planta Baixa — Pavimento Superior (esquemático)
+  </text>
+</svg>

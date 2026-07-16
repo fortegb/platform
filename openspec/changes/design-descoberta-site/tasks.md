@@ -59,3 +59,12 @@ Built and iterated on an isolated branch off this one so it could be discarded c
 - [x] 7.6 `HouseGallery.vue`: tabs redesigned from bordered pills to underline-style text tabs — bordered boxes for 7 items read as a filter form; matches the lighter tab treatment seen in the QuintoAndar reference research.
 - [x] 7.7 `HouseCard.vue`: spec badges (`badge-outline` pills for área/quartos/banheiros) replaced with icon+text, consistent with how the same data already displays on `/portfolio/[slug]`'s Informações card.
 - [x] 7.8 `HouseCard.vue`: "Ver Detalhes" demoted from a bordered button to a plain text link (arrow, underline on hover) — two same-weight buttons per card read heavy across a grid; only "Agendar Visita" (the actual conversion action) stays a real button.
+- [x] 7.9 `HouseGallery.vue`: grid widened `grid-cols-2 md:grid-cols-3` → `grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5` — 3 columns on a full-width desktop container made each tile ~500px, oversized per user feedback. The existing `aspect-[4/3] object-cover` crop already normalizes any source photo's aspect ratio, no change needed there.
+
+## 8. Floor plans section (`components/HouseFloorplans.vue`)
+
+Scoped to floor plan only per user decision — engineering project docs (structural/electrical/hydraulic) deferred, not part of this pass.
+
+- [x] 8.1 `data/mock.ts`: `floorplans` field added to `house` — `{ label, url, type: 'image' | 'pdf' }[]`. Vila Verde gets two image plans (Térreo, Pavimento Superior, local SVG mocks under `public/images/floorplans/`); Jardim dos Ipês gets one PDF-type entry to exercise both formats.
+- [x] 8.2 `components/HouseFloorplans.vue`: new component, separate from `HouseGallery` — floor plans are not photos and must not be cropped to `aspect-[4/3]`. Image-type entries render `object-contain` and open in the existing `ImageLightbox`; PDF-type entries render as a card linking out (`target="_blank"`), no in-page viewer.
+- [x] 8.3 `pages/portfolio/[slug].vue`: section placed full-width below the two-column description/specs + sidebar grid (not squeezed into the `lg:col-span-2` content column) — floor plans want more horizontal room than a drawing crammed next to the price/CTA sidebar affords. Hidden entirely when a house has no `floorplans` data.

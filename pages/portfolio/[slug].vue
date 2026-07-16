@@ -103,8 +103,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Planta Baixa -->
+    <div v-if="house.floorplans && house.floorplans.length" class="mb-8">
+      <HouseFloorplans :floorplans="house.floorplans" :alt="house.title" />
+    </div>
   </div>
-  
+
   <div v-else class="container mx-auto px-4 py-8 text-center">
     <h1 class="text-4xl font-bold mb-4">Casa não encontrada</h1>
     <NuxtLink to="/portfolio" class="btn btn-primary">

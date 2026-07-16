@@ -46,6 +46,9 @@ export const mockHouses = [
     ],
     features: ['Piscina', 'Suíte master com closet', 'Cozinha integrada', 'Área de serviço completa', 'Próximo a escolas e comércio'],
     videoUrls: [],
+    floorplans: [
+      { label: 'Planta Baixa', url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', type: 'pdf' as const }
+    ],
     area: 150,
     bedrooms: 3,
     bathrooms: 2,
@@ -95,6 +98,10 @@ export const mockHouses = [
     ],
     features: ['Piscina', 'Churrasqueira coberta', 'Espaço gourmet', 'Playground', 'Cozinha planejada com ilha', 'Escritório', 'Garagem para 3 carros'],
     videoUrls: ['https://www.youtube.com/watch?v=9hjjugdRIgI'],
+    floorplans: [
+      { label: 'Térreo', url: '/images/floorplans/vila-verde-terreo.svg', type: 'image' as const },
+      { label: 'Pavimento Superior', url: '/images/floorplans/vila-verde-superior.svg', type: 'image' as const }
+    ],
     area: 200,
     bedrooms: 4,
     bathrooms: 3,
