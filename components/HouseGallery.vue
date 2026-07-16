@@ -1,17 +1,18 @@
 <template>
   <div>
-    <div class="flex flex-wrap gap-2 mb-4">
+    <div class="flex flex-wrap gap-x-6 gap-y-1 mb-4 border-b border-base-300">
       <button
         v-for="category in categories"
         :key="category.name"
         type="button"
-        class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors"
+        class="pb-2 -mb-px border-b-2 text-sm font-semibold transition-colors"
         :class="activeCategory === category.name
-          ? 'bg-primary-500 text-white'
-          : 'border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white'"
+          ? 'border-primary-500 text-primary-500'
+          : 'border-transparent text-base-content/60 hover:text-primary-500'"
         @click="activeCategory = category.name"
       >
-        {{ category.name }} ({{ category.count }})
+        {{ category.name }}
+        <span class="text-xs font-normal opacity-70">{{ category.count }}</span>
       </button>
     </div>
 
