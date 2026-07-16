@@ -46,3 +46,16 @@ User-driven visual review (not a token pass — real UX/design findings). All us
 - [x] 6.9 Add explicit `featured: boolean` to `data/mock.ts` houses; `HomeContent.vue`'s featured section now filters by it instead of deriving from status — an editorial choice, not an algorithm.
 - [x] 6.10 `data/mock.ts`: statuses updated to match real current inventory (3 `vendido`, 2 `em-construcao`, 1 `disponivel`).
 - [x] 6.11 Note `featured` as a gap in the Sanity content model template (`docs/planning/templates/cms-content-model.md`, D-036) — mock-data toggle today, becomes a Sanity Studio field at CMS build time.
+
+## 7. Portfolio detail page — gallery, video, visual hierarchy (`feat/house-gallery-categories`, merged)
+
+Built and iterated on an isolated branch off this one so it could be discarded cleanly if it didn't work out; merged back in once validated. All user-verified live in browser.
+
+- [x] 7.1 `data/mock.ts`: `gallery` restructured to categorized `{ category, url }[]` — 30 images/house across 5 categories (Sala, Cozinha, Quarto, Banheiro, Área Externa). Content-accuracy per category explicitly dropped as a requirement per user direction (volume/distribution over per-photo room-matching).
+- [x] 7.2 `components/HouseGallery.vue`: category tabs (+ "Todas") driving a photo grid; iterated through nested-scroll → "Ver mais" expand → back to fixed-height scroll (`max-h-[440px]`) per user preference, landing on a simple static cap over dynamic per-viewport measurement.
+- [x] 7.3 `components/ImageLightbox.vue`: click-to-expand hi-res view, prev/next (buttons + arrow keys), Escape/backdrop-close, position counter.
+- [x] 7.4 `data/mock.ts`: `videoUrl` (single) → `videoUrls` (array) — a house may have one or two walkthrough videos, not per-room clips. 3 real, verified YouTube videos assigned across 2 houses (Vila Verde: 1, Alto do Campo Belo: 3) to exercise both single- and multi-video cases.
+- [x] 7.5 `HouseGallery.vue`: "Vídeo" tab folded into the same tab bar as photo categories (one media-browsing control, not two disconnected ones) — single-video-at-a-time view reusing `ImageLightbox`'s prev/next visual language, height-matched to the photo grid (`h-[440px]`, was `aspect-video` which scaled taller than the photos).
+- [x] 7.6 `HouseGallery.vue`: tabs redesigned from bordered pills to underline-style text tabs — bordered boxes for 7 items read as a filter form; matches the lighter tab treatment seen in the QuintoAndar reference research.
+- [x] 7.7 `HouseCard.vue`: spec badges (`badge-outline` pills for área/quartos/banheiros) replaced with icon+text, consistent with how the same data already displays on `/portfolio/[slug]`'s Informações card.
+- [x] 7.8 `HouseCard.vue`: "Ver Detalhes" demoted from a bordered button to a plain text link (arrow, underline on hover) — two same-weight buttons per card read heavy across a grid; only "Agendar Visita" (the actual conversion action) stays a real button.
