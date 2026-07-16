@@ -94,7 +94,7 @@ export const mockHouses = [
       { category: 'Área Externa', url: 'https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&h=800&fit=crop' },
     ],
     features: ['Piscina', 'Churrasqueira coberta', 'Espaço gourmet', 'Playground', 'Cozinha planejada com ilha', 'Escritório', 'Garagem para 3 carros'],
-    videoUrls: [],
+    videoUrls: ['https://www.youtube.com/watch?v=9hjjugdRIgI'],
     area: 200,
     bedrooms: 4,
     bathrooms: 3,
@@ -241,7 +241,10 @@ export const mockHouses = [
       { category: 'Área Externa', url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?w=1200&h=800&fit=crop' },
     ],
     features: ['Piscina e sauna', 'Espaço fitness', 'Área gourmet coberta', 'Escritório', 'Irrigação automática', 'Garagem para 4 carros', 'Vista panorâmica'],
-    videoUrls: [],
+    videoUrls: [
+      'https://www.youtube.com/watch?v=9hjjugdRIgI',
+      'https://www.youtube.com/watch?v=ldASW6as3LU'
+    ],
     area: 280,
     bedrooms: 5,
     bathrooms: 4,
