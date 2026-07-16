@@ -15,14 +15,35 @@
       </button>
     </div>
 
-    <div v-if="activeCategory === VIDEO" class="space-y-4">
-      <div v-for="url in videoEmbedUrls" :key="url" class="aspect-video rounded-xl overflow-hidden">
+    <div v-if="activeCategory === VIDEO">
+      <div class="relative aspect-video rounded-xl overflow-hidden">
         <iframe
-          :src="url"
+          :src="videoEmbedUrls[videoIndex]"
           class="w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         />
+        <template v-if="videoEmbedUrls.length > 1">
+          <button
+            type="button"
+            class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-primary-500/70 hover:bg-primary-500 text-white transition-colors"
+            aria-label="Vídeo anterior"
+            @click="videoIndex = (videoIndex - 1 + videoEmbedUrls.length) % videoEmbedUrls.length"
+          >
+            ❮
+          </button>
+          <button
+            type="button"
+            class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-primary-500/70 hover:bg-primary-500 text-white transition-colors"
+            aria-label="Próximo vídeo"
+            @click="videoIndex = (videoIndex + 1) % videoEmbedUrls.length"
+          >
+            ❯
+          </button>
+        </template>
+      </div>
+      <div v-if="videoEmbedUrls.length > 1" class="mt-2 text-center text-sm text-base-content/70">
+        {{ videoIndex + 1 }} / {{ videoEmbedUrls.length }}
       </div>
     </div>
 
@@ -98,8 +119,10 @@ const filteredImages = computed(() =>
 )
 
 const lightboxIndex = ref<number | null>(null)
+const videoIndex = ref(0)
 
 watch(activeCategory, () => {
   lightboxIndex.value = null
+  videoIndex.value = 0
 })
 </script>

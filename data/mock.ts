@@ -243,7 +243,8 @@ export const mockHouses = [
     features: ['Piscina e sauna', 'Espaço fitness', 'Área gourmet coberta', 'Escritório', 'Irrigação automática', 'Garagem para 4 carros', 'Vista panorâmica'],
     videoUrls: [
       'https://www.youtube.com/watch?v=9hjjugdRIgI',
-      'https://www.youtube.com/watch?v=ldASW6as3LU'
+      'https://www.youtube.com/watch?v=ldASW6as3LU',
+      'https://www.youtube.com/watch?v=SbepuLrglTs'
     ],
     area: 280,
     bedrooms: 5,
