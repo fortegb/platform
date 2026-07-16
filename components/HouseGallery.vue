@@ -26,10 +26,10 @@
       </div>
     </div>
 
-    <div v-else>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-2 rounded-xl overflow-hidden">
+    <div v-else class="max-h-[440px] overflow-y-auto rounded-xl">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
         <img
-          v-for="(image, index) in visibleImages"
+          v-for="(image, index) in filteredImages"
           :key="image.url"
           :src="image.url"
           :alt="`${alt} — ${image.category} ${index + 1}`"
@@ -37,14 +37,6 @@
           @click="lightboxIndex = index"
         />
       </div>
-      <button
-        v-if="filteredImages.length > visibleImages.length"
-        type="button"
-        class="mt-3 px-4 py-1.5 rounded-lg text-sm font-semibold border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-colors"
-        @click="showAll = true"
-      >
-        Ver mais ({{ filteredImages.length - visibleImages.length }})
-      </button>
     </div>
 
     <ImageLightbox
@@ -97,7 +89,7 @@ const categories = computed(() => {
   return list
 })
 
-const activeCategory = ref(props.images[0]?.category ?? ALL)
+const activeCategory = ref(ALL)
 
 const filteredImages = computed(() =>
   activeCategory.value === ALL
@@ -105,17 +97,9 @@ const filteredImages = computed(() =>
     : props.images.filter(image => image.category === activeCategory.value)
 )
 
-const INITIAL_VISIBLE = 9
-const showAll = ref(false)
-
-const visibleImages = computed(() =>
-  showAll.value ? filteredImages.value : filteredImages.value.slice(0, INITIAL_VISIBLE)
-)
-
 const lightboxIndex = ref<number | null>(null)
 
 watch(activeCategory, () => {
-  showAll.value = false
   lightboxIndex.value = null
 })
 </script>
