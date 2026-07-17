@@ -36,6 +36,13 @@ Ver `AGENTS.md` §9 para a convenção de cores por tipo de ação (WhatsApp ver
 | `AppFooter.vue` | `primary-500`, branco, `border-white/20` — bug de hover tratado separadamente em [#212](https://github.com/fortegb/platform/issues/212) |
 | `HouseCard.vue` | `primary-500`, `secondary`, `base-100`, `base-content`, badges DaisyUI (`badge-success/error/warning/info`) |
 | `CookieConsent.vue` | `.btn.btn-primary`, `.btn-outline` (DaisyUI nativo), `base-100`, `base-300` |
+| `pages/portfolio/index.vue`, `pages/portfolio/[slug].vue` | `primary-500`, `secondary`, `whatsapp`/`whatsapp-hover`, `base-100/200/300`, `base-content`, badges DaisyUI (`badge-success/error/warning/info/neutral`) — mesmo padrão de `HouseCard.vue` |
+| `HouseGallery.vue`, `HouseFloorplans.vue`, `ImageLightbox.vue` | `primary-500`, `base-300`, `base-content` — sem cor hardcoded; dimensões arbitrárias (`h-[440px]`, `max-h-[85vh]` etc.) são medidas de layout, não tokens de cor |
+| `pages/sobre.vue`, `pages/contato.vue`, `pages/privacidade.vue`, `pages/termos.vue` | `primary-500`, `base-200`, `base-content`, `whatsapp`/`whatsapp-hover` |
+| `ContactForm.vue` | `base-100`, `focus:ring-primary-500` (consistente nos 5 campos) |
+| `pages/blog/index.vue`, `pages/blog/[slug].vue` | `primary-500`, `base-200/300`, `base-content`, `whatsapp`/`whatsapp-hover` |
+
+Auditoria completa (Pass 2, cobrindo estas linhas) registrada no relatório vivo — ver link no topo deste arquivo.
 
 ## Dark mode
 

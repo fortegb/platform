@@ -6,6 +6,8 @@
 
 **Mode:** Retrofit (Scenario A) — `rbo-ui-standards` was not active during original UI creation; hardcoded values existed alongside an already-partial Tailwind/DaisyUI token layer.
 
+### Pass 1 — Home + dependency tree
+
 **Pages:**
 - `pages/index.vue` (Home, `/`)
 - `pages/slate.vue` (`/slate`)
@@ -24,7 +26,29 @@
 
 **Token source files:** `tailwind.config.js`, `assets/css/main.css`
 
-**Out of scope:** `pages/classico.vue` uses `HeroClassic.vue`'s structurally different layout — not part of Hero consolidation, but its WhatsApp CTA color was in scope (see below). The rest of #197's routes (`/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos`) are **not** in this pass — separate follow-up within the same leaf.
+**Out of scope for Pass 1:** `pages/classico.vue` uses `HeroClassic.vue`'s structurally different layout — not part of Hero consolidation, but its WhatsApp CTA color was in scope (see below). The rest of #197's routes were audited separately in Pass 2 below.
+
+### Pass 2 — remaining #197 routes (portfolio, blog, sobre, contato, legal)
+
+**Pages:**
+- `pages/portfolio/index.vue`
+- `pages/portfolio/[slug].vue`
+- `pages/sobre.vue`
+- `pages/contato.vue`
+- `pages/privacidade.vue`
+- `pages/termos.vue`
+- `pages/blog/index.vue`
+- `pages/blog/[slug].vue`
+
+**Components (dependency tree):**
+- `components/HouseGallery.vue`
+- `components/HouseFloorplans.vue`
+- `components/ImageLightbox.vue`
+- `components/ContactForm.vue`
+
+**Audit method:** exhaustive grep/ripgrep sweep per file for hex colors (`#[0-9a-f]{3,8}`), arbitrary-value color utilities (`bg-[`/`text-[`/`border-[`/`from-[`/`via-[`/`to-[`/`ring-[`/`shadow-[`/`fill-[`/`stroke-[`), raw default-Tailwind-palette color classes (`bg-red-500`, `text-gray-700`, etc. — anything bypassing the project's `primary-*`/`whatsapp`/DaisyUI semantic aliases), inline `style` attributes, and `ring-`/`outline-`/`decoration-`/`accent-` color utilities. No color, inline-style, or off-token violation found in any of the 12 files (see Remaining hardcoded values below).
+
+**Arbitrary-value findings (non-color, out of this skill's core scope):** a handful of one-off arbitrary size/dimension utilities (`h-[440px]` gallery/video panel, `max-w-[90vw] max-h-[85vh]` lightbox, `lg:h-[32rem]` floorplan viewer, `max-w-[200px]` portfolio detail CTA buttons). These are Phase 5–7 territory (radius/shadow/typography/spacing), which this skill skips by default for Tailwind projects using Tailwind's built-in scale — flagged here for completeness, not treated as token gaps. None are colors, none repeat across unrelated components in a way that suggests a missing shared token, and changing them would be a layout/spacing decision, not a tokenization one (out of scope per the skill's "do not change spacing" rule unless replacing an identical hardcoded value with an equivalent token — none of these values repeat identically across more than the 1–2 sibling elements already documented).
 
 ## Token system health
 
@@ -109,12 +133,14 @@ Not applicable. This project has no dark mode requirement (confirmed absent from
 
 ## Remaining hardcoded values
 
-None found in scope after the `HeroClassic.vue` gap was closed. Grep for `HeroSplit`/`HeroSlate`/`HeroAzul`/`.btn-secondary`/`bg-[#3E8E5E]`/`bg-[#34784F]` across app source (`pages/`, `components/`, `layouts/`) returned zero matches. Remaining hits were in `docs/planning/site/app/_nuxt/*.js` (stale prerendered Platform-docs mock build, self-heals on next `pages:sync`) and `docs/assets/portal.css` (unrelated Platform docs portal stylesheet, not app source) — both out of scope by design.
+**Pass 1 (Home):** none found in scope after the `HeroClassic.vue` gap was closed. Grep for `HeroSplit`/`HeroSlate`/`HeroAzul`/`.btn-secondary`/`bg-[#3E8E5E]`/`bg-[#34784F]` across app source (`pages/`, `components/`, `layouts/`) returned zero matches. Remaining hits were in `docs/planning/site/app/_nuxt/*.js` (stale prerendered Platform-docs mock build, self-heals on next `pages:sync`) and `docs/assets/portal.css` (unrelated Platform docs portal stylesheet, not app source) — both out of scope by design.
+
+**Pass 2 (portfolio, blog, sobre, contato, legal):** none found. All color usage across the 12 files already routes through `primary-*`, `whatsapp`/`whatsapp-hover`, or DaisyUI semantic aliases (`secondary`, `base-100/200/300`, `base-content`, `badge-success/error/warning/info/neutral`) — same pattern already catalogued for `HouseCard.vue` in Pass 1. `ContactForm.vue`'s five input/select/textarea fields all use `focus:ring-primary-500` consistently. No raw Tailwind default-palette colors, no inline color styles, no un-tokenized hex.
 
 ## Token gaps flagged
 
-None. Every hardcoded value found in scope had a clear single semantic role and was resolved (either tokenized or, for the footer bug, correctly identified as not a token issue).
+None across both passes. Every hardcoded value found in scope had a clear single semantic role and was resolved (either tokenized or, for the footer bug, correctly identified as not a token issue). Pass 2 found zero color/token gaps at all — nothing to resolve.
 
 ## Readiness assessment
 
-**Ready for the next design leaves (#198–#207) to reference this inventory.** Not yet ready for `rbo-ui-design-system` (#70) — that skill runs once, at the very end of Passo 6, after all 11 design leaves and all 4 tokenize sweeps (#208–#211) close. This report covers only the Home slice of #197; the rest of #197's routes (portfolio, blog, sobre, contato, legal pages) still need their own audit pass before even #197 itself is ready to close.
+**#197 is now fully audited for tokenization across all its routes** (`/`, `/slate`, `/azul`, `/classico`, `/portfolio`, `/portfolio/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos`, `/blog`, `/blog/[slug]`) — Pass 1 (Home) + Pass 2 (everything else) both clean, zero remaining color/token gaps. Ready for the next design leaves (#198–#207) to reference this inventory. Still not ready for `rbo-ui-design-system` (#70) — that skill runs once, at the very end of Passo 6, after all 11 design leaves and all 4 tokenize sweeps (#208–#211) close; this report will keep growing as those leaves land.
