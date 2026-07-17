@@ -19,9 +19,11 @@
         <h1 class="text-4xl font-bold mb-4">{{ house.title }}</h1>
         <p class="text-lg text-base-content/70 mb-6">{{ house.description }}</p>
         
-        <div class="prose max-w-none">
-          <h2>Descrição Completa</h2>
-          <p>{{ house.fullDescription || 'Descrição detalhada em breve...' }}</p>
+        <div>
+          <h2 class="text-2xl font-bold mb-4">Descrição Completa</h2>
+          <div class="space-y-4 text-base-content/80">
+            <p v-for="(paragraph, index) in fullDescriptionParagraphs" :key="index">{{ paragraph }}</p>
+          </div>
         </div>
 
         <div v-if="house.features && house.features.length" class="mt-8">
@@ -124,6 +126,13 @@ const slug = route.params.slug as string
 
 const loading = ref(true)
 const house = ref<any>(null)
+
+const fullDescriptionParagraphs = computed(() => {
+  const desc = house.value?.fullDescription
+  if (Array.isArray(desc) && desc.length) return desc
+  if (typeof desc === 'string' && desc) return [desc]
+  return ['Descrição detalhada em breve...']
+})
 
 const config = useRuntimeConfig()
 const whatsappNumber = config.public.whatsappNumber || '5511999999999'

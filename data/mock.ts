@@ -10,7 +10,7 @@ export const mockHouses = [
     slug: 'casa-jardim-dos-ipes',
     title: 'Casa Jardim dos Ipês',
     description: 'Casa moderna e confortável, perfeita para famílias que buscam qualidade e tranquilidade em Campinas-SP.',
-    fullDescription: 'Esta bela casa de 3 quartos oferece conforto e modernidade em um dos bairros mais tranquilos de Campinas. Com acabamento de primeira linha, a propriedade conta com sala ampla, cozinha integrada, área de serviço completa e área de lazer com piscina. Os quartos são espaçosos, sendo a suíte master com closet. Localizada próxima a escolas, comércio e vias de fácil acesso.',
+    fullDescription: ['Esta bela casa de 3 quartos oferece conforto e modernidade em um dos bairros mais tranquilos de Campinas. Com acabamento de primeira linha, a propriedade conta com sala ampla, cozinha integrada, área de serviço completa e área de lazer com piscina. Os quartos são espaçosos, sendo a suíte master com closet. Localizada próxima a escolas, comércio e vias de fácil acesso.'],
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&h=800&fit=crop' },
@@ -59,7 +59,11 @@ export const mockHouses = [
     slug: 'residencia-vila-verde',
     title: 'Residência Vila Verde',
     description: 'Casa espaçosa com 4 quartos, ideal para famílias grandes. Piscina, churrasqueira e área de lazer completa.',
-    fullDescription: 'Excelente oportunidade! Casa em construção com 4 quartos, sendo 2 suítes. Área de lazer completa com piscina, churrasqueira coberta, espaço gourmet e playground. Sala ampla em dois ambientes, cozinha planejada com ilha, escritório e lavabo. Garagem para 3 carros. Acabamento premium em toda a residência. Previsão de entrega: 6 meses.',
+    fullDescription: [
+      'Excelente oportunidade! Casa em construção com 4 quartos, sendo 2 suítes. Área de lazer completa com piscina, churrasqueira coberta, espaço gourmet e playground. Sala ampla em dois ambientes, cozinha planejada com ilha, escritório, despensa e lavabo. Garagem para 3 carros.',
+      'Acabamento premium em toda a residência, com método construtivo de qualidade superior e execução rigorosamente conforme os projetos aprovados — do arquitetônico ao estrutural, passando pelos complementares elétrico e hidráulico. A casa conta com sistema de aquecimento por boiler e placas solares, com controle via aplicativo, além de persianas smart integradas à Alexa para mais conforto no dia a dia.',
+      'Todo o processo construtivo é documentado em vídeo, do início ao fim: você vê exatamente o que está comprando, da fundação ao acabamento. É assim que a ForteGB constrói — com segurança, transparência e confiabilidade em cada etapa do projeto, para você comprar com a tranquilidade de saber exatamente o que está adquirindo. Previsão de entrega: 6 meses.'
+    ],
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&h=800&fit=crop' },
@@ -93,7 +97,25 @@ export const mockHouses = [
       { category: 'Área Externa', url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&h=800&fit=crop' },
       { category: 'Área Externa', url: 'https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&h=800&fit=crop' },
     ],
-    features: ['Piscina', 'Churrasqueira coberta', 'Espaço gourmet', 'Playground', 'Cozinha planejada com ilha', 'Escritório', 'Garagem para 3 carros'],
+    features: [
+      'Piscina',
+      'Churrasqueira coberta',
+      'Espaço gourmet',
+      'Playground',
+      'Cozinha planejada com ilha',
+      'Escritório',
+      'Garagem para 3 carros',
+      'Suíte master com closet',
+      'Despensa',
+      'Lavabo',
+      'Sala ampla em dois ambientes',
+      'Área de serviço completa',
+      'Acabamento premium em toda a residência',
+      'Aquecimento solar com boiler e controle via aplicativo',
+      'Persianas smart integradas à Alexa',
+      'Execução conforme projeto arquitetônico, estrutural, elétrico e hidráulico',
+      'Obra 100% documentada em vídeo, da fundação ao acabamento'
+    ],
     videoUrls: ['https://www.youtube.com/watch?v=9hjjugdRIgI'],
     floorplans: [
       { label: 'Planta Baixa', thumbnailUrl: '/images/floorplans/vila-verde-planta-thumb.png', fileUrl: '/images/floorplans/vila-verde-planta.png', type: 'image' as const }
@@ -111,7 +133,7 @@ export const mockHouses = [
     slug: 'casa-moderna-parque-dos-pinheiros',
     title: 'Casa Moderna Parque dos Pinheiros',
     description: 'Casa compacta e moderna, ideal para casais jovens ou pequenas famílias que buscam praticidade e conforto.',
-    fullDescription: 'Casa nova, moderna e funcional. Com 2 quartos, sendo 1 suíte, sala integrada com cozinha, área de serviço e quintal. Perfeita para quem busca o primeiro imóvel ou investimento. Localizada em região valorizada, próxima ao centro e com fácil acesso às principais vias de Campinas. Financiamento facilitado disponível.',
+    fullDescription: ['Casa nova, moderna e funcional. Com 2 quartos, sendo 1 suíte, sala integrada com cozinha, área de serviço e quintal. Perfeita para quem busca o primeiro imóvel ou investimento. Localizada em região valorizada, próxima ao centro e com fácil acesso às principais vias de Campinas. Financiamento facilitado disponível.'],
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1556911073-38141963c9e0?w=1200&h=800&fit=crop' },
@@ -160,7 +182,7 @@ export const mockHouses = [
     slug: 'casa-familia-barueri',
     title: 'Casa Família Barueri',
     description: 'Casa com 3 quartos, acabamento premium, piscina e área gourmet. Perfeita para receber amigos e familiares.',
-    fullDescription: 'Casa com arquitetura moderna e acabamento de alto padrão. 3 quartos (2 suítes), sala de estar e de jantar separadas, cozinha planejada com bancada em granito, área gourmet completa com churrasqueira e forno de pizza. Piscina aquecida, jardim paisagístico e garagem para 2 carros. Sistema de segurança e automação residencial.',
+    fullDescription: ['Casa com arquitetura moderna e acabamento de alto padrão. 3 quartos (2 suítes), sala de estar e de jantar separadas, cozinha planejada com bancada em granito, área gourmet completa com churrasqueira e forno de pizza. Piscina aquecida, jardim paisagístico e garagem para 2 carros. Sistema de segurança e automação residencial.'],
     image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200&h=800&fit=crop' },
@@ -209,7 +231,7 @@ export const mockHouses = [
     slug: 'residencia-alto-do-campo-belo',
     title: 'Residência Alto do Campo Belo',
     description: 'Casa espaçosa com 5 quartos, piscina, área de lazer completa e vista privilegiada. Excelente investimento.',
-    fullDescription: 'Residência de alto padrão com 5 quartos (3 suítes), sala em 3 ambientes, cozinha gourmet integrada, escritório, lavabo social e área de serviço completa. Área de lazer com piscina, sauna, espaço fitness, churrasqueira e área gourmet coberta. Jardim paisagístico, sistema de irrigação automática e garagem para 4 carros. Vista panorâmica da região.',
+    fullDescription: ['Residência de alto padrão com 5 quartos (3 suítes), sala em 3 ambientes, cozinha gourmet integrada, escritório, lavabo social e área de serviço completa. Área de lazer com piscina, sauna, espaço fitness, churrasqueira e área gourmet coberta. Jardim paisagístico, sistema de irrigação automática e garagem para 4 carros. Vista panorâmica da região.'],
     image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&h=800&fit=crop' },
@@ -262,7 +284,7 @@ export const mockHouses = [
     slug: 'casa-condominio-vila-nova',
     title: 'Casa Condomínio Vila Nova',
     description: 'Casa em condomínio fechado, com segurança 24h, áreas comuns e lazer completo. Ideal para famílias.',
-    fullDescription: 'Casa térrea em condomínio fechado com portaria 24h, segurança monitorada e áreas de lazer com piscina, quadra esportiva e playground. A residência possui 3 quartos (1 suíte), sala ampla, cozinha planejada, área de serviço e quintal gramado. Ideal para quem busca segurança, tranquilidade e qualidade de vida.',
+    fullDescription: ['Casa térrea em condomínio fechado com portaria 24h, segurança monitorada e áreas de lazer com piscina, quadra esportiva e playground. A residência possui 3 quartos (1 suíte), sala ampla, cozinha planejada, área de serviço e quintal gramado. Ideal para quem busca segurança, tranquilidade e qualidade de vida.'],
     image: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800&h=600&fit=crop',
     gallery: [
       { category: 'Sala', url: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1200&h=800&fit=crop' },

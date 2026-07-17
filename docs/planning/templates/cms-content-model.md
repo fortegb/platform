@@ -7,19 +7,26 @@
 
 | Type | v1 | Campos principais (inventário) |
 |------|----|--------------------------------|
-| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title, short/full description, cover + gallery (each gallery image carries a `category` string — e.g. Sala, Cozinha, Quarto, Banheiro, Área Externa — for per-house photo grouping/tabs), beds/baths/area, address/location copy, optional display price, optional video URL(s), `featured` (boolean — manual homepage highlight toggle), `features` (string list — free-form characteristics/amenities checklist, e.g. "Piscina", "Suíte master com closet"; independent per house, no fixed/shared vocabulary), `floorplans` (list of `{ label, url, type: 'image' \| 'pdf' }` — one entry per floor/document, rendered full-width below the description/specs grid, separate from `gallery` since plans aren't cropped to a fixed aspect ratio like photos). `featured`/`features`/gallery `category`/`floorplans` added during #197 design pass, mock-data equivalent in `data/mock.ts` |
+| **`house`** | Full | `houseId` (UUID = join Supabase), slug, title (commercial/sales name, e.g. "Residência Vila Verde" — public), short description, **`fullDescription` as an array of paragraph strings** (not one block of text — renders as separate `<p>` tags with spacing; each house can have any number of paragraphs), cover + **gallery grouped by category** (array of `{ categoryLabel, photos[] }` — editor names/picks a category once per group and drops all matching photos in together, rather than tagging 30 photos one at a time; `categoryLabel` free-texts against the suggested list in `galleryCategory` via `options.list`, not a hard enum — frontend flattens groups back into the `{ category, url }[]` shape components already consume), beds/baths/area, address/location copy, optional display price, optional video URL(s), `featured` (boolean — manual homepage highlight toggle), `features` (string list — free-form characteristics/amenities checklist, e.g. "Piscina", "Suíte master com closet"; independent per house, no fixed/shared vocabulary), `floorplans` (list of `{ label, thumbnailUrl, fileUrl, type: 'image' \| 'pdf' }` — `thumbnailUrl` is a small companion preview image, `fileUrl` is the full-resolution/original file opened in a dedicated zoom viewer on click; separate from `gallery` since plans aren't cropped to a fixed aspect ratio like photos, and rendered inline in the main content column, not a standalone full-width section). `featured`/`features`/gallery `category`/`floorplans` added during #197 design pass, mock-data equivalent in `data/mock.ts`; gallery grouping + `galleryCategory` suggested-list + `fullDescription` paragraph array decided same pass |
+| **`galleryCategory`** | Stub | `label` (e.g. "Sala de Estar", "Área Gourmet"), `order` (int, controls tab display order). Editor-maintained in Studio (add/rename/reorder without a code deploy) — feeds `options.list` on `house.gallery[].categoryLabel` as a suggestion, not a hard constraint; editors can still free-type a category that isn't in the list. Seed values below. |
 | **`blogPost`** | Full | slug, title, body, cover, publishedAt, excerpt |
 | **`constructionTimeline`** | Stub | `houseId` ref, title, entries[] (date, text, optional image) — UI v3 |
 | **`mediaKit`** | Stub | `houseId` ref, assets/refs — módulo v3 |
+
+### `galleryCategory` seed values
+
+Starter list for Studio provisioning (#45) — broader than any single house's actual categories, since different houses use different subsets. Editors add/remove/rename freely once Studio exists; this is just the initial seed, not a closed vocabulary.
+
+Fachada · Sala de Estar · Sala de Jantar · Cozinha · Quarto · Suíte · Closet · Banheiro · Lavabo · Escritório · Área Gourmet · Piscina · Varanda · Jardim · Área Externa · Garagem · Área de Serviço · Hall de Entrada · Área de Lazer · Vista
 
 ## House: Sanity vs Supabase
 
 | Sanity (marketing) | Supabase (operacional) |
 |--------------------|-------------------------|
-| slug, titles, copy, gallery (with per-image category), specs, features checklist, display price, video URLs, featured flag, floorplans | `id` (= `houseId`), **status**, `tuya_device_id`, `qr_code`, ops timestamps |
+| slug, title (commercial/sales name — public), copy, gallery (grouped by category), specs, features checklist, display price, video URLs, featured flag, floorplans | `id` (= `houseId`), **status**, `tuya_device_id`, `qr_code`, `houseNumber` (sequential internal staff code, e.g. "Casa 03" — string, stored as the literal display form, not a derived number), `lotCode` (block/lot registry designation, e.g. "U-30" — free-form string, matches source format from the loteamento/condomínio registry), ops timestamps |
 | — | leads, visits, PII (never in CMS) |
 
-**Merge:** Nuxt lê CMS + Supabase por `houseId`.
+**Merge:** Nuxt lê CMS + Supabase por `houseId`. `houseNumber`/`lotCode` são staff-only (nunca expostos nas páginas públicas do portfólio) mas ficam disponíveis para telas internas via esse merge, mesmo padrão já usado para `tuya_device_id`/`qr_code`.
 
 ## Defaults
 
