@@ -14,8 +14,8 @@
     </div>
 
     <!-- Informações Principais -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-      <div class="lg:col-span-2">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="md:col-span-2">
         <h1 class="text-4xl font-bold mb-4">{{ house.title }}</h1>
         <p class="text-lg text-base-content/70 mb-6">{{ house.description }}</p>
         
@@ -36,10 +36,15 @@
           </ul>
         </div>
 
+        <!-- Planta Baixa -->
+        <div v-if="house.floorplans && house.floorplans.length" class="mt-8">
+          <HouseFloorplans :floorplans="house.floorplans" :alt="house.title" />
+        </div>
+
       </div>
-      
-      <div class="lg:col-span-1">
-        <div class="card bg-base-200 shadow-xl p-6 max-w-sm ml-auto">
+
+      <div class="md:col-span-1">
+        <div class="card bg-base-200 shadow-xl p-6 md:max-w-sm md:ml-auto">
           <h2 class="text-2xl font-bold mb-4">Informações</h2>
           
           <div class="space-y-4">
@@ -102,11 +107,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Planta Baixa -->
-    <div v-if="house.floorplans && house.floorplans.length" class="mb-8">
-      <HouseFloorplans :floorplans="house.floorplans" :alt="house.title" />
     </div>
   </div>
 
