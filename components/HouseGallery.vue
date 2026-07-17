@@ -48,8 +48,8 @@
       </div>
     </div>
 
-    <div v-else class="max-h-[440px] overflow-y-auto rounded-xl">
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+    <div v-else class="overflow-y-auto rounded-xl" :style="{ maxHeight: (twoRowsHeight ?? 440) + 'px' }">
+      <div ref="gridEl" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
         <img
           v-for="(image, index) in filteredImages"
           :key="image.url"
@@ -126,4 +126,33 @@ watch(activeCategory, () => {
   lightboxIndex.value = null
   videoIndex.value = 0
 })
+
+const gridEl = ref<HTMLElement | null>(null)
+const twoRowsHeight = ref<number | null>(null)
+let resizeObserver: ResizeObserver | null = null
+
+function measureTwoRowsHeight() {
+  const grid = gridEl.value
+  const firstImage = grid?.querySelector('img')
+  if (!grid || !firstImage) return
+  const imageHeight = firstImage.getBoundingClientRect().height
+  const rowGap = parseFloat(getComputedStyle(grid).rowGap || '0')
+  twoRowsHeight.value = imageHeight * 2 + rowGap
+}
+
+onMounted(() => {
+  measureTwoRowsHeight()
+  if (gridEl.value) {
+    resizeObserver = new ResizeObserver(() => measureTwoRowsHeight())
+    resizeObserver.observe(gridEl.value)
+  }
+  window.addEventListener('resize', measureTwoRowsHeight)
+})
+
+onUnmounted(() => {
+  resizeObserver?.disconnect()
+  window.removeEventListener('resize', measureTwoRowsHeight)
+})
+
+watch(filteredImages, () => nextTick(measureTwoRowsHeight))
 </script>
