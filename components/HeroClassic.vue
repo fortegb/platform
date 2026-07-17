@@ -51,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
 const heroImageUrl = usePublicAsset(() => props.backgroundImage)
 
 const config = useRuntimeConfig()
-const whatsappNumber = config.public.whatsappNumber || '5511999999999'
+const whatsappNumber = config.public.whatsappNumber || '5519991444862'
 const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os projetos da ForteGB.')
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 </script>

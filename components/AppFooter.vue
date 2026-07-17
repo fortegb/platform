@@ -17,7 +17,7 @@
         <!-- Links Rápidos -->
         <div>
           <h4 class="font-semibold mb-4">Links Rápidos</h4>
-          <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <ul class="space-y-2 text-sm">
             <li>
               <NuxtLink to="/" class="hover:text-primary-100 transition-colors">
                 Início

@@ -28,16 +28,18 @@
   - Part-time operation (owners have day jobs)
 
 ### 2.1 Brand positioning
-We want to build on the strengths of being a family-owned company:
-- **Transparency**
-- **Trust**
-- **Closeness**
-- **Openness**
+We want to build on the strengths of being a family-owned company. Four brand pillars, live across the site (e.g. Home's "Por que escolher a ForteGB?"):
+- **Transparência** (Transparency)
+- **Segurança** (Security/peace of mind)
+- **Parceria** (Partnership)
+- **Solidez** (Construction quality / project fidelity)
 
 Customer feedback indicates they chose us due to:
-- Trust during negotiation
-- Transparency and openness in presenting the product (houses) and in the deal process
+- Trust during negotiation — now channeled through **Segurança**
+- Transparency and openness in presenting the product (houses) and in the deal process — now channeled through **Transparência**
 - Slogan in Portuguese: **Construindo sonhos e realizando vidas através de projetos imobiliários de qualidade. Sua nova casa está aqui.**
+
+> **Pillar wording refined 2026-07-17** (design pass on Home/Sobre, #197): original four were Transparency/Trust/Closeness/Openness. "Openness" overlapped too closely with "Transparency" (near-duplicate copy on the live site) and was dropped; "Trust" and "Closeness" evolved into the sharper **Segurança** and **Parceria** — same underlying customer-validated feelings, more concrete wording. **Solidez** is new: construction quality/project fidelity wasn't captured by the original four at all. See `CHANGELOG.md` 2026-07-17 for the full before/after copy.
 
 ### 2.2 Location context (important)
 - Based in **Campinas-SP, Brazil** (largest non-capital city in the country).

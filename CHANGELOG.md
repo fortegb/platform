@@ -7,7 +7,20 @@
 
 ## Não versionado
 
-### 2026-07-15 — Footer: contraste de hover corrigido ([#212](https://github.com/fortegb/platform/issues/212))
+### 2026-07-17 — Home: 4 valores da marca reescritos ([#197](https://github.com/fortegb/platform/issues/197))
+
+- **Transparência/Confiança/Proximidade/Abertura → Transparência/Segurança/Parceria/Solidez.** Motivo: Transparência e Abertura diziam praticamente a mesma coisa (comunicação clara/honesta), redundância real. As outras duas evoluíram para termos mais concretos — "Confiança" (traço abstrato da empresa) → "Segurança" (o que o cliente sente), "Proximidade" (institucional/estático) → "Parceria" (relação ativa, negociação direta com quem decide). "Solidez" é novo — qualidade construtiva/fidelidade ao projeto, dimensão que os 4 originais não cobriam.
+- Copy final:
+  - **Transparência** — Processo claro e honesto, do projeto à escritura *(sem alteração)*
+  - **Segurança** — Sua casa como você sonha, de nossa família para a sua
+  - **Parceria** — Direto com quem decide, apoiando você em cada etapa
+  - **Solidez** — Construção e acabamento superiores, sempre fiel ao projeto
+- Ícones: cadeado (Segurança, herdado de Confiança) trocado por coração — o texto final ficou mais emocional/família do que literal-segurança, cadeado destoava. Prédio novo para Solidez (herdava globo de Abertura, sem relação). Escudo-check (Transparência) e pessoas (Parceria, herdado de Proximidade) mantidos.
+- **`AGENTS.md` §2.1 atualizado** — os 4 pilares documentados (validados por feedback real de cliente: "trust during negotiation", "transparency and openness") foram a base; a reescrita mantém o mesmo sentimento subjacente do cliente, só com palavras mais específicas. Decisão de adotar os novos 4 como canônicos, não reverter.
+- `components/HomeContent.vue` — texto + ícones dos 4 cards.
+- **Botões do Home nivelados**: "Fale Conosco"/"Ver Portfólio" (Hero) e "Fale Conosco"/"Enviar Mensagem" (CTA final) passam a ter largura igual (`w-40`/`w-44`) — antes cada um tinha a largura do próprio texto, ficando desalinhados lado a lado. "Enviar Mensagem" herda o estilo sólido de "Ver Portfólio" em vez de outline.
+- **Logo (`public/logo.png`) recortado e com fundo transparente** — o arquivo original tinha ~130px de espaço morto de cada lado e um fundo cinza-quase-preto sólido embutido (não exatamente a cor do header), dando impressão de estar desalinhado à direita. Recortado pra marca real, fundo removido.
+- **Footer: "Links Rápidos" vira lista vertical** — antes era `flex flex-wrap` (linha horizontal), inconsistente com "Legal" (vertical) ao lado. Mesmo padrão agora, e lista vertical é o padrão comum de rodapé.
 
 - `AppFooter.vue` usava `hover:text-primary` sobre `bg-primary-500` — o alias DaisyUI `primary` e o valor Tailwind `primary-500` são o mesmo hex, tornando o texto do link invisível ao passar o mouse. Corrigido para `hover:text-primary-100`, mesmo contraste que `AppHeader.vue` já usa.
 - Encontrado durante o audit de tokenização de `fundacao-tokens-web`/`design-descoberta-site` (#197); filed separado por ser bug visual, não tokenização.
