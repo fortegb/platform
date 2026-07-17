@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
-      whatsappNumber: process.env.NUXT_PUBLIC_WHATSAPP_NUMBER
+      whatsappNumber: process.env.NUXT_PUBLIC_WHATSAPP_NUMBER || '5519991444862'
     }
   }
 })
