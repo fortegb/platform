@@ -140,18 +140,16 @@ function measureTwoRowsHeight() {
   twoRowsHeight.value = imageHeight * 2 + rowGap
 }
 
-onMounted(() => {
+watch(gridEl, (el) => {
+  resizeObserver?.disconnect()
+  if (!el) return
   measureTwoRowsHeight()
-  if (gridEl.value) {
-    resizeObserver = new ResizeObserver(() => measureTwoRowsHeight())
-    resizeObserver.observe(gridEl.value)
-  }
-  window.addEventListener('resize', measureTwoRowsHeight)
-})
+  resizeObserver = new ResizeObserver(() => measureTwoRowsHeight())
+  resizeObserver.observe(el)
+}, { immediate: true })
 
 onUnmounted(() => {
   resizeObserver?.disconnect()
-  window.removeEventListener('resize', measureTwoRowsHeight)
 })
 
 watch(filteredImages, () => nextTick(measureTwoRowsHeight))
