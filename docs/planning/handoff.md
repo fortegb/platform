@@ -1,108 +1,106 @@
-# Handoff — fortegb/platform — 2026-07-16
+# Handoff — fortegb/platform — 2026-07-17
 
-**Updated:** 2026-07-16T00:00:00-03:00
-**Status:** consumed
+**Updated:** 2026-07-17T00:00:00-03:00
+**Status:** active
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
 > `consumed` (no expiration). L2 catch-up sets Status to `consumed` after use.
 
 ## Context
 
-Long session continuing #197 (Descoberta do site, first Passo 6 design leaf). Started
-by merging #68 (token foundation) into #197 — folding it in removed a redundant
-branch/change since #197 already touches every file #68 would have. Applied the token
-foundation, fixed a footer contrast bug (#212, separate issue/branch, closed), then did
-an extensive user-driven visual review pass on `/portfolio` and `/portfolio/[slug]`:
-sorting, sold-house handling, a categorized photo gallery (30 images/house), a lightbox,
-a video tab with multi-video nav, and a visual-hierarchy cleanup (badges → icon+text,
-pill tabs → underline tabs, dual buttons → one button + one link). The gallery/video
-work was built on an isolated branch (`feat/house-gallery-categories`) specifically so
-it could be discarded if it didn't pan out — it did, and was merged back into
-`feat/design-descoberta-site`.
+Long session continuing #197 (Descoberta do site). Cleared essentially all of the
+previously "unaudited" scope from the prior handoff: floor plans (real image + zoom
+viewer), house description/features content, a CMS content-model design pass, Home's
+4 brand-value pillars (fully rewritten across many critique rounds), Sobre (rewritten
+from real dictated facts, duplicate values block removed), Contato (lighter redesign,
+bug fixes), footer alignment, legal pages restyle, and Blog (lighter card redesign +
+finally installing `@tailwindcss/typography` for real — this bug had been hit and
+manually worked around 3 times already this session on other pages). 6 commits made
+and pushed to `feat/design-descoberta-site`; nothing archived.
+
+The user explicitly asked for 5 further Blog modernization improvements ("Todos, gere
+fotos um pouco mais realistas" — do all of them) that are agreed to but **not yet
+implemented** — that's the named focus for next session (`/rbo-handoff` was invoked
+with "com foco em revisar blog/ e blog/slug").
 
 ## Control doc paths
 
 - Decisions: `docs/planning/decisions.md` — unchanged this session, no new D-number
-  (everything was implementation-level, not a new architecture decision)
+  (everything was implementation/content-level, not a new architecture decision)
 - Session compass: `STATUS.md` — updated with this session's block + next-session pointer
-- Context: `AGENTS.md` — not touched (no rule/stack/milestone change; §9 already points
-  to STATUS.md for current detail)
-- Planning: `docs/planning/design-tokens.md` (written this session), `cms-content-model.md`
-  (added `features` + `gallery[].category` as documented `house` fields — same gap
-  pattern as `featured` found last session)
+- Context: `AGENTS.md` — §2.1 brand positioning updated (4 pillars renamed/rewritten,
+  with a dated note pointing to `CHANGELOG.md` for the full before/after)
+- Planning: `openspec/changes/design-descoberta-site/tasks.md` (new sections 9–14)
 - Handoff: `docs/planning/handoff.md` (this file)
 
 ## Current state
 
-**Done**
-- #68 closed (not planned), merged into #197. Branch/change renamed to
-  `feat/design-descoberta-site` / `design-descoberta-site`.
-- Token foundation applied: `whatsapp`/`whatsapp-hover` tokens, dead `.btn-secondary` +
-  redundant `.btn-primary` removed, `Hero.vue` (variant prop) replacing
-  `HeroSplit`/`HeroSlate`/`HeroAzul`.
-- Found and fixed a real bug along the way: issue bodies for #197–#208 were shifted one
-  position off from their titles (bulk-creation bug from a prior session) — rotated all
-  12 back into alignment.
-- #212 (footer `hover:text-primary` invisible against `bg-primary-500`) — own
-  issue/branch, closed.
-- `/portfolio`: status-priority sort, search/filter hidden (too few houses to justify
-  it), price/Agendar-Visita hidden when sold, photo links to detail page, `featured`
-  flag drives Home's spotlight (manual, not derived from status), mock inventory
-  corrected to match real counts (3 vendido/2 em-construção/1 disponível).
-- `/portfolio/[slug]`: categorized photo gallery (`Sala`/`Cozinha`/`Quarto`/`Banheiro`/
-  `Área Externa`, 6 photos each + "Todas"), lightbox (click/prev-next/keyboard/Escape),
-  "Vídeo" tab folded into the same tab bar with its own prev/next (tested with 1–3 real
-  YouTube videos across 2 houses). Content-accuracy per photo category was explicitly
-  dropped as a requirement mid-session (volume/distribution over per-photo matching, per
-  user direction) — worth knowing if screenshots look thematically odd.
-- Visual hierarchy cleanup (explicit user critique → fix, several rounds): spec badges
-  → icon+text (matches the detail page's own Informações card), category tabs →
-  underline style (was bordered pills), "Ver Detalhes" → plain text link ("Agendar
-  Visita" is the only real button now — two same-weight buttons per card read heavy
-  across a grid).
-- `openspec/changes/design-descoberta-site/tasks.md` sections 6–7 record all of the
-  above against the change.
+**Done** (see `tasks.md` sections 9–14 for full detail; `CHANGELOG.md` 2026-07-17 for
+the Home values before/after copy)
+- Home: 4 brand-value pillars rewritten — Transparência (kept)/Segurança (was
+  Confiança)/Parceria (was Proximidade)/Solidez (new); "Abertura" dropped as a
+  near-duplicate of Transparência. `AGENTS.md` updated as canonical per user
+  direction ("if needed correct the docs", not revert the copy).
+- Footer "Links Rápidos" → vertical list, matching "Legal".
+- Sobre: História/Missão/Visão rewritten from real facts the user dictated
+  interactively; duplicate "Nossos Valores" icon block removed.
+- Contato: lighter redesign (critique: "muito generico, muito chrome" — this same
+  critique later drove the Blog redesign too), WhatsApp button color fixed, phone
+  formatting bug fixed (13-digit country-code-prefixed numbers weren't handled).
+- Privacidade/Termos: restyled to match Sobre; stale phone/address removed.
+- Blog: `/blog` card redesign (lighter, category+date above title, "Ler Mais" as text
+  link not a button — same move as `HouseCard.vue`'s "Ver Detalhes"); `/blog/[slug]`
+  WhatsApp button color fixed; `@tailwindcss/typography` installed and wired into
+  `tailwind.config.js` — this is the 4th time the ".prose is a no-op" bug was hit this
+  session (Sobre, Portfolio detail, legal pages were manual workarounds), and the 1st
+  time it's actually fixed at the source, because Blog's post body is raw
+  `v-html` content with no way to hand-class it.
+- WhatsApp fallback number corrected site-wide (was inconsistent across 8+ files).
+- `public/logo.png` recropped (removed ~130px dead space per side + fixed
+  background-color mismatch with header navy).
 
-**In progress / explicitly requested next**
-- **`HouseCard.vue` — "continue to refine"** was the user's own handoff argument for
-  this session close. No specific complaint queued; open-ended continuation of the same
-  visual-critique loop that's been driving this whole session (user looks in browser →
-  states what's off → fix → repeat). Start there.
+**Not done — explicit next-session focus**
+5 Blog modernization ideas the user said "Todos" (all) to, none implemented yet:
+1. More realistic photos — `data/mock.ts`'s `mockBlogPosts` has 3 of 6 posts sharing
+   the identical Unsplash toy-house-model image (`photo-1560518883-ce09059eeffa`):
+   `como-escolher-casa-ideal`, `casa-propria-vs-aluguel`, `checklist-visita-imovel`.
+   The other 3 already have distinct, reasonable photos.
+2. Featured/lead post treatment on `/blog`.
+3. Intro tagline paragraph under the Blog H1.
+4. Category filter tabs — reuse `HouseGallery.vue`'s tab pattern.
+5. WhatsApp micro-CTA embedded in the blog listing itself, not just at the end of
+   each post.
 
-**Blocked / watch**
-- `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` — zero audit
-  done. Still part of #197's scope before the leaf can close (see
-  `openspec/changes/design-descoberta-site/proposal.md`, "Remaining #197 scope").
-- The in-app Browser pane's click coordinates were unreliable for most of this session
-  (repeatedly clicked one tab/element off from the intended target) — don't burn time
-  fighting it; the user does their own visual verification in their real browser, per
-  their explicit preference stated mid-session ("this is visual review... you look, I
-  fix"). Use `read_page`/`find` refs when you do need to click something yourself, and
-  don't trust a single click landing correctly without re-reading the page fresh first.
-- Dev server needed restarting multiple times this session (crashes / went stale after
-  many edits without a true restart, once causing a real stale-cache flip-flop bug the
-  user saw). If something looks visually wrong that the code doesn't explain, restart
-  the dev server before deep-diving.
+**Watch**
+- The recurring "Hydration completed but contains mismatches" console warning seen on
+  several pages (Termos, Contato, Home, Blog) is confirmed pre-existing (not
+  introduced this session, verified via `git diff` on the relevant date logic) — flag
+  again if it resurfaces, but it's out of scope of anything currently being worked.
+- Dev server has gone stale (serving old HTML/classes despite correct source) multiple
+  times this session — if something looks visually wrong the code doesn't explain,
+  kill the process (`lsof -nP -iTCP:3000 -sTCP:LISTEN`) and restart rather than just
+  reloading the browser.
 
 ## Artifacts
 
 - OpenSpec change: `openspec/changes/design-descoberta-site/` (issue #197)
-- Merged branch (now gone): `feat/house-gallery-categories` → merged into
-  `feat/design-descoberta-site`
-- New components: `components/HouseGallery.vue`, `components/ImageLightbox.vue`
-- New composable: `composables/useVideoEmbed.ts`, `composables/useHouseSort.ts`
-- Closed issues this session: #68 (not planned), #212 (fixed)
-- Reference: `docs/planning/design-tokens.md`, `docs/planning/templates/cms-content-model.md`
+- Commits this session (all pushed, `feat/design-descoberta-site`): `20cb4fc`
+  (Home values), `3699849` (WhatsApp number fix), `e41bfe9` (Contato), `1be1cfb`
+  (portfolio mosaic sizing), `a07c782` (Sobre), `bb37e21` (legal pages), `cf0d910`
+  (Blog + typography plugin)
+- New dependency: `@tailwindcss/typography` (devDependency)
+- Reference: `CHANGELOG.md` 2026-07-17 entry (Home values full before/after copy)
 
 ## Next session
 
 **First action:** `rbo-catch-up`, then resume on `feat/design-descoberta-site` and
-continue refining `HouseCard.vue` per the user's own stated focus for next time — no
-specific issue queued, follow the same look-critique-fix loop already established this
-session. After that, move to the still-unaudited routes (`/blog`, `/sobre`, `/contato`,
-`/privacidade`, `/termos`) to actually close out #197.
+implement the 5 agreed Blog modernization items above (start with the photo swap in
+`data/mock.ts`, since the other 4 are structural/UI and can build on top of it). After
+Blog is done, confirm with the user whether #197's scope (`/portfolio`, `/sobre`,
+`/contato`, legal, `/blog`) is fully closed or if anything else needs another pass
+before considering archive.
 
 ## Suggested skills
 
 - `rbo-catch-up` (session open) — will consume this handoff
-- No `rbo-close-change` yet — #197 isn't done (6 routes unaudited)
+- No `rbo-close-change` yet — #197 isn't confirmed done (Blog modernization pending)

@@ -68,3 +68,48 @@ Scoped to floor plan only per user decision — engineering project docs (struct
 - [x] 8.1 `data/mock.ts`: `floorplans` field added to `house` — `{ label, url, type: 'image' | 'pdf' }[]`. Vila Verde gets two image plans (Térreo, Pavimento Superior, local SVG mocks under `public/images/floorplans/`); Jardim dos Ipês gets one PDF-type entry to exercise both formats.
 - [x] 8.2 `components/HouseFloorplans.vue`: new component, separate from `HouseGallery` — floor plans are not photos and must not be cropped to `aspect-[4/3]`. Image-type entries render `object-contain` and open in the existing `ImageLightbox`; PDF-type entries render as a card linking out (`target="_blank"`), no in-page viewer.
 - [x] 8.3 `pages/portfolio/[slug].vue`: section placed full-width below the two-column description/specs + sidebar grid (not squeezed into the `lg:col-span-2` content column) — floor plans want more horizontal room than a drawing crammed next to the price/CTA sidebar affords. Hidden entirely when a house has no `floorplans` data.
+
+## 9. Home — brand values rewrite (`components/HomeContent.vue`, `components/Hero.vue`, `components/HeroClassic.vue`)
+
+Iterative, user-driven copy rewrite of the "Por que escolher a ForteGB?" 4-value block — many rounds of critique on cliché avoidance, negativity framing, register consistency, and structural repetition (see `CHANGELOG.md` 2026-07-17 for full before/after copy).
+
+- [x] 9.1 Four pillars renamed: **Transparência** (kept), **Segurança** (was Confiança), **Parceria** (was Proximidade), **Solidez** (new — construction quality/project fidelity; "Abertura" dropped as a near-duplicate of Transparência). `AGENTS.md` §2.1 updated to record the new canonical set, per user direction to correct docs rather than revert copy.
+- [x] 9.2 Copy for all 4 values rewritten from scratch, plus new SVG icon paths for Segurança (heart) and Solidez (building).
+- [x] 9.3 Bottom CTA buttons widened to equal `w-44`; "Enviar Mensagem" changed from outline to solid `bg-white text-primary-500` (matches Hero's "Ver Portfólio" treatment).
+- [x] 9.4 `Hero.vue` / `HeroClassic.vue`: CTA buttons ("Fale Conosco"/"Ver Portfólio") widened to equal `w-40`.
+- [x] 9.5 WhatsApp fallback number corrected site-wide (`nuxt.config.ts`, `WhatsAppButton.vue`, `HomeContent.vue`, `Hero.vue`, `[slug].vue`, `contato.vue`, `blog/[slug].vue`) to `5519991444862`.
+- [x] 9.6 `public/logo.png` recropped (content-bbox crop with alpha transparency) — original had ~130px dead space per side and a near-black fill mismatched from the header's navy background.
+
+## 10. Footer alignment (`components/AppFooter.vue`)
+
+- [x] 10.1 "Links Rápidos" changed from `flex flex-wrap gap-x-6 gap-y-2` to `space-y-2` — vertical list matching the "Legal" column.
+
+## 11. Sobre — content rewrite (`pages/sobre.vue`)
+
+- [x] 11.1 "Nossa História" rewritten from real facts dictated by the user (3→4 paragraphs: origin/investors/condomínio specialization; quality+execution; documentation/dossiê with a new transparency line; closing).
+- [x] 11.2 "Nossa Missão" and "Nossa Visão" rewritten, connected to the Home brand values and the 5-houses/year internal reference.
+- [x] 11.3 "Nossos Valores" icon-card section removed entirely — duplicate of Home's value block.
+- [x] 11.4 H1 left-aligned; contact-section paragraph line-break added.
+
+## 12. Contato — redesign (`pages/contato.vue`, `components/ContactForm.vue`)
+
+Critique: too generic/heavy ("muito chrome" — format complaint, not content). Same lighter-design philosophy later applied to Blog (section 14).
+
+- [x] 12.1 Shared intro paragraph promoted above the two-column grid (was duplicated per-card).
+- [x] 12.2 "Fale Conosco" and "Envie uma Mensagem" wrapped in matching `bg-base-200 rounded-xl p-6 sm:p-8` cards; icon circles softened to `bg-primary-500/10` + `text-primary-500` (was solid navy + white icon).
+- [x] 12.3 WhatsApp button color fixed from `btn btn-primary` (navy) to `bg-whatsapp` (green).
+- [x] 12.4 H1 left-aligned (was centered).
+- [x] 12.5 `formatPhone()` fixed — was only handling 11-digit numbers, so the 13-digit (`55`-prefixed) `whatsappNumber` always fell through unformatted; now strips the country code first.
+- [x] 12.6 `ContactForm.vue`: inputs/select/textarea changed from bordered to `bg-base-100 border-none focus:ring-2 focus:ring-primary-500` — white fill reads correctly now that the form sits inside a `bg-base-200` card.
+
+## 13. Legal pages restyle (`pages/privacidade.vue`, `pages/termos.vue`)
+
+- [x] 13.1 Matched to Sobre's typography: explicit `text-2xl font-bold mb-4` on `<h2>`, `list-disc list-inside space-y-1` on `<ul>` (dropped the no-op `.prose prose-lg` — typography plugin wasn't installed yet at this point in the session, see 14.1). H1 sized to `text-4xl md:text-5xl`.
+- [x] 13.2 Stale contact info removed — placeholder phone `(19) 99999-9999` and address dropped from both; `privacidade@fortegb.com` consolidated to `contato@fortegb.com`.
+
+## 14. Blog redesign (`pages/blog/index.vue`, `pages/blog/[slug].vue`)
+
+- [x] 14.1 Installed `@tailwindcss/typography` for real (`tailwind.config.js` plugins array). The `.prose`-no-op bug had been hit and manually worked around 3 times already this session (Sobre, Portfolio detail, legal pages — see 13.1); Blog's post body is raw HTML from `data/mock.ts` (`v-html`, eventually CMS content) so manual per-element classing wasn't practical here, forcing the real fix.
+- [x] 14.2 `/blog` list card redesign per critique ("muito generico, muito chrome" — same complaint as Contato): dropped `card bg-base-100 shadow-xl` wrapper and badge-pill category; category now small colored uppercase text + `•` + date, moved above the title; "Ler Mais" changed from a solid button to a text link with arrow (matches the `HouseCard.vue` "Ver Detalhes" precedent from section 7.8).
+- [x] 14.3 `/blog/[slug]` WhatsApp CTA button fixed from `btn btn-primary` (navy) to `bg-whatsapp` (green).
+- [ ] 14.4 "Modernize blog" follow-ups agreed to (user: "Todos, gere fotos um pouco mais realistas") — **not yet implemented**, carried to next session: (a) replace 3 duplicated Unsplash toy-house photos in `mockBlogPosts` with more realistic/varied images, (b) featured/lead post treatment on `/blog`, (c) intro tagline under the Blog H1, (d) category filter tabs (reuse `HouseGallery.vue`'s tab pattern), (e) WhatsApp micro-CTA embedded in the blog listing itself, not just at the end of each post.
