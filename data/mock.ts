@@ -367,7 +367,7 @@ export const mockBlogPosts = [
       <h2>Conclusão</h2>
       <p>Escolher a casa ideal requer paciência e pesquisa. Na ForteGB, estamos prontos para ajudar você em cada etapa desse processo. Entre em contato conosco e descubra como podemos tornar seu sonho realidade!</p>
     `,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop',
     category: 'Dicas',
     publishedAt: new Date('2024-01-15'),
     author: 'Equipe ForteGB'
@@ -466,7 +466,7 @@ export const mockBlogPosts = [
       <h2>Conclusão</h2>
       <p>A escolha depende do seu perfil, objetivos e situação financeira. Considere sempre o longo prazo e suas metas pessoais.</p>
     `,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop',
     category: 'Dicas',
     publishedAt: new Date('2024-01-20'),
     author: 'Equipe ForteGB'
@@ -493,7 +493,7 @@ export const mockBlogPosts = [
         <li>Segurança do bairro</li>
       </ul>
     `,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop',
     category: 'Dicas',
     publishedAt: new Date('2024-01-18'),
     author: 'Equipe ForteGB'
