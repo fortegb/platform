@@ -10,37 +10,40 @@
       <p class="text-xl text-base-content/70">Nenhum post encontrado.</p>
     </div>
     
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article
-        v-for="post in posts"
-        :key="post.id"
-        class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300"
-      >
-        <figure v-if="post.image" class="h-48 overflow-hidden">
-          <img 
-            :src="post.image" 
-            :alt="post.title"
-            class="w-full h-full object-cover"
-          />
-        </figure>
-        <div class="card-body">
-          <div v-if="post.category" class="badge badge-primary mb-2">
+    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+      <article v-for="post in posts" :key="post.id">
+        <NuxtLink :to="`/blog/${post.slug}`">
+          <figure v-if="post.image" class="h-48 rounded-xl overflow-hidden mb-4">
+            <img
+              :src="post.image"
+              :alt="post.title"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+        </NuxtLink>
+
+        <div class="flex items-center gap-2 text-xs mb-2">
+          <span v-if="post.category" class="text-primary-500 font-semibold uppercase tracking-wide">
             {{ post.category }}
-          </div>
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p class="text-base-content/70 line-clamp-3">{{ post.excerpt }}</p>
-          <div class="card-actions justify-end mt-4">
-            <NuxtLink 
-              :to="`/blog/${post.slug}`"
-              class="btn btn-primary btn-sm"
-            >
-              Ler Mais
-            </NuxtLink>
-          </div>
-          <div class="text-sm text-base-content/50 mt-2">
-            {{ formatDate(post.publishedAt) }}
-          </div>
+          </span>
+          <span v-if="post.category" class="text-base-content/30">•</span>
+          <span class="text-base-content/50">{{ formatDate(post.publishedAt) }}</span>
         </div>
+
+        <NuxtLink :to="`/blog/${post.slug}`">
+          <h2 class="text-xl font-bold mb-2 hover:text-primary-500 transition-colors">
+            {{ post.title }}
+          </h2>
+        </NuxtLink>
+
+        <p class="text-base-content/70 line-clamp-3 mb-3">{{ post.excerpt }}</p>
+
+        <NuxtLink
+          :to="`/blog/${post.slug}`"
+          class="inline-flex items-center gap-1 text-primary-500 font-semibold text-sm hover:underline"
+        >
+          Ler Mais <span aria-hidden="true">→</span>
+        </NuxtLink>
       </article>
     </div>
   </div>
