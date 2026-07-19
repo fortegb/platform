@@ -30,7 +30,7 @@ Seed docs/planning (✅)
 | 4 | **Architecture & MVP definition** (produto/stack) | [#1](https://github.com/fortegb/platform/issues/1) | platform | ✅ Done | — |
 | 4b | **Arquitetura da solução & ambientes** (infra/env/integrações) | [#146](https://github.com/fortegb/platform/issues/146) | platform | ✅ Done | — |
 | 4c | **Arquitetura de domínio** (visitas, mensageria, RBAC, admin) | [#179](https://github.com/fortegb/platform/issues/179) | platform | ✅ Done | — |
-| 5 | **Brand assets upload** | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo) |
+| 5 | **Brand assets** (logo SVG + favicon) | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo, reescopado 2026-07-19) |
 
 | Epic | Doc / runbook |
 |------|---------------|
@@ -77,11 +77,15 @@ Seed docs/planning (✅)
 
 > **#1 cobriu produto/stack.** A arquitetura de **infra/ambientes/integrações** foi definida no Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), D-022, **fechado**). Revisão pós-#146 encontrou lacunas de arquitetura de domínio — Epic **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin, D-052..D-056), **também fechado**. Passo 4 completo; build da Fase 1 ainda aguarda G2 (passos 5–7).
 
-### Epic: Brand assets upload ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
+### Epic: Brand assets ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
 
-1. [ ] Logo (SVG/PNG/PDF)
-2. [ ] Brand guide (cores, tipografia, uso)
-3. [ ] Hero / imagens candidatas (opcional)
+Reescopado em 2026-07-19: #197 derivou os tokens da implementação existente, invertendo
+a dependência — o design system agora **produz** a documentação de marca (#70) em vez de
+consumi-la. Sobrou só o que é genuinamente asset.
+
+1. [ ] Logo em SVG + favicon real ([#39](https://github.com/fortegb/platform/issues/39)) — `favicon.ico` atual tem 14 bytes (placeholder vazio); depende do vetorial do usuário
+2. [x] ~~Brand guide (cores, tipografia, uso)~~ ([#40](https://github.com/fortegb/platform/issues/40)) — **fechada**, superseded por #70
+3. [ ] ~~Hero / imagens candidatas~~ ([#41](https://github.com/fortegb/platform/issues/41)) — **movida para Etapa 8 (Execução)**, decisão de lançamento
 
 ---
 

@@ -9,7 +9,7 @@
 ```
 1. Fundação de tokens web — parte do escopo de #197 (Descoberta do site), deriva do
    Home existente, não bloqueia em brand assets (#2). Ver design-tokens.md.
-     ↓ (paralelo: #39 Logo, #40 Brand guide, #41 Hero images — confirmam/ajustam depois)
+     ↓ (paralelo: #39 Logo SVG + favicon. #40 fechada — superseded por #70; #41 → Etapa 8)
 2. Leaves de design, uma por jornada, na ordem do screen-map:
    Visitante/cliente → Corretor → Staff → Admin
      ↓
@@ -25,6 +25,8 @@
 ## Por que a fundação de tokens não espera o brand guide
 
 Os 3 de 4 componentes de hero (`HeroSplit`, `HeroSlate`, `HeroAzul`) já são estruturalmente idênticos — mesmo grid, mesmos botões, mudando só o gradiente. Isso permite derivar a base de tokens web (cores, tipografia, espaçamento, botões) diretamente do que já está implementado em Home, sem esperar #40 (brand guide formal). Essa fundação roda primeiro, como parte do escopo de #197; #39/#40/#41 (Brand assets, epic #2) seguem em paralelo e **confirmam/ajustam** os tokens depois, não os bloqueiam.
+
+> **Atualização 2026-07-19 (pós-#197):** a previsão acima se confirmou, e o epic #2 foi reescopado por causa disso. Como os tokens saíram da implementação e não de um brand guide, **#40 foi fechada como superseded por #70** — o design system produz a documentação de marca em vez de consumi-la. **#41 (imagens de hero) foi para Etapa 8**, é decisão de lançamento. Restou **#39**, reescopada para as duas lacunas reais de asset: logo em SVG (só existe PNG) e favicon de verdade (`public/favicon.ico` tem 14 bytes).
 
 **Consolidação do Hero** (parte do escopo de #197, implementada): `HeroSplit`/`HeroSlate`/`HeroAzul` viraram um componente único (`Hero.vue`) com prop de variante; `HeroClassic` permanece separado (único com layout genuinamente diferente — full-bleed vs. split). A escolha do hero de produção segue diferida ao lançamento (D-021, Q-010) — a consolidação é limpeza de código, não resolve essa decisão.
 

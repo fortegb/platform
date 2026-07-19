@@ -32,6 +32,7 @@
 - [#36](https://github.com/fortegb/platform/issues/36) Checkpoint: Q-* resolved ou deferred
 - [#37](https://github.com/fortegb/platform/issues/37) Criar epics Phase 1–4 no board
 - [#38](https://github.com/fortegb/platform/issues/38) Fechar epic Architecture → desbloquear Phase 1
+- [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
 - [#68](https://github.com/fortegb/platform/issues/68) Fundação de tokens web (derivada do Home existente)
 - [#138](https://github.com/fortegb/platform/issues/138) Portal sócios: módulos, UX cards e deploy GitHub Pages
 - [#139](https://github.com/fortegb/platform/issues/139) Epics and issues review (board hygiene)
@@ -93,12 +94,11 @@
 - [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
-- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
+- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets (logo SVG + favicon)
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
-- [#39](https://github.com/fortegb/platform/issues/39) Logo (SVG/PNG/PDF)
-- [#40](https://github.com/fortegb/platform/issues/40) Brand guide (cores, tipografia, uso)
+- [#39](https://github.com/fortegb/platform/issues/39) Logo em SVG + favicon real
 - [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
 - [#42](https://github.com/fortegb/platform/issues/42) Epic: Platform environments
 - [#43](https://github.com/fortegb/platform/issues/43) Supabase project + database-schema.sql
