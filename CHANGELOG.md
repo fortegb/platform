@@ -7,6 +7,26 @@
 
 ## Não versionado
 
+### 2026-07-19 — Passo 6 arranca: leaf #197 (Descoberta do site) fechada ([#197](https://github.com/fortegb/platform/issues/197))
+
+**Primeira das 11 leaves de design do Passo 6 (epic #67) concluída.** Fecha também a fundação de tokens que as leaves #198–#207 herdam.
+
+- **Fundação de tokens** — `whatsapp`/`whatsapp-hover` (`#3E8E5E`/`#34784F`) viram cores nomeadas no `tailwind.config.js`, substituindo o hex repetido em 5 lugares. `.btn-secondary` (morta, zero usos) e `.btn-primary` (redundante com a geração nativa do DaisyUI) removidas de `main.css`. Inventário em [`docs/planning/design-tokens.md`](./docs/planning/design-tokens.md).
+- **Hero consolidado** — `HeroSplit`/`HeroSlate`/`HeroAzul` (estruturalmente idênticos, só o gradiente mudava) viram um `Hero.vue` com prop `variant`. `HeroClassic` fica separado (layout genuinamente diferente). A escolha de qual hero vai a produção segue diferida (D-021/Q-010).
+- **Rotas de variante renomeadas** — `/azul` → `/gradient`, `/classico` → `/hero`. Nomeadas por estilo, não por número, pra não colidir com o naming de release v1/v2/v3.
+- **`/portfolio` e `/portfolio/[slug]`** — ordenação por status (disponível > em construção > resto), preço/CTA ocultos quando vendido, galeria categorizada (30 fotos/casa × 5 categorias) com lightbox e aba de vídeo, planta baixa com visualizador de zoom (`FloorplanViewer.vue`), hierarquia de botões revista.
+- **Home** — 4 valores da marca reescritos (ver entrada de 2026-07-17 abaixo).
+- **`/sobre`** — "Nossa História/Missão/Visão" reescritos a partir de fatos reais; bloco "Nossos Valores" removido (duplicava o Home).
+- **`/contato`** — redesign mais leve (crítica: "muito genérico, muito chrome"), cor do botão WhatsApp corrigida, bug de formatação de telefone corrigido (números de 13 dígitos com DDI `55` caíam sem formatação).
+- **`/privacidade` e `/termos`** — restilizados pra bater com Sobre; telefone e endereço obsoletos removidos.
+- **`/blog` e `/blog/[slug]`** — cards mais leves, post em destaque, tagline de intro, abas de filtro por categoria, fotos duplicadas trocadas.
+- **`@tailwindcss/typography` instalado** — o plugin nunca tinha sido instalado, então toda classe `.prose` no repo era um no-op silencioso. Foi contornado à mão 3 vezes (Sobre, portfolio detail, páginas legais) antes de ser corrigido na raiz, quando o corpo dos posts do blog (HTML via `v-html`) tornou o workaround manual inviável.
+- **Dedupe de WhatsApp** — o path SVG do ícone e a construção da URL `wa.me` estavam duplicados idênticos em 8 arquivos. Extraídos pra `components/WhatsAppIcon.vue` + `composables/useWhatsApp.ts`. Número de WhatsApp do site corrigido e centralizado no `nuxt.config.ts`.
+- **Tokenização auditada em 2 passes** — Pass 1 (Home + árvore de dependências) e Pass 2 (rotas restantes), ambos limpos: zero hex, zero utilitários de cor arbitrários, zero cores cruas da paleta Tailwind. Relatório vivo em `openspec/specs/design-tokens/tokenization-report.md`, entregue ao `rbo-ui-design-system` (#70) no fim do Passo 6.
+- **Larguras de CTA normalizadas** — `portfolio/[slug]` usava `max-w-[200px]` onde o resto do site usa a escala do Tailwind (`w-40`/`w-44`); além da inconsistência, px fixo não acompanha a escala global de 81.25%, rem acompanha.
+- **Bug separado:** [#212](https://github.com/fortegb/platform/issues/212) (hover invisível no footer) — encontrado no audit, filed e fechado à parte por ser bug visual, não tokenização.
+- Sem impacto de backend, API ou modelo de dados.
+
 ### 2026-07-17 — Home: 4 valores da marca reescritos ([#197](https://github.com/fortegb/platform/issues/197))
 
 - **Transparência/Confiança/Proximidade/Abertura → Transparência/Segurança/Parceria/Solidez.** Motivo: Transparência e Abertura diziam praticamente a mesma coisa (comunicação clara/honesta), redundância real. As outras duas evoluíram para termos mais concretos — "Confiança" (traço abstrato da empresa) → "Segurança" (o que o cliente sente), "Proximidade" (institucional/estático) → "Parceria" (relação ativa, negociação direta com quem decide). "Solidez" é novo — qualidade construtiva/fidelidade ao projeto, dimensão que os 4 originais não cobriam.
