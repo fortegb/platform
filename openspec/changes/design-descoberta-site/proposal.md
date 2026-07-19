@@ -39,4 +39,8 @@ Full dependency scope of the Home page (`pages/index.vue` → `layouts/default.v
 
 No backend, API, or data model impact.
 
-**Remaining #197 scope not yet covered:** `/blog`, `/blog/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos` still need review (`simulado` screens first, per `screen-map.md`, then any `novo` ones) before this leaf closes. `/portfolio` and `/portfolio/[slug]` are done — see tasks.md section 6.
+**#197 scope — complete.** All routes reviewed and tokenized: `/`, `/slate`, `/gradient`, `/hero` (Hero variants), `/portfolio`, `/portfolio/[slug]` (tasks.md §6–8), `/sobre` (§11), `/contato` (§12), `/privacidade`, `/termos` (§13), `/blog`, `/blog/[slug]` (§14). Home's brand-value rewrite (§9) and the footer fix (§10) landed here too.
+
+The leaf grew well beyond its original token-foundation scope: what began as a WhatsApp-color retrofit plus Hero consolidation turned into a full design and content pass across every discovery route, driven by user visual review. Tokenization was audited in two passes (Pass 1 Home, Pass 2 the remaining routes) — both clean, zero color/token gaps; full record in `openspec/specs/design-tokens/tokenization-report.md`.
+
+Route rename during this change: `/azul` → `/gradient`, `/classico` → `/hero` (named by style, not number, to avoid colliding with v1/v2/v3 release naming). The Impact table above records the file names as they were at proposal time.
