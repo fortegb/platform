@@ -89,9 +89,8 @@
 - [#194](https://github.com/fortegb/platform/issues/194) Jornada: gestão de acesso Tuya
 - [#195](https://github.com/fortegb/platform/issues/195) Jornada: configuração de plataforma e papéis
 - [#196](https://github.com/fortegb/platform/issues/196) Onboarding do corretor: exigir CPF (lacuna em D-062)
-
-## In Progress
 - [#197](https://github.com/fortegb/platform/issues/197) Design e tokenização: Descoberta do site
+- [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
 - [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets upload
@@ -203,4 +202,14 @@
 - [#199](https://github.com/fortegb/platform/issues/199) Design e tokenização: Visita QR
 - [#200](https://github.com/fortegb/platform/issues/200) Design e tokenização: Gerenciar visita
 - [#201](https://github.com/fortegb/platform/issues/201) Design e tokenização: Onboarding do corretor
+- [#202](https://github.com/fortegb/platform/issues/202) Design e tokenização: Registro de cliente
+- [#203](https://github.com/fortegb/platform/issues/203) Design e tokenização: Painel e pipeline do corretor
+- [#204](https://github.com/fortegb/platform/issues/204) Design e tokenização: Aprovação de corretor e casa
+- [#205](https://github.com/fortegb/platform/issues/205) Design e tokenização: Fila de exceção de verificação
+- [#206](https://github.com/fortegb/platform/issues/206) Design e tokenização: Operação diária do staff
+- [#207](https://github.com/fortegb/platform/issues/207) Design e tokenização: Configuração de plataforma e papéis
+- [#208](https://github.com/fortegb/platform/issues/208) Tokenizar: Visitante/cliente
+- [#209](https://github.com/fortegb/platform/issues/209) Tokenizar: Corretor
+- [#210](https://github.com/fortegb/platform/issues/210) Tokenizar: Staff
+- [#211](https://github.com/fortegb/platform/issues/211) Tokenizar: Admin
 
