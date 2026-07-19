@@ -11,7 +11,9 @@
 **Pages:**
 - `pages/index.vue` (Home, `/`)
 - `pages/slate.vue` (`/slate`)
-- `pages/azul.vue` (`/azul`)
+- `pages/gradient.vue` (`/gradient`)
+
+> Route rename: `/azul` → `/gradient` and `/classico` → `/hero` (variant routes named by style, not by number, to avoid colliding with the v1/v2/v3 release naming). File and route names below reflect the current names; the migration log entries record what was audited at the time.
 
 **Components (dependency tree, layout-level included automatically):**
 - `layouts/default.vue`
@@ -26,7 +28,7 @@
 
 **Token source files:** `tailwind.config.js`, `assets/css/main.css`
 
-**Out of scope for Pass 1:** `pages/classico.vue` uses `HeroClassic.vue`'s structurally different layout — not part of Hero consolidation, but its WhatsApp CTA color was in scope (see below). The rest of #197's routes were audited separately in Pass 2 below.
+**Out of scope for Pass 1:** `pages/hero.vue` uses `HeroClassic.vue`'s structurally different layout — not part of Hero consolidation, but its WhatsApp CTA color was in scope (see below). The rest of #197's routes were audited separately in Pass 2 below.
 
 ### Pass 2 — remaining #197 routes (portfolio, blog, sobre, contato, legal)
 
@@ -107,9 +109,9 @@ No same-value/different-role ambiguity was found in this pass — no role-ambigu
 | `assets/css/main.css` | — | — | Removed `.btn-secondary` (dead) and `.btn-primary` (redundant) custom classes |
 | `components/WhatsAppButton.vue` | `bg-whatsapp`, `hover:bg-whatsapp-hover` | `bg-[#3E8E5E]` → `bg-whatsapp`; `hover:bg-[#34784F]` → `hover:bg-whatsapp-hover` | Zero visual change (identical resolved color) |
 | `components/HomeContent.vue` | `bg-whatsapp`, `hover:bg-whatsapp-hover` | same substitution, CTA-contato WhatsApp link | Zero visual change |
-| `components/HeroClassic.vue` | `bg-whatsapp`, `hover:bg-whatsapp-hover` | same substitution | **Found during Phase-9 verification (dangling-reference grep), not in the original audited scope** — `HeroClassic.vue` isn't part of Home's render tree (it's `pages/classico.vue`'s hero), so the initial dependency-tree scope missed it. Caught and fixed before commit. |
+| `components/HeroClassic.vue` | `bg-whatsapp`, `hover:bg-whatsapp-hover` | same substitution | **Found during Phase-9 verification (dangling-reference grep), not in the original audited scope** — `HeroClassic.vue` isn't part of Home's render tree (it's `pages/classico.vue`'s hero), so the initial dependency-tree scope missed it. Caught and fixed before commit. (`pages/classico.vue` at audit time; since renamed to `pages/hero.vue`.) |
 | `components/Hero.vue` (new) | `bg-whatsapp`, `hover:bg-whatsapp-hover`, `to-primary-700`/`to-hero-slate`/`to-primary-400` via `variant` prop | Replaces `HeroSplit.vue`/`HeroSlate.vue`/`HeroAzul.vue` (deleted) — structural consolidation, not a token change per se, but the merged component already uses the new WhatsApp token | Structural change explicitly in scope per the proposal (Hero consolidation), not a tokenization side-effect |
-| `pages/index.vue`, `pages/slate.vue`, `pages/azul.vue` | — | `<HeroSplit/Slate/Azul />` → `<Hero variant="..." />` | Wiring only |
+| `pages/index.vue`, `pages/slate.vue`, `pages/gradient.vue` | — | `<HeroSplit/Slate/Azul />` → `<Hero variant="..." />` | Wiring only |
 | `layouts/default.vue`, `AppHeader.vue`, `HouseCard.vue`, `CookieConsent.vue` | — (already tokenized) | none | Catalogued only, confirmed already using `primary-*`/DaisyUI aliases correctly |
 | `AppFooter.vue` | — (already tokenized elsewhere) | none in this pass | Hover bug tracked separately (#212, closed) |
 
@@ -143,4 +145,4 @@ None across both passes. Every hardcoded value found in scope had a clear single
 
 ## Readiness assessment
 
-**#197 is now fully audited for tokenization across all its routes** (`/`, `/slate`, `/azul`, `/classico`, `/portfolio`, `/portfolio/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos`, `/blog`, `/blog/[slug]`) — Pass 1 (Home) + Pass 2 (everything else) both clean, zero remaining color/token gaps. Ready for the next design leaves (#198–#207) to reference this inventory. Still not ready for `rbo-ui-design-system` (#70) — that skill runs once, at the very end of Passo 6, after all 11 design leaves and all 4 tokenize sweeps (#208–#211) close; this report will keep growing as those leaves land.
+**#197 is now fully audited for tokenization across all its routes** (`/`, `/slate`, `/gradient`, `/hero`, `/portfolio`, `/portfolio/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos`, `/blog`, `/blog/[slug]`) — Pass 1 (Home) + Pass 2 (everything else) both clean, zero remaining color/token gaps. Ready for the next design leaves (#198–#207) to reference this inventory. Still not ready for `rbo-ui-design-system` (#70) — that skill runs once, at the very end of Passo 6, after all 11 design leaves and all 4 tokenize sweeps (#208–#211) close; this report will keep growing as those leaves land.

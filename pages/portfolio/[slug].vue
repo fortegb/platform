@@ -91,7 +91,7 @@
             <NuxtLink
               v-if="house.status !== 'vendido'"
               :to="`/visita/agendar/${house.id}`"
-              class="flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 w-full max-w-[200px] px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
+              class="flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 w-44 px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               Agendar Visita
             </NuxtLink>
@@ -99,7 +99,7 @@
               :href="whatsappUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 bg-whatsapp text-white hover:bg-whatsapp-hover w-full max-w-[200px] px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
+              class="flex items-center justify-center gap-2 bg-whatsapp text-white hover:bg-whatsapp-hover w-44 px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               <WhatsAppIcon class="w-4 h-4" />
               Fale Conosco
