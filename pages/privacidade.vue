@@ -1,26 +1,26 @@
 <template>
   <div class="container mx-auto px-4 py-8 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-8">Política de Privacidade</h1>
-    
-    <div class="prose prose-lg max-w-none">
+    <h1 class="text-4xl md:text-5xl font-bold mb-8">Política de Privacidade</h1>
+
+    <div>
       <p class="text-sm text-base-content/70 mb-8">
         Última atualização: {{ currentDate }}
       </p>
 
       <section class="mb-8">
-        <h2>1. Introdução</h2>
-        <p>
-          A ForteGB ("nós", "nosso" ou "empresa") respeita sua privacidade e está comprometida 
-          em proteger seus dados pessoais. Esta Política de Privacidade explica como coletamos, 
-          usamos, armazenamos e protegemos suas informações pessoais em conformidade com a 
+        <h2 class="text-2xl font-bold mb-4">1. Introdução</h2>
+        <p class="text-base-content/80">
+          A ForteGB ("nós", "nosso" ou "empresa") respeita sua privacidade e está comprometida
+          em proteger seus dados pessoais. Esta Política de Privacidade explica como coletamos,
+          usamos, armazenamos e protegemos suas informações pessoais em conformidade com a
           Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>2. Dados Coletados</h2>
-        <p>Coletamos os seguintes tipos de dados pessoais:</p>
-        <ul>
+        <h2 class="text-2xl font-bold mb-4">2. Dados Coletados</h2>
+        <p class="text-base-content/80 mb-3">Coletamos os seguintes tipos de dados pessoais:</p>
+        <ul class="list-disc list-inside space-y-1 text-base-content/80">
           <li><strong>Dados de identificação:</strong> nome, CPF, RG, CNH</li>
           <li><strong>Dados de contato:</strong> e-mail, telefone, endereço</li>
           <li><strong>Dados de navegação:</strong> cookies, logs de acesso</li>
@@ -29,9 +29,9 @@
       </section>
 
       <section class="mb-8">
-        <h2>3. Finalidade do Uso dos Dados</h2>
-        <p>Utilizamos seus dados pessoais para:</p>
-        <ul>
+        <h2 class="text-2xl font-bold mb-4">3. Finalidade do Uso dos Dados</h2>
+        <p class="text-base-content/80 mb-3">Utilizamos seus dados pessoais para:</p>
+        <ul class="list-disc list-inside space-y-1 text-base-content/80">
           <li>Processar solicitações de contato e agendamento de visitas</li>
           <li>Verificar identidade para acesso às propriedades</li>
           <li>Enviar comunicações sobre nossos serviços</li>
@@ -41,82 +41,83 @@
       </section>
 
       <section class="mb-8">
-        <h2>4. Compartilhamento de Dados</h2>
-        <p>
+        <h2 class="text-2xl font-bold mb-4">4. Compartilhamento de Dados</h2>
+        <p class="text-base-content/80 mb-3">
           Seus dados podem ser compartilhados com:
         </p>
-        <ul>
+        <ul class="list-disc list-inside space-y-1 text-base-content/80 mb-3">
           <li>Prestadores de serviços (ex: HubSpot CRM, serviços de cloud)</li>
           <li>Autoridades competentes, quando exigido por lei</li>
           <li>Parceiros comerciais, com seu consentimento</li>
         </ul>
-        <p>
+        <p class="text-base-content/80">
           Não vendemos seus dados pessoais a terceiros.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>5. Segurança dos Dados</h2>
-        <p>
-          Implementamos medidas técnicas e organizacionais adequadas para proteger seus dados 
+        <h2 class="text-2xl font-bold mb-4">5. Segurança dos Dados</h2>
+        <p class="text-base-content/80">
+          Implementamos medidas técnicas e organizacionais adequadas para proteger seus dados
           pessoais contra acesso não autorizado, alteração, divulgação ou destruição.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>6. Retenção de Dados</h2>
-        <p>
-          Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades 
-          descritas nesta política ou conforme exigido por lei. Documentos de verificação de 
+        <h2 class="text-2xl font-bold mb-4">6. Retenção de Dados</h2>
+        <p class="text-base-content/80">
+          Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades
+          descritas nesta política ou conforme exigido por lei. Documentos de verificação de
           identidade são deletados após 30 dias da verificação.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>7. Seus Direitos</h2>
-        <p>Você tem direito a:</p>
-        <ul>
+        <h2 class="text-2xl font-bold mb-4">7. Seus Direitos</h2>
+        <p class="text-base-content/80 mb-3">Você tem direito a:</p>
+        <ul class="list-disc list-inside space-y-1 text-base-content/80 mb-3">
           <li>Acessar seus dados pessoais</li>
           <li>Corrigir dados incompletos ou desatualizados</li>
           <li>Solicitar a exclusão de seus dados</li>
           <li>Revogar seu consentimento</li>
           <li>Solicitar portabilidade dos dados</li>
         </ul>
-        <p>
-          Para exercer seus direitos, entre em contato conosco através do e-mail: 
-          <a href="mailto:privacidade@fortegb.com" class="text-primary-500 hover:underline">
-            privacidade@fortegb.com
+        <p class="text-base-content/80">
+          Para exercer seus direitos, entre em contato conosco através do e-mail:
+          <a href="mailto:contato@fortegb.com" class="text-primary-500 hover:underline">
+            contato@fortegb.com
           </a>
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>8. Cookies</h2>
-        <p>
-          Utilizamos cookies para melhorar sua experiência em nosso site. Você pode gerenciar 
+        <h2 class="text-2xl font-bold mb-4">8. Cookies</h2>
+        <p class="text-base-content/80">
+          Utilizamos cookies para melhorar sua experiência em nosso site. Você pode gerenciar
           suas preferências de cookies através das configurações do seu navegador.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>9. Alterações nesta Política</h2>
-        <p>
-          Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre 
+        <h2 class="text-2xl font-bold mb-4">9. Alterações nesta Política</h2>
+        <p class="text-base-content/80">
+          Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre
           alterações significativas através de nosso site ou por e-mail.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2>10. Contato</h2>
-        <p>
-          Para questões sobre esta Política de Privacidade ou sobre o tratamento de seus dados 
+        <h2 class="text-2xl font-bold mb-4">10. Contato</h2>
+        <p class="text-base-content/80 mb-3">
+          Para questões sobre esta Política de Privacidade ou sobre o tratamento de seus dados
           pessoais, entre em contato:
         </p>
-        <ul>
-          <li><strong>E-mail:</strong> privacidade@fortegb.com</li>
-          <li><strong>Telefone:</strong> (19) 99999-9999</li>
-          <li><strong>Endereço:</strong> Campinas-SP, Brasil</li>
-        </ul>
+        <p class="text-base-content/80">
+          <strong>E-mail:</strong>
+          <a href="mailto:contato@fortegb.com" class="text-primary-500 hover:underline">
+            contato@fortegb.com
+          </a>
+        </p>
       </section>
     </div>
   </div>
@@ -139,6 +140,3 @@ const currentDate = new Date().toLocaleDateString('pt-BR', {
   year: 'numeric'
 })
 </script>
-
-
-

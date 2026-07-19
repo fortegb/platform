@@ -6,31 +6,51 @@
   <div v-else-if="house" class="container mx-auto px-4 py-8">
     <!-- Imagens -->
     <div class="mb-8">
-      <img 
-        :src="house.image || '/placeholder-house.jpg'" 
+      <HouseGallery
+        :images="house.gallery && house.gallery.length ? house.gallery : [{ category: 'Fachada', url: house.image || '/placeholder-house.jpg' }]"
+        :videos="house.videoUrls"
         :alt="house.title"
-        class="w-full h-96 object-cover rounded-lg"
       />
     </div>
 
     <!-- Informações Principais -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-      <div class="lg:col-span-2">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="md:col-span-2">
         <h1 class="text-4xl font-bold mb-4">{{ house.title }}</h1>
         <p class="text-lg text-base-content/70 mb-6">{{ house.description }}</p>
         
-        <div class="prose max-w-none">
-          <h2>Descrição Completa</h2>
-          <p>{{ house.fullDescription || 'Descrição detalhada em breve...' }}</p>
+        <div>
+          <h2 class="text-2xl font-bold mb-4">Descrição Completa</h2>
+          <div class="space-y-4 text-base-content/80">
+            <p v-for="(paragraph, index) in fullDescriptionParagraphs" :key="index">{{ paragraph }}</p>
+          </div>
         </div>
+
+        <div v-if="house.features && house.features.length" class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">Características</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+            <li v-for="feature in house.features" :key="feature" class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Planta Baixa -->
+        <div v-if="house.floorplans && house.floorplans.length" class="mt-8">
+          <HouseFloorplans :floorplans="house.floorplans" :alt="house.title" />
+        </div>
+
       </div>
-      
-      <div class="lg:col-span-1">
-        <div class="card bg-base-200 shadow-xl p-6">
+
+      <div class="md:col-span-1">
+        <div class="card bg-base-200 shadow-xl p-6 md:max-w-sm md:ml-auto">
           <h2 class="text-2xl font-bold mb-4">Informações</h2>
           
           <div class="space-y-4">
-            <div v-if="house.price">
+            <div v-if="house.price && house.status !== 'vendido'">
               <p class="text-sm text-base-content/70">Preço</p>
               <p class="text-3xl font-bold text-primary-500">{{ formatPrice(house.price) }}</p>
             </div>
@@ -67,27 +87,29 @@
             </div>
           </div>
           
-          <div class="mt-6 space-y-2">
-            <NuxtLink 
+          <div class="mt-6 space-y-2 flex flex-col items-start">
+            <NuxtLink
+              v-if="house.status !== 'vendido'"
               :to="`/visita/agendar/${house.id}`"
-              class="btn btn-primary w-full"
+              class="flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 w-44 px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               Agendar Visita
             </NuxtLink>
-            <a 
+            <a
               :href="whatsappUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-outline btn-primary w-full"
+              class="flex items-center justify-center gap-2 bg-whatsapp text-white hover:bg-whatsapp-hover w-44 px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Falar no WhatsApp
+              <WhatsAppIcon class="w-4 h-4" />
+              Fale Conosco
             </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div v-else class="container mx-auto px-4 py-8 text-center">
     <h1 class="text-4xl font-bold mb-4">Casa não encontrada</h1>
     <NuxtLink to="/portfolio" class="btn btn-primary">
@@ -103,10 +125,14 @@ const slug = route.params.slug as string
 const loading = ref(true)
 const house = ref<any>(null)
 
-const config = useRuntimeConfig()
-const whatsappNumber = config.public.whatsappNumber || '5511999999999'
-const message = encodeURIComponent(`Olá! Tenho interesse na casa ${slug}.`)
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
+const fullDescriptionParagraphs = computed(() => {
+  const desc = house.value?.fullDescription
+  if (Array.isArray(desc) && desc.length) return desc
+  if (typeof desc === 'string' && desc) return [desc]
+  return ['Descrição detalhada em breve...']
+})
+
+const { whatsappUrl } = useWhatsApp(`Olá! Tenho interesse na casa ${slug}.`)
 
 // Mock data temporário - será carregado no onMounted
 onMounted(async () => {
@@ -157,6 +183,7 @@ const statusBadgeClass = computed(() => {
   }
   return statusMap[house.value.status] || 'badge-neutral'
 })
+
 </script>
 
 

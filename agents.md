@@ -28,16 +28,18 @@
   - Part-time operation (owners have day jobs)
 
 ### 2.1 Brand positioning
-We want to build on the strengths of being a family-owned company:
-- **Transparency**
-- **Trust**
-- **Closeness**
-- **Openness**
+We want to build on the strengths of being a family-owned company. Four brand pillars, live across the site (e.g. Home's "Por que escolher a ForteGB?"):
+- **Transparência** (Transparency)
+- **Segurança** (Security/peace of mind)
+- **Parceria** (Partnership)
+- **Solidez** (Construction quality / project fidelity)
 
 Customer feedback indicates they chose us due to:
-- Trust during negotiation
-- Transparency and openness in presenting the product (houses) and in the deal process
+- Trust during negotiation — now channeled through **Segurança**
+- Transparency and openness in presenting the product (houses) and in the deal process — now channeled through **Transparência**
 - Slogan in Portuguese: **Construindo sonhos e realizando vidas através de projetos imobiliários de qualidade. Sua nova casa está aqui.**
+
+> **Pillar wording refined 2026-07-17** (design pass on Home/Sobre, #197): original four were Transparency/Trust/Closeness/Openness. "Openness" overlapped too closely with "Transparency" (near-duplicate copy on the live site) and was dropped; "Trust" and "Closeness" evolved into the sharper **Segurança** and **Parceria** — same underlying customer-validated feelings, more concrete wording. **Solidez** is new: construction quality/project fidelity wasn't captured by the original four at all. See `CHANGELOG.md` 2026-07-17 for the full before/after copy.
 
 ### 2.2 Location context (important)
 - Based in **Campinas-SP, Brazil** (largest non-capital city in the country).
@@ -398,7 +400,7 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
   - **Outline navy** = ação secundária (ex.: "Ver Detalhes", "Ver Todos").
   - Botões compactos e de tamanho consistente (`px-* py-*` padronizados, borda 1px com `border`/`border-transparent` para igualar caixas).
 - **Cores de marca:** `primary-500` `#203045` (navy) é o fundo de header e footer; `hero-slate` `#4a5a72` adicionado ao tema.
-- **Home com variantes de hero (em avaliação):** `/` (`HeroSplit`, split azul original, default), `/classico` (`HeroClassic`), `/slate` (`HeroSlate`), `/azul` (`HeroAzul`, `primary-400`). Rotas por **estilo**, não por número (evita colisão com release v1/v2/v3). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`. Escolha do hero diferida ao lançamento (Q-010 → D-021).
+- **Home com variantes de hero (em avaliação):** `/` (`HeroSplit`, split azul original, default), `/hero` (`HeroClassic`), `/slate` (`HeroSlate`), `/gradient` (`HeroAzul`, `primary-400`). Rotas por **estilo**, não por número (evita colisão com release v1/v2/v3). Miolo compartilhado em `components/HomeContent.vue`; cada Hero é um componente próprio. As rotas de variante usam `noindex`. Escolha do hero diferida ao lançamento (Q-010 → D-021).
 - **Login:** fluxo *identifier-first* (UI/mock) em `pages/login.vue`. Comportamento e pendências de back-end em **`docs/autenticacao-login.md`**.
 
 ### Platform docs (GitHub Pages)

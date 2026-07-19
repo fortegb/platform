@@ -1,0 +1,156 @@
+<template>
+  <div>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 mb-4 border-b border-base-300">
+      <button
+        v-for="category in categories"
+        :key="category.name"
+        type="button"
+        class="pb-2 -mb-px border-b-2 text-sm font-semibold transition-colors"
+        :class="activeCategory === category.name
+          ? 'border-primary-500 text-primary-500'
+          : 'border-transparent text-base-content/60 hover:text-primary-500'"
+        @click="activeCategory = category.name"
+      >
+        {{ category.name }}
+        <span class="text-xs font-normal opacity-70">{{ category.count }}</span>
+      </button>
+    </div>
+
+    <div v-if="activeCategory === VIDEO">
+      <div class="relative h-[440px] rounded-xl overflow-hidden">
+        <iframe
+          :src="videoEmbedUrls[videoIndex]"
+          class="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+        <template v-if="videoEmbedUrls.length > 1">
+          <button
+            type="button"
+            class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-primary-500/70 hover:bg-primary-500 text-white transition-colors"
+            aria-label="Vídeo anterior"
+            @click="videoIndex = (videoIndex - 1 + videoEmbedUrls.length) % videoEmbedUrls.length"
+          >
+            ❮
+          </button>
+          <button
+            type="button"
+            class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-primary-500/70 hover:bg-primary-500 text-white transition-colors"
+            aria-label="Próximo vídeo"
+            @click="videoIndex = (videoIndex + 1) % videoEmbedUrls.length"
+          >
+            ❯
+          </button>
+        </template>
+      </div>
+      <div v-if="videoEmbedUrls.length > 1" class="mt-2 text-center text-sm text-base-content/70">
+        {{ videoIndex + 1 }} / {{ videoEmbedUrls.length }}
+      </div>
+    </div>
+
+    <div v-else class="overflow-y-auto rounded-xl" :style="{ maxHeight: (twoRowsHeight ?? 440) + 'px' }">
+      <div ref="gridEl" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+        <img
+          v-for="(image, index) in filteredImages"
+          :key="image.url"
+          :src="image.url"
+          :alt="`${alt} — ${image.category} ${index + 1}`"
+          class="w-full aspect-[4/3] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+          @click="lightboxIndex = index"
+        />
+      </div>
+    </div>
+
+    <ImageLightbox
+      v-if="lightboxIndex !== null"
+      :images="filteredImages"
+      :index="lightboxIndex"
+      :alt="alt"
+      @close="lightboxIndex = null"
+      @prev="lightboxIndex = (lightboxIndex - 1 + filteredImages.length) % filteredImages.length"
+      @next="lightboxIndex = (lightboxIndex + 1) % filteredImages.length"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+interface GalleryImage {
+  category: string
+  url: string
+}
+
+interface Props {
+  images: GalleryImage[]
+  videos?: string[]
+  alt: string
+}
+
+const props = defineProps<Props>()
+
+const ALL = 'Todas'
+const VIDEO = 'Vídeo'
+
+const videoEmbedUrls = computed(() =>
+  (props.videos ?? [])
+    .map(url => getVideoEmbedUrl(url))
+    .filter((url): url is string => url !== null)
+)
+
+const categories = computed(() => {
+  const counts = new Map<string, number>()
+  for (const image of props.images) {
+    counts.set(image.category, (counts.get(image.category) ?? 0) + 1)
+  }
+  const list = [
+    { name: ALL, count: props.images.length },
+    ...Array.from(counts, ([name, count]) => ({ name, count }))
+  ]
+  if (videoEmbedUrls.value.length) {
+    list.splice(1, 0, { name: VIDEO, count: videoEmbedUrls.value.length })
+  }
+  return list
+})
+
+const activeCategory = ref(ALL)
+
+const filteredImages = computed(() =>
+  activeCategory.value === ALL
+    ? props.images
+    : props.images.filter(image => image.category === activeCategory.value)
+)
+
+const lightboxIndex = ref<number | null>(null)
+const videoIndex = ref(0)
+
+watch(activeCategory, () => {
+  lightboxIndex.value = null
+  videoIndex.value = 0
+})
+
+const gridEl = ref<HTMLElement | null>(null)
+const twoRowsHeight = ref<number | null>(null)
+let resizeObserver: ResizeObserver | null = null
+
+function measureTwoRowsHeight() {
+  const grid = gridEl.value
+  const firstImage = grid?.querySelector('img')
+  if (!grid || !firstImage) return
+  const imageHeight = firstImage.getBoundingClientRect().height
+  const rowGap = parseFloat(getComputedStyle(grid).rowGap || '0')
+  twoRowsHeight.value = imageHeight * 2 + rowGap
+}
+
+watch(gridEl, (el) => {
+  resizeObserver?.disconnect()
+  if (!el) return
+  measureTwoRowsHeight()
+  resizeObserver = new ResizeObserver(() => measureTwoRowsHeight())
+  resizeObserver.observe(el)
+}, { immediate: true })
+
+onUnmounted(() => {
+  resizeObserver?.disconnect()
+})
+
+watch(filteredImages, () => nextTick(measureTwoRowsHeight))
+</script>

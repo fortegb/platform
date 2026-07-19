@@ -49,7 +49,8 @@
 🎉 **Epic #176 (Jornadas, telas e fluxos) — fechado.** Todas as 11 leaves concluídas (#185–#195). **Passo 5 concluído.**
 ✅ **#196 CPF do corretor obrigatório no onboarding** → D-068 (reabre D-062). Último item aberto de Passo 5 fechado.
 ✅ **Passo 6 (Design system) — estrutura de issues definida.** Epic #67: #68 reescopado (deriva de Home existente, não bloqueia em brand guide) e #70 reescopado (roda uma única vez ao final + guia de voz e tom). 11 leaves de design por jornada (#197–207, mesma granularidade das jornadas de Passo 5) + 4 varreduras de tokenização por seção de persona (#208–211). Runbook: [`design-system-fluxo.md`](./docs/planning/design-system-fluxo.md). Nenhum D-number novo — puramente estrutural/processo, sem decisão de arquitetura.
-→ PRÓXIMO: iniciar #197 (Descoberta do site) — ver `design-system-fluxo.md`. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
+🎉 **#197 (Descoberta do site) — FECHADA** (arquivada, merge em `main`). Primeira das 11 leaves de design do Passo 6. #68 fechado como *not planned*, absorvido em #197 (redundante — #197 já toca os mesmos arquivos e roda primeiro na sequência). Fundação de tokens aplicada (`whatsapp` token, CSS morta removida, `Hero.vue` consolidado). Bug separado corrigido: **#212** (footer hover invisível) — fechado. `/portfolio` e `/portfolio/[slug]` com passe extenso de UX/design (ver `openspec/changes/design-descoberta-site/tasks.md` seções 6–7: sort por status, galeria categorizada de 30 fotos/casa, lightbox, aba de vídeo com nav, hierarquia de botões). Home (4 valores de marca reescritos: Transparência/Segurança/Parceria/Solidez), Sobre (história/missão/visão reescritos, valores duplicados removidos), Contato (redesign mais leve, bugs de cor/telefone corrigidos), Legal (privacidade/termos restilizados), Blog (redesign do card + plugin `@tailwindcss/typography` instalado de verdade — fecha o bug recorrente de `.prose` no-op; depois os itens de modernização — fotos reais distintas, post em destaque com altura fixa `h-96` no card, tagline de intro, abas de categoria; micro-CTA de WhatsApp na listagem foi implementado e depois removido a pedido do usuário — botão flutuante já basta — tasks.md 14.4) também concluídos nesta leaf (tasks.md seções 9–14). Branch `feat/design-descoberta-site`. `npm run build` limpo após 14.4.
+→ PRÓXIMO: **#198** (próxima leaf de design do Passo 6) — ver `design-system-fluxo.md` para a sequência das 11 leaves (#197–#207) + 4 varreduras de tokenização (#208–#211). #197 entrega a fundação de tokens que as demais herdam. G2 (gate do build) ainda fecha só depois do Passo 7 (Versionamento).
 ⚠️ `origin/staging` ainda ausente — criação adiada para bootstrap de Execução (#42/#46); `rbo-stage-change` falha de propósito até lá; leaves de Definição fecham `feat/*`→`main` direto nesse meio-tempo (D-046)
 ✅ mapa-roteiro.html gerado do board (com progress:report)
 ```
@@ -110,9 +111,37 @@
 - [x] `ROADMAP.md` regenerado; Platform docs sincronizados (`pages:portal` + `progress:report` + `pages:build-info`)
 - [x] Fix ambiente: erro de push "LFS lock verify" — causa real é o repo não ter conteúdo LFS de fato (endpoint `/locks/verify` retorna 403 mesmo com credencial válida); fix correto = `git config lfs...locksverify false` por repo, não credencial. Keychain tinha entrada obsoleta da conta `fortegb` (pré-migração de org) — removida por higiene, mas não era a causa.
 
+## Esta sessão (Claude Code — 2026-07-15/16)
+
+- [x] Catch-up (L2), handoff de 2026-07-14 consumido
+- [x] #68 fechado (*not planned*) → merged into #197; branch/change renomeados para `feat/design-descoberta-site` / `design-descoberta-site`
+- [x] Fundação de tokens aplicada — `whatsapp`/`whatsapp-hover` no `tailwind.config.js`, `.btn-secondary`/`.btn-primary` mortos removidos de `main.css`, `HeroSplit`/`HeroSlate`/`HeroAzul` → `Hero.vue` (prop `variant`), `docs/planning/design-tokens.md` escrito
+- [x] Gap de issue-body shift encontrado e corrigido em #197–#208 (corpos rotacionados uma posição, título de cada issue não batia com o corpo)
+- [x] **#212** (footer `hover:text-primary` invisível sobre `bg-primary-500`) — issue própria, branch própria, fechada
+- [x] `/portfolio`: sort por status (disponível > em construção > resto), filtro de busca oculto (poucas casas), preço/CTA ocultos quando vendido, foto linkada ao detalhe, `featured` explícito para a home, inventário mock corrigido (3 vendido/2 em-construção/1 disponível)
+- [x] `/portfolio/[slug]`: galeria categorizada (30 fotos/casa × 5 categorias, sem exigência de match de conteúdo por pedido explícito), lightbox (click, prev/next, teclado, Esc), aba "Vídeo" com nav prev/next (1–3 vídeos reais testados), `features` (checklist) e `gallery[].category` documentados no content model CMS (D-036)
+- [x] Hierarquia visual: badges viraram texto+ícone, abas de categoria viraram underline (não mais pills com borda), "Ver Detalhes" virou link de texto (só "Agendar Visita" fica botão)
+- [x] `docs(cms)`: `features` + `gallery[].category` adicionados ao `cms-content-model.md` (gap igual ao achado com `featured`)
+- [x] `openspec/changes/design-descoberta-site/tasks.md` atualizado (seções 6–7) refletindo todo o trabalho de `/portfolio`
+
+## Esta sessão (Claude Code — 2026-07-17)
+
+- [x] Floor plans: mocks → imagem real fornecida pelo usuário ("Projeto.png") → `FloorplanViewer.vue` com zoom (10% steps, 50–400%, drag-to-pan, atalhos de teclado)
+- [x] Descrição/features da Vila Verde expandidas a partir de fatos ditados; fix de renderização de parágrafo (string única → array) em todas as casas mock
+- [x] Modelo de conteúdo CMS: galeria agrupada por categoria, novo tipo `galleryCategory`, `fullDescription` como array de parágrafos, 3 campos de "nome" separados (Sanity `title` vs. Supabase `houseNumber`/`lotCode`) — `docs/planning/templates/cms-content-model.md`
+- [x] Home: 4 valores de marca reescritos (Transparência/Segurança/Parceria/Solidez, era Transparency/Trust/Closeness/Openness) — várias rodadas de crítica; `AGENTS.md` §2.1 atualizado como fonte canônica; botões CTA padronizados; logo recortada; número de WhatsApp corrigido em todo o site
+- [x] Footer: "Links Rápidos" virou lista vertical (igual "Legal")
+- [x] Sobre: "Nossa História/Missão/Visão" reescritos a partir de fatos reais ditados pelo usuário; bloco "Nossos Valores" (duplicado do Home) removido
+- [x] Contato: redesign mais leve (crítica "muito chrome"), cor do botão WhatsApp e formatação de telefone corrigidas
+- [x] Privacidade/Termos: restilizados para bater com Sobre; telefone/endereço obsoletos removidos
+- [x] Blog: redesign do card de listagem (mais leve, mesma crítica do Contato), plugin `@tailwindcss/typography` instalado (fecha o bug recorrente de `.prose` no-op — 4ª ocorrência, 1ª vez com fix real em vez de workaround manual), cor do botão WhatsApp corrigida
+- [x] 6 commits + push em `feat/design-descoberta-site` (nada arquivado ainda)
+- [ ] 5 melhorias de modernização do Blog acordadas mas não implementadas: fotos mais realistas, post em destaque, tagline de intro, abas de filtro por categoria, micro-CTA de WhatsApp na listagem
+
 ## Próxima sessão
 
-- [ ] Iniciar #197 (Descoberta do site) — revisar telas `simulado` do screen-map primeiro, depois desenhar as `novo`. Ver `design-system-fluxo.md`.
+- [ ] `/blog`: implementar as 5 melhorias de modernização acordadas (ver seção acima e tasks.md 14.4)
+- [ ] Depois: confirmar com o usuário se `/portfolio`, `/sobre`, `/contato`, `/legal`, `/blog` estão todos prontos, ou se falta mais alguma revisão antes de considerar #197 pronto para archive
 - [ ] (paralelo) Brand assets (#2)
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 
@@ -129,5 +158,6 @@
 | [`.rbo/lifecycle.yml`](./.rbo/lifecycle.yml) | Opt-in stage/close (D-045) |
 | [handoff.md](./docs/planning/handoff.md) | Último handoff de sessão (para o próximo agente) |
 | [design-system-fluxo.md](./docs/planning/design-system-fluxo.md) | Runbook Passo 6 — fluxo, granularidade de leaves, tabela de issues |
+| [design-tokens.md](./docs/planning/design-tokens.md) | Inventário de tokens web (fundação #197) |
 | [roteiro.md](./docs/planning/roteiro.md) | Espinha |
 | [ai-skills v0.6.0](https://github.com/rbonon/ai-skills/releases/tag/v0.6.0) | stage + close skills |

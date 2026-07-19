@@ -2,8 +2,8 @@
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold mb-8">Nosso Portfólio</h1>
     
-    <!-- Filtros -->
-    <div class="mb-8 flex flex-wrap gap-4">
+    <!-- Filtros: ocultos enquanto o portfólio for pequeno (poucas casas não justificam busca/filtro) -->
+    <div v-if="showFilters" class="mb-8 flex flex-wrap gap-4">
       <select v-model="filters.status" class="select select-bordered">
         <option value="">Todos os status</option>
         <option value="disponivel">Disponível</option>
@@ -11,7 +11,7 @@
         <option value="reservado">Reservado</option>
         <option value="vendido">Vendido</option>
       </select>
-      
+
       <input
         v-model="filters.search"
         type="text"
@@ -55,6 +55,9 @@ const filters = reactive({
   search: ''
 })
 
+// Ocultos por ora — reativar quando o portfólio crescer o suficiente para justificar filtro/busca.
+const showFilters = false
+
 const loading = ref(false)
 
 // Mock data temporário - usando dados do arquivo mock.ts
@@ -77,7 +80,7 @@ const filteredHouses = computed(() => {
     )
   }
   
-  return result
+  return sortHousesByStatus(result)
 })
 </script>
 

@@ -7,7 +7,7 @@
         v-model="form.name"
         type="text"
         required
-        class="input input-bordered w-full"
+        class="input w-full bg-base-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
         placeholder="Seu nome completo"
       />
     </div>
@@ -19,7 +19,7 @@
         v-model="form.email"
         type="email"
         required
-        class="input input-bordered w-full"
+        class="input w-full bg-base-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
         placeholder="seu@email.com"
       />
     </div>
@@ -31,7 +31,7 @@
         v-model="form.phone"
         type="tel"
         required
-        class="input input-bordered w-full"
+        class="input w-full bg-base-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
         placeholder="(19) 99999-9999"
       />
     </div>
@@ -41,7 +41,7 @@
       <select
         id="subject"
         v-model="form.subject"
-        class="select select-bordered w-full"
+        class="select w-full bg-base-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
       >
         <option value="">Selecione um assunto</option>
         <option value="info">Informações sobre projetos</option>
@@ -58,7 +58,7 @@
         v-model="form.message"
         required
         rows="5"
-        class="textarea textarea-bordered w-full"
+        class="textarea w-full bg-base-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
         placeholder="Sua mensagem..."
       ></textarea>
     </div>

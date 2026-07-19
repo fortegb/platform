@@ -24,13 +24,15 @@ export default {
           900: '#060901',
         },
         'hero-slate': '#4a5a72',
+        whatsapp: '#3E8E5E',
+        'whatsapp-hover': '#34784F',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
     themes: [
       {

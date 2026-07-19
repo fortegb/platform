@@ -8,7 +8,7 @@
       ← Voltar ao Blog
     </NuxtLink>
     
-    <div v-if="post.category" class="badge badge-primary mb-4">
+    <div v-if="post.category" class="text-primary-500 font-semibold uppercase tracking-wide text-xs mb-4">
       {{ post.category }}
     </div>
     
@@ -33,13 +33,14 @@
     <div class="mt-12 pt-8 border-t">
       <h2 class="text-2xl font-bold mb-4">Gostou do conteúdo?</h2>
       <p class="mb-4">Entre em contato conosco e descubra como podemos ajudar você a encontrar sua nova casa.</p>
-      <a 
+      <a
         :href="whatsappUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-primary"
+        class="w-44 inline-flex items-center justify-center gap-2 bg-whatsapp text-white hover:bg-whatsapp-hover px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
       >
-        Fale Conosco no WhatsApp
+        <WhatsAppIcon class="w-4 h-4" />
+        Fale Conosco
       </a>
     </div>
   </article>
@@ -59,10 +60,7 @@ const slug = route.params.slug as string
 const loading = ref(true)
 const post = ref<any>(null)
 
-const config = useRuntimeConfig()
-const whatsappNumber = config.public.whatsappNumber || '5511999999999'
-const message = encodeURIComponent('Olá! Vi o post no blog da ForteGB e gostaria de saber mais.')
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
+const { whatsappUrl } = useWhatsApp('Olá! Vi o post no blog da ForteGB e gostaria de saber mais.')
 
 // Mock data temporário - será carregado no onMounted
 onMounted(async () => {

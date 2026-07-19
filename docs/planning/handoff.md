@@ -1,6 +1,6 @@
-# Handoff — fortegb/platform — 2026-07-14
+# Handoff — fortegb/platform — 2026-07-17
 
-**Updated:** 2026-07-14T14:55:00-03:00
+**Updated:** 2026-07-17T00:00:00-03:00
 **Status:** consumed
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
@@ -8,90 +8,99 @@
 
 ## Context
 
-Passo 5 (Jornadas) was already fully closed coming into this session (see prior
-handoff). This session was a long, deliberately slow planning conversation
-(user asked to go step-by-step, one question at a time, nothing produced until
-told) to define **how Passo 6 (Design system) actually gets executed** —
-skill sequence, issue granularity, and the flow from existing UI to a
-generated design system. Once agreed, it was executed: issue restructuring
-under epic #67, a runbook doc, and a Platform docs sync. No new architectural
-decision (D-number) came out of this — it's process/structure, not spec.
+Long session continuing #197 (Descoberta do site). Cleared essentially all of the
+previously "unaudited" scope from the prior handoff: floor plans (real image + zoom
+viewer), house description/features content, a CMS content-model design pass, Home's
+4 brand-value pillars (fully rewritten across many critique rounds), Sobre (rewritten
+from real dictated facts, duplicate values block removed), Contato (lighter redesign,
+bug fixes), footer alignment, legal pages restyle, and Blog (lighter card redesign +
+finally installing `@tailwindcss/typography` for real — this bug had been hit and
+manually worked around 3 times already this session on other pages). 6 commits made
+and pushed to `feat/design-descoberta-site`; nothing archived.
+
+The user explicitly asked for 5 further Blog modernization improvements ("Todos, gere
+fotos um pouco mais realistas" — do all of them) that are agreed to but **not yet
+implemented** — that's the named focus for next session (`/rbo-handoff` was invoked
+with "com foco em revisar blog/ e blog/slug").
 
 ## Control doc paths
 
-- Decisions: `docs/planning/decisions.md` (unchanged this session — last entry
-  still D-068) + root `DECISIONS.md` mirror
-- Session compass: `STATUS.md` (refreshed — Passo 6 issue structure section +
-  today's session block + next-session pointer)
-- Context: `AGENTS.md` — not touched this session (no rule/stack/milestone change)
-- Planning: `docs/planning/` — new `design-system-fluxo.md` (Passo 6 runbook);
-  `phases.md` updated (Epic #67 checklist + Epic\|Doc/runbook table)
+- Decisions: `docs/planning/decisions.md` — unchanged this session, no new D-number
+  (everything was implementation/content-level, not a new architecture decision)
+- Session compass: `STATUS.md` — updated with this session's block + next-session pointer
+- Context: `AGENTS.md` — §2.1 brand positioning updated (4 pillars renamed/rewritten,
+  with a dated note pointing to `CHANGELOG.md` for the full before/after)
+- Planning: `openspec/changes/design-descoberta-site/tasks.md` (new sections 9–14)
 - Handoff: `docs/planning/handoff.md` (this file)
 
 ## Current state
 
-**Done**
-- Epic #67 rescoped: #68 → "Fundação de tokens web (derivada do Home
-  existente)" (no longer blocks on #40 brand guide — derives from the
-  existing Home implementation instead); #70 → "Gerar design system (docs,
-  componentes, style guide)" (runs once, at the end, now also scoped to
-  include a lightweight voice-and-tone guideline for WhatsApp/Telegram
-  written content)
-- 11 new journey-level design leaves created (#197–207), sub-issues of #67,
-  same granularity as Passo 5's #185–195 (one per journey, not per persona-
-  section, not per screen)
-- 4 tokenize-sweep issues created (#208–211), one per persona section
-  (Visitante/cliente, Corretor, Staff, Admin), lightweight chore-style
-- Runbook `docs/planning/design-system-fluxo.md` written — captures the full
-  agreed flow, issue table, missing-screen playbook, and what's explicitly
-  out of scope (WhatsApp/Telegram conversational flows — not UI, no tokens,
-  deferred to their own Execução epics)
-- `ROADMAP.md` regenerated; Platform docs synced (`pages:portal` +
-  `progress:report` + `pages:build-info` — `pages:site` still skipped, same
-  pre-existing local 500)
-- Dev environment: fixed a `git push` failure ("LFS lock verify" 403) —
-  actual cause is this repo has no real LFS content, so GitHub's
-  `/locks/verify` endpoint 403s regardless of credential; fix is
-  `git config lfs.<repo-url>/info/lfs.locksverify false` (now set). A stale
-  macOS Keychain entry for an old `fortegb` account was also removed as
-  hygiene but was **not** the actual cause — don't rely on that as the fix
-  if this resurfaces on another repo; re-apply the `locksverify` config
-  instead.
+**Done** (see `tasks.md` sections 9–14 for full detail; `CHANGELOG.md` 2026-07-17 for
+the Home values before/after copy)
+- Home: 4 brand-value pillars rewritten — Transparência (kept)/Segurança (was
+  Confiança)/Parceria (was Proximidade)/Solidez (new); "Abertura" dropped as a
+  near-duplicate of Transparência. `AGENTS.md` updated as canonical per user
+  direction ("if needed correct the docs", not revert the copy).
+- Footer "Links Rápidos" → vertical list, matching "Legal".
+- Sobre: História/Missão/Visão rewritten from real facts the user dictated
+  interactively; duplicate "Nossos Valores" icon block removed.
+- Contato: lighter redesign (critique: "muito generico, muito chrome" — this same
+  critique later drove the Blog redesign too), WhatsApp button color fixed, phone
+  formatting bug fixed (13-digit country-code-prefixed numbers weren't handled).
+- Privacidade/Termos: restyled to match Sobre; stale phone/address removed.
+- Blog: `/blog` card redesign (lighter, category+date above title, "Ler Mais" as text
+  link not a button — same move as `HouseCard.vue`'s "Ver Detalhes"); `/blog/[slug]`
+  WhatsApp button color fixed; `@tailwindcss/typography` installed and wired into
+  `tailwind.config.js` — this is the 4th time the ".prose is a no-op" bug was hit this
+  session (Sobre, Portfolio detail, legal pages were manual workarounds), and the 1st
+  time it's actually fixed at the source, because Blog's post body is raw
+  `v-html` content with no way to hand-class it.
+- WhatsApp fallback number corrected site-wide (was inconsistent across 8+ files).
+- `public/logo.png` recropped (removed ~130px dead space per side + fixed
+  background-color mismatch with header navy).
 
-**In progress**
-- Nothing mid-flight — no branch open, no OpenSpec change started. The
-  design leaves (#197 onward) are `Todo`, not yet begun.
+**Not done — explicit next-session focus**
+5 Blog modernization ideas the user said "Todos" (all) to, none implemented yet:
+1. More realistic photos — `data/mock.ts`'s `mockBlogPosts` has 3 of 6 posts sharing
+   the identical Unsplash toy-house-model image (`photo-1560518883-ce09059eeffa`):
+   `como-escolher-casa-ideal`, `casa-propria-vs-aluguel`, `checklist-visita-imovel`.
+   The other 3 already have distinct, reasonable photos.
+2. Featured/lead post treatment on `/blog`.
+3. Intro tagline paragraph under the Blog H1.
+4. Category filter tabs — reuse `HouseGallery.vue`'s tab pattern.
+5. WhatsApp micro-CTA embedded in the blog listing itself, not just at the end of
+   each post.
 
-**Blocked / watch**
-- `/staff/registros` (Registro de Cliente / histórico) has no Passo-5
-  journey backing it — flagged inside #207's body for resolution during
-  that leaf's design pass, not treated as a blocker.
-- Same pre-existing watch items from last handoff: `origin/staging` still
-  doesn't exist (deferred to #42/#46); `pages:site` still 500s locally.
+**Watch**
+- The recurring "Hydration completed but contains mismatches" console warning seen on
+  several pages (Termos, Contato, Home, Blog) is confirmed pre-existing (not
+  introduced this session, verified via `git diff` on the relevant date logic) — flag
+  again if it resurfaces, but it's out of scope of anything currently being worked.
+- Dev server has gone stale (serving old HTML/classes despite correct source) multiple
+  times this session — if something looks visually wrong the code doesn't explain,
+  kill the process (`lsof -nP -iTCP:3000 -sTCP:LISTEN`) and restart rather than just
+  reloading the browser.
 
 ## Artifacts
 
-- Epic: https://github.com/fortegb/platform/issues/67
-- New leaves: https://github.com/fortegb/platform/issues/197 through /211
-- Rescoped: https://github.com/fortegb/platform/issues/68 ,
-  https://github.com/fortegb/platform/issues/70
-- Runbook: `docs/planning/design-system-fluxo.md`
-- Commits this session: `a8b75d7` (issue restructuring + runbook),
-  `df0efc6` (empty test commit, harmless), `106380f` (portal sync)
+- OpenSpec change: `openspec/changes/design-descoberta-site/` (issue #197)
+- Commits this session (all pushed, `feat/design-descoberta-site`): `20cb4fc`
+  (Home values), `3699849` (WhatsApp number fix), `e41bfe9` (Contato), `1be1cfb`
+  (portfolio mosaic sizing), `a07c782` (Sobre), `bb37e21` (legal pages), `cf0d910`
+  (Blog + typography plugin)
+- New dependency: `@tailwindcss/typography` (devDependency)
+- Reference: `CHANGELOG.md` 2026-07-17 entry (Home values full before/after copy)
 
 ## Next session
 
-**First action:** `rbo-catch-up`, then start **#197 — Descoberta do site**
-per `design-system-fluxo.md`: prime once with `rbo-ui-standards`, then within
-this leaf review the `simulado` screens in `screen-map.md` first (Home,
-Portfólio, Blog, Sobre, Contato, Privacidade/Termos), designing the `novo`
-ones after. Remember the missing-screen playbook (spin off a new issue,
-don't scope-creep the current leaf) if gaps surface while drilling into
-pixel-level screens.
+**First action:** `rbo-catch-up`, then resume on `feat/design-descoberta-site` and
+implement the 5 agreed Blog modernization items above (start with the photo swap in
+`data/mock.ts`, since the other 4 are structural/UI and can build on top of it). After
+Blog is done, confirm with the user whether #197's scope (`/portfolio`, `/sobre`,
+`/contato`, legal, `/blog`) is fully closed or if anything else needs another pass
+before considering archive.
 
 ## Suggested skills
 
 - `rbo-catch-up` (session open) — will consume this handoff
-- No `rbo-create-change` yet for #197 — confirm with the user whether each
-  design leaf gets its own OpenSpec change/branch (implied by the runbook's
-  "leaf = branch, cohesion not duration" framing) before starting
+- No `rbo-close-change` yet — #197 isn't confirmed done (Blog modernization pending)

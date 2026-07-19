@@ -163,7 +163,7 @@ flowchart TB
 ### 6.1 Public site & home *(Q-010 → D-021, diferido)*
 
 - Fluxo visitante: descoberta → portfólio → detalhe → blog → contato ([jornadas §3.1](./jornadas-plataforma.md#31-descobrir-a-fortegb-site-público)).
-- **Q-010 diferido (D-021):** variantes diferem **só no hero** (miolo = `HomeContent` compartilhado). Rotas por estilo: `/` (split, default), `/classico`, `/slate`, `/azul`. Escolha do hero fica para o **lançamento**, sob Public site UI (#56); default de produção = `/` (HeroSplit).
+- **Q-010 diferido (D-021):** variantes diferem **só no hero** (miolo = `HomeContent` compartilhado). Rotas por estilo: `/` (split, default), `/hero`, `/slate`, `/gradient`. Escolha do hero fica para o **lançamento**, sob Public site UI (#56); default de produção = `/` (HeroSplit).
 - Build: Phase 1 **Public site UI finalization**.
 
 ### 6.2 Self-guided visits *(Q-005, Q-006, Q-017)*
