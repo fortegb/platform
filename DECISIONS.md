@@ -726,3 +726,18 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - `jornadas-plataforma.md` §4.1 and `screen-map.md` updated to reflect the closed gap.
 - Out of scope: the commission payout mechanism itself; CPF for any other role.
 - Real implementation stays deferred to Execução (`#86`/`#50`), same as the rest of `D-062`.
+
+## 2026-07-19 — CI/CD: mechanism for the pre-`staging` window (#197 close-out)
+
+### `integrationBranchPending` — separating "declared" from "provisioned"; amends D-045
+
+**Decision:** Closing `#197` was blocked by `rbo-close-change`: it read `integrationBranch: staging` from `.rbo/lifecycle.yml` and demanded `origin/staging`, which does not exist — its creation is deferred to the Execução bootstrap (`#42`/`#46`). The correct behaviour was **already agreed in `D-046`** ("Gap temporário: Definition leaves closing before the staging bootstrap merge `feat/*`→`main` direct"), but nothing implemented it: the skills only implemented `D-045`'s opposing **Fail-closed** clause. The two accepted decisions had been in tension since 2026-07-11 and the conflict only surfaced at the first real close after that. Resolved with an explicit `integrationBranchPending: true` flag in `.rbo/lifecycle.yml`: with the integration branch absent **and** the flag set, `rbo-close-change` takes the default `feat/*`→`main` path and `rbo-stage-change` stops with an "expected state" message instead of a hard failure. Without the flag, both fail exactly as before. The flag is deliberately **explicit opt-in, never inferred from the branch merely being absent** — an accidentally deleted `staging` must still fail loudly, which is the case the strict rule genuinely protects.
+
+**Rationale:** The decision content was not new; only the mechanism was missing. The vacuum forced a manual override of the guardrail at every close, which is precisely the kind of informal exception the fail-closed rule exists to prevent. Making the exception explicit and machine-readable preserves the real protection and removes the override.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` **D-069**. `D-045` and `D-046` cross-reference it from both ends.
+- **Amends `D-045`'s Fail-closed clause** — it now admits two explicit exceptions: a `hotfix/*` branch (`D-048`) and `integrationBranchPending`. `D-045` stands unchanged otherwise. Logged explicitly, same treatment as `#187`→`D-053`, `#189`→`crm-source-of-truth`, `#196`→`D-062`.
+- Scope note: `D-046` limits the direct merge to *Definition leaves*; the flag applies to any change while set. Accepted deliberately — the flag dies at the staging bootstrap, so the window is the same in practice, and a tool-agnostic skill cannot know a repo's roadmap step.
+- Tooling: `ai-skills` `5f5c802` (`rbo-close-change` 0.6, `rbo-stage-change`).
+- **Expiring debt:** remove the flag when `origin/staging` exists (`#42`/`#46`), or the integration lifecycle silently becomes a no-op.
