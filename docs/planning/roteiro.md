@@ -49,7 +49,7 @@ Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o
 Ver [D-024](./decisions.md). Resumo:
 
 - **`Etapa`** — campo single-select, **9 opções** (`1 Contexto` … `9 Evolução`). Supersede `Phase` (0–4). Todo item carrega uma.
-- **`Milestone`** (nativo) — **`v0 Definição`** (agrupa todos os itens de Etapa 1–7; 100% = luz verde do G2) → **`v1`** → **`v2`** → **`v3`** (v1–v3 subdividem a Etapa 8).
+- **`Milestone`** (nativo) — **`v0 Definição`** (agrupa todos os itens de Etapa 1–7; 100% = luz verde do G2) — **regra de higiene:** item marcado Etapa 8 **não** pertence a `v0`. Auditado em 2026-07-19: 8 itens violavam isso (#29/#30/#31/#140/#41 já eram Etapa 8; #39/#69/#71 eram colateral de marca/marketing movidos para Etapa 8 na mesma passada) e faziam o portão do build depender de arquivo de logo vetorial e de trabalho de designer. Removidos de `v0`: 24 → 16 itens abertos → **`v1`** → **`v2`** → **`v3`** (v1–v3 subdividem a Etapa 8).
 - **Tipo** (nativo do GitHub) — **Feature / Bug / Task / Epic**. Substitui a dependência do prefixo `Epic:` no título. (`chore` continua só nas mensagens de commit — camada diferente; mapeia a **Task** no board.)
 
 **Atribuição de versão = passo 7.** Um epic de Execução **sem Milestone** é a fila rastreada; o **Definition-of-Done do passo 7** é "todo epic de Execução tem um Milestone" — assim nada (ex.: SEO/analytics, LGPD hardening, mobile) é esquecido.

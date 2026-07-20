@@ -143,6 +143,7 @@
 - [ ] `/blog`: implementar as 5 melhorias de modernização acordadas (ver seção acima e tasks.md 14.4)
 - [ ] Depois: confirmar com o usuário se `/portfolio`, `/sobre`, `/contato`, `/legal`, `/blog` estão todos prontos, ou se falta mais alguma revisão antes de considerar #197 pronto para archive
 - [x] ~~(paralelo) Brand assets #2~~ — **epic fechado**. Favicon feito (derivado do logo do header); #40 superseded por #70; #41 → Etapa 8; #39 (logo SVG) reparentado sob #67, pré-requisito de #69 (impressão). Nada bloqueia Passo 6.
+- [x] **Higiene de milestone `v0`** — 8 itens de Etapa 8 estavam em `v0` (portão G2), fazendo o build depender de colateral de marca: [#29](https://github.com/fortegb/platform/issues/29)/[#30](https://github.com/fortegb/platform/issues/30)/[#31](https://github.com/fortegb/platform/issues/31)/[#140](https://github.com/fortegb/platform/issues/140)/[#41](https://github.com/fortegb/platform/issues/41) (violação clara) + [#39 Logo em SVG](https://github.com/fortegb/platform/issues/39)/[#69 Templates print](https://github.com/fortegb/platform/issues/69)/[#71 Social templates](https://github.com/fortegb/platform/issues/71) (movidos a Etapa 8 e reparentados sob #98/#113/#56). `v0` agora tem só as 10 leaves de design + 4 varreduras + #70. 24 → 16 abertos.
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 
 ---
