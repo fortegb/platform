@@ -20,8 +20,11 @@ tokenization sweep plus a partially-applied WhatsApp dedupe refactor.
 
 ## Control doc paths
 
-- Decisions: `docs/planning/decisions.md` — **no new D-number this session**;
-  everything was implementation, process, or board hygiene, not architecture
+- Decisions: `docs/planning/decisions.md` — **D-069** added (mechanism for the
+  pre-`staging` window, `integrationBranchPending`). Corrected mid-session: it had been
+  called "no new D-number", but the flag **amends D-045's fail-closed clause**, and
+  amending an accepted decision gets recorded here. D-045 and D-046 now cross-reference
+  it. Everything else this session was implementation, process or board hygiene.
 - Session compass: `STATUS.md` — 2026-07-19 block added, "Próxima sessão" points at #198
 - Context: `AGENTS.md` — not touched (no rule/stack/convention change)
 - Planning: `docs/planning/roteiro.md` (milestone hygiene rule added),
@@ -88,9 +91,13 @@ tokenization sweep plus a partially-applied WhatsApp dedupe refactor.
   from *provisioned*: `.rbo/lifecycle.yml` now carries `integrationBranchPending: true`,
   an explicit opt-in the skills read. `rbo-stage-change` stops with a clear "expected
   state" message; `rbo-close-change` merges `feat/*` → `main`. The flag must be
-  **removed when `origin/staging` is created**, or the integration lifecycle stays a
-  silent no-op. Deliberately explicit rather than inferred from the branch being absent —
-  an accidentally deleted `staging` must still fail loudly.
+  **removed when `origin/staging` is created** (#42/#46), or the integration lifecycle
+  stays a silent no-op. Deliberately explicit rather than inferred from the branch being
+  absent — an accidentally deleted `staging` must still fail loudly.
+  Note for context: the *behaviour* was never in doubt — **D-046 already agreed it** on
+  2026-07-11 as a "gap temporário". What was missing was a mechanism; the skills only
+  implemented D-045's opposing fail-closed clause, so every close needed a manual
+  override. Recorded as **D-069**, amending D-045.
 - GitHub's API threw intermittent 503s during the milestone work. All writes were
   retried and verified by count; nothing was left half-applied.
 

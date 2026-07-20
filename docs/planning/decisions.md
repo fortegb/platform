@@ -547,7 +547,7 @@
 - **Decisão:**
   - **Dois passos humanos:** (1) **`rbo-stage-change`** — `feat/*` → `integrationBranch` (`staging`); OpenSpec **ativo**; issue **aberta**; Status permanece In Progress; **sem** `pages:sync`. (2) **`rbo-close-change`** — archive + `staging`→`main` + `Closes`/Done + `pages:sync` (quando o repo suporta).
   - **Opt-in:** `.rbo/lifecycle.yml` com `integrationBranch: staging`. **Ausente** → close inalterado (`feat/*`→`main`).
-  - **Fail-closed:** stage falha se `origin/<integrationBranch>` não existir (sem auto-criar). Close com config presente **não** faz fallback `feat/*`→`main` se o change não estiver em staging.
+  - **Fail-closed:** stage falha se `origin/<integrationBranch>` não existir (sem auto-criar). Close com config presente **não** faz fallback `feat/*`→`main` se o change não estiver em staging. *(**Emendado por D-069** (2026-07-19): duas exceções explícitas — branch `hotfix/*` (D-048) e `integrationBranchPending: true` quando a branch de integração ainda não foi provisionada. Ausência da branch **sem** o flag continua falhando.)*
   - **D-026:** mantém o mapa de branches; **supersede** só a semântica “close aterra em staging”.
   - **Fora deste leaf:** criar remote `staging` (#167); Status de board `Staging`; hotfix/promote ceremony (#169).
   - **DoD plataforma:** D-045 + `.rbo/lifecycle.yml` + templates/Ambientes/spec. **Skills** → issue companheira em `ai-skills` (ciclo completo).
@@ -563,7 +563,7 @@
   - **Rollback:** rollback nativo do dashboard Vercel; sem procedimento custom.
   - **Notificações:** e-mails default da Vercel bastam; sem integração custom (Telegram/Slack).
   - **`origin/staging`:** decisão travada agora (long-lived, a partir de `main`, per `environments.md`); criação real **adiada para o bootstrap de Execução** (#42/#46), não neste leaf de Definição.
-  - **Gap temporário:** leaves de Definição que fecharem antes do bootstrap de `staging` fazem merge `feat/*`→`main` direto — mesmo padrão usado para fechar o próprio #166.
+  - **Gap temporário:** leaves de Definição que fecharem antes do bootstrap de `staging` fazem merge `feat/*`→`main` direto — mesmo padrão usado para fechar o próprio #166. *(Sem mecanismo até 2026-07-19: as skills implementavam só o fail-closed de D-045, então este gap exigia override manual a cada close. **Implementado por D-069** via `integrationBranchPending`.)*
   - **DoD:** D-046 + `templates/cicd-deploy-pipeline.md` + pointers em `environments.md`.
 - **Rationale:** decisão sem provisionamento — G2 continua a gatear Execução; branch protection só em `main` porque `staging` existe para acomodar falhas, não bloqueá-las.
 - **Consequências:** canon fechado; toggle de branch protection + criação de `origin/staging` ficam para #42/#46 (Execução).
@@ -887,3 +887,17 @@
   - **DoD:** docs only — D-068 + `templates/jornada-onboarding-corretor.md` atualizado + delta `MODIFIED` na capability OpenSpec `journey-corretor-onboarding` (reabre, registrado explicitamente) + `jornadas-plataforma.md` §4.1 e `screen-map.md` atualizados. Implementação real → Execução (#86, #50).
 - **Rationale:** correção pontual e aditiva — um campo obrigatório a mais no mesmo passo de cadastro já existente — que fecha uma lacuna real antes que corretores ativos acumulem comissões sem CPF em cadastro.
 - **Consequências:** `journey-corretor-onboarding` reaberta (D-062 permanece válida em tudo o mais); nenhuma mudança em `rbac-role-model`, `messaging-channel-policy`, ou no fluxo de associação por casa; implementação real segue deferida a #86/#50.
+
+### D-069 — CI/CD: mecanismo para a janela pré-`staging` (`integrationBranchPending`) (2026-07-19) — **#197 (close-out)**
+
+- **Status:** accepted
+- **Contexto:** ao fechar #197, `rbo-close-change` falhou por design: leu `integrationBranch: staging` em `.rbo/lifecycle.yml` e exigiu `origin/staging`, que ainda não existe. **O comportamento correto já estava acordado em D-046** ("Gap temporário: leaves de Definição que fecharem antes do bootstrap de `staging` fazem merge `feat/*`→`main` direto"), mas nenhum mecanismo o implementava — as skills implementavam apenas a cláusula **Fail-closed** de D-045, que diz o oposto. As duas decisões estavam em tensão desde 2026-07-11; o conflito só apareceu no primeiro close real depois disso. Registrado a posteriori: o fix foi aplicado durante o close-out de #197 antes de existir este D-number.
+- **Decisão:**
+  - **Flag explícito `integrationBranchPending: true` em `.rbo/lifecycle.yml`**, lido pelas skills: com a branch de integração ausente **e** o flag ligado, `rbo-close-change` faz `feat/*`→`main` (modo default) e `rbo-stage-change` para com mensagem de estado esperado em vez de falha dura. Sem o flag, ambas falham como antes.
+  - **Opt-in explícito, nunca inferido da ausência da branch:** distinguir *declarada* de *provisionada*. Uma `staging` apagada por acidente deve continuar falhando alto — é exatamente esse o caso que a regra fail-closed protege, e ele permanece protegido. Inferir o fallback da ausência da branch destruiria essa proteção.
+  - **Emenda a D-045**, registrada explicitamente — mesmo tratamento que #187 deu a D-053, #189 a `crm-source-of-truth` e #196 a D-062. A cláusula **Fail-closed** de D-045 ("Close com config presente **não** faz fallback `feat/*`→`main`") passa a admitir esta segunda exceção, ao lado da já existente para `hotfix/*` (D-048). D-045 permanece válida em tudo o mais.
+  - **Escopo do flag é mais largo que o texto de D-046:** D-046 restringe o merge direto a *leaves de Definição*; o flag vale para qualquer change enquanto estiver ligado. Aceito deliberadamente — o flag some no bootstrap de `staging` (#42/#46), então na prática a janela **é** o período de Definição, e uma skill tool-agnostic não tem como saber o "passo do roteiro" de um repo qualquer.
+  - **Remover o flag quando `origin/staging` existir** (#42/#46) — deixá-lo ligado transforma o lifecycle de integração num no-op silencioso. Registrado no próprio `.rbo/lifecycle.yml`, em `STATUS.md` e no handoff.
+  - **DoD:** `.rbo/lifecycle.yml` (flag + comentário) + `ai-skills` `5f5c802` (`rbo-close-change` 0.6, `rbo-stage-change`) + este D-number.
+- **Rationale:** o conteúdo da decisão não é novo — D-046 já acordara o merge direto na janela pré-`staging`. O que faltava era mecanismo, e o vácuo forçava override manual do guardrail a cada close, que é precisamente o tipo de exceção informal que a regra fail-closed existe para impedir. Tornar a exceção explícita e legível por máquina preserva a proteção real e elimina o override.
+- **Consequências:** D-045 emendada (fail-closed passa a ter duas exceções: `hotfix/*` e `integrationBranchPending`); D-046 ganha implementação; nenhum efeito em repos sem `.rbo/lifecycle.yml`, e nenhum em repos com a branch de integração já provisionada. Dívida com data de validade: o flag deve morrer em #42/#46.
