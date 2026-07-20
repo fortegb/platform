@@ -83,7 +83,7 @@ Reescopado em 2026-07-19: #197 derivou os tokens da implementação existente, i
 a dependência — o design system agora **produz** a documentação de marca (#70) em vez de
 consumi-la. Sobrou só o que é genuinamente asset.
 
-1. [ ] Logo em SVG + favicon real ([#39](https://github.com/fortegb/platform/issues/39)) — `favicon.ico` atual tem 14 bytes (placeholder vazio); depende do vetorial do usuário
+1. [ ] Logo em SVG ([#39](https://github.com/fortegb/platform/issues/39)) — depende do vetorial do usuário. Favicon **feito** (2026-07-19, `ff0492f`): derivado do mark do logo do header sobre navy `#203045`; o `favicon.ico` anterior tinha 14 bytes de texto ASCII
 2. [x] ~~Brand guide (cores, tipografia, uso)~~ ([#40](https://github.com/fortegb/platform/issues/40)) — **fechada**, superseded por #70
 3. [ ] ~~Hero / imagens candidatas~~ ([#41](https://github.com/fortegb/platform/issues/41)) — **movida para Etapa 8 (Execução)**, decisão de lançamento
 

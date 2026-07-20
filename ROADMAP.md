@@ -94,11 +94,11 @@
 - [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
-- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets (logo SVG + favicon)
+- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets (logo SVG)
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)
-- [#39](https://github.com/fortegb/platform/issues/39) Logo em SVG + favicon real
+- [#39](https://github.com/fortegb/platform/issues/39) Logo em SVG
 - [#41](https://github.com/fortegb/platform/issues/41) Hero / imagens candidatas (opcional)
 - [#42](https://github.com/fortegb/platform/issues/42) Epic: Platform environments
 - [#43](https://github.com/fortegb/platform/issues/43) Supabase project + database-schema.sql
