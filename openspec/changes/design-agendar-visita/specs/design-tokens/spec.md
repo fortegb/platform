@@ -1,4 +1,4 @@
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Capability purpose is stated
 The `design-tokens` capability SHALL declare a written Purpose describing the shared design reference it provides, and SHALL NOT leave it as the `TBD` placeholder emitted by the archive step.
@@ -8,8 +8,6 @@ Purpose as written: *the canonical web design reference for the ForteGB product 
 #### Scenario: Capability promoted by an archive
 - **WHEN** a change archives and promotes or extends the `design-tokens` capability
 - **THEN** its `Purpose` line names what the capability covers, not `TBD - created by archiving change ...`
-
-## ADDED Requirements
 
 ### Requirement: Route-scoped screens show their subject
 A screen scoped to a specific entity by its route parameter SHALL display that entity's identifying context, and SHALL link back to that entity's detail page.
