@@ -23,7 +23,7 @@
 ## Próximo passo
 
 1. **Passo 5 — Jornadas, telas e fluxos** ([#176](https://github.com/fortegb/platform/issues/176)) — re-validar jornadas/telas sobre a arquitetura de domínio já decidida (#179).
-2. **Brand assets** — logo SVG + favicon ([#2](https://github.com/fortegb/platform/issues/2)) em paralelo. Reescopado 2026-07-19: brand guide (#40) fechada, superseded por #70; hero images (#41) → Etapa 8.
+2. ~~**Brand assets** ([#2](https://github.com/fortegb/platform/issues/2))~~ — **epic fechado 2026-07-19**, escopo dissolvido. Restou só #39 (logo em SVG), reparentado sob #67 como pré-requisito de #69 (impressão); não bloqueia nada no Passo 6.
 3. Itens `deferred` v2/v3 ([#29](https://github.com/fortegb/platform/issues/29)–[#31](https://github.com/fortegb/platform/issues/31)/[#140](https://github.com/fortegb/platform/issues/140)) reabrem no grilling da fase.
 
 ## Notas para sócios

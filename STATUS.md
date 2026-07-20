@@ -142,7 +142,7 @@
 
 - [ ] `/blog`: implementar as 5 melhorias de modernização acordadas (ver seção acima e tasks.md 14.4)
 - [ ] Depois: confirmar com o usuário se `/portfolio`, `/sobre`, `/contato`, `/legal`, `/blog` estão todos prontos, ou se falta mais alguma revisão antes de considerar #197 pronto para archive
-- [ ] (paralelo) Brand assets #2 — reescopado: só #39 (logo em SVG) segue aberto, depende de asset do usuário. Favicon feito (derivado do logo do header). #40 fechada (superseded por #70), #41 → Etapa 8
+- [x] ~~(paralelo) Brand assets #2~~ — **epic fechado**. Favicon feito (derivado do logo do header); #40 superseded por #70; #41 → Etapa 8; #39 (logo SVG) reparentado sob #67, pré-requisito de #69 (impressão). Nada bloqueia Passo 6.
 - [ ] Run `setup_ai` / `dotfiles_update` if `rbo-stage-change`/`rbo-create-change`/`rbo-close-change` symlinks stale (ai-skills v0.7.0)
 
 ---

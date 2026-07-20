@@ -30,7 +30,7 @@ Seed docs/planning (✅)
 | 4 | **Architecture & MVP definition** (produto/stack) | [#1](https://github.com/fortegb/platform/issues/1) | platform | ✅ Done | — |
 | 4b | **Arquitetura da solução & ambientes** (infra/env/integrações) | [#146](https://github.com/fortegb/platform/issues/146) | platform | ✅ Done | — |
 | 4c | **Arquitetura de domínio** (visitas, mensageria, RBAC, admin) | [#179](https://github.com/fortegb/platform/issues/179) | platform | ✅ Done | — |
-| 5 | **Brand assets** (logo SVG + favicon) | [#2](https://github.com/fortegb/platform/issues/2) | branding | Todo | — (paralelo, reescopado 2026-07-19) |
+| 5 | ~~**Brand assets**~~ | [#2](https://github.com/fortegb/platform/issues/2) | branding | **Done** | epic fechado 2026-07-19, escopo dissolvido |
 
 | Epic | Doc / runbook |
 |------|---------------|
@@ -77,15 +77,17 @@ Seed docs/planning (✅)
 
 > **#1 cobriu produto/stack.** A arquitetura de **infra/ambientes/integrações** foi definida no Epic **Arquitetura da solução & ambientes** ([#146](https://github.com/fortegb/platform/issues/146), D-022, **fechado**). Revisão pós-#146 encontrou lacunas de arquitetura de domínio — Epic **Arquitetura de domínio** ([#179](https://github.com/fortegb/platform/issues/179): visitas, mensageria, RBAC, admin, D-052..D-056), **também fechado**. Passo 4 completo; build da Fase 1 ainda aguarda G2 (passos 5–7).
 
-### Epic: Brand assets ([#2](https://github.com/fortegb/platform/issues/2)) — sub-tarefas
+### ~~Epic: Brand assets~~ ([#2](https://github.com/fortegb/platform/issues/2)) — **fechado 2026-07-19**
 
-Reescopado em 2026-07-19: #197 derivou os tokens da implementação existente, invertendo
-a dependência — o design system agora **produz** a documentação de marca (#70) em vez de
-consumi-la. Sobrou só o que é genuinamente asset.
+O epic nasceu da premissa de `AGENTS.md` §7 ("peça os assets de marca antes de construir").
+A premissa não se sustentou: o site foi construído, #197 extraiu os tokens dele, e o design
+system passou a **produzir** a documentação de marca (#70) em vez de consumi-la. O escopo
+se dissolveu — nenhum item ficou por fazer:
 
-1. [ ] Logo em SVG ([#39](https://github.com/fortegb/platform/issues/39)) — depende do vetorial do usuário. Favicon **feito** (2026-07-19, `ff0492f`): derivado do mark do logo do header sobre navy `#203045`; o `favicon.ico` anterior tinha 14 bytes de texto ASCII
-2. [x] ~~Brand guide (cores, tipografia, uso)~~ ([#40](https://github.com/fortegb/platform/issues/40)) — **fechada**, superseded por #70
-3. [ ] ~~Hero / imagens candidatas~~ ([#41](https://github.com/fortegb/platform/issues/41)) — **movida para Etapa 8 (Execução)**, decisão de lançamento
+1. [x] Favicon — **feito** (`ff0492f`), derivado do mark do logo do header sobre navy `#203045`. O `favicon.ico` anterior tinha 14 bytes de texto ASCII, então toda aba mostrava o ícone padrão do navegador.
+2. [x] ~~Brand guide~~ ([#40](https://github.com/fortegb/platform/issues/40)) — **fechada**, superseded por #70.
+3. [x] ~~Hero / imagens candidatas~~ ([#41](https://github.com/fortegb/platform/issues/41)) — **movida para Etapa 8**, decisão de lançamento.
+4. [x] Logo em SVG ([#39](https://github.com/fortegb/platform/issues/39)) — **reparentado sob #67**, ao lado de #69 (templates de impressão), único consumidor real do vetor. Segue aberto lá, não aqui.
 
 ---
 

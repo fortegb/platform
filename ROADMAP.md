@@ -1,5 +1,6 @@
 ## Done
 - [#1](https://github.com/fortegb/platform/issues/1) Epic: Architecture & MVP definition
+- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets (logo SVG)
 - [#4](https://github.com/fortegb/platform/issues/4) Epic: Seed docs/planning
 - [#5](https://github.com/fortegb/platform/issues/5) Planning canon (README, vision, phases, modules, workflow)
 - [#6](https://github.com/fortegb/platform/issues/6) open-questions.md (Q-001–Q-019)
@@ -94,7 +95,6 @@
 - [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
-- [#2](https://github.com/fortegb/platform/issues/2) Epic: Brand assets (logo SVG)
 - [#29](https://github.com/fortegb/platform/issues/29) Grilling 3: Q-005, Q-006 visitas
 - [#30](https://github.com/fortegb/platform/issues/30) Grilling 4: Q-009, Q-011, Q-012, Q-013 media kit & placa
 - [#31](https://github.com/fortegb/platform/issues/31) Grilling 5: Q-008 mobile (se aberto)

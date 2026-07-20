@@ -102,7 +102,7 @@
 - [x] GitHub org + board ([#8](https://github.com/fortegb/platform/issues/8))
 - [x] OpenSpec + workflow ([#20](https://github.com/fortegb/platform/issues/20))
 - [x] Architecture & MVP fechado ([#1](https://github.com/fortegb/platform/issues/1) → [#38](https://github.com/fortegb/platform/issues/38))
-- [ ] Brand assets — logo SVG + favicon ([#2](https://github.com/fortegb/platform/issues/2)) — paralelo, não bloqueia build (reescopado 2026-07-19: brand guide → #70, hero images → Etapa 8)
+- [x] ~~Brand assets ([#2](https://github.com/fortegb/platform/issues/2))~~ — **epic fechado 2026-07-19**, escopo dissolvido: brand guide (#40) superseded por #70, hero images (#41) → Etapa 8, favicon feito, logo SVG (#39) reparentado sob #67 (pré-requisito de #69, impressão)
 - [x] `architecture.md` + [`screen-map.md`](./screen-map.md) ([#32](https://github.com/fortegb/platform/issues/32) Done) — screen-map ainda rascunho passo 5
 - [x] Q-003–Q-019 resolved ou deferred com rationale ([`open-questions.md`](./open-questions.md))
 - [x] Epics Phase 1–4 no board ([#37](https://github.com/fortegb/platform/issues/37))
