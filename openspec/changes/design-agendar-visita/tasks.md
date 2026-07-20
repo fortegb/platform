@@ -1,80 +1,69 @@
 ## 1. Phase 0 — audit (no edits)
 
-- [ ] 1.1 Tokenization audit of the route's file tree (`pages/visita/agendar/[houseId].vue`, `components/IdentityVerification.vue`, and anything they render): grep for hex literals, arbitrary color utilities (`bg-[#...]`, `text-[#...]`), and raw Tailwind palette colors (`bg-blue-500` etc.). Run **without** `2>/dev/null` — a suppressed error reads as "clean" (method note from #197's Pass 2).
-- [ ] 1.2 Record the audit in `openspec/specs/design-tokens/tokenization-report.md` as this leaf's pass.
-- [ ] 1.3 Confirm no new token is needed. If one is, name it by semantic role and add to `tailwind.config.js` + `docs/planning/design-tokens.md` — do not approximate with a close existing token.
+- [ ] 1.1 Tokenization audit of the route's file tree: grep for hex literals, arbitrary color utilities, and raw Tailwind palette colors. Run **without** `2>/dev/null` — a suppressed error reads as "clean".
+- [ ] 1.2 Record the audit in `openspec/specs/design-tokens/tokenization-report.md`.
+- [ ] 1.3 Confirm no new token is needed; if one is, name it by semantic role and add to `tailwind.config.js` + `docs/planning/design-tokens.md`.
 
 ## 2. Capability purpose
 
-- [ ] 2.1 `openspec/specs/design-tokens/spec.md` — replace the `TBD - created by archiving change design-descoberta-site` Purpose with the written one (see the spec delta). Do not touch `journey-scheduled-visit` or `ui-visual-accessibility` Purposes here — flagged in the proposal, not in scope.
+- [ ] 2.1 `openspec/specs/design-tokens/spec.md` — replace the `TBD` Purpose left by #197's archive.
 
-## 3. House context
+## 3. House status and visit matrix
 
-- [ ] 3.1 Resolve the house from `route.params.houseId` against the existing mock data service and render a header: house name, address, and thumbnail.
-- [ ] 3.2 Link the header back to `/portfolio/[slug]` for that house.
-- [ ] 3.3 Handle the unknown-`houseId` case with a clear empty state rather than a blank header.
+- [ ] 3.1 Add status `na-planta` (label "Na planta") to the type in `components/HouseCard.vue`, the badge map, the label map, and `composables/useHouseSort.ts`.
+- [ ] 3.2 Document `na-planta` in `docs/planning/templates/cms-content-model.md` (same gap pattern as `featured`).
+- [ ] 3.3 Apply the visit matrix — self-guided only on `disponivel`; guided (future, [#213](https://github.com/fortegb/platform/issues/213)) on `disponivel` + `em-construcao`; no visit on `na-planta`, `reservado`, `vendido`.
+- [ ] 3.4 `components/HouseCard.vue` — narrow the "Agendar Visita" CTA from "everything except `vendido`" to `disponivel` only. Shared with `/portfolio`, so verify there too.
 
-## 4. Design-system alignment (existing states)
+## 4. Route split
 
-- [ ] 4.1 Typography — replace the raw `text-4xl font-bold` heading and ad-hoc sizes with the scale used on `/portfolio/[slug]`, respecting the 81.25% global scale.
-- [ ] 4.2 Buttons — apply the `AGENTS.md` §9 hierarchy: primary action in secondary blue, secondary action as navy outline, WhatsApp green reserved for WhatsApp actions. Replace `btn-primary w-full` where full-width is not the right affordance.
-- [ ] 4.3 Surfaces — align card/shadow treatment to the portfolio detail page rather than `card shadow-xl` defaults.
-- [ ] 4.4 Form fields — align label, input, select, and validation-message styling; keep the existing mock rules (tomorrow minimum, fixed time slots).
-- [ ] 4.5 Error presentation — replace `alert alert-error` defaults with the system's treatment.
-- [ ] 4.6 Mobile layout — verify the form, verification step, and confirmation read correctly at mobile width.
+- [ ] 4.1 Narrow `pages/visita/agendar/[houseId].vue` to the form step.
+- [ ] 4.2 Create `pages/visita/agendar/[houseId]/verificacao.vue` — handoff screen before redirect (not the capture itself; that is the vendor's, D-070).
+- [ ] 4.3 Create `pages/visita/[token].vue` — result screen, variant from stored status. This journey's own screen, **not** shared with `/visita/gerenciar/[token]` ([#200](https://github.com/fortegb/platform/issues/200)).
+- [ ] 4.4 Persist form values in `sessionStorage` so refresh and back survive; redirect to the form only when nothing is stored.
+- [ ] 4.5 Step indicator across the two pre-submission routes; back path preserving values.
 
-## 5. Route split
+## 5. Form screen (states 1–6)
 
-- [ ] 5.1 Narrow `pages/visita/agendar/[houseId].vue` to the form step; on submit, navigate to the verification route carrying the entered values (client-side store or route state — not query params, per the privacy rule against personal data in URLs).
-- [ ] 5.2 Create `pages/visita/agendar/[houseId]/verificacao.vue` — the identity-verification step, rendering `IdentityVerification.vue`. Guard against direct entry with no form data (redirect back to the form).
-- [ ] 5.3 Create `pages/visita/[token].vue` — the result screen, variant selected from the visit's stored status. Own screen for this journey; **not** shared with `/visita/gerenciar/[token]` ([#200](https://github.com/fortegb/platform/issues/200)).
-- [ ] 5.4 Add a step indicator across the two pre-submission routes.
-- [ ] 5.5 Back path from verification to the form, preserving entered values.
+- [ ] 5.1 House context header — name, address, thumbnail — linked to `/portfolio/[slug]`.
+- [ ] 5.2 Design-system alignment: typography, button hierarchy per `AGENTS.md` §9, surfaces matching `/portfolio/[slug]`, field styling, mobile layout.
+- [ ] 5.3 Add the **CPF field**, required, with check-digit validation and masking. Canon basis D-020: a visit is where a Contato becomes a Cliente.
+- [ ] 5.4 Phone validation — Brazilian mobile, formatted as typed. It is the identity key for the 12-month match and the WhatsApp destination.
+- [ ] 5.5 Inline field-level validation; remove the page-level alert box.
+- [ ] 5.6 **State 2** — unknown `houseId`: message screen with a link to the portfolio, no form. Not a silent redirect.
+- [ ] 5.7 **State 3** — house not visitable: explain per status; for `em-construcao`, a WhatsApp CTA rather than a dead end (guided visits do not exist yet).
+- [ ] 5.8 **State 5** — slot taken between load and submit: conflict state. Which slots are unavailable is [#214](https://github.com/fortegb/platform/issues/214)'s rule, not this leaf's.
+- [ ] 5.9 **State 6** — submission failed: stay on the form, values preserved, explicit retry; after a second failure offer WhatsApp.
 
-## 6. Result screen variants (D-058)
+## 6. Verification handoff (states 7–12)
 
-- [ ] 6.1 **Confirmed** — date, time, address, and the access password, shown only when the visit reached `access_provisioned`.
-- [ ] 6.2 **Pending staff review** — acknowledgement: booking received, confirmation by WhatsApp before the visit date. No password. Not styled as an error.
-- [ ] 6.3 **Access provisioning failed** — booked with access pending, staff alerted, access details to follow by WhatsApp. No password.
-- [ ] 6.4 **Verification skipped** — copy on the confirmed variant stating the prior identity verification is still valid, for a returning client inside the 12-month window. Not a fourth variant.
-- [ ] 6.5 Unknown or expired token — clear empty state, no leaking of whether the token ever existed.
-- [ ] 6.6 Make every variant reachable for design review while status is simulated (dev-only mock flag; mark the seam with a `ponytail:` comment naming Execução [#81](https://github.com/fortegb/platform/issues/81) as the upgrade path).
+- [ ] 6.1 **State 7** — handoff screen: what is about to happen, why, and the privacy policy link. One tap, then redirect. (Immediate redirect only once own branding is live — D-070.)
+- [ ] 6.2 **State 8** — direct entry with no stored form data: redirect to the form.
+- [ ] 6.3 **State 12** — abandoned: visitor never returns from the vendor. Nudge by WhatsApp at 1 hour; release the slot at 24 hours or 2 hours before the slot, whichever comes first. Rule noted on [#214](https://github.com/fortegb/platform/issues/214).
+- [ ] 6.4 States 9 (camera denied), 10 (document rejected) and 11 (rejected/inconclusive) need **no screens here** — capture, retries and quality messaging belong to the vendor; a failed outcome lands on the result screen as state 15.
 
-## 7. Sad-path branches
+## 7. Result screen (states 13–19)
 
-Every branch below gets a designed state — not a generic error. Grouped by where the visitor is when it happens.
-
-**Form route**
-- [ ] 7.1 Unknown `houseId` — house does not exist.
-- [ ] 7.2 House exists but is not visitable (sold, or not yet released) — explain and offer the portfolio.
-- [ ] 7.3 Field-level validation: name, WhatsApp format, required date/time. Inline, not a page-level alert.
-- [ ] 7.4 Chosen slot no longer available by the time of submit.
-- [ ] 7.5 Submission fails (network or server) — preserve entered values, offer retry.
-
-**Verification route**
-- [ ] 7.6 Direct entry with no form data — redirect to the form (also 5.2).
-- [ ] 7.7 Camera permission denied or no camera available — explain and offer the fallback path.
-- [ ] 7.8 Document upload rejected (size, format, unreadable) — say which, allow retry.
-- [ ] 7.9 Repeated failed attempts — stop retrying and route to staff review rather than looping.
-- [ ] 7.10 Visitor abandons mid-verification and returns later — define what they land on.
-
-**Result route**
-- [ ] 7.11 Unknown or expired token — clear empty state, no disclosure of whether the token ever existed (also 6.5).
-- [ ] 7.12 Visit already cancelled (status `cancelled`, D-061) — show it as cancelled, do not show a password.
-- [ ] 7.13 Visit date already passed — show it as past, not as upcoming.
-
-- [ ] 7.14 Cross-check the inventory above against D-058 and `templates/jornada-visita-agendada.md` before building — anything the journey defines that is missing here gets added, and anything invented here that the journey does not define gets dropped or raised as a gap.
+- [ ] 7.1 **State 13** — confirmed with access code. Address tappable to maps, code legible outdoors, validity window stated ("válido das 15:00 às 17:00"), link to cancel/reschedule ([#200](https://github.com/fortegb/platform/issues/200)), and a way to reach staff. Same code as the WhatsApp message; WhatsApp is the delivery, this is the immediate confirmation.
+- [ ] 7.2 Lock instructions — primarily in the WhatsApp message, same text mirrored here.
+- [ ] 7.3 **State 14** — verification skipped: state 13 plus a line saying the previous verification is still valid and roughly until when; flag an expiry that is close.
+- [ ] 7.4 **State 15** — pending staff review: booking received, **confirmation within 24 hours** by WhatsApp, no code, WhatsApp button. Not styled as an error.
+- [ ] 7.5 **State 16** — provisioning failed: booked, access pending, staff alerted, details by WhatsApp, **no code**. Never show a code that was not written to the lock.
+- [ ] 7.6 **State 17** — unknown or expired token: one message for both cases, deliberately indistinguishable. Portfolio and WhatsApp offered.
+- [ ] 7.7 **State 18** — cancelled: reads as confirmation the cancellation worked, not an error. No code. Clear path to rebook.
+- [ ] 7.8 **State 19** — visit date passed: shown as past, no code, WhatsApp and a link back to the house (post-visit follow-up is D-061's).
+- [ ] 7.9 Make every variant reachable for design review while status is simulated (dev-only flag; `ponytail:` comment naming Execução [#81](https://github.com/fortegb/platform/issues/81)).
 
 ## 8. Copy (pt-BR)
 
-- [ ] 8.1 All new and revised copy in pt-BR, never pt-PT. Tone per the brand pillars — Transparência and Segurança carry these states, especially the pending, failed, and rejected ones.
-- [ ] 8.2 Review existing copy on the screens for the same standard.
+- [ ] 8.1 All copy in pt-BR, never pt-PT. Transparência and Segurança carry states 15 and 16 especially.
+- [ ] 8.2 Review existing copy to the same standard.
 
 ## 9. Verification
 
 - [ ] 9.1 `npm run build` clean.
-- [ ] 9.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors across the route's files.
-- [ ] 9.3 Walk every state and every sad-path branch in the browser; expect several design-check-adjust cycles with the user doing the visual verification in their own browser.
-- [ ] 9.4 `docs/planning/screen-map.md` — replace the single scheduling row with the three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198). Structural edit, not just a status field.
-- [ ] 9.5 `docs/planning/design-system-fluxo.md` — record the three Passo 6 scope rules agreed 2026-07-20: every screen is designed in Passo 6; screens are not shared across journeys; every journey branch is designed, happy and sad.
+- [ ] 9.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors.
+- [ ] 9.3 Walk all 19 states in the browser; expect several design-check-adjust cycles, with the user doing visual verification in their own browser.
+- [ ] 9.4 `docs/planning/screen-map.md` — one scheduling row becomes three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198).
+- [ ] 9.5 `docs/planning/design-system-fluxo.md` — record the three Passo 6 scope rules (2026-07-20): every screen designed in Passo 6; screens not shared across journeys; every branch designed, happy and sad.
 - [ ] 9.6 `npx openspec validate --strict` passes.
