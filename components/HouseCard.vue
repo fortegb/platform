@@ -7,8 +7,8 @@
           :alt="house.title"
           class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
         />
-        <div v-if="house.status" class="absolute top-4 right-4 badge badge-lg" :class="statusBadgeClass">
-          {{ formatStatus(house.status) }}
+        <div v-if="house.status" class="absolute top-4 right-4 badge badge-lg" :class="statusBadgeClass(house.status)">
+          {{ statusLabel(house.status) }}
         </div>
       </figure>
     </NuxtLink>
@@ -40,7 +40,7 @@
       </div>
       <div class="flex items-center mt-4">
         <NuxtLink
-          v-if="house.status !== 'vendido'"
+          v-if="allowsSelfGuidedVisit(house.status)"
           :to="`/visita/agendar/${house.id}`"
           class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors"
         >
@@ -58,6 +58,8 @@
 </template>
 
 <script setup lang="ts">
+import type { HouseStatus } from '~/composables/useHouseStatus'
+
 interface House {
   id: string | number
   slug?: string
@@ -68,7 +70,7 @@ interface House {
   bedrooms?: number
   bathrooms?: number
   price?: number
-  status?: 'disponivel' | 'vendido' | 'em-construcao' | 'reservado'
+  status?: HouseStatus
   featured?: boolean
 }
 
@@ -76,33 +78,15 @@ interface Props {
   house: House
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
-const statusBadgeClass = computed(() => {
-  const statusMap = {
-    'disponivel': 'badge-success',
-    'vendido': 'badge-error',
-    'em-construcao': 'badge-warning',
-    'reservado': 'badge-info'
-  }
-  return statusMap[props.house.status || 'disponivel'] || 'badge-neutral'
-})
+const { statusLabel, statusBadgeClass, allowsSelfGuidedVisit } = useHouseStatus()
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(price)
-}
-
-const formatStatus = (status: string) => {
-  const statusMap: Record<string, string> = {
-    'disponivel': 'Disponível',
-    'vendido': 'Vendido',
-    'em-construcao': 'Em Construção',
-    'reservado': 'Reservado'
-  }
-  return statusMap[status] || status
 }
 </script>
 
