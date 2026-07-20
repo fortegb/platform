@@ -23,7 +23,7 @@ Princípio herdado (D-011, cumprido): decisões técnicas ficam **abertas até o
 | | 3 | Componentes | Peças de alto nível (site, CRM, WhatsApp, fechaduras…) | grilling | `modules.md` |
 | | 4 | Arquitetura | Que componentes, front/back, serverless/persistente, infra, ambientes, integrações — dentro das restrições | grilling | `architecture.md` + `decisions.md` + templates de config (**#146**) |
 | | 5 | Jornadas/telas | Fluxos e telas finais por usuário | grilling | `jornadas-plataforma.md`, `screen-map.md` (**re-validar pós-4**) |
-| | 6 | Design system | Linguagem visual, comportamento e tokens | grilling | design system + `agents.md` §9 (convenções UI) |
+| | 6 | Design system | Linguagem visual, comportamento e tokens | grilling | design system + `AGENTS.md` §9 (convenções UI) |
 | | 7 | Versionamento | Fatiar o definido em v1/v2/v3 (atribuir epics a Milestones) | planejamento | Milestones no board |
 | **Execução** | 8 | Execução | Construir até entregar (por versão) | change mgmt | código + deploy |
 | **Evolução** | 9 | Manutenção | Manter e desenvolver o novo | change mgmt | — |

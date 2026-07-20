@@ -17,7 +17,7 @@ Steps 1–6 SHALL be closed via grilling (resolving open questions and producing
 
 - **WHEN** a contributor needs to know the order of work and where a task belongs
 - **THEN** `docs/planning/metodo.md` defines the 9 steps and 3 stages, each with purpose, entry/exit criteria, and canonical artifact
-- **AND** planning `README.md`, `agents.md` §9, and `STATUS.md` point to it
+- **AND** planning `README.md`, `AGENTS.md` §9, and `STATUS.md` point to it
 
 #### Scenario: Stages derive from step, not stored separately
 
