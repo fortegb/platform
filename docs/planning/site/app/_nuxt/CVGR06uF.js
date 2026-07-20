@@ -1,0 +1,1 @@
+import{N as r,O as o,m as u}from"./DchQ4cJD.js";import{u as n}from"./DTj408Tw.js";const f=r(async(i,c)=>{let e,t;const a=n(),{data:{user:s}}=([e,t]=o(()=>a.auth.getUser()),e=await e,t(),e);if(s)return u("/corretor/dashboard")});export{f as default};
