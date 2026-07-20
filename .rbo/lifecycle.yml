@@ -2,3 +2,11 @@
 # Present → rbo-stage-change lands on integrationBranch; rbo-close-change archives then
 #   merges integrationBranch → main (not feat/* → main). See D-045 / #166.
 integrationBranch: staging
+
+# staging is decided but NOT created yet — provisioning is deferred to the Execução
+# bootstrap (#42 / #46). While this flag is true:
+#   - rbo-stage-change stops and points at rbo-close-change (expected state, not an error)
+#   - rbo-close-change merges feat/* → main directly, per D-046
+# Remove this flag the moment origin/staging exists, or the integration lifecycle
+# silently stays a no-op. See D-045 / D-046.
+integrationBranchPending: true

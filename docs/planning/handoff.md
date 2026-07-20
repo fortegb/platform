@@ -74,16 +74,23 @@ tokenization sweep plus a partially-applied WhatsApp dedupe refactor.
    and destructive), `rbo-close-change` (limit 200 vs 211), `rbo-create-change` (user
    could only see/pick 30 issues) and `rbo-catch-up`. Also fixed `.title` →
    `.content.title`: `.title` is the project item's cached snapshot and never follows
-   issue renames. **Run `setup_ai` / `dotfiles_update` if this machine's symlinks are
-   stale**, otherwise the old buggy versions still run here.
+   issue renames. Symlink check done: `~/.claude/skills/rbo-*` point straight at the
+   `ai-skills` working dir, so the fixes are already live on this machine — no
+   `setup_ai` needed. Other machines still need a `dotfiles_update`.
 
 **Also worth knowing**
-- `rbo-close-change` will **fail by design** on this repo: it sees `.rbo/lifecycle.yml`
-  and demands `origin/staging`, which does not exist yet (deferred to Execução bootstrap,
-  [#42](https://github.com/fortegb/platform/issues/42)/[#46](https://github.com/fortegb/platform/issues/46)).
-  Per D-046, Definition leaves close `feat/*` → `main` direct. The skill's guardrail says
-  "never fall back … never any other reasoning", so the two contradict each other —
-  proceeded on D-046 for #197. Worth reconciling before the next close.
+- **Resolved this session:** `rbo-close-change` used to fail by design here — it saw
+  `.rbo/lifecycle.yml` and demanded `origin/staging`, which does not exist yet
+  (deferred to Execução bootstrap,
+  [#42](https://github.com/fortegb/platform/issues/42)/[#46](https://github.com/fortegb/platform/issues/46)),
+  while D-046 says Definition leaves close `feat/*` → `main` direct. The skill and the
+  repo's own decision record contradicted each other. Fixed by separating *declared*
+  from *provisioned*: `.rbo/lifecycle.yml` now carries `integrationBranchPending: true`,
+  an explicit opt-in the skills read. `rbo-stage-change` stops with a clear "expected
+  state" message; `rbo-close-change` merges `feat/*` → `main`. The flag must be
+  **removed when `origin/staging` is created**, or the integration lifecycle stays a
+  silent no-op. Deliberately explicit rather than inferred from the branch being absent —
+  an accidentally deleted `staging` must still fail loudly.
 - GitHub's API threw intermittent 503s during the milestone work. All writes were
   retried and verified by count; nothing was left half-applied.
 
