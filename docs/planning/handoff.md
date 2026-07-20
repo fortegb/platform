@@ -1,6 +1,6 @@
 # Handoff — fortegb/platform — 2026-07-19
 
-**Updated:** 2026-07-19T21:20:00-03:00
+**Updated:** 2026-07-19T21:45:00-03:00
 **Status:** active
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
@@ -20,13 +20,25 @@ tokenization sweep plus a partially-applied WhatsApp dedupe refactor.
 
 ## Control doc paths
 
-- Decisions: `docs/planning/decisions.md` — **D-069** added (mechanism for the
-  pre-`staging` window, `integrationBranchPending`). Corrected mid-session: it had been
-  called "no new D-number", but the flag **amends D-045's fail-closed clause**, and
-  amending an accepted decision gets recorded here. D-045 and D-046 now cross-reference
-  it. Everything else this session was implementation, process or board hygiene.
+- Decisions: **D-069** added (mechanism for the pre-`staging` window,
+  `integrationBranchPending`). Corrected mid-session: it had been called "no new
+  D-number", but the flag **amends D-045's fail-closed clause**, and amending an accepted
+  decision gets recorded. D-045 and D-046 cross-reference it from both ends.
+  **This repo keeps two decision logs** — `docs/planning/decisions.md` (pt-BR, numbered
+  `D-0XX`, the canon per `AGENTS.md` §9) and root `DECISIONS.md` (English, dated
+  headings). Not a split for size: git shows both bootstrapped independently on
+  2026-07-01. Neither is auto-loaded, so the cost is double-entry drift, not context —
+  and it did drift today (D-069 landed in one, then had to be synced to the other).
+  **Write new decisions to both, or settle which is canonical.** Both currently end at
+  D-069.
 - Session compass: `STATUS.md` — 2026-07-19 block added, "Próxima sessão" points at #198
-- Context: `AGENTS.md` — not touched (no rule/stack/convention change)
+- Context: `AGENTS.md` — **renamed** from lowercase `agents.md` (only lowercase file at
+  root; invisible on macOS's case-insensitive FS, surfaced when `git add AGENTS.md`
+  matched nothing). Also gained a standing rule: **"Consultar o canon antes de propor
+  mecanismo"** — read `decisions.md` and state what you found before designing any
+  solution; if a decision covers it, cite it and stop. A correction is not a request for
+  work. Note this file is `@`-imported by `CLAUDE.md`, so it loads into **every** session
+  (453 lines / 28K) — keep additions tight.
 - Planning: `docs/planning/roteiro.md` (milestone hygiene rule added),
   `phases.md`, `design-system-fluxo.md`, `deliverables.md`, `progress-focus.md`
 - Handoff: `docs/planning/handoff.md` (this file)
@@ -57,6 +69,13 @@ tokenization sweep plus a partially-applied WhatsApp dedupe refactor.
   navy. The previous `favicon.ico` was 14 bytes of ASCII text.
 - **Milestone `v0` hygiene — this unblocked the build gate.** See below.
 - **Two bugs fixed in the `ai-skills` repo** (`18c84b3`). See below.
+- **Process correction, worth carrying forward.** This session repeatedly manufactured
+  work on already-settled ground: `integrationBranchPending` was designed from first
+  principles when D-046 had agreed the behaviour since 2026-07-11, and the correction
+  then became a decision record, cross-references and doc updates on top. The user's
+  words: *"you are creating problems that were solved, stop this."* The new `AGENTS.md`
+  rule exists because of it — **check `decisions.md` first, and treat a correction as
+  something to absorb, not convert into a deliverable.**
 
 **Blocked / waiting on the user**
 - [#39 — Logo em SVG](https://github.com/fortegb/platform/issues/39) needs the vector
@@ -127,6 +146,10 @@ Worth repeating from #197: that leaf grew far beyond its original scope because 
 drives these visually — they look, critique bluntly, and iterate. Expect several
 design-check-adjust cycles per leaf, and expect the user to do the visual verification in
 their own browser rather than trusting the preview pane.
+
+Two working preferences confirmed this session, both stated more than once: **answer the
+question asked, without expanding scope**, and **keep replies short** — reference issues
+as linked titles, never a bare `#198`.
 
 ## Suggested skills
 
