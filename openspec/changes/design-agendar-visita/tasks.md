@@ -23,18 +23,22 @@
 - [ ] 4.5 Error presentation — replace `alert alert-error` defaults with the system's treatment.
 - [ ] 4.6 Mobile layout — verify the form, verification step, and confirmation read correctly at mobile width.
 
-## 5. Step affordance
+## 5. Route split
 
-- [ ] 5.1 Add a step indicator across the flow's steps.
-- [ ] 5.2 Add a back path from verification to the form, preserving entered values.
+- [ ] 5.1 Narrow `pages/visita/agendar/[houseId].vue` to the form step; on submit, navigate to the verification route carrying the entered values (client-side store or route state — not query params, per the privacy rule against personal data in URLs).
+- [ ] 5.2 Create `pages/visita/agendar/[houseId]/verificacao.vue` — the identity-verification step, rendering `IdentityVerification.vue`. Guard against direct entry with no form data (redirect back to the form).
+- [ ] 5.3 Create `pages/visita/[token].vue` — the result screen, variant selected from the visit's stored status. Own screen for this journey; **not** shared with `/visita/gerenciar/[token]` ([#200](https://github.com/fortegb/platform/issues/200)).
+- [ ] 5.4 Add a step indicator across the two pre-submission routes.
+- [ ] 5.5 Back path from verification to the form, preserving entered values.
 
-## 6. New screen states (D-058)
+## 6. Result screen variants (D-058)
 
-- [ ] 6.1 **Verification skipped** — returning client within the 12-month window goes straight to confirmation, with copy stating the prior verification is still valid.
-- [ ] 6.2 **Pending staff review** — acknowledgement state: booking received, confirmation by WhatsApp before the visit, no password, not styled as an error.
-- [ ] 6.3 **Access provisioning failed** — booked with access pending, staff alerted, access details by WhatsApp, no password shown.
-- [ ] 6.4 Confirmed state shows the password only when access was actually provisioned.
-- [ ] 6.5 Make all states reachable for review (simulated trigger — a dev-only query param or mock flag; note the seam with a `ponytail:` comment naming Execução #81 as the upgrade path).
+- [ ] 6.1 **Confirmed** — date, time, address, and the access password, shown only when the visit reached `access_provisioned`.
+- [ ] 6.2 **Pending staff review** — acknowledgement: booking received, confirmation by WhatsApp before the visit date. No password. Not styled as an error.
+- [ ] 6.3 **Access provisioning failed** — booked with access pending, staff alerted, access details to follow by WhatsApp. No password.
+- [ ] 6.4 **Verification skipped** — copy on the confirmed variant stating the prior identity verification is still valid, for a returning client inside the 12-month window. Not a fourth variant.
+- [ ] 6.5 Unknown or expired token — clear empty state, no leaking of whether the token ever existed.
+- [ ] 6.6 Make every variant reachable for design review while status is simulated (dev-only mock flag; mark the seam with a `ponytail:` comment naming Execução [#81](https://github.com/fortegb/platform/issues/81) as the upgrade path).
 
 ## 7. Copy (pt-BR)
 
@@ -46,5 +50,6 @@
 - [ ] 8.1 `npm run build` clean.
 - [ ] 8.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors across the route's files.
 - [ ] 8.3 Walk every state in the browser; expect several design-check-adjust cycles with the user doing the visual verification in their own browser.
-- [ ] 8.4 `docs/planning/screen-map.md` — mark `/visita/agendar/[houseId]` validated for #198.
-- [ ] 8.5 `npx openspec validate --strict` passes.
+- [ ] 8.4 `docs/planning/screen-map.md` — replace the single scheduling row with the three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198). Structural edit, not just a status field.
+- [ ] 8.5 `docs/planning/design-system-fluxo.md` — record the two Passo 6 scope rules agreed 2026-07-20: every screen is designed in Passo 6; screens are not shared across journeys.
+- [ ] 8.6 `npx openspec validate --strict` passes.

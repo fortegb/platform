@@ -32,3 +32,10 @@ A screen implementing a journey SHALL provide a distinct visual state for each o
 #### Scenario: Outcome with no screen
 - **WHEN** an accepted decision record defines an outcome the screen has no state for
 - **THEN** the design leaf for that journey adds the state, even though the logic driving it lands in a later Execução issue
+
+### Requirement: Every screen is designed during Passo 6
+A screen belonging to a journey SHALL receive its design pass during that journey's Passo 6 leaf, and SHALL NOT be deferred to Execução to be built without one.
+
+#### Scenario: Screen that only appears in a later outcome
+- **WHEN** a journey defines a screen the current implementation has no code for yet
+- **THEN** it is designed in the Passo 6 leaf anyway, so no screen in that journey is built after the design system closes
