@@ -92,6 +92,7 @@
 - [#195](https://github.com/fortegb/platform/issues/195) Jornada: configuração de plataforma e papéis
 - [#196](https://github.com/fortegb/platform/issues/196) Onboarding do corretor: exigir CPF (lacuna em D-062)
 - [#197](https://github.com/fortegb/platform/issues/197) Design e tokenização: Descoberta do site
+- [#198](https://github.com/fortegb/platform/issues/198) Design e tokenização: Agendar visita
 - [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
@@ -198,7 +199,6 @@
 - [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
-- [#198](https://github.com/fortegb/platform/issues/198) Design e tokenização: Agendar visita
 - [#199](https://github.com/fortegb/platform/issues/199) Design e tokenização: Visita QR
 - [#200](https://github.com/fortegb/platform/issues/200) Design e tokenização: Gerenciar visita
 - [#201](https://github.com/fortegb/platform/issues/201) Design e tokenização: Onboarding do corretor
@@ -212,4 +212,9 @@
 - [#209](https://github.com/fortegb/platform/issues/209) Tokenizar: Corretor
 - [#210](https://github.com/fortegb/platform/issues/210) Tokenizar: Staff
 - [#211](https://github.com/fortegb/platform/issues/211) Tokenizar: Admin
+- [#213](https://github.com/fortegb/platform/issues/213) Visita guiada: tour acompanhado por corretor ou sócio
+- [#214](https://github.com/fortegb/platform/issues/214) Janela de acesso e espaçamento de horários de visita
+- [#215](https://github.com/fortegb/platform/issues/215) Staff agenda visita em nome do cliente
+- [#216](https://github.com/fortegb/platform/issues/216) Política de manuseio de mídia recebida por WhatsApp (LGPD)
+- [#217](https://github.com/fortegb/platform/issues/217) Spike: confirmar Didit na prática antes do build
 
