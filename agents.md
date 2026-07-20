@@ -374,6 +374,17 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 | `docs/planning/` | Canon de design: visão, módulos, fases, perguntas, decisões, runbooks | Grilling, decisões de arquitetura, novos módulos (ex.: media kit) |
 | `ROADMAP.md` | Espelho gerado do GitHub Project | Gerado por `rbo-create-issue` / `rbo-close-change` — **não editar à mão** |
 
+### Consultar o canon antes de propor mecanismo
+
+**Antes de propor solução, mecanismo, flag ou processo novo: leia `docs/planning/decisions.md` e diga o que encontrou.** Se uma decisão já cobre o caso, **cite-a e pare** — não desenhe do zero.
+
+- Vale especialmente quando algo **falha ou parece contraditório**. O reflexo de resolver a partir do primeiro princípio é exatamente o momento em que o canon costuma já ter a resposta.
+- Se o canon cobre o comportamento mas **falta mecanismo**, isso é uma constatação a apresentar — não licença para construir. Espere o OK.
+- Se de fato precisar emendar decisão fechada, registre (mesmo padrão de #187→D-053, #189→`crm-source-of-truth`, #196→D-062, D-069→D-045). Emenda não registrada é o pior dos dois mundos.
+- **Correção não é pedido de trabalho.** Quando o usuário aponta um erro, o default é absorver e seguir — não converter em entregável, doc novo ou refactor. Só agir se ele pedir.
+
+> Origem: 2026-07-19. `rbo-close-change` falhou ao fechar #197; a solução foi desenhada do zero quando **D-046 já havia acordado o comportamento** desde 2026-07-11, e a emenda a D-045 não foi registrada na hora (virou D-069). Custo real: mecanismo, decisão, cross-references e docs produzidos sobre um problema já resolvido.
+
 ### Ordem de trabalho (Etapa + dependências)
 - **Ordem = passo do Roteiro (campo `Etapa`) + dependências**, **não** o número da issue (número = ordem de criação).
 - **`Etapa`** (campo de board, 9 opções, supersede `Phase`) situa cada item no passo 1–9; **`Milestone`** (`v0 Definição` → v1 → v2 → v3) é o pacote de entrega; **tipo nativo** (Feature/Bug/Task/Epic) classifica.
