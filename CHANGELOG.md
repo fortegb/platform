@@ -7,6 +7,21 @@
 
 ## Não versionado
 
+### 2026-07-20 — Agendar visita: 3 rotas, 19 estados ([#198](https://github.com/fortegb/platform/issues/198))
+
+**Segunda leaf de design do Passo 6.** A tela existente era um stub pré-arquitetura com 3 estados num único `step`; a jornada (D-058) definia 6, e o passe de ramos felizes e tristes levou o total a **19 estados em 3 rotas**.
+
+- **Rotas separadas** — `/visita/agendar/[houseId]` (formulário), `/visita/agendar/[houseId]/verificacao` (handoff), `/visita/[token]` (resultado, 7 variantes). O resultado é token-keyed e a variante vem do status guardado, nunca da URL — assim as duas não podem divergir. Sobrevive a refresh e pode ser linkado da mensagem de WhatsApp.
+- **Matriz de visita por status** — autoguiada só em `disponivel`; guiada (futura, [#213](https://github.com/fortegb/platform/issues/213)) em `disponivel` + `em-construcao`; sem visita em `na-planta`, `reservado`, `vendido`. Centralizada em `composables/useHouseStatus.ts`. `HouseCard` oferecia "Agendar Visita" em tudo menos `vendido` — corrigido.
+- **Novo status `na-planta`** (rótulo "Na planta") — termo que o comprador brasileiro já usa, em vez de `em-projeto` (soa interno) ou `preparação` (colidiria com obra). Documentado no modelo de conteúdo CMS.
+- **CPF obrigatório no formulário**, com validação de dígito verificador. D-020 já dizia que registrar visita é onde um Contato vira Cliente — o stub nunca coletava.
+- **Estados que não existiam** — verificação dispensada (reuso de 12 meses), em análise pelo staff (recibo, não erro, com promessa de 24h), acesso pendente (nunca mostra código que não foi gravado na fechadura), link inválido, cancelada, visita já realizada.
+- **Verificação de identidade passa a ser serviço externo** — D-070, emenda a D-053. Ver decisões.
+- **Regras de escopo do Passo 6** (`design-system-fluxo.md`): toda tela é desenhada no Passo 6; telas não são compartilhadas entre jornadas; todo ramo é desenhado, feliz e triste.
+- **Bug de roteamento corrigido** — `[houseId].vue` com uma pasta `[houseId]/` ao lado vira layout pai no Nuxt, e a rota de verificação renderizava o formulário silenciosamente. Movido para `[houseId]/index.vue`.
+- **Auditoria de tokenização (Pass 3)** limpa. Nota de método: a primeira execução não leu nada — `[houseId]` e `[token]` são globs de shell e os caminhos expandiram para vazio. Só apareceu porque a auditoria roda **sem** `2>/dev/null`; com supressão teria reportado "limpo" sobre 9 arquivos nunca abertos.
+- **5 issues novas** saíram desta leaf: [#213](https://github.com/fortegb/platform/issues/213) visita guiada, [#214](https://github.com/fortegb/platform/issues/214) janela de acesso e espaçamento, [#215](https://github.com/fortegb/platform/issues/215) staff agenda visita, [#216](https://github.com/fortegb/platform/issues/216) mídia por WhatsApp (LGPD), [#217](https://github.com/fortegb/platform/issues/217) spike do serviço de verificação.
+
 ### 2026-07-19 — Passo 6 arranca: leaf #197 (Descoberta do site) fechada ([#197](https://github.com/fortegb/platform/issues/197))
 
 **Primeira das 11 leaves de design do Passo 6 (epic #67) concluída.** Fecha também a fundação de tokens que as leaves #198–#207 herdam.

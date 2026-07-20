@@ -146,3 +146,45 @@ None across both passes. Every hardcoded value found in scope had a clear single
 ## Readiness assessment
 
 **#197 is now fully audited for tokenization across all its routes** (`/`, `/slate`, `/gradient`, `/hero`, `/portfolio`, `/portfolio/[slug]`, `/sobre`, `/contato`, `/privacidade`, `/termos`, `/blog`, `/blog/[slug]`) — Pass 1 (Home) + Pass 2 (everything else) both clean, zero remaining color/token gaps. Ready for the next design leaves (#198–#207) to reference this inventory. Still not ready for `rbo-ui-design-system` (#70) — that skill runs once, at the very end of Passo 6, after all 11 design leaves and all 4 tokenize sweeps (#208–#211) close; this report will keep growing as those leaves land.
+
+---
+
+## Pass 3 — Agendar visita (#198), 2026-07-20
+
+**Scope:** the scheduled-visit journey's three routes and the components they render —
+`pages/visita/agendar/[houseId]/index.vue`, `pages/visita/agendar/[houseId]/verificacao.vue`,
+`pages/visita/[token].vue`, `components/HouseVisitHeader.vue`, `components/VisitStepIndicator.vue`,
+`components/HouseCard.vue`, `components/IdentityVerification.vue`,
+`composables/useHouseStatus.ts`, `composables/useVisitBooking.ts`.
+
+**Method note — the trap fired, and was caught.** The first run passed the paths as an
+unquoted shell variable. `[houseId]` and `[token]` are glob character classes, so the shell
+expanded them to nothing and grep reported *"No such file or directory"* for the whole list.
+Because the run was deliberately made **without** `2>/dev/null` (the Pass 2 lesson), the
+warning was visible and the audit was rerun with `set -f` and a quoted array, with an explicit
+per-file existence check printed first. Suppressing stderr here would have produced three
+empty result sets and a confident "clean" verdict on nine files that were never opened. The
+same bracket-path hazard applies to every remaining leaf: journey routes are dynamic segments.
+
+**Results:** zero hex color literals, zero arbitrary color utilities, zero raw Tailwind
+default-palette colors. The only `#` matches were issue references in code comments
+(`#198`, `#213`, `#214`), and the only arbitrary-value utility anywhere in the new files is
+`tracking-[0.3em]` on the access code.
+
+**`tracking-[0.3em]` — kept deliberately.** It is letter-spacing, not color, and it is
+expressed in `em`, so it scales with the global 81.25% root rather than fighting it — unlike
+the fixed-pixel `max-w-[200px]` that Pass 2 normalized to `w-44` for exactly that reason.
+Tailwind's tracking scale tops out below what a four-digit code read at arm's length outdoors
+needs. Not promoted to a token: it has one call site and one purpose.
+
+**Token gaps flagged:** none. Every color on the three new screens routes through `primary-*`,
+`secondary`, `whatsapp`/`whatsapp-hover`, DaisyUI semantic aliases (`base-100/200/300`,
+`base-content`), or DaisyUI status colors (`success`, `warning`, `error`) — the same vocabulary
+Pass 1 and Pass 2 catalogued. No new token was needed.
+
+**New status token:** `na-planta` joins `disponivel`/`em-construcao`/`reservado`/`vendido`.
+It is a domain status rather than a design token, but it carries a badge color
+(`badge-info`) and a label, both now centralized in `composables/useHouseStatus.ts` instead of
+being duplicated per component — the same de-duplication `whatsapp` got in Pass 1.
+
+**Validation:** `npm run build` clean.

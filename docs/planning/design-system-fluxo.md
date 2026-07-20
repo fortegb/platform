@@ -36,6 +36,14 @@ Os 3 de 4 componentes de hero (`HeroSplit`, `HeroSlate`, `HeroAzul`) já são es
 
 ---
 
+## Regras de escopo do Passo 6 (acordadas 2026-07-20, durante [#198](https://github.com/fortegb/platform/issues/198))
+
+1. **Toda tela é desenhada no Passo 6.** Nada chega à Execução sem passe de design. Uma tela que hoje só existe como desfecho posterior é desenhada agora — senão seria a única tela da jornada construída depois que o design system fechou, que é exatamente por onde entra a deriva visual.
+2. **Telas não são compartilhadas entre jornadas.** Duas jornadas que aparentam precisar da "mesma" tela ganham cada uma a sua. O reuso não economiza nada real e cobra negociação de fronteira toda vez que aparece. Exemplo concreto: `/visita/[token]` (resultado do agendamento, #198) e `/visita/gerenciar/[token]` (cancelar/remarcar, [#200](https://github.com/fortegb/platform/issues/200)) são token-keyed e mostram a mesma visita — e ainda assim são duas telas.
+3. **Todo ramo é desenhado, feliz e triste.** A leaf enumera o conjunto completo de ramos da jornada — sucesso, falha, vazio, expirado, abandonado — e desenha um estado para cada. Um erro genérico cobrindo vários ramos é lacuna, porque os ramos pedem recuperações diferentes. O inventário de ramos fica nos artefatos da change, para poder ser conferido em vez de presumido.
+
+> Custo real observado em #198: a tela existente tinha 3 estados; a jornada (D-058) definia 6, e o passe de ramos levou o total a 19 estados em 3 rotas. Também produziu 5 issues novas ([#213](https://github.com/fortegb/platform/issues/213)–[#217](https://github.com/fortegb/platform/issues/217)) e uma decisão (D-070) — lacunas que existiam desde o Passo 5 e só apareceram ao desenhar o detalhe.
+
 ## Granularidade das leaves de design
 
 Uma leaf por **jornada**, não por seção de persona inteira (grande demais para um branch/change coeso) e não por tela individual (overhead de processo demais — sub-issues nativas do GitHub exigiriam branch + OpenSpec change por tela). A granularidade espelha as jornadas já fechadas no Passo 5 (#185–195).
