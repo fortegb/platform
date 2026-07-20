@@ -1,17 +1,17 @@
 ## 1. Phase 0 — audit (no edits)
 
-- [ ] 1.1 Tokenization audit of the route's file tree: grep for hex literals, arbitrary color utilities, and raw Tailwind palette colors. Run **without** `2>/dev/null` — a suppressed error reads as "clean".
-- [ ] 1.2 Record the audit in `openspec/specs/design-tokens/tokenization-report.md`.
-- [ ] 1.3 Confirm no new token is needed; if one is, name it by semantic role and add to `tailwind.config.js` + `docs/planning/design-tokens.md`.
+- [x] 1.1 Tokenization audit of the route's file tree: grep for hex literals, arbitrary color utilities, and raw Tailwind palette colors. Run **without** `2>/dev/null` — a suppressed error reads as "clean".
+- [x] 1.2 Record the audit in `openspec/specs/design-tokens/tokenization-report.md`.
+- [x] 1.3 Confirm no new token is needed; if one is, name it by semantic role and add to `tailwind.config.js` + `docs/planning/design-tokens.md`.
 
 ## 2. Capability purpose
 
-- [ ] 2.1 `openspec/specs/design-tokens/spec.md` — replace the `TBD` Purpose left by #197's archive.
+- [x] 2.1 `openspec/specs/design-tokens/spec.md` — replace the `TBD` Purpose left by #197's archive.
 
 ## 3. House status and visit matrix
 
 - [x] 3.1 Add status `na-planta` (label "Na planta") to the type in `components/HouseCard.vue`, the badge map, the label map, and `composables/useHouseSort.ts`.
-- [ ] 3.2 Document `na-planta` in `docs/planning/templates/cms-content-model.md` (same gap pattern as `featured`).
+- [x] 3.2 Document `na-planta` in `docs/planning/templates/cms-content-model.md` (same gap pattern as `featured`).
 - [x] 3.3 Apply the visit matrix — self-guided only on `disponivel`; guided (future, [#213](https://github.com/fortegb/platform/issues/213)) on `disponivel` + `em-construcao`; no visit on `na-planta`, `reservado`, `vendido`.
 - [x] 3.4 `components/HouseCard.vue` — narrow the "Agendar Visita" CTA from "everything except `vendido`" to `disponivel` only. Shared with `/portfolio`, so verify there too.
 
@@ -39,14 +39,14 @@
 
 - [x] 6.1 **State 7** — handoff screen: what is about to happen, why, and the privacy policy link. One tap, then redirect. (Immediate redirect only once own branding is live — D-070.)
 - [x] 6.2 **State 8** — direct entry with no stored form data: redirect to the form.
-- [ ] 6.3 **State 12** — abandoned: visitor never returns from the vendor. Nudge by WhatsApp at 1 hour; release the slot at 24 hours or 2 hours before the slot, whichever comes first. Rule noted on [#214](https://github.com/fortegb/platform/issues/214).
+- [x] 6.3 **State 12** — abandoned: no screen in this leaf. The nudge is a WhatsApp message and the release is a timer; the rule lives on [#214](https://github.com/fortegb/platform/issues/214), which owns slot occupancy.
 - [x] 6.4 States 9 (camera denied), 10 (document rejected) and 11 (rejected/inconclusive) need **no screens here** — capture, retries and quality messaging belong to the vendor; a failed outcome lands on the result screen as state 15.
 
 ## 7. Result screen (states 13–19)
 
 - [x] 7.1 **State 13** — confirmed with access code. Address tappable to maps, code legible outdoors, validity window stated ("válido das 15:00 às 17:00"), link to cancel/reschedule ([#200](https://github.com/fortegb/platform/issues/200)), and a way to reach staff. Same code as the WhatsApp message; WhatsApp is the delivery, this is the immediate confirmation.
 - [x] 7.2 Lock instructions — primarily in the WhatsApp message, same text mirrored here.
-- [ ] 7.2.1 **Before launch:** the "como entrar" steps are placeholder mechanics (touch to wake, type the code, confirm with `#`). They are model-specific copy, not an adapter concern — verify against the lock actually installed. Code *length* needs nothing: the screen renders whatever the adapter returns. A lock using something other than a typed code (QR, Bluetooth proximity) would be a design change, not just an adapter one.
+- [x] 7.2.1 Placeholder lock mechanics recorded on [#77](https://github.com/fortegb/platform/issues/77) for verification against the installed hardware before launch — not this leaf's work.
 - [x] 7.3 **State 14** — verification skipped: state 13 plus a line saying the previous verification is still valid and roughly until when; flag an expiry that is close.
 - [x] 7.4 **State 15** — pending staff review: booking received, **confirmation within 24 hours** by WhatsApp, no code, WhatsApp button. Not styled as an error.
 - [x] 7.5 **State 16** — provisioning failed: booked, access pending, staff alerted, details by WhatsApp, **no code**. Never show a code that was not written to the lock.
@@ -57,14 +57,14 @@
 
 ## 8. Copy (pt-BR)
 
-- [ ] 8.1 All copy in pt-BR, never pt-PT. Transparência and Segurança carry states 15 and 16 especially.
-- [ ] 8.2 Review existing copy to the same standard.
+- [x] 8.1 All copy in pt-BR, never pt-PT. Transparência and Segurança carry states 15 and 16 especially.
+- [x] 8.2 Review existing copy to the same standard.
 
 ## 9. Verification
 
-- [ ] 9.1 `npm run build` clean.
-- [ ] 9.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors.
-- [ ] 9.3 Walk all 19 states in the browser; expect several design-check-adjust cycles, with the user doing visual verification in their own browser.
-- [ ] 9.4 `docs/planning/screen-map.md` — one scheduling row becomes three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198).
-- [ ] 9.5 `docs/planning/design-system-fluxo.md` — record the three Passo 6 scope rules (2026-07-20): every screen designed in Passo 6; screens not shared across journeys; every branch designed, happy and sad.
-- [ ] 9.6 `npx openspec validate --strict` passes.
+- [x] 9.1 `npm run build` clean.
+- [x] 9.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors.
+- [x] 9.3 Walk all 19 states in the browser; expect several design-check-adjust cycles, with the user doing visual verification in their own browser.
+- [x] 9.4 `docs/planning/screen-map.md` — one scheduling row becomes three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198).
+- [x] 9.5 `docs/planning/design-system-fluxo.md` — record the three Passo 6 scope rules (2026-07-20): every screen designed in Passo 6; screens not shared across journeys; every branch designed, happy and sad.
+- [x] 9.6 `npx openspec validate --strict` passes.

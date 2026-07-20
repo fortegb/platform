@@ -1,7 +1,7 @@
 # design-tokens Specification
 
 ## Purpose
-TBD - created by archiving change design-descoberta-site. Update Purpose after archive.
+The canonical web design reference for the ForteGB product — brand colors, typography, spacing, button hierarchy, and the per-screen design conventions the Passo 6 leaves (#197–#207) apply — derived from the existing implementation rather than a separate brand guide.
 ## Requirements
 ### Requirement: Documented token foundation
 The system SHALL provide a single documented source of truth for brand colors, typography, spacing, and button styles, derived from the existing Home page dependency tree (`tailwind.config.js`, `assets/css/main.css`, and the components it renders) rather than inventing new values.

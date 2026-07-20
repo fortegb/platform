@@ -26,6 +26,22 @@ Fachada · Sala de Estar · Sala de Jantar · Cozinha · Quarto · Suíte · Clo
 | slug, title (commercial/sales name — public), copy, gallery (grouped by category), specs, features checklist, display price, video URLs, featured flag, floorplans | `id` (= `houseId`), **status**, `tuya_device_id`, `qr_code`, `houseNumber` (sequential internal staff code, e.g. "Casa 03" — string, stored as the literal display form, not a derived number), `lotCode` (block/lot registry designation, e.g. "U-30" — free-form string, matches source format from the loteamento/condomínio registry), ops timestamps |
 | — | leads, visits, PII (never in CMS) |
 
+### `status` — valores e o que cada um permite
+
+Vive no **Supabase** (operacional), não no Sanity. Definido em `composables/useHouseStatus.ts`, fonte única de rótulo, cor de badge e elegibilidade de visita.
+
+| Valor | Rótulo público | Visita autoguiada | Visita guiada ([#213](https://github.com/fortegb/platform/issues/213)) |
+|---|---|---|---|
+| `disponivel` | Disponível | ✅ | ✅ |
+| `em-construcao` | Em Construção | ✕ | ✅ |
+| `na-planta` | Na planta | ✕ | ✕ |
+| `reservado` | Reservado | ✕ | ✕ |
+| `vendido` | Vendido | ✕ | ✕ |
+
+**`na-planta` adicionado em 2026-07-20** ([#198](https://github.com/fortegb/platform/issues/198)): casa que existe só como projeto, nada construído. Nome escolhido por ser o termo que o comprador brasileiro já usa, em vez de `em-projeto` (soa interno) ou `preparação` (colidiria com `em-construcao`, já que preparo de terreno é obra).
+
+**A matriz de visita é regra de negócio, não de tela:** autoguiada destranca uma casa vazia sem ninguém presente, então só vale onde a casa está pronta e vazia. A visita guiada acrescenta uma pessoa, e é isso que torna um canteiro de obra aceitável.
+
 **Merge:** Nuxt lê CMS + Supabase por `houseId`. `houseNumber`/`lotCode` são staff-only (nunca expostos nas páginas públicas do portfólio) mas ficam disponíveis para telas internas via esse merge, mesmo padrão já usado para `tuya_device_id`/`qr_code`.
 
 ## Defaults
