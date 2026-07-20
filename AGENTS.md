@@ -385,6 +385,16 @@ Este projeto mantém arquivos de controle na raiz. Agentes de IA devem **lê-los
 
 > Origem: 2026-07-19. `rbo-close-change` falhou ao fechar #197; a solução foi desenhada do zero quando **D-046 já havia acordado o comportamento** desde 2026-07-11, e a emenda a D-045 não foi registrada na hora (virou D-069). Custo real: mecanismo, decisão, cross-references e docs produzidos sobre um problema já resolvido.
 
+### Como responder ao usuário
+
+- **Pergunta simples, resposta curta.** Calibrar o tamanho pela pergunta, não pelo tamanho da análise feita. Uma escolha entre duas opções recebe uma recomendação e o motivo — não um levantamento.
+- **Uma pergunta por vez.** Nunca lista de perguntas; perguntar, esperar, seguir.
+- **Sem jargão nem siglas** que não sejam já do vocabulário do projeto. Escrever por extenso em português. Termo técnico só quando não houver equivalente e o conceito for mesmo necessário.
+- **Issue sempre com título**, nunca só o número — `[#198 — Agendar visita](url)`, jamais `#198` solto. Vale em chat, issues e docs.
+- **Recomendar, não inventariar.** Quando houver escolha, dar a recomendação e a razão; alternativas em uma frase, se valerem menção.
+
+> Origem: 2026-07-20, durante o design de [#198](https://github.com/fortegb/platform/issues/198). Perguntas de uma linha vinham recebendo respostas de duas páginas, com siglas e listas de opções, tornando a revisão mais lenta que o trabalho.
+
 ### Ordem de trabalho (Etapa + dependências)
 - **Ordem = passo do Roteiro (campo `Etapa`) + dependências**, **não** o número da issue (número = ordem de criação).
 - **`Etapa`** (campo de board, 9 opções, supersede `Phase`) situa cada item no passo 1–9; **`Milestone`** (`v0 Definição` → v1 → v2 → v3) é o pacote de entrega; **tipo nativo** (Feature/Bug/Task/Epic) classifica.

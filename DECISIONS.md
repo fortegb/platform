@@ -741,3 +741,24 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Scope note: `D-046` limits the direct merge to *Definition leaves*; the flag applies to any change while set. Accepted deliberately — the flag dies at the staging bootstrap, so the window is the same in practice, and a tool-agnostic skill cannot know a repo's roadmap step.
 - Tooling: `ai-skills` `5f5c802` (`rbo-close-change` 0.6, `rbo-stage-change`).
 - **Expiring debt:** remove the flag when `origin/staging` exists (`#42`/`#46`), or the integration lifecycle silently becomes a no-op.
+
+## 2026-07-20 — Identity verification: external service, adapter, and retention (#198 design)
+
+### Didit free tier behind an adapter; take-and-delete retention — amends D-053
+
+**Decision:** Designing the camera-failure state of [#198](https://github.com/fortegb/platform/issues/198) exposed that file-upload `client-match` is not evidence of presence — on desktop the `capture` attribute is ignored, so the "selfie" can be any image on disk, while the thing being protected is a door that unlocks with nobody there. Three parts, one record:
+
+1. **Adopt an external verification service — Didit, free plan.** 500 full checks/month, permanent, no card, no contract. Covers document validation, selfie×document match, and **passive liveness** (catches a photo-of-a-photo without a blink challenge). ForteGB's real volume is ~5 visits/month, with empty months — the cost argument behind `D-053`'s rejection does not survive it.
+2. **Behind an adapter**, same pattern as Tuya (`D-052`). The vendor is implementation, not architecture; swapping it reopens no data model, no retention rule, no screen. Also the mitigation for the real risk of a free tier — a commercial decision someone else can revoke.
+3. **Retention harmonized by taking what is ours and deleting the session.** Vendor retention is per session, not per artifact, so keeping the document while dropping the selfie is impossible inside one session. Single rule: on approval, download the document to our storage and delete the session (selfie never kept); on rejection or exception, download both and delete the session, with our own 30-day selfie purge applying. Vendor retention set to its 1-month minimum as a backstop for sessions our code failed to clean up.
+
+**Rationale:** What changed since `D-053` was not the vendor landscape but the vantage point — reaching the design of the detail showed a file picker proves nothing. And `D-053` weighed a paid service against a free library at an assumed volume; at ~5 checks/month the free tier covers 100× the need. The adapter keeps it reversible, and take-and-delete lands closer to what `D-053` intended than `D-053` could achieve on its own: no files at a third party at all.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` **D-070**.
+- **Amends `D-053`** on mechanism choice only. Data model (`Cliente`/`verification_attempt`/`visit`), the hard gate before `provisionAccess()`, 12-month reuse, the shared exception queue, and both retention periods stand unchanged.
+- **Data residency trade-off, accepted and recorded:** Brazil residency is an enterprise-tier feature; on the free plan processing happens abroad. Permitted with the right safeguards, but a departure from the keep-it-in-Brazil instinct — mitigated by the vendor retaining nothing.
+- Live capture (agreed while designing `#198`) is now delivered by the vendor's passive liveness — no blink challenge, the visitor just takes a photo.
+- Exception path unchanged: camera unavailable, Instagram/Facebook in-app browser, or vendor outage all fall to the WhatsApp escape hatch `D-053` already decided.
+- [#216](https://github.com/fortegb/platform/issues/216) (WhatsApp media handling) remains necessary — the exception path still brings files in by WhatsApp.
+- Confirmation spike [#217](https://github.com/fortegb/platform/issues/217) before any build; real implementation stays with Execução (`#80`).
