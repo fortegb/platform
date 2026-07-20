@@ -34,7 +34,7 @@
           <button
             type="submit"
             :disabled="submitting || otp.length < 6"
-            class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+            class="inline-flex w-full sm:w-auto items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-3 sm:py-2.5 rounded-lg text-sm font-semibold transition-colors"
           >
             {{ submitting ? 'Confirmando…' : 'Confirmar e entrar' }}
           </button>
@@ -81,18 +81,18 @@
           </p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3 mt-6">
+        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 mt-6">
           <button
             type="button"
             :disabled="submitting"
-            class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+            class="inline-flex w-full sm:w-auto items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-3 sm:py-2.5 rounded-lg text-sm font-semibold transition-colors"
             @click="startVerification"
           >
             {{ submitting ? 'Abrindo…' : 'Começar verificação' }}
           </button>
           <NuxtLink
             :to="`/visita/qr/${code}`"
-            class="text-sm font-semibold text-primary-500 hover:underline"
+            class="text-sm font-semibold text-primary-500 hover:underline text-center sm:text-left"
           >
             ← Corrigir meus dados
           </NuxtLink>

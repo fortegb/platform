@@ -107,7 +107,7 @@
         <button
           type="submit"
           :disabled="submitting"
-          class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+          class="inline-flex w-full sm:w-auto items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-3 sm:py-2.5 rounded-lg text-sm font-semibold transition-colors"
         >
           {{ submitting ? 'Verificando…' : 'Continuar' }}
         </button>

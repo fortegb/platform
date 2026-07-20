@@ -57,13 +57,13 @@
     </template>
 
     <!-- Actions -->
-    <div class="mt-8 flex flex-wrap items-center gap-3">
+    <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
       <a
         v-if="tone.showHelp"
         :href="helpWhatsappUrl"
         target="_blank"
         rel="noopener"
-        class="inline-flex items-center justify-center gap-2 border border-transparent bg-whatsapp hover:bg-whatsapp-hover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+        class="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-transparent bg-whatsapp hover:bg-whatsapp-hover text-white px-4 py-3 sm:py-2 rounded-lg text-sm font-semibold transition-colors"
       >
         <WhatsAppIcon class="w-4 h-4" />
         Fale Conosco
@@ -71,7 +71,7 @@
       <NuxtLink
         v-if="house"
         :to="`/portfolio/${house.slug}`"
-        class="text-sm font-semibold text-primary-500 hover:underline"
+        class="text-sm font-semibold text-primary-500 hover:underline text-center sm:text-left"
       >
         Ver a casa →
       </NuxtLink>
