@@ -39,3 +39,18 @@ A screen belonging to a journey SHALL receive its design pass during that journe
 #### Scenario: Screen that only appears in a later outcome
 - **WHEN** a journey defines a screen the current implementation has no code for yet
 - **THEN** it is designed in the Passo 6 leaf anyway, so no screen in that journey is built after the design system closes
+
+### Requirement: Every journey branch is designed, not only the happy path
+A Passo 6 design leaf SHALL enumerate every branch of its journey — success, failure, empty, expired, and abandoned — and SHALL design a state for each, rather than designing the success path and leaving the rest to a generic error.
+
+#### Scenario: Failure branch with no design
+- **WHEN** a journey branch can leave the visitor unable to proceed (a rejected input, an unavailable subject, a failed upload, an expired link)
+- **THEN** the leaf designs that branch's state, with copy telling the visitor what happened and what to do next
+
+#### Scenario: Generic error standing in for several branches
+- **WHEN** distinct failure branches are collapsed into one undifferentiated error message
+- **THEN** that is a design gap to close, since the branches call for different recovery actions
+
+#### Scenario: Branch inventory is recorded
+- **WHEN** a design leaf is proposed
+- **THEN** its artifacts list the journey's branches explicitly, so coverage can be checked rather than assumed

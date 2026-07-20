@@ -8,6 +8,7 @@ A Phase 0 read of `pages/visita/agendar/[houseId].vue` (178 lines) found the scr
 
 1. **Every screen is designed in Passo 6.** Nothing reaches Execução without a design pass. A screen that only exists as a later outcome still gets designed now — otherwise it would be the one screen in its journey built after the design system closed, which is exactly how visual drift enters.
 2. **Screens are not shared across journeys.** Two journeys that appear to need "the same" screen get their own. The reuse saves nothing real and costs boundary negotiation every time it comes up.
+3. **Every branch is designed, happy and sad.** A leaf enumerates its journey's full branch set — success, failure, empty, expired, abandoned — and designs a state for each. A generic error standing in for several branches is a gap, because the branches call for different recovery actions. The branch inventory goes in the artifacts so coverage can be checked rather than assumed (see `tasks.md` §7).
 
 D-058 §DoD assigns the **real implementation** — endpoint rewrite, Tuya adapter wiring, `Cliente` lookup, QStash dispatch, `staff-review` enqueueing — to Execução ([#81](https://github.com/fortegb/platform/issues/81), [#80](https://github.com/fortegb/platform/issues/80), [#77](https://github.com/fortegb/platform/issues/77)/[#135](https://github.com/fortegb/platform/issues/135)). This leaf does **not** do that work and does not touch `server/api/visits/schedule.post.ts`. It designs and builds the screens; what drives them stays simulated until Execução.
 

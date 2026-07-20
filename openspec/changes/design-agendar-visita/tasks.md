@@ -40,16 +40,41 @@
 - [ ] 6.5 Unknown or expired token — clear empty state, no leaking of whether the token ever existed.
 - [ ] 6.6 Make every variant reachable for design review while status is simulated (dev-only mock flag; mark the seam with a `ponytail:` comment naming Execução [#81](https://github.com/fortegb/platform/issues/81) as the upgrade path).
 
-## 7. Copy (pt-BR)
+## 7. Sad-path branches
 
-- [ ] 7.1 All new and revised copy in pt-BR, never pt-PT. Tone per the brand pillars — Transparência and Segurança carry these states, especially the pending and failed ones.
-- [ ] 7.2 Review existing copy on the screen for the same standard.
+Every branch below gets a designed state — not a generic error. Grouped by where the visitor is when it happens.
 
-## 8. Verification
+**Form route**
+- [ ] 7.1 Unknown `houseId` — house does not exist.
+- [ ] 7.2 House exists but is not visitable (sold, or not yet released) — explain and offer the portfolio.
+- [ ] 7.3 Field-level validation: name, WhatsApp format, required date/time. Inline, not a page-level alert.
+- [ ] 7.4 Chosen slot no longer available by the time of submit.
+- [ ] 7.5 Submission fails (network or server) — preserve entered values, offer retry.
 
-- [ ] 8.1 `npm run build` clean.
-- [ ] 8.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors across the route's files.
-- [ ] 8.3 Walk every state in the browser; expect several design-check-adjust cycles with the user doing the visual verification in their own browser.
-- [ ] 8.4 `docs/planning/screen-map.md` — replace the single scheduling row with the three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198). Structural edit, not just a status field.
-- [ ] 8.5 `docs/planning/design-system-fluxo.md` — record the two Passo 6 scope rules agreed 2026-07-20: every screen is designed in Passo 6; screens are not shared across journeys.
-- [ ] 8.6 `npx openspec validate --strict` passes.
+**Verification route**
+- [ ] 7.6 Direct entry with no form data — redirect to the form (also 5.2).
+- [ ] 7.7 Camera permission denied or no camera available — explain and offer the fallback path.
+- [ ] 7.8 Document upload rejected (size, format, unreadable) — say which, allow retry.
+- [ ] 7.9 Repeated failed attempts — stop retrying and route to staff review rather than looping.
+- [ ] 7.10 Visitor abandons mid-verification and returns later — define what they land on.
+
+**Result route**
+- [ ] 7.11 Unknown or expired token — clear empty state, no disclosure of whether the token ever existed (also 6.5).
+- [ ] 7.12 Visit already cancelled (status `cancelled`, D-061) — show it as cancelled, do not show a password.
+- [ ] 7.13 Visit date already passed — show it as past, not as upcoming.
+
+- [ ] 7.14 Cross-check the inventory above against D-058 and `templates/jornada-visita-agendada.md` before building — anything the journey defines that is missing here gets added, and anything invented here that the journey does not define gets dropped or raised as a gap.
+
+## 8. Copy (pt-BR)
+
+- [ ] 8.1 All new and revised copy in pt-BR, never pt-PT. Tone per the brand pillars — Transparência and Segurança carry these states, especially the pending, failed, and rejected ones.
+- [ ] 8.2 Review existing copy on the screens for the same standard.
+
+## 9. Verification
+
+- [ ] 9.1 `npm run build` clean.
+- [ ] 9.2 Re-run the tokenization grep — zero hex, zero arbitrary color utilities, zero raw palette colors across the route's files.
+- [ ] 9.3 Walk every state and every sad-path branch in the browser; expect several design-check-adjust cycles with the user doing the visual verification in their own browser.
+- [ ] 9.4 `docs/planning/screen-map.md` — replace the single scheduling row with the three routes, marked validated for [#198](https://github.com/fortegb/platform/issues/198). Structural edit, not just a status field.
+- [ ] 9.5 `docs/planning/design-system-fluxo.md` — record the three Passo 6 scope rules agreed 2026-07-20: every screen is designed in Passo 6; screens are not shared across journeys; every journey branch is designed, happy and sad.
+- [ ] 9.6 `npx openspec validate --strict` passes.
