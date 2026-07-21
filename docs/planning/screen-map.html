@@ -56,7 +56,11 @@
 <blockquote>visita ✅ <strong>re-validada</strong> — <a href="https://github.com/fortegb/platform/issues/186">#186</a>,</blockquote>
 <blockquote>D-058. Visita QR ✅ <strong>re-validada</strong> —</blockquote>
 <blockquote><a href="https://github.com/fortegb/platform/issues/187">#187</a>, D-059 (reabre</blockquote>
-<blockquote>D-053 para o mecanismo de renovação limitada). Gerenciar visita</blockquote>
+<blockquote>D-053 para o mecanismo de renovação limitada) e <strong>desenhada</strong> —</blockquote>
+<blockquote><a href="https://github.com/fortegb/platform/issues/199">#199</a>: rota única virou</blockquote>
+<blockquote>três (identificação / verificação / resultado), com a porta-OTP de reuso, a</blockquote>
+<blockquote>recusa imediata com saída via WhatsApp e a falha de acesso visível.</blockquote>
+<blockquote>Gerenciar visita</blockquote>
 <blockquote>(cancelar/remarcar) ✅ <strong>nova, validada</strong> —</blockquote>
 <blockquote><a href="https://github.com/fortegb/platform/issues/188">#188</a>, D-061. Fronteira</blockquote>
 <blockquote>compartilhada: staff-review = #192 (fechada); condomínio/portaria = #140</blockquote>
@@ -73,7 +77,9 @@
 <tr><td>Agendar visita — formulário</td><td><code>/visita/agendar/[houseId]</code></td><td>simulado — validado #186, desenhado #198</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/81">#81</a> Visitas</td></tr>
 <tr><td>Agendar visita — verificação (handoff)</td><td><code>/visita/agendar/[houseId]/verificacao</code></td><td>simulado — desenhado #198</td><td>2</td><td>#81</td></tr>
 <tr><td>Resultado da visita (7 variantes)</td><td><code>/visita/[token]</code></td><td>simulado — desenhado #198</td><td>2</td><td>#81</td></tr>
-<tr><td>Visita QR (placa)</td><td><code>/visita/qr/[code]</code></td><td>simulado — validado #187</td><td>2</td><td>#81</td></tr>
+<tr><td>Visita QR — identificação</td><td><code>/visita/qr/[code]</code></td><td>simulado — validado #187, desenhado #199</td><td>2</td><td>#81</td></tr>
+<tr><td>Visita QR — verificação (identidade ou OTP)</td><td><code>/visita/qr/[code]/verificacao</code></td><td>simulado — desenhado #199</td><td>2</td><td>#81</td></tr>
+<tr><td>Visita QR — resultado (liberado / recusado / falha)</td><td><code>/visita/qr/[code]/resultado</code></td><td>simulado — desenhado #199</td><td>2</td><td>#81</td></tr>
 <tr><td>Gerenciar visita (cancelar/remarcar, sem login)</td><td><code>/visita/gerenciar/[token]</code></td><td>novo — validado #188</td><td>2</td><td>#81</td></tr>
 <tr><td>Aviso condomínio/portaria (Q-017)</td><td>TBD inline ou modal no fluxo visita</td><td>novo</td><td>2</td><td><a href="https://github.com/fortegb/platform/issues/140">#140</a></td></tr>
 </tbody></table>
