@@ -1,4 +1,4 @@
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Capability purpose is stated
 The `journey-instant-visit` capability SHALL declare a written Purpose describing the journey it covers, and SHALL NOT leave it as the `TBD` placeholder emitted by the archive step.
@@ -8,8 +8,6 @@ Purpose as written: *the instant / QR self-guided visit journey — a visitor at
 #### Scenario: Purpose is read for a fit check
 - **WHEN** a change proposes to append a requirement to `journey-instant-visit`
 - **THEN** its `Purpose` line names the journey it covers, not `TBD - created by archiving change ...`
-
-## ADDED Requirements
 
 ### Requirement: Instant-flow verification failure renders as an immediate decline
 The instant-visit result screen SHALL render a failed or low-confidence `client-match`, or an incorrect/expired one-time code, as an immediate decline that offers a WhatsApp link to contact staff, and SHALL NOT present it as a pending, loading, or async-acknowledgement state.

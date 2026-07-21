@@ -1,7 +1,7 @@
 # journey-instant-visit Specification
 
 ## Purpose
-TBD - created by archiving change jornada-visita-instantanea-qr. Update Purpose after archive.
+The instant / QR self-guided visit journey — a visitor at the house scans the placa QR, identifies and verifies (or confirms phone possession as a returning client), and receives immediate in-session access or an actionable decline. Owns the journey's data rules and screen surfaces under `/visita/qr/[code]/*` end to end.
 ## Requirements
 ### Requirement: Reuse-eligible visitors confirm phone possession before instant access
 The system SHALL, for a `Cliente` within the 12-month `identity_verified_at`

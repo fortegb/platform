@@ -76,4 +76,4 @@ If designing pixels over D-059 surfaces a screen the journey never described (as
 - [x] 13.1 `npm run build` clean.
 - [x] 13.2 Every branch in §7 renders as its own state (simulated); no generic error stands in for two branches.
 - [x] 13.3 `openspec validate design-visita-qr` passes.
-- [ ] 13.4 Human visual review, one surface at a time (`rbo-ui-validate`).
+- [x] 13.4 Human visual review, one surface at a time (`rbo-ui-validate`).
