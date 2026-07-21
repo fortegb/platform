@@ -95,6 +95,7 @@
 - [#198](https://github.com/fortegb/platform/issues/198) Design e tokenização: Agendar visita
 - [#199](https://github.com/fortegb/platform/issues/199) Design e tokenização: Visita QR
 - [#200](https://github.com/fortegb/platform/issues/200) Design e tokenização: Gerenciar visita
+- [#201](https://github.com/fortegb/platform/issues/201) Design e tokenização: Onboarding do corretor
 - [#212](https://github.com/fortegb/platform/issues/212) Footer: hover em link fica invisível (mesmo navy do fundo)
 
 ## Todo
@@ -201,7 +202,6 @@
 - [#140](https://github.com/fortegb/platform/issues/140) Condomínio/portaria: estratégia de acesso visitantes (Q-017)
 - [#141](https://github.com/fortegb/platform/issues/141) Follow-up pós-visita (WhatsApp / CRM)
 - [#142](https://github.com/fortegb/platform/issues/142) Bot WhatsApp: registro de cliente (corretor)
-- [#201](https://github.com/fortegb/platform/issues/201) Design e tokenização: Onboarding do corretor
 - [#202](https://github.com/fortegb/platform/issues/202) Design e tokenização: Registro de cliente
 - [#203](https://github.com/fortegb/platform/issues/203) Design e tokenização: Painel e pipeline do corretor
 - [#204](https://github.com/fortegb/platform/issues/204) Design e tokenização: Aprovação de corretor e casa
