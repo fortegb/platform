@@ -764,3 +764,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Exception path unchanged: camera unavailable, Instagram/Facebook in-app browser, or vendor outage all fall to the WhatsApp escape hatch `D-053` already decided.
 - [#216](https://github.com/fortegb/platform/issues/216) (WhatsApp media handling) remains necessary — the exception path still brings files in by WhatsApp.
 - Confirmation spike [#217](https://github.com/fortegb/platform/issues/217) before any build; real implementation stays with Execução (`#80`).
+
+## 2026-07-20 — Reschedule a visit: cancel only on new-slot confirmation (#200 design)
+
+### Original visit stays active until the new booking is confirmed — amends D-061
+
+**Decision:** Designing `/visita/gerenciar/[token]` ([#200](https://github.com/fortegb/platform/issues/200), the fourth Passo 6 design leaf, journey #188/`D-061`) under scope rule 3 (every branch, happy and sad) exposed a branch `D-061`'s prose created by accident: if "Remarcar" cancels the visit **on click** and the visitor then abandons the booking form, they are left with **no visit at all** — the slot lost by accident. The page is no-login, reached from a WhatsApp link, where mid-flow abandonment is common. So "Remarcar" now keeps the original visit active, routes the visitor into the standard pre-filled booking flow (#186), and cancels the original **only when the new slot is confirmed** — not before. The cancellation behavior itself is unchanged: on confirmation the old visit follows `D-061`'s path (`cancelled` + `revoke(credential)` if a code was provisioned); Execução (#141) implements both transitions as one commit.
+
+**Rationale:** Cancelling before a confirmed replacement exists hands the visitor the risk of a flow failure the product can avoid for free — the visit only disappears once another is in its place. Cost is nil: the booking flow already exists, only a state transition is deferred. Registered as an amendment rather than silently, same as #187→`D-053` and #196→`D-062` — diverging from a closed decision's prose without recording it is the worst of both worlds.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` **D-071**.
+- **Amends `D-061`** on cancellation ordering only. `revoke()`, the `cancelled` status, the Telegram alert, and verification reuse stand unchanged; in-place edit stays rejected.
+- Reflected in `journey-post-visit-reengagement` (requirement "Reschedule cancels the original visit only on confirmation of the new slot"). Real implementation stays with Execução (`#141`, `#81`). No other screen affected.

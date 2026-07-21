@@ -33,13 +33,13 @@
 | Sobre | `/sobre` | simulado | 1 | #56 |
 | Contato | `/contato` | simulado — validado #185 | 1 | #56 |
 | Privacidade, Termos | `/privacidade`, `/termos` | simulado | 1 | #56 |
-| Agendar visita — formulário | `/visita/agendar/[houseId]` | simulado — validado #186, desenhado #198 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
+| Agendar visita — formulário | `/visita/agendar/[houseId]` | simulado — validado #186, desenhado #198, estado remarcação #200 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
 | Agendar visita — verificação (handoff) | `/visita/agendar/[houseId]/verificacao` | simulado — desenhado #198 | 2 | #81 |
 | Resultado da visita (7 variantes) | `/visita/[token]` | simulado — desenhado #198 | 2 | #81 |
 | Visita QR — identificação | `/visita/qr/[code]` | simulado — validado #187, desenhado #199 | 2 | #81 |
 | Visita QR — verificação (identidade ou OTP) | `/visita/qr/[code]/verificacao` | simulado — desenhado #199 | 2 | #81 |
 | Visita QR — resultado (liberado / recusado / falha) | `/visita/qr/[code]/resultado` | simulado — desenhado #199 | 2 | #81 |
-| Gerenciar visita (cancelar/remarcar, sem login) | `/visita/gerenciar/[token]` | novo — validado #188 | 2 | #81 |
+| Gerenciar visita (cancelar/remarcar, sem login) | `/visita/gerenciar/[token]` | novo — validado #188, desenhado #200 | 2 | #81 |
 | Aviso condomínio/portaria (Q-017) | TBD inline ou modal no fluxo visita | novo | 2 | [#140](https://github.com/fortegb/platform/issues/140) |
 
 **Fora MVP v1:** portal cliente logado (jornadas §8).
