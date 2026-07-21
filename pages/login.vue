@@ -66,6 +66,10 @@
               <button type="submit" class="w-full inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
                 Continuar
               </button>
+              <p class="text-center text-sm text-base-content/60">
+                É corretor e ainda não tem conta?
+                <NuxtLink to="/corretor" class="text-secondary hover:underline">Conheça o programa parceiro</NuxtLink>.
+              </p>
             </form>
           </div>
 
@@ -138,7 +142,7 @@
             </div>
           </div>
 
-          <!-- Etapa 3: Criar senha (conta nova) -->
+          <!-- Etapa 3: Conta não encontrada — cadastro público vive em /corretor -->
           <div v-else-if="step === 'create'">
             <div class="flex items-center justify-between text-sm mb-4">
               <span class="text-base-content/70 truncate">{{ form.email }}</span>
@@ -151,71 +155,26 @@
               </button>
             </div>
 
-            <p class="text-sm text-base-content/60 mb-4">
-              Você ainda não tem conta. Crie uma senha para continuar.
+            <p class="text-sm text-base-content/70 mb-6">
+              Não encontramos uma conta com esse e-mail. Se você quer atuar como corretor
+              parceiro da ForteGB, comece pelo programa — em poucos minutos você faz seu cadastro.
             </p>
 
-            <form @submit.prevent="handleSignup" class="space-y-4">
-              <input
-                type="text"
-                name="username"
-                autocomplete="username"
-                :value="form.email"
-                class="hidden"
-                readonly
-              />
-              <div>
-                <label for="new-password" class="block text-sm font-medium mb-2">Criar senha</label>
-                <div class="relative">
-                  <input
-                    id="new-password"
-                    v-model="form.password"
-                    :type="showPassword ? 'text' : 'password'"
-                    name="new-password"
-                    autocomplete="new-password"
-                    required
-                    autofocus
-                    class="input input-bordered w-full pr-10"
-                    placeholder="Crie uma senha"
-                  />
-                  <button
-                    type="button"
-                    @click="showPassword = !showPassword"
-                    class="absolute inset-y-0 right-0 flex items-center pr-3 text-base-content/50 hover:text-base-content"
-                    :aria-label="showPassword ? 'Ocultar senha' : 'Mostrar senha'"
-                  >
-                    <svg v-if="showPassword" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-                    </svg>
-                    <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div>
-                <label for="confirm-password" class="block text-sm font-medium mb-2">Confirmar senha</label>
-                <input
-                  id="confirm-password"
-                  v-model="form.confirmPassword"
-                  :type="showPassword ? 'text' : 'password'"
-                  name="confirm-password"
-                  autocomplete="new-password"
-                  required
-                  class="input input-bordered w-full"
-                  placeholder="Repita a senha"
-                />
-              </div>
-              <button
-                type="submit"
-                :disabled="loading"
-                class="w-full inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+            <div class="space-y-3">
+              <NuxtLink
+                to="/corretor"
+                class="w-full inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
               >
-                <span v-if="loading" class="loading loading-spinner"></span>
-                <span v-else>Criar conta</span>
+                Conhecer o programa de corretor
+              </NuxtLink>
+              <button
+                type="button"
+                @click="backToEmail"
+                class="w-full inline-flex items-center justify-center border border-base-300 text-base-content hover:bg-base-200 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+              >
+                Tentar outro e-mail
               </button>
-            </form>
+            </div>
           </div>
 
           <p class="text-center text-xs text-base-content/50 mt-6">
@@ -249,10 +208,10 @@ const showPassword = ref(false)
 const loading = ref(false)
 const error = ref('')
 
-const heading = computed(() => step.value === 'create' ? 'Criar sua conta' : 'Acesse sua conta')
+const heading = computed(() => step.value === 'create' ? 'Conta não encontrada' : 'Acesse sua conta')
 const subheading = computed(() =>
   step.value === 'create'
-    ? 'Crie uma senha para finalizar seu cadastro'
+    ? 'Esse e-mail ainda não tem acesso'
     : 'Entre para acessar sua área'
 )
 
@@ -339,22 +298,8 @@ const handleLogin = async () => {
   }
 }
 
-const handleSignup = async () => {
-  error.value = ''
-
-  if (form.password.length < 8) {
-    error.value = 'A senha deve ter pelo menos 8 caracteres.'
-    return
-  }
-  if (form.password !== form.confirmPassword) {
-    error.value = 'As senhas não conferem.'
-    return
-  }
-
-  // ponytail: mock — Execução (#48/#86) creates the account (supabase.auth.signUp)
-  // and, for a corretor, routes to onboarding keyed on role + missing profile. The
-  // login screen stays generic (D1, #201); corretor profile fields live on the
-  // onboarding page, not here.
-  await navigateTo('/corretor/onboarding')
-}
+// Public corretor sign-up lives at /corretor (D-062 self-registration); the login
+// screen only authenticates. An unknown e-mail lands on the "conta não encontrada"
+// step, which points to /corretor. ponytail: real account-existence check is
+// Execução (#48) — the mock treats unknown e-mails as new.
 </script>

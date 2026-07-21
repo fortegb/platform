@@ -777,3 +777,16 @@ This file and `AGENTS.md` are the shared memory of this project across sessions 
 - Canon: `docs/planning/decisions.md` **D-071**.
 - **Amends `D-061`** on cancellation ordering only. `revoke()`, the `cancelled` status, the Telegram alert, and verification reuse stand unchanged; in-place edit stays rejected.
 - Reflected in `journey-post-visit-reengagement` (requirement "Reschedule cancels the original visit only on confirmation of the new slot"). Real implementation stays with Execução (`#141`, `#81`). No other screen affected.
+
+## 2026-07-21 — Corretor: account-status notifications by e-mail + WhatsApp, uniform (#201 design)
+
+### Approval and rejection both notify the corretor on both channels — extends D-062, adds e-mail
+
+**Decision:** Reviewing the corretor onboarding journey ([#201](https://github.com/fortegb/platform/issues/201)), the user decided that **both approval and rejection** must notify the corretor, on **both e-mail and WhatsApp**, with a single uniform policy. `D-062` had decided only rejection, WhatsApp-only, and was silent on approval — while the "em análise" screen copy already promised an approval WhatsApp with no decision behind it. The corretor already provides an e-mail (self-registration creates account with e-mail + password), and an account-status notice is transactional, so no opt-in is required.
+
+**Rationale:** Two channels give cheap redundancy for an event the corretor is waiting on (the decision about their own account), and making approval/rejection symmetric avoids a lopsided policy. E-mail is free and native (Supabase Auth), without WhatsApp outbound's template gates, so adding it costs no meaningful build. Recorded as a decision (not just copy) because it touches three closed decisions.
+
+**Implications:**
+- Canon: `docs/planning/decisions.md` **D-072**.
+- **Extends `D-062`** (rejection-only, WhatsApp-only) and adds **e-mail** as a channel — outside `D-054` (WhatsApp/Telegram), a deliberate narrow reopening of `D-020`'s "email futuro" limited to transactional corretor account notifications. General messaging stays WhatsApp/Telegram.
+- New requirement in `journey-corretor-onboarding`; delivery is Execução (`#86`), alongside the staff side (upload = approval, `#204`).

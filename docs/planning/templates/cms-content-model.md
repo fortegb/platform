@@ -12,6 +12,7 @@
 | **`blogPost`** | Full | slug, title, body, cover, publishedAt, excerpt |
 | **`constructionTimeline`** | Stub | `houseId` ref, title, entries[] (date, text, optional image) — UI v3 |
 | **`mediaKit`** | Stub | `houseId` ref, assets/refs — módulo v3 |
+| **`contractTemplate`** | Stub | **Singleton** — corpo da minuta do contrato de parceria de corretagem (portable text / cláusulas), editável pelos sócios em Studio sem deploy. **Não é PII** (o contrato *assinado* é PII e vive no bucket privado do Supabase, D-016/D-030 — este é só o template em branco). Renderização da minuta = este template **+** termos específicos da casa (dados de `house`/Supabase). Decidido no design de #201 (D-062 nomeava "template legal existente" sem dizer onde mora); um documento que os sócios editam ao longo do tempo é o caso de uso do CMS. Implementação → Execução (#45/#86). |
 
 ### `galleryCategory` seed values
 

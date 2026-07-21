@@ -73,3 +73,18 @@ Every branch gets a designed state. Checked here, not assumed.
 - [x] 11.1 `npm run build` clean.
 - [x] 11.2 Every `?estado=` variant renders and is reachable; provide the user all state URLs on their own `localhost:3000`.
 - [x] 11.3 `openspec validate design-onboarding-corretor --strict` passes.
+
+## 12. Pivot during the walkthrough (2026-07-21)
+
+Surfaced and agreed with the user during the visual review; all done.
+
+- [x] 12.1 New public page `pages/corretor/index.vue` — partner-program content (hero, how-it-works, transparent-model reference, product-as-argument, CTAs). Commercial mechanics kept off the public page.
+- [x] 12.2 Hero photo (`public/corretor-hero.jpg`, agent handing keys) via CSS `background-image` + navy→slate overlay at `/70 → /55`; `text-balance` on the hero copy. Placeholder — final asset is D-021.
+- [x] 12.3 Onboarding reworked to a real page collecting account (e-mail + password) + profile in one self-registration form.
+- [x] 12.4 Status + contract reworked from cards to real pages.
+- [x] 12.5 `/login` trimmed to sign-in only; unknown e-mail → "conta não encontrada" pointing to `/corretor`; removed the inline account-creation path.
+- [x] 12.6 Header (`AppHeader.vue`): "Corretores" nav entry (2nd position, desktop + mobile).
+- [x] 12.7 Contract pending state guides the Gov.br flow: download minuta + step-by-step + "enviar assinado pelo WhatsApp".
+- [x] 12.8 Copy: status page notification line → "e-mail e WhatsApp assim que sair o resultado" (uniform, both channels).
+- [x] 12.9 Decisions registered (close-out): D-072 (account-status notifications e-mail + WhatsApp, uniform); minuta template → CMS singleton (content-model note); card-vs-page + commercial-exposure notes in `design-system-fluxo.md`.
+- [x] 12.10 Staff-side signing/upload implication logged on #204.

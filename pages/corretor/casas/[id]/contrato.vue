@@ -50,14 +50,40 @@
         <p class="text-base-content/70">{{ tone.message }}</p>
       </div>
 
-      <!-- Pending — off-platform signing explainer -->
-      <div v-if="variant === 'pending'" class="mt-6 rounded-lg border border-secondary/40 bg-secondary/5 p-4">
-        <p class="text-sm font-semibold text-primary-500 mb-2">Como funciona a assinatura</p>
-        <ol class="space-y-1.5 text-sm text-base-content/70 list-decimal list-inside">
-          <li>Revise a minuta abaixo — os termos específicos desta casa já estão nela.</li>
-          <li>A assinatura acontece fora da plataforma, do jeito combinado com a ForteGB.</li>
-          <li>A ForteGB anexa o contrato assinado aqui — e é isso que aprova a sua reivindicação da casa.</li>
+      <!-- Pending — off-platform (Gov.br) signing flow, guided. Signing and the
+           signed-file handoff stay off-platform (D-062): the corretor sends the
+           signed PDF by WhatsApp; only staff uploads the final, which is the
+           approval act. The staff side of this is leaf #204 (/staff/corretores). -->
+      <div v-if="variant === 'pending'" class="mt-6 rounded-lg border border-secondary/40 bg-secondary/5 p-5">
+        <p class="text-sm font-semibold text-primary-500 mb-3">Como assinar seu contrato</p>
+        <ol class="space-y-2 text-sm text-base-content/70 list-decimal list-inside mb-4">
+          <li>Revise a minuta abaixo e <span class="font-semibold text-primary-500">baixe o PDF</span> desta casa.</li>
+          <li>Assine pelo <span class="font-semibold text-primary-500">Gov.br</span> — a assinatura eletrônica é gratuita e tem validade jurídica.</li>
+          <li>Envie o PDF assinado para a ForteGB <span class="font-semibold text-primary-500">pelo WhatsApp</span>.</li>
+          <li>A ForteGB assina e conclui. Quando o contrato assinado aparecer aqui, sua reivindicação está aprovada.</li>
         </ol>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            :href="minutaUrl"
+            download
+            class="inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            Baixar minuta para assinar
+          </a>
+          <a
+            :href="sendWhatsappUrl"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 border border-transparent bg-whatsapp hover:bg-whatsapp-hover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+          >
+            <WhatsAppIcon class="w-4 h-4" />
+            Enviar assinado pelo WhatsApp
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-base-content/60">Aguardando sua assinatura e a da ForteGB.</p>
       </div>
 
       <!-- Approved — signed contract available -->
@@ -144,6 +170,15 @@ const tone = computed(() => TONES[variant.value === 'approved' ? 'approved' : 'p
 
 // ponytail: placeholder — the real signed PDF comes from the private bucket (D-016/D-030).
 const signedContractUrl = computed(() => '#')
+
+// ponytail: placeholder — the real minuta PDF is generated on the fly from the CMS
+// contract template + this house's terms (D-036/Execução). Here the download is inert.
+const minutaUrl = computed(() => '#')
+
+const sendMessage = computed(
+  () => `Olá! Segue em anexo o contrato assinado da casa ${house.value?.title ?? ''}.`
+)
+const { whatsappUrl: sendWhatsappUrl } = useWhatsApp(sendMessage)
 
 const helpMessage = computed(() => 'Olá! Preciso de ajuda com o contrato de uma casa no meu painel de corretor.')
 const { whatsappUrl: helpWhatsappUrl } = useWhatsApp(helpMessage)

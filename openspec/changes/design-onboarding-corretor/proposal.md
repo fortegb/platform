@@ -63,3 +63,15 @@ Two structural forks were settled with the user before design:
 - **No backend**: no `server/api/**` changes; real auth/gating/claim/upload/WhatsApp stay Execução (#86/#50).
 - **Docs**: `screen-map.md` (routes designed), `tokenization-report.md` (Pass 6). No new D-number — the two walkthrough decisions stay within D-062/D-068.
 - **Spec**: `journey-corretor-onboarding` delta (added screen-state requirements + Purpose).
+
+## Evolved during the design walkthrough (2026-07-21)
+
+The leaf grew materially during the interactive review with the user — the same pattern as #198 (a design leaf surfacing model changes). What shipped differs from the sketch above; the spec delta reflects the final model:
+
+- **Model = self-registration at a public partner page, not a login handoff.** The original sketch had `/login`'s "create account" step route to onboarding. The user reframed it: `/login` becomes **sign-in only** (unknown e-mail → "conta não encontrada" pointing to the partner program); public sign-up lives at a new **`/corretor`** page. This reaffirms D-062 (self-registration + approval), it does not adopt the invite-only model that was explored and dropped.
+- **New page `/corretor`** — a real content page (site chrome, in the header as "Corretores"), one of the site's important pages: hero (with a placeholder photo + navy overlay, `public/corretor-hero.jpg`, final asset is D-021), how-it-works, a high-level "modelo de trabalho e transparência" reference, product-as-argument, and CTAs into onboarding. **Commercial mechanics (commission, lead-registration, contract clauses) are deliberately kept off this public page** — a buyer can reach it from the header, and seeing themselves framed as a claimed commission asset would clash with the buyer brand. Card-vs-page split recorded: auth = card, corretor experience = real page.
+- **Onboarding is now a real page** collecting account (e-mail + password) **and** profile in one step (self-registration), not a card reached post-login. Status and contract are real pages too.
+- **NEW decision — account-status notifications by e-mail + WhatsApp, uniform for approval and rejection** (D-072). Extends D-062 (rejection-only, WhatsApp-only), adds e-mail as a transactional channel (outside D-054, narrowing D-020's "email futuro"). Delivery is Execução (#86).
+- **Contract page guides the Gov.br flow** — download minuta → sign on Gov.br → send signed by WhatsApp → ForteGB signs → staff uploads (the approval act). Minuta **template lives in the CMS (Sanity)** as an editable singleton merged with house data; signed PDF stays in the Supabase private bucket. Staff-side implication logged on #204.
+- **Header**: `/corretor` added to the nav ("Corretores", 2nd position) — a surgical `AppHeader.vue` change.
+- Still **no `server/api/**` work**; all delivery is Execução (#86/#50). This IS a new D-number (D-072) — the earlier "no new D-number" note is superseded.

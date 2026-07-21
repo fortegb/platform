@@ -11,15 +11,22 @@
         </NuxtLink>
         
         <div class="hidden md:flex items-center space-x-6">
-          <NuxtLink 
-            to="/portfolio" 
+          <NuxtLink
+            to="/portfolio"
             class="text-white hover:text-primary-100 transition-colors"
             active-class="text-primary-100 font-semibold"
           >
             Portfólio
           </NuxtLink>
-          <NuxtLink 
-            to="/blog" 
+          <NuxtLink
+            to="/corretor"
+            class="text-white hover:text-primary-100 transition-colors"
+            active-class="text-primary-100 font-semibold"
+          >
+            Corretores
+          </NuxtLink>
+          <NuxtLink
+            to="/blog"
             class="text-white hover:text-primary-100 transition-colors"
             active-class="text-primary-100 font-semibold"
           >
@@ -32,14 +39,14 @@
           >
             Sobre
           </NuxtLink>
-          <NuxtLink 
-            to="/contato" 
+          <NuxtLink
+            to="/contato"
             class="bg-white text-primary-500 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors"
           >
             Contato
           </NuxtLink>
-          <NuxtLink 
-            to="/login" 
+          <NuxtLink
+            to="/login"
             class="text-white hover:text-primary-100 transition-colors"
             aria-label="Entrar"
             title="Entrar"
@@ -65,15 +72,22 @@
 
       <!-- Mobile menu -->
       <div v-if="mobileMenuOpen" class="md:hidden mt-4 space-y-2">
-        <NuxtLink 
-          to="/portfolio" 
+        <NuxtLink
+          to="/portfolio"
           class="block py-2 text-white hover:text-primary-100"
           @click="mobileMenuOpen = false"
         >
           Portfólio
         </NuxtLink>
-        <NuxtLink 
-          to="/blog" 
+        <NuxtLink
+          to="/corretor"
+          class="block py-2 text-white hover:text-primary-100"
+          @click="mobileMenuOpen = false"
+        >
+          Corretores
+        </NuxtLink>
+        <NuxtLink
+          to="/blog"
           class="block py-2 text-white hover:text-primary-100"
           @click="mobileMenuOpen = false"
         >
@@ -86,15 +100,15 @@
         >
           Sobre
         </NuxtLink>
-        <NuxtLink 
-          to="/contato" 
+        <NuxtLink
+          to="/contato"
           class="block py-2 bg-white text-primary-500 rounded-lg text-center text-sm font-semibold hover:bg-opacity-90 transition-colors"
           @click="mobileMenuOpen = false"
         >
           Contato
         </NuxtLink>
-        <NuxtLink 
-          to="/login" 
+        <NuxtLink
+          to="/login"
           class="flex items-center gap-2 py-2 text-white hover:text-primary-100"
           @click="mobileMenuOpen = false"
         >
