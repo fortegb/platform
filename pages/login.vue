@@ -4,15 +4,15 @@
       <NuxtLink to="/" class="block" aria-label="Voltar para a página inicial">
         <img :src="logoUrl" alt="ForteGB" class="h-14 w-auto mx-auto mb-6" />
       </NuxtLink>
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h1 class="text-2xl font-bold text-center mb-1">{{ heading }}</h1>
+      <div class="rounded-2xl bg-base-100 shadow-xl">
+        <div class="p-6 sm:p-8">
+          <h1 class="text-2xl font-bold text-primary-500 text-center mb-1">{{ heading }}</h1>
           <p class="text-center text-sm text-base-content/60 mb-6">
             {{ subheading }}
           </p>
 
-          <div v-if="error" class="alert alert-error mb-4">
-            <span>{{ error }}</span>
+          <div v-if="error" class="rounded-lg border border-error/40 bg-error/10 p-3 mb-4 text-sm text-error">
+            {{ error }}
           </div>
 
           <!-- Etapa 1: Social + E-mail -->
@@ -63,7 +63,7 @@
                   placeholder="seu@email.com"
                 />
               </div>
-              <button type="submit" class="btn btn-primary w-full">
+              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
                 Continuar
               </button>
             </form>
@@ -124,7 +124,7 @@
               <button
                 type="submit"
                 :disabled="loading"
-                class="btn btn-primary w-full"
+                class="w-full inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
               >
                 <span v-if="loading" class="loading loading-spinner"></span>
                 <span v-else>Entrar</span>
@@ -210,7 +210,7 @@
               <button
                 type="submit"
                 :disabled="loading"
-                class="btn btn-primary w-full"
+                class="w-full inline-flex items-center justify-center gap-2 border border-transparent bg-secondary text-white hover:bg-primary-500 disabled:opacity-60 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
               >
                 <span v-if="loading" class="loading loading-spinner"></span>
                 <span v-else>Criar conta</span>
@@ -351,7 +351,10 @@ const handleSignup = async () => {
     return
   }
 
-  // TODO (back-end): criar a conta (supabase.auth.signUp) e
-  // direcionar o usuário conforme o perfil.
+  // ponytail: mock — Execução (#48/#86) creates the account (supabase.auth.signUp)
+  // and, for a corretor, routes to onboarding keyed on role + missing profile. The
+  // login screen stays generic (D1, #201); corretor profile fields live on the
+  // onboarding page, not here.
+  await navigateTo('/corretor/onboarding')
 }
 </script>

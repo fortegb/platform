@@ -59,12 +59,12 @@
 
 | Passo da jornada | Rota | Estado | Fase | Epic |
 |------------------|------|--------|------|------|
-| Login | `/login` | simulado | 1 | [#48](https://github.com/fortegb/platform/issues/48) Identidade |
+| Login | `/login` | simulado — desenhado #201 (align) | 1 | [#48](https://github.com/fortegb/platform/issues/48) Identidade |
 | Painel | `/corretor/dashboard` | simulado — validado #191 | 2 | [#86](https://github.com/fortegb/platform/issues/86) Portal corretor |
 | Casas / reclamar | `/corretor/casas` | simulado | 2 | #86 |
 | Clientes lista / novo | `/corretor/clientes` (validado #191), `/corretor/clientes/novo` (validado #190) | simulado — validado #190, #191 | 2 | #86 |
-| Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo — validado #189 | 2 | #86 |
-| Contrato por casa (minuta + upload manual) | `/corretor/casas/[id]/contrato` | novo — validado #189 | 2 | #86 |
+| Onboarding (termos, perfil, CRECI) | `/corretor/onboarding/*` | novo — validado #189, desenhado #201 | 2 | #86 |
+| Contrato por casa (minuta + upload manual) | `/corretor/casas/[id]/contrato` | novo — validado #189, desenhado #201 | 2 | #86 |
 | Bot WhatsApp (registro cliente) | externo WhatsApp | novo | 2 | [#142](https://github.com/fortegb/platform/issues/142) |
 
 ---
