@@ -1,115 +1,97 @@
 # Handoff — fortegb/platform — 2026-07-20
 
-**Updated:** 2026-07-20T16:50:00-03:00
-**Status:** consumed
+**Updated:** 2026-07-20T22:05:00-03:00
+**Status:** active
 
 > Advisory only. Board + STATUS.md win. Catch-up reads this until Status is
 > `consumed` (no expiration). L2 catch-up sets Status to `consumed` after use.
 
 ## Context
 
-Closed out [#198 — Design e tokenização: Agendar visita](https://github.com/fortegb/platform/issues/198),
-the second of Passo 6's 11 design leaves. Next session starts fresh on
-[#199 — Design e tokenização: Visita QR](https://github.com/fortegb/platform/issues/199).
+Closed out [#199 — Design e tokenização: Visita QR](https://github.com/fortegb/platform/issues/199),
+the **third** of Passo 6's 11 design leaves. Next session starts fresh on
+[#200 — Design e tokenização: Gerenciar visita](https://github.com/fortegb/platform/issues/200).
 Nothing in flight — branch merged and deleted (local + remote), tree clean, `main` pushed.
 
-This was a long, high-yield session driven the way the user works: they review
-visually, one screen at a time, critique bluntly, and each critique tends to expose
-a real gap in the journey canon rather than a cosmetic tweak. #198 grew from "review
-the existing page" to **3 routes / 19 states**, 5 spun-off issues, and one decision
-(D-070). Expect #199 to behave the same way.
+Two things happened this session beyond the leaf itself, both worth knowing:
+1. #199 behaved like #198 — a pre-architecture stub grew into 3 routes under a design
+   walkthrough, but this time with **no new decision and no derived issues** (it inherited
+   D-059/D-070 cleanly). The mobile pass (below) was the only user-driven expansion.
+2. A **Node-version rabbit hole** surfaced during close-out and is now resolved (below). This
+   is the part most likely to bite the next session if not understood.
 
 ## Control doc paths
 
-- Decisions: **`docs/planning/decisions.md`** (pt-BR canon, D-0XX) — this session added
-  **D-070**. Root **`DECISIONS.md`** (English, dated) is a parallel mirror; D-070 written
-  to both. The two-log double-entry is still an open hygiene question (see #198 handoff
-  history / STATUS) — write new decisions to both until it's settled.
-- Session compass: **`STATUS.md`** — 2026-07-20 block added, "Próxima sessão" points at #199.
-- Context: **`AGENTS.md`** (`@`-imported by `CLAUDE.md`, loads every session — keep tight).
-  Gained a new standing section this session: **"Como responder ao usuário"** — short
-  answers to simple questions, one question at a time, no jargon/acronyms, issues always
-  linked with titles, recommend don't inventory. It exists because the user said so more
-  than once; honor it.
-- Planning: `docs/planning/design-system-fluxo.md` (three Passo 6 scope rules added),
-  `screen-map.md`, `templates/cms-content-model.md` (`na-planta` status).
+- Decisions: **`docs/planning/decisions.md`** (pt-BR canon, D-0XX). No new D-number this
+  session. Root **`DECISIONS.md`** (English mirror) also unchanged.
+- Session compass: **`STATUS.md`** — 2026-07-20 block updated; "PRÓXIMO" points at #200.
+- Context: **`AGENTS.md`** (`@`-imported by `CLAUDE.md`, loads every session). Unchanged this
+  session — the standing "Como responder ao usuário" section still applies (short answers,
+  one question at a time, no jargon, issues always linked with titles).
+- Planning: `docs/planning/design-system-fluxo.md` (Passo 6 runbook + scope rules),
+  `screen-map.md` (QR split into 3 rows).
 - Handoff: `docs/planning/handoff.md` (this file).
 
 ## Current state
 
-**Done this session — [#198](https://github.com/fortegb/platform/issues/198) closed**
-- Archived `2026-07-20-design-agendar-visita`; spec deltas promoted (`design-tokens` +5,
-  `journey-scheduled-visit` +7). Merged to `main`, board Done, ROADMAP + Platform docs synced.
-- **One stepped page → 3 routes:** `/visita/agendar/[houseId]` (form),
-  `.../verificacao` (handoff), `/visita/[token]` (result, 7 variants from stored status,
-  never from the URL). New components `HouseVisitHeader.vue`, `VisitStepIndicator.vue`;
-  new composables `useHouseStatus.ts`, `useVisitBooking.ts`.
-- **Visit matrix by house status:** self-guided only on `disponivel`; guided (future, #213)
-  on `disponivel`+`em-construcao`; no visit otherwise. New status `na-planta` ("Na planta").
-  `HouseCard` CTA narrowed from "everything except vendido" to `disponivel` only — shared
-  with `/portfolio`, verify there too.
-- **CPF field** added to the form (mod-11 validation) — D-020 always required it at visit time.
-- **D-070** — identity verification becomes an external service (Didit free tier, 500/mo)
-  behind an adapter; take-and-delete retention; own branding only at launch. **Amends D-053**
-  ("sem KYC SaaS"). Confirmed by a spike before build (#217).
+**Done this session — [#199](https://github.com/fortegb/platform/issues/199) closed**
+- Archived `2026-07-21-design-visita-qr`; spec delta promoted (`journey-instant-visit` +8,
+  and its `TBD` Purpose written). Merged to `main`, board Done, ROADMAP + Platform docs synced.
+- **One stub → 3 routes** under `/visita/qr/[code]`: `index` (identify — WhatsApp + CPF),
+  `verificacao` (full ID **or** WhatsApp OTP for returning clients), `resultado` (variant from
+  stored status, never the URL). New composable `useQrVisit.ts` (re-exports masks/CPF from
+  `useVisitBooking`). Reuses `HouseVisitHeader` / `VisitStepIndicator` / `IdentityVerification`
+  / `useHouseStatus`.
+- **The three states D-059 makes unique to the instant flow** (no time slack — at the door):
+  phone-OTP reuse gate (`identity_verified_at` alone insufficient; 24-month
+  `last_client_match_at` ceiling); **immediate decline with WhatsApp escape hatch** (NOT #198's
+  async "confirmaremos" acknowledgement — that state deliberately does not exist here); visible
+  provisioning failure (no code, staff-alerted).
+- **Mobile pass** (user-driven): the flow is scanned one-handed at the door, so primary CTAs go
+  full-width + taller on mobile, reverting to compact auto-width on `sm+` (#198 parity). All
+  states verified at 375px — no overflow.
+- Tokenization Pass 4 clean. `screen-map.md` split into 3 QR rows.
 
-**Traps worth knowing**
-1. **Nuxt routing:** `[houseId].vue` beside a `[houseId]/` folder silently becomes a parent
-   layout — the child route renders the parent's template. Fixed by moving the form to
-   `[houseId]/index.vue`. This will bite again on any journey with a nested dynamic route.
-2. **Tokenization audit globbing:** bracket route paths (`[houseId]`, `[token]`) are shell
-   glob character classes — an unquoted grep list expands to nothing and reads as "clean".
-   Always `set -f` + quoted array + a per-file existence check, and run **without**
-   `2>/dev/null`. Every remaining leaf has dynamic segments.
-3. **`pages:sync` after an interrupted build:** a killed Nuxt build leaves a corrupt
-   `.nuxt/dist/server/client.manifest.mjs`, and the next `pages:sync` fails with a
-   RollupError. Fix: `rm -rf .nuxt` and re-run. It's a ~2–3 min full static build; let it
-   finish (don't poll it to death — wait for the task notification).
-
-**5 issues spun off from #198** (all Etapa 8, Module tours, on the board)
-- [#213 — Visita guiada](https://github.com/fortegb/platform/issues/213): accompanied tour;
-  brings its own availability source (Google Calendar, v2). The fixed 09–17 slot grid was
-  never a decision.
-- [#214 — Janela de acesso e espaçamento](https://github.com/fortegb/platform/issues/214):
-  access-code validity window + slot spacing derived from it (not from visit length); the
-  abandoned-slot release rule (1h nudge, release at 24h or 2h-before) is noted here.
-- [#215 — Staff agenda visita](https://github.com/fortegb/platform/issues/215): staff booking
-  a visit for someone who only messaged WhatsApp — not covered by D-065.
-- [#216 — Mídia por WhatsApp (LGPD)](https://github.com/fortegb/platform/issues/216): document
-  handling on the corporate phone; gallery auto-save + cloud backup are the real leaks.
-- [#217 — Spike do serviço de verificação](https://github.com/fortegb/platform/issues/217):
-  confirm Didit hands-on before build (BR docs recognized, delete endpoint, in-app browser).
+**Node 24 LTS pin — resolved (implements D-049, refs [#170](https://github.com/fortegb/platform/issues/170))**
+- `pages:sync` failed twice at close-out: the shell's default **Node 26.5.0** (Current, non-LTS)
+  breaks `nuxt generate` with `vite-node: NUXT_VITE_NODE_OPTIONS.socketPath is not defined`.
+  `nuxt build` works — only the static docs export (`nuxt generate`) breaks. Homebrew's plain
+  `node` formula tracks latest, so any `brew upgrade` silently drifts onto bleeding-edge Node.
+- Fix committed (`98d29b1`): **`.nvmrc` → `24`** + **`engines.node` → `24.x`** in `package.json`.
+  Verified clean on Node 24.18.0 (Krypton): `npm install`, `nuxt build`, `pages:sync` all pass.
+  Switcher is **fnm** (installed via brew); user added `eval "$(fnm env --use-on-cd)"` to
+  `~/.zshrc` and confirmed auto-switch works.
+- **Trap for next agent:** if a doc/site build fails with a `socketPath`/vite-node error, check
+  `node -v` FIRST — it must be `v24.x`. If the shell integration didn't load, `cd` out and back
+  in, or run `fnm use`. Do **not** re-diagnose as a corrupt `.nuxt` (that's a *different*
+  RollupError trap, fixed by `rm -rf .nuxt`). Both can look similar; the tell is `socketPath` =
+  wrong Node, `RollupError`/`client.manifest.mjs` = stale `.nuxt`.
+- `node@22` was also installed earlier (keg-only) as a first workaround before settling on 24 —
+  harmless, can be `brew uninstall node@22` if tidying.
 
 ## Artifacts
 
-- Archived change: `openspec/changes/archive/2026-07-20-design-agendar-visita/`
-- Specs extended: `openspec/specs/design-tokens/`, `openspec/specs/journey-scheduled-visit/`
-- Tokenization report: `openspec/specs/design-tokens/tokenization-report.md` (Pass 3 appended)
-- Decision: **D-070** in `docs/planning/decisions.md` and root `DECISIONS.md`
+- Archived change: `openspec/changes/archive/2026-07-21-design-visita-qr/`
+- Spec extended: `openspec/specs/journey-instant-visit/` (+8 requirements, Purpose written)
+- Tokenization report: `openspec/specs/design-tokens/tokenization-report.md` (Pass 4 appended)
+- Node pin: `.nvmrc`, `package.json` `engines` — commit `98d29b1`
+- #170 comments carry the concrete Node-26 symptom + the pin status.
 
 ## Next session
 
 **First action:** `rbo-catch-up`, then start
-[#199 — Design e tokenização: Visita QR](https://github.com/fortegb/platform/issues/199)
+[#200 — Design e tokenização: Gerenciar visita](https://github.com/fortegb/platform/issues/200)
 with `rbo-create-change`.
 
-Third of the 11 design leaves. Route `/visita/qr/[code]`, journey basis
-[#187](https://github.com/fortegb/platform/issues/187)/**D-059**. It **inherits #198's
-patterns directly** — the verification handoff and the token-keyed result screen are the
-same shapes, and `useVisitBooking`/`useHouseStatus`/`HouseVisitHeader`/`VisitStepIndicator`
-are all reusable. **D-070 applies here too** (external verification), so no separate identity
-decision.
-
-The real difference from #198, per D-059: the instant/QR flow has **no time slack** — the
-visitor is at the door. So (a) verification failure refuses **immediately** with a WhatsApp
-escape hatch, not the async "confirmaremos antes da visita" of #198; and (b) the 12-month
-reuse shortcut requires **phone possession** here — a WhatsApp OTP (`method: phone-otp`)
-before `provisionAccess`, capped at 24 months from `last_client_match_at`. Those are result/
-verification states this leaf must design that #198 did not have. QR/placa physical artifact
-(#98/#100) is assumed to exist — not this leaf.
+Fourth of the 11 design leaves. Routes `/visita/gerenciar/[token]` + aviso condomínio. Journey
+basis [#188](https://github.com/fortegb/platform/issues/188)/**D-061** (greenfield:
+cancel/reschedule self-service via magic link; new status `cancelled`; `revoke()` gets its first
+real caller). Per scope rule 2, `/visita/gerenciar/[token]` is its **own** screen — distinct from
+#198's `/visita/[token]` even though both are token-keyed and show the same visit. Inherits the
+#197 token foundation and the #198/#199 screen patterns. `v0 — Definição` (gate G2): 15 open.
 
 ## Suggested skills
 
 - `rbo-catch-up` (session open) — will consume this handoff
 - `rbo-ui-standards` — prime tokens before touching UI
-- `rbo-create-change` — to start #199
+- `rbo-create-change` — to start #200
