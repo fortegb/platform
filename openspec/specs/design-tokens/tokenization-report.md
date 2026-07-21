@@ -215,3 +215,31 @@ new token was needed; `useQrVisit.ts` re-exports the masks and CPF check from `u
 rather than duplicating them.
 
 **Validation:** `npm run build` clean.
+
+## Pass 5 — Gerenciar visita (#200), 2026-07-20
+
+**Scope:** the one new greenfield route of the manage-visit journey —
+`pages/visita/gerenciar/[token].vue`. Reused components (`HouseVisitHeader`, `WhatsAppIcon`)
+were audited in Pass 3 and are unchanged.
+
+**Method note:** ran with the Pass 3/4 guard — `set -f`, quoted bracket path, per-file
+existence check, **no** `2>/dev/null`. The `[token]` segment is the same glob-class hazard;
+the guard held and the file was actually opened (361 lines confirmed).
+
+**Results:** zero hex color literals, zero arbitrary color utilities, zero raw Tailwind
+default-palette colors. The only `#` matches were issue references in comments (`#198`, `#140`,
+`#141`, `#81`, `#214`). The single arbitrary-value utility is `tracking-[0.25em]` on the active
+access-code display — `em`-based (scales with the 81.25% root), single-purpose, not promoted to
+a token, exactly as the code display in Pass 3/4.
+
+**Token gaps flagged:** none. Every color routes through the established vocabulary —
+`primary-*`, `secondary`, `whatsapp`/`whatsapp-hover`, DaisyUI semantic aliases
+(`base-100/200/300`, `base-content`), and status colors (`success`, `error`). The destructive
+Cancel action reuses the existing `error` token (outlined for the trigger, filled for the
+confirm) — no new "danger" token invented.
+
+**Validation:** `npm run build` clean.
+
+> Pass 5 closes the tokenization coverage of the four visitor/client design leaves (#197–#200).
+> The **persona-section sweep** for Visitante/cliente is [#208](https://github.com/fortegb/platform/issues/208),
+> which runs after this leaf and re-checks the section as a whole for cross-screen drift.
