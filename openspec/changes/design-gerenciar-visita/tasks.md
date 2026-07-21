@@ -20,6 +20,7 @@
 - [x] 4.1 "Remarcar" routes to `/visita/agendar/[houseId]` pre-filled with the visitor's known details (in the mock, pass via query/params — real pre-fill is Execução).
 - [x] 4.2 The original visit stays active; it is cancelled only on confirmation of the new slot (design/mock: no transaction here, but the copy and flow must not imply the current visit is already gone when Remarcar is clicked).
 - [x] 4.3 `ponytail:` note pointing at the D-061 amendment and the single-commit expectation for Execução (old-visit cancel + `revoke()` fire at new-slot confirmation).
+- [x] 4.4 **Reschedule-context state on the booking form** (surfaced during validation): arriving via Remarcar labels the screen "Remarcar visita" and shows a context banner restating D-071 (current visit active until new slot confirmed); a direct/first-time booking shows none. Mock carries `?remarcar=1&data=&hora=` from the manage screen; real flow resolves the visit by token + pre-fills (Execução #141).
 
 ## 5. Condominium notice (D3)
 

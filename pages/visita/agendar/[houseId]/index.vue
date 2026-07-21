@@ -47,10 +47,26 @@
 
       <VisitStepIndicator :current="1" class="mt-8" />
 
-      <h1 class="text-2xl font-bold text-primary-500 mt-8 mb-1">Agendar visita</h1>
+      <h1 class="text-2xl font-bold text-primary-500 mt-8 mb-1">
+        {{ rescheduling ? 'Remarcar visita' : 'Agendar visita' }}
+      </h1>
       <p class="text-sm text-base-content/70 mb-6">
         A visita é autoguiada: você recebe um código e entra sozinho, no horário escolhido.
       </p>
+
+      <!-- Reschedule context — shown when the visitor arrived from the manage-visit
+           screen's "Remarcar" action. Restates D-071: the current visit stays active
+           and is cancelled only when this new slot is confirmed. -->
+      <div
+        v-if="rescheduling"
+        class="mb-6 rounded-lg border border-secondary/40 bg-secondary/5 p-4"
+      >
+        <p class="text-sm font-semibold text-primary-500 mb-1">Você está remarcando sua visita</p>
+        <p class="text-sm text-base-content/70">
+          <template v-if="anteriorLabel">Sua visita de <span class="font-semibold">{{ anteriorLabel }}</span> continua ativa. </template>
+          Ao confirmar o novo horário abaixo, ela é cancelada automaticamente — e o código de acesso, se já tiver sido emitido, deixa de funcionar.
+        </p>
+      </div>
 
       <form @submit.prevent="handleSubmit" class="space-y-5" novalidate>
         <div>
@@ -192,6 +208,24 @@ const { form, saveForm, restoreForm, timeSlots, maskPhone, maskCpf, validate } =
 // ponytail: design-review triggers for states that a simulated backend never
 // produces. Removed when the real endpoint lands in Execução (#81).
 const previewState = computed(() => route.query.state as string | undefined)
+
+// Reschedule context. ponytail: driven by `?remarcar=1&data=…&hora=…` from the
+// manage-visit screen (#200). The real flow resolves the original visit by token
+// server-side and pre-fills name/phone; here name/phone stay blank until Execução
+// (#141). The original visit is cancelled only on confirmation of this new slot (D-071).
+const rescheduling = computed(() => !!route.query.remarcar)
+const anteriorLabel = computed(() => {
+  const d = route.query.data as string | undefined
+  const h = route.query.hora as string | undefined
+  if (!d) return ''
+  const [year, month, day] = d.split('-').map(Number)
+  const formatted = new Intl.DateTimeFormat('pt-BR', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  }).format(new Date(year, month - 1, day))
+  return h ? `${formatted}, às ${h}` : formatted
+})
 
 onMounted(() => {
   restoreForm(houseId)

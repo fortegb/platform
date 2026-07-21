@@ -64,6 +64,7 @@ A single route, `/visita/gerenciar/[token]`, that derives its variant from the v
 ## Impact
 
 - **New page**: `pages/visita/gerenciar/[token].vue` (simulated, `?estado=` driven).
+- **Edited page**: `pages/visita/agendar/[houseId]/index.vue` gains a reschedule-context state — when entered via Remarcar (`?remarcar=1&data=&hora=`) it labels itself "Remarcar visita" and shows a banner restating D-071. Surfaced during validation (the booking form otherwise read as a first-time booking with no reschedule signal).
 - **Reused components**: `HouseVisitHeader.vue`, `WhatsAppIcon.vue`, `useWhatsApp()`, the status-tone pattern from `pages/visita/[token].vue`.
 - **No backend**: does not add or touch any `server/api/**` route; `revoke()`, the cancel/rebook transaction, the Telegram alert, and follow-up consent stay in Execução (#141/#81).
 - **Docs**: `screen-map.md` (state confirmed `novo`→designed), `tokenization-report.md` (Pass 5), `decisions.md` (D-061 amendment).

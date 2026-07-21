@@ -33,7 +33,7 @@
 | Sobre | `/sobre` | simulado | 1 | #56 |
 | Contato | `/contato` | simulado — validado #185 | 1 | #56 |
 | Privacidade, Termos | `/privacidade`, `/termos` | simulado | 1 | #56 |
-| Agendar visita — formulário | `/visita/agendar/[houseId]` | simulado — validado #186, desenhado #198 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
+| Agendar visita — formulário | `/visita/agendar/[houseId]` | simulado — validado #186, desenhado #198, estado remarcação #200 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
 | Agendar visita — verificação (handoff) | `/visita/agendar/[houseId]/verificacao` | simulado — desenhado #198 | 2 | #81 |
 | Resultado da visita (7 variantes) | `/visita/[token]` | simulado — desenhado #198 | 2 | #81 |
 | Visita QR — identificação | `/visita/qr/[code]` | simulado — validado #187, desenhado #199 | 2 | #81 |

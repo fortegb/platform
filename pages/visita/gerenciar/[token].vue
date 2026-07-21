@@ -137,7 +137,7 @@
              D-061 — see decisions.md). Pre-fill of name/phone is Execução (#141). -->
         <NuxtLink
           v-if="tone.actionable"
-          :to="`/visita/agendar/${visit.house.id}`"
+          :to="rescheduleTo"
           class="inline-flex items-center justify-center border border-transparent bg-secondary text-white hover:bg-primary-500 px-4 py-2.5 sm:py-2 rounded-lg text-sm font-semibold transition-colors w-full sm:w-auto"
         >
           Remarcar visita
@@ -343,6 +343,15 @@ const codeValidUntil = computed(() => {
   if (!visit.value) return ''
   const [hour, minute] = visit.value.time.split(':').map(Number)
   return `${String(hour + 2).padStart(2, '0')}:${String(minute).padStart(2, '0')}`
+})
+
+// Reschedule routes into the standard booking flow (D-061), carrying the original
+// date/time so the form can show the reschedule context (#200). ponytail: the real
+// flow resolves the visit by token server-side; here it rides on the query. The
+// original visit is cancelled only when the new slot is confirmed (D-071).
+const rescheduleTo = computed(() => {
+  if (!visit.value) return '/visita/agendar'
+  return `/visita/agendar/${visit.value.house.id}?remarcar=1&data=${visit.value.date}&hora=${visit.value.time}`
 })
 
 const mapsUrl = computed(

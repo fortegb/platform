@@ -63,6 +63,20 @@ This amends D-061's literal cancel-then-rebook ordering to preserve its intent (
 - **THEN** the original visit is cancelled per the cancellation behavior, including `revoke(credential)` if it had been provisioned
 - **AND** the new visit exists as a normal booking
 
+### Requirement: The booking flow announces a reschedule when entered from Reschedule
+The booking flow SHALL, when entered via the manage-visit Reschedule action, present itself as a reschedule — labelling the screen accordingly and restating that the original visit stays active until the new slot is confirmed — rather than appearing as an indistinguishable first-time booking.
+
+Without this, a visitor who taps Reschedule lands on a screen titled like a new booking, with no signal that it relates to their existing visit.
+
+#### Scenario: Arriving from Reschedule
+- **WHEN** a visitor reaches the booking flow via the manage-visit Reschedule action
+- **THEN** the screen identifies the action as rescheduling their existing visit
+- **AND** it states the current visit is cancelled only once the new slot is confirmed
+
+#### Scenario: Arriving as a first-time booking
+- **WHEN** a visitor reaches the booking flow directly (not via Reschedule)
+- **THEN** no reschedule context is shown and the screen reads as a normal new booking
+
 ### Requirement: The manage-visit screen shows a universal condominium notice
 The manage-visit screen SHALL display an inline condominium/portaria notice on every actionable variant, informing the visitor to identify themselves at the gatehouse on arrival, without hiding it behind a modal or expander.
 
