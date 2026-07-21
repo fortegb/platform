@@ -1,7 +1,7 @@
 # journey-post-visit-reengagement Specification
 
 ## Purpose
-TBD - created by archiving change jornada-pos-visita-reengajamento. Update Purpose after archive.
+The post-visit and re-engagement journey — from the pre-visit reminder, through the visitor's no-authentication self-service management of their own visit (cancel and reschedule), to timing-classified post-visit follow-up. Owns the journey's message-trigger rules, the manage-visit screen surface at `/visita/gerenciar/[token]`, and the follow-up consent policy end to end.
 ## Requirements
 ### Requirement: Pre-visit reminder is sent transactionally
 The system SHALL send a reminder message approximately 24 hours before a
