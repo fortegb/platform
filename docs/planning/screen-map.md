@@ -13,7 +13,11 @@
 > visita ✅ **re-validada** — [#186](https://github.com/fortegb/platform/issues/186),
 > D-058. Visita QR ✅ **re-validada** —
 > [#187](https://github.com/fortegb/platform/issues/187), D-059 (reabre
-> D-053 para o mecanismo de renovação limitada). Gerenciar visita
+> D-053 para o mecanismo de renovação limitada) e **desenhada** —
+> [#199](https://github.com/fortegb/platform/issues/199): rota única virou
+> três (identificação / verificação / resultado), com a porta-OTP de reuso, a
+> recusa imediata com saída via WhatsApp e a falha de acesso visível.
+> Gerenciar visita
 > (cancelar/remarcar) ✅ **nova, validada** —
 > [#188](https://github.com/fortegb/platform/issues/188), D-061. Fronteira
 > compartilhada: staff-review = #192 (fechada); condomínio/portaria = #140
@@ -32,7 +36,9 @@
 | Agendar visita — formulário | `/visita/agendar/[houseId]` | simulado — validado #186, desenhado #198 | 2 | [#81](https://github.com/fortegb/platform/issues/81) Visitas |
 | Agendar visita — verificação (handoff) | `/visita/agendar/[houseId]/verificacao` | simulado — desenhado #198 | 2 | #81 |
 | Resultado da visita (7 variantes) | `/visita/[token]` | simulado — desenhado #198 | 2 | #81 |
-| Visita QR (placa) | `/visita/qr/[code]` | simulado — validado #187 | 2 | #81 |
+| Visita QR — identificação | `/visita/qr/[code]` | simulado — validado #187, desenhado #199 | 2 | #81 |
+| Visita QR — verificação (identidade ou OTP) | `/visita/qr/[code]/verificacao` | simulado — desenhado #199 | 2 | #81 |
+| Visita QR — resultado (liberado / recusado / falha) | `/visita/qr/[code]/resultado` | simulado — desenhado #199 | 2 | #81 |
 | Gerenciar visita (cancelar/remarcar, sem login) | `/visita/gerenciar/[token]` | novo — validado #188 | 2 | #81 |
 | Aviso condomínio/portaria (Q-017) | TBD inline ou modal no fluxo visita | novo | 2 | [#140](https://github.com/fortegb/platform/issues/140) |
 

@@ -7,6 +7,20 @@
 
 ## Não versionado
 
+### 2026-07-20 — Visita QR: 3 rotas, estados da porta ([#199](https://github.com/fortegb/platform/issues/199))
+
+**Terceira leaf de design do Passo 6.** A tela existente era o mesmo stub pré-arquitetura do #198 — dois passos (`IdentityVerification` → senha) e um `alert-error` genérico para toda falha. Virou **3 rotas** no próprio namespace `/visita/qr/[code]`: `index` (identificação), `verificacao` (identidade ou OTP), `resultado` (variante do status guardado). Herda a fundação de tokens de #197 e os padrões de tela de #198 (`HouseVisitHeader`, `VisitStepIndicator`, `IdentityVerification`, `useHouseStatus`).
+
+- **A jornada instantânea não tem folga de tempo** (D-059) — o visitante está na porta. Três estados que o fluxo agendado (#198) não tem:
+  - **Porta-OTP de reuso** — cliente dentro da janela de 12 meses confirma um código de WhatsApp (`phone-otp`) antes de liberar; `identity_verified_at` sozinho não basta aqui. Teto de 24 meses de `last_client_match_at` volta ao fluxo completo.
+  - **Recusa imediata com saída via WhatsApp** — falha/baixa confiança do `client-match` **ou** OTP errado recusam na hora, com link para a equipe. Não é o recibo assíncrono "confirmaremos antes da visita" do #198; a jornada instantânea não tem esse estado.
+  - **Falha de acesso visível** — Tuya não gravou: equipe avisada, sem código, distinto do sucesso. Nunca mostra senha que não foi programada.
+- **Estado de casa não elegível** — a placa/QR pode sobreviver ao status `disponivel`; se a casa saiu de `disponivel`, explica e oferece WhatsApp em vez de liberar (mesma matriz de `useHouseStatus`).
+- **CTAs full-width no mobile** — o fluxo é lido no celular, na porta, com uma mão só; botões primários vão full-width e mais altos no mobile, voltando ao compacto lado-a-lado no desktop (paridade com #198).
+- **Novo composable `useQrVisit`** — persistência da identificação entre rotas (WhatsApp + CPF), reexporta as máscaras e o dígito de CPF de `useVisitBooking` em vez de duplicar.
+- **`journey-instant-visit` ganha Purpose escrito** (era `TBD` do arquivamento de #187) e os requisitos de superfície de tela para os estados que D-059 decidiu só em comportamento.
+- **Auditoria de tokenização (Pass 4)** limpa — a guarda do #198 (`set -f` + array citado + sem `2>/dev/null`) já estava no lugar. Só `tracking-[Xem]` em `em`, sem cor arbitrária.
+
 ### 2026-07-20 — Agendar visita: 3 rotas, 19 estados ([#198](https://github.com/fortegb/platform/issues/198))
 
 **Segunda leaf de design do Passo 6.** A tela existente era um stub pré-arquitetura com 3 estados num único `step`; a jornada (D-058) definia 6, e o passe de ramos felizes e tristes levou o total a **19 estados em 3 rotas**.

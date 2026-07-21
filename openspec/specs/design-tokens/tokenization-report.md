@@ -188,3 +188,30 @@ It is a domain status rather than a design token, but it carries a badge color
 being duplicated per component — the same de-duplication `whatsapp` got in Pass 1.
 
 **Validation:** `npm run build` clean.
+
+## Pass 4 — Visita QR (#199), 2026-07-20
+
+**Scope:** the instant/QR journey's three routes and their new composable —
+`pages/visita/qr/[code]/index.vue`, `pages/visita/qr/[code]/verificacao.vue`,
+`pages/visita/qr/[code]/resultado.vue`, `composables/useQrVisit.ts`. The reused components
+(`HouseVisitHeader`, `VisitStepIndicator`, `IdentityVerification`) were audited in Pass 3 and
+are unchanged here.
+
+**Method note:** ran with the Pass 3 guard already in place — `set -f`, quoted path array,
+per-file existence check, **no** `2>/dev/null`. The bracket segments (`[code]`) are the same
+glob-class hazard; the guard held and every file was actually opened.
+
+**Results:** zero hex color literals, zero arbitrary color utilities, zero raw Tailwind
+default-palette colors. The only `#` matches were issue references in comments (`#198`,
+`#214`). Arbitrary-value utilities present are all letter-spacing in `em`, not color:
+`tracking-[0.3em]` on the access code (same as Pass 3) and `tracking-[0.4em]` on the OTP
+input — both `em`-based so they scale with the 81.25% root, both single-purpose, neither
+promoted to a token.
+
+**Token gaps flagged:** none. Every color routes through the Pass 1–3 vocabulary —
+`primary-*`, `secondary`, `whatsapp`/`whatsapp-hover`, DaisyUI semantic aliases
+(`base-100/200/300`, `base-content`), and status colors (`success`, `warning`, `error`). No
+new token was needed; `useQrVisit.ts` re-exports the masks and CPF check from `useVisitBooking`
+rather than duplicating them.
+
+**Validation:** `npm run build` clean.
