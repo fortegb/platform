@@ -7,6 +7,18 @@
 
 ## Não versionado
 
+### 2026-07-21 — Onboarding do corretor: autocadastro + D-072 ([#201](https://github.com/fortegb/platform/issues/201))
+
+**Quinta leaf de design do Passo 6, primeira da seção Corretor** (muda de persona: visitante/cliente → corretor). Base de jornada #189/D-062 (upload de contrato = aprovação; CPF obrigatório por D-068). Rotas `/login`, `/corretor/onboarding/*`, `/corretor/casas/[id]/contrato`.
+
+- **Nova página pública `/corretor`** — hero (foto de corretor entregando as chaves), como funciona, referência ao modelo transparente, produto como argumento, CTAs para o cadastro. Mecânica comercial (comissão, prazos) fica fora da página pública.
+- **Onboarding virou autocadastro real** — um único formulário coleta conta (e-mail + senha) e perfil (nome, WhatsApp, CPF, CRECI opcional, termos) juntos, em vez do card de simulação anterior.
+- **Status e contrato viraram páginas reais** (eram cards) — pending/rejected/approved para status; pending/approved/inacessível para contrato, com o passo a passo do Gov.br e "enviar assinado pelo WhatsApp" no estado pendente.
+- **`/login` simplificado para só entrar** — e-mail desconhecido aponta para `/corretor` ("conta não encontrada") em vez de oferecer criação de conta inline.
+- **Header:** entrada "Corretores" (2ª posição, desktop + mobile).
+- **D-072** — aprovação e rejeição da conta do corretor passam a notificar por **e-mail e WhatsApp**, uniforme (antes só rejeição, só WhatsApp). Emenda D-062/D-020, fora do escopo de D-054.
+- **Tokenização (Pass 6)** limpa — auditoria dos 4 arquivos novos/editados.
+
 ### 2026-07-21 — Gerenciar visita: página self-service + remarcação ([#200](https://github.com/fortegb/platform/issues/200))
 
 **Quarta leaf de design do Passo 6.** Rota greenfield `/visita/gerenciar/[token]` — a página que o botão "Cancelar ou remarcar" do resultado do #198 já apontava no vazio. Jornada base #188/D-061 (pós-visita, self-service sem login). Pela regra de escopo 3, todos os ramos desenhados: 3 variantes acionáveis (agendada, código vivo, em análise), 4 terminais só-leitura (cancelada, realizada, recusada, expirada) e link inválido.

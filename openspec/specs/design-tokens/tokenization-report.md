@@ -243,3 +243,33 @@ confirm) — no new "danger" token invented.
 > Pass 5 closes the tokenization coverage of the four visitor/client design leaves (#197–#200).
 > The **persona-section sweep** for Visitante/cliente is [#208](https://github.com/fortegb/platform/issues/208),
 > which runs after this leaf and re-checks the section as a whole for cross-screen drift.
+
+## Pass 6 — Onboarding do corretor (#201), 2026-07-21
+
+**Scope:** the first Corretor-section leaf — the login align pass plus three greenfield pages:
+`pages/login.vue` (edited), `pages/corretor/onboarding/index.vue`,
+`pages/corretor/onboarding/status.vue`, `pages/corretor/casas/[id]/contrato.vue`.
+
+**Method note:** `set -f` with a **zsh array** of quoted paths (the earlier `for f in $files`
+form silently ran once with the whole list as one word — zsh does not word-split unquoted
+parameter expansions, unlike bash; the bracket-glob guard was right but the splitting was the
+trap this time). Per-file existence check, **no** `2>/dev/null`. All four files opened.
+
+**Results:** the three new pages — zero hex, zero arbitrary color utilities, zero raw Tailwind
+palette colors. Every color routes through the established vocabulary: `primary-500`, `secondary`,
+`whatsapp`/`whatsapp-hover`, `base-100/200/300`, `base-content`, and status colors (`success`,
+`warning`, `error`) with opacity modifiers (`/5`, `/10`, `/40`). Destructive/terminal states reuse
+`error`; pending reuses `warning`; approved reuses `success` — no new tokens invented. `input
+input-bordered` and `checkbox checkbox-sm` are DaisyUI structural utilities (not color), kept as in
+the #198 booking form.
+
+**Documented exception (not a gap):** `pages/login.vue` carries five hex literals — the official
+brand colors of the Google (`#4285F4`/`#34A853`/`#FBBC05`/`#EA4335`) and Facebook (`#1877F2`)
+sign-in mark SVGs. These are third-party brand marks that must render in the providers' exact
+colors; they are **not** tokenizable and pre-date this leaf. Same category as any vendor logo —
+recorded here so the audit is not misread as dirty.
+
+**Validation:** `npm run build` clean.
+
+> Pass 6 opens the Corretor section. The section sweep is
+> [#209](https://github.com/fortegb/platform/issues/209), after #201–#203 close.

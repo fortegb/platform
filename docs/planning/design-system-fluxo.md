@@ -44,6 +44,15 @@ Os 3 de 4 componentes de hero (`HeroSplit`, `HeroSlate`, `HeroAzul`) já são es
 
 > Custo real observado em #198: a tela existente tinha 3 estados; a jornada (D-058) definia 6, e o passe de ramos levou o total a 19 estados em 3 rotas. Também produziu 5 issues novas ([#213](https://github.com/fortegb/platform/issues/213)–[#217](https://github.com/fortegb/platform/issues/217)) e uma decisão (D-070) — lacunas que existiam desde o Passo 5 e só apareceram ao desenhar o detalhe.
 
+## Padrões da seção Corretor (acordados 2026-07-21, durante [#201](https://github.com/fortegb/platform/issues/201))
+
+Dois padrões saíram do design do onboarding do corretor e valem para as leaves seguintes:
+
+1. **Auth = card · experiência = página real.** O card centrado sobre navy é só o **momento de autenticar** (`/login`, aceitar convite). Tudo que o usuário logado (ou em aquisição) **experimenta** — página de aquisição `/corretor`, cadastro, status, contrato, portal — é **página real** com casca do site (header/footer). A costura entre os dois (login card → portal página) é sinal, não inconsistência. Isso corrige a suposição inicial de #201 de que "toda tela de antessala é card".
+2. **Não expor mecânica comercial em superfície pública.** A página `/corretor` é alcançável pelo header por qualquer visitante, inclusive comprador. Mecânica de comissão / registro de lead / cláusulas de contrato **não** aparece ali — enquadraria o comprador como ativo disputado e bateria de frente com a marca voltada a ele. O público vê o convite + qualidade do produto + referência de alto nível à transparência; a mecânica vive **pós-cadastro** (onboarding + portal logado). Regra geral: conteúdo B2B sensível fica atrás do login, não na vitrine.
+
+> Custo/achado em #201: a leaf cresceu de "3 telas do corretor + login align" para incluir uma **página de marketing nova** (`/corretor`), entrada no header, herói com foto, fluxo Gov.br guiado no contrato, e uma **decisão nova** (D-072, notificação e-mail+WhatsApp) — tudo emergindo da revisão visual, não do plano inicial. Mesmo padrão de #198.
+
 ## Granularidade das leaves de design
 
 Uma leaf por **jornada**, não por seção de persona inteira (grande demais para um branch/change coeso) e não por tela individual (overhead de processo demais — sub-issues nativas do GitHub exigiriam branch + OpenSpec change por tela). A granularidade espelha as jornadas já fechadas no Passo 5 (#185–195).
