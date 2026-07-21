@@ -7,6 +7,19 @@
 
 ## Não versionado
 
+### 2026-07-21 — Gerenciar visita: página self-service + remarcação ([#200](https://github.com/fortegb/platform/issues/200))
+
+**Quarta leaf de design do Passo 6.** Rota greenfield `/visita/gerenciar/[token]` — a página que o botão "Cancelar ou remarcar" do resultado do #198 já apontava no vazio. Jornada base #188/D-061 (pós-visita, self-service sem login). Pela regra de escopo 3, todos os ramos desenhados: 3 variantes acionáveis (agendada, código vivo, em análise), 4 terminais só-leitura (cancelada, realizada, recusada, expirada) e link inválido.
+
+- **Cancelar sempre confirma, e o aviso é ciente do estado** — quando o código já foi provisionado, a confirmação nomeia o código e avisa que ele será desativado na hora (é o ramo que chama `revoke()`); antes disso, um "tem certeza" simples. Um clique só numa página sem login é fácil demais para uma ação que revoga uma fechadura.
+- **Remarcar cancela só na confirmação do novo horário** — **D-071**, emenda a D-061. A visita atual continua ativa até o novo agendamento ser confirmado; abandonar o formulário não deixa o visitante sem visita. Preserva a intenção de D-061 (remarcar pelo fluxo normal, sem editar in-place) mudando só o momento do cancelamento.
+- **Estado de "chegada por remarcação" no formulário de agendamento** (achado durante a validação) — vir por Remarcar passa a intitular a tela "Remarcar visita" e mostrar um aviso de contexto (a visita atual só é cancelada ao confirmar o novo horário); um agendamento direto não mostra nada. Antes o visitante caía num formulário "Agendar visita" sem sinal de que era a mesma visita.
+- **Aviso de condomínio/portaria universal e inline** — toda casa da ForteGB é em condomínio hoje, então o aviso é incondicional, ao lado do endereço, sem esconder atrás de modal. `ponytail:` marca que casa fora de condomínio é desenvolvimento futuro. Estratégia de acesso (#140) segue diferida — isto é só o aviso.
+- **`recusada` distinta de `cancelada`** — eyebrow vermelho, sem "Agendar nova visita", só contato com a equipe. Preserva o sinal de segurança de D-061 (falha de verificação ≠ visitante mudou de ideia).
+- **`journey-post-visit-reengagement` ganha Purpose escrito** (era `TBD` do arquivamento de #188) e os requisitos de estado de tela, incluindo a emenda de ordem do remarcar.
+- **Tokenização (Pass 5)** limpa — reaproveita o token `error` para a ação destrutiva (contorno no gatilho, preenchido na confirmação), sem inventar token "danger". Fecha a cobertura das 4 leaves de visitante/cliente (#197–#200); a varredura de seção é #208.
+- **D-071 registrada nos dois logs** (`decisions.md` pt-BR + espelho `DECISIONS.md`), com cross-reference de mão dupla em D-061.
+
 ### 2026-07-20 — Visita QR: 3 rotas, estados da porta ([#199](https://github.com/fortegb/platform/issues/199))
 
 **Terceira leaf de design do Passo 6.** A tela existente era o mesmo stub pré-arquitetura do #198 — dois passos (`IdentityVerification` → senha) e um `alert-error` genérico para toda falha. Virou **3 rotas** no próprio namespace `/visita/qr/[code]`: `index` (identificação), `verificacao` (identidade ou OTP), `resultado` (variante do status guardado). Herda a fundação de tokens de #197 e os padrões de tela de #198 (`HouseVisitHeader`, `VisitStepIndicator`, `IdentityVerification`, `useHouseStatus`).
