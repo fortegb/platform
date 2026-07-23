@@ -20,14 +20,39 @@
         <p class="text-lg text-base-content/70 mb-6">{{ house.tagline }}</p>
         
         <div>
-          <h2 class="text-2xl font-bold mb-4">Descrição Completa</h2>
+          <h2 class="text-2xl font-bold mb-4">Descrição</h2>
           <div class="space-y-4 text-base-content/80">
-            <p v-for="(paragraph, index) in descriptionParagraphs" :key="index">{{ paragraph }}</p>
+            <p v-if="showShort">{{ house.shortDescription }}</p>
+            <template v-else>
+              <template v-for="(paragraph, index) in descriptionParagraphs" :key="index">
+                <h3 v-if="paragraph.heading" class="text-lg font-semibold text-primary-500 mt-4 mb-1">{{ paragraph.heading }}</h3>
+                <p>{{ paragraph.text }}</p>
+              </template>
+            </template>
           </div>
+          <button
+            v-if="house.shortDescription"
+            type="button"
+            class="mt-4 text-primary-500 font-semibold hover:underline"
+            @click="showDetailed = !showDetailed"
+          >
+            {{ showDetailed ? 'Ver menos' : 'Ver descrição detalhada da casa' }}
+          </button>
         </div>
 
         <div v-if="featureGroups" class="mt-8">
-          <template v-if="featureGroups.flat">
+          <template v-if="showShort && house.shortFeatures">
+            <h2 class="text-2xl font-bold mb-4">Características</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <li v-for="(feature, i) in house.shortFeatures" :key="i" class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{{ feature }}</span>
+              </li>
+            </ul>
+          </template>
+          <template v-else-if="featureGroups.flat">
             <h2 class="text-2xl font-bold mb-4">Características</h2>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               <li v-for="(feature, i) in featureGroups.flat" :key="i" class="flex items-center gap-2">
@@ -151,11 +176,15 @@ const slug = route.params.slug as string
 const loading = ref(true)
 const house = ref<any>(null)
 
+const showDetailed = ref(false)
+const showShort = computed(() => !!house.value?.shortDescription && !showDetailed.value)
+
 const descriptionParagraphs = computed(() => {
   const desc = house.value?.description
-  if (Array.isArray(desc) && desc.length) return desc
-  if (typeof desc === 'string' && desc) return [desc]
-  return ['Descrição detalhada em breve...']
+  const normalize = (p: any) => (typeof p === 'string' ? { heading: null, text: p } : p)
+  if (Array.isArray(desc) && desc.length) return desc.map(normalize)
+  if (typeof desc === 'string' && desc) return [{ heading: null, text: desc }]
+  return [{ heading: null, text: 'Descrição detalhada em breve...' }]
 })
 
 const featureGroups = computed(() => {
