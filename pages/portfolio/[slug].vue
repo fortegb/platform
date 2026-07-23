@@ -17,12 +17,12 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
       <div class="md:col-span-2">
         <h1 class="text-4xl font-bold mb-4">{{ house.title }}</h1>
-        <p class="text-lg text-base-content/70 mb-6">{{ house.description }}</p>
+        <p class="text-lg text-base-content/70 mb-6">{{ house.shortDescription }}</p>
         
         <div>
           <h2 class="text-2xl font-bold mb-4">Descrição Completa</h2>
           <div class="space-y-4 text-base-content/80">
-            <p v-for="(paragraph, index) in fullDescriptionParagraphs" :key="index">{{ paragraph }}</p>
+            <p v-for="(paragraph, index) in descriptionParagraphs" :key="index">{{ paragraph }}</p>
           </div>
         </div>
 
@@ -125,8 +125,8 @@ const slug = route.params.slug as string
 const loading = ref(true)
 const house = ref<any>(null)
 
-const fullDescriptionParagraphs = computed(() => {
-  const desc = house.value?.fullDescription
+const descriptionParagraphs = computed(() => {
+  const desc = house.value?.description
   if (Array.isArray(desc) && desc.length) return desc
   if (typeof desc === 'string' && desc) return [desc]
   return ['Descrição detalhada em breve...']
@@ -148,7 +148,7 @@ onMounted(async () => {
         meta: [
           {
             name: 'description',
-            content: house.value.description
+            content: house.value.shortDescription
           }
         ]
       })

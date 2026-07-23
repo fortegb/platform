@@ -14,7 +14,7 @@
     </NuxtLink>
     <div class="card-body">
       <h2 class="card-title">{{ house.title }}</h2>
-      <p class="text-sm text-base-content/70 line-clamp-2">{{ house.description }}</p>
+      <p class="text-sm text-base-content/70 line-clamp-2">{{ house.shortDescription }}</p>
       <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-base-content/70">
         <span v-if="house.area" class="inline-flex items-center gap-1">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
