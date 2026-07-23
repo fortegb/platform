@@ -26,16 +26,42 @@
           </div>
         </div>
 
-        <div v-if="house.features && house.features.length" class="mt-8">
-          <h2 class="text-2xl font-bold mb-4">Características</h2>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-            <li v-for="feature in house.features" :key="feature" class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>{{ feature }}</span>
-            </li>
-          </ul>
+        <div v-if="featureGroups" class="mt-8">
+          <template v-if="featureGroups.flat">
+            <h2 class="text-2xl font-bold mb-4">Características</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <li v-for="(feature, i) in featureGroups.flat" :key="i" class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{{ feature }}</span>
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <div v-if="featureGroups.destaques.length" class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Destaques</h2>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                <li v-for="(feature, i) in featureGroups.destaques" :key="i" class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+            <div v-if="featureGroups.engenharia.length">
+              <h2 class="text-2xl font-bold mb-4">Diferenciais de Engenharia</h2>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                <li v-for="(feature, i) in featureGroups.engenharia" :key="i" class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+          </template>
         </div>
 
         <!-- Planta Baixa -->
@@ -130,6 +156,20 @@ const descriptionParagraphs = computed(() => {
   if (Array.isArray(desc) && desc.length) return desc
   if (typeof desc === 'string' && desc) return [desc]
   return ['Descrição detalhada em breve...']
+})
+
+const featureGroups = computed(() => {
+  const features = house.value?.features
+  if (!features || !features.length) return null
+  const isGrouped = features.some((f: any) => typeof f === 'object' && f.grupo)
+  if (!isGrouped) {
+    return { flat: features, destaques: [], engenharia: [] }
+  }
+  return {
+    flat: null,
+    destaques: features.filter((f: any) => typeof f === 'object' && f.grupo === 'destaque').map((f: any) => f.text),
+    engenharia: features.filter((f: any) => typeof f === 'object' && f.grupo === 'engenharia').map((f: any) => f.text),
+  }
 })
 
 const { whatsappUrl } = useWhatsApp(`Olá! Tenho interesse na casa ${slug}.`)
