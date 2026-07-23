@@ -76,7 +76,7 @@ const filteredHouses = computed(() => {
     const searchLower = filters.search.toLowerCase()
     result = result.filter(house => 
       house.title.toLowerCase().includes(searchLower) ||
-      house.shortDescription?.toLowerCase().includes(searchLower)
+      house.tagline?.toLowerCase().includes(searchLower)
     )
   }
   

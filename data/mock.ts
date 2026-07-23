@@ -9,7 +9,7 @@ export const mockHouses = [
     id: 1,
     slug: 'casa-jardim-dos-ipes',
     title: 'Casa Jardim dos Ipês',
-    shortDescription: 'Casa moderna e confortável, perfeita para famílias que buscam qualidade e tranquilidade em Campinas-SP.',
+    tagline: 'Casa moderna e confortável, perfeita para famílias que buscam qualidade e tranquilidade em Campinas-SP.',
     description: ['Esta bela casa de 3 quartos oferece conforto e modernidade em um dos bairros mais tranquilos de Campinas. Com acabamento de primeira linha, a propriedade conta com sala ampla, cozinha integrada, área de serviço completa e área de lazer com piscina. Os quartos são espaçosos, sendo a suíte master com closet. Localizada próxima a escolas, comércio e vias de fácil acesso.'],
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
     gallery: [
@@ -58,7 +58,7 @@ export const mockHouses = [
     id: 2,
     slug: 'residencia-vila-verde',
     title: 'Residência Vila Verde',
-    shortDescription: 'Casa espaçosa com 4 quartos, ideal para famílias grandes. Piscina, churrasqueira e área de lazer completa.',
+    tagline: 'Casa espaçosa com 4 quartos, ideal para famílias grandes. Piscina, churrasqueira e área de lazer completa.',
     description: [
       'Excelente oportunidade! Casa em construção com 4 quartos, sendo 2 suítes. Área de lazer completa com piscina, churrasqueira coberta, espaço gourmet e playground. Sala ampla em dois ambientes, cozinha planejada com ilha, escritório, despensa e lavabo. Garagem para 3 carros.',
       'Acabamento premium em toda a residência, com método construtivo de qualidade superior e execução rigorosamente conforme os projetos aprovados — do arquitetônico ao estrutural, passando pelos complementares elétrico e hidráulico. A casa conta com sistema de aquecimento por boiler e placas solares, com controle via aplicativo, além de persianas smart integradas à Alexa para mais conforto no dia a dia.',
@@ -132,7 +132,7 @@ export const mockHouses = [
     id: 3,
     slug: 'casa-moderna-parque-dos-pinheiros',
     title: 'Casa Moderna Parque dos Pinheiros',
-    shortDescription: 'Casa compacta e moderna, ideal para casais jovens ou pequenas famílias que buscam praticidade e conforto.',
+    tagline: 'Casa compacta e moderna, ideal para casais jovens ou pequenas famílias que buscam praticidade e conforto.',
     description: ['Casa nova, moderna e funcional. Com 2 quartos, sendo 1 suíte, sala integrada com cozinha, área de serviço e quintal. Perfeita para quem busca o primeiro imóvel ou investimento. Localizada em região valorizada, próxima ao centro e com fácil acesso às principais vias de Campinas. Financiamento facilitado disponível.'],
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
     gallery: [
@@ -181,7 +181,7 @@ export const mockHouses = [
     id: 4,
     slug: 'casa-familia-barueri',
     title: 'Casa Família Barueri',
-    shortDescription: 'Casa com 3 quartos, acabamento premium, piscina e área gourmet. Perfeita para receber amigos e familiares.',
+    tagline: 'Casa com 3 quartos, acabamento premium, piscina e área gourmet. Perfeita para receber amigos e familiares.',
     description: ['Casa com arquitetura moderna e acabamento de alto padrão. 3 quartos (2 suítes), sala de estar e de jantar separadas, cozinha planejada com bancada em granito, área gourmet completa com churrasqueira e forno de pizza. Piscina aquecida, jardim paisagístico e garagem para 2 carros. Sistema de segurança e automação residencial.'],
     image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
     gallery: [
@@ -230,7 +230,7 @@ export const mockHouses = [
     id: 5,
     slug: 'residencia-alto-do-campo-belo',
     title: 'Residência Alto do Campo Belo',
-    shortDescription: 'Casa espaçosa com 5 quartos, piscina, área de lazer completa e vista privilegiada. Excelente investimento.',
+    tagline: 'Casa espaçosa com 5 quartos, piscina, área de lazer completa e vista privilegiada. Excelente investimento.',
     description: ['Residência de alto padrão com 5 quartos (3 suítes), sala em 3 ambientes, cozinha gourmet integrada, escritório, lavabo social e área de serviço completa. Área de lazer com piscina, sauna, espaço fitness, churrasqueira e área gourmet coberta. Jardim paisagístico, sistema de irrigação automática e garagem para 4 carros. Vista panorâmica da região.'],
     image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop',
     gallery: [
@@ -283,7 +283,7 @@ export const mockHouses = [
     id: 6,
     slug: 'casa-condominio-vila-nova',
     title: 'Casa Condomínio Vila Nova',
-    shortDescription: 'Casa em condomínio fechado, com segurança 24h, áreas comuns e lazer completo. Ideal para famílias.',
+    tagline: 'Casa em condomínio fechado, com segurança 24h, áreas comuns e lazer completo. Ideal para famílias.',
     description: ['Casa térrea em condomínio fechado com portaria 24h, segurança monitorada e áreas de lazer com piscina, quadra esportiva e playground. A residência possui 3 quartos (1 suíte), sala ampla, cozinha planejada, área de serviço e quintal gramado. Ideal para quem busca segurança, tranquilidade e qualidade de vida.'],
     image: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800&h=600&fit=crop',
     gallery: [

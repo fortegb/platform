@@ -21,7 +21,7 @@
         </figure>
         <div class="card-body">
           <h2 class="card-title">{{ house.title }}</h2>
-          <p class="text-sm text-base-content/70 line-clamp-2">{{ house.shortDescription }}</p>
+          <p class="text-sm text-base-content/70 line-clamp-2">{{ house.tagline }}</p>
           <div class="flex flex-wrap gap-2 mt-2">
             <span v-if="house.area" class="badge badge-outline">
               {{ house.area }} m²

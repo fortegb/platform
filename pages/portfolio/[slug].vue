@@ -17,7 +17,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
       <div class="md:col-span-2">
         <h1 class="text-4xl font-bold mb-4">{{ house.title }}</h1>
-        <p class="text-lg text-base-content/70 mb-6">{{ house.shortDescription }}</p>
+        <p class="text-lg text-base-content/70 mb-6">{{ house.tagline }}</p>
         
         <div>
           <h2 class="text-2xl font-bold mb-4">Descrição Completa</h2>
@@ -148,7 +148,7 @@ onMounted(async () => {
         meta: [
           {
             name: 'description',
-            content: house.value.shortDescription
+            content: house.value.tagline
           }
         ]
       })
