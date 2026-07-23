@@ -100,7 +100,6 @@ export const mockHouses = [
       { text: 'Paisagismo executado por paisagista profissional', grupo: 'destaque' as const },
       { text: 'Condomínio fechado, portaria e segurança privada 24h', grupo: 'destaque' as const },
       { text: 'Documentação completa e regularizada — financiável', grupo: 'destaque' as const },
-      { text: 'Dossiê completo do imóvel, compartilhado com você antes da compra — fotos e vídeos da execução da obra, notas fiscais e comprovantes de cada etapa da construção, para total transparência e tranquilidade', grupo: 'destaque' as const },
       { text: 'Pronta para morar', grupo: 'destaque' as const },
       { text: 'Execução rigorosamente conforme o conjunto integral de projetos: arquitetônico, estrutural, elétrico, hidráulico e decoração', grupo: 'engenharia' as const },
       { text: 'Projeto estrutural completo de alvenaria estrutural incluindo estudo geológico do solo, diferenciais frente a outros imóveis', grupo: 'engenharia' as const },
