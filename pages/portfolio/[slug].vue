@@ -46,7 +46,7 @@
         <div v-if="featureGroups" class="mt-8">
           <template v-if="house.shortFeatures">
             <h2 class="text-2xl font-bold mb-4">Características</h2>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+            <ul class="grid grid-cols-1 gap-y-3">
               <li v-for="(feature, i) in house.shortFeatures" :key="i" class="flex items-center gap-2">
                 <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

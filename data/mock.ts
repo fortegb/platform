@@ -22,7 +22,7 @@ export const mockHouses = [
       'Piscina com sistema automatizado e banheiro completo',
       'Área gourmet coberta com churrasqueira, coifa e móveis inclusos',
       '4 vagas de garagem sendo 2 cobertas',
-      'Arquitetura contemporânea com ambientes integrados por amplas esquadrias de vidro, executada rigorosamente conforme o conjunto integral de projetos: estudo do solo, arquitetônico, estrutural, hidráulico, elétrico e decoração',
+      'Arquitetura contemporânea com ambientes integrados por amplas esquadrias de vidro, executada rigorosamente conforme o conjunto integral de projetos, incluindo estudo do solo',
       'Condomínio fechado, portaria e segurança 24h',
       'Documentação completa e regularizada — financiável'
     ],
