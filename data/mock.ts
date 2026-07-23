@@ -109,6 +109,7 @@ export const mockHouses = [
     area: 207,
     bedrooms: 3,
     bathrooms: 4,
+    price: 1800000,
     status: 'disponivel' as const,
     featured: true,
     location: 'Rua Jacatiá, Campinas-SP'
