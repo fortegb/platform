@@ -20,11 +20,11 @@ export const mockHouses = [
       'Home office dedicado',
       '4 banheiros com móveis planejados inclusos',
       'Hall com pé-direito duplo de 6 m',
-      'Cozinha americana com ilha, móveis planejados, cooktop e coifa inclusos',
+      'Cozinha americana com ilha, despensa, móveis planejados, cooktop e coifa inclusos',
       'Piscina com sistema automatizado e banheiro completo',
       'Ampla área gourmet coberta com churrasqueira, coifa e móveis inclusos',
       '4 vagas de garagem sendo 2 cobertas',
-      'Arquitetura contemporânea com ambientes integrados por amplas esquadrias de vidro',
+      'Arquitetura contemporânea, com ambientes espaçosos integrados às áreas externas por amplas esquadrias de vidro',
       'Condomínio fechado, portaria e segurança 24h',
       'Documentação completa e regularizada — financiável'
     ],
