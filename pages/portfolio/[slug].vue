@@ -95,7 +95,7 @@
         <!-- Modal: descrição detalhada + características completas -->
         <div v-if="house.shortDescription" v-show="showModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div class="absolute inset-0 bg-black/60" @click="showModal = false"></div>
-          <div class="relative bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8">
+          <div class="relative bg-white rounded-xl shadow-xl max-w-5xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8">
             <button
               type="button"
               class="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full hover:bg-base-200 transition-colors"
