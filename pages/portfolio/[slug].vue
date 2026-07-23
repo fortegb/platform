@@ -33,10 +33,17 @@
           <button
             v-if="house.shortDescription"
             type="button"
-            class="mt-4 text-primary-500 font-semibold hover:underline"
+            class="mt-4 inline-flex items-center gap-1.5 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             @click="showDetailed = !showDetailed"
           >
             {{ showDetailed ? 'Ver menos' : 'Ver descrição detalhada da casa' }}
+            <svg
+              class="w-4 h-4 transition-transform"
+              :class="{ 'rotate-180': showDetailed }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
         </div>
 
