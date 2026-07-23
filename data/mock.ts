@@ -103,6 +103,9 @@ export const mockHouses = [
       'https://youtube.com/shorts/34dWZq2BEIg',
       'https://youtube.com/shorts/NLKdoLu0MSw'
     ],
+    floorplans: [
+      { label: 'Planta Baixa', thumbnailUrl: '/images/floorplans/casa-jacatia-planta-thumb.png', fileUrl: '/images/floorplans/casa-jacatia-planta.png', type: 'image' as const }
+    ],
     area: 207,
     bedrooms: 3,
     bathrooms: 4,
