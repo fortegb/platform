@@ -112,7 +112,7 @@ export const mockHouses = [
     price: 1800000,
     status: 'disponivel' as const,
     featured: true,
-    location: 'Rua Jacatiá, Campinas-SP'
+    location: 'Rua Jacatiá, Paulínia-SP'
   },
   {
     id: 1,
