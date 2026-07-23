@@ -17,16 +17,17 @@ export const mockHouses = [
     shortDescription: 'A Casa Jacatiá é um sobrado de alto padrão em condomínio fechado com segurança 24h, com um hall de entrada de pé-direito duplo de 6 metros e fachada com o mesmo cuidado na frente e nos fundos. São 207 m² distribuídos em 3 quartos (1 suíte com closet) e 4 banheiros, com cozinha americana de ilha, móveis planejados, cooktop e coifa inclusos. A área gourmet, integrada por amplas esquadrias de vidro, tem piscina, churrasqueira e banheiro completo, com móveis planejados inclusos na área gourmet e em todos os banheiros, além de home office dedicado e 4 vagas de garagem. Tudo executado rigorosamente conforme o conjunto completo de projetos, do arquitetônico à decoração — documentação completa e financiável, com dossiê da obra à disposição, pronta para morar hoje.',
     shortFeatures: [
       'Sobrado com 207 m², 3 quartos (1 suíte com closet)',
-      'Home office dedicado',
-      '4 banheiros com móveis planejados inclusos',
       'Hall com pé-direito duplo de 6 m',
+      'Home office dedicado',
       'Cozinha americana com ilha, despensa, móveis planejados, cooktop e coifa inclusos',
-      'Piscina com sistema automatizado e banheiro completo',
       'Ampla área gourmet coberta com churrasqueira, coifa e móveis inclusos',
+      'Piscina com sistema automatizado e banheiro completo',
+      '4 banheiros com móveis planejados inclusos',
       '4 vagas de garagem sendo 2 cobertas',
       'Arquitetura contemporânea, com ambientes espaçosos integrados às áreas externas por amplas esquadrias de vidro',
       'Condomínio fechado, portaria e segurança 24h',
-      'Documentação completa e regularizada — financiável'
+      'Documentação completa e regularizada — financiável',
+      'Pronta para morar'
     ],
     description: [
       'A Casa Jacatiá é um sobrado de alto padrão em condomínio fechado, com portaria e segurança privada 24 horas — pronta para morar hoje. Logo na entrada, um hall com pé-direito duplo de 6 metros já anuncia o tom da casa: espaço, luz e uma arquitetura arrojada. E não é só a fachada frontal que recebeu esse cuidado — os fundos da casa foram desenhados com a mesma atenção, resultando em uma vista posterior tão bonita quanto a de quem chega pela rua.',
