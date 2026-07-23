@@ -22,7 +22,7 @@
         <div>
           <h2 class="text-2xl font-bold mb-4">Descrição</h2>
           <div class="space-y-4 text-base-content/80">
-            <p v-if="showShort">{{ house.shortDescription }}</p>
+            <p v-if="house.shortDescription">{{ house.shortDescription }}</p>
             <template v-else>
               <template v-for="(paragraph, index) in descriptionParagraphs" :key="index">
                 <h3 v-if="paragraph.heading" class="text-lg font-semibold text-primary-500 mt-4 mb-1">{{ paragraph.heading }}</h3>
@@ -34,21 +34,17 @@
             v-if="house.shortDescription"
             type="button"
             class="mt-4 inline-flex items-center gap-1.5 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
-            @click="showDetailed = !showDetailed"
+            @click="showModal = true"
           >
-            {{ showDetailed ? 'Ver menos' : 'Ver descrição detalhada da casa' }}
-            <svg
-              class="w-4 h-4 transition-transform"
-              :class="{ 'rotate-180': showDetailed }"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
+            Ver descrição detalhada da casa
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
         </div>
 
         <div v-if="featureGroups" class="mt-8">
-          <template v-if="showShort && house.shortFeatures">
+          <template v-if="house.shortFeatures">
             <h2 class="text-2xl font-bold mb-4">Características</h2>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               <li v-for="(feature, i) in house.shortFeatures" :key="i" class="flex items-center gap-2">
@@ -94,6 +90,53 @@
               </ul>
             </div>
           </template>
+        </div>
+
+        <!-- Modal: descrição detalhada + características completas -->
+        <div v-if="house.shortDescription" v-show="showModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div class="absolute inset-0 bg-black/60" @click="showModal = false"></div>
+          <div class="relative bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8">
+            <button
+              type="button"
+              class="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full hover:bg-base-200 transition-colors"
+              aria-label="Fechar"
+              @click="showModal = false"
+            >
+              ✕
+            </button>
+            <h2 class="text-2xl font-bold mb-4">Descrição Detalhada</h2>
+            <div class="space-y-4 text-base-content/80">
+              <template v-for="(paragraph, index) in descriptionParagraphs" :key="index">
+                <h3 v-if="paragraph.heading" class="text-lg font-semibold text-primary-500 mt-4 mb-1">{{ paragraph.heading }}</h3>
+                <p>{{ paragraph.text }}</p>
+              </template>
+            </div>
+
+            <div v-if="featureGroups && !featureGroups.flat" class="mt-8">
+              <div v-if="featureGroups.destaques.length" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Destaques</h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                  <li v-for="(feature, i) in featureGroups.destaques" :key="i" class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{{ feature }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div v-if="featureGroups.engenharia.length">
+                <h2 class="text-2xl font-bold mb-4">Diferenciais de Engenharia</h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                  <li v-for="(feature, i) in featureGroups.engenharia" :key="i" class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{{ feature }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Planta Baixa -->
@@ -183,8 +226,21 @@ const slug = route.params.slug as string
 const loading = ref(true)
 const house = ref<any>(null)
 
-const showDetailed = ref(false)
-const showShort = computed(() => !!house.value?.shortDescription && !showDetailed.value)
+const showModal = ref(false)
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape') showModal.value = false
+}
+
+watch(showModal, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeydown)
+  document.body.style.overflow = ''
+})
 
 const descriptionParagraphs = computed(() => {
   const desc = house.value?.description
