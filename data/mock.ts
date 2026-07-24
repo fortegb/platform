@@ -109,7 +109,7 @@ export const mockHouses = [
       { text: 'Rede de gás GLP centralizada, com instalação certificada em tubulação rígida, seguindo normas técnicas de segurança', grupo: 'engenharia' as const },
       { text: 'Esquadrias de alumínio linha premium', grupo: 'engenharia' as const },
       { text: 'Revestimentos de primeira linha com marcas como Ceusa, Biancogres', grupo: 'engenharia' as const },
-      { text: 'Metais e louças premium Docol, Deca, Roca', grupo: 'engenharia' as const },
+      { text: 'Metais e louças premium Docol, Deca', grupo: 'engenharia' as const },
     ],
     videoUrls: [
       'https://youtube.com/shorts/34dWZq2BEIg',
